@@ -594,6 +594,13 @@ from .floatplane import (
     FloatplaneIE,
 )
 from .folketinget import FolketingetIE
+from .footballia import (
+    FootballiaCompetitionIE,
+    FootballiaHeadToHeadIE,
+    FootballiaIE,
+    FootballiaPlayerIE,
+    FootballiaTeamIE,
+)
 from .footyroom import FootyRoomIE
 from .formula1 import Formula1IE
 from .fourtube import (
