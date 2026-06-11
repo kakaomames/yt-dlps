@@ -2120,6 +2120,7 @@ from .unsupported import (
     KnownDRMIE,
     KnownPiracyIE,
 )
+from .untitledstream import UntitledStreamIE
 from .uol import UOLIE
 from .uplynk import (
     UplynkIE,
