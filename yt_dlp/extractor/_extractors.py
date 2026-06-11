@@ -111,6 +111,7 @@ from .ard import (
     ARDAudiothekPlaylistIE,
     ARDBetaMediathekIE,
     ARDMediathekCollectionIE,
+    ARDMediathekTvGuideIE,
 )
 from .arnes import ArnesIE
 from .art19 import (
