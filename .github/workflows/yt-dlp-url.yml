@@ -1,4 +1,4 @@
-name: YT-DLP-Test-Version
+name: YT-DLP-Url
 
 on:
   workflow_dispatch: # 手動実行用
