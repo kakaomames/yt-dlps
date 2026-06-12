@@ -20,7 +20,8 @@ jobs:
         run: |
           
           echo "shahid.py!!!!!"
-          curl -s -L https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/yt_dlp/extractor/shahid.py -o "shahid.py" && cp shahid.py "yt-dlp-master/yt_dlp/extractor/shahid.py"
+          # curl -s -L https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/yt_dlp/extractor/shahid.py -o "shahid.py" && ¥
+          # cp shahid.py "yt-dlp-master/yt_dlp/extractor/shahid.py"
       - name: ls yt-dlp
         run: |
           ls -l yt-dlpv2.zip
