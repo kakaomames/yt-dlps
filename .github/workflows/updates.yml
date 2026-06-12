@@ -1,0 +1,50 @@
+name: YT-DLP-SETUP
+
+on:
+  workflow_dispatch: # 手動実行用
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Emscripten
+        run: |
+          curl -v -L https://github.com/yt-dlp/yt-dlp/archive/refs/heads/master.zip -o yt-dlpv2.zip
+      - name: rm yt-dlp
+        run: |
+          rm -fdr yt-dlp-master/
+      - name: Install yt-dlp
+        run: |
+          
+          echo "shahid.py!!!!!"
+          curl -s -L https://raw.githubusercontent.com/yt-dlp/yt-dlp/refs/heads/master/yt_dlp/extractor/shahid.py -o "shahid.py" && cp shahid.py "yt-dlp-master/yt_dlp/extractor/shahid.py"
+      - name: ls yt-dlp
+        run: |
+          ls -l yt-dlpv2.zip
+      - name: test yt-dlp
+        run: |
+          unzip -t yt-dlpv2.zip
+      - name: unzip yt-dlp
+        run: |
+          unzip -o yt-dlpv2.zip
+          
+      - name: Cleanup and Commit
+        run: |
+          echo " 1. Gitユーザー設定"
+          git config --global user.name "Gemini-Bot"
+          git config --global user.email "bot@example.com"
+          
+          echo "2. リモートの変更を強制的に取り込む（fetchとmerge）"
+          git fetch origin
+          echo "リモートの変更をローカルにマージ（競合しても強引に合わせる設定）"
+          git merge origin/main --no-edit || git rebase origin/main
+          
+          echo "3. 追加とコミット"
+          git add .
+          git commit -m "yt-dlp cleaned ✨" || true
+          
+          echo " 4. 強制プッシュ（これで通るはず！）"
+          git push -f origin main
