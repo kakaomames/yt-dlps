@@ -1,0 +1,51 @@
+name: YT-DLP-Test-Version
+
+on:
+  workflow_dispatch: # 手動実行用
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # これが重要です！
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Test yt-dlp-version
+        run: |
+          python yt-dlp-master/yt_dlp/__main__.py -v
+      - name: test yt-dlp-help
+        run: |
+          python yt-dlp-master/yt_dlp/__main__.py --help
+      - name: Speak yt-dlp
+        run: |
+          echo "yt-dlp-master/yt_dlp/__main__.py!!!!!"
+      - name: ls yt-dlp
+        run: |
+          ls yt-dlp-master/yt_dlp/__main__.py
+      - name: skip yt-dlp
+        run: |
+          echo "skipping"
+          sleep 2
+      - name: up yt-dlp
+        run: |
+          echo "skipping yt-dlp-master/yt_dlp/__main__.py"
+          
+      - name: Cleanup and Commit
+        run: |
+          echo " 1. Gitユーザー設定"
+          git config --global user.name "Gemini-Bot"
+          git config --global user.email "bot@example.com"
+          
+          echo "2. リモートの変更を強制的に取り込む（fetchとmerge）"
+          git fetch origin
+          echo "リモートの変更をローカルにマージ（競合しても強引に合わせる設定）"
+          git merge origin/master --no-edit || git rebase origin/master
+          
+          echo "3. 追加とコミット"
+          git add .
+          git commit -m "yt-dlp-test cleaned ✨" || true
+          
+          echo " 4. 強制プッシュ（これで通るはず！）"
+          git push -f origin master
