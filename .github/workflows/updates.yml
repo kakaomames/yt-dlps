@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # これが重要です！
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
