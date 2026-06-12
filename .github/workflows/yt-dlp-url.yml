@@ -19,8 +19,12 @@ jobs:
 
       - name: Test yt-dlp-version
         run: |
-          # Node.jsのインストール場所を確認してパスを取得
+          # Node.jsの正確なパスを特定
           NODE_PATH=$(which node)
+          echo "DEBUG: Node.js is located at: $NODE_PATH"
+          
+          # バージョンも確認して環境を確実にする
+          node --version
           YT_URL=$(cat url.txt)
           
           # 直接パスを指定して実行！
