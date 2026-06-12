@@ -2044,8 +2044,14 @@ from .tvc import (
     TVCArticleIE,
 )
 from .tver import (
+    TVerChannelsIE,
     TVerIE,
+    TVerLiveIE,
+    TVerMyPageIE,
     TVerOlympicIE,
+    TVerPlaylistIE,
+    TVerSearchIE,
+    TVerShortsIE,
 )
 from .tvigle import TvigleIE
 from .tviplayer import TVIPlayerIE
