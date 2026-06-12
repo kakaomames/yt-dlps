@@ -14,11 +14,12 @@ jobs:
 
       - name: Test yt-dlp-version
         run: |
-          $YT-URL=$(cat url.txt)
-          python yt-dlp-master/yt_dlp/__main__.py "$(YT-URL)"
+          YT_URL=$(cat url.txt)
+          python yt-dlp-master/yt_dlp/__main__.py "$YT_URL" -v
+
       - name: Speak yt-dlp
         run: |
-          echo "yt-dlp-master/yt_dlp/__main__.py!!!!!"
+          echo "yt-dlp-master/yt_dlp/__main__.py を実行しました！🚀
           
       - name: Cleanup and Commit
         run: |
