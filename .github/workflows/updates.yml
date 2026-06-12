@@ -41,11 +41,11 @@ jobs:
           echo "2. リモートの変更を強制的に取り込む（fetchとmerge）"
           git fetch origin
           echo "リモートの変更をローカルにマージ（競合しても強引に合わせる設定）"
-          git merge origin/main --no-edit || git rebase origin/main
+          git merge origin/master --no-edit || git rebase origin/master
           
           echo "3. 追加とコミット"
           git add .
           git commit -m "yt-dlp cleaned ✨" || true
           
           echo " 4. 強制プッシュ（これで通るはず！）"
-          git push -f origin main
+          git push -f origin master
