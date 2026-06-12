@@ -19,8 +19,12 @@ jobs:
 
       - name: Test yt-dlp-version
         run: |
+          # Node.jsのインストール場所を確認してパスを取得
+          NODE_PATH=$(which node)
           YT_URL=$(cat url.txt)
-          python yt-dlp-master/yt_dlp/__main__.py "$YT_URL" -v
+          
+          # 直接パスを指定して実行！
+          python yt-dlp-master/yt_dlp/__main__.py "$YT_URL" -v --js-runtimes "node:$NODE_PATH"
 
       - name: Speak yt-dlp
         run: |
