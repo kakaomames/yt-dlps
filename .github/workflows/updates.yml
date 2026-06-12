@@ -51,3 +51,4 @@ jobs:
           
           echo " 4. 強制プッシュ（これで通るはず！）"
           git push -f origin master
+          echo "次はtestだよー"
