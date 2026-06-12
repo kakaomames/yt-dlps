@@ -14,7 +14,7 @@ jobs:
 
       - name: Test yt-dlp-version
         run: |
-          python yt-dlp-master/yt_dlp/__main__.py -v
+          python yt-dlp-master/yt_dlp/__main__.py --version
       - name: test yt-dlp-help
         run: |
           python yt-dlp-master/yt_dlp/__main__.py --help
