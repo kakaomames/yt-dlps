@@ -23,6 +23,7 @@ jobs:
 
       - name: Fetch and Rename Meta
         run: |
+          python -m pip install requests curl_cffi
           YT_URL=$(cat url.txt)
           # まず一時ファイルに保存
           python yt-dlp-master/yt_dlp/__main__.py -j \
