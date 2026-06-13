@@ -21,20 +21,26 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Test yt-dlp-version
+      - name: Fetch and Rename Meta
         run: |
-          # Node.jsの正確なパスを特定
-          NODE_PATH=$(which node)
-          echo "DEBUG: Node.js is located at: $NODE_PATH"
-          
-          # バージョンも確認して環境を確実にする
-          node --version
           YT_URL=$(cat url.txt)
-          
-          # 直接パスを指定して実行！
-          # python yt-dlp-master/yt_dlp/__main__.py "$YT_URL" -v --js-runtimes "node:$NODE_PATH"
-          python yt-dlp-master/yt_dlp/__main__.py -j "$YT_URL" > video_info.json
+          # まず一時ファイルに保存
+          python yt-dlp-master/yt_dlp/__main__.py -j \
+          --proxy "https://dave-sixth-knives-gas.trycloudflare.com" \
+          --user-agent "Mozilla/5.0 (Linux; Android 15; SM-S931N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36" \
+          "$YT_URL" > temp.json
 
+          # タイトルとIDを抽出してファイル名を作る
+          TITLE=$(jq -r '.title' temp.json | sed 's/[^a-zA-Z0-9]/_/g')
+          ID=$(jq -r '.id' temp.json)
+          
+          # ファイル名を決定
+          FINAL_NAME="${TITLE}-${ID}.json"
+          mv temp.json "$FINAL_NAME"
+          
+          echo "ファイルを作成しました: $FINAL_NAME"
+          # missionLog("ACTION", "メタデータを${FINAL_NAME}として保存完了！")
+      
       - name: Speak yt-dlp
         run: |
           echo "yt-dlp-master/yt_dlp/__main__.py を実行しました！🚀
