@@ -24,23 +24,23 @@ jobs:
       - name: Fetch and Rename Meta
         run: |
           python -m pip install requests curl_cffi
+          
+          # 環境変数としてプロキシを定義（これが一番確実！）
+          export http_proxy="http://dave-sixth-knives-gas.trycloudflare.com"
+          export https_proxy="https://dave-sixth-knives-gas.trycloudflare.com"
+          
           YT_URL=$(cat url.txt)
-          # まず一時ファイルに保存
+          
+          # 直接プロキシ引数を外して、環境変数経由で叩く
           python yt-dlp-master/yt_dlp/__main__.py -j \
-          --proxy "https://dave-sixth-knives-gas.trycloudflare.com" \
           --user-agent "Mozilla/5.0 (Linux; Android 15; SM-S931N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36" \
           "$YT_URL" > temp.json
-
-          # タイトルとIDを抽出してファイル名を作る
+          
           TITLE=$(jq -r '.title' temp.json | sed 's/[^a-zA-Z0-9]/_/g')
           ID=$(jq -r '.id' temp.json)
-          
-          # ファイル名を決定
           FINAL_NAME="${TITLE}-${ID}.json"
           mv temp.json "$FINAL_NAME"
-          
           echo "ファイルを作成しました: $FINAL_NAME"
-          # missionLog("ACTION", "メタデータを${FINAL_NAME}として保存完了！")
       
       - name: Speak yt-dlp
         run: |
