@@ -1,4 +1,4 @@
-# コード全体：agent.py（サービスアカウント認証・D列結果書き込み・省略なし完全版）
+# コード全体：agent.py（f文字列構文エラー修正・省略なし完全版）
 import time
 import subprocess
 import requests
@@ -68,8 +68,11 @@ else:
     mission_log("WARN", "シート名の自動取得に失敗したため、暫定で 'AAA' を使用します。")
     REAL_SHEET_NAME = "AAA"
 
-# 読み取り用のURL（A列〜C列）
-READ_URL = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{quote(f\"'{REAL_SHEET_NAME}'!A:C\")}"
+# 【構文エラー修正ポイント】
+# f文字列の波括弧 {} の中でバックスラッシュによるエスケープを行うとPythonが怒るため、
+# 範囲の文字列を一度変数（range_str）として完全に外に切り出して、安全に結合するぜ！
+range_str = f"'{REAL_SHEET_NAME}'!A:C"
+READ_URL = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{quote(range_str)}"
 
 def fetch_sheet_rows_official():
     """認証ヘッダーを乗せて、安全にシートのデータを取得する関数"""
@@ -86,7 +89,7 @@ def fetch_sheet_rows_official():
         return []
 
 def write_result_to_d_column(row_index, status_text):
-    """【新機能】値が変わったとき（処理完了時）、スプレッドシートのD列に結果を書き込む！"""
+    """【値が変わったとき（処理完了時）、スプレッドシートのD列に結果を書き込む！】"""
     # スプレッドシートの行番号は1から始まるため、インデックスに+1する
     sheet_row = row_index + 1
     write_range = quote(f"'{REAL_SHEET_NAME}'!D{sheet_row}")
