@@ -68,6 +68,7 @@ class SRMediathekIE(ARDMediathekBaseIE):
         print(f"srmediathek.pyの関数_real_extractを実行しました。")
         print(f"srmediathek.pyの関数_real_extractを実行しました。")
         print(f"srmediathek.pyの関数_real_extractを実行しました。")
+        print(f"srmediathek.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         description = self._og_search_description(webpage)

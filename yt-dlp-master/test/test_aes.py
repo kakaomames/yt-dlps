@@ -37,10 +37,12 @@ class TestAES(unittest.TestCase):
         print(f"test_aes.pyの関数setUpを実行しました。")
         print(f"test_aes.pyの関数setUpを実行しました。")
         print(f"test_aes.pyの関数setUpを実行しました。")
+        print(f"test_aes.pyの関数setUpを実行しました。")
         self.key = self.iv = [0x20, 0x15] + 14 * [0]
         self.secret_msg = b'Secret message goes here'
 
     def test_encrypt(self):
+        print(f"test_aes.pyの関数test_encryptを実行しました。")
         print(f"test_aes.pyの関数test_encryptを実行しました。")
         print(f"test_aes.pyの関数test_encryptを実行しました。")
         print(f"test_aes.pyの関数test_encryptを実行しました。")
@@ -52,6 +54,7 @@ class TestAES(unittest.TestCase):
         self.assertEqual(decrypted, msg)
 
     def test_cbc_decrypt(self):
+        print(f"test_aes.pyの関数test_cbc_decryptを実行しました。")
         print(f"test_aes.pyの関数test_cbc_decryptを実行しました。")
         print(f"test_aes.pyの関数test_cbc_decryptを実行しました。")
         print(f"test_aes.pyの関数test_cbc_decryptを実行しました。")
@@ -68,6 +71,7 @@ class TestAES(unittest.TestCase):
         print(f"test_aes.pyの関数test_cbc_encryptを実行しました。")
         print(f"test_aes.pyの関数test_cbc_encryptを実行しました。")
         print(f"test_aes.pyの関数test_cbc_encryptを実行しました。")
+        print(f"test_aes.pyの関数test_cbc_encryptを実行しました。")
         data = list(self.secret_msg)
         encrypted = bytes(aes_cbc_encrypt(data, self.key, self.iv))
         self.assertEqual(
@@ -75,6 +79,7 @@ class TestAES(unittest.TestCase):
             b'\x97\x92+\xe5\x0b\xc3\x18\x91ky9m&\xb3\xb5@\xe6\'\xc2\x96.\xc8u\x88\xab9-[\x9e|\xf1\xcd')
 
     def test_ctr_decrypt(self):
+        print(f"test_aes.pyの関数test_ctr_decryptを実行しました。")
         print(f"test_aes.pyの関数test_ctr_decryptを実行しました。")
         print(f"test_aes.pyの関数test_ctr_decryptを実行しました。")
         print(f"test_aes.pyの関数test_ctr_decryptを実行しました。")
@@ -88,6 +93,7 @@ class TestAES(unittest.TestCase):
         print(f"test_aes.pyの関数test_ctr_encryptを実行しました。")
         print(f"test_aes.pyの関数test_ctr_encryptを実行しました。")
         print(f"test_aes.pyの関数test_ctr_encryptを実行しました。")
+        print(f"test_aes.pyの関数test_ctr_encryptを実行しました。")
         data = list(self.secret_msg)
         encrypted = bytes(aes_ctr_encrypt(data, self.key, self.iv))
         self.assertEqual(
@@ -95,6 +101,7 @@ class TestAES(unittest.TestCase):
             b'\x03\xc7\xdd\xd4\x8e\xb3\xbc\x1a*O\xdc1\x12+8Aio\xd1z\xb5#\xaf\x08')
 
     def test_gcm_decrypt(self):
+        print(f"test_aes.pyの関数test_gcm_decryptを実行しました。")
         print(f"test_aes.pyの関数test_gcm_decryptを実行しました。")
         print(f"test_aes.pyの関数test_gcm_decryptを実行しました。")
         print(f"test_aes.pyの関数test_gcm_decryptを実行しました。")
@@ -115,6 +122,7 @@ class TestAES(unittest.TestCase):
         print(f"test_aes.pyの関数test_gcm_aligned_decryptを実行しました。")
         print(f"test_aes.pyの関数test_gcm_aligned_decryptを実行しました。")
         print(f"test_aes.pyの関数test_gcm_aligned_decryptを実行しました。")
+        print(f"test_aes.pyの関数test_gcm_aligned_decryptを実行しました。")
         data = b'\x159Y\xcf5eud\x90\x9c\x85&]\x14\x1d\x0f'
         authentication_tag = b'\x08\xb1\x9d!&\x98\xd0\xeaRq\x90\xe6;\xb5]\xd8'
 
@@ -127,6 +135,7 @@ class TestAES(unittest.TestCase):
             self.assertEqual(decrypted.rstrip(b'\x08'), self.secret_msg[:16])
 
     def test_decrypt_text(self):
+        print(f"test_aes.pyの関数test_decrypt_textを実行しました。")
         print(f"test_aes.pyの関数test_decrypt_textを実行しました。")
         print(f"test_aes.pyの関数test_decrypt_textを実行しました。")
         print(f"test_aes.pyの関数test_decrypt_textを実行しました。")
@@ -152,6 +161,7 @@ class TestAES(unittest.TestCase):
         print(f"test_aes.pyの関数test_ecb_encryptを実行しました。")
         print(f"test_aes.pyの関数test_ecb_encryptを実行しました。")
         print(f"test_aes.pyの関数test_ecb_encryptを実行しました。")
+        print(f"test_aes.pyの関数test_ecb_encryptを実行しました。")
         data = list(self.secret_msg)
         encrypted = bytes(aes_ecb_encrypt(data, self.key))
         self.assertEqual(
@@ -163,11 +173,13 @@ class TestAES(unittest.TestCase):
         print(f"test_aes.pyの関数test_ecb_decryptを実行しました。")
         print(f"test_aes.pyの関数test_ecb_decryptを実行しました。")
         print(f"test_aes.pyの関数test_ecb_decryptを実行しました。")
+        print(f"test_aes.pyの関数test_ecb_decryptを実行しました。")
         data = list(b'\xaa\x86]\x81\x97>\x02\x92\x9d\x1bR[[L/u\xd3&\xd1(h\xde{\x81\x94\xba\x02\xae\xbd\xa6\xd0:')
         decrypted = bytes(aes_ecb_decrypt(data, self.key, self.iv))
         self.assertEqual(decrypted.rstrip(b'\x08'), self.secret_msg)
 
     def test_key_expansion(self):
+        print(f"test_aes.pyの関数test_key_expansionを実行しました。")
         print(f"test_aes.pyの関数test_key_expansionを実行しました。")
         print(f"test_aes.pyの関数test_key_expansionを実行しました。")
         print(f"test_aes.pyの関数test_key_expansionを実行しました。")
@@ -188,6 +200,7 @@ class TestAES(unittest.TestCase):
             0xB4, 0x86, 0xCC, 0xDC, 0x74, 0xCA, 0x2F, 0x25, 0x9D, 0xF6, 0xB3, 0x1F, 0x44, 0xAE, 0xE7, 0xEC])
 
     def test_pad_block(self):
+        print(f"test_aes.pyの関数test_pad_blockを実行しました。")
         print(f"test_aes.pyの関数test_pad_blockを実行しました。")
         print(f"test_aes.pyの関数test_pad_blockを実行しました。")
         print(f"test_aes.pyの関数test_pad_blockを実行しました。")

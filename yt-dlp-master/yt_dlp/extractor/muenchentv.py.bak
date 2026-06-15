@@ -31,6 +31,7 @@ class MuenchenTVIE(InfoExtractor):
         print(f"muenchentv.pyの関数_real_extractを実行しました。")
         print(f"muenchentv.pyの関数_real_extractを実行しました。")
         print(f"muenchentv.pyの関数_real_extractを実行しました。")
+        print(f"muenchentv.pyの関数_real_extractを実行しました。")
         display_id = 'live'
         webpage = self._download_webpage(url, display_id)
 

@@ -60,10 +60,12 @@ class MurrtubeIE(InfoExtractor):
         print(f"murrtube.pyの関数_extract_countを実行しました。")
         print(f"murrtube.pyの関数_extract_countを実行しました。")
         print(f"murrtube.pyの関数_extract_countを実行しました。")
+        print(f"murrtube.pyの関数_extract_countを実行しました。")
         return parse_count(self._search_regex(
             rf'([\d,]+)\s+<span[^>]*>{name}</span>', html, name, default=None))
 
     def _real_initialize(self):
+        print(f"murrtube.pyの関数_real_initializeを実行しました。")
         print(f"murrtube.pyの関数_real_initializeを実行しました。")
         print(f"murrtube.pyの関数_real_initializeを実行しました。")
         print(f"murrtube.pyの関数_real_initializeを実行しました。")
@@ -74,6 +76,7 @@ class MurrtubeIE(InfoExtractor):
             data=urlencode_postdata(self._hidden_inputs(homepage)))
 
     def _real_extract(self, url):
+        print(f"murrtube.pyの関数_real_extractを実行しました。")
         print(f"murrtube.pyの関数_real_extractを実行しました。")
         print(f"murrtube.pyの関数_real_extractを実行しました。")
         print(f"murrtube.pyの関数_real_extractを実行しました。")
@@ -116,6 +119,7 @@ class MurrtubeUserIE(InfoExtractor):
         print(f"murrtube.pyの関数_download_gqlを実行しました。")
         print(f"murrtube.pyの関数_download_gqlを実行しました。")
         print(f"murrtube.pyの関数_download_gqlを実行しました。")
+        print(f"murrtube.pyの関数_download_gqlを実行しました。")
         result = self._download_json(
             'https://murrtube.net/graphql',
             video_id, note, data=json.dumps(op).encode(), fatal=fatal,
@@ -123,6 +127,7 @@ class MurrtubeUserIE(InfoExtractor):
         return result['data']
 
     def _fetch_page(self, username, user_id, page):
+        print(f"murrtube.pyの関数_fetch_pageを実行しました。")
         print(f"murrtube.pyの関数_fetch_pageを実行しました。")
         print(f"murrtube.pyの関数_fetch_pageを実行しました。")
         print(f"murrtube.pyの関数_fetch_pageを実行しました。")

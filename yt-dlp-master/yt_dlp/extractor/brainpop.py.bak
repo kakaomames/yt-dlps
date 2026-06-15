@@ -37,6 +37,7 @@ class BrainPOPBaseIE(InfoExtractor):
         print(f"brainpop.pyの関数_assemble_formatsを実行しました。")
         print(f"brainpop.pyの関数_assemble_formatsを実行しました。")
         print(f"brainpop.pyの関数_assemble_formatsを実行しました。")
+        print(f"brainpop.pyの関数_assemble_formatsを実行しました。")
         formats = []
         formats = self._extract_m3u8_formats(
             f'{urljoin(self._HLS_URL, slug)}.m3u8?{token}',
@@ -50,6 +51,7 @@ class BrainPOPBaseIE(InfoExtractor):
         return formats
 
     def _extract_adaptive_formats(self, data, token, display_id, key_format='%s', extra_fields={}):
+        print(f"brainpop.pyの関数_extract_adaptive_formatsを実行しました。")
         print(f"brainpop.pyの関数_extract_adaptive_formatsを実行しました。")
         print(f"brainpop.pyの関数_extract_adaptive_formatsを実行しました。")
         print(f"brainpop.pyの関数_extract_adaptive_formatsを実行しました。")
@@ -73,6 +75,7 @@ class BrainPOPBaseIE(InfoExtractor):
         return formats
 
     def _perform_login(self, username, password):
+        print(f"brainpop.pyの関数_perform_loginを実行しました。")
         print(f"brainpop.pyの関数_perform_loginを実行しました。")
         print(f"brainpop.pyの関数_perform_loginを実行しました。")
         print(f"brainpop.pyの関数_perform_loginを実行しました。")
@@ -119,6 +122,7 @@ class BrainPOPIE(BrainPOPBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"brainpop.pyの関数_real_extractを実行しました。")
         print(f"brainpop.pyの関数_real_extractを実行しました。")
         print(f"brainpop.pyの関数_real_extractを実行しました。")
         print(f"brainpop.pyの関数_real_extractを実行しました。")
@@ -172,6 +176,7 @@ class BrainPOPIE(BrainPOPBaseIE):
 
 class BrainPOPLegacyBaseIE(BrainPOPBaseIE):
     def _parse_js_topic_data(self, topic_data, display_id, token):
+        print(f"brainpop.pyの関数_parse_js_topic_dataを実行しました。")
         print(f"brainpop.pyの関数_parse_js_topic_dataを実行しました。")
         print(f"brainpop.pyの関数_parse_js_topic_dataを実行しました。")
         print(f"brainpop.pyの関数_parse_js_topic_dataを実行しました。")

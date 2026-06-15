@@ -54,6 +54,7 @@ class WordpressPlaylistEmbedIE(InfoExtractor):
         print(f"wordpress.pyの関数_extract_from_webpageを実行しました。")
         print(f"wordpress.pyの関数_extract_from_webpageを実行しました。")
         print(f"wordpress.pyの関数_extract_from_webpageを実行しました。")
+        print(f"wordpress.pyの関数_extract_from_webpageを実行しました。")
         # class should always be "wp-playlist-script"
         # See: https://core.trac.wordpress.org/browser/trunk/src/wp-includes/media.php#L2930
         for i, j in enumerate(get_elements_by_class('wp-playlist-script', webpage)):

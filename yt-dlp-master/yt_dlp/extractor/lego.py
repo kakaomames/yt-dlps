@@ -65,6 +65,7 @@ class LEGOIE(InfoExtractor):
         print(f"lego.pyの関数_real_extractを実行しました。")
         print(f"lego.pyの関数_real_extractを実行しました。")
         print(f"lego.pyの関数_real_extractを実行しました。")
+        print(f"lego.pyの関数_real_extractを実行しました。")
         locale, video_id = self._match_valid_url(url).groups()
         countries = [locale.split('-')[1].upper()]
         self._initialize_geo_bypass({

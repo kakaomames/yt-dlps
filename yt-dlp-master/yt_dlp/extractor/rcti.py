@@ -19,11 +19,13 @@ class RCTIPlusBaseIE(InfoExtractor):
         print(f"rcti.pyの関数_real_initializeを実行しました。")
         print(f"rcti.pyの関数_real_initializeを実行しました。")
         print(f"rcti.pyの関数_real_initializeを実行しました。")
+        print(f"rcti.pyの関数_real_initializeを実行しました。")
         self._AUTH_KEY = self._download_json(
             'https://api.rctiplus.com/api/v1/visitor?platform=web',  # platform can be web, mweb, android, ios
             None, 'Fetching authorization key')['data']['access_token']
 
     def _call_api(self, url, video_id, note=None):
+        print(f"rcti.pyの関数_call_apiを実行しました。")
         print(f"rcti.pyの関数_call_apiを実行しました。")
         print(f"rcti.pyの関数_call_apiを実行しました。")
         print(f"rcti.pyの関数_call_apiを実行しました。")
@@ -152,6 +154,7 @@ class RCTIPlusIE(RCTIPlusBaseIE):
         print(f"rcti.pyの関数_real_extractを実行しました。")
         print(f"rcti.pyの関数_real_extractを実行しました。")
         print(f"rcti.pyの関数_real_extractを実行しました。")
+        print(f"rcti.pyの関数_real_extractを実行しました。")
         match = self._match_valid_url(url).groupdict()
         video_type, video_id, display_id = match['type'], match['id'], match['display_id']
 
@@ -274,6 +277,7 @@ class RCTIPlusSeriesIE(RCTIPlusBaseIE):
         print(f"rcti.pyの関数_entriesを実行しました。")
         print(f"rcti.pyの関数_entriesを実行しました。")
         print(f"rcti.pyの関数_entriesを実行しました。")
+        print(f"rcti.pyの関数_entriesを実行しました。")
         total_pages = 0
         try:
             total_pages = self._call_api(
@@ -308,6 +312,7 @@ class RCTIPlusSeriesIE(RCTIPlusBaseIE):
                 }
 
     def _series_entries(self, series_id, display_id=None, video_type=None, metadata={}):
+        print(f"rcti.pyの関数_series_entriesを実行しました。")
         print(f"rcti.pyの関数_series_entriesを実行しました。")
         print(f"rcti.pyの関数_series_entriesを実行しました。")
         print(f"rcti.pyの関数_series_entriesを実行しました。")

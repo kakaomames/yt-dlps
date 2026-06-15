@@ -67,6 +67,7 @@ class GMANetworkVideoIE(InfoExtractor):
         print(f"gmanetwork.pyの関数_real_extractを実行しました。")
         print(f"gmanetwork.pyの関数_real_extractを実行しました。")
         print(f"gmanetwork.pyの関数_real_extractを実行しました。")
+        print(f"gmanetwork.pyの関数_real_extractを実行しました。")
         content_id, display_id = self._match_valid_url(url).group('id', 'display_id')
         webpage = self._download_webpage(url, display_id)
         # webpage route

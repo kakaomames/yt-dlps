@@ -24,6 +24,7 @@ class ReverbNationIE(InfoExtractor):
         print(f"reverbnation.pyの関数_real_extractを実行しました。")
         print(f"reverbnation.pyの関数_real_extractを実行しました。")
         print(f"reverbnation.pyの関数_real_extractを実行しました。")
+        print(f"reverbnation.pyの関数_real_extractを実行しました。")
         song_id = self._match_id(url)
 
         api_res = self._download_json(

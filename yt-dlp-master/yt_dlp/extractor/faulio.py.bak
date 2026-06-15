@@ -20,6 +20,7 @@ class FaulioBaseIE(InfoExtractor):
         print(f"faulio.pyの関数_get_headersを実行しました。")
         print(f"faulio.pyの関数_get_headersを実行しました。")
         print(f"faulio.pyの関数_get_headersを実行しました。")
+        print(f"faulio.pyの関数_get_headersを実行しました。")
         parsed_url = urllib.parse.urlparse(url)
         return {
             'Referer': url,
@@ -27,6 +28,7 @@ class FaulioBaseIE(InfoExtractor):
         }
 
     def _get_api_base(self, url, video_id):
+        print(f"faulio.pyの関数_get_api_baseを実行しました。")
         print(f"faulio.pyの関数_get_api_baseを実行しました。")
         print(f"faulio.pyの関数_get_api_baseを実行しました。")
         print(f"faulio.pyの関数_get_api_baseを実行しました。")
@@ -112,6 +114,7 @@ class FaulioIE(FaulioBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"faulio.pyの関数_real_extractを実行しました。")
         print(f"faulio.pyの関数_real_extractを実行しました。")
         print(f"faulio.pyの関数_real_extractを実行しました。")
         print(f"faulio.pyの関数_real_extractを実行しました。")

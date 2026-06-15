@@ -22,6 +22,7 @@ class NBACVPBaseIE(TurnerBaseIE):
         print(f"nba.pyの関数_extract_nba_cvp_infoを実行しました。")
         print(f"nba.pyの関数_extract_nba_cvp_infoを実行しました。")
         print(f"nba.pyの関数_extract_nba_cvp_infoを実行しました。")
+        print(f"nba.pyの関数_extract_nba_cvp_infoを実行しました。")
         return self._extract_cvp_info(
             # XXX: The 3rd argument (None) needs to be the AdobePass software_statement
             f'http://secure.nba.com/{path}', video_id, None, {
@@ -38,6 +39,7 @@ class NBAWatchBaseIE(NBACVPBaseIE):
     _VALID_URL_BASE = r'https?://(?:(?:www\.)?nba\.com(?:/watch)?|watch\.nba\.com)/'
 
     def _extract_video(self, filter_key, filter_value):
+        print(f"nba.pyの関数_extract_videoを実行しました。")
         print(f"nba.pyの関数_extract_videoを実行しました。")
         print(f"nba.pyの関数_extract_videoを実行しました。")
         print(f"nba.pyの関数_extract_videoを実行しました。")
@@ -124,6 +126,7 @@ class NBAWatchEmbedIE(NBAWatchBaseIE):
         print(f"nba.pyの関数_real_extractを実行しました。")
         print(f"nba.pyの関数_real_extractを実行しました。")
         print(f"nba.pyの関数_real_extractを実行しました。")
+        print(f"nba.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         return self._extract_video('pid', video_id)
 
@@ -195,6 +198,7 @@ class NBAWatchCollectionIE(NBAWatchBaseIE):
     _PAGE_SIZE = 100
 
     def _fetch_page(self, collection_id, page):
+        print(f"nba.pyの関数_fetch_pageを実行しました。")
         print(f"nba.pyの関数_fetch_pageを実行しました。")
         print(f"nba.pyの関数_fetch_pageを実行しました。")
         print(f"nba.pyの関数_fetch_pageを実行しました。")
@@ -273,6 +277,7 @@ class NBABaseIE(NBACVPBaseIE):
         print(f"nba.pyの関数_embed_url_resultを実行しました。")
         print(f"nba.pyの関数_embed_url_resultを実行しました。")
         print(f"nba.pyの関数_embed_url_resultを実行しました。")
+        print(f"nba.pyの関数_embed_url_resultを実行しました。")
         return self.url_result(update_url_query(
             'https://secure.nba.com/assets/amp/include/video/iframe.html', {
                 'contentId': content_id,
@@ -280,6 +285,7 @@ class NBABaseIE(NBACVPBaseIE):
             }), NBAEmbedIE.ie_key())
 
     def _call_api(self, team, content_id, query, resource):
+        print(f"nba.pyの関数_call_apiを実行しました。")
         print(f"nba.pyの関数_call_apiを実行しました。")
         print(f"nba.pyの関数_call_apiを実行しました。")
         print(f"nba.pyの関数_call_apiを実行しました。")
@@ -411,6 +417,7 @@ class NBAIE(NBABaseIE):
     _CONTENT_ID_REGEX = r'videoID'
 
     def _extract_url_results(self, team, content_id):
+        print(f"nba.pyの関数_extract_url_resultsを実行しました。")
         print(f"nba.pyの関数_extract_url_resultsを実行しました。")
         print(f"nba.pyの関数_extract_url_resultsを実行しました。")
         print(f"nba.pyの関数_extract_url_resultsを実行しました。")

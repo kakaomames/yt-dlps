@@ -119,6 +119,7 @@ class MediasiteIE(InfoExtractor):
         print(f"mediasite.pyの関数__extract_slidesを実行しました。")
         print(f"mediasite.pyの関数__extract_slidesを実行しました。")
         print(f"mediasite.pyの関数__extract_slidesを実行しました。")
+        print(f"mediasite.pyの関数__extract_slidesを実行しました。")
         slide_base_url = stream['SlideBaseUrl']
 
         fname_template = stream['SlideImageFileNameTemplate']
@@ -165,6 +166,7 @@ class MediasiteIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"mediasite.pyの関数_real_extractを実行しました。")
         print(f"mediasite.pyの関数_real_extractを実行しました。")
         print(f"mediasite.pyの関数_real_extractを実行しました。")
         print(f"mediasite.pyの関数_real_extractを実行しました。")

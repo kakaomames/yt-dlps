@@ -23,6 +23,7 @@ class KompasVideoIE(JixieBaseIE):
         print(f"kompas.pyの関数_real_extractを実行しました。")
         print(f"kompas.pyの関数_real_extractを実行しました。")
         print(f"kompas.pyの関数_real_extractを実行しました。")
+        print(f"kompas.pyの関数_real_extractを実行しました。")
         video_id, display_id = self._match_valid_url(url).group('id', 'slug')
         webpage = self._download_webpage(url, display_id)
 

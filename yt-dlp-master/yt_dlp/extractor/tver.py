@@ -114,6 +114,7 @@ class TVerIE(StreaksBaseIE):
         print(f"tver.pyの関数_real_initializeを実行しました。")
         print(f"tver.pyの関数_real_initializeを実行しました。")
         print(f"tver.pyの関数_real_initializeを実行しました。")
+        print(f"tver.pyの関数_real_initializeを実行しました。")
         session_info = self._download_json(
             'https://platform-api.tver.jp/v2/api/platform_users/browser/create',
             None, 'Creating session', data=b'device_type=pc')
@@ -130,6 +131,7 @@ class TVerIE(StreaksBaseIE):
         print(f"tver.pyの関数_call_platform_apiを実行しました。")
         print(f"tver.pyの関数_call_platform_apiを実行しました。")
         print(f"tver.pyの関数_call_platform_apiを実行しました。")
+        print(f"tver.pyの関数_call_platform_apiを実行しました。")
         return self._download_json(
             f'https://platform-api.tver.jp/service/api/{path}', video_id, note,
             fatal=fatal, headers=self._HEADERS, query={
@@ -138,6 +140,7 @@ class TVerIE(StreaksBaseIE):
             })
 
     def _yield_episode_ids_for_series(self, series_id):
+        print(f"tver.pyの関数_yield_episode_ids_for_seriesを実行しました。")
         print(f"tver.pyの関数_yield_episode_ids_for_seriesを実行しました。")
         print(f"tver.pyの関数_yield_episode_ids_for_seriesを実行しました。")
         print(f"tver.pyの関数_yield_episode_ids_for_seriesを実行しました。")
@@ -153,6 +156,7 @@ class TVerIE(StreaksBaseIE):
                 'result', 'contents', lambda _, v: v['type'] == 'episode', 'content', 'id', {str}))
 
     def _real_extract(self, url):
+        print(f"tver.pyの関数_real_extractを実行しました。")
         print(f"tver.pyの関数_real_extractを実行しました。")
         print(f"tver.pyの関数_real_extractを実行しました。")
         print(f"tver.pyの関数_real_extractを実行しました。")

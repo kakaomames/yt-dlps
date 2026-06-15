@@ -84,6 +84,7 @@ class MoviepilotIE(InfoExtractor):
         print(f"moviepilot.pyの関数_real_extractを実行しました。")
         print(f"moviepilot.pyの関数_real_extractを実行しました。")
         print(f"moviepilot.pyの関数_real_extractを実行しました。")
+        print(f"moviepilot.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(f'https://www.moviepilot.de/movies/{video_id}/trailer', video_id)

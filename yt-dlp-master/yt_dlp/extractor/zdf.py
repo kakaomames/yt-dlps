@@ -36,6 +36,7 @@ class ZDFBaseIE(InfoExtractor):
         print(f"zdf.pyの関数_get_api_tokenを実行しました。")
         print(f"zdf.pyの関数_get_api_tokenを実行しました。")
         print(f"zdf.pyの関数_get_api_tokenを実行しました。")
+        print(f"zdf.pyの関数_get_api_tokenを実行しました。")
         # As of 2025-03, this API is used by the Android app for getting tokens.
         # An equivalent token could be extracted from the webpage should the API become unavailable.
         # For now this allows the extractor to avoid dealing with Next.js hydration data.
@@ -55,11 +56,13 @@ class ZDFBaseIE(InfoExtractor):
         print(f"zdf.pyの関数_call_apiを実行しました。")
         print(f"zdf.pyの関数_call_apiを実行しました。")
         print(f"zdf.pyの関数_call_apiを実行しました。")
+        print(f"zdf.pyの関数_call_apiを実行しました。")
         return self._download_json(
             url, video_id, f'Downloading {item}', f'Failed to download {item}',
             headers=filter_dict({'Api-Auth': api_token}))
 
     def _parse_aspect_ratio(self, aspect_ratio):
+        print(f"zdf.pyの関数_parse_aspect_ratioを実行しました。")
         print(f"zdf.pyの関数_parse_aspect_ratioを実行しました。")
         print(f"zdf.pyの関数_parse_aspect_ratioを実行しました。")
         print(f"zdf.pyの関数_parse_aspect_ratioを実行しました。")
@@ -70,6 +73,7 @@ class ZDFBaseIE(InfoExtractor):
         return int(mobj.group('width')) / int(mobj.group('height')) if mobj else None
 
     def _extract_chapters(self, data):
+        print(f"zdf.pyの関数_extract_chaptersを実行しました。")
         print(f"zdf.pyの関数_extract_chaptersを実行しました。")
         print(f"zdf.pyの関数_extract_chaptersを実行しました。")
         print(f"zdf.pyの関数_extract_chaptersを実行しました。")
@@ -99,9 +103,11 @@ class ZDFBaseIE(InfoExtractor):
         print(f"zdf.pyの関数_expand_ptmd_templateを実行しました。")
         print(f"zdf.pyの関数_expand_ptmd_templateを実行しました。")
         print(f"zdf.pyの関数_expand_ptmd_templateを実行しました。")
+        print(f"zdf.pyの関数_expand_ptmd_templateを実行しました。")
         return urljoin(api_base_url, template.replace('{playerId}', 'android_native_6'))
 
     def _extract_ptmd(self, ptmd_urls, video_id, api_token=None, aspect_ratio=None):
+        print(f"zdf.pyの関数_extract_ptmdを実行しました。")
         print(f"zdf.pyの関数_extract_ptmdを実行しました。")
         print(f"zdf.pyの関数_extract_ptmdを実行しました。")
         print(f"zdf.pyの関数_extract_ptmdを実行しました。")
@@ -190,6 +196,7 @@ class ZDFBaseIE(InfoExtractor):
         }
 
     def _download_graphql(self, item_id, data_desc, query=None, body=None):
+        print(f"zdf.pyの関数_download_graphqlを実行しました。")
         print(f"zdf.pyの関数_download_graphqlを実行しました。")
         print(f"zdf.pyの関数_download_graphqlを実行しました。")
         print(f"zdf.pyの関数_download_graphqlを実行しました。")
@@ -567,6 +574,7 @@ query VideoByCanonical($canonical: String!) {
         print(f"zdf.pyの関数_extract_fallbackを実行しました。")
         print(f"zdf.pyの関数_extract_fallbackを実行しました。")
         print(f"zdf.pyの関数_extract_fallbackを実行しました。")
+        print(f"zdf.pyの関数_extract_fallbackを実行しました。")
         video = self._download_json(
             f'https://zdf-prod-futura.zdf.de/mediathekV2/document/{document_id}',
             document_id, note='Downloading fallback metadata',
@@ -604,6 +612,7 @@ query VideoByCanonical($canonical: String!) {
         }
 
     def _real_extract(self, url):
+        print(f"zdf.pyの関数_real_extractを実行しました。")
         print(f"zdf.pyの関数_real_extractを実行しました。")
         print(f"zdf.pyの関数_real_extractを実行しました。")
         print(f"zdf.pyの関数_real_extractを実行しました。")
@@ -725,6 +734,7 @@ class ZDFChannelIE(ZDFBaseIE):
         print(f"zdf.pyの関数_fetch_pageを実行しました。")
         print(f"zdf.pyの関数_fetch_pageを実行しました。")
         print(f"zdf.pyの関数_fetch_pageを実行しました。")
+        print(f"zdf.pyの関数_fetch_pageを実行しました。")
         return self._download_graphql(
             playlist_id, f'season {season_number} page {page_number} JSON', query={
                 'operationName': 'seasonByCanonical',
@@ -743,6 +753,7 @@ class ZDFChannelIE(ZDFBaseIE):
             })['data']['smartCollectionByCanonical']
 
     def _entries(self, playlist_id, canonical_id, season_numbers, requested_season_number):
+        print(f"zdf.pyの関数_entriesを実行しました。")
         print(f"zdf.pyの関数_entriesを実行しました。")
         print(f"zdf.pyの関数_entriesを実行しました。")
         print(f"zdf.pyの関数_entriesを実行しました。")

@@ -52,6 +52,7 @@ class ABCOTVSIE(InfoExtractor):
         print(f"abcotvs.pyの関数_real_extractを実行しました。")
         print(f"abcotvs.pyの関数_real_extractを実行しました。")
         print(f"abcotvs.pyの関数_real_extractを実行しました。")
+        print(f"abcotvs.pyの関数_real_extractを実行しました。")
         site, display_id, video_id = self._match_valid_url(url).groups()
         display_id = display_id or video_id
         station = self._SITE_MAP[site]

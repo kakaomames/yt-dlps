@@ -82,6 +82,7 @@ class RudoVideoIE(InfoExtractor):
         print(f"rudovideo.pyの関数_real_extractを実行しました。")
         print(f"rudovideo.pyの関数_real_extractを実行しました。")
         print(f"rudovideo.pyの関数_real_extractを実行しました。")
+        print(f"rudovideo.pyの関数_real_extractを実行しました。")
         video_id, type_ = self._match_valid_url(url).group('id', 'type')
         is_live = type_ == 'live'
 

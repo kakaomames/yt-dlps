@@ -24,6 +24,7 @@ class OutsideTVIE(InfoExtractor):
         print(f"outsidetv.pyの関数_real_extractを実行しました。")
         print(f"outsidetv.pyの関数_real_extractを実行しました。")
         print(f"outsidetv.pyの関数_real_extractを実行しました。")
+        print(f"outsidetv.pyの関数_real_extractを実行しました。")
         jw_media_id = self._match_id(url)
         return self.url_result(
             'jwplatform:' + jw_media_id, 'JWPlatform', jw_media_id)

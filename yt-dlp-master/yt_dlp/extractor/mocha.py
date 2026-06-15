@@ -29,6 +29,7 @@ class MochaVideoIE(InfoExtractor):
         print(f"mocha.pyの関数_real_extractを実行しました。")
         print(f"mocha.pyの関数_real_extractを実行しました。")
         print(f"mocha.pyの関数_real_extractを実行しました。")
+        print(f"mocha.pyの関数_real_extractを実行しました。")
         video_slug = self._match_valid_url(url).group('video_slug')
         json_data = self._download_json(
             'http://apivideo.mocha.com.vn:8081/onMediaBackendBiz/mochavideo/getVideoDetail',

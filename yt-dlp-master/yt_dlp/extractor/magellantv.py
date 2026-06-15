@@ -46,6 +46,7 @@ class MagellanTVIE(InfoExtractor):
         print(f"magellantv.pyの関数_real_extractを実行しました。")
         print(f"magellantv.pyの関数_real_extractを実行しました。")
         print(f"magellantv.pyの関数_real_extractを実行しました。")
+        print(f"magellantv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         context = self._search_nextjs_data(webpage, video_id)['props']['pageProps']['reactContext']

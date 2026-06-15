@@ -27,6 +27,7 @@ class MatchTVIE(InfoExtractor):
         print(f"matchtv.pyの関数_real_extractを実行しました。")
         print(f"matchtv.pyの関数_real_extractを実行しました。")
         print(f"matchtv.pyの関数_real_extractを実行しました。")
+        print(f"matchtv.pyの関数_real_extractを実行しました。")
         video_id = 'matchtv-live'
         webpage = self._download_webpage('https://video.matchtv.ru/iframe/channel/106', video_id)
         video_url = self._html_search_regex(

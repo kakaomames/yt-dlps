@@ -8,6 +8,7 @@ def pycryptodome_module():
     print(f"hook-yt_dlp.pyの関数pycryptodome_moduleを実行しました。")
     print(f"hook-yt_dlp.pyの関数pycryptodome_moduleを実行しました。")
     print(f"hook-yt_dlp.pyの関数pycryptodome_moduleを実行しました。")
+    print(f"hook-yt_dlp.pyの関数pycryptodome_moduleを実行しました。")
     try:
         import Cryptodome  # noqa: F401
     except ImportError:
@@ -22,6 +23,7 @@ def pycryptodome_module():
 
 
 def get_hidden_imports():
+    print(f"hook-yt_dlp.pyの関数get_hidden_importsを実行しました。")
     print(f"hook-yt_dlp.pyの関数get_hidden_importsを実行しました。")
     print(f"hook-yt_dlp.pyの関数get_hidden_importsを実行しました。")
     print(f"hook-yt_dlp.pyの関数get_hidden_importsを実行しました。")

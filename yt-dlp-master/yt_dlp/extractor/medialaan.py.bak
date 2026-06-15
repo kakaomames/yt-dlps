@@ -16,6 +16,7 @@ class MedialaanBaseIE(InfoExtractor):
         print(f"medialaan.pyの関数_extract_from_mychannels_apiを実行しました。")
         print(f"medialaan.pyの関数_extract_from_mychannels_apiを実行しました。")
         print(f"medialaan.pyの関数_extract_from_mychannels_apiを実行しました。")
+        print(f"medialaan.pyの関数_extract_from_mychannels_apiを実行しました。")
         webpage = self._download_webpage(
             f'https://mychannels.video/embed/{mychannels_id}', mychannels_id)
         brand_config = self._search_json(
@@ -222,6 +223,7 @@ class MedialaanIE(MedialaanBaseIE):
             {lambda x: f'https://mychannels.video/embed/{x}'}))
 
     def _real_extract(self, url):
+        print(f"medialaan.pyの関数_real_extractを実行しました。")
         print(f"medialaan.pyの関数_real_extractを実行しました。")
         print(f"medialaan.pyの関数_real_extractを実行しました。")
         print(f"medialaan.pyの関数_real_extractを実行しました。")

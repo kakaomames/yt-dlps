@@ -33,6 +33,7 @@ class LaXarxaMesIE(InfoExtractor):
         print(f"laxarxames.pyの関数_perform_loginを実行しました。")
         print(f"laxarxames.pyの関数_perform_loginを実行しました。")
         print(f"laxarxames.pyの関数_perform_loginを実行しました。")
+        print(f"laxarxames.pyの関数_perform_loginを実行しました。")
         if self._TOKEN:
             return
 
@@ -54,6 +55,7 @@ class LaXarxaMesIE(InfoExtractor):
             raise ExtractorError('Login failed', expected=True)
 
     def _real_extract(self, url):
+        print(f"laxarxames.pyの関数_real_extractを実行しました。")
         print(f"laxarxames.pyの関数_real_extractを実行しました。")
         print(f"laxarxames.pyの関数_real_extractを実行しました。")
         print(f"laxarxames.pyの関数_real_extractを実行しました。")

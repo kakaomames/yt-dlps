@@ -27,6 +27,7 @@ class ZhihuIE(InfoExtractor):
         print(f"zhihu.pyの関数_real_extractを実行しました。")
         print(f"zhihu.pyの関数_real_extractを実行しました。")
         print(f"zhihu.pyの関数_real_extractを実行しました。")
+        print(f"zhihu.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         zvideo = self._download_json(
             'https://www.zhihu.com/api/v4/zvideos/' + video_id, video_id)

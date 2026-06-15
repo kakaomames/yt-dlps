@@ -45,7 +45,9 @@ class PornHubBaseIE(InfoExtractor):
         print(f"pornhub.pyの関数_download_webpage_handleを実行しました。")
         print(f"pornhub.pyの関数_download_webpage_handleを実行しました。")
         print(f"pornhub.pyの関数_download_webpage_handleを実行しました。")
+        print(f"pornhub.pyの関数_download_webpage_handleを実行しました。")
         def dl(*args, **kwargs):
+            print(f"pornhub.pyの関数dlを実行しました。")
             print(f"pornhub.pyの関数dlを実行しました。")
             print(f"pornhub.pyの関数dlを実行しました。")
             print(f"pornhub.pyの関数dlを実行しました。")
@@ -78,9 +80,11 @@ class PornHubBaseIE(InfoExtractor):
         print(f"pornhub.pyの関数_real_initializeを実行しました。")
         print(f"pornhub.pyの関数_real_initializeを実行しました。")
         print(f"pornhub.pyの関数_real_initializeを実行しました。")
+        print(f"pornhub.pyの関数_real_initializeを実行しました。")
         self._logged_in = False
 
     def _set_age_cookies(self, host):
+        print(f"pornhub.pyの関数_set_age_cookiesを実行しました。")
         print(f"pornhub.pyの関数_set_age_cookiesを実行しました。")
         print(f"pornhub.pyの関数_set_age_cookiesを実行しました。")
         print(f"pornhub.pyの関数_set_age_cookiesを実行しました。")
@@ -91,6 +95,7 @@ class PornHubBaseIE(InfoExtractor):
         self._set_cookie(host, 'accessPH', '1')
 
     def _login(self, host):
+        print(f"pornhub.pyの関数_loginを実行しました。")
         print(f"pornhub.pyの関数_loginを実行しました。")
         print(f"pornhub.pyの関数_loginを実行しました。")
         print(f"pornhub.pyの関数_loginを実行しました。")
@@ -115,6 +120,7 @@ class PornHubBaseIE(InfoExtractor):
             login_url, None, f'Downloading {site} login page', impersonate=True)
 
         def is_logged(webpage):
+            print(f"pornhub.pyの関数is_loggedを実行しました。")
             print(f"pornhub.pyの関数is_loggedを実行しました。")
             print(f"pornhub.pyの関数is_loggedを実行しました。")
             print(f"pornhub.pyの関数is_loggedを実行しました。")
@@ -304,9 +310,11 @@ class PornHubIE(PornHubBaseIE):
         print(f"pornhub.pyの関数_extract_countを実行しました。")
         print(f"pornhub.pyの関数_extract_countを実行しました。")
         print(f"pornhub.pyの関数_extract_countを実行しました。")
+        print(f"pornhub.pyの関数_extract_countを実行しました。")
         return str_to_int(self._search_regex(pattern, webpage, f'{name} count', default=None))
 
     def _real_extract(self, url):
+        print(f"pornhub.pyの関数_real_extractを実行しました。")
         print(f"pornhub.pyの関数_real_extractを実行しました。")
         print(f"pornhub.pyの関数_real_extractを実行しました。")
         print(f"pornhub.pyの関数_real_extractを実行しました。")
@@ -319,6 +327,7 @@ class PornHubIE(PornHubBaseIE):
         self._set_age_cookies(host)
 
         def dl_webpage(platform):
+            print(f"pornhub.pyの関数dl_webpageを実行しました。")
             print(f"pornhub.pyの関数dl_webpageを実行しました。")
             print(f"pornhub.pyの関数dl_webpageを実行しました。")
             print(f"pornhub.pyの関数dl_webpageを実行しました。")
@@ -398,6 +407,7 @@ class PornHubIE(PornHubBaseIE):
             print(f"pornhub.pyの関数extract_js_varsを実行しました。")
             print(f"pornhub.pyの関数extract_js_varsを実行しました。")
             print(f"pornhub.pyの関数extract_js_varsを実行しました。")
+            print(f"pornhub.pyの関数extract_js_varsを実行しました。")
             assignments = self._search_regex(
                 pattern, webpage, 'encoded url', default=default)
             if not assignments:
@@ -408,6 +418,7 @@ class PornHubIE(PornHubBaseIE):
             js_vars = {}
 
             def parse_js_value(inp):
+                print(f"pornhub.pyの関数parse_js_valueを実行しました。")
                 print(f"pornhub.pyの関数parse_js_valueを実行しました。")
                 print(f"pornhub.pyの関数parse_js_valueを実行しました。")
                 print(f"pornhub.pyの関数parse_js_valueを実行しました。")
@@ -436,6 +447,7 @@ class PornHubIE(PornHubBaseIE):
             print(f"pornhub.pyの関数add_video_urlを実行しました。")
             print(f"pornhub.pyの関数add_video_urlを実行しました。")
             print(f"pornhub.pyの関数add_video_urlを実行しました。")
+            print(f"pornhub.pyの関数add_video_urlを実行しました。")
             v_url = url_or_none(video_url)
             if not v_url:
                 return
@@ -445,6 +457,7 @@ class PornHubIE(PornHubBaseIE):
             video_urls_set.add(v_url)
 
         def parse_quality_items(quality_items):
+            print(f"pornhub.pyの関数parse_quality_itemsを実行しました。")
             print(f"pornhub.pyの関数parse_quality_itemsを実行しました。")
             print(f"pornhub.pyの関数parse_quality_itemsを実行しました。")
             print(f"pornhub.pyの関数parse_quality_itemsを実行しました。")
@@ -489,6 +502,7 @@ class PornHubIE(PornHubBaseIE):
         formats = []
 
         def add_format(format_url, height=None):
+            print(f"pornhub.pyの関数add_formatを実行しました。")
             print(f"pornhub.pyの関数add_formatを実行しました。")
             print(f"pornhub.pyの関数add_formatを実行しました。")
             print(f"pornhub.pyの関数add_formatを実行しました。")
@@ -545,6 +559,7 @@ class PornHubIE(PornHubBaseIE):
             print(f"pornhub.pyの関数extract_vote_countを実行しました。")
             print(f"pornhub.pyの関数extract_vote_countを実行しました。")
             print(f"pornhub.pyの関数extract_vote_countを実行しました。")
+            print(f"pornhub.pyの関数extract_vote_countを実行しました。")
             return self._extract_count(
                 (rf'<span[^>]+\bclass="votes{kind}"[^>]*>([\d,\.]+)</span>',
                  rf'<span[^>]+\bclass=["\']votes{kind}["\'][^>]*\bdata-rating=["\'](\d+)'),
@@ -591,10 +606,12 @@ class PornHubPlaylistBaseIE(PornHubBaseIE):
         print(f"pornhub.pyの関数_extract_pageを実行しました。")
         print(f"pornhub.pyの関数_extract_pageを実行しました。")
         print(f"pornhub.pyの関数_extract_pageを実行しました。")
+        print(f"pornhub.pyの関数_extract_pageを実行しました。")
         return int_or_none(self._search_regex(
             r'\bpage=(\d+)', url, 'page', default=None))
 
     def _extract_entries(self, webpage, host):
+        print(f"pornhub.pyの関数_extract_entriesを実行しました。")
         print(f"pornhub.pyの関数_extract_entriesを実行しました。")
         print(f"pornhub.pyの関数_extract_entriesを実行しました。")
         print(f"pornhub.pyの関数_extract_entriesを実行しました。")
@@ -678,6 +695,7 @@ class PornHubPagedPlaylistBaseIE(PornHubPlaylistBaseIE):
         print(f"pornhub.pyの関数_entriesを実行しました。")
         print(f"pornhub.pyの関数_entriesを実行しました。")
         print(f"pornhub.pyの関数_entriesを実行しました。")
+        print(f"pornhub.pyの関数_entriesを実行しました。")
         page = self._extract_page(url)
 
         VIDEOS = '/videos'
@@ -687,11 +705,13 @@ class PornHubPagedPlaylistBaseIE(PornHubPlaylistBaseIE):
             print(f"pornhub.pyの関数download_pageを実行しました。")
             print(f"pornhub.pyの関数download_pageを実行しました。")
             print(f"pornhub.pyの関数download_pageを実行しました。")
+            print(f"pornhub.pyの関数download_pageを実行しました。")
             note = 'Downloading page {}{}'.format(num, ' (switch to fallback)' if fallback else '')
             return self._download_webpage(
                 base_url, item_id, note, query={'page': num}, impersonate=True)
 
         def is_404(e):
+            print(f"pornhub.pyの関数is_404を実行しました。")
             print(f"pornhub.pyの関数is_404を実行しました。")
             print(f"pornhub.pyの関数is_404を実行しました。")
             print(f"pornhub.pyの関数is_404を実行しました。")

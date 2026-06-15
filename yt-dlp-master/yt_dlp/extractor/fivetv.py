@@ -65,6 +65,7 @@ class FiveTVIE(InfoExtractor):
         print(f"fivetv.pyの関数_real_extractを実行しました。")
         print(f"fivetv.pyの関数_real_extractを実行しました。")
         print(f"fivetv.pyの関数_real_extractを実行しました。")
+        print(f"fivetv.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id') or mobj.group('path')
 

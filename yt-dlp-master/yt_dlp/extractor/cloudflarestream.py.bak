@@ -73,6 +73,7 @@ class CloudflareStreamIE(InfoExtractor):
         print(f"cloudflarestream.pyの関数_real_extractを実行しました。")
         print(f"cloudflarestream.pyの関数_real_extractを実行しました。")
         print(f"cloudflarestream.pyの関数_real_extractを実行しました。")
+        print(f"cloudflarestream.pyの関数_real_extractを実行しました。")
         video_id, domain = self._match_valid_url(url).group('id', 'domain')
         if domain != 'bytehighway.net':
             domain = 'cloudflarestream.com'

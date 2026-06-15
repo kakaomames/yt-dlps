@@ -17,6 +17,7 @@ class SubsplashBaseIE(InfoExtractor):
         print(f"subsplash.pyの関数_get_headersを実行しました。")
         print(f"subsplash.pyの関数_get_headersを実行しました。")
         print(f"subsplash.pyの関数_get_headersを実行しました。")
+        print(f"subsplash.pyの関数_get_headersを実行しました。")
         token = try_call(lambda: self._get_cookies(url)['ss-token-guest'].value)
         if not token:
             webpage, urlh = self._download_webpage_handle(url, display_id)
@@ -34,6 +35,7 @@ class SubsplashBaseIE(InfoExtractor):
         return {'Authorization': f'Bearer {token}'}
 
     def _extract_video(self, data, video_id):
+        print(f"subsplash.pyの関数_extract_videoを実行しました。")
         print(f"subsplash.pyの関数_extract_videoを実行しました。")
         print(f"subsplash.pyの関数_extract_videoを実行しました。")
         print(f"subsplash.pyの関数_extract_videoを実行しました。")
@@ -132,6 +134,7 @@ class SubsplashIE(SubsplashBaseIE):
         print(f"subsplash.pyの関数_real_extractを実行しました。")
         print(f"subsplash.pyの関数_real_extractを実行しました。")
         print(f"subsplash.pyの関数_real_extractを実行しました。")
+        print(f"subsplash.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data = self._download_json(
             'https://core.subsplash.com/media/v1/media-items',
@@ -167,6 +170,7 @@ class SubsplashPlaylistIE(SubsplashBaseIE):
     }]
 
     def _entries(self, series_id, headers, page):
+        print(f"subsplash.pyの関数_entriesを実行しました。")
         print(f"subsplash.pyの関数_entriesを実行しました。")
         print(f"subsplash.pyの関数_entriesを実行しました。")
         print(f"subsplash.pyの関数_entriesを実行しました。")

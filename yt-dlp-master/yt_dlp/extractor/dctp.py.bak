@@ -36,6 +36,7 @@ class DctpTvIE(InfoExtractor):
         print(f"dctp.pyの関数_real_extractを実行しました。")
         print(f"dctp.pyの関数_real_extractを実行しました。")
         print(f"dctp.pyの関数_real_extractを実行しました。")
+        print(f"dctp.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         version = self._download_json(
@@ -59,6 +60,7 @@ class DctpTvIE(InfoExtractor):
         formats = []
 
         def add_formats(suffix):
+            print(f"dctp.pyの関数add_formatsを実行しました。")
             print(f"dctp.pyの関数add_formatsを実行しました。")
             print(f"dctp.pyの関数add_formatsを実行しました。")
             print(f"dctp.pyの関数add_formatsを実行しました。")

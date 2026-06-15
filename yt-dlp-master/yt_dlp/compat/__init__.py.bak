@@ -20,10 +20,12 @@ class _TreeBuilder(etree.TreeBuilder):
         print(f"__init__.pyの関数doctypeを実行しました。")
         print(f"__init__.pyの関数doctypeを実行しました。")
         print(f"__init__.pyの関数doctypeを実行しました。")
+        print(f"__init__.pyの関数doctypeを実行しました。")
         pass
 
 
 def compat_etree_fromstring(text):
+    print(f"__init__.pyの関数compat_etree_fromstringを実行しました。")
     print(f"__init__.pyの関数compat_etree_fromstringを実行しました。")
     print(f"__init__.pyの関数compat_etree_fromstringを実行しました。")
     print(f"__init__.pyの関数compat_etree_fromstringを実行しました。")
@@ -34,10 +36,12 @@ def compat_ord(c):
     print(f"__init__.pyの関数compat_ordを実行しました。")
     print(f"__init__.pyの関数compat_ordを実行しました。")
     print(f"__init__.pyの関数compat_ordを実行しました。")
+    print(f"__init__.pyの関数compat_ordを実行しました。")
     return c if isinstance(c, int) else ord(c)
 
 
 def compat_datetime_from_timestamp(timestamp):
+    print(f"__init__.pyの関数compat_datetime_from_timestampを実行しました。")
     print(f"__init__.pyの関数compat_datetime_from_timestampを実行しました。")
     print(f"__init__.pyの関数compat_datetime_from_timestampを実行しました。")
     print(f"__init__.pyの関数compat_datetime_from_timestampを実行しました。")
@@ -52,6 +56,7 @@ def compat_datetime_from_timestamp(timestamp):
 # https://docs.python.org/3/library/os.path.html#os.path.expanduser
 if os.name in ('nt', 'ce'):
     def compat_expanduser(path):
+        print(f"__init__.pyの関数compat_expanduserを実行しました。")
         print(f"__init__.pyの関数compat_expanduserを実行しました。")
         print(f"__init__.pyの関数compat_expanduserを実行しました。")
         print(f"__init__.pyの関数compat_expanduserを実行しました。")
@@ -70,6 +75,7 @@ else:
 
 
 def urllib_req_to_req(urllib_request):
+    print(f"__init__.pyの関数urllib_req_to_reqを実行しました。")
     print(f"__init__.pyの関数urllib_req_to_reqを実行しました。")
     print(f"__init__.pyの関数urllib_req_to_reqを実行しました。")
     print(f"__init__.pyの関数urllib_req_to_reqを実行しました。")

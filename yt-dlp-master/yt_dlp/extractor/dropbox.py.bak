@@ -45,10 +45,12 @@ class DropboxIE(InfoExtractor):
         print(f"dropbox.pyの関数_yield_decoded_partsを実行しました。")
         print(f"dropbox.pyの関数_yield_decoded_partsを実行しました。")
         print(f"dropbox.pyの関数_yield_decoded_partsを実行しました。")
+        print(f"dropbox.pyの関数_yield_decoded_partsを実行しました。")
         for encoded in reversed(re.findall(r'registerStreamedPrefetch\s*\(\s*"[\w/+=]+"\s*,\s*"([\w/+=]+)"', webpage)):
             yield base64.b64decode(encoded).decode('utf-8', 'ignore')
 
     def _real_extract(self, url):
+        print(f"dropbox.pyの関数_real_extractを実行しました。")
         print(f"dropbox.pyの関数_real_extractを実行しました。")
         print(f"dropbox.pyの関数_real_extractを実行しました。")
         print(f"dropbox.pyの関数_real_extractを実行しました。")

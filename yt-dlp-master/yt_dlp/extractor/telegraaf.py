@@ -32,6 +32,7 @@ class TelegraafIE(InfoExtractor):
         print(f"telegraaf.pyの関数_real_extractを実行しました。")
         print(f"telegraaf.pyの関数_real_extractを実行しました。")
         print(f"telegraaf.pyの関数_real_extractを実行しました。")
+        print(f"telegraaf.pyの関数_real_extractを実行しました。")
         article_id = self._match_id(url)
 
         video_id = self._download_json(

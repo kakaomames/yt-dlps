@@ -74,6 +74,7 @@ class SpankBangIE(InfoExtractor):
         print(f"spankbang.pyの関数_real_extractを実行しました。")
         print(f"spankbang.pyの関数_real_extractを実行しました。")
         print(f"spankbang.pyの関数_real_extractを実行しました。")
+        print(f"spankbang.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id') or mobj.group('id_2')
         country = self.get_param('geo_bypass_country') or 'US'
@@ -89,6 +90,7 @@ class SpankBangIE(InfoExtractor):
         formats = []
 
         def extract_format(format_id, format_url):
+            print(f"spankbang.pyの関数extract_formatを実行しました。")
             print(f"spankbang.pyの関数extract_formatを実行しました。")
             print(f"spankbang.pyの関数extract_formatを実行しました。")
             print(f"spankbang.pyの関数extract_formatを実行しました。")

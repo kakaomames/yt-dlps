@@ -21,6 +21,7 @@ class HttpQuietDownloader(HttpFD):
         print(f"fragment.pyの関数to_screenを実行しました。")
         print(f"fragment.pyの関数to_screenを実行しました。")
         print(f"fragment.pyの関数to_screenを実行しました。")
+        print(f"fragment.pyの関数to_screenを実行しました。")
         pass
 
     to_console_title = to_screen
@@ -66,11 +67,13 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数report_retry_fragmentを実行しました。")
         print(f"fragment.pyの関数report_retry_fragmentを実行しました。")
         print(f"fragment.pyの関数report_retry_fragmentを実行しました。")
+        print(f"fragment.pyの関数report_retry_fragmentを実行しました。")
         self.deprecation_warning('yt_dlp.downloader.FragmentFD.report_retry_fragment is deprecated. '
                                  'Use yt_dlp.downloader.FileDownloader.report_retry instead')
         return self.report_retry(err, count, retries, frag_index)
 
     def report_skip_fragment(self, frag_index, err=None):
+        print(f"fragment.pyの関数report_skip_fragmentを実行しました。")
         print(f"fragment.pyの関数report_skip_fragmentを実行しました。")
         print(f"fragment.pyの関数report_skip_fragmentを実行しました。")
         print(f"fragment.pyの関数report_skip_fragmentを実行しました。")
@@ -81,10 +84,12 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数_prepare_urlを実行しました。")
         print(f"fragment.pyの関数_prepare_urlを実行しました。")
         print(f"fragment.pyの関数_prepare_urlを実行しました。")
+        print(f"fragment.pyの関数_prepare_urlを実行しました。")
         headers = info_dict.get('http_headers')
         return Request(url, None, headers) if headers else url
 
     def _prepare_and_start_frag_download(self, ctx, info_dict):
+        print(f"fragment.pyの関数_prepare_and_start_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_prepare_and_start_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_prepare_and_start_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_prepare_and_start_frag_downloadを実行しました。")
@@ -95,9 +100,11 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数__do_ytdl_fileを実行しました。")
         print(f"fragment.pyの関数__do_ytdl_fileを実行しました。")
         print(f"fragment.pyの関数__do_ytdl_fileを実行しました。")
+        print(f"fragment.pyの関数__do_ytdl_fileを実行しました。")
         return ctx['live'] is not True and ctx['tmpfilename'] != '-' and not self.params.get('_no_ytdl_file')
 
     def _read_ytdl_file(self, ctx):
+        print(f"fragment.pyの関数_read_ytdl_fileを実行しました。")
         print(f"fragment.pyの関数_read_ytdl_fileを実行しました。")
         print(f"fragment.pyの関数_read_ytdl_fileを実行しました。")
         print(f"fragment.pyの関数_read_ytdl_fileを実行しました。")
@@ -117,6 +124,7 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数_write_ytdl_fileを実行しました。")
         print(f"fragment.pyの関数_write_ytdl_fileを実行しました。")
         print(f"fragment.pyの関数_write_ytdl_fileを実行しました。")
+        print(f"fragment.pyの関数_write_ytdl_fileを実行しました。")
         frag_index_stream, _ = self.sanitize_open(self.ytdl_filename(ctx['filename']), 'w')
         try:
             downloader = {
@@ -133,6 +141,7 @@ class FragmentFD(FileDownloader):
             frag_index_stream.close()
 
     def _download_fragment(self, ctx, frag_url, info_dict, headers=None, request_data=None):
+        print(f"fragment.pyの関数_download_fragmentを実行しました。")
         print(f"fragment.pyの関数_download_fragmentを実行しました。")
         print(f"fragment.pyの関数_download_fragmentを実行しました。")
         print(f"fragment.pyの関数_download_fragmentを実行しました。")
@@ -160,6 +169,7 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数_read_fragmentを実行しました。")
         print(f"fragment.pyの関数_read_fragmentを実行しました。")
         print(f"fragment.pyの関数_read_fragmentを実行しました。")
+        print(f"fragment.pyの関数_read_fragmentを実行しました。")
         if not ctx.get('fragment_filename_sanitized'):
             return None
         try:
@@ -177,6 +187,7 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数_append_fragmentを実行しました。")
         print(f"fragment.pyの関数_append_fragmentを実行しました。")
         print(f"fragment.pyの関数_append_fragmentを実行しました。")
+        print(f"fragment.pyの関数_append_fragmentを実行しました。")
         try:
             ctx['dest_stream'].write(frag_content)
             ctx['dest_stream'].flush()
@@ -188,6 +199,7 @@ class FragmentFD(FileDownloader):
             del ctx['fragment_filename_sanitized']
 
     def _prepare_frag_download(self, ctx):
+        print(f"fragment.pyの関数_prepare_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_prepare_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_prepare_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_prepare_frag_downloadを実行しました。")
@@ -262,6 +274,7 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数_start_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_start_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_start_frag_downloadを実行しました。")
+        print(f"fragment.pyの関数_start_frag_downloadを実行しました。")
         resume_len = ctx['complete_frags_downloaded_bytes']
         total_frags = ctx['total_frags']
         ctx_id = ctx.get('ctx_id')
@@ -279,6 +292,7 @@ class FragmentFD(FileDownloader):
         progress = ProgressCalculator(resume_len)
 
         def frag_progress_hook(s):
+            print(f"fragment.pyの関数frag_progress_hookを実行しました。")
             print(f"fragment.pyの関数frag_progress_hookを実行しました。")
             print(f"fragment.pyの関数frag_progress_hookを実行しました。")
             print(f"fragment.pyの関数frag_progress_hookを実行しました。")
@@ -328,6 +342,7 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数_finish_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_finish_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_finish_frag_downloadを実行しました。")
+        print(f"fragment.pyの関数_finish_frag_downloadを実行しました。")
         ctx['dest_stream'].close()
         if self.__do_ytdl_file(ctx):
             self.try_remove(self.ytdl_filename(ctx['filename']))
@@ -367,6 +382,7 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数_prepare_external_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_prepare_external_frag_downloadを実行しました。")
         print(f"fragment.pyの関数_prepare_external_frag_downloadを実行しました。")
+        print(f"fragment.pyの関数_prepare_external_frag_downloadを実行しました。")
         if 'live' not in ctx:
             ctx['live'] = False
         if not ctx['live']:
@@ -390,9 +406,11 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数decrypterを実行しました。")
         print(f"fragment.pyの関数decrypterを実行しました。")
         print(f"fragment.pyの関数decrypterを実行しました。")
+        print(f"fragment.pyの関数decrypterを実行しました。")
         _key_cache = {}
 
         def _get_key(url):
+            print(f"fragment.pyの関数_get_keyを実行しました。")
             print(f"fragment.pyの関数_get_keyを実行しました。")
             print(f"fragment.pyの関数_get_keyを実行しました。")
             print(f"fragment.pyの関数_get_keyを実行しました。")
@@ -401,6 +419,7 @@ class FragmentFD(FileDownloader):
             return _key_cache[url]
 
         def decrypt_fragment(fragment, frag_content):
+            print(f"fragment.pyの関数decrypt_fragmentを実行しました。")
             print(f"fragment.pyの関数decrypt_fragmentを実行しました。")
             print(f"fragment.pyの関数decrypt_fragmentを実行しました。")
             print(f"fragment.pyの関数decrypt_fragmentを実行しました。")
@@ -425,6 +444,7 @@ class FragmentFD(FileDownloader):
         print(f"fragment.pyの関数download_and_append_fragments_multipleを実行しました。")
         print(f"fragment.pyの関数download_and_append_fragments_multipleを実行しました。")
         print(f"fragment.pyの関数download_and_append_fragments_multipleを実行しました。")
+        print(f"fragment.pyの関数download_and_append_fragments_multipleを実行しました。")
         """
         @params (ctx1, fragments1, info_dict1), (ctx2, fragments2, info_dict2), ...
                 all args must be either tuple or list
@@ -442,6 +462,7 @@ class FragmentFD(FileDownloader):
             print(f"fragment.pyの関数thread_funcを実行しました。")
             print(f"fragment.pyの関数thread_funcを実行しました。")
             print(f"fragment.pyの関数thread_funcを実行しました。")
+            print(f"fragment.pyの関数thread_funcを実行しました。")
             ctx['max_progress'] = max_progress
             ctx['progress_idx'] = idx
             return self.download_and_append_fragments(
@@ -453,10 +474,12 @@ class FragmentFD(FileDownloader):
                 print(f"fragment.pyの関数__exit__を実行しました。")
                 print(f"fragment.pyの関数__exit__を実行しました。")
                 print(f"fragment.pyの関数__exit__を実行しました。")
+                print(f"fragment.pyの関数__exit__を実行しました。")
                 pass
 
         if os.name == 'nt':
             def future_result(future):
+                print(f"fragment.pyの関数future_resultを実行しました。")
                 print(f"fragment.pyの関数future_resultを実行しました。")
                 print(f"fragment.pyの関数future_resultを実行しました。")
                 print(f"fragment.pyの関数future_resultを実行しました。")
@@ -472,6 +495,7 @@ class FragmentFD(FileDownloader):
                 return future.result()
 
         def interrupt_trigger_iter(fg):
+            print(f"fragment.pyの関数interrupt_trigger_iterを実行しました。")
             print(f"fragment.pyの関数interrupt_trigger_iterを実行しました。")
             print(f"fragment.pyの関数interrupt_trigger_iterを実行しました。")
             print(f"fragment.pyの関数interrupt_trigger_iterを実行しました。")
@@ -512,6 +536,7 @@ class FragmentFD(FileDownloader):
             print(f"fragment.pyの関数download_fragmentを実行しました。")
             print(f"fragment.pyの関数download_fragmentを実行しました。")
             print(f"fragment.pyの関数download_fragmentを実行しました。")
+            print(f"fragment.pyの関数download_fragmentを実行しました。")
             if not interrupt_trigger[0]:
                 return
 
@@ -526,6 +551,7 @@ class FragmentFD(FileDownloader):
             fatal = is_fatal(fragment.get('index') or (frag_index - 1))
 
             def error_callback(err, count, retries):
+                print(f"fragment.pyの関数error_callbackを実行しました。")
                 print(f"fragment.pyの関数error_callbackを実行しました。")
                 print(f"fragment.pyの関数error_callbackを実行しました。")
                 print(f"fragment.pyの関数error_callbackを実行しました。")
@@ -551,6 +577,7 @@ class FragmentFD(FileDownloader):
             print(f"fragment.pyの関数append_fragmentを実行しました。")
             print(f"fragment.pyの関数append_fragmentを実行しました。")
             print(f"fragment.pyの関数append_fragmentを実行しました。")
+            print(f"fragment.pyの関数append_fragmentを実行しました。")
             if frag_content:
                 self._append_fragment(ctx, pack_func(frag_content, frag_index))
             elif not is_fatal(frag_index - 1):
@@ -567,6 +594,7 @@ class FragmentFD(FileDownloader):
             self.params.get('concurrent_fragment_downloads', 1) / ctx.get('max_progress', 1))
         if max_workers > 1:
             def _download_fragment(fragment):
+                print(f"fragment.pyの関数_download_fragmentを実行しました。")
                 print(f"fragment.pyの関数_download_fragmentを実行しました。")
                 print(f"fragment.pyの関数_download_fragmentを実行しました。")
                 print(f"fragment.pyの関数_download_fragmentを実行しました。")

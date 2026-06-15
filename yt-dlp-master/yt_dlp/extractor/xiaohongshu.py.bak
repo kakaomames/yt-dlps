@@ -44,6 +44,7 @@ class XiaoHongShuIE(InfoExtractor):
         print(f"xiaohongshu.pyの関数_real_extractを実行しました。")
         print(f"xiaohongshu.pyの関数_real_extractを実行しました。")
         print(f"xiaohongshu.pyの関数_real_extractを実行しました。")
+        print(f"xiaohongshu.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         initial_state = self._search_json(

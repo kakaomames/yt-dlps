@@ -64,10 +64,12 @@ class ZoomIE(InfoExtractor):
         print(f"zoom.pyの関数_get_page_dataを実行しました。")
         print(f"zoom.pyの関数_get_page_dataを実行しました。")
         print(f"zoom.pyの関数_get_page_dataを実行しました。")
+        print(f"zoom.pyの関数_get_page_dataを実行しました。")
         return self._search_json(
             r'window\.__data__\s*=', webpage, 'data', video_id, transform_source=js_to_json)
 
     def _get_real_webpage(self, url, base_url, video_id, url_type):
+        print(f"zoom.pyの関数_get_real_webpageを実行しました。")
         print(f"zoom.pyの関数_get_real_webpageを実行しました。")
         print(f"zoom.pyの関数_get_real_webpageを実行しました。")
         print(f"zoom.pyの関数_get_real_webpageを実行しました。")
@@ -95,6 +97,7 @@ class ZoomIE(InfoExtractor):
         return self._download_webpage(url, video_id, note=f'Re-downloading {url_type} webpage')
 
     def _real_extract(self, url):
+        print(f"zoom.pyの関数_real_extractを実行しました。")
         print(f"zoom.pyの関数_real_extractを実行しました。")
         print(f"zoom.pyの関数_real_extractを実行しました。")
         print(f"zoom.pyの関数_real_extractを実行しました。")

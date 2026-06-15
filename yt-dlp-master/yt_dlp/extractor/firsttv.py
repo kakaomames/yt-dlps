@@ -79,6 +79,7 @@ class FirstTVIE(InfoExtractor):
         print(f"firsttv.pyの関数_entriesを実行しました。")
         print(f"firsttv.pyの関数_entriesを実行しました。")
         print(f"firsttv.pyの関数_entriesを実行しました。")
+        print(f"firsttv.pyの関数_entriesを実行しました。")
         for item in items:
             video_id = str(item.get('id') or item['uid'])
 
@@ -125,6 +126,7 @@ class FirstTVIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"firsttv.pyの関数_real_extractを実行しました。")
         print(f"firsttv.pyの関数_real_extractを実行しました。")
         print(f"firsttv.pyの関数_real_extractを実行しました。")
         print(f"firsttv.pyの関数_real_extractを実行しました。")

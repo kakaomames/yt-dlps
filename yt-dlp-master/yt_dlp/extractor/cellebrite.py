@@ -23,6 +23,7 @@ class CellebriteIE(VidyardBaseIE):
         print(f"cellebrite.pyの関数_real_extractを実行しました。")
         print(f"cellebrite.pyの関数_real_extractを実行しました。")
         print(f"cellebrite.pyの関数_real_extractを実行しました。")
+        print(f"cellebrite.pyの関数_real_extractを実行しました。")
         slug = self._match_id(url)
         webpage = self._download_webpage(url, slug)
         vidyard_url = next(VidyardIE._extract_embed_urls(url, webpage), None)

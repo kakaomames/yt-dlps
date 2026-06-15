@@ -47,6 +47,7 @@ class ThisVidIE(InfoExtractor):
         print(f"thisvid.pyの関数_real_extractを実行しました。")
         print(f"thisvid.pyの関数_real_extractを実行しました。")
         print(f"thisvid.pyの関数_real_extractを実行しました。")
+        print(f"thisvid.pyの関数_real_extractを実行しました。")
         main_id, type_ = re.match(self._VALID_URL, url).group('id', 'type')
         webpage = self._download_webpage(url, main_id)
 
@@ -100,6 +101,7 @@ class ThisVidPlaylistBaseIE(InfoExtractor):
         print(f"thisvid.pyの関数_generate_playlist_entriesを実行しました。")
         print(f"thisvid.pyの関数_generate_playlist_entriesを実行しました。")
         print(f"thisvid.pyの関数_generate_playlist_entriesを実行しました。")
+        print(f"thisvid.pyの関数_generate_playlist_entriesを実行しました。")
         page_url = url
         for page in itertools.count(1):
             if not html:
@@ -134,6 +136,7 @@ class ThisVidPlaylistBaseIE(InfoExtractor):
             page_url, html = next_page, None
 
     def _make_playlist_result(self, url):
+        print(f"thisvid.pyの関数_make_playlist_resultを実行しました。")
         print(f"thisvid.pyの関数_make_playlist_resultを実行しました。")
         print(f"thisvid.pyの関数_make_playlist_resultを実行しました。")
         print(f"thisvid.pyの関数_make_playlist_resultを実行しました。")

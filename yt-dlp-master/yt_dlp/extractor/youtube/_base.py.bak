@@ -357,6 +357,7 @@ def _split_innertube_client(client_name):
     print(f"_base.pyの関数_split_innertube_clientを実行しました。")
     print(f"_base.pyの関数_split_innertube_clientを実行しました。")
     print(f"_base.pyの関数_split_innertube_clientを実行しました。")
+    print(f"_base.pyの関数_split_innertube_clientを実行しました。")
     variant, *base = client_name.rsplit('.', 1)
     if base:
         return variant, base[0], variant
@@ -368,11 +369,13 @@ def short_client_name(client_name):
     print(f"_base.pyの関数short_client_nameを実行しました。")
     print(f"_base.pyの関数short_client_nameを実行しました。")
     print(f"_base.pyの関数short_client_nameを実行しました。")
+    print(f"_base.pyの関数short_client_nameを実行しました。")
     main, *parts = _split_innertube_client(client_name)[0].split('_')
     return join_nonempty(main[:4], ''.join(x[0] for x in parts)).upper()
 
 
 def _fix_embedded_ytcfg(ytcfg):
+    print(f"_base.pyの関数_fix_embedded_ytcfgを実行しました。")
     print(f"_base.pyの関数_fix_embedded_ytcfgを実行しました。")
     print(f"_base.pyの関数_fix_embedded_ytcfgを実行しました。")
     print(f"_base.pyの関数_fix_embedded_ytcfgを実行しました。")
@@ -382,6 +385,7 @@ def _fix_embedded_ytcfg(ytcfg):
 
 
 def build_innertube_clients():
+    print(f"_base.pyの関数build_innertube_clientsを実行しました。")
     print(f"_base.pyの関数build_innertube_clientsを実行しました。")
     print(f"_base.pyの関数build_innertube_clientsを実行しました。")
     print(f"_base.pyの関数build_innertube_clientsを実行しました。")
@@ -603,9 +607,11 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数ucid_or_noneを実行しました。")
         print(f"_base.pyの関数ucid_or_noneを実行しました。")
         print(f"_base.pyの関数ucid_or_noneを実行しました。")
+        print(f"_base.pyの関数ucid_or_noneを実行しました。")
         return self._search_regex(rf'^({self._YT_CHANNEL_UCID_RE})$', ucid, 'UC-id', default=None)
 
     def handle_or_none(self, handle):
+        print(f"_base.pyの関数handle_or_noneを実行しました。")
         print(f"_base.pyの関数handle_or_noneを実行しました。")
         print(f"_base.pyの関数handle_or_noneを実行しました。")
         print(f"_base.pyの関数handle_or_noneを実行しました。")
@@ -616,10 +622,12 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数handle_from_urlを実行しました。")
         print(f"_base.pyの関数handle_from_urlを実行しました。")
         print(f"_base.pyの関数handle_from_urlを実行しました。")
+        print(f"_base.pyの関数handle_from_urlを実行しました。")
         return self._search_regex(rf'^(?:https?://(?:www\.)?youtube\.com)?/({self._YT_HANDLE_RE})',
                                   urllib.parse.unquote(url or ''), 'channel handle', default=None)
 
     def ucid_from_url(self, url):
+        print(f"_base.pyの関数ucid_from_urlを実行しました。")
         print(f"_base.pyの関数ucid_from_urlを実行しました。")
         print(f"_base.pyの関数ucid_from_urlを実行しました。")
         print(f"_base.pyの関数ucid_from_urlを実行しました。")
@@ -648,6 +656,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_initialize_consentを実行しました。")
         print(f"_base.pyの関数_initialize_consentを実行しました。")
         print(f"_base.pyの関数_initialize_consentを実行しました。")
+        print(f"_base.pyの関数_initialize_consentを実行しました。")
         if self._has_auth_cookies:
             return
         socs = self._youtube_cookies.get('SOCS')
@@ -656,6 +665,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         self._set_cookie('.youtube.com', 'SOCS', 'CAI', secure=True)  # accept all (required for mixes)
 
     def _initialize_pref(self):
+        print(f"_base.pyの関数_initialize_prefを実行しました。")
         print(f"_base.pyの関数_initialize_prefを実行しました。")
         print(f"_base.pyの関数_initialize_prefを実行しました。")
         print(f"_base.pyの関数_initialize_prefを実行しました。")
@@ -673,6 +683,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_initialize_cookie_authを実行しました。")
         print(f"_base.pyの関数_initialize_cookie_authを実行しました。")
         print(f"_base.pyの関数_initialize_cookie_authを実行しました。")
+        print(f"_base.pyの関数_initialize_cookie_authを実行しました。")
         self._passed_auth_cookies = False
         if self._has_auth_cookies:
             self._passed_auth_cookies = True
@@ -682,12 +693,14 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_real_initializeを実行しました。")
         print(f"_base.pyの関数_real_initializeを実行しました。")
         print(f"_base.pyの関数_real_initializeを実行しました。")
+        print(f"_base.pyの関数_real_initializeを実行しました。")
         self._initialize_pref()
         self._initialize_consent()
         self._initialize_cookie_auth()
         self._check_login_required()
 
     def _perform_login(self, username, password):
+        print(f"_base.pyの関数_perform_loginを実行しました。")
         print(f"_base.pyの関数_perform_loginを実行しました。")
         print(f"_base.pyの関数_perform_loginを実行しました。")
         print(f"_base.pyの関数_perform_loginを実行しました。")
@@ -707,6 +720,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_check_login_requiredを実行しました。")
         print(f"_base.pyの関数_check_login_requiredを実行しました。")
         print(f"_base.pyの関数_check_login_requiredを実行しました。")
+        print(f"_base.pyの関数_check_login_requiredを実行しました。")
         if self._LOGIN_REQUIRED and not self.is_authenticated:
             self.raise_login_required(
                 f'Login details are needed to download this content. {self._youtube_login_hint}', method=None)
@@ -718,15 +732,18 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_get_default_ytcfgを実行しました。")
         print(f"_base.pyの関数_get_default_ytcfgを実行しました。")
         print(f"_base.pyの関数_get_default_ytcfgを実行しました。")
+        print(f"_base.pyの関数_get_default_ytcfgを実行しました。")
         return copy.deepcopy(INNERTUBE_CLIENTS[client])
 
     def _get_innertube_host(self, client='web'):
         print(f"_base.pyの関数_get_innertube_hostを実行しました。")
         print(f"_base.pyの関数_get_innertube_hostを実行しました。")
         print(f"_base.pyの関数_get_innertube_hostを実行しました。")
+        print(f"_base.pyの関数_get_innertube_hostを実行しました。")
         return INNERTUBE_CLIENTS[client]['INNERTUBE_HOST']
 
     def _ytcfg_get_safe(self, ytcfg, getter, expected_type=None, default_client='web'):
+        print(f"_base.pyの関数_ytcfg_get_safeを実行しました。")
         print(f"_base.pyの関数_ytcfg_get_safeを実行しました。")
         print(f"_base.pyの関数_ytcfg_get_safeを実行しました。")
         print(f"_base.pyの関数_ytcfg_get_safeを実行しました。")
@@ -738,11 +755,13 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_extract_client_nameを実行しました。")
         print(f"_base.pyの関数_extract_client_nameを実行しました。")
         print(f"_base.pyの関数_extract_client_nameを実行しました。")
+        print(f"_base.pyの関数_extract_client_nameを実行しました。")
         return self._ytcfg_get_safe(
             ytcfg, (lambda x: x['INNERTUBE_CLIENT_NAME'],
                     lambda x: x['INNERTUBE_CONTEXT']['client']['clientName']), str, default_client)
 
     def _extract_client_version(self, ytcfg, default_client='web'):
+        print(f"_base.pyの関数_extract_client_versionを実行しました。")
         print(f"_base.pyの関数_extract_client_versionを実行しました。")
         print(f"_base.pyの関数_extract_client_versionを実行しました。")
         print(f"_base.pyの関数_extract_client_versionを実行しました。")
@@ -754,10 +773,12 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_select_api_hostnameを実行しました。")
         print(f"_base.pyの関数_select_api_hostnameを実行しました。")
         print(f"_base.pyの関数_select_api_hostnameを実行しました。")
+        print(f"_base.pyの関数_select_api_hostnameを実行しました。")
         return (self._configuration_arg('innertube_host', [''], ie_key=CONFIGURATION_ARG_KEY)[0]
                 or req_api_hostname or self._get_innertube_host(default_client or 'web'))
 
     def _extract_context(self, ytcfg=None, default_client='web'):
+        print(f"_base.pyの関数_extract_contextを実行しました。")
         print(f"_base.pyの関数_extract_contextを実行しました。")
         print(f"_base.pyの関数_extract_contextを実行しました。")
         print(f"_base.pyの関数_extract_contextを実行しました。")
@@ -792,6 +813,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_get_sid_cookiesを実行しました。")
         print(f"_base.pyの関数_get_sid_cookiesを実行しました。")
         print(f"_base.pyの関数_get_sid_cookiesを実行しました。")
+        print(f"_base.pyの関数_get_sid_cookiesを実行しました。")
         """
         Get SAPISID, 1PSAPISID, 3PSAPISID cookie values
         @returns sapisid, 1psapisid, 3psapisid
@@ -808,6 +830,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         return yt_sapisid or yt_3papisid, yt_1papisid, yt_3papisid
 
     def _get_sid_authorization_header(self, origin='https://www.youtube.com', user_session_id=None):
+        print(f"_base.pyの関数_get_sid_authorization_headerを実行しました。")
         print(f"_base.pyの関数_get_sid_authorization_headerを実行しました。")
         print(f"_base.pyの関数_get_sid_authorization_headerを実行しました。")
         print(f"_base.pyの関数_get_sid_authorization_headerを実行しました。")
@@ -852,6 +875,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_request_webpageを実行しました。")
         print(f"_base.pyの関数_request_webpageを実行しました。")
         print(f"_base.pyの関数_request_webpageを実行しました。")
+        print(f"_base.pyの関数_request_webpageを実行しました。")
         response = super()._request_webpage(*args, **kwargs)
 
         # Check that we are still logged-in and cookies have not rotated after every request
@@ -885,6 +909,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
             }, cndn=lambda _, v: v))
 
     def extract_yt_initial_data(self, item_id, webpage, fatal=True):
+        print(f"_base.pyの関数extract_yt_initial_dataを実行しました。")
         print(f"_base.pyの関数extract_yt_initial_dataを実行しました。")
         print(f"_base.pyの関数extract_yt_initial_dataを実行しました。")
         print(f"_base.pyの関数extract_yt_initial_dataを実行しました。")
@@ -923,6 +948,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_extract_delegated_session_idを実行しました。")
         print(f"_base.pyの関数_extract_delegated_session_idを実行しました。")
         print(f"_base.pyの関数_extract_delegated_session_idを実行しました。")
+        print(f"_base.pyの関数_extract_delegated_session_idを実行しました。")
         """
         Extract current delegated session ID required to download private playlists of secondary channels
         @params response and/or ytcfg
@@ -936,6 +962,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         return self._parse_data_sync_id(data_sync_id)[0]
 
     def _extract_user_session_id(self, *args):
+        print(f"_base.pyの関数_extract_user_session_idを実行しました。")
         print(f"_base.pyの関数_extract_user_session_idを実行しました。")
         print(f"_base.pyの関数_extract_user_session_idを実行しました。")
         print(f"_base.pyの関数_extract_user_session_idを実行しました。")
@@ -954,6 +981,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_extract_data_sync_idを実行しました。")
         print(f"_base.pyの関数_extract_data_sync_idを実行しました。")
         print(f"_base.pyの関数_extract_data_sync_idを実行しました。")
+        print(f"_base.pyの関数_extract_data_sync_idを実行しました。")
         """
         Extract current account dataSyncId.
         In the format DELEGATED_SESSION_ID||USER_SESSION_ID or USER_SESSION_ID||
@@ -966,6 +994,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
             args, (..., ('DATASYNC_ID', ('responseContext', 'mainAppWebResponseContext', 'datasyncId')), {str}, any))
 
     def _extract_visitor_data(self, *args):
+        print(f"_base.pyの関数_extract_visitor_dataを実行しました。")
         print(f"_base.pyの関数_extract_visitor_dataを実行しました。")
         print(f"_base.pyの関数_extract_visitor_dataを実行しました。")
         print(f"_base.pyの関数_extract_visitor_dataを実行しました。")
@@ -983,6 +1012,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数extract_ytcfgを実行しました。")
         print(f"_base.pyの関数extract_ytcfgを実行しました。")
         print(f"_base.pyの関数extract_ytcfgを実行しました。")
+        print(f"_base.pyの関数extract_ytcfgを実行しました。")
         if not webpage:
             return {}
         return self._parse_json(
@@ -991,6 +1021,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
                 default='{}'), video_id, fatal=False) or {}
 
     def _generate_cookie_auth_headers(self, *, ytcfg=None, delegated_session_id=None, user_session_id=None, session_index=None, origin=None, **kwargs):
+        print(f"_base.pyの関数_generate_cookie_auth_headersを実行しました。")
         print(f"_base.pyの関数_generate_cookie_auth_headersを実行しました。")
         print(f"_base.pyの関数_generate_cookie_auth_headersを実行しました。")
         print(f"_base.pyの関数_generate_cookie_auth_headersを実行しました。")
@@ -1038,6 +1069,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_download_webpage_with_retriesを実行しました。")
         print(f"_base.pyの関数_download_webpage_with_retriesを実行しました。")
         print(f"_base.pyの関数_download_webpage_with_retriesを実行しました。")
+        print(f"_base.pyの関数_download_webpage_with_retriesを実行しました。")
         for retry in self.RetryManager(fatal=retry_fatal):
             try:
                 return self._download_webpage(*args, **kwargs)
@@ -1050,6 +1082,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
                 break
 
     def _download_ytcfg(self, client, video_id):
+        print(f"_base.pyの関数_download_ytcfgを実行しました。")
         print(f"_base.pyの関数_download_ytcfgを実行しました。")
         print(f"_base.pyの関数_download_ytcfgを実行しました。")
         print(f"_base.pyの関数_download_ytcfgを実行しました。")
@@ -1159,6 +1192,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_report_alertsを実行しました。")
         print(f"_base.pyの関数_report_alertsを実行しました。")
         print(f"_base.pyの関数_report_alertsを実行しました。")
+        print(f"_base.pyの関数_report_alertsを実行しました。")
         errors, warnings = [], []
         for alert_type, alert_message in alerts:
             if alert_type.lower() == 'error' and fatal:
@@ -1175,9 +1209,11 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_extract_and_report_alertsを実行しました。")
         print(f"_base.pyの関数_extract_and_report_alertsを実行しました。")
         print(f"_base.pyの関数_extract_and_report_alertsを実行しました。")
+        print(f"_base.pyの関数_extract_and_report_alertsを実行しました。")
         return self._report_alerts(self._extract_alerts(data), *args, **kwargs)
 
     def _extract_badges(self, badge_list: list):
+        print(f"_base.pyの関数_extract_badgesを実行しました。")
         print(f"_base.pyの関数_extract_badgesを実行しました。")
         print(f"_base.pyの関数_extract_badgesを実行しました。")
         print(f"_base.pyの関数_extract_badgesを実行しました。")
@@ -1262,6 +1298,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
         print(f"_base.pyの関数_get_countを実行しました。")
         print(f"_base.pyの関数_get_countを実行しました。")
         print(f"_base.pyの関数_get_countを実行しました。")
+        print(f"_base.pyの関数_get_countを実行しました。")
         count_text = self._get_text(data, *path_list) or ''
         count = parse_count(count_text)
         if count is None:
@@ -1317,6 +1354,7 @@ class YoutubeBaseInfoExtractor(InfoExtractor):
                 return None
 
     def _parse_time_text(self, text, report_failure=True):
+        print(f"_base.pyの関数_parse_time_textを実行しました。")
         print(f"_base.pyの関数_parse_time_textを実行しました。")
         print(f"_base.pyの関数_parse_time_textを実行しました。")
         print(f"_base.pyの関数_parse_time_textを実行しました。")

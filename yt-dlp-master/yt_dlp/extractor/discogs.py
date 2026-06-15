@@ -26,6 +26,7 @@ class DiscogsReleasePlaylistIE(InfoExtractor):
         print(f"discogs.pyの関数_real_extractを実行しました。")
         print(f"discogs.pyの関数_real_extractを実行しました。")
         print(f"discogs.pyの関数_real_extractを実行しました。")
+        print(f"discogs.pyの関数_real_extractを実行しました。")
         playlist_id, playlist_type = self._match_valid_url(url).group('id', 'type')
 
         display_id = f'{playlist_type}{playlist_id}'

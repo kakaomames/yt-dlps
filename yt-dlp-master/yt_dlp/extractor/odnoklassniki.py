@@ -235,6 +235,7 @@ class OdnoklassnikiIE(InfoExtractor):
         print(f"odnoklassniki.pyの関数_clear_cookiesを実行しました。")
         print(f"odnoklassniki.pyの関数_clear_cookiesを実行しました。")
         print(f"odnoklassniki.pyの関数_clear_cookiesを実行しました。")
+        print(f"odnoklassniki.pyの関数_clear_cookiesを実行しました。")
         # Direct http downloads will fail if CDN cookies are set
         # so we need to reset them after each format extraction
         self.cookiejar.clear(domain='.mycdn.me')
@@ -250,6 +251,7 @@ class OdnoklassnikiIE(InfoExtractor):
         print(f"odnoklassniki.pyの関数_real_extractを実行しました。")
         print(f"odnoklassniki.pyの関数_real_extractを実行しました。")
         print(f"odnoklassniki.pyの関数_real_extractを実行しました。")
+        print(f"odnoklassniki.pyの関数_real_extractを実行しました。")
         try:
             return self._extract_desktop(url)
         except ExtractorError as e:
@@ -260,6 +262,7 @@ class OdnoklassnikiIE(InfoExtractor):
                 raise e
 
     def _extract_desktop(self, url):
+        print(f"odnoklassniki.pyの関数_extract_desktopを実行しました。")
         print(f"odnoklassniki.pyの関数_extract_desktopを実行しました。")
         print(f"odnoklassniki.pyの関数_extract_desktopを実行しました。")
         print(f"odnoklassniki.pyの関数_extract_desktopを実行しました。")
@@ -430,6 +433,7 @@ class OdnoklassnikiIE(InfoExtractor):
         return info
 
     def _extract_mobile(self, url):
+        print(f"odnoklassniki.pyの関数_extract_mobileを実行しました。")
         print(f"odnoklassniki.pyの関数_extract_mobileを実行しました。")
         print(f"odnoklassniki.pyの関数_extract_mobileを実行しました。")
         print(f"odnoklassniki.pyの関数_extract_mobileを実行しました。")

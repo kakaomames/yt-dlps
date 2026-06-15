@@ -17,6 +17,7 @@ class BrilliantpalaBaseIE(InfoExtractor):
         print(f"brilliantpala.pyの関数_initialize_pre_loginを実行しました。")
         print(f"brilliantpala.pyの関数_initialize_pre_loginを実行しました。")
         print(f"brilliantpala.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"brilliantpala.pyの関数_initialize_pre_loginを実行しました。")
         self._HOMEPAGE = f'https://{self._DOMAIN}'
         self._LOGIN_API = f'{self._HOMEPAGE}/login/'
         self._LOGOUT_DEVICES_API = f'{self._HOMEPAGE}/logout_devices/?next=/'
@@ -28,6 +29,7 @@ class BrilliantpalaBaseIE(InfoExtractor):
         print(f"brilliantpala.pyの関数_get_logged_in_usernameを実行しました。")
         print(f"brilliantpala.pyの関数_get_logged_in_usernameを実行しました。")
         print(f"brilliantpala.pyの関数_get_logged_in_usernameを実行しました。")
+        print(f"brilliantpala.pyの関数_get_logged_in_usernameを実行しました。")
         webpage, urlh = self._download_webpage_handle(url, video_id)
         if urlh.url.startswith(self._LOGIN_API):
             self.raise_login_required()
@@ -35,6 +37,7 @@ class BrilliantpalaBaseIE(InfoExtractor):
             r'"username"\s*:\s*"(?P<username>[^"]+)"', webpage, 'logged-in username')
 
     def _perform_login(self, username, password):
+        print(f"brilliantpala.pyの関数_perform_loginを実行しました。")
         print(f"brilliantpala.pyの関数_perform_loginを実行しました。")
         print(f"brilliantpala.pyの関数_perform_loginを実行しました。")
         print(f"brilliantpala.pyの関数_perform_loginを実行しました。")
@@ -73,6 +76,7 @@ class BrilliantpalaBaseIE(InfoExtractor):
                 note='Logging out other devices', data=urlencode_postdata(logout_device_form))
 
     def _real_extract(self, url):
+        print(f"brilliantpala.pyの関数_real_extractを実行しました。")
         print(f"brilliantpala.pyの関数_real_extractを実行しました。")
         print(f"brilliantpala.pyの関数_real_extractを実行しました。")
         print(f"brilliantpala.pyの関数_real_extractを実行しました。")

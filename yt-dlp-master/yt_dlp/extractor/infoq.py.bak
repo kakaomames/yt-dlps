@@ -53,6 +53,7 @@ class InfoQIE(InfoExtractor):
         print(f"infoq.pyの関数_extract_rtmp_videoを実行しました。")
         print(f"infoq.pyの関数_extract_rtmp_videoを実行しました。")
         print(f"infoq.pyの関数_extract_rtmp_videoを実行しました。")
+        print(f"infoq.pyの関数_extract_rtmp_videoを実行しました。")
         # The server URL is hardcoded
         video_url = 'rtmpe://videof.infoq.com/cfx/st/'
 
@@ -74,6 +75,7 @@ class InfoQIE(InfoExtractor):
         print(f"infoq.pyの関数_extract_cf_authを実行しました。")
         print(f"infoq.pyの関数_extract_cf_authを実行しました。")
         print(f"infoq.pyの関数_extract_cf_authを実行しました。")
+        print(f"infoq.pyの関数_extract_cf_authを実行しました。")
         policy = self._search_regex(r'InfoQConstants\.scp\s*=\s*\'([^\']+)\'', webpage, 'policy')
         signature = self._search_regex(r'InfoQConstants\.scs\s*=\s*\'([^\']+)\'', webpage, 'signature')
         key_pair_id = self._search_regex(r'InfoQConstants\.sck\s*=\s*\'([^\']+)\'', webpage, 'key-pair-id')
@@ -87,6 +89,7 @@ class InfoQIE(InfoExtractor):
         print(f"infoq.pyの関数_extract_http_videoを実行しました。")
         print(f"infoq.pyの関数_extract_http_videoを実行しました。")
         print(f"infoq.pyの関数_extract_http_videoを実行しました。")
+        print(f"infoq.pyの関数_extract_http_videoを実行しました。")
         http_video_url = self._search_regex(r'P\.s\s*=\s*\'([^\']+)\'', webpage, 'video URL')
         http_video_url = update_url_query(http_video_url, self._extract_cf_auth(webpage))
         return [{
@@ -96,6 +99,7 @@ class InfoQIE(InfoExtractor):
         }]
 
     def _extract_http_audio(self, webpage, video_id):
+        print(f"infoq.pyの関数_extract_http_audioを実行しました。")
         print(f"infoq.pyの関数_extract_http_audioを実行しました。")
         print(f"infoq.pyの関数_extract_http_audioを実行しました。")
         print(f"infoq.pyの関数_extract_http_audioを実行しました。")
@@ -123,6 +127,7 @@ class InfoQIE(InfoExtractor):
         }]
 
     def _real_extract(self, url):
+        print(f"infoq.pyの関数_real_extractを実行しました。")
         print(f"infoq.pyの関数_real_extractを実行しました。")
         print(f"infoq.pyの関数_real_extractを実行しました。")
         print(f"infoq.pyの関数_real_extractを実行しました。")

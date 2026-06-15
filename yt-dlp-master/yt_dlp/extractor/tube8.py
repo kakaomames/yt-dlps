@@ -42,6 +42,7 @@ class Tube8IE(InfoExtractor):
         print(f"tube8.pyの関数_extract_infoを実行しました。")
         print(f"tube8.pyの関数_extract_infoを実行しました。")
         print(f"tube8.pyの関数_extract_infoを実行しました。")
+        print(f"tube8.pyの関数_extract_infoを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         display_id = (mobj.group('display_id')
@@ -60,6 +61,7 @@ class Tube8IE(InfoExtractor):
         encrypted = False
 
         def extract_format(format_url, height=None):
+            print(f"tube8.pyの関数extract_formatを実行しました。")
             print(f"tube8.pyの関数extract_formatを実行しました。")
             print(f"tube8.pyの関数extract_formatを実行しました。")
             print(f"tube8.pyの関数extract_formatを実行しました。")
@@ -130,6 +132,7 @@ class Tube8IE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"tube8.pyの関数_real_extractを実行しました。")
         print(f"tube8.pyの関数_real_extractを実行しました。")
         print(f"tube8.pyの関数_real_extractを実行しました。")
         print(f"tube8.pyの関数_real_extractを実行しました。")

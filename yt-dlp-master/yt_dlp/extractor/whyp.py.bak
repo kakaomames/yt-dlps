@@ -36,6 +36,7 @@ class WhypIE(InfoExtractor):
         print(f"whyp.pyの関数_real_extractを実行しました。")
         print(f"whyp.pyの関数_real_extractを実行しました。")
         print(f"whyp.pyの関数_real_extractを実行しました。")
+        print(f"whyp.pyの関数_real_extractを実行しました。")
         unique_id = self._match_id(url)
         webpage = self._download_webpage(url, unique_id)
         data = self._search_nuxt_data(webpage, unique_id)['rawTrack']

@@ -58,6 +58,7 @@ class S4CIE(InfoExtractor):
         print(f"s4c.pyの関数_real_extractを実行しました。")
         print(f"s4c.pyの関数_real_extractを実行しました。")
         print(f"s4c.pyの関数_real_extractを実行しました。")
+        print(f"s4c.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         details = self._download_json(
             f'https://www.s4c.cymru/df/full_prog_details?lang=e&programme_id={video_id}',

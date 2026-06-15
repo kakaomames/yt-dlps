@@ -26,6 +26,7 @@ class KuwoBaseIE(InfoExtractor):
         print(f"kuwo.pyの関数_get_formatsを実行しました。")
         print(f"kuwo.pyの関数_get_formatsを実行しました。")
         print(f"kuwo.pyの関数_get_formatsを実行しました。")
+        print(f"kuwo.pyの関数_get_formatsを実行しました。")
         formats = []
         for file_format in self._FORMATS:
             query = {
@@ -92,6 +93,7 @@ class KuwoIE(KuwoBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"kuwo.pyの関数_real_extractを実行しました。")
         print(f"kuwo.pyの関数_real_extractを実行しました。")
         print(f"kuwo.pyの関数_real_extractを実行しました。")
         print(f"kuwo.pyの関数_real_extractを実行しました。")
@@ -244,6 +246,7 @@ class KuwoSingerIE(InfoExtractor):
             r'data-page="(\d+)"', webpage, 'page count'))
 
         def page_func(page_num):
+            print(f"kuwo.pyの関数page_funcを実行しました。")
             print(f"kuwo.pyの関数page_funcを実行しました。")
             print(f"kuwo.pyの関数page_funcを実行しました。")
             print(f"kuwo.pyの関数page_funcを実行しました。")

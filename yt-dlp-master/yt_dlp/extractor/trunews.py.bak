@@ -23,6 +23,7 @@ class TruNewsIE(InfoExtractor):
         print(f"trunews.pyの関数_real_extractを実行しました。")
         print(f"trunews.pyの関数_real_extractを実行しました。")
         print(f"trunews.pyの関数_real_extractを実行しました。")
+        print(f"trunews.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         zype_id = self._download_json(

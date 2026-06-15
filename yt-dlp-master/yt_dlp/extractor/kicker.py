@@ -47,6 +47,7 @@ class KickerIE(InfoExtractor):
         print(f"kicker.pyの関数_real_extractを実行しました。")
         print(f"kicker.pyの関数_real_extractを実行しました。")
         print(f"kicker.pyの関数_real_extractを実行しました。")
+        print(f"kicker.pyの関数_real_extractを実行しました。")
         video_slug = self._match_id(url)
 
         webpage = self._download_webpage(url, video_slug)

@@ -53,6 +53,7 @@ class TeamTreeHouseIE(InfoExtractor):
         print(f"teamtreehouse.pyの関数_perform_loginを実行しました。")
         print(f"teamtreehouse.pyの関数_perform_loginを実行しました。")
         print(f"teamtreehouse.pyの関数_perform_loginを実行しました。")
+        print(f"teamtreehouse.pyの関数_perform_loginを実行しました。")
 
         signin_page = self._download_webpage(
             'https://teamtreehouse.com/signin',
@@ -69,6 +70,7 @@ class TeamTreeHouseIE(InfoExtractor):
             raise ExtractorError(clean_html(error_message), expected=True)
 
     def _real_extract(self, url):
+        print(f"teamtreehouse.pyの関数_real_extractを実行しました。")
         print(f"teamtreehouse.pyの関数_real_extractを実行しました。")
         print(f"teamtreehouse.pyの関数_real_extractを実行しました。")
         print(f"teamtreehouse.pyの関数_real_extractを実行しました。")
@@ -107,6 +109,7 @@ class TeamTreeHouseIE(InfoExtractor):
             return info
         else:
             def extract_urls(html, extract_info=None):
+                print(f"teamtreehouse.pyの関数extract_urlsを実行しました。")
                 print(f"teamtreehouse.pyの関数extract_urlsを実行しました。")
                 print(f"teamtreehouse.pyの関数extract_urlsを実行しました。")
                 print(f"teamtreehouse.pyの関数extract_urlsを実行しました。")

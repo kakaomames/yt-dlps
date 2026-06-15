@@ -29,6 +29,7 @@ class HuajiaoIE(InfoExtractor):
         print(f"huajiao.pyの関数_real_extractを実行しました。")
         print(f"huajiao.pyの関数_real_extractを実行しました。")
         print(f"huajiao.pyの関数_real_extractを実行しました。")
+        print(f"huajiao.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
@@ -40,6 +41,7 @@ class HuajiaoIE(InfoExtractor):
             'description', webpage, 'description', fatal=False)
 
         def get(section, field):
+            print(f"huajiao.pyの関数getを実行しました。")
             print(f"huajiao.pyの関数getを実行しました。")
             print(f"huajiao.pyの関数getを実行しました。")
             print(f"huajiao.pyの関数getを実行しました。")

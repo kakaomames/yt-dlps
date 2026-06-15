@@ -28,6 +28,7 @@ class CJSWIE(InfoExtractor):
         print(f"cjsw.pyの関数_real_extractを実行しました。")
         print(f"cjsw.pyの関数_real_extractを実行しました。")
         print(f"cjsw.pyの関数_real_extractを実行しました。")
+        print(f"cjsw.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         program, episode_id = mobj.group('program', 'id')
         audio_id = f'{program}/{episode_id}'

@@ -85,6 +85,7 @@ class FileDownloader:
         print(f"common.pyの関数__init__を実行しました。")
         print(f"common.pyの関数__init__を実行しました。")
         print(f"common.pyの関数__init__を実行しました。")
+        print(f"common.pyの関数__init__を実行しました。")
         """Create a FileDownloader object with the given options."""
         self._set_ydl(ydl)
         self._progress_hooks = []
@@ -96,6 +97,7 @@ class FileDownloader:
             self._progress_delta_time = time.monotonic()
 
     def _set_ydl(self, ydl):
+        print(f"common.pyの関数_set_ydlを実行しました。")
         print(f"common.pyの関数_set_ydlを実行しました。")
         print(f"common.pyの関数_set_ydlを実行しました。")
         print(f"common.pyの関数_set_ydlを実行しました。")
@@ -116,6 +118,7 @@ class FileDownloader:
                 setattr(self, func, getattr(ydl, func))
 
     def to_screen(self, *args, **kargs):
+        print(f"common.pyの関数to_screenを実行しました。")
         print(f"common.pyの関数to_screenを実行しました。")
         print(f"common.pyの関数to_screenを実行しました。")
         print(f"common.pyの関数to_screenを実行しました。")
@@ -211,6 +214,7 @@ class FileDownloader:
         print(f"common.pyの関数slow_downを実行しました。")
         print(f"common.pyの関数slow_downを実行しました。")
         print(f"common.pyの関数slow_downを実行しました。")
+        print(f"common.pyの関数slow_downを実行しました。")
         """Sleep if the download speed is over the rate limit."""
         rate_limit = self.params.get('ratelimit')
         if rate_limit is None or byte_counter == 0:
@@ -230,6 +234,7 @@ class FileDownloader:
         print(f"common.pyの関数temp_nameを実行しました。")
         print(f"common.pyの関数temp_nameを実行しました。")
         print(f"common.pyの関数temp_nameを実行しました。")
+        print(f"common.pyの関数temp_nameを実行しました。")
         """Returns a temporary filename for the given filename."""
         if self.params.get('nopart', False) or filename == '-' or \
                 (os.path.exists(filename) and not os.path.isfile(filename)):
@@ -237,6 +242,7 @@ class FileDownloader:
         return filename + '.part'
 
     def undo_temp_name(self, filename):
+        print(f"common.pyの関数undo_temp_nameを実行しました。")
         print(f"common.pyの関数undo_temp_nameを実行しました。")
         print(f"common.pyの関数undo_temp_nameを実行しました。")
         print(f"common.pyの関数undo_temp_nameを実行しました。")
@@ -248,13 +254,16 @@ class FileDownloader:
         print(f"common.pyの関数ytdl_filenameを実行しました。")
         print(f"common.pyの関数ytdl_filenameを実行しました。")
         print(f"common.pyの関数ytdl_filenameを実行しました。")
+        print(f"common.pyの関数ytdl_filenameを実行しました。")
         return filename + '.ytdl'
 
     def wrap_file_access(action, *, fatal=False):
         print(f"common.pyの関数wrap_file_accessを実行しました。")
         print(f"common.pyの関数wrap_file_accessを実行しました。")
         print(f"common.pyの関数wrap_file_accessを実行しました。")
+        print(f"common.pyの関数wrap_file_accessを実行しました。")
         def error_callback(err, count, retries, *, fd):
+            print(f"common.pyの関数error_callbackを実行しました。")
             print(f"common.pyの関数error_callbackを実行しました。")
             print(f"common.pyの関数error_callbackを実行しました。")
             print(f"common.pyの関数error_callbackを実行しました。")
@@ -265,6 +274,7 @@ class FileDownloader:
                 sleep_func=fd.params.get('retry_sleep_functions', {}).get('file_access'))
 
         def wrapper(self, func, *args, **kwargs):
+            print(f"common.pyの関数wrapperを実行しました。")
             print(f"common.pyの関数wrapperを実行しました。")
             print(f"common.pyの関数wrapperを実行しました。")
             print(f"common.pyの関数wrapperを実行しました。")
@@ -301,6 +311,7 @@ class FileDownloader:
         print(f"common.pyの関数try_utimeを実行しました。")
         print(f"common.pyの関数try_utimeを実行しました。")
         print(f"common.pyの関数try_utimeを実行しました。")
+        print(f"common.pyの関数try_utimeを実行しました。")
         """Try to set the last-modified time of the given file."""
         if last_modified_hdr is None:
             return
@@ -323,10 +334,12 @@ class FileDownloader:
         print(f"common.pyの関数report_destinationを実行しました。")
         print(f"common.pyの関数report_destinationを実行しました。")
         print(f"common.pyの関数report_destinationを実行しました。")
+        print(f"common.pyの関数report_destinationを実行しました。")
         """Report destination filename."""
         self.to_screen('[download] Destination: ' + filename)
 
     def _prepare_multiline_status(self, lines=1):
+        print(f"common.pyの関数_prepare_multiline_statusを実行しました。")
         print(f"common.pyの関数_prepare_multiline_statusを実行しました。")
         print(f"common.pyの関数_prepare_multiline_statusを実行しました。")
         print(f"common.pyの関数_prepare_multiline_statusを実行しました。")
@@ -345,6 +358,7 @@ class FileDownloader:
         print(f"common.pyの関数_finish_multiline_statusを実行しました。")
         print(f"common.pyの関数_finish_multiline_statusを実行しました。")
         print(f"common.pyの関数_finish_multiline_statusを実行しました。")
+        print(f"common.pyの関数_finish_multiline_statusを実行しました。")
         self._multiline.end()
 
     ProgressStyles = Namespace(
@@ -358,6 +372,7 @@ class FileDownloader:
     )
 
     def _report_progress_status(self, s, default_template):
+        print(f"common.pyの関数_report_progress_statusを実行しました。")
         print(f"common.pyの関数_report_progress_statusを実行しました。")
         print(f"common.pyの関数_report_progress_statusを実行しました。")
         print(f"common.pyの関数_report_progress_statusを実行しました。")
@@ -384,6 +399,7 @@ class FileDownloader:
         print(f"common.pyの関数_format_progressを実行しました。")
         print(f"common.pyの関数_format_progressを実行しました。")
         print(f"common.pyの関数_format_progressを実行しました。")
+        print(f"common.pyの関数_format_progressを実行しました。")
         return self.ydl._format_text(
             self._multiline.stream, self._multiline.allow_colors, *args, **kwargs)
 
@@ -391,7 +407,9 @@ class FileDownloader:
         print(f"common.pyの関数report_progressを実行しました。")
         print(f"common.pyの関数report_progressを実行しました。")
         print(f"common.pyの関数report_progressを実行しました。")
+        print(f"common.pyの関数report_progressを実行しました。")
         def with_fields(*tups, default=''):
+            print(f"common.pyの関数with_fieldsを実行しました。")
             print(f"common.pyの関数with_fieldsを実行しました。")
             print(f"common.pyの関数with_fieldsを実行しました。")
             print(f"common.pyの関数with_fieldsを実行しました。")
@@ -461,10 +479,12 @@ class FileDownloader:
         print(f"common.pyの関数report_resuming_byteを実行しました。")
         print(f"common.pyの関数report_resuming_byteを実行しました。")
         print(f"common.pyの関数report_resuming_byteを実行しました。")
+        print(f"common.pyの関数report_resuming_byteを実行しました。")
         """Report attempt to resume at given byte."""
         self.to_screen(f'[download] Resuming download at byte {resume_len}')
 
     def report_retry(self, err, count, retries, frag_index=NO_DEFAULT, fatal=True):
+        print(f"common.pyの関数report_retryを実行しました。")
         print(f"common.pyの関数report_retryを実行しました。")
         print(f"common.pyの関数report_retryを実行しました。")
         print(f"common.pyの関数report_retryを実行しました。")
@@ -481,6 +501,7 @@ class FileDownloader:
         print(f"common.pyの関数report_unable_to_resumeを実行しました。")
         print(f"common.pyの関数report_unable_to_resumeを実行しました。")
         print(f"common.pyの関数report_unable_to_resumeを実行しました。")
+        print(f"common.pyの関数report_unable_to_resumeを実行しました。")
         """Report it was impossible to resume download."""
         self.to_screen('[download] Unable to resume')
 
@@ -491,6 +512,7 @@ class FileDownloader:
         pass
 
     def download(self, filename, info_dict, subtitle=False):
+        print(f"common.pyの関数downloadを実行しました。")
         print(f"common.pyの関数downloadを実行しました。")
         print(f"common.pyの関数downloadを実行しました。")
         print(f"common.pyの関数downloadを実行しました。")
@@ -551,10 +573,12 @@ class FileDownloader:
         print(f"common.pyの関数real_downloadを実行しました。")
         print(f"common.pyの関数real_downloadを実行しました。")
         print(f"common.pyの関数real_downloadを実行しました。")
+        print(f"common.pyの関数real_downloadを実行しました。")
         """Real download process. Redefine in subclasses."""
         raise NotImplementedError('This method must be implemented by subclasses')
 
     def _hook_progress(self, status, info_dict):
+        print(f"common.pyの関数_hook_progressを実行しました。")
         print(f"common.pyの関数_hook_progressを実行しました。")
         print(f"common.pyの関数_hook_progressを実行しました。")
         print(f"common.pyの関数_hook_progressを実行しました。")
@@ -570,11 +594,13 @@ class FileDownloader:
         print(f"common.pyの関数add_progress_hookを実行しました。")
         print(f"common.pyの関数add_progress_hookを実行しました。")
         print(f"common.pyの関数add_progress_hookを実行しました。")
+        print(f"common.pyの関数add_progress_hookを実行しました。")
         # See YoutubeDl.py (search for progress_hooks) for a description of
         # this interface
         self._progress_hooks.append(ph)
 
     def _debug_cmd(self, args, exe=None):
+        print(f"common.pyの関数_debug_cmdを実行しました。")
         print(f"common.pyの関数_debug_cmdを実行しました。")
         print(f"common.pyの関数_debug_cmdを実行しました。")
         print(f"common.pyの関数_debug_cmdを実行しました。")
@@ -587,6 +613,7 @@ class FileDownloader:
         self.write_debug(f'{exe} command line: {shell_quote(args)}')
 
     def _get_impersonate_target(self, info_dict):
+        print(f"common.pyの関数_get_impersonate_targetを実行しました。")
         print(f"common.pyの関数_get_impersonate_targetを実行しました。")
         print(f"common.pyの関数_get_impersonate_targetを実行しました。")
         print(f"common.pyの関数_get_impersonate_targetを実行しました。")

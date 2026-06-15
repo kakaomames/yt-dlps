@@ -21,6 +21,7 @@ class TelecincoBaseIE(InfoExtractor):
         print(f"telecinco.pyの関数_parse_contentを実行しました。")
         print(f"telecinco.pyの関数_parse_contentを実行しました。")
         print(f"telecinco.pyの関数_parse_contentを実行しました。")
+        print(f"telecinco.pyの関数_parse_contentを実行しました。")
         video_id = content['dataMediaId'][1]
         config = self._download_json(
             content['dataConfig'][1], video_id, 'Downloading config JSON')
@@ -144,6 +145,7 @@ class TelecincoIE(TelecincoBaseIE):
     _ASTRO_ISLAND_RE = re.compile(r'<astro-island\b[^>]+>')
 
     def _real_extract(self, url):
+        print(f"telecinco.pyの関数_real_extractを実行しました。")
         print(f"telecinco.pyの関数_real_extractを実行しました。")
         print(f"telecinco.pyの関数_real_extractを実行しました。")
         print(f"telecinco.pyの関数_real_extractを実行しました。")

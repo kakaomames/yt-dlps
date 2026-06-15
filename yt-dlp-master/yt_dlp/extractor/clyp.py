@@ -52,6 +52,7 @@ class ClypIE(InfoExtractor):
         print(f"clyp.pyの関数_real_extractを実行しました。")
         print(f"clyp.pyの関数_real_extractを実行しました。")
         print(f"clyp.pyの関数_real_extractを実行しました。")
+        print(f"clyp.pyの関数_real_extractを実行しました。")
         audio_id = self._match_id(url)
 
         qs = parse_qs(url)

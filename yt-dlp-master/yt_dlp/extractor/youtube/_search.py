@@ -98,6 +98,7 @@ class YoutubeSearchURLIE(YoutubeTabBaseInfoExtractor):
         print(f"_search.pyの関数_real_extractを実行しました。")
         print(f"_search.pyの関数_real_extractを実行しました。")
         print(f"_search.pyの関数_real_extractを実行しました。")
+        print(f"_search.pyの関数_real_extractを実行しました。")
         qs = parse_qs(url)
         query = (qs.get('search_query') or qs.get('q'))[0]
         return self.playlist_result(self._search_results(query, qs.get('sp', (None,))[0]), query, query)

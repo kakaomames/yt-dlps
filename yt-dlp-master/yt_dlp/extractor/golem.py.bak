@@ -27,6 +27,7 @@ class GolemIE(InfoExtractor):
         print(f"golem.pyの関数_real_extractを実行しました。")
         print(f"golem.pyの関数_real_extractを実行しました。")
         print(f"golem.pyの関数_real_extractを実行しました。")
+        print(f"golem.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         config = self._download_xml(

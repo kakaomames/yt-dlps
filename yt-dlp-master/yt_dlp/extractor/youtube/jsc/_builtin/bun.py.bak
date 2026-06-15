@@ -52,10 +52,12 @@ class BunJCP(EJSBaseJCP, BuiltinIEContentProvider):
         print(f"bun.pyの関数_iter_script_sourcesを実行しました。")
         print(f"bun.pyの関数_iter_script_sourcesを実行しました。")
         print(f"bun.pyの関数_iter_script_sourcesを実行しました。")
+        print(f"bun.pyの関数_iter_script_sourcesを実行しました。")
         yield from super()._iter_script_sources()
         yield ScriptSource.BUILTIN, self._bun_npm_source
 
     def _bun_npm_source(self, script_type: ScriptType, /):
+        print(f"bun.pyの関数_bun_npm_sourceを実行しました。")
         print(f"bun.pyの関数_bun_npm_sourceを実行しました。")
         print(f"bun.pyの関数_bun_npm_sourceを実行しました。")
         print(f"bun.pyの関数_bun_npm_sourceを実行しました。")
@@ -84,6 +86,7 @@ class BunJCP(EJSBaseJCP, BuiltinIEContentProvider):
         return None
 
     def _check_env_proxies(self, env):
+        print(f"bun.pyの関数_check_env_proxiesを実行しました。")
         print(f"bun.pyの関数_check_env_proxiesを実行しました。")
         print(f"bun.pyの関数_check_env_proxiesを実行しました。")
         print(f"bun.pyの関数_check_env_proxiesを実行しました。")
@@ -164,6 +167,7 @@ class BunJCP(EJSBaseJCP, BuiltinIEContentProvider):
         return stdout
 
     def _clean_stderr(self, stderr):
+        print(f"bun.pyの関数_clean_stderrを実行しました。")
         print(f"bun.pyの関数_clean_stderrを実行しました。")
         print(f"bun.pyの関数_clean_stderrを実行しました。")
         print(f"bun.pyの関数_clean_stderrを実行しました。")

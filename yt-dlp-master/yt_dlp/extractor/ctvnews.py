@@ -153,9 +153,11 @@ class CTVNewsIE(InfoExtractor):
         print(f"ctvnews.pyの関数_ninecninemedia_url_resultを実行しました。")
         print(f"ctvnews.pyの関数_ninecninemedia_url_resultを実行しました。")
         print(f"ctvnews.pyの関数_ninecninemedia_url_resultを実行しました。")
+        print(f"ctvnews.pyの関数_ninecninemedia_url_resultを実行しました。")
         return self.url_result(f'9c9media:ctvnews_web:{clip_id}', NineCNineMediaIE, clip_id)
 
     def _real_extract(self, url):
+        print(f"ctvnews.pyの関数_real_extractを実行しました。")
         print(f"ctvnews.pyの関数_real_extractを実行しました。")
         print(f"ctvnews.pyの関数_real_extractを実行しました。")
         print(f"ctvnews.pyの関数_real_extractを実行しました。")

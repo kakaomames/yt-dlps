@@ -73,6 +73,7 @@ class SoundcloudEmbedIE(InfoExtractor):
         print(f"soundcloud.pyの関数_real_extractを実行しました。")
         print(f"soundcloud.pyの関数_real_extractを実行しました。")
         print(f"soundcloud.pyの関数_real_extractを実行しました。")
+        print(f"soundcloud.pyの関数_real_extractを実行しました。")
         query = parse_qs(url)
         api_url = query['url'][0]
         secret_token = query.get('secret_token')
@@ -122,9 +123,11 @@ class SoundcloudBaseIE(InfoExtractor):
         print(f"soundcloud.pyの関数_store_client_idを実行しました。")
         print(f"soundcloud.pyの関数_store_client_idを実行しました。")
         print(f"soundcloud.pyの関数_store_client_idを実行しました。")
+        print(f"soundcloud.pyの関数_store_client_idを実行しました。")
         self.cache.store('soundcloud', 'client_id', client_id)
 
     def _update_client_id(self):
+        print(f"soundcloud.pyの関数_update_client_idを実行しました。")
         print(f"soundcloud.pyの関数_update_client_idを実行しました。")
         print(f"soundcloud.pyの関数_update_client_idを実行しました。")
         print(f"soundcloud.pyの関数_update_client_idを実行しました。")
@@ -142,6 +145,7 @@ class SoundcloudBaseIE(InfoExtractor):
         raise ExtractorError('Unable to extract client id')
 
     def _call_api(self, *args, **kwargs):
+        print(f"soundcloud.pyの関数_call_apiを実行しました。")
         print(f"soundcloud.pyの関数_call_apiを実行しました。")
         print(f"soundcloud.pyの関数_call_apiを実行しました。")
         print(f"soundcloud.pyの関数_call_apiを実行しました。")
@@ -168,12 +172,14 @@ class SoundcloudBaseIE(InfoExtractor):
         print(f"soundcloud.pyの関数_initialize_pre_loginを実行しました。")
         print(f"soundcloud.pyの関数_initialize_pre_loginを実行しました。")
         print(f"soundcloud.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"soundcloud.pyの関数_initialize_pre_loginを実行しました。")
         self._CLIENT_ID = self.cache.load('soundcloud', 'client_id')
         if self._CLIENT_ID:
             return
         self._update_client_id()
 
     def _verify_oauth_token(self, token):
+        print(f"soundcloud.pyの関数_verify_oauth_tokenを実行しました。")
         print(f"soundcloud.pyの関数_verify_oauth_tokenを実行しました。")
         print(f"soundcloud.pyの関数_verify_oauth_tokenを実行しました。")
         print(f"soundcloud.pyの関数_verify_oauth_tokenを実行しました。")
@@ -190,12 +196,14 @@ class SoundcloudBaseIE(InfoExtractor):
         print(f"soundcloud.pyの関数_real_initializeを実行しました。")
         print(f"soundcloud.pyの関数_real_initializeを実行しました。")
         print(f"soundcloud.pyの関数_real_initializeを実行しました。")
+        print(f"soundcloud.pyの関数_real_initializeを実行しました。")
         if self._HEADERS:
             return
         if token := try_call(lambda: self._get_cookies(self._BASE_URL)['oauth_token'].value):
             self._verify_oauth_token(token)
 
     def _perform_login(self, username, password):
+        print(f"soundcloud.pyの関数_perform_loginを実行しました。")
         print(f"soundcloud.pyの関数_perform_loginを実行しました。")
         print(f"soundcloud.pyの関数_perform_loginを実行しました。")
         print(f"soundcloud.pyの関数_perform_loginを実行しました。")
@@ -213,7 +221,9 @@ class SoundcloudBaseIE(InfoExtractor):
             print(f"soundcloud.pyの関数genDevIdを実行しました。")
             print(f"soundcloud.pyの関数genDevIdを実行しました。")
             print(f"soundcloud.pyの関数genDevIdを実行しました。")
+            print(f"soundcloud.pyの関数genDevIdを実行しました。")
             def genNumBlock():
+                print(f"soundcloud.pyの関数genNumBlockを実行しました。")
                 print(f"soundcloud.pyの関数genNumBlockを実行しました。")
                 print(f"soundcloud.pyの関数genNumBlockを実行しました。")
                 print(f"soundcloud.pyの関数genNumBlockを実行しました。")
@@ -251,6 +261,7 @@ class SoundcloudBaseIE(InfoExtractor):
         print(f"soundcloud.pyの関数signを実行しました。")
         print(f"soundcloud.pyの関数signを実行しました。")
         print(f"soundcloud.pyの関数signを実行しました。")
+        print(f"soundcloud.pyの関数signを実行しました。")
         a = 33
         i = 1
         s = 440123
@@ -280,6 +291,7 @@ class SoundcloudBaseIE(InfoExtractor):
         return f'{y}:{d}:{m:x}:{c}'
 
     def _extract_info_dict(self, info, full_title=None, secret_token=None, extract_flat=False):
+        print(f"soundcloud.pyの関数_extract_info_dictを実行しました。")
         print(f"soundcloud.pyの関数_extract_info_dictを実行しました。")
         print(f"soundcloud.pyの関数_extract_info_dictを実行しました。")
         print(f"soundcloud.pyの関数_extract_info_dictを実行しました。")
@@ -330,6 +342,7 @@ class SoundcloudBaseIE(InfoExtractor):
                     })
 
         def invalid_url(url):
+            print(f"soundcloud.pyの関数invalid_urlを実行しました。")
             print(f"soundcloud.pyの関数invalid_urlを実行しました。")
             print(f"soundcloud.pyの関数invalid_urlを実行しました。")
             print(f"soundcloud.pyの関数invalid_urlを実行しました。")
@@ -444,6 +457,7 @@ class SoundcloudBaseIE(InfoExtractor):
                 thumbnails = [{'url': thumbnail}]
 
         def extract_count(key):
+            print(f"soundcloud.pyの関数extract_countを実行しました。")
             print(f"soundcloud.pyの関数extract_countを実行しました。")
             print(f"soundcloud.pyの関数extract_countを実行しました。")
             print(f"soundcloud.pyの関数extract_countを実行しました。")
@@ -793,6 +807,7 @@ class SoundcloudPlaylistBaseIE(SoundcloudBaseIE):
         print(f"soundcloud.pyの関数_extract_setを実行しました。")
         print(f"soundcloud.pyの関数_extract_setを実行しました。")
         print(f"soundcloud.pyの関数_extract_setを実行しました。")
+        print(f"soundcloud.pyの関数_extract_setを実行しました。")
         playlist_id = str(playlist['id'])
         tracks = playlist.get('tracks') or []
         if not all(t.get('permalink_url') for t in tracks) and token:
@@ -885,6 +900,7 @@ class SoundcloudPagedPlaylistBaseIE(SoundcloudBaseIE):
         print(f"soundcloud.pyの関数_extract_playlistを実行しました。")
         print(f"soundcloud.pyの関数_extract_playlistを実行しました。")
         print(f"soundcloud.pyの関数_extract_playlistを実行しました。")
+        print(f"soundcloud.pyの関数_extract_playlistを実行しました。")
         return {
             '_type': 'playlist',
             'id': playlist_id,
@@ -920,6 +936,7 @@ class SoundcloudPagedPlaylistBaseIE(SoundcloudBaseIE):
         print(f"soundcloud.pyの関数_entriesを実行しました。")
         print(f"soundcloud.pyの関数_entriesを実行しました。")
         print(f"soundcloud.pyの関数_entriesを実行しました。")
+        print(f"soundcloud.pyの関数_entriesを実行しました。")
         # Per the SoundCloud documentation, the maximum limit for a linked partitioning query is 200.
         # https://developers.soundcloud.com/blog/offset-pagination-deprecated
         query = {
@@ -946,6 +963,7 @@ class SoundcloudPagedPlaylistBaseIE(SoundcloudBaseIE):
                     continue
 
             def resolve_entry(*candidates):
+                print(f"soundcloud.pyの関数resolve_entryを実行しました。")
                 print(f"soundcloud.pyの関数resolve_entryを実行しました。")
                 print(f"soundcloud.pyの関数resolve_entryを実行しました。")
                 print(f"soundcloud.pyの関数resolve_entryを実行しました。")
@@ -1217,6 +1235,7 @@ class SoundcloudSearchIE(SoundcloudBaseIE, SearchInfoExtractor):
         print(f"soundcloud.pyの関数_get_collectionを実行しました。")
         print(f"soundcloud.pyの関数_get_collectionを実行しました。")
         print(f"soundcloud.pyの関数_get_collectionを実行しました。")
+        print(f"soundcloud.pyの関数_get_collectionを実行しました。")
         limit = min(
             query.get('limit', self._DEFAULT_RESULTS_PER_PAGE),
             self._MAX_RESULTS_PER_PAGE)
@@ -1242,6 +1261,7 @@ class SoundcloudSearchIE(SoundcloudBaseIE, SearchInfoExtractor):
                 break
 
     def _get_n_results(self, query, n):
+        print(f"soundcloud.pyの関数_get_n_resultsを実行しました。")
         print(f"soundcloud.pyの関数_get_n_resultsを実行しました。")
         print(f"soundcloud.pyの関数_get_n_resultsを実行しました。")
         print(f"soundcloud.pyの関数_get_n_resultsを実行しました。")

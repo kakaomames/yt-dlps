@@ -26,6 +26,7 @@ class N1InfoAssetIE(InfoExtractor):
         print(f"n1.pyの関数_real_extractを実行しました。")
         print(f"n1.pyの関数_real_extractを実行しました。")
         print(f"n1.pyの関数_real_extractを実行しました。")
+        print(f"n1.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         formats = self._extract_m3u8_formats(
             url, video_id, 'mp4', entry_protocol='m3u8_native', m3u8_id='hls', fatal=False)

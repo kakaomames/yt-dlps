@@ -46,6 +46,7 @@ class ERTFlixBaseIE(InfoExtractor):
         print(f"ertgr.pyの関数_call_api_get_tilesを実行しました。")
         print(f"ertgr.pyの関数_call_api_get_tilesを実行しました。")
         print(f"ertgr.pyの関数_call_api_get_tilesを実行しました。")
+        print(f"ertgr.pyの関数_call_api_get_tilesを実行しました。")
         requested_tile_ids = [video_id, *tile_ids]
         requested_tiles = [{'Id': tile_id} for tile_id in requested_tile_ids]
         tiles_response = self._call_api(
@@ -80,6 +81,7 @@ class ERTFlixCodenameIE(ERTFlixBaseIE):
         print(f"ertgr.pyの関数_extract_formats_and_subsを実行しました。")
         print(f"ertgr.pyの関数_extract_formats_and_subsを実行しました。")
         print(f"ertgr.pyの関数_extract_formats_and_subsを実行しました。")
+        print(f"ertgr.pyの関数_extract_formats_and_subsを実行しました。")
         media_info = self._call_api(video_id, codename=video_id)
         formats, subtitles = [], {}
         for media in traverse_obj(media_info, (
@@ -105,6 +107,7 @@ class ERTFlixCodenameIE(ERTFlixBaseIE):
         return formats, subtitles
 
     def _real_extract(self, url):
+        print(f"ertgr.pyの関数_real_extractを実行しました。")
         print(f"ertgr.pyの関数_real_extractを実行しました。")
         print(f"ertgr.pyの関数_real_extractを実行しました。")
         print(f"ertgr.pyの関数_real_extractを実行しました。")
@@ -188,6 +191,7 @@ class ERTFlixIE(ERTFlixBaseIE):
         print(f"ertgr.pyの関数_extract_episodeを実行しました。")
         print(f"ertgr.pyの関数_extract_episodeを実行しました。")
         print(f"ertgr.pyの関数_extract_episodeを実行しました。")
+        print(f"ertgr.pyの関数_extract_episodeを実行しました。")
         codename = try_get(episode, lambda x: x['Codename'], str)
         title = episode.get('Title')
         description = clean_html(dict_get(episode, ('ShortDescription', 'TinyDescription')))
@@ -224,6 +228,7 @@ class ERTFlixIE(ERTFlixBaseIE):
         print(f"ertgr.pyの関数_extract_seriesを実行しました。")
         print(f"ertgr.pyの関数_extract_seriesを実行しました。")
         print(f"ertgr.pyの関数_extract_seriesを実行しました。")
+        print(f"ertgr.pyの関数_extract_seriesを実行しました。")
         media_info = self._call_api(video_id, method='Tile/GetSeriesDetails', id=video_id)
 
         series = try_get(media_info, lambda x: x['Series'], dict) or {}
@@ -239,6 +244,7 @@ class ERTFlixIE(ERTFlixBaseIE):
                     season_titles.append(season['Title'])
 
         def gen_episode(m_info, season_titles):
+            print(f"ertgr.pyの関数gen_episodeを実行しました。")
             print(f"ertgr.pyの関数gen_episodeを実行しました。")
             print(f"ertgr.pyの関数gen_episodeを実行しました。")
             print(f"ertgr.pyの関数gen_episodeを実行しました。")

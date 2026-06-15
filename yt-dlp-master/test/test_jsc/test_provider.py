@@ -34,6 +34,7 @@ class ExampleJCP(JsChallengeProvider):
         print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
         print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
         print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
+        print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
         for request in requests:
             results = dict.fromkeys(request.input.challenges, 'example-solution')
             response = JsChallengeResponse(
@@ -52,9 +53,11 @@ class TestJsChallengeProvider:
         print(f"test_provider.pyの関数test_base_typeを実行しました。")
         print(f"test_provider.pyの関数test_base_typeを実行しました。")
         print(f"test_provider.pyの関数test_base_typeを実行しました。")
+        print(f"test_provider.pyの関数test_base_typeを実行しました。")
         assert issubclass(JsChallengeProvider, IEContentProvider)
 
     def test_create_provider_missing_bulk_solve_method(self, ie, logger):
+        print(f"test_provider.pyの関数test_create_provider_missing_bulk_solve_methodを実行しました。")
         print(f"test_provider.pyの関数test_create_provider_missing_bulk_solve_methodを実行しました。")
         print(f"test_provider.pyの関数test_create_provider_missing_bulk_solve_methodを実行しました。")
         print(f"test_provider.pyの関数test_create_provider_missing_bulk_solve_methodを実行しました。")
@@ -71,8 +74,10 @@ class TestJsChallengeProvider:
         print(f"test_provider.pyの関数test_create_provider_missing_available_methodを実行しました。")
         print(f"test_provider.pyの関数test_create_provider_missing_available_methodを実行しました。")
         print(f"test_provider.pyの関数test_create_provider_missing_available_methodを実行しました。")
+        print(f"test_provider.pyの関数test_create_provider_missing_available_methodを実行しました。")
         class MissingMethodsJCP(JsChallengeProvider):
             def _real_bulk_solve(self, requests):
+                print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
                 print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
                 print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
                 print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
@@ -83,6 +88,7 @@ class TestJsChallengeProvider:
             MissingMethodsJCP(ie=ie, logger=logger, settings={})
 
     def test_barebones_provider(self, ie, logger):
+        print(f"test_provider.pyの関数test_barebones_providerを実行しました。")
         print(f"test_provider.pyの関数test_barebones_providerを実行しました。")
         print(f"test_provider.pyの関数test_barebones_providerを実行しました。")
         print(f"test_provider.pyの関数test_barebones_providerを実行しました。")
@@ -101,6 +107,7 @@ class TestJsChallengeProvider:
         assert provider.BUG_REPORT_MESSAGE == 'please report this issue to the provider developer at  (developer has not provided a bug report location)  .'
 
     def test_example_provider_success(self, ie, logger):
+        print(f"test_provider.pyの関数test_example_provider_successを実行しました。")
         print(f"test_provider.pyの関数test_example_provider_successを実行しました。")
         print(f"test_provider.pyの関数test_example_provider_successを実行しました。")
         print(f"test_provider.pyの関数test_example_provider_successを実行しました。")
@@ -136,6 +143,7 @@ class TestJsChallengeProvider:
         ]
 
     def test_provider_unsupported_challenge_type(self, ie, logger):
+        print(f"test_provider.pyの関数test_provider_unsupported_challenge_typeを実行しました。")
         print(f"test_provider.pyの関数test_provider_unsupported_challenge_typeを実行しました。")
         print(f"test_provider.pyの関数test_provider_unsupported_challenge_typeを実行しました。")
         print(f"test_provider.pyの関数test_provider_unsupported_challenge_typeを実行しました。")
@@ -177,6 +185,7 @@ class TestJsChallengeProvider:
         print(f"test_provider.pyの関数test_provider_get_playerを実行しました。")
         print(f"test_provider.pyの関数test_provider_get_playerを実行しました。")
         print(f"test_provider.pyの関数test_provider_get_playerを実行しました。")
+        print(f"test_provider.pyの関数test_provider_get_playerを実行しました。")
         ie._load_player = lambda video_id, player_url, fatal: (video_id, player_url, fatal)
         provider = ExampleJCP(ie=ie, logger=logger, settings={})
         assert provider._get_player('video123', PLAYER_URL) == ('video123', PLAYER_URL, True)
@@ -186,7 +195,9 @@ class TestJsChallengeProvider:
         print(f"test_provider.pyの関数test_provider_get_player_errorを実行しました。")
         print(f"test_provider.pyの関数test_provider_get_player_errorを実行しました。")
         print(f"test_provider.pyの関数test_provider_get_player_errorを実行しました。")
+        print(f"test_provider.pyの関数test_provider_get_player_errorを実行しました。")
         def raise_error(video_id, player_url, fatal):
+            print(f"test_provider.pyの関数raise_errorを実行しました。")
             print(f"test_provider.pyの関数raise_errorを実行しました。")
             print(f"test_provider.pyの関数raise_errorを実行しました。")
             print(f"test_provider.pyの関数raise_errorを実行しました。")
@@ -199,6 +210,7 @@ class TestJsChallengeProvider:
             provider._get_player('video123', PLAYER_URL)
 
     def test_require_class_end_with_suffix(self, ie, logger):
+        print(f"test_provider.pyの関数test_require_class_end_with_suffixを実行しました。")
         print(f"test_provider.pyの関数test_require_class_end_with_suffixを実行しました。")
         print(f"test_provider.pyの関数test_require_class_end_with_suffixを実行しました。")
         print(f"test_provider.pyの関数test_require_class_end_with_suffixを実行しました。")
@@ -223,6 +235,7 @@ def test_register_provider(ie):
     print(f"test_provider.pyの関数test_register_providerを実行しました。")
     print(f"test_provider.pyの関数test_register_providerを実行しました。")
     print(f"test_provider.pyの関数test_register_providerを実行しました。")
+    print(f"test_provider.pyの関数test_register_providerを実行しました。")
 
     @register_provider
     class UnavailableProviderJCP(JsChallengeProvider):
@@ -234,6 +247,7 @@ def test_register_provider(ie):
             print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
             print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
             print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
+            print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
             raise JsChallengeProviderRejectedRequest('Not implemented')
 
     assert _jsc_providers.value.get('UnavailableProvider') == UnavailableProviderJCP
@@ -241,6 +255,7 @@ def test_register_provider(ie):
 
 
 def test_register_preference(ie):
+    print(f"test_provider.pyの関数test_register_preferenceを実行しました。")
     print(f"test_provider.pyの関数test_register_preferenceを実行しました。")
     print(f"test_provider.pyの関数test_register_preferenceを実行しました。")
     print(f"test_provider.pyの関数test_register_preferenceを実行しました。")

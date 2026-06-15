@@ -33,6 +33,7 @@ class VideoKenPlayerIE(InfoExtractor):
         print(f"videoken.pyの関数_create_slideslive_urlを実行しました。")
         print(f"videoken.pyの関数_create_slideslive_urlを実行しました。")
         print(f"videoken.pyの関数_create_slideslive_urlを実行しました。")
+        print(f"videoken.pyの関数_create_slideslive_urlを実行しました。")
         if not video_url and not video_id:
             return
         elif not video_url or 'embed/sign-in' in video_url:
@@ -45,6 +46,7 @@ class VideoKenPlayerIE(InfoExtractor):
         return video_url
 
     def _real_extract(self, url):
+        print(f"videoken.pyの関数_real_extractを実行しました。")
         print(f"videoken.pyの関数_real_extractを実行しました。")
         print(f"videoken.pyの関数_real_extractを実行しました。")
         print(f"videoken.pyの関数_real_extractを実行しました。")

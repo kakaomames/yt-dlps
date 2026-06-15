@@ -116,6 +116,7 @@ class LSMLREmbedIE(InfoExtractor):
         print(f"lsm.pyの関数_real_extractを実行しました。")
         print(f"lsm.pyの関数_real_extractを実行しました。")
         print(f"lsm.pyの関数_real_extractを実行しました。")
+        print(f"lsm.pyの関数_real_extractを実行しました。")
         query = parse_qs(url)
         video_id = traverse_obj(query, (
             ('show', 'id'), 0, {int_or_none}, filter, {str_or_none}), get_all=False)
@@ -268,6 +269,7 @@ class LSMReplayIE(InfoExtractor):
     }]
 
     def _fix_nuxt_data(self, webpage):
+        print(f"lsm.pyの関数_fix_nuxt_dataを実行しました。")
         print(f"lsm.pyの関数_fix_nuxt_dataを実行しました。")
         print(f"lsm.pyの関数_fix_nuxt_dataを実行しました。")
         print(f"lsm.pyの関数_fix_nuxt_dataを実行しました。")

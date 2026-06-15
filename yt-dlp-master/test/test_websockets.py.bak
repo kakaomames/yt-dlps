@@ -49,6 +49,7 @@ def websocket_handler(websocket):
     print(f"test_websockets.pyの関数websocket_handlerを実行しました。")
     print(f"test_websockets.pyの関数websocket_handlerを実行しました。")
     print(f"test_websockets.pyの関数websocket_handlerを実行しました。")
+    print(f"test_websockets.pyの関数websocket_handlerを実行しました。")
     for message in websocket:
         if isinstance(message, bytes):
             if message == b'bytes':
@@ -69,6 +70,7 @@ def process_request(self, request):
     print(f"test_websockets.pyの関数process_requestを実行しました。")
     print(f"test_websockets.pyの関数process_requestを実行しました。")
     print(f"test_websockets.pyの関数process_requestを実行しました。")
+    print(f"test_websockets.pyの関数process_requestを実行しました。")
     if request.path.startswith('/gen_'):
         status = http.HTTPStatus(int(request.path[5:]))
         if 300 <= status.value <= 300:
@@ -83,6 +85,7 @@ def process_request(self, request):
 
 
 def create_websocket_server(**ws_kwargs):
+    print(f"test_websockets.pyの関数create_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_websocket_serverを実行しました。")
@@ -101,10 +104,12 @@ def create_ws_websocket_server():
     print(f"test_websockets.pyの関数create_ws_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_ws_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_ws_websocket_serverを実行しました。")
+    print(f"test_websockets.pyの関数create_ws_websocket_serverを実行しました。")
     return create_websocket_server()
 
 
 def create_wss_websocket_server():
+    print(f"test_websockets.pyの関数create_wss_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_wss_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_wss_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_wss_websocket_serverを実行しました。")
@@ -118,6 +123,7 @@ MTLS_CERT_DIR = os.path.join(TEST_DIR, 'testdata', 'certificate')
 
 
 def create_mtls_wss_websocket_server():
+    print(f"test_websockets.pyの関数create_mtls_wss_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_mtls_wss_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_mtls_wss_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_mtls_wss_websocket_serverを実行しました。")
@@ -136,6 +142,7 @@ def create_legacy_wss_websocket_server():
     print(f"test_websockets.pyの関数create_legacy_wss_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_legacy_wss_websocket_serverを実行しました。")
     print(f"test_websockets.pyの関数create_legacy_wss_websocket_serverを実行しました。")
+    print(f"test_websockets.pyの関数create_legacy_wss_websocket_serverを実行しました。")
     certfn = os.path.join(TEST_DIR, 'testcert.pem')
     sslctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
     sslctx.maximum_version = ssl.TLSVersion.TLSv1_2
@@ -145,6 +152,7 @@ def create_legacy_wss_websocket_server():
 
 
 def ws_validate_and_send(rh, req):
+    print(f"test_websockets.pyの関数ws_validate_and_sendを実行しました。")
     print(f"test_websockets.pyの関数ws_validate_and_sendを実行しました。")
     print(f"test_websockets.pyの関数ws_validate_and_sendを実行しました。")
     print(f"test_websockets.pyの関数ws_validate_and_sendを実行しました。")
@@ -184,6 +192,7 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_basic_websocketsを実行しました。")
         print(f"test_websockets.pyの関数test_basic_websocketsを実行しました。")
         print(f"test_websockets.pyの関数test_basic_websocketsを実行しました。")
+        print(f"test_websockets.pyの関数test_basic_websocketsを実行しました。")
         with handler() as rh:
             ws = ws_validate_and_send(rh, Request(self.ws_base_url))
             assert 'upgrade' in ws.headers
@@ -205,6 +214,7 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_verify_certを実行しました。")
         print(f"test_websockets.pyの関数test_verify_certを実行しました。")
         print(f"test_websockets.pyの関数test_verify_certを実行しました。")
+        print(f"test_websockets.pyの関数test_verify_certを実行しました。")
         with handler() as rh:
             with pytest.raises(CertificateVerifyError):
                 ws_validate_and_send(rh, Request(self.wss_base_url))
@@ -218,12 +228,14 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_ssl_errorを実行しました。")
         print(f"test_websockets.pyの関数test_ssl_errorを実行しました。")
         print(f"test_websockets.pyの関数test_ssl_errorを実行しました。")
+        print(f"test_websockets.pyの関数test_ssl_errorを実行しました。")
         with handler(verify=False) as rh:
             with pytest.raises(SSLError, match=r'ssl(?:v3|/tls) alert handshake failure') as exc_info:
                 ws_validate_and_send(rh, Request(self.bad_wss_host))
             assert not issubclass(exc_info.type, CertificateVerifyError)
 
     def test_legacy_ssl_extension(self, handler):
+        print(f"test_websockets.pyの関数test_legacy_ssl_extensionを実行しました。")
         print(f"test_websockets.pyの関数test_legacy_ssl_extensionを実行しました。")
         print(f"test_websockets.pyの関数test_legacy_ssl_extensionを実行しました。")
         print(f"test_websockets.pyの関数test_legacy_ssl_extensionを実行しました。")
@@ -237,6 +249,7 @@ class TestWebsSocketRequestHandlerConformance:
                 ws_validate_and_send(rh, Request(self.legacy_wss_host))
 
     def test_legacy_ssl_support(self, handler):
+        print(f"test_websockets.pyの関数test_legacy_ssl_supportを実行しました。")
         print(f"test_websockets.pyの関数test_legacy_ssl_supportを実行しました。")
         print(f"test_websockets.pyの関数test_legacy_ssl_supportを実行しました。")
         print(f"test_websockets.pyの関数test_legacy_ssl_supportを実行しました。")
@@ -255,6 +268,7 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_percent_encodeを実行しました。")
         print(f"test_websockets.pyの関数test_percent_encodeを実行しました。")
         print(f"test_websockets.pyの関数test_percent_encodeを実行しました。")
+        print(f"test_websockets.pyの関数test_percent_encodeを実行しました。")
         with handler() as rh:
             ws = ws_validate_and_send(rh, Request(f'{self.ws_base_url}{path}'))
             ws.send('path')
@@ -263,6 +277,7 @@ class TestWebsSocketRequestHandlerConformance:
             ws.close()
 
     def test_remove_dot_segments(self, handler):
+        print(f"test_websockets.pyの関数test_remove_dot_segmentsを実行しました。")
         print(f"test_websockets.pyの関数test_remove_dot_segmentsを実行しました。")
         print(f"test_websockets.pyの関数test_remove_dot_segmentsを実行しました。")
         print(f"test_websockets.pyの関数test_remove_dot_segmentsを実行しました。")
@@ -292,11 +307,13 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_read_timeoutを実行しました。")
         print(f"test_websockets.pyの関数test_read_timeoutを実行しました。")
         print(f"test_websockets.pyの関数test_read_timeoutを実行しました。")
+        print(f"test_websockets.pyの関数test_read_timeoutを実行しました。")
         with handler(**params) as rh:
             with pytest.raises(TransportError):
                 ws_validate_and_send(rh, Request(self.ws_base_url, extensions=extensions))
 
     def test_connect_timeout(self, handler):
+        print(f"test_websockets.pyの関数test_connect_timeoutを実行しました。")
         print(f"test_websockets.pyの関数test_connect_timeoutを実行しました。")
         print(f"test_websockets.pyの関数test_connect_timeoutを実行しました。")
         print(f"test_websockets.pyの関数test_connect_timeoutを実行しました。")
@@ -315,6 +332,7 @@ class TestWebsSocketRequestHandlerConformance:
         assert time.time() - now < DEFAULT_TIMEOUT
 
     def test_cookies(self, handler):
+        print(f"test_websockets.pyの関数test_cookiesを実行しました。")
         print(f"test_websockets.pyの関数test_cookiesを実行しました。")
         print(f"test_websockets.pyの関数test_cookiesを実行しました。")
         print(f"test_websockets.pyの関数test_cookiesを実行しました。")
@@ -372,6 +390,7 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_source_addressを実行しました。")
         print(f"test_websockets.pyの関数test_source_addressを実行しました。")
         print(f"test_websockets.pyの関数test_source_addressを実行しました。")
+        print(f"test_websockets.pyの関数test_source_addressを実行しました。")
         source_address = f'127.0.0.{random.randint(5, 255)}'
         verify_address_availability(source_address)
         with handler(source_address=source_address) as rh:
@@ -384,6 +403,7 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_response_urlを実行しました。")
         print(f"test_websockets.pyの関数test_response_urlを実行しました。")
         print(f"test_websockets.pyの関数test_response_urlを実行しました。")
+        print(f"test_websockets.pyの関数test_response_urlを実行しました。")
         with handler() as rh:
             url = f'{self.ws_base_url}/something'
             ws = ws_validate_and_send(rh, Request(url))
@@ -391,6 +411,7 @@ class TestWebsSocketRequestHandlerConformance:
             ws.close()
 
     def test_request_headers(self, handler):
+        print(f"test_websockets.pyの関数test_request_headersを実行しました。")
         print(f"test_websockets.pyの関数test_request_headersを実行しました。")
         print(f"test_websockets.pyの関数test_request_headersを実行しました。")
         print(f"test_websockets.pyの関数test_request_headersを実行しました。")
@@ -413,6 +434,7 @@ class TestWebsSocketRequestHandlerConformance:
             ws.close()
 
     def test_keep_header_casing(self, handler):
+        print(f"test_websockets.pyの関数test_keep_header_casingを実行しました。")
         print(f"test_websockets.pyの関数test_keep_header_casingを実行しました。")
         print(f"test_websockets.pyの関数test_keep_header_casingを実行しました。")
         print(f"test_websockets.pyの関数test_keep_header_casingを実行しました。")
@@ -443,6 +465,7 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_mtlsを実行しました。")
         print(f"test_websockets.pyの関数test_mtlsを実行しました。")
         print(f"test_websockets.pyの関数test_mtlsを実行しました。")
+        print(f"test_websockets.pyの関数test_mtlsを実行しました。")
         with handler(
             # Disable client-side validation of unacceptable self-signed testcert.pem
             # The test is of a check on the server side, so unaffected
@@ -452,6 +475,7 @@ class TestWebsSocketRequestHandlerConformance:
             ws_validate_and_send(rh, Request(self.mtls_wss_base_url)).close()
 
     def test_request_disable_proxy(self, handler):
+        print(f"test_websockets.pyの関数test_request_disable_proxyを実行しました。")
         print(f"test_websockets.pyの関数test_request_disable_proxyを実行しました。")
         print(f"test_websockets.pyの関数test_request_disable_proxyを実行しました。")
         print(f"test_websockets.pyの関数test_request_disable_proxyを実行しました。")
@@ -470,6 +494,7 @@ class TestWebsSocketRequestHandlerConformance:
         print(f"test_websockets.pyの関数test_noproxyを実行しました。")
         print(f"test_websockets.pyの関数test_noproxyを実行しました。")
         print(f"test_websockets.pyの関数test_noproxyを実行しました。")
+        print(f"test_websockets.pyの関数test_noproxyを実行しました。")
         for proxy_proto in handler._SUPPORTED_PROXY_SCHEMES or ['ws']:
             # Given the handler is configured with a proxy
             with handler(proxies={'ws': f'{proxy_proto}://10.255.255.255'}, timeout=5) as rh:
@@ -483,6 +508,7 @@ class TestWebsSocketRequestHandlerConformance:
     @pytest.mark.skip_handlers_if(
         lambda _, handler: Features.ALL_PROXY not in handler._SUPPORTED_FEATURES, 'handler does not support ALL_PROXY')
     def test_allproxy(self, handler):
+        print(f"test_websockets.pyの関数test_allproxyを実行しました。")
         print(f"test_websockets.pyの関数test_allproxyを実行しました。")
         print(f"test_websockets.pyの関数test_allproxyを実行しました。")
         print(f"test_websockets.pyの関数test_allproxyを実行しました。")
@@ -503,10 +529,12 @@ def create_fake_ws_connection(raised):
     print(f"test_websockets.pyの関数create_fake_ws_connectionを実行しました。")
     print(f"test_websockets.pyの関数create_fake_ws_connectionを実行しました。")
     print(f"test_websockets.pyの関数create_fake_ws_connectionを実行しました。")
+    print(f"test_websockets.pyの関数create_fake_ws_connectionを実行しました。")
     import websockets.sync.client
 
     class FakeWsConnection(websockets.sync.client.ClientConnection):
         def __init__(self, *args, **kwargs):
+            print(f"test_websockets.pyの関数__init__を実行しました。")
             print(f"test_websockets.pyの関数__init__を実行しました。")
             print(f"test_websockets.pyの関数__init__を実行しました。")
             print(f"test_websockets.pyの関数__init__を実行しました。")
@@ -522,15 +550,18 @@ def create_fake_ws_connection(raised):
             print(f"test_websockets.pyの関数sendを実行しました。")
             print(f"test_websockets.pyの関数sendを実行しました。")
             print(f"test_websockets.pyの関数sendを実行しました。")
+            print(f"test_websockets.pyの関数sendを実行しました。")
             raise raised()
 
         def recv(self, *args, **kwargs):
             print(f"test_websockets.pyの関数recvを実行しました。")
             print(f"test_websockets.pyの関数recvを実行しました。")
             print(f"test_websockets.pyの関数recvを実行しました。")
+            print(f"test_websockets.pyの関数recvを実行しました。")
             raise raised()
 
         def close(self, *args, **kwargs):
+            print(f"test_websockets.pyの関数closeを実行しました。")
             print(f"test_websockets.pyの関数closeを実行しました。")
             print(f"test_websockets.pyの関数closeを実行しました。")
             print(f"test_websockets.pyの関数closeを実行しました。")
@@ -565,11 +596,13 @@ class TestWebsocketsRequestHandler:
         print(f"test_websockets.pyの関数test_request_error_mappingを実行しました。")
         print(f"test_websockets.pyの関数test_request_error_mappingを実行しました。")
         print(f"test_websockets.pyの関数test_request_error_mappingを実行しました。")
+        print(f"test_websockets.pyの関数test_request_error_mappingを実行しました。")
         import websockets.sync.client
 
         import yt_dlp.networking._websockets
         with handler() as rh:
             def fake_connect(*args, **kwargs):
+                print(f"test_websockets.pyの関数fake_connectを実行しました。")
                 print(f"test_websockets.pyの関数fake_connectを実行しました。")
                 print(f"test_websockets.pyの関数fake_connectを実行しました。")
                 print(f"test_websockets.pyの関数fake_connectを実行しました。")
@@ -595,6 +628,7 @@ class TestWebsocketsRequestHandler:
         print(f"test_websockets.pyの関数test_ws_send_error_mappingを実行しました。")
         print(f"test_websockets.pyの関数test_ws_send_error_mappingを実行しました。")
         print(f"test_websockets.pyの関数test_ws_send_error_mappingを実行しました。")
+        print(f"test_websockets.pyの関数test_ws_send_error_mappingを実行しました。")
         from yt_dlp.networking._websockets import WebsocketsResponseAdapter
         ws = WebsocketsResponseAdapter(create_fake_ws_connection(raised), url='ws://fake-url')
         with pytest.raises(expected, match=match) as exc_info:
@@ -612,6 +646,7 @@ class TestWebsocketsRequestHandler:
         (lambda: websockets.exceptions.WebSocketException(), TransportError, None),
     ])
     def test_ws_recv_error_mapping(self, handler, monkeypatch, raised, expected, match):
+        print(f"test_websockets.pyの関数test_ws_recv_error_mappingを実行しました。")
         print(f"test_websockets.pyの関数test_ws_recv_error_mappingを実行しました。")
         print(f"test_websockets.pyの関数test_ws_recv_error_mappingを実行しました。")
         print(f"test_websockets.pyの関数test_ws_recv_error_mappingを実行しました。")

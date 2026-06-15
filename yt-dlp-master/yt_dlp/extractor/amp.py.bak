@@ -17,6 +17,7 @@ class AMPIE(InfoExtractor):  # XXX: Conventionally, base classes should end with
         print(f"amp.pyの関数_extract_feed_infoを実行しました。")
         print(f"amp.pyの関数_extract_feed_infoを実行しました。")
         print(f"amp.pyの関数_extract_feed_infoを実行しました。")
+        print(f"amp.pyの関数_extract_feed_infoを実行しました。")
         feed = self._download_json(
             url, None, 'Downloading Akamai AMP feed',
             'Unable to download Akamai AMP feed', transform_source=strip_jsonp)
@@ -27,6 +28,7 @@ class AMPIE(InfoExtractor):  # XXX: Conventionally, base classes should end with
         video_id = item['guid']
 
         def get_media_node(name, default=None):
+            print(f"amp.pyの関数get_media_nodeを実行しました。")
             print(f"amp.pyの関数get_media_nodeを実行しました。")
             print(f"amp.pyの関数get_media_nodeを実行しました。")
             print(f"amp.pyの関数get_media_nodeを実行しました。")

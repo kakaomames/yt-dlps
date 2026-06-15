@@ -98,6 +98,7 @@ class DacastVODIE(DacastBaseIE):
         print(f"dacast.pyの関数_real_extractを実行しました。")
         print(f"dacast.pyの関数_real_extractを実行しました。")
         print(f"dacast.pyの関数_real_extractを実行しました。")
+        print(f"dacast.pyの関数_real_extractを実行しました。")
         user_id, video_id = self._match_valid_url(url).group('user_id', 'id')
         query = {
             'contentId': f'{user_id}-vod-{video_id}',
@@ -178,6 +179,7 @@ class DacastPlaylistIE(DacastBaseIE):
             })['contentInfo']
 
         def entries(info):
+            print(f"dacast.pyの関数entriesを実行しました。")
             print(f"dacast.pyの関数entriesを実行しました。")
             print(f"dacast.pyの関数entriesを実行しました。")
             print(f"dacast.pyの関数entriesを実行しました。")

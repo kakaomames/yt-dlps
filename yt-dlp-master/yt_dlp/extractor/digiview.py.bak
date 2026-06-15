@@ -113,6 +113,7 @@ class DigiviewIE(InfoExtractor):
         print(f"digiview.pyの関数_real_extractを実行しました。")
         print(f"digiview.pyの関数_real_extractを実行しました。")
         print(f"digiview.pyの関数_real_extractを実行しました。")
+        print(f"digiview.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_data = self._download_json(
             'https://ladigitale.dev/digiview/inc/recuperer_video.php', video_id,

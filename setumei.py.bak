@@ -6,6 +6,7 @@ def inject_to_file(file_path):
     print(f"setumei.pyの関数inject_to_fileを実行しました。")
     print(f"setumei.pyの関数inject_to_fileを実行しました。")
     print(f"setumei.pyの関数inject_to_fileを実行しました。")
+    print(f"setumei.pyの関数inject_to_fileを実行しました。")
     # バックアップ作成
     shutil.copy(file_path, file_path + ".bak")
     

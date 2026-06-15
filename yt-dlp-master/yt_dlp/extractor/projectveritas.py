@@ -34,6 +34,7 @@ class ProjectVeritasIE(InfoExtractor):
         print(f"projectveritas.pyの関数_real_extractを実行しました。")
         print(f"projectveritas.pyの関数_real_extractを実行しました。")
         print(f"projectveritas.pyの関数_real_extractを実行しました。")
+        print(f"projectveritas.pyの関数_real_extractを実行しました。")
         video_id, video_type = self._match_valid_url(url).group('id', 'type')
         api_url = f'https://www.projectveritas.com/page-data/{video_type}/{video_id}/page-data.json'
         data_json = self._download_json(api_url, video_id)['result']['data']

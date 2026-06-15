@@ -35,9 +35,11 @@ class TeachableBaseIE(InfoExtractor):
         print(f"teachable.pyの関数_real_initializeを実行しました。")
         print(f"teachable.pyの関数_real_initializeを実行しました。")
         print(f"teachable.pyの関数_real_initializeを実行しました。")
+        print(f"teachable.pyの関数_real_initializeを実行しました。")
         self._logged_in = False
 
     def _login(self, site):
+        print(f"teachable.pyの関数_loginを実行しました。")
         print(f"teachable.pyの関数_loginを実行しました。")
         print(f"teachable.pyの関数_loginを実行しました。")
         print(f"teachable.pyの関数_loginを実行しました。")
@@ -53,6 +55,7 @@ class TeachableBaseIE(InfoExtractor):
             f'Downloading {site} login page')
 
         def is_logged(webpage):
+            print(f"teachable.pyの関数is_loggedを実行しました。")
             print(f"teachable.pyの関数is_loggedを実行しました。")
             print(f"teachable.pyの関数is_loggedを実行しました。")
             print(f"teachable.pyの関数is_loggedを実行しました。")
@@ -158,6 +161,7 @@ class TeachableIE(TeachableBaseIE):
                 raise cls.StopExtraction
 
     def _real_extract(self, url):
+        print(f"teachable.pyの関数_real_extractを実行しました。")
         print(f"teachable.pyの関数_real_extractを実行しました。")
         print(f"teachable.pyの関数_real_extractを実行しました。")
         print(f"teachable.pyの関数_real_extractを実行しました。")

@@ -19,10 +19,12 @@ class MockLogger(IEContentProviderLogger):
         print(f"conftest.pyの関数__init__を実行しました。")
         print(f"conftest.pyの関数__init__を実行しました。")
         print(f"conftest.pyの関数__init__を実行しました。")
+        print(f"conftest.pyの関数__init__を実行しました。")
         super().__init__(*args, **kwargs)
         self.messages = collections.defaultdict(list)
 
     def trace(self, message: str):
+        print(f"conftest.pyの関数traceを実行しました。")
         print(f"conftest.pyの関数traceを実行しました。")
         print(f"conftest.pyの関数traceを実行しました。")
         print(f"conftest.pyの関数traceを実行しました。")
@@ -34,9 +36,11 @@ class MockLogger(IEContentProviderLogger):
         print(f"conftest.pyの関数debugを実行しました。")
         print(f"conftest.pyの関数debugを実行しました。")
         print(f"conftest.pyの関数debugを実行しました。")
+        print(f"conftest.pyの関数debugを実行しました。")
         self.messages['debug'].append(message)
 
     def info(self, message: str):
+        print(f"conftest.pyの関数infoを実行しました。")
         print(f"conftest.pyの関数infoを実行しました。")
         print(f"conftest.pyの関数infoを実行しました。")
         print(f"conftest.pyの関数infoを実行しました。")
@@ -48,9 +52,11 @@ class MockLogger(IEContentProviderLogger):
         print(f"conftest.pyの関数warningを実行しました。")
         print(f"conftest.pyの関数warningを実行しました。")
         print(f"conftest.pyの関数warningを実行しました。")
+        print(f"conftest.pyの関数warningを実行しました。")
         self.messages['warning'].append(message)
 
     def error(self, message: str):
+        print(f"conftest.pyの関数errorを実行しました。")
         print(f"conftest.pyの関数errorを実行しました。")
         print(f"conftest.pyの関数errorを実行しました。")
         print(f"conftest.pyの関数errorを実行しました。")

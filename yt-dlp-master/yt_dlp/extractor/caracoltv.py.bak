@@ -50,6 +50,7 @@ class CaracolTvPlayIE(InfoExtractor):
         print(f"caracoltv.pyの関数_extract_app_tokenを実行しました。")
         print(f"caracoltv.pyの関数_extract_app_tokenを実行しました。")
         print(f"caracoltv.pyの関数_extract_app_tokenを実行しました。")
+        print(f"caracoltv.pyの関数_extract_app_tokenを実行しました。")
         config_js_path = self._search_regex(
             r'<script[^>]+src\s*=\s*"([^"]+coreConfig.js[^"]+)', webpage, 'config js url', fatal=False)
 
@@ -66,6 +67,7 @@ class CaracolTvPlayIE(InfoExtractor):
         return base64.b64encode(f'{key}:{secret}'.encode()).decode()
 
     def _perform_login(self, email, password):
+        print(f"caracoltv.pyの関数_perform_loginを実行しました。")
         print(f"caracoltv.pyの関数_perform_loginを実行しました。")
         print(f"caracoltv.pyの関数_perform_loginを実行しました。")
         print(f"caracoltv.pyの関数_perform_loginを実行しました。")
@@ -97,6 +99,7 @@ class CaracolTvPlayIE(InfoExtractor):
         print(f"caracoltv.pyの関数_extract_videoを実行しました。")
         print(f"caracoltv.pyの関数_extract_videoを実行しました。")
         print(f"caracoltv.pyの関数_extract_videoを実行しました。")
+        print(f"caracoltv.pyの関数_extract_videoを実行しました。")
         formats, subtitles = self._extract_m3u8_formats_and_subtitles(video_data['stream_url'], series_id, 'mp4')
 
         return {
@@ -118,6 +121,7 @@ class CaracolTvPlayIE(InfoExtractor):
         print(f"caracoltv.pyの関数_extract_series_seasonsを実行しました。")
         print(f"caracoltv.pyの関数_extract_series_seasonsを実行しました。")
         print(f"caracoltv.pyの関数_extract_series_seasonsを実行しました。")
+        print(f"caracoltv.pyの関数_extract_series_seasonsを実行しました。")
         for season in seasons:
             api_response = self._download_json(
                 'https://eu-gateway.inmobly.com/feed', series_id, query={'season_id': season['id']},
@@ -128,6 +132,7 @@ class CaracolTvPlayIE(InfoExtractor):
                 yield self._extract_video(episode, series_id, season['id'], season_number)
 
     def _real_extract(self, url):
+        print(f"caracoltv.pyの関数_real_extractを実行しました。")
         print(f"caracoltv.pyの関数_real_extractを実行しました。")
         print(f"caracoltv.pyの関数_real_extractを実行しました。")
         print(f"caracoltv.pyの関数_real_extractを実行しました。")

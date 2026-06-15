@@ -14,6 +14,7 @@ class MoveFilesAfterDownloadPP(PostProcessor):
         print(f"movefilesafterdownload.pyの関数__init__を実行しました。")
         print(f"movefilesafterdownload.pyの関数__init__を実行しました。")
         print(f"movefilesafterdownload.pyの関数__init__を実行しました。")
+        print(f"movefilesafterdownload.pyの関数__init__を実行しました。")
         PostProcessor.__init__(self, downloader)
         self._downloaded = downloaded
 
@@ -22,6 +23,7 @@ class MoveFilesAfterDownloadPP(PostProcessor):
         return 'MoveFiles'
 
     def run(self, info):
+        print(f"movefilesafterdownload.pyの関数runを実行しました。")
         print(f"movefilesafterdownload.pyの関数runを実行しました。")
         print(f"movefilesafterdownload.pyの関数runを実行しました。")
         print(f"movefilesafterdownload.pyの関数runを実行しました。")

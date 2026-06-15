@@ -19,6 +19,7 @@ class NDRBaseIE(InfoExtractor):
         print(f"ndr.pyの関数_real_extractを実行しました。")
         print(f"ndr.pyの関数_real_extractを実行しました。")
         print(f"ndr.pyの関数_real_extractを実行しました。")
+        print(f"ndr.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         display_id = next(group for group in mobj.groups() if group)
         webpage = self._download_webpage(url, display_id)
@@ -115,6 +116,7 @@ class NDRIE(NDRBaseIE):
     }]
 
     def _extract_embed(self, webpage, display_id, url):
+        print(f"ndr.pyの関数_extract_embedを実行しました。")
         print(f"ndr.pyの関数_extract_embedを実行しました。")
         print(f"ndr.pyの関数_extract_embedを実行しました。")
         print(f"ndr.pyの関数_extract_embedを実行しました。")

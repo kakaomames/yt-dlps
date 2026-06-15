@@ -119,6 +119,7 @@ class CDAIE(InfoExtractor):
         print(f"cda.pyの関数_download_age_confirm_pageを実行しました。")
         print(f"cda.pyの関数_download_age_confirm_pageを実行しました。")
         print(f"cda.pyの関数_download_age_confirm_pageを実行しました。")
+        print(f"cda.pyの関数_download_age_confirm_pageを実行しました。")
         data, content_type = multipart_encode({'age_confirm': ''})
         return self._download_webpage(
             url, video_id, *args,
@@ -128,6 +129,7 @@ class CDAIE(InfoExtractor):
             }, **kwargs)
 
     def _perform_login(self, username, password):
+        print(f"cda.pyの関数_perform_loginを実行しました。")
         print(f"cda.pyの関数_perform_loginを実行しました。")
         print(f"cda.pyの関数_perform_loginを実行しました。")
         print(f"cda.pyの関数_perform_loginを実行しました。")
@@ -189,6 +191,7 @@ class CDAIE(InfoExtractor):
         print(f"cda.pyの関数_real_extractを実行しました。")
         print(f"cda.pyの関数_real_extractを実行しました。")
         print(f"cda.pyの関数_real_extractを実行しました。")
+        print(f"cda.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         if 'Authorization' in self._API_HEADERS:
@@ -197,6 +200,7 @@ class CDAIE(InfoExtractor):
             return self._web_extract(video_id)
 
     def _api_extract(self, video_id):
+        print(f"cda.pyの関数_api_extractを実行しました。")
         print(f"cda.pyの関数_api_extractを実行しました。")
         print(f"cda.pyの関数_api_extractを実行しました。")
         print(f"cda.pyの関数_api_extractを実行しました。")
@@ -231,6 +235,7 @@ class CDAIE(InfoExtractor):
         }
 
     def _web_extract(self, video_id):
+        print(f"cda.pyの関数_web_extractを実行しました。")
         print(f"cda.pyの関数_web_extractを実行しました。")
         print(f"cda.pyの関数_web_extractを実行しました。")
         print(f"cda.pyの関数_web_extractを実行しました。")
@@ -282,6 +287,7 @@ class CDAIE(InfoExtractor):
             print(f"cda.pyの関数decrypt_fileを実行しました。")
             print(f"cda.pyの関数decrypt_fileを実行しました。")
             print(f"cda.pyの関数decrypt_fileを実行しました。")
+            print(f"cda.pyの関数decrypt_fileを実行しました。")
             for p in ('_XDDD', '_CDA', '_ADC', '_CXD', '_QWE', '_Q5', '_IKSDE'):
                 a = a.replace(p, '')
             a = urllib.parse.unquote(a)
@@ -299,6 +305,7 @@ class CDAIE(InfoExtractor):
             return 'https://' + a + '.mp4'
 
         def extract_format(page, version):
+            print(f"cda.pyの関数extract_formatを実行しました。")
             print(f"cda.pyの関数extract_formatを実行しました。")
             print(f"cda.pyの関数extract_formatを実行しました。")
             print(f"cda.pyの関数extract_formatを実行しました。")
@@ -427,6 +434,7 @@ class CDAFolderIE(InfoExtractor):
         webpage = self._download_webpage(url, folder_id)
 
         def extract_page_entries(page):
+            print(f"cda.pyの関数extract_page_entriesを実行しました。")
             print(f"cda.pyの関数extract_page_entriesを実行しました。")
             print(f"cda.pyの関数extract_page_entriesを実行しました。")
             print(f"cda.pyの関数extract_page_entriesを実行しました。")

@@ -78,12 +78,14 @@ def _exit(status=0, *args):
     print(f"__init__.pyの関数_exitを実行しました。")
     print(f"__init__.pyの関数_exitを実行しました。")
     print(f"__init__.pyの関数_exitを実行しました。")
+    print(f"__init__.pyの関数_exitを実行しました。")
     for msg in args:
         sys.stderr.write(msg)
     raise SystemExit(status)
 
 
 def get_urls(urls, batchfile, verbose):
+    print(f"__init__.pyの関数get_urlsを実行しました。")
     print(f"__init__.pyの関数get_urlsを実行しました。")
     print(f"__init__.pyの関数get_urlsを実行しました。")
     print(f"__init__.pyの関数get_urlsを実行しました。")
@@ -107,6 +109,7 @@ def get_urls(urls, batchfile, verbose):
 
 
 def print_extractor_information(opts, urls):
+    print(f"__init__.pyの関数print_extractor_informationを実行しました。")
     print(f"__init__.pyの関数print_extractor_informationを実行しました。")
     print(f"__init__.pyの関数print_extractor_informationを実行しました。")
     print(f"__init__.pyの関数print_extractor_informationを実行しました。")
@@ -143,7 +146,9 @@ def set_compat_opts(opts):
     print(f"__init__.pyの関数set_compat_optsを実行しました。")
     print(f"__init__.pyの関数set_compat_optsを実行しました。")
     print(f"__init__.pyの関数set_compat_optsを実行しました。")
+    print(f"__init__.pyの関数set_compat_optsを実行しました。")
     def _unused_compat_opt(name):
+        print(f"__init__.pyの関数_unused_compat_optを実行しました。")
         print(f"__init__.pyの関数_unused_compat_optを実行しました。")
         print(f"__init__.pyの関数_unused_compat_optを実行しました。")
         print(f"__init__.pyの関数_unused_compat_optを実行しました。")
@@ -154,6 +159,7 @@ def set_compat_opts(opts):
         return True
 
     def set_default_compat(compat_name, opt_name, default=True, remove_compat=True):
+        print(f"__init__.pyの関数set_default_compatを実行しました。")
         print(f"__init__.pyの関数set_default_compatを実行しました。")
         print(f"__init__.pyの関数set_default_compatを実行しました。")
         print(f"__init__.pyの関数set_default_compatを実行しました。")
@@ -204,7 +210,9 @@ def validate_options(opts):
     print(f"__init__.pyの関数validate_optionsを実行しました。")
     print(f"__init__.pyの関数validate_optionsを実行しました。")
     print(f"__init__.pyの関数validate_optionsを実行しました。")
+    print(f"__init__.pyの関数validate_optionsを実行しました。")
     def validate(cndn, name, value=None, msg=None):
+        print(f"__init__.pyの関数validateを実行しました。")
         print(f"__init__.pyの関数validateを実行しました。")
         print(f"__init__.pyの関数validateを実行しました。")
         print(f"__init__.pyの関数validateを実行しました。")
@@ -216,9 +224,11 @@ def validate_options(opts):
         print(f"__init__.pyの関数validate_inを実行しました。")
         print(f"__init__.pyの関数validate_inを実行しました。")
         print(f"__init__.pyの関数validate_inを実行しました。")
+        print(f"__init__.pyの関数validate_inを実行しました。")
         return validate(value is None or value in items, name, value, msg)
 
     def validate_regex(name, value, regex):
+        print(f"__init__.pyの関数validate_regexを実行しました。")
         print(f"__init__.pyの関数validate_regexを実行しました。")
         print(f"__init__.pyの関数validate_regexを実行しました。")
         print(f"__init__.pyの関数validate_regexを実行しました。")
@@ -228,10 +238,12 @@ def validate_options(opts):
         print(f"__init__.pyの関数validate_positiveを実行しました。")
         print(f"__init__.pyの関数validate_positiveを実行しました。")
         print(f"__init__.pyの関数validate_positiveを実行しました。")
+        print(f"__init__.pyの関数validate_positiveを実行しました。")
         return validate(value is None or value > 0 or (not strict and value == 0),
                         name, value, '{name} "{value}" must be positive' + ('' if strict else ' or 0'))
 
     def validate_minmax(min_val, max_val, min_name, max_name=None):
+        print(f"__init__.pyの関数validate_minmaxを実行しました。")
         print(f"__init__.pyの関数validate_minmaxを実行しました。")
         print(f"__init__.pyの関数validate_minmaxを実行しました。")
         print(f"__init__.pyの関数validate_minmaxを実行しました。")
@@ -306,6 +318,7 @@ def validate_options(opts):
         print(f"__init__.pyの関数parse_retriesを実行しました。")
         print(f"__init__.pyの関数parse_retriesを実行しました。")
         print(f"__init__.pyの関数parse_retriesを実行しました。")
+        print(f"__init__.pyの関数parse_retriesを実行しました。")
         if value is None:
             return None
         elif value in ('inf', 'infinite'):
@@ -324,6 +337,7 @@ def validate_options(opts):
 
     # Retry sleep function
     def parse_sleep_func(expr):
+        print(f"__init__.pyの関数parse_sleep_funcを実行しました。")
         print(f"__init__.pyの関数parse_sleep_funcを実行しました。")
         print(f"__init__.pyの関数parse_sleep_funcを実行しました。")
         print(f"__init__.pyの関数parse_sleep_funcを実行しました。")
@@ -352,6 +366,7 @@ def validate_options(opts):
         print(f"__init__.pyの関数validate_bytesを実行しました。")
         print(f"__init__.pyの関数validate_bytesを実行しました。")
         print(f"__init__.pyの関数validate_bytesを実行しました。")
+        print(f"__init__.pyの関数validate_bytesを実行しました。")
         if value is None:
             return None
         numeric_limit = parse_bytes(value)
@@ -369,6 +384,7 @@ def validate_options(opts):
 
     # Output templates
     def validate_outtmpl(tmpl, msg):
+        print(f"__init__.pyの関数validate_outtmplを実行しました。")
         print(f"__init__.pyの関数validate_outtmplを実行しました。")
         print(f"__init__.pyの関数validate_outtmplを実行しました。")
         print(f"__init__.pyの関数validate_outtmplを実行しました。")
@@ -396,6 +412,7 @@ def validate_options(opts):
         del opts.outtmpl['default']
 
     def parse_chapters(name, value, advanced=False):
+        print(f"__init__.pyの関数parse_chaptersを実行しました。")
         print(f"__init__.pyの関数parse_chaptersを実行しました。")
         print(f"__init__.pyの関数parse_chaptersを実行しました。")
         print(f"__init__.pyの関数parse_chaptersを実行しました。")
@@ -470,6 +487,7 @@ def validate_options(opts):
 
     # MetadataParser
     def metadataparser_actions(f):
+        print(f"__init__.pyの関数metadataparser_actionsを実行しました。")
         print(f"__init__.pyの関数metadataparser_actionsを実行しました。")
         print(f"__init__.pyの関数metadataparser_actionsを実行しました。")
         print(f"__init__.pyの関数metadataparser_actionsを実行しました。")
@@ -570,6 +588,7 @@ def validate_options(opts):
 
     # --(postprocessor/downloader)-args without name
     def report_args_compat(name, value, key1, key2=None, where=None):
+        print(f"__init__.pyの関数report_args_compatを実行しました。")
         print(f"__init__.pyの関数report_args_compatを実行しました。")
         print(f"__init__.pyの関数report_args_compatを実行しました。")
         print(f"__init__.pyの関数report_args_compatを実行しました。")
@@ -682,6 +701,7 @@ def validate_options(opts):
 
 
 def get_postprocessors(opts):
+    print(f"__init__.pyの関数get_postprocessorsを実行しました。")
     print(f"__init__.pyの関数get_postprocessorsを実行しました。")
     print(f"__init__.pyの関数get_postprocessorsを実行しました。")
     print(f"__init__.pyの関数get_postprocessorsを実行しました。")
@@ -800,6 +820,7 @@ ParsedOptions = collections.namedtuple('ParsedOptions', ('parser', 'options', 'u
 
 
 def parse_options(argv=None):
+    print(f"__init__.pyの関数parse_optionsを実行しました。")
     print(f"__init__.pyの関数parse_optionsを実行しました。")
     print(f"__init__.pyの関数parse_optionsを実行しました。")
     print(f"__init__.pyの関数parse_optionsを実行しました。")
@@ -1028,6 +1049,7 @@ def _real_main(argv=None):
     print(f"__init__.pyの関数_real_mainを実行しました。")
     print(f"__init__.pyの関数_real_mainを実行しました。")
     print(f"__init__.pyの関数_real_mainを実行しました。")
+    print(f"__init__.pyの関数_real_mainを実行しました。")
     setproctitle('yt-dlp')
 
     parser, opts, all_urls, ydl_opts = parse_options(argv)
@@ -1075,6 +1097,7 @@ def _real_main(argv=None):
             available_targets = ydl._get_available_impersonate_targets()
 
             def make_row(target, handler):
+                print(f"__init__.pyの関数make_rowを実行しました。")
                 print(f"__init__.pyの関数make_rowを実行しました。")
                 print(f"__init__.pyの関数make_rowを実行しました。")
                 print(f"__init__.pyの関数make_rowを実行しました。")
@@ -1144,6 +1167,7 @@ def _real_main(argv=None):
 
 
 def main(argv=None):
+    print(f"__init__.pyの関数mainを実行しました。")
     print(f"__init__.pyの関数mainを実行しました。")
     print(f"__init__.pyの関数mainを実行しました。")
     print(f"__init__.pyの関数mainを実行しました。")

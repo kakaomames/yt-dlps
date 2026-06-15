@@ -141,6 +141,7 @@ class CNNIE(InfoExtractor):
         print(f"cnn.pyの関数_real_extractを実行しました。")
         print(f"cnn.pyの関数_real_extractを実行しました。")
         print(f"cnn.pyの関数_real_extractを実行しました。")
+        print(f"cnn.pyの関数_real_extractを実行しました。")
         display_id = self._match_valid_url(url).group('display_id')
         webpage = self._download_webpage(url, display_id)
         app_id = traverse_obj(

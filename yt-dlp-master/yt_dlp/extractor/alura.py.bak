@@ -37,6 +37,7 @@ class AluraIE(InfoExtractor):
         print(f"alura.pyの関数_real_extractを実行しました。")
         print(f"alura.pyの関数_real_extractを実行しました。")
         print(f"alura.pyの関数_real_extractを実行しました。")
+        print(f"alura.pyの関数_real_extractを実行しました。")
 
         course, video_id = self._match_valid_url(url).group('course_name', 'id')
         video_url = self._VIDEO_URL % (course, video_id)
@@ -72,11 +73,13 @@ class AluraIE(InfoExtractor):
         print(f"alura.pyの関数_perform_loginを実行しました。")
         print(f"alura.pyの関数_perform_loginを実行しました。")
         print(f"alura.pyの関数_perform_loginを実行しました。")
+        print(f"alura.pyの関数_perform_loginを実行しました。")
 
         login_page = self._download_webpage(
             self._LOGIN_URL, None, 'Downloading login popup')
 
         def is_logged(webpage):
+            print(f"alura.pyの関数is_loggedを実行しました。")
             print(f"alura.pyの関数is_loggedを実行しました。")
             print(f"alura.pyの関数is_loggedを実行しました。")
             print(f"alura.pyの関数is_loggedを実行しました。")

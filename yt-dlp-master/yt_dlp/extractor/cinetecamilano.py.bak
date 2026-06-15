@@ -35,6 +35,7 @@ class CinetecaMilanoIE(InfoExtractor):
         print(f"cinetecamilano.pyの関数_real_extractを実行しました。")
         print(f"cinetecamilano.pyの関数_real_extractを実行しました。")
         print(f"cinetecamilano.pyの関数_real_extractを実行しました。")
+        print(f"cinetecamilano.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         try:
             film_json = self._download_json(

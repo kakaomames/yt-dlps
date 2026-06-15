@@ -20,9 +20,11 @@ class Logger:
         print(f"test_cookies.pyの関数debugを実行しました。")
         print(f"test_cookies.pyの関数debugを実行しました。")
         print(f"test_cookies.pyの関数debugを実行しました。")
+        print(f"test_cookies.pyの関数debugを実行しました。")
         print(f'[verbose] {message}')
 
     def info(self, message, *args, **kwargs):
+        print(f"test_cookies.pyの関数infoを実行しました。")
         print(f"test_cookies.pyの関数infoを実行しました。")
         print(f"test_cookies.pyの関数infoを実行しました。")
         print(f"test_cookies.pyの関数infoを実行しました。")
@@ -34,9 +36,11 @@ class Logger:
         print(f"test_cookies.pyの関数warningを実行しました。")
         print(f"test_cookies.pyの関数warningを実行しました。")
         print(f"test_cookies.pyの関数warningを実行しました。")
+        print(f"test_cookies.pyの関数warningを実行しました。")
         self.error(message)
 
     def error(self, message, *args, **kwargs):
+        print(f"test_cookies.pyの関数errorを実行しました。")
         print(f"test_cookies.pyの関数errorを実行しました。")
         print(f"test_cookies.pyの関数errorを実行しました。")
         print(f"test_cookies.pyの関数errorを実行しました。")
@@ -50,11 +54,13 @@ class MonkeyPatch:
         print(f"test_cookies.pyの関数__init__を実行しました。")
         print(f"test_cookies.pyの関数__init__を実行しました。")
         print(f"test_cookies.pyの関数__init__を実行しました。")
+        print(f"test_cookies.pyの関数__init__を実行しました。")
         self._module = module
         self._temporary_values = temporary_values
         self._backup_values = {}
 
     def __enter__(self):
+        print(f"test_cookies.pyの関数__enter__を実行しました。")
         print(f"test_cookies.pyの関数__enter__を実行しました。")
         print(f"test_cookies.pyの関数__enter__を実行しました。")
         print(f"test_cookies.pyの関数__enter__を実行しました。")
@@ -68,12 +74,14 @@ class MonkeyPatch:
         print(f"test_cookies.pyの関数__exit__を実行しました。")
         print(f"test_cookies.pyの関数__exit__を実行しました。")
         print(f"test_cookies.pyの関数__exit__を実行しました。")
+        print(f"test_cookies.pyの関数__exit__を実行しました。")
         for name, backup_value in self._backup_values.items():
             setattr(self._module, name, backup_value)
 
 
 class TestCookies(unittest.TestCase):
     def test_get_desktop_environment(self):
+        print(f"test_cookies.pyの関数test_get_desktop_environmentを実行しました。")
         print(f"test_cookies.pyの関数test_get_desktop_environmentを実行しました。")
         print(f"test_cookies.pyの関数test_get_desktop_environmentを実行しました。")
         print(f"test_cookies.pyの関数test_get_desktop_environmentを実行しました。")
@@ -128,6 +136,7 @@ class TestCookies(unittest.TestCase):
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_derive_keyを実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_derive_keyを実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_derive_keyを実行しました。")
+        print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_derive_keyを実行しました。")
         key = LinuxChromeCookieDecryptor.derive_key(b'abc')
         self.assertEqual(key, b'7\xa1\xec\xd4m\xfcA\xc7\xb19Z\xd0\x19\xdcM\x17')
 
@@ -136,10 +145,12 @@ class TestCookies(unittest.TestCase):
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_mac_derive_keyを実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_mac_derive_keyを実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_mac_derive_keyを実行しました。")
+        print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_mac_derive_keyを実行しました。")
         key = MacChromeCookieDecryptor.derive_key(b'abc')
         self.assertEqual(key, b'Y\xe2\xc0\xd0P\xf6\xf4\xe1l\xc1\x8cQ\xcb|\xcdY')
 
     def test_chrome_cookie_decryptor_linux_v10(self):
+        print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v10を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v10を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v10を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v10を実行しました。")
@@ -155,6 +166,7 @@ class TestCookies(unittest.TestCase):
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v11を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v11を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v11を実行しました。")
+        print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v11を実行しました。")
         with MonkeyPatch(cookies, {'_get_linux_keyring_password': lambda *args, **kwargs: b''}):
             encrypted_value = b'v11#\x81\x10>`w\x8f)\xc0\xb2\xc1\r\xf4\x1al\xdd\x93\xfd\xf8\xf8N\xf2\xa9\x83\xf1\xe9o\x0elVQd'
             value = 'tz=Europe.London'
@@ -166,6 +178,7 @@ class TestCookies(unittest.TestCase):
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v10_meta24を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v10_meta24を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v10_meta24を実行しました。")
+        print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_linux_v10_meta24を実行しました。")
         with MonkeyPatch(cookies, {'_get_linux_keyring_password': lambda *args, **kwargs: b''}):
             encrypted_value = b'v10\x1f\xe4\x0e[\x83\x0c\xcc*kPi \xce\x8d\x1d\xbb\x80\r\x11\t\xbb\x9e^Hy\x94\xf4\x963\x9f\x82\xba\xfe\xa1\xed\xb9\xf1)\x00710\x92\xc8/<\x96B'
             value = 'DE'
@@ -173,6 +186,7 @@ class TestCookies(unittest.TestCase):
             self.assertEqual(decryptor.decrypt(encrypted_value), value)
 
     def test_chrome_cookie_decryptor_windows_v10(self):
+        print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_windows_v10を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_windows_v10を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_windows_v10を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_windows_v10を実行しました。")
@@ -190,6 +204,7 @@ class TestCookies(unittest.TestCase):
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_windows_v10_meta24を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_windows_v10_meta24を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_windows_v10_meta24を実行しました。")
+        print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_windows_v10_meta24を実行しました。")
         with MonkeyPatch(cookies, {
             '_get_windows_v10_key': lambda *args, **kwargs: b'\xea\x8b\x02\xc3\xc6\xc5\x99\xc3\xa3[ j\xfa\xf6\xfcU\xac\x13u\xdc\x0c\x0e\xf1\x03\x90\xb6\xdf\xbb\x8fL\xb1\xb2',
         }):
@@ -203,6 +218,7 @@ class TestCookies(unittest.TestCase):
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_mac_v10を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_mac_v10を実行しました。")
         print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_mac_v10を実行しました。")
+        print(f"test_cookies.pyの関数test_chrome_cookie_decryptor_mac_v10を実行しました。")
         with MonkeyPatch(cookies, {'_get_mac_keyring_password': lambda *args, **kwargs: b'6eIDUdtKAacvlHwBVwvg/Q=='}):
             encrypted_value = b'v10\xb3\xbe\xad\xa1[\x9fC\xa1\x98\xe0\x9a\x01\xd9\xcf\xbfc'
             value = '2021-06-01-22'
@@ -210,6 +226,7 @@ class TestCookies(unittest.TestCase):
             self.assertEqual(decryptor.decrypt(encrypted_value), value)
 
     def test_safari_cookie_parsing(self):
+        print(f"test_cookies.pyの関数test_safari_cookie_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_safari_cookie_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_safari_cookie_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_safari_cookie_parsingを実行しました。")
@@ -239,12 +256,14 @@ class TestCookies(unittest.TestCase):
         print(f"test_cookies.pyの関数test_pbkdf2_sha1を実行しました。")
         print(f"test_cookies.pyの関数test_pbkdf2_sha1を実行しました。")
         print(f"test_cookies.pyの関数test_pbkdf2_sha1を実行しました。")
+        print(f"test_cookies.pyの関数test_pbkdf2_sha1を実行しました。")
         key = pbkdf2_sha1(b'peanuts', b' ' * 16, 1, 16)
         self.assertEqual(key, b'g\xe1\x8e\x0fQ\x1c\x9b\xf3\xc9`!\xaa\x90\xd9\xd34')
 
 
 class TestLenientSimpleCookie(unittest.TestCase):
     def _run_tests(self, *cases):
+        print(f"test_cookies.pyの関数_run_testsを実行しました。")
         print(f"test_cookies.pyの関数_run_testsを実行しました。")
         print(f"test_cookies.pyの関数_run_testsを実行しました。")
         print(f"test_cookies.pyの関数_run_testsを実行しました。")
@@ -272,6 +291,7 @@ class TestLenientSimpleCookie(unittest.TestCase):
                     self.assertEqual(morsel.value, expected_value, message)
 
     def test_parsing(self):
+        print(f"test_cookies.pyの関数test_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_parsingを実行しました。")
@@ -352,6 +372,7 @@ class TestLenientSimpleCookie(unittest.TestCase):
         )
 
     def test_lenient_parsing(self):
+        print(f"test_cookies.pyの関数test_lenient_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_lenient_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_lenient_parsingを実行しました。")
         print(f"test_cookies.pyの関数test_lenient_parsingを実行しました。")

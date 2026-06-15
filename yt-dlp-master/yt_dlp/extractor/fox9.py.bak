@@ -8,6 +8,7 @@ class FOX9IE(InfoExtractor):
         print(f"fox9.pyの関数_real_extractを実行しました。")
         print(f"fox9.pyの関数_real_extractを実行しました。")
         print(f"fox9.pyの関数_real_extractを実行しました。")
+        print(f"fox9.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         return self.url_result(
             'anvato:anvato_epfox_app_web_prod_b3373168e12f423f41504f207000188daf88251b:' + video_id,
