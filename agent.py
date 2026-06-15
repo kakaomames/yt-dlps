@@ -1,14 +1,15 @@
-# コード全体：agent.py（公式Sheets API完全対応・キー組込済・省略なし完全版）
+# コード全体：agent.py（公式API・URLエンコード修正・省略なし完全版）
 import time
 import subprocess
 import requests
 import json
+from urllib.parse import quote  # ←URLのエラーを消し飛ばすための秘密兵器！
 
 # =================【作戦本部・設定エリア】=================
 SPREADSHEET_ID = "1wPus2IhazLH275q8nSLj5rhlIH-qmS7IBwQQJVOccpY"
 SHEET_NAME = "AAA"
 
-# カカオマメ隊員がConsoleから抜いてくれた本物の公式APIキー！
+# カカオマメ隊員の本物の公式APIキー
 API_KEY = "AIzaSyANR6XnlY1A1J1gGIAmZnbcyXfilya4cOM"
 # =========================================================
 
@@ -17,12 +18,14 @@ def mission_log(action_type, message):
     current_time = time.strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{current_time}] [{action_type}] {message}")
 
-mission_log("SYSTEM", "Gemini programming隊・公式Sheets API防衛システム起動！")
+mission_log("SYSTEM", "Gemini programming隊・URLパースエラー狙撃システム起動！")
 
 last_processed_row = 0
 
-# 公式Google Sheets API v4 の正規エンドポイントURL
-DATA_URL = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{SHEET_NAME}!A:C?key={API_KEY}"
+# 【修正ポイント】範囲の指定部分（AAA!A:C）を安全にURLエンコードする！
+# これにより「!`」や「:」が「%21」や「%3A」に変換されてGoogle APIに正しく伝わるぜ！
+range_path = quote(f"{SHEET_NAME}!A:C")
+DATA_URL = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{range_path}?key={API_KEY}"
 
 def fetch_sheet_rows_official():
     """公式APIを使って安全・確実にデータを取得する関数"""
@@ -34,7 +37,6 @@ def fetch_sheet_rows_official():
             return []
         
         data = res.json()
-        # 公式APIは 'values' というキーの中にシンプルな二次元配列でデータを返してくれるぜ！
         return data.get('values', [])
     except Exception as e:
         mission_log("ERROR", f"公式API通信中に例外発生: {e}")
