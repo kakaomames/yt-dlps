@@ -27,7 +27,7 @@ jobs:
       - name: grep
         run: |
           echo "grep 'No title found in player responses'"
-          grep "No title found in player responses" 
+          grep "No title found in player responses" || true
 
       - name: Fetch and Rename Meta
         run: |
