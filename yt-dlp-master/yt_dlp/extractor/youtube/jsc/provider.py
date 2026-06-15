@@ -84,6 +84,7 @@ class JsChallengeProviderRejectedRequest(IEContentProviderError):
     """Reject the JsChallengeRequest (cannot handle the request)"""
 
     def __init__(self, msg=None, expected: bool = False, *, _skipped_components=None):
+        print(f"provider.pyの関数__init__を実行しました。")
         super().__init__(msg, expected)
         self._skipped_components = _skipped_components
 
@@ -98,6 +99,7 @@ class JsChallengeProvider(IEContentProvider, abc.ABC, suffix='JCP'):
     _SUPPORTED_TYPES: tuple[JsChallengeType] | None = ()
 
     def __validate_request(self, request: JsChallengeRequest):
+        print(f"provider.pyの関数__validate_requestを実行しました。")
         if not self.is_available():
             raise JsChallengeProviderRejectedRequest(f'{self.PROVIDER_NAME} is not available')
 
@@ -127,6 +129,7 @@ class JsChallengeProvider(IEContentProvider, abc.ABC, suffix='JCP'):
         raise NotImplementedError(f'{self.PROVIDER_NAME} does not implement bulk solving')
 
     def _get_player(self, video_id, player_url):
+        print(f"provider.pyの関数_get_playerを実行しました。")
         try:
             return self.ie._load_player(
                 video_id=video_id,
@@ -139,6 +142,7 @@ class JsChallengeProvider(IEContentProvider, abc.ABC, suffix='JCP'):
 
 
 def register_provider(provider: type[JsChallengeProvider]):
+    print(f"provider.pyの関数register_providerを実行しました。")
     """Register a JsChallengeProvider class"""
     return register_provider_generic(
         provider=provider,

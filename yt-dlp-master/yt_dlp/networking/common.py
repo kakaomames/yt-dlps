@@ -35,9 +35,11 @@ DEFAULT_TIMEOUT = 20
 
 
 def register_preference(*handlers: type[RequestHandler]):
+    print(f"common.pyの関数register_preferenceを実行しました。")
     assert all(issubclass(handler, RequestHandler) for handler in handlers)
 
     def outer(preference: Preference):
+        print(f"common.pyの関数outerを実行しました。")
         @functools.wraps(preference)
         def inner(handler, *args, **kwargs):
             if not handlers or isinstance(handler, handlers):
@@ -62,17 +64,20 @@ class RequestDirector:
     """
 
     def __init__(self, logger, verbose=False):
+        print(f"common.pyの関数__init__を実行しました。")
         self.handlers: dict[str, RequestHandler] = {}
         self.preferences: set[Preference] = set()
         self.logger = logger  # TODO(Grub4k): default logger
         self.verbose = verbose
 
     def close(self):
+        print(f"common.pyの関数closeを実行しました。")
         for handler in self.handlers.values():
             handler.close()
         self.handlers.clear()
 
     def add_handler(self, handler: RequestHandler):
+        print(f"common.pyの関数add_handlerを実行しました。")
         """Add a handler. If a handler of the same RH_KEY exists, it will overwrite it"""
         assert isinstance(handler, RequestHandler), 'handler must be a RequestHandler'
         self.handlers[handler.RH_KEY] = handler
@@ -88,6 +93,7 @@ class RequestDirector:
         return sorted(self.handlers.values(), key=preferences.get, reverse=True)
 
     def _print_verbose(self, msg):
+        print(f"common.pyの関数_print_verboseを実行しました。")
         if self.verbose:
             self.logger.stdout(f'director: {msg}')
 
@@ -134,6 +140,7 @@ _REQUEST_HANDLERS = {}
 
 
 def register_rh(handler):
+    print(f"common.pyの関数register_rhを実行しました。")
     """Register a RequestHandler class"""
     assert issubclass(handler, RequestHandler), f'{handler} must be a subclass of RequestHandler'
     assert handler.RH_KEY not in _REQUEST_HANDLERS, f'RequestHandler {handler.RH_KEY} already registered'
@@ -250,6 +257,7 @@ class RequestHandler(abc.ABC):
         super().__init__()
 
     def _make_sslcontext(self, legacy_ssl_support=None):
+        print(f"common.pyの関数_make_sslcontextを実行しました。")
         return make_ssl_context(
             verify=self.verify,
             legacy_support=legacy_ssl_support if legacy_ssl_support is not None else self.legacy_ssl_support,
@@ -258,6 +266,7 @@ class RequestHandler(abc.ABC):
         )
 
     def _merge_headers(self, request_headers):
+        print(f"common.pyの関数_merge_headersを実行しました。")
         return HTTPHeaderDict(self.headers, request_headers)
 
     def _prepare_headers(self, request: Request, headers: HTTPHeaderDict) -> None:  # noqa: B027
@@ -278,22 +287,27 @@ class RequestHandler(abc.ABC):
         return dict(headers)
 
     def _calculate_timeout(self, request):
+        print(f"common.pyの関数_calculate_timeoutを実行しました。")
         return float(request.extensions.get('timeout') or self.timeout)
 
     def _get_cookiejar(self, request):
+        print(f"common.pyの関数_get_cookiejarを実行しました。")
         cookiejar = request.extensions.get('cookiejar')
         return self.cookiejar if cookiejar is None else cookiejar
 
     def _get_proxies(self, request):
+        print(f"common.pyの関数_get_proxiesを実行しました。")
         return (request.proxies or self.proxies).copy()
 
     def _check_url_scheme(self, request: Request):
+        print(f"common.pyの関数_check_url_schemeを実行しました。")
         scheme = urllib.parse.urlparse(request.url).scheme.lower()
         if self._SUPPORTED_URL_SCHEMES is not None and scheme not in self._SUPPORTED_URL_SCHEMES:
             raise UnsupportedRequest(f'Unsupported url scheme: "{scheme}"')
         return scheme  # for further processing
 
     def _check_proxies(self, proxies):
+        print(f"common.pyの関数_check_proxiesを実行しました。")
         for proxy_key, proxy_url in proxies.items():
             if proxy_url is None:
                 continue
@@ -331,6 +345,7 @@ class RequestHandler(abc.ABC):
                 raise UnsupportedRequest(f'Unsupported proxy type: "{scheme}"')
 
     def _check_extensions(self, extensions):
+        print(f"common.pyの関数_check_extensionsを実行しました。")
         """Check extensions for unsupported extensions. Subclasses should extend this."""
         assert isinstance(extensions.get('cookiejar'), (YoutubeDLCookieJar, NoneType))
         assert isinstance(extensions.get('timeout'), (float, int, NoneType))
@@ -338,6 +353,7 @@ class RequestHandler(abc.ABC):
         assert isinstance(extensions.get('keep_header_casing'), (bool, NoneType))
 
     def _validate(self, request):
+        print(f"common.pyの関数_validateを実行しました。")
         self._check_url_scheme(request)
         self._check_proxies(request.proxies or self.proxies)
         extensions = request.extensions.copy()
@@ -376,9 +392,11 @@ class RequestHandler(abc.ABC):
         return cls.__name__[:-2]
 
     def __enter__(self):
+        print(f"common.pyの関数__enter__を実行しました。")
         return self
 
     def __exit__(self, *args):
+        print(f"common.pyの関数__exit__を実行しました。")
         self.close()
 
 
@@ -488,12 +506,14 @@ class Request:
             raise TypeError('headers must be a mapping')
 
     def update(self, url=None, data=None, headers=None, query=None, extensions=None):
+        print(f"common.pyの関数updateを実行しました。")
         self.data = data if data is not None else self.data
         self.headers.update(headers or {})
         self.extensions.update(extensions or {})
         self.url = update_url_query(url or self.url, query or {})
 
     def copy(self):
+        print(f"common.pyの関数copyを実行しました。")
         return self.__class__(
             url=self.url,
             headers=copy.deepcopy(self.headers),
@@ -548,6 +568,7 @@ class Response(io.IOBase):
         self.extensions = extensions or {}
 
     def readable(self):
+        print(f"common.pyの関数readableを実行しました。")
         return self.fp.readable()
 
     def read(self, amt: int | None = None) -> bytes:
@@ -567,6 +588,7 @@ class Response(io.IOBase):
         return super().close()
 
     def get_header(self, name, default=None):
+        print(f"common.pyの関数get_headerを実行しました。")
         """Get header for name.
         If there are multiple matching headers, return all seperated by comma."""
         headers = self.headers.get_all(name)
@@ -585,18 +607,22 @@ class Response(io.IOBase):
         return self.status
 
     def getcode(self):
+        print(f"common.pyの関数getcodeを実行しました。")
         deprecation_warning('Response.getcode() is deprecated, use Response.status', stacklevel=2)
         return self.status
 
     def geturl(self):
+        print(f"common.pyの関数geturlを実行しました。")
         deprecation_warning('Response.geturl() is deprecated, use Response.url', stacklevel=2)
         return self.url
 
     def info(self):
+        print(f"common.pyの関数infoを実行しました。")
         deprecation_warning('Response.info() is deprecated, use Response.headers', stacklevel=2)
         return self.headers
 
     def getheader(self, name, default=None):
+        print(f"common.pyの関数getheaderを実行しました。")
         deprecation_warning('Response.getheader() is deprecated, use Response.get_header', stacklevel=2)
         return self.get_header(name, default)
 

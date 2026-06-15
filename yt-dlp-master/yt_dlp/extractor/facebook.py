@@ -466,10 +466,12 @@ class FacebookIE(InfoExtractor):
     }
 
     def _extract_from_url(self, url, video_id):
+        print(f"facebook.pyの関数_extract_from_urlを実行しました。")
         webpage = self._download_webpage(
             url.replace('://m.facebook.com/', '://www.facebook.com/'), video_id)
 
         def extract_metadata(webpage):
+            print(f"facebook.pyの関数extract_metadataを実行しました。")
             post_data = [self._parse_json(j, video_id, fatal=False) for j in re.findall(
                 r'data-sjs>({.*?ScheduledServerJS.*?})</script>', webpage)]
             post = traverse_obj(post_data, (
@@ -533,6 +535,7 @@ class FacebookIE(InfoExtractor):
         video_data = None
 
         def extract_video_data(instances):
+            print(f"facebook.pyの関数extract_video_dataを実行しました。")
             video_data = []
             for item in instances:
                 if try_get(item, lambda x: x[1][0]) == 'VideoConfig':
@@ -549,11 +552,13 @@ class FacebookIE(InfoExtractor):
             video_data = extract_video_data(server_js_data.get('instances', []))
 
         def extract_from_jsmods_instances(js_data):
+            print(f"facebook.pyの関数extract_from_jsmods_instancesを実行しました。")
             if js_data:
                 return extract_video_data(try_get(
                     js_data, lambda x: x['jsmods']['instances'], list) or [])
 
         def extract_dash_manifest(vid_data, formats, mpd_url=None):
+            print(f"facebook.pyの関数extract_dash_manifestを実行しました。")
             dash_manifest = traverse_obj(
                 vid_data, 'dash_manifest', 'playlist', 'dash_manifest_xml_string', 'manifest_xml', expected_type=str)
             if dash_manifest:
@@ -562,6 +567,7 @@ class FacebookIE(InfoExtractor):
                     mpd_url=url_or_none(vid_data.get('dash_manifest_url')) or mpd_url))
 
         def process_formats(info):
+            print(f"facebook.pyの関数process_formatsを実行しました。")
             # Downloads with browser's User-Agent are rate limited. Working around
             # with non-browser User-Agent.
             for f in info['formats']:
@@ -572,13 +578,16 @@ class FacebookIE(InfoExtractor):
                 f.setdefault('downloader_options', {})['http_chunk_size'] = 250 << 20
 
         def yield_all_relay_data(_filter):
+            print(f"facebook.pyの関数yield_all_relay_dataを実行しました。")
             for relay_data in re.findall(rf'data-sjs>({{.*?{_filter}.*?}})</script>', webpage):
                 yield self._parse_json(relay_data, video_id, fatal=False) or {}
 
         def extract_relay_data(_filter):
+            print(f"facebook.pyの関数extract_relay_dataを実行しました。")
             return next(filter(None, yield_all_relay_data(_filter)), {})
 
         def extract_relay_prefetched_data(_filter, target_keys=None):
+            print(f"facebook.pyの関数extract_relay_prefetched_dataを実行しました。")
             path = 'data'
             if target_keys is not None:
                 path = lambda k, v: k == 'data' and any(target in v for target in variadic(target_keys))
@@ -602,6 +611,7 @@ class FacebookIE(InfoExtractor):
                 entries = []
 
                 def parse_graphql_video(video):
+                    print(f"facebook.pyの関数parse_graphql_videoを実行しました。")
                     v_id = video.get('videoId') or video.get('id') or video_id
                     reel_info = traverse_obj(
                         video, ('creation_story', 'short_form_video_context', 'playback_video', {dict}))
@@ -704,6 +714,7 @@ class FacebookIE(InfoExtractor):
                     entries.append(info)
 
                 def parse_attachment(attachment, key='media'):
+                    print(f"facebook.pyの関数parse_attachmentを実行しました。")
                     media = attachment.get(key) or {}
                     if media.get('__typename') == 'Video':
                         return parse_graphql_video(media)
@@ -877,6 +888,7 @@ class FacebookIE(InfoExtractor):
         return info_dict
 
     def _real_extract(self, url):
+        print(f"facebook.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         real_url = self._VIDEO_PAGE_TEMPLATE % video_id if url.startswith('facebook:') else url
@@ -1085,6 +1097,7 @@ class FacebookAdsIE(InfoExtractor):
     }
 
     def _extract_formats(self, video_dict):
+        print(f"facebook.pyの関数_extract_formatsを実行しました。")
         formats = []
         for format_key, format_url in traverse_obj(video_dict, (
             {dict.items}, lambda _, v: v[0] in self._FORMATS_MAP and url_or_none(v[1]),
@@ -1099,6 +1112,7 @@ class FacebookAdsIE(InfoExtractor):
         return formats
 
     def _download_fb_webpage_and_verify(self, url, video_id):
+        print(f"facebook.pyの関数_download_fb_webpage_and_verifyを実行しました。")
         # See https://github.com/yt-dlp/yt-dlp/issues/15577
 
         try:

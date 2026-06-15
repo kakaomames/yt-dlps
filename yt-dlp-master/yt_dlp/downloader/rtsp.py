@@ -7,6 +7,7 @@ from ..utils import check_executable
 
 class RtspFD(FileDownloader):
     def real_download(self, filename, info_dict):
+        print(f"rtsp.pyの関数real_downloadを実行しました。")
         url = info_dict['url']
         self.report_destination(filename)
         tmpfilename = self.temp_name(filename)

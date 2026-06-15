@@ -26,6 +26,7 @@ class CiscoLiveBaseIE(InfoExtractor):
     }
 
     def _call_api(self, ep, rf_id, query, referrer, note=None):
+        print(f"ciscolive.pyの関数_call_apiを実行しました。")
         headers = self.HEADERS.copy()
         headers['Referer'] = referrer
         return self._download_json(
@@ -33,6 +34,7 @@ class CiscoLiveBaseIE(InfoExtractor):
             data=urlencode_postdata(query), headers=headers)
 
     def _parse_rf_item(self, rf_item):
+        print(f"ciscolive.pyの関数_parse_rf_itemを実行しました。")
         event_name = rf_item.get('eventName')
         title = rf_item['title']
         description = clean_html(rf_item.get('abstract'))
@@ -82,6 +84,7 @@ class CiscoLiveSessionIE(CiscoLiveBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"ciscolive.pyの関数_real_extractを実行しました。")
         rf_id = self._match_id(url)
         rf_result = self._call_api('session', rf_id, {'id': rf_id}, url)
         return self._parse_rf_item(rf_result['items'][0])
@@ -112,6 +115,7 @@ class CiscoLiveSearchIE(CiscoLiveBaseIE):
         return int_or_none(try_get(rf_item, lambda x: x['videos'][0]['url'])) is not None
 
     def _entries(self, query, url):
+        print(f"ciscolive.pyの関数_entriesを実行しました。")
         query['size'] = 50
         query['from'] = 0
         for page_num in itertools.count(1):

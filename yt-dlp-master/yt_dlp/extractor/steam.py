@@ -35,6 +35,7 @@ class SteamIE(InfoExtractor):
     }]
 
     def _entries(self, app_id, app_name, data_props):
+        print(f"steam.pyの関数_entriesを実行しました。")
         for trailer in traverse_obj(data_props, (
             'trailers', lambda _, v: str_or_none(v['id']),
         )):
@@ -68,6 +69,7 @@ class SteamIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"steam.pyの関数_real_extractを実行しました。")
         app_id = self._match_id(url)
 
         self._set_cookie('store.steampowered.com', 'wants_mature_content', '1')

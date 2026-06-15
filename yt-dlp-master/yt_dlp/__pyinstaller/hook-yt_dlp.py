@@ -4,6 +4,7 @@ from PyInstaller.utils.hooks import collect_submodules, collect_data_files
 
 
 def pycryptodome_module():
+    print(f"hook-yt_dlp.pyの関数pycryptodome_moduleを実行しました。")
     try:
         import Cryptodome  # noqa: F401
     except ImportError:
@@ -18,6 +19,7 @@ def pycryptodome_module():
 
 
 def get_hidden_imports():
+    print(f"hook-yt_dlp.pyの関数get_hidden_importsを実行しました。")
     yield from ('yt_dlp.compat._legacy', 'yt_dlp.compat._deprecated')
     yield from ('yt_dlp.utils._legacy', 'yt_dlp.utils._deprecated')
     yield pycryptodome_module()

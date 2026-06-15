@@ -23,6 +23,7 @@ class TweakersIE(InfoExtractor):
     }
 
     def _real_extract(self, url):
+        print(f"tweakers.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_data = self._download_json(
             f'https://tweakers.net/video/s1playlist/{video_id}/1920/1080/playlist.json',

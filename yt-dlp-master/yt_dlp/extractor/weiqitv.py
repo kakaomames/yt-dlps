@@ -31,6 +31,7 @@ class WeiqiTVIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"weiqitv.pyの関数_real_extractを実行しました。")
         media_id = self._match_id(url)
         page = self._download_webpage(url, media_id)
 

@@ -77,6 +77,7 @@ class OneNewsNZIE(InfoExtractor):
     BRIGHTCOVE_URL_TEMPLATE = 'http://players.brightcove.net/%s/0xpHIR6IB_default/index.html?videoId=%s'
 
     def _real_extract(self, url):
+        print(f"onenewsnz.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
 

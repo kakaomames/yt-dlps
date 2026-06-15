@@ -37,6 +37,7 @@ class SaucePlusIE(FloatplaneBaseIE):
     }]
 
     def _real_initialize(self):
+        print(f"sauceplus.pyの関数_real_initializeを実行しました。")
         if not self._get_cookies(self._BASE_URL).get('__Host-sp-sess'):
             self.raise_login_required()
 

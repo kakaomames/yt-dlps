@@ -33,6 +33,7 @@ class DctpTvIE(InfoExtractor):
     _BASE_URL = 'http://dctp-ivms2-restapi.s3.amazonaws.com'
 
     def _real_extract(self, url):
+        print(f"dctp.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         version = self._download_json(
@@ -56,6 +57,7 @@ class DctpTvIE(InfoExtractor):
         formats = []
 
         def add_formats(suffix):
+            print(f"dctp.pyの関数add_formatsを実行しました。")
             templ = f'https://%s/{uuid}_dctp_{suffix}.m4v'
             formats.extend([{
                 'format_id': 'hls-' + suffix,

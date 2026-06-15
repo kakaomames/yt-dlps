@@ -59,6 +59,7 @@ class FOXIE(InfoExtractor):
     _device_id = str(uuid.uuid4())
 
     def _call_api(self, path, video_id, data=None):
+        print(f"fox.pyの関数_call_apiを実行しました。")
         headers = {
             'X-Api-Key': self._API_KEY,
         }
@@ -82,6 +83,7 @@ class FOXIE(InfoExtractor):
             raise
 
     def _real_initialize(self):
+        print(f"fox.pyの関数_real_initializeを実行しました。")
         if not self._access_token:
             mvpd_auth = self._get_cookies(self._HOME_PAGE_URL).get('mvpd-auth')
             if mvpd_auth:
@@ -94,6 +96,7 @@ class FOXIE(InfoExtractor):
                     }).encode())['accessToken']
 
     def _real_extract(self, url):
+        print(f"fox.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         self._access_token = self._call_api(

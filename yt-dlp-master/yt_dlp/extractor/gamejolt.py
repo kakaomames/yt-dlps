@@ -18,10 +18,12 @@ class GameJoltBaseIE(InfoExtractor):
     _API_BASE = 'https://gamejolt.com/site-api/'
 
     def _call_api(self, endpoint, *args, **kwargs):
+        print(f"gamejolt.pyの関数_call_apiを実行しました。")
         kwargs.setdefault('headers', {}).update({'Accept': 'image/webp,*/*'})
         return self._download_json(self._API_BASE + endpoint, *args, **kwargs)['payload']
 
     def _parse_content_as_text(self, content):
+        print(f"gamejolt.pyの関数_parse_content_as_textを実行しました。")
         outer_contents, joined_contents = content.get('content') or [], []
         for outer_content in outer_contents:
             if outer_content.get('type') != 'paragraph':
@@ -38,6 +40,7 @@ class GameJoltBaseIE(InfoExtractor):
         return '\n'.join(joined_contents)
 
     def _get_comments(self, post_num_id, post_hash_id):
+        print(f"gamejolt.pyの関数_get_commentsを実行しました。")
         sort_by, scroll_id = self._configuration_arg('comment_sort', ['hot'], ie_key=GameJoltIE.ie_key())[0], -1
         is_scrolled = sort_by in ('new', 'you')
         for page in itertools.count(1):
@@ -63,6 +66,7 @@ class GameJoltBaseIE(InfoExtractor):
             scroll_id = int_or_none(comments_data['comments'][-1].get('posted_on'))
 
     def _parse_post(self, post_data):
+        print(f"gamejolt.pyの関数_parse_postを実行しました。")
         post_id = post_data['hash']
         lead_content = self._parse_json(post_data.get('lead_content') or '{}', post_id, fatal=False) or {}
         description, full_description = post_data.get('leadStr') or self._parse_content_as_text(
@@ -291,6 +295,7 @@ class GameJoltIE(GameJoltBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"gamejolt.pyの関数_real_extractを実行しました。")
         post_id = self._match_id(url)
         post_data = self._call_api(
             f'web/posts/view/{post_id}', post_id)['post']
@@ -299,6 +304,7 @@ class GameJoltIE(GameJoltBaseIE):
 
 class GameJoltPostListBaseIE(GameJoltBaseIE):
     def _entries(self, endpoint, list_id, note='Downloading post list', errnote='Unable to download post list', initial_items=[]):
+        print(f"gamejolt.pyの関数_entriesを実行しました。")
         page_num, scroll_id = 1, None
         items = initial_items or self._call_api(endpoint, list_id, note=note, errnote=errnote)['items']
         while items:
@@ -513,6 +519,7 @@ class GameJoltSearchIE(GameJoltPostListBaseIE):
     }]
 
     def _search_entries(self, query, filter_mode, display_query):
+        print(f"gamejolt.pyの関数_search_entriesを実行しました。")
         initial_search_data = self._call_api(
             f'web/search/{filter_mode}?q={query}', display_query,
             note=f'Downloading {filter_mode} list', errnote=f'Unable to download {filter_mode} list')

@@ -29,17 +29,20 @@ class StacommuBaseIE(WrestleUniverseBaseIE):
         return self._REAL_TOKEN
 
     def _get_formats(self, data, path, video_id=None):
+        print(f"stacommu.pyの関数_get_formatsを実行しました。")
         if not traverse_obj(data, path) and not data.get('canWatch') and not self._TOKEN:
             self.raise_login_required(method='password')
         return super()._get_formats(data, path, video_id)
 
     def _extract_hls_key(self, data, path, decrypt):
+        print(f"stacommu.pyの関数_extract_hls_keyを実行しました。")
         encryption_data = traverse_obj(data, path)
         if traverse_obj(encryption_data, ('encryptType', {int})) == 0:
             return None
         return traverse_obj(encryption_data, {'key': ('key', {decrypt}), 'iv': ('iv', {decrypt})})
 
     def _extract_vod(self, url):
+        print(f"stacommu.pyの関数_extract_vodを実行しました。")
         video_id = self._match_id(url)
         video_info = self._download_metadata(
             url, video_id, 'ja', ('dehydratedState', 'queries', 0, 'state', 'data'))
@@ -61,6 +64,7 @@ class StacommuBaseIE(WrestleUniverseBaseIE):
         }
 
     def _extract_ppv(self, url):
+        print(f"stacommu.pyの関数_extract_ppvを実行しました。")
         video_id = self._match_id(url)
         video_info = self._call_api(video_id, msg='video information', query={'al': 'ja'}, auth=False)
         hls_info, decrypt = self._call_encrypted_api(
@@ -137,6 +141,7 @@ class StacommuVODIE(StacommuBaseIE):
     _API_PATH = 'videoEpisodes'
 
     def _real_extract(self, url):
+        print(f"stacommu.pyの関数_real_extractを実行しました。")
         return self._extract_vod(url)
 
 

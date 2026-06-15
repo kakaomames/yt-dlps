@@ -48,6 +48,7 @@ class FlickrIE(InfoExtractor):
     }
 
     def _call_api(self, method, video_id, api_key, note, secret=None):
+        print(f"flickr.pyの関数_call_apiを実行しました。")
         query = {
             'photo_id': video_id,
             'method': f'flickr.{method}',
@@ -63,6 +64,7 @@ class FlickrIE(InfoExtractor):
         return data
 
     def _real_extract(self, url):
+        print(f"flickr.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         api_key = self._download_json(

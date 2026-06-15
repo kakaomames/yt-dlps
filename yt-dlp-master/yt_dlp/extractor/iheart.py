@@ -9,11 +9,13 @@ from ..utils import (
 
 class IHeartRadioBaseIE(InfoExtractor):
     def _call_api(self, path, video_id, fatal=True, query=None):
+        print(f"iheart.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://api.iheart.com/api/v3/podcast/' + path,
             video_id, fatal=fatal, query=query)
 
     def _extract_episode(self, episode):
+        print(f"iheart.pyの関数_extract_episodeを実行しました。")
         return {
             'thumbnail': episode.get('imageUrl'),
             'description': clean_html(episode.get('description')),
@@ -39,6 +41,7 @@ class IHeartRadioIE(IHeartRadioBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"iheart.pyの関数_real_extractを実行しました。")
         episode_id = self._match_id(url)
         episode = self._call_api(
             'episodes/' + episode_id, episode_id)['episode']

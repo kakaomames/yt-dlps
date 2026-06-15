@@ -116,6 +116,7 @@ class CDAIE(InfoExtractor):
     }]
 
     def _download_age_confirm_page(self, url, video_id, *args, **kwargs):
+        print(f"cda.pyの関数_download_age_confirm_pageを実行しました。")
         data, content_type = multipart_encode({'age_confirm': ''})
         return self._download_webpage(
             url, video_id, *args,
@@ -125,6 +126,7 @@ class CDAIE(InfoExtractor):
             }, **kwargs)
 
     def _perform_login(self, username, password):
+        print(f"cda.pyの関数_perform_loginを実行しました。")
         app_version = '1.2.255 build 21541'
         android_version = random.randrange(8, 14)
         phone_model = random.choice((
@@ -180,6 +182,7 @@ class CDAIE(InfoExtractor):
         self._API_HEADERS['Authorization'] = f'Bearer {token_res["access_token"]}'
 
     def _real_extract(self, url):
+        print(f"cda.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         if 'Authorization' in self._API_HEADERS:
@@ -188,6 +191,7 @@ class CDAIE(InfoExtractor):
             return self._web_extract(video_id)
 
     def _api_extract(self, video_id):
+        print(f"cda.pyの関数_api_extractを実行しました。")
         meta = self._download_json(
             f'{self._BASE_API_URL}/video/{video_id}', video_id, headers=self._API_HEADERS)['video']
 
@@ -219,6 +223,7 @@ class CDAIE(InfoExtractor):
         }
 
     def _web_extract(self, video_id):
+        print(f"cda.pyの関数_web_extractを実行しました。")
         self._set_cookie('cda.pl', 'cda.player', 'html5')
         webpage, urlh = self._download_webpage_handle(
             f'{self._BASE_URL}/video/{video_id}/vfilm', video_id)
@@ -264,6 +269,7 @@ class CDAIE(InfoExtractor):
 
         # Source: https://www.cda.pl/js/player.js?t=1606154898
         def decrypt_file(a):
+            print(f"cda.pyの関数decrypt_fileを実行しました。")
             for p in ('_XDDD', '_CDA', '_ADC', '_CXD', '_QWE', '_Q5', '_IKSDE'):
                 a = a.replace(p, '')
             a = urllib.parse.unquote(a)
@@ -281,6 +287,7 @@ class CDAIE(InfoExtractor):
             return 'https://' + a + '.mp4'
 
         def extract_format(page, version):
+            print(f"cda.pyの関数extract_formatを実行しました。")
             json_str = self._html_search_regex(
                 r'player_data=(\\?["\'])(?P<player_data>.+?)\1', page,
                 f'{version} player_json', fatal=False, group='player_data')
@@ -406,6 +413,7 @@ class CDAFolderIE(InfoExtractor):
         webpage = self._download_webpage(url, folder_id)
 
         def extract_page_entries(page):
+            print(f"cda.pyの関数extract_page_entriesを実行しました。")
             webpage = self._download_webpage(
                 f'https://www.cda.pl/{channel}/folder/{folder_id}/vfilm/{page + 1}', folder_id,
                 f'Downloading page {page + 1}', expected_status=404)

@@ -46,6 +46,7 @@ class AENetworksBaseIE(ThePlatformIE):  # XXX: Do not subclass from concrete IE
         }'''
 
     def _extract_aen_smil(self, smil_url, video_id, auth=None):
+        print(f"aenetworks.pyの関数_extract_aen_smilを実行しました。")
         query = {
             'mbr': 'true',
             'formats': 'M3U+none,MPEG-DASH+none,MPEG4,MP3',
@@ -87,6 +88,7 @@ class AENetworksBaseIE(ThePlatformIE):  # XXX: Do not subclass from concrete IE
         }
 
     def _extract_aetn_info(self, domain, filter_key, filter_value, url):
+        print(f"aenetworks.pyの関数_extract_aetn_infoを実行しました。")
         requestor_id, brand, software_statement = self._DOMAIN_MAP[domain]
         if filter_key == 'canonical':
             webpage = self._download_webpage(url, filter_value)
@@ -279,6 +281,7 @@ class AENetworksIE(AENetworksBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"aenetworks.pyの関数_real_extractを実行しました。")
         domain, canonical, url_type, extra = self._match_valid_url(url).group('domain', 'id', 'type', 'extra')
         if url_type in ('movie', 'special') and not extra:
             canonical += f'/full-{url_type}'
@@ -287,6 +290,7 @@ class AENetworksIE(AENetworksBaseIE):
 
 class AENetworksListBaseIE(AENetworksBaseIE):
     def _call_api(self, resource, slug, brand, fields):
+        print(f"aenetworks.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://yoga.appsvcs.aetnd.com/graphql', slug,
             query={'brand': brand}, headers={'Content-Type': 'application/json'},
@@ -355,6 +359,7 @@ class AENetworksCollectionIE(AENetworksListBaseIE):
     }'''
 
     def _get_doc(self, item):
+        print(f"aenetworks.pyの関数_get_docを実行しました。")
         return item.get('doc') or {}
 
 

@@ -31,6 +31,7 @@ class Sport5IE(InfoExtractor):
     ]
 
     def _real_extract(self, url):
+        print(f"sport5.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         media_id = mobj.group('id')
 

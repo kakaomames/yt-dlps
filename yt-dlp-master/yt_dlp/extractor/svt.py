@@ -19,6 +19,7 @@ class SVTBaseIE(InfoExtractor):
     _GEO_COUNTRIES = ['SE']
 
     def _extract_video(self, video_info, video_id):
+        print(f"svt.pyの関数_extract_videoを実行しました。")
         is_live = dict_get(video_info, ('live', 'simulcast'), default=False)
         m3u8_protocol = 'm3u8' if is_live else 'm3u8_native'
         formats = []
@@ -238,6 +239,7 @@ class SVTPlayIE(SVTBaseIE):
     }]
 
     def _extract_by_video_id(self, video_id):
+        print(f"svt.pyの関数_extract_by_video_idを実行しました。")
         data = self._download_json(
             f'https://api.svt.se/videoplayer-api/video/{video_id}',
             video_id, headers=self.geo_verification_headers())
@@ -249,6 +251,7 @@ class SVTPlayIE(SVTBaseIE):
         return info_dict
 
     def _real_extract(self, url):
+        print(f"svt.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         svt_id = mobj.group('svt_id') or mobj.group('modal_id')
@@ -460,6 +463,7 @@ class SVTPageIE(SVTBaseIE):
         data = traverse_obj(urql_state, (..., 'data', {str}, {json.loads}), get_all=False) or {}
 
         def entries():
+            print(f"svt.pyの関数entriesを実行しました。")
             for video_id in set(traverse_obj(data, (
                 'page', (('topMedia', 'svtId'), ('body', ..., 'video', 'svtId')), {str},
             ))):

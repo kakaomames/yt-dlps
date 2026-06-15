@@ -38,6 +38,7 @@ class RadikoBaseIE(InfoExtractor):
     )
 
     def _negotiate_token(self):
+        print(f"radiko.pyの関数_negotiate_tokenを実行しました。")
         _, auth1_handle = self._download_webpage_handle(
             'https://radiko.jp/v2/api/auth1', None, 'Downloading authentication page',
             headers={
@@ -71,6 +72,7 @@ class RadikoBaseIE(InfoExtractor):
         return auth_data
 
     def _auth_client(self):
+        print(f"radiko.pyの関数_auth_clientを実行しました。")
         cachedata = self.cache.load('radiko', 'auth_data')
         if cachedata is not None:
             response = self._download_webpage(
@@ -81,6 +83,7 @@ class RadikoBaseIE(InfoExtractor):
         return self._negotiate_token()
 
     def _extract_full_key(self):
+        print(f"radiko.pyの関数_extract_full_keyを実行しました。")
         if self._FULL_KEY:
             return self._FULL_KEY
 
@@ -100,6 +103,7 @@ class RadikoBaseIE(InfoExtractor):
         return full_key
 
     def _find_program(self, video_id, station, cursor):
+        print(f"radiko.pyの関数_find_programを実行しました。")
         station_program = self._download_xml(
             f'https://radiko.jp/v3/program/station/weekly/{station}.xml', video_id,
             note=f'Downloading radio program for {station} station')
@@ -118,6 +122,7 @@ class RadikoBaseIE(InfoExtractor):
         return prog, station_program, ft, ft_str, to_str
 
     def _extract_formats(self, video_id, station, is_onair, ft, cursor, auth_token, area_id, query):
+        print(f"radiko.pyの関数_extract_formatsを実行しました。")
         m3u8_playlist_data = self._download_xml(
             f'https://radiko.jp/v3/station/stream/pc_html5/{station}.xml', video_id,
             note='Downloading stream information')
@@ -163,6 +168,7 @@ class RadikoBaseIE(InfoExtractor):
         return formats
 
     def _extract_performers(self, prog):
+        print(f"radiko.pyの関数_extract_performersを実行しました。")
         return traverse_obj(prog, (
             'pfm/text()', ..., {lambda x: re.split(r'[/／、　,，]', x)}, ..., {str.strip})) or None
 
@@ -184,6 +190,7 @@ class RadikoIE(RadikoBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"radiko.pyの関数_real_extractを実行しました。")
         station, timestring = self._match_valid_url(url).group('station', 'timestring')
         video_id = join_nonempty(station, timestring)
         vid_int = unified_timestamp(timestring, False)

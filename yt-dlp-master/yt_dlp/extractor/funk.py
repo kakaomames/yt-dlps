@@ -33,6 +33,7 @@ class FunkIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"funk.pyの関数_real_extractを実行しました。")
         display_id, nexx_id = self._match_valid_url(url).groups()
         return {
             '_type': 'url_transparent',

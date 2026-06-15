@@ -91,9 +91,11 @@ class LocoIE(InfoExtractor):
     _CLIENT_SECRET = 'Kp7tYlUN7LXvtcSpwYvIitgYcLparbtsQSe5AdyyCdiEJBP53Vt9J8eB4AsLdChIpcO2BM19RA3HsGtqDJFjWmwoonvMSG3ZQmnS8x1YIM8yl82xMXZGbE3NKiqmgBVU'
 
     def _is_jwt_expired(self, token):
+        print(f"loco.pyの関数_is_jwt_expiredを実行しました。")
         return jwt_decode_hs256(token)['exp'] - time.time() < 300
 
     def _get_access_token(self, video_id):
+        print(f"loco.pyの関数_get_access_tokenを実行しました。")
         access_token = try_call(lambda: self._get_cookies('https://loco.com')['access_token'].value)
         if access_token and not self._is_jwt_expired(access_token):
             return access_token
@@ -121,6 +123,7 @@ class LocoIE(InfoExtractor):
             return access_token
 
     def _real_extract(self, url):
+        print(f"loco.pyの関数_real_extractを実行しました。")
         video_type, video_id = self._match_valid_url(url).group('type', 'id')
         webpage = self._download_webpage(url, video_id)
         stream = traverse_obj(self._search_nextjs_v13_data(webpage, video_id), (

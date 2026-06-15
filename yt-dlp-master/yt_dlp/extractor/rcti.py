@@ -15,11 +15,13 @@ from ..utils import (
 
 class RCTIPlusBaseIE(InfoExtractor):
     def _real_initialize(self):
+        print(f"rcti.pyの関数_real_initializeを実行しました。")
         self._AUTH_KEY = self._download_json(
             'https://api.rctiplus.com/api/v1/visitor?platform=web',  # platform can be web, mweb, android, ios
             None, 'Fetching authorization key')['data']['access_token']
 
     def _call_api(self, url, video_id, note=None):
+        print(f"rcti.pyの関数_call_apiを実行しました。")
         json = self._download_json(
             url, video_id, note=note, headers={'Authorization': self._AUTH_KEY})
         if json.get('status', {}).get('code', 0) != 0:
@@ -140,6 +142,7 @@ class RCTIPlusIE(RCTIPlusBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"rcti.pyの関数_real_extractを実行しました。")
         match = self._match_valid_url(url).groupdict()
         video_type, video_id, display_id = match['type'], match['id'], match['display_id']
 
@@ -258,6 +261,7 @@ class RCTIPlusSeriesIE(RCTIPlusBaseIE):
         return False if RCTIPlusIE.suitable(url) else super().suitable(url)
 
     def _entries(self, url, display_id=None, note='Downloading entries JSON', metadata={}):
+        print(f"rcti.pyの関数_entriesを実行しました。")
         total_pages = 0
         try:
             total_pages = self._call_api(
@@ -292,6 +296,7 @@ class RCTIPlusSeriesIE(RCTIPlusBaseIE):
                 }
 
     def _series_entries(self, series_id, display_id=None, video_type=None, metadata={}):
+        print(f"rcti.pyの関数_series_entriesを実行しました。")
         if not video_type or video_type in 'episodes':
             try:
                 seasons_list = self._call_api(

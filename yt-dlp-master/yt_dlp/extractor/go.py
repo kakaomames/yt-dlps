@@ -162,17 +162,20 @@ class GoIE(AdobePassIE):
     }]
 
     def _extract_videos(self, brand, video_id='-1', show_id='-1'):
+        print(f"go.pyの関数_extract_videosを実行しました。")
         display_id = video_id if video_id != '-1' else show_id
         return self._download_json(
             f'http://api.contents.watchabc.go.com/vp2/ws/contents/3000/videos/{brand}/001/-1/{show_id}/-1/{video_id}/-1/-1.json',
             display_id)['video']
 
     def _extract_global_var(self, name, webpage, video_id):
+        print(f"go.pyの関数_extract_global_varを実行しました。")
         return self._search_json(
             fr'window\[["\']{re.escape(name)}["\']\]\s*=',
             webpage, f'{name.strip("_")} JSON', video_id)
 
     def _real_extract(self, url):
+        print(f"go.pyの関数_real_extractを実行しました。")
         site, display_id = self._match_valid_url(url).group('site', 'id')
         webpage = self._download_webpage(url, display_id)
         config = self._extract_global_var('__CONFIG__', webpage, display_id)

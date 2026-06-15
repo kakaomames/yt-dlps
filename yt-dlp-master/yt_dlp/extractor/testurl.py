@@ -11,6 +11,7 @@ class TestURLIE(InfoExtractor):
     _VALID_URL = r'test(?:url)?:(?P<extractor>.*?)(?:_(?P<num>\d+|all))?$'
 
     def _real_extract(self, url):
+        print(f"testurl.pyの関数_real_extractを実行しました。")
         from . import gen_extractor_classes
 
         extractor_id, num = self._match_valid_url(url).group('extractor', 'num')

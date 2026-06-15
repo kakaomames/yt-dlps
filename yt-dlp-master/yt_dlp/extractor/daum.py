@@ -81,6 +81,7 @@ class DaumIE(DaumBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"daum.pyの関数_real_extractを実行しました。")
         video_id = urllib.parse.unquote(self._match_id(url))
         if not video_id.isdigit():
             video_id += '@my'
@@ -125,6 +126,7 @@ class DaumClipIE(DaumBaseIE):
 
 class DaumListIE(InfoExtractor):  # XXX: Conventionally, base classes should end with BaseIE/InfoExtractor
     def _get_entries(self, list_id, list_id_type):
+        print(f"daum.pyの関数_get_entriesを実行しました。")
         name = None
         entries = []
         for pagenum in itertools.count(1):
@@ -148,6 +150,7 @@ class DaumListIE(InfoExtractor):  # XXX: Conventionally, base classes should end
         return name, entries
 
     def _check_clip(self, url, list_id):
+        print(f"daum.pyの関数_check_clipを実行しました。")
         query_dict = parse_qs(url)
         if 'clipid' in query_dict:
             clip_id = query_dict['clipid'][0]

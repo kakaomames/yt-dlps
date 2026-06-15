@@ -70,6 +70,7 @@ class ServusIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"servus.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url).upper()
 
         webpage = self._download_webpage(url, video_id)
@@ -113,12 +114,14 @@ class ServusIE(InfoExtractor):
         }
 
     def _get_description(self, next_data):
+        print(f"servus.pyの関数_get_descriptionを実行しました。")
         return join_nonempty(*traverse_obj(next_data, (
             'props', 'pageProps', 'data',
             ('stv_short_description', 'stv_long_description'), {str},
             {lambda x: x.replace('\n\n', '\n')}, {unescapeHTML})), delim='\n\n')
 
     def _report_errors(self, video):
+        print(f"servus.pyの関数_report_errorsを実行しました。")
         playability_errors = traverse_obj(video, ('playabilityErrors', ...))
         if not playability_errors:
             raise ExtractorError('No videoUrl and no information about errors')

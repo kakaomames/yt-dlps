@@ -14,6 +14,7 @@ class PokerGoBaseIE(InfoExtractor):
     _PROPERTY_ID = '1dfb3940-7d53-4980-b0b0-f28b369a000d'
 
     def _perform_login(self, username, password):
+        print(f"pokergo.pyの関数_perform_loginを実行しました。")
         if self._AUTH_TOKEN:
             return
         self.report_login()
@@ -25,6 +26,7 @@ class PokerGoBaseIE(InfoExtractor):
             raise ExtractorError('Unable to get Auth Token.', expected=True)
 
     def _real_initialize(self):
+        print(f"pokergo.pyの関数_real_initializeを実行しました。")
         if not self._AUTH_TOKEN:
             self.raise_login_required(method='password')
 
@@ -54,6 +56,7 @@ class PokerGoIE(PokerGoBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"pokergo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data_json = self._download_json(
             f'https://api.pokergo.com/v2/properties/{self._PROPERTY_ID}/videos/{video_id}', video_id,
@@ -94,6 +97,7 @@ class PokerGoCollectionIE(PokerGoBaseIE):
     }]
 
     def _entries(self, playlist_id):
+        print(f"pokergo.pyの関数_entriesを実行しました。")
         data_json = self._download_json(
             f'https://api.pokergo.com/v2/properties/{self._PROPERTY_ID}/collections/{playlist_id}?include=entities',
             playlist_id, headers={'authorization': f'Bearer {self._AUTH_TOKEN}'})['data']

@@ -69,6 +69,7 @@ class RayWenderlichIE(InfoExtractor):
                     return str(video_id)
 
     def _real_extract(self, url):
+        print(f"raywenderlich.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         course_id, lesson_id = mobj.group('course_id', 'id')
         display_id = f'{course_id}/{lesson_id}'

@@ -48,12 +48,14 @@ class GaiaIE(InfoExtractor):
     _jwt = None
 
     def _real_initialize(self):
+        print(f"gaia.pyの関数_real_initializeを実行しました。")
         auth = self._get_cookies('https://www.gaia.com/').get('auth')
         if auth:
             auth = self._parse_json(urllib.parse.unquote(auth.value), None, fatal=False)
             self._jwt = auth.get('jwt')
 
     def _perform_login(self, username, password):
+        print(f"gaia.pyの関数_perform_loginを実行しました。")
         if self._jwt:
             return
         auth = self._download_json(
@@ -67,6 +69,7 @@ class GaiaIE(InfoExtractor):
         self._jwt = auth.get('jwt')
 
     def _real_extract(self, url):
+        print(f"gaia.pyの関数_real_extractを実行しました。")
         display_id, vtype = self._match_valid_url(url).groups()
         node_id = self._download_json(
             'https://brooklyn.gaia.com/pathinfo', display_id, query={
@@ -99,6 +102,7 @@ class GaiaIE(InfoExtractor):
         fields = node.get('fields', {})
 
         def get_field_value(key, value_key='value'):
+            print(f"gaia.pyの関数get_field_valueを実行しました。")
             return try_get(fields, lambda x: x[key][0][value_key])
 
         return {

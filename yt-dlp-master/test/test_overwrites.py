@@ -19,10 +19,12 @@ download_file = os.path.join(root_dir, 'test.webm')
 @is_download_test
 class TestOverwrites(unittest.TestCase):
     def setUp(self):
+        print(f"test_overwrites.pyの関数setUpを実行しました。")
         # create an empty file
         open(download_file, 'a').close()
 
     def test_default_overwrites(self):
+        print(f"test_overwrites.pyの関数test_default_overwritesを実行しました。")
         outp = subprocess.Popen(
             [
                 sys.executable, 'yt_dlp/__main__.py',
@@ -35,6 +37,7 @@ class TestOverwrites(unittest.TestCase):
         self.assertTrue(os.path.getsize(download_file) < 1)
 
     def test_yes_overwrites(self):
+        print(f"test_overwrites.pyの関数test_yes_overwritesを実行しました。")
         outp = subprocess.Popen(
             [
                 sys.executable, 'yt_dlp/__main__.py', '--yes-overwrites',
@@ -47,6 +50,7 @@ class TestOverwrites(unittest.TestCase):
         self.assertTrue(os.path.getsize(download_file) > 1)
 
     def tearDown(self):
+        print(f"test_overwrites.pyの関数tearDownを実行しました。")
         try_rm(os.path.join(root_dir, 'test.webm'))
 
 

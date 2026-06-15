@@ -38,6 +38,7 @@ class UMGDeIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"umg.pyの関数_real_extractを実行しました。")
         display_id, video_id = self._match_valid_url(url).group('slug', 'id')
         webpage = self._download_webpage(url, display_id)
 

@@ -62,12 +62,15 @@ class ExampleCacheProviderPCP(PoTokenCacheProvider):
         return True
 
     def get(self, key: str):
+        print(f"test_pot_framework.pyの関数getを実行しました。")
         return 'example-cache'
 
     def store(self, key: str, value: str, expires_at: int):
+        print(f"test_pot_framework.pyの関数storeを実行しました。")
         pass
 
     def delete(self, key: str):
+        print(f"test_pot_framework.pyの関数deleteを実行しました。")
         pass
 
 
@@ -78,6 +81,7 @@ class ExampleCacheSpecProviderPCSP(PoTokenCacheSpecProvider):
     BUG_REPORT_LOCATION = 'https://example.com/issues'
 
     def generate_cache_spec(self, request: PoTokenRequest):
+        print(f"test_pot_framework.pyの関数generate_cache_specを実行しました。")
         return PoTokenCacheSpec(
             key_bindings={'field': 'example-key'},
             default_ttl=60,
@@ -88,9 +92,11 @@ class ExampleCacheSpecProviderPCSP(PoTokenCacheSpecProvider):
 class TestPoTokenProvider:
 
     def test_base_type(self):
+        print(f"test_pot_framework.pyの関数test_base_typeを実行しました。")
         assert issubclass(PoTokenProvider, IEContentProvider)
 
     def test_create_provider_missing_fetch_method(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_missing_fetch_methodを実行しました。")
         class MissingMethodsPTP(PoTokenProvider):
             def is_available(self) -> bool:
                 return True
@@ -99,6 +105,7 @@ class TestPoTokenProvider:
             MissingMethodsPTP(ie=ie, logger=logger, settings={})
 
     def test_create_provider_missing_available_method(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_missing_available_methodを実行しました。")
         class MissingMethodsPTP(PoTokenProvider):
             def _real_request_pot(self, request: PoTokenRequest) -> PoTokenResponse:
                 raise PoTokenProviderRejectedRequest('Not implemented')
@@ -107,6 +114,7 @@ class TestPoTokenProvider:
             MissingMethodsPTP(ie=ie, logger=logger, settings={})
 
     def test_barebones_provider(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_barebones_providerを実行しました。")
         class BarebonesProviderPTP(PoTokenProvider):
             def is_available(self) -> bool:
                 return True
@@ -121,6 +129,7 @@ class TestPoTokenProvider:
         assert provider.BUG_REPORT_MESSAGE == 'please report this issue to the provider developer at  (developer has not provided a bug report location)  .'
 
     def test_example_provider_success(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_example_provider_successを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={})
         assert provider.PROVIDER_NAME == 'example'
         assert provider.PROVIDER_KEY == 'Example'
@@ -134,6 +143,7 @@ class TestPoTokenProvider:
         assert response.expires_at == 123
 
     def test_provider_unsupported_context(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_unsupported_contextを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={})
         pot_request.context = PoTokenContext.PLAYER
 
@@ -141,6 +151,7 @@ class TestPoTokenProvider:
             provider.request_pot(pot_request)
 
     def test_provider_unsupported_client(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_unsupported_clientを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={})
         pot_request.innertube_context['client']['clientName'] = 'ANDROID'
 
@@ -148,6 +159,7 @@ class TestPoTokenProvider:
             provider.request_pot(pot_request)
 
     def test_provider_unsupported_proxy_scheme(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_unsupported_proxy_schemeを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={})
         pot_request.request_proxy = 'socks4://example.com'
 
@@ -163,6 +175,7 @@ class TestPoTokenProvider:
         assert provider.request_pot(pot_request)
 
     def test_provider_ignore_external_request_features(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_ignore_external_request_featuresを実行しました。")
         class InternalPTP(ExamplePTP):
             _SUPPORTED_EXTERNAL_REQUEST_FEATURES = None
 
@@ -174,6 +187,7 @@ class TestPoTokenProvider:
         assert provider.request_pot(pot_request)
 
     def test_provider_unsupported_external_request_source_address(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_unsupported_external_request_source_addressを実行しました。")
         class InternalPTP(ExamplePTP):
             _SUPPORTED_EXTERNAL_REQUEST_FEATURES = tuple()
 
@@ -190,6 +204,7 @@ class TestPoTokenProvider:
             provider.request_pot(pot_request)
 
     def test_provider_supported_external_request_source_address(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_supported_external_request_source_addressを実行しました。")
         class InternalPTP(ExamplePTP):
             _SUPPORTED_EXTERNAL_REQUEST_FEATURES = (
                 ExternalRequestFeature.SOURCE_ADDRESS,
@@ -204,6 +219,7 @@ class TestPoTokenProvider:
         assert provider.request_pot(pot_request)
 
     def test_provider_unsupported_external_request_tls_verification(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_unsupported_external_request_tls_verificationを実行しました。")
         class InternalPTP(ExamplePTP):
             _SUPPORTED_EXTERNAL_REQUEST_FEATURES = tuple()
 
@@ -220,6 +236,7 @@ class TestPoTokenProvider:
             provider.request_pot(pot_request)
 
     def test_provider_supported_external_request_tls_verification(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_supported_external_request_tls_verificationを実行しました。")
         class InternalPTP(ExamplePTP):
             _SUPPORTED_EXTERNAL_REQUEST_FEATURES = (
                 ExternalRequestFeature.DISABLE_TLS_VERIFICATION,
@@ -234,6 +251,7 @@ class TestPoTokenProvider:
         assert provider.request_pot(pot_request)
 
     def test_provider_request_webpage(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_request_webpageを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={})
 
         cookiejar = YoutubeDLCookieJar()
@@ -242,6 +260,7 @@ class TestPoTokenProvider:
         pot_request.request_cookiejar = cookiejar
 
         def mock_urlopen(request):
+            print(f"test_pot_framework.pyの関数mock_urlopenを実行しました。")
             return request
 
         ie._downloader.urlopen = mock_urlopen
@@ -257,6 +276,7 @@ class TestPoTokenProvider:
         assert 'Requesting webpage' in logger.messages['info']
 
     def test_provider_request_webpage_override(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_request_webpage_overrideを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={})
 
         cookiejar_request = YoutubeDLCookieJar()
@@ -283,6 +303,7 @@ class TestPoTokenProvider:
         assert 'Custom requesting webpage' in logger.messages['info']
 
     def test_provider_request_webpage_no_log(self, ie, logger, pot_request):
+        print(f"test_pot_framework.pyの関数test_provider_request_webpage_no_logを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={})
 
         def mock_urlopen(request):
@@ -298,6 +319,7 @@ class TestPoTokenProvider:
         assert 'info' not in logger.messages
 
     def test_provider_request_webpage_no_pot_request(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_provider_request_webpage_no_pot_requestを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={})
 
         def mock_urlopen(request):
@@ -312,6 +334,7 @@ class TestPoTokenProvider:
         assert sent_request.url == 'https://example.com'
 
     def test_get_config_arg(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_get_config_argを実行しました。")
         provider = ExamplePTP(ie=ie, logger=logger, settings={'abc': ['123D'], 'xyz': ['456a', '789B']})
 
         assert provider._configuration_arg('abc') == ['123d']
@@ -321,6 +344,7 @@ class TestPoTokenProvider:
         assert provider._configuration_arg('xyz', casesense=False) == ['456a', '789b']
 
     def test_require_class_end_with_suffix(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_require_class_end_with_suffixを実行しました。")
         class InvalidSuffix(PoTokenProvider):
             PROVIDER_NAME = 'invalid-suffix'
 
@@ -342,11 +366,14 @@ class TestPoTokenCacheProvider:
         assert issubclass(PoTokenCacheProvider, IEContentProvider)
 
     def test_create_provider_missing_get_method(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_missing_get_methodを実行しました。")
         class MissingMethodsPCP(PoTokenCacheProvider):
             def store(self, key: str, value: str, expires_at: int):
+                print(f"test_pot_framework.pyの関数storeを実行しました。")
                 pass
 
             def delete(self, key: str):
+                print(f"test_pot_framework.pyの関数deleteを実行しました。")
                 pass
 
                 def is_available(self) -> bool:
@@ -356,8 +383,10 @@ class TestPoTokenCacheProvider:
             MissingMethodsPCP(ie=ie, logger=logger, settings={})
 
     def test_create_provider_missing_store_method(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_missing_store_methodを実行しました。")
         class MissingMethodsPCP(PoTokenCacheProvider):
             def get(self, key: str):
+                print(f"test_pot_framework.pyの関数getを実行しました。")
                 pass
 
             def delete(self, key: str):
@@ -370,6 +399,7 @@ class TestPoTokenCacheProvider:
             MissingMethodsPCP(ie=ie, logger=logger, settings={})
 
     def test_create_provider_missing_delete_method(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_missing_delete_methodを実行しました。")
         class MissingMethodsPCP(PoTokenCacheProvider):
             def get(self, key: str):
                 pass
@@ -384,6 +414,7 @@ class TestPoTokenCacheProvider:
             MissingMethodsPCP(ie=ie, logger=logger, settings={})
 
     def test_create_provider_missing_is_available_method(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_missing_is_available_methodを実行しました。")
         class MissingMethodsPCP(PoTokenCacheProvider):
             def get(self, key: str):
                 pass
@@ -419,6 +450,7 @@ class TestPoTokenCacheProvider:
         assert provider.BUG_REPORT_MESSAGE == 'please report this issue to the provider developer at  (developer has not provided a bug report location)  .'
 
     def test_create_provider_example(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_exampleを実行しました。")
         provider = ExampleCacheProviderPCP(ie=ie, logger=logger, settings={})
         assert provider.PROVIDER_NAME == 'example'
         assert provider.PROVIDER_KEY == 'ExampleCacheProvider'
@@ -460,6 +492,7 @@ class TestPoTokenCacheSpecProvider:
         assert issubclass(PoTokenCacheSpecProvider, IEContentProvider)
 
     def test_create_provider_missing_supports_method(self, ie, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_missing_supports_methodを実行しました。")
         class MissingMethodsPCS(PoTokenCacheSpecProvider):
             pass
 
@@ -467,8 +500,10 @@ class TestPoTokenCacheSpecProvider:
             MissingMethodsPCS(ie=ie, logger=logger, settings={})
 
     def test_create_provider_barebones(self, ie, pot_request, logger):
+        print(f"test_pot_framework.pyの関数test_create_provider_barebonesを実行しました。")
         class BarebonesProviderPCSP(PoTokenCacheSpecProvider):
             def generate_cache_spec(self, request: PoTokenRequest):
+                print(f"test_pot_framework.pyの関数generate_cache_specを実行しました。")
                 return PoTokenCacheSpec(
                     default_ttl=100,
                     key_bindings={},
@@ -518,6 +553,7 @@ class TestPoTokenCacheSpecProvider:
 
 class TestPoTokenRequest:
     def test_copy_request(self, pot_request):
+        print(f"test_pot_framework.pyの関数test_copy_requestを実行しました。")
         copied_request = pot_request.copy()
 
         assert copied_request is not pot_request
@@ -544,6 +580,7 @@ class TestPoTokenRequest:
 
 
 def test_provider_bug_report_message(ie, logger):
+    print(f"test_pot_framework.pyの関数test_provider_bug_report_messageを実行しました。")
     provider = ExamplePTP(ie=ie, logger=logger, settings={})
     assert provider.BUG_REPORT_MESSAGE == 'please report this issue to the provider developer at  https://example.com/issues  .'
 
@@ -555,6 +592,7 @@ def test_provider_bug_report_message(ie, logger):
 
 
 def test_register_provider(ie):
+    print(f"test_pot_framework.pyの関数test_register_providerを実行しました。")
 
     @register_provider
     class UnavailableProviderPTP(PoTokenProvider):
@@ -569,6 +607,7 @@ def test_register_provider(ie):
 
 
 def test_register_pot_preference(ie):
+    print(f"test_pot_framework.pyの関数test_register_pot_preferenceを実行しました。")
     before = len(_ptp_preferences.value)
 
     @register_preference(ExamplePTP)
@@ -579,6 +618,7 @@ def test_register_pot_preference(ie):
 
 
 def test_register_cache_provider(ie):
+    print(f"test_pot_framework.pyの関数test_register_cache_providerを実行しました。")
 
     @cache.register_provider
     class UnavailableCacheProviderPCP(PoTokenCacheProvider):
@@ -586,12 +626,15 @@ def test_register_cache_provider(ie):
             return False
 
         def get(self, key: str):
+            print(f"test_pot_framework.pyの関数getを実行しました。")
             return 'example-cache'
 
         def store(self, key: str, value: str, expires_at: int):
+            print(f"test_pot_framework.pyの関数storeを実行しました。")
             pass
 
         def delete(self, key: str):
+            print(f"test_pot_framework.pyの関数deleteを実行しました。")
             pass
 
     assert _pot_cache_providers.value.get('UnavailableCacheProvider') == UnavailableCacheProviderPCP
@@ -599,6 +642,7 @@ def test_register_cache_provider(ie):
 
 
 def test_register_cache_provider_spec(ie):
+    print(f"test_pot_framework.pyの関数test_register_cache_provider_specを実行しました。")
 
     @cache.register_spec
     class UnavailableCacheProviderPCSP(PoTokenCacheSpecProvider):
@@ -606,6 +650,7 @@ def test_register_cache_provider_spec(ie):
             return False
 
         def generate_cache_spec(self, request: PoTokenRequest):
+            print(f"test_pot_framework.pyの関数generate_cache_specを実行しました。")
             return None
 
     assert _pot_pcs_providers.value.get('UnavailableCacheProvider') == UnavailableCacheProviderPCSP
@@ -613,6 +658,7 @@ def test_register_cache_provider_spec(ie):
 
 
 def test_register_cache_provider_preference(ie):
+    print(f"test_pot_framework.pyの関数test_register_cache_provider_preferenceを実行しました。")
     before = len(_pot_cache_provider_preferences.value)
 
     @cache.register_preference(ExampleCacheProviderPCP)
@@ -623,6 +669,7 @@ def test_register_cache_provider_preference(ie):
 
 
 def test_logger_log_level(logger):
+    print(f"test_pot_framework.pyの関数test_logger_log_levelを実行しました。")
     assert logger.LogLevel('INFO') == logger.LogLevel.INFO
     assert logger.LogLevel('debuG') == logger.LogLevel.DEBUG
     assert logger.LogLevel(10) == logger.LogLevel.DEBUG
@@ -630,6 +677,7 @@ def test_logger_log_level(logger):
 
 
 def test_configuration_arg():
+    print(f"test_pot_framework.pyの関数test_configuration_argを実行しました。")
     config = {'abc': ['123D'], 'xyz': ['456a', '789B']}
 
     assert configuration_arg(config, 'abc') == ['123d']

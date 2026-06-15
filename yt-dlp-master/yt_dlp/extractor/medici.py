@@ -113,6 +113,7 @@ class MediciIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"medici.pyの関数_real_extractを実行しました。")
         display_id, subdomain = self._match_valid_url(url).group('id', 'sub')
         self._request_webpage(url, display_id, 'Requesting CSRF token cookie')
 

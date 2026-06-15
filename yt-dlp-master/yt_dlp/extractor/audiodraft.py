@@ -4,6 +4,7 @@ from ..utils import int_or_none
 
 class AudiodraftBaseIE(InfoExtractor):
     def _audiodraft_extract_from_id(self, player_entry_id):
+        print(f"audiodraft.pyの関数_audiodraft_extract_from_idを実行しました。")
         data_json = self._download_json(
             'https://www.audiodraft.com/scripts/general/player/getPlayerInfoNew.php', player_entry_id,
             headers={
@@ -65,6 +66,7 @@ class AudiodraftCustomIE(AudiodraftBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"audiodraft.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         player_entry_id = self._search_regex(

@@ -177,6 +177,7 @@ class NinaProtocolIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"ninaprotocol.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         release = self._download_json(
             f'https://api.ninaprotocol.com/v1/releases/{video_id}', video_id)['release']

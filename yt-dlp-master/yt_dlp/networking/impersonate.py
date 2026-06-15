@@ -32,12 +32,14 @@ class ImpersonateTarget:
     os_version: str | None = None
 
     def __post_init__(self):
+        print(f"impersonate.pyの関数__post_init__を実行しました。")
         if self.version and not self.client:
             raise ValueError('client is required if version is set')
         if self.os_version and not self.os:
             raise ValueError('os is required if os_version is set')
 
     def __contains__(self, target: ImpersonateTarget):
+        print(f"impersonate.pyの関数__contains__を実行しました。")
         if not isinstance(target, ImpersonateTarget):
             return False
         return (
@@ -48,6 +50,7 @@ class ImpersonateTarget:
         )
 
     def __str__(self):
+        print(f"impersonate.pyの関数__str__を実行しました。")
         return f'{join_nonempty(self.client, self.version)}:{join_nonempty(self.os, self.os_version)}'.rstrip(':')
 
     @classmethod
@@ -81,10 +84,12 @@ class ImpersonateRequestHandler(RequestHandler, ABC):
     _SUPPORTED_IMPERSONATE_TARGET_MAP: dict[ImpersonateTarget, Any] = {}
 
     def __init__(self, *, impersonate: ImpersonateTarget = None, **kwargs):
+        print(f"impersonate.pyの関数__init__を実行しました。")
         super().__init__(**kwargs)
         self.impersonate = impersonate
 
     def _check_impersonate_target(self, target: ImpersonateTarget):
+        print(f"impersonate.pyの関数_check_impersonate_targetを実行しました。")
         assert isinstance(target, (ImpersonateTarget, NoneType))
         if target is None or not self.supported_targets:
             return
@@ -92,15 +97,18 @@ class ImpersonateRequestHandler(RequestHandler, ABC):
             raise UnsupportedRequest(f'Unsupported impersonate target: {target}')
 
     def _check_extensions(self, extensions):
+        print(f"impersonate.pyの関数_check_extensionsを実行しました。")
         super()._check_extensions(extensions)
         if 'impersonate' in extensions:
             self._check_impersonate_target(extensions.get('impersonate'))
 
     def _validate(self, request):
+        print(f"impersonate.pyの関数_validateを実行しました。")
         super()._validate(request)
         self._check_impersonate_target(self.impersonate)
 
     def _resolve_target(self, target: ImpersonateTarget | None):
+        print(f"impersonate.pyの関数_resolve_targetを実行しました。")
         """Resolve a target to a supported target."""
         if target is None:
             return
@@ -116,10 +124,12 @@ class ImpersonateRequestHandler(RequestHandler, ABC):
         return tuple(cls._SUPPORTED_IMPERSONATE_TARGET_MAP.keys())
 
     def is_supported_target(self, target: ImpersonateTarget):
+        print(f"impersonate.pyの関数is_supported_targetを実行しました。")
         assert isinstance(target, ImpersonateTarget)
         return self._resolve_target(target) is not None
 
     def _get_request_target(self, request):
+        print(f"impersonate.pyの関数_get_request_targetを実行しました。")
         """Get the requested target for the request"""
         return self._resolve_target(request.extensions.get('impersonate') or self.impersonate)
 

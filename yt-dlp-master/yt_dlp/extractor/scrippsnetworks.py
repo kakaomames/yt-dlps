@@ -52,6 +52,7 @@ class ScrippsNetworksWatchIE(AWSIE):
     _AWS_USER_AGENT = 'aws-sdk-js/2.80.0 callback'
 
     def _real_extract(self, url):
+        print(f"scrippsnetworks.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         site_id, video_id = mobj.group('site', 'id')
 
@@ -84,6 +85,7 @@ class ScrippsNetworksWatchIE(AWSIE):
             })
 
         def get(key):
+            print(f"scrippsnetworks.pyの関数getを実行しました。")
             return xpath_text(
                 sts, f'.//{{https://sts.amazonaws.com/doc/2011-06-15/}}{key}',
                 fatal=True)

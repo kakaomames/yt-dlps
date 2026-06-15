@@ -18,6 +18,7 @@ class HypemIE(InfoExtractor):
     }
 
     def _real_extract(self, url):
+        print(f"hypem.pyの関数_real_extractを実行しました。")
         track_id = self._match_id(url)
 
         response = self._download_webpage(url, track_id)

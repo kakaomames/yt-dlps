@@ -41,6 +41,7 @@ class PornFlipIE(InfoExtractor):
     _HOST = 'www.pornflip.com'
 
     def _real_extract(self, url):
+        print(f"pornflip.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(
             f'https://{self._HOST}/sv/{video_id}', video_id, headers={'host': self._HOST})

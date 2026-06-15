@@ -42,6 +42,7 @@ class DBTVIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"dbtv.pyの関数_real_extractを実行しました。")
         display_id, video_id = self._match_valid_url(url).groups()
         info = {
             '_type': 'url_transparent',

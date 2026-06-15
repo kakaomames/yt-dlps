@@ -60,6 +60,7 @@ class KakaoIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"kakao.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         api_base = self._API_BASE_TMPL % video_id
         cdn_api_base = self._CDN_API % video_id

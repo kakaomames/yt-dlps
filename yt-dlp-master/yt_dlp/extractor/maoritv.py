@@ -19,6 +19,7 @@ class MaoriTVIE(InfoExtractor):
     BRIGHTCOVE_URL_TEMPLATE = 'http://players.brightcove.net/1614493167001/HJlhIQhQf_default/index.html?videoId=%s'
 
     def _real_extract(self, url):
+        print(f"maoritv.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         brightcove_id = self._search_regex(

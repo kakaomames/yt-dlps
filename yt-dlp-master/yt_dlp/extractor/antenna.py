@@ -12,6 +12,7 @@ from ..utils import (
 
 class AntennaBaseIE(InfoExtractor):
     def _download_and_extract_api_data(self, video_id, netloc, cid=None):
+        print(f"antenna.pyの関数_download_and_extract_api_dataを実行しました。")
         info = self._download_json(f'{self.http_scheme()}//{netloc}{self._API_PATH}',
                                    video_id, query={'cid': cid or video_id})
         if not info.get('url'):
@@ -63,6 +64,7 @@ class AntennaGrWatchIE(AntennaBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"antenna.pyの関数_real_extractを実行しました。")
         video_id, netloc = self._match_valid_url(url).group('id', 'netloc')
         webpage = self._download_webpage(url, video_id)
         info = self._download_and_extract_api_data(video_id, netloc)

@@ -36,6 +36,7 @@ class PGATourIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"pgatour.pyの関数_real_extractを実行しました。")
         video_id, is_tourcast = self._match_valid_url(url).group('id', 'tc')
 
         # From https://www.pgatour.com/_next/static/chunks/pages/_app-8bcf849560daf38d.js

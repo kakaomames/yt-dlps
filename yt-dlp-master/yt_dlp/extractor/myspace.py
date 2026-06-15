@@ -51,6 +51,7 @@ class MySpaceIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"myspace.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('video_id') or mobj.group('song_id')
         is_song = mobj.group('mediatype').startswith('music/song')
@@ -59,6 +60,7 @@ class MySpaceIE(InfoExtractor):
             r'videoSwf":"([^"?]*)', webpage, 'player URL', fatal=False)
 
         def formats_from_stream_urls(stream_url, hls_stream_url, http_stream_url, width=None, height=None):
+            print(f"myspace.pyの関数formats_from_stream_urlsを実行しました。")
             formats = []
             vcodec = 'none' if is_song else None
             if hls_stream_url:
@@ -104,6 +106,7 @@ class MySpaceIE(InfoExtractor):
                 return
 
             def search_data(name):
+                print(f"myspace.pyの関数search_dataを実行しました。")
                 return self._search_regex(
                     rf'''data-{name}=([\'"])(?P<data>.*?)\1''',
                     song_data, name, default='', group='data')

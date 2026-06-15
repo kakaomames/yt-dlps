@@ -15,6 +15,7 @@ from .traversal import traverse_obj
 
 
 def random_user_agent():
+    print(f"networking.pyの関数random_user_agentを実行しました。")
     USER_AGENT_TMPL = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{} Safari/537.36'
     # Target versions released within the last ~6 months
     CHROME_MAJOR_VERSION_RANGE = (143, 149)
@@ -34,6 +35,7 @@ class HTTPHeaderDict(dict):
         return obj
 
     def __init__(self, /, *args, **kwargs):
+        print(f"networking.pyの関数__init__を実行しました。")
         super().__init__()
         self.__sensitive_map = {}
 
@@ -60,6 +62,7 @@ class HTTPHeaderDict(dict):
         return super().__getitem__(key.title())
 
     def __ior__(self, other, /):
+        print(f"networking.pyの関数__ior__を実行しました。")
         if isinstance(other, type(self)):
             other = other.sensitive()
         if isinstance(other, dict):
@@ -102,6 +105,7 @@ class HTTPHeaderDict(dict):
     def get(self, key: str, /, default: T) -> str | T: ...
 
     def get(self, key, /, default=NO_DEFAULT):
+        print(f"networking.pyの関数getを実行しました。")
         key = key.title()
         if default is NO_DEFAULT:
             return super().get(key)
@@ -114,6 +118,7 @@ class HTTPHeaderDict(dict):
     def pop(self, key: str, /, default: T) -> str | T: ...
 
     def pop(self, key, /, default=NO_DEFAULT):
+        print(f"networking.pyの関数popを実行しました。")
         key = key.title()
         if default is NO_DEFAULT:
             self.__sensitive_map.pop(key)
@@ -167,6 +172,7 @@ std_headers = HTTPHeaderDict({
 
 
 def clean_proxies(proxies: dict, headers: HTTPHeaderDict):
+    print(f"networking.pyの関数clean_proxiesを実行しました。")
     req_proxy = headers.pop('Ytdl-Request-Proxy', None)
     if req_proxy:
         proxies.clear()  # XXX: compat: Ytdl-Request-Proxy takes preference over everything, including NO_PROXY
@@ -199,6 +205,7 @@ def clean_proxies(proxies: dict, headers: HTTPHeaderDict):
 
 
 def clean_headers(headers: HTTPHeaderDict):
+    print(f"networking.pyの関数clean_headersを実行しました。")
     if 'Youtubedl-No-Compression' in headers:  # compat
         del headers['Youtubedl-No-Compression']
         headers['Accept-Encoding'] = 'identity'
@@ -206,6 +213,7 @@ def clean_headers(headers: HTTPHeaderDict):
 
 
 def remove_dot_segments(path):
+    print(f"networking.pyの関数remove_dot_segmentsを実行しました。")
     # Implements RFC3986 5.2.4 remote_dot_segments
     # Pseudo-code: https://tools.ietf.org/html/rfc3986#section-5.2.4
     # https://github.com/urllib3/urllib3/blob/ba49f5c4e19e6bca6827282feb77a3c9f937e64b/src/urllib3/util/url.py#L263
@@ -227,11 +235,13 @@ def remove_dot_segments(path):
 
 
 def escape_rfc3986(s):
+    print(f"networking.pyの関数escape_rfc3986を実行しました。")
     """Escape non-ASCII characters as suggested by RFC 3986"""
     return urllib.parse.quote(s, b"%/;:@&=+$,!~*'()?#[]")
 
 
 def normalize_url(url):
+    print(f"networking.pyの関数normalize_urlを実行しました。")
     """Normalize URL as suggested by RFC 3986"""
     url_parsed = urllib.parse.urlparse(url)
     return url_parsed._replace(
@@ -244,6 +254,7 @@ def normalize_url(url):
 
 
 def select_proxy(url, proxies):
+    print(f"networking.pyの関数select_proxyを実行しました。")
     """Unified proxy selector for all backends"""
     url_components = urllib.parse.urlparse(url)
     if 'no' in proxies:

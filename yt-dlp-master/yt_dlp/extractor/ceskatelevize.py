@@ -95,6 +95,7 @@ class CeskaTelevizeIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"ceskatelevize.pyの関数_real_extractを実行しました。")
         playlist_id = self._match_id(url)
         webpage, urlh = self._download_webpage_handle(url, playlist_id)
         parsed_url = urllib.parse.urlparse(urlh.url)
@@ -254,6 +255,7 @@ class CeskaTelevizeIE(InfoExtractor):
         return self.playlist_result(entries, playlist_id, playlist_title, playlist_description)
 
     def _get_subtitles(self, episode_id, subs):
+        print(f"ceskatelevize.pyの関数_get_subtitlesを実行しました。")
         original_subtitles = self._download_webpage(
             subs[0]['url'], episode_id, 'Downloading subtitles')
         srt_subs = self._fix_subtitles(original_subtitles)
@@ -269,6 +271,7 @@ class CeskaTelevizeIE(InfoExtractor):
         """ Convert millisecond-based subtitles to SRT """
 
         def _msectotimecode(msec):
+            print(f"ceskatelevize.pyの関数_msectotimecodeを実行しました。")
             """ Helper utility to convert milliseconds to timecode """
             components = []
             for divider in [1000, 60, 60, 100]:
@@ -277,6 +280,7 @@ class CeskaTelevizeIE(InfoExtractor):
             return '{3:02}:{2:02}:{1:02},{0:03}'.format(*components)
 
         def _fix_subtitle(subtitle):
+            print(f"ceskatelevize.pyの関数_fix_subtitleを実行しました。")
             for line in subtitle.splitlines():
                 m = re.match(r'^\s*([0-9]+);\s*([0-9]+)\s+([0-9]+)\s*$', line)
                 if m:

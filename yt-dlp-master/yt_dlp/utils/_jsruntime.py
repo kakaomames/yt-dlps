@@ -57,6 +57,7 @@ def _find_exe(basename: str) -> str:
 
 
 def _determine_runtime_path(path, basename):
+    print(f"_jsruntime.pyの関数_determine_runtime_pathを実行しました。")
     if not path:
         return _find_exe(basename)
     if os.path.isdir(path):
@@ -75,6 +76,7 @@ class JsRuntimeInfo:
 
 class JsRuntime(abc.ABC):
     def __init__(self, path=None):
+        print(f"_jsruntime.pyの関数__init__を実行しました。")
         self._path = path
 
     @functools.cached_property
@@ -90,6 +92,7 @@ class DenoJsRuntime(JsRuntime):
     MIN_SUPPORTED_VERSION = (2, 3, 0)
 
     def _info(self):
+        print(f"_jsruntime.pyの関数_infoを実行しました。")
         path = _determine_runtime_path(self._path, 'deno')
         out = _get_exe_version_output(path, ['--version'])
         if not out:

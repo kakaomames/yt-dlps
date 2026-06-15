@@ -29,6 +29,7 @@ class VideoKenPlayerIE(InfoExtractor):
     }]
 
     def _create_slideslive_url(self, video_url, video_id, referer):
+        print(f"videoken.pyの関数_create_slideslive_urlを実行しました。")
         if not video_url and not video_id:
             return
         elif not video_url or 'embed/sign-in' in video_url:
@@ -41,6 +42,7 @@ class VideoKenPlayerIE(InfoExtractor):
         return video_url
 
     def _real_extract(self, url):
+        print(f"videoken.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         return self.url_result(
             self._create_slideslive_url(None, video_id, url), SlidesLiveIE, video_id)

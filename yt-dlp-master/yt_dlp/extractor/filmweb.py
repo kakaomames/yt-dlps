@@ -18,6 +18,7 @@ class FilmwebIE(InfoExtractor):
     }
 
     def _real_extract(self, url):
+        print(f"filmweb.pyの関数_real_extractを実行しました。")
         article_type, article_id = self._match_valid_url(url).groups()
         if article_type == 'filmnytt':
             webpage = self._download_webpage(url, article_id)

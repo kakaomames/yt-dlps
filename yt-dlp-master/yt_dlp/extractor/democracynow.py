@@ -35,6 +35,7 @@ class DemocracynowIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"democracynow.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         webpage = self._download_webpage(url, display_id)
@@ -63,6 +64,7 @@ class DemocracynowIE(InfoExtractor):
         subtitles = {}
 
         def add_subtitle_item(lang, info_dict):
+            print(f"democracynow.pyの関数add_subtitle_itemを実行しました。")
             if lang not in subtitles:
                 subtitles[lang] = []
             subtitles[lang].append(info_dict)

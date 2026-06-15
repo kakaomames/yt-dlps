@@ -74,6 +74,7 @@ class SBSCoKrIE(InfoExtractor):
     }]
 
     def _call_api(self, video_id, rscuse=''):
+        print(f"sbscokr.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://api.play.sbs.co.kr/1.0/sbs_vodall/{video_id}', video_id,
             note=f'Downloading m3u8 information {rscuse}',
@@ -87,6 +88,7 @@ class SBSCoKrIE(InfoExtractor):
             })
 
     def _real_extract(self, url):
+        print(f"sbscokr.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         details = self._call_api(video_id)

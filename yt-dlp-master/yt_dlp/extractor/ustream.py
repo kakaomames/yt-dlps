@@ -70,7 +70,9 @@ class UstreamIE(InfoExtractor):
     }]
 
     def _get_stream_info(self, url, video_id, app_id_ver, extra_note=None):
+        print(f"ustream.pyの関数_get_stream_infoを実行しました。")
         def num_to_hex(n):
+            print(f"ustream.pyの関数num_to_hexを実行しました。")
             return hex(n)[2:]
 
         rnd = lambda x: random.randrange(int(x))
@@ -99,6 +101,7 @@ class UstreamIE(InfoExtractor):
             video_id, note='Downloading stream info' + extra_note)
 
     def _get_streams(self, url, video_id, app_id_ver):
+        print(f"ustream.pyの関数_get_streamsを実行しました。")
         # Sometimes the return dict does not have 'stream'
         for trial_count in range(3):
             stream_info = self._get_stream_info(
@@ -109,7 +112,9 @@ class UstreamIE(InfoExtractor):
         return []
 
     def _parse_segmented_mp4(self, dash_stream_info):
+        print(f"ustream.pyの関数_parse_segmented_mp4を実行しました。")
         def resolve_dash_template(template, idx, chunk_hash):
+            print(f"ustream.pyの関数resolve_dash_templateを実行しました。")
             return template.replace('%', str(idx), 1).replace('%', chunk_hash)
 
         formats = []
@@ -155,6 +160,7 @@ class UstreamIE(InfoExtractor):
         return formats
 
     def _real_extract(self, url):
+        print(f"ustream.pyの関数_real_extractを実行しました。")
         m = self._match_valid_url(url)
         video_id = m.group('id')
 

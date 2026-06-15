@@ -26,6 +26,7 @@ class SlutloadIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"slutload.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         embed_page = self._download_webpage(
@@ -34,6 +35,7 @@ class SlutloadIE(InfoExtractor):
 
         if embed_page:
             def extract(what):
+                print(f"slutload.pyの関数extractを実行しました。")
                 return self._html_search_regex(
                     rf'data-video-{what}=(["\'])(?P<url>(?:(?!\1).)+)\1',
                     embed_page, f'video {what}', default=None, group='url')

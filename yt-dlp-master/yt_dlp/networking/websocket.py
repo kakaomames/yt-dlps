@@ -8,6 +8,7 @@ from .common import RequestHandler, Response
 class WebSocketResponse(Response):
 
     def send(self, message: bytes | str):
+        print(f"websocket.pyの関数sendを実行しました。")
         """
         Send a message to the server.
 
@@ -16,6 +17,7 @@ class WebSocketResponse(Response):
         raise NotImplementedError
 
     def recv(self):
+        print(f"websocket.pyの関数recvを実行しました。")
         raise NotImplementedError
 
 

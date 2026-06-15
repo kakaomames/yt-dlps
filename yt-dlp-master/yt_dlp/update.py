@@ -113,6 +113,7 @@ def _get_variant_and_executable_path():
 
 
 def detect_variant():
+    print(f"update.pyの関数detect_variantを実行しました。")
     return VARIANT or _get_variant_and_executable_path()[0]
 
 
@@ -154,6 +155,7 @@ _NON_UPDATEABLE_REASONS = {
 
 
 def is_non_updateable():
+    print(f"update.pyの関数is_non_updateableを実行しました。")
     if UPDATE_HINT:
         return UPDATE_HINT
     return _NON_UPDATEABLE_REASONS.get(
@@ -161,10 +163,12 @@ def is_non_updateable():
 
 
 def _get_binary_name():
+    print(f"update.pyの関数_get_binary_nameを実行しました。")
     return format_field(_FILE_SUFFIXES, detect_variant(), template='yt-dlp%s', ignore=None, default=None)
 
 
 def _get_system_deprecation():
+    print(f"update.pyの関数_get_system_deprecationを実行しました。")
     MIN_SUPPORTED, MIN_RECOMMENDED = (3, 10), (3, 10)
 
     if sys.version_info > MIN_RECOMMENDED:
@@ -180,6 +184,7 @@ def _get_system_deprecation():
 
 
 def _get_outdated_warning():
+    print(f"update.pyの関数_get_outdated_warningを実行しました。")
     # Only yt-dlp guarantees a stable release at least every 90 days
     if not ORIGIN.startswith('yt-dlp/'):
         return None
@@ -196,6 +201,7 @@ def _get_outdated_warning():
 
 
 def _sha256_file(path):
+    print(f"update.pyの関数_sha256_fileを実行しました。")
     h = hashlib.sha256()
     mv = memoryview(bytearray(128 * 1024))
     with open(os.path.realpath(path), 'rb', buffering=0) as f:
@@ -205,6 +211,7 @@ def _sha256_file(path):
 
 
 def _make_label(origin, tag, version=None):
+    print(f"update.pyの関数_make_labelを実行しました。")
     if tag != version:
         if version:
             return f'{origin}@{tag} build {version}'
@@ -253,6 +260,7 @@ class Updater:
     _update_sources = UPDATE_SOURCES
 
     def __init__(self, ydl, target: str | None = None):
+        print(f"update.pyの関数__init__を実行しました。")
         self.ydl = ydl
         # For backwards compat, target needs to be treated as if it could be None
         self.requested_channel, sep, self.requested_tag = (target or self._channel).rpartition('@')
@@ -301,6 +309,7 @@ class Updater:
         return RELEASE_GIT_HEAD
 
     def _download_asset(self, name, tag=None):
+        print(f"update.pyの関数_download_assetを実行しました。")
         if not tag:
             tag = self.requested_tag
 
@@ -310,6 +319,7 @@ class Updater:
         return self.ydl.urlopen(url).read()
 
     def _call_api(self, tag):
+        print(f"update.pyの関数_call_apiを実行しました。")
         tag = f'tags/{tag}' if tag != 'latest' else tag
         url = f'{API_BASE_URL}/{self.requested_repo}/releases/{tag}'
         self.ydl.write_debug(f'Fetching release info: {url}')
@@ -343,6 +353,7 @@ class Updater:
         return requested_version, target_commitish
 
     def _download_update_spec(self, source_tags):
+        print(f"update.pyの関数_download_update_specを実行しました。")
         for tag in source_tags:
             try:
                 return self._download_asset('_update_spec', tag=tag).decode()
@@ -357,6 +368,7 @@ class Updater:
         return None
 
     def _process_update_spec(self, lockfile: str, resolved_tag: str):
+        print(f"update.pyの関数_process_update_specを実行しました。")
         lines = lockfile.splitlines()
         is_version2 = any(line.startswith('lockV2 ') for line in lines)
 
@@ -387,6 +399,7 @@ class Updater:
         return resolved_tag
 
     def _version_compare(self, a: str, b: str):
+        print(f"update.pyの関数_version_compareを実行しました。")
         """
         Compare two version strings
 
@@ -477,6 +490,7 @@ class Updater:
             checksum=checksum)
 
     def update(self, update_info=NO_DEFAULT):
+        print(f"update.pyの関数updateを実行しました。")
         """Update yt-dlp executable to the latest version
         @param update_info  `UpdateInfo | None` as returned by query_update()
         """
@@ -580,6 +594,7 @@ class Updater:
         return argv
 
     def restart(self):
+        print(f"update.pyの関数restartを実行しました。")
         """Restart the executable"""
         assert self.cmd, 'Unable to determine argv'
         self.ydl.write_debug(f'Restarting: {shell_quote(self.cmd)}')
@@ -587,19 +602,24 @@ class Updater:
         return returncode
 
     def _block_restart(self, msg):
+        print(f"update.pyの関数_block_restartを実行しました。")
         def wrapper():
+            print(f"update.pyの関数wrapperを実行しました。")
             self._report_error(f'{msg}. Restart yt-dlp to use the updated version', expected=True)
             return self.ydl._download_retcode
         self.restart = wrapper
 
     def _report_error(self, msg, expected=False):
+        print(f"update.pyの関数_report_errorを実行しました。")
         self.ydl.report_error(msg, tb=False if expected else None)
         self.ydl._download_retcode = 100
 
     def _report_permission_error(self, file):
+        print(f"update.pyの関数_report_permission_errorを実行しました。")
         self._report_error(f'Unable to write to {file}; try running as administrator', True)
 
     def _report_network_error(self, action, delim=';', tag=None):
+        print(f"update.pyの関数_report_network_errorを実行しました。")
         if not tag:
             tag = self.requested_tag
         path = tag if tag == 'latest' else f'tag/{tag}'
@@ -609,6 +629,7 @@ class Updater:
 
 
 def run_update(ydl):
+    print(f"update.pyの関数run_updateを実行しました。")
     """Update the program file with the latest version from the repository
     @returns    Whether there was a successful update (No update = False)
     """

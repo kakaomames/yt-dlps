@@ -66,6 +66,7 @@ class PoTokenCacheSpecProvider(IEContentProvider, abc.ABC, suffix='PCSP'):
 
 
 def register_provider(provider: type[PoTokenCacheProvider]):
+    print(f"cache.pyの関数register_providerを実行しました。")
     """Register a PoTokenCacheProvider class"""
     return register_provider_generic(
         provider=provider,
@@ -75,6 +76,7 @@ def register_provider(provider: type[PoTokenCacheProvider]):
 
 
 def register_spec(provider: type[PoTokenCacheSpecProvider]):
+    print(f"cache.pyの関数register_specを実行しました。")
     """Register a PoTokenCacheSpecProvider class"""
     return register_provider_generic(
         provider=provider,

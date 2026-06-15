@@ -67,9 +67,11 @@ class PelotonIE(InfoExtractor):
     _MANIFEST_URL_TEMPLATE = '%s?hdnea=%s'
 
     def _start_session(self, video_id):
+        print(f"peloton.pyの関数_start_sessionを実行しました。")
         self._download_webpage('https://api.onepeloton.com/api/started_client_session', video_id, note='Starting session')
 
     def _login(self, video_id):
+        print(f"peloton.pyの関数_loginを実行しました。")
         username, password = self._get_login_info()
         if not (username and password):
             self.raise_login_required()
@@ -91,6 +93,7 @@ class PelotonIE(InfoExtractor):
                 raise
 
     def _get_token(self, video_id):
+        print(f"peloton.pyの関数_get_tokenを実行しました。")
         try:
             subscription = self._download_json(
                 'https://api.onepeloton.com/api/subscription/stream', video_id, note='Downloading token',
@@ -105,6 +108,7 @@ class PelotonIE(InfoExtractor):
         return subscription['token']
 
     def _real_extract(self, url):
+        print(f"peloton.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         try:
             self._start_session(video_id)

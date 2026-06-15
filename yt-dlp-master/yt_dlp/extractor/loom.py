@@ -250,6 +250,7 @@ class LoomIE(InfoExtractor):
     _APOLLO_GRAPHQL_VERSION = '45a5bd4'
 
     def _call_graphql_api(self, operation_name, video_id, note=None, errnote=None, fatal=True):
+        print(f"loom.pyの関数_call_graphql_apiを実行しました。")
         password = self.get_param('videopassword')
         return self._download_json(
             'https://www.loom.com/graphql', video_id, note or 'Downloading GraphQL JSON',
@@ -272,6 +273,7 @@ class LoomIE(InfoExtractor):
             }, separators=(',', ':')).encode(), fatal=fatal)
 
     def _call_url_api(self, endpoint, video_id):
+        print(f"loom.pyの関数_call_url_apiを実行しました。")
         response = self._download_json(
             f'https://www.loom.com/api/campaigns/sessions/{video_id}/{endpoint}', video_id,
             f'Downloading {endpoint} JSON', f'Failed to download {endpoint} JSON', fatal=False,
@@ -285,6 +287,7 @@ class LoomIE(InfoExtractor):
         return traverse_obj(response, ('url', {url_or_none}))
 
     def _extract_formats(self, video_id, metadata, video_data):
+        print(f"loom.pyの関数_extract_formatsを実行しました。")
         formats = []
         video_properties = traverse_obj(metadata, ('video_properties', {
             'width': ('width', {int_or_none}),
@@ -293,6 +296,7 @@ class LoomIE(InfoExtractor):
         }))
 
         def get_formats(format_url, format_id, quality):
+            print(f"loom.pyの関数get_formatsを実行しました。")
             if not format_url:
                 return
             ext = determine_ext(format_url)
@@ -348,6 +352,7 @@ class LoomIE(InfoExtractor):
         return formats
 
     def _get_subtitles(self, video_id):
+        print(f"loom.pyの関数_get_subtitlesを実行しました。")
         subs_data = self._call_graphql_api(
             'FetchVideoTranscript', video_id, 'Downloading GraphQL subtitles JSON', fatal=False)
         return filter_dict({
@@ -359,6 +364,7 @@ class LoomIE(InfoExtractor):
         })
 
     def _real_extract(self, url):
+        print(f"loom.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         metadata = traverse_obj(
             self._call_graphql_api('GetVideoSSR', video_id, 'Downloading GraphQL metadata JSON', fatal=False),
@@ -458,11 +464,13 @@ class LoomFolderIE(InfoExtractor):
     }]
 
     def _extract_folder_data(self, folder_id):
+        print(f"loom.pyの関数_extract_folder_dataを実行しました。")
         return self._download_json(
             f'https://www.loom.com/v1/folders/{folder_id}', folder_id,
             'Downloading folder info JSON', query={'limit': '10000'})
 
     def _extract_folder_entries(self, folder_id, initial_folder_data=None):
+        print(f"loom.pyの関数_extract_folder_entriesを実行しました。")
         folder_data = initial_folder_data or self._extract_folder_data(folder_id)
 
         for video in traverse_obj(folder_data, ('videos', lambda _, v: v['id'])):

@@ -24,6 +24,7 @@ class DangalPlayBaseIE(InfoExtractor):
     _SECRET_KEY = 'f53d31a4377e4ef31fa0'  # same as above
 
     def _perform_login(self, username, password):
+        print(f"dangalplay.pyの関数_perform_loginを実行しました。")
         if self._OTV_USER_ID:
             return
         mobj = re.fullmatch(r'token(?:@(?P<region>[A-Z]{2}))?', username)
@@ -35,10 +36,12 @@ class DangalPlayBaseIE(InfoExtractor):
         self._OTV_USER_ID = password
 
     def _real_initialize(self):
+        print(f"dangalplay.pyの関数_real_initializeを実行しました。")
         if not self._OTV_USER_ID:
             self.raise_login_required(f'Login required. {self._LOGIN_HINT}', method=None)
 
     def _extract_episode_info(self, metadata, episode_slug, series_slug):
+        print(f"dangalplay.pyの関数_extract_episode_infoを実行しました。")
         return {
             'display_id': episode_slug,
             'episode_number': int_or_none(self._search_regex(
@@ -58,6 +61,7 @@ class DangalPlayBaseIE(InfoExtractor):
         }
 
     def _call_api(self, path, display_id, note='Downloading JSON metadata', fatal=True, query={}):
+        print(f"dangalplay.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'{self._API_BASE}/{path}', display_id, note, fatal=fatal,
             headers={'Accept': 'application/json'}, query={
@@ -107,6 +111,7 @@ class DangalPlayIE(DangalPlayBaseIE):
     }]
 
     def _generate_api_data(self, data):
+        print(f"dangalplay.pyの関数_generate_api_dataを実行しました。")
         catalog_id = data['catalog_id']
         content_id = data['content_id']
         timestamp = str(int(time.time()))
@@ -124,6 +129,7 @@ class DangalPlayIE(DangalPlayBaseIE):
         }, separators=(',', ':')).encode()
 
     def _real_extract(self, url):
+        print(f"dangalplay.pyの関数_real_extractを実行しました。")
         series_slug, episode_slug = self._match_valid_url(url).group('series', 'id')
         metadata = self._call_api(
             f'catalogs/shows/{series_slug}/episodes/{episode_slug}.gzip',
@@ -185,6 +191,7 @@ class DangalPlaySeasonIE(DangalPlayBaseIE):
     }]
 
     def _entries(self, subcategories, series_slug):
+        print(f"dangalplay.pyの関数_entriesを実行しました。")
         for subcategory in subcategories:
             data = self._call_api(
                 f'catalogs/shows/items/{series_slug}/subcategories/{subcategory}/episodes.gzip',

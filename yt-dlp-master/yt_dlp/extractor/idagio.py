@@ -40,6 +40,7 @@ class IdagioTrackIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"idagio.pyの関数_real_extractを実行しました。")
         track_id = self._match_id(url)
         track_info = self._download_json(
             f'https://api.idagio.com/v2.0/metadata/tracks/{track_id}',
@@ -78,6 +79,7 @@ class IdagioPlaylistBaseIE(InfoExtractor):
     _PLAYLIST_ID_KEY = 'id'  # vs. 'display_id'
 
     def _entries(self, playlist_info):
+        print(f"idagio.pyの関数_entriesを実行しました。")
         for track_data in traverse_obj(playlist_info, ('tracks', lambda _, v: v['id'] and v['recording']['id'])):
             track_id = track_data['id']
             recording_id = track_data['recording']['id']
@@ -131,6 +133,7 @@ class IdagioRecordingIE(IdagioPlaylistBaseIE):
     _API_URL_TMPL = 'https://api.idagio.com/v2.0/metadata/recordings/{}'
 
     def _parse_playlist_metadata(self, playlist_info):
+        print(f"idagio.pyの関数_parse_playlist_metadataを実行しました。")
         return traverse_obj(playlist_info, {
             'title': ('work', 'title', {str}),
             'timestamp': ('created_at', {int_or_none(scale=1000)}),

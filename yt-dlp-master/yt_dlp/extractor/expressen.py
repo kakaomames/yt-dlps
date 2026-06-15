@@ -51,11 +51,13 @@ class ExpressenIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"expressen.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         webpage = self._download_webpage(url, display_id)
 
         def extract_data(name):
+            print(f"expressen.pyの関数extract_dataを実行しました。")
             return self._parse_json(
                 self._search_regex(
                     rf'data-{name}=(["\'])(?P<value>(?:(?!\1).)+)\1',

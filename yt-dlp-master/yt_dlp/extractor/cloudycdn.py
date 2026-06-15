@@ -79,6 +79,7 @@ class CloudyCDNIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"cloudycdn.pyの関数_real_extractを実行しました。")
         domain, site_id, video_id = self._match_valid_url(url).group('domain', 'site_id', 'id')
 
         data = self._download_json(

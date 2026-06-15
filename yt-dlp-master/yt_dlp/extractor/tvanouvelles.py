@@ -22,6 +22,7 @@ class TVANouvellesIE(InfoExtractor):
     BRIGHTCOVE_URL_TEMPLATE = 'http://players.brightcove.net/1741764581/default_default/index.html?videoId=%s'
 
     def _real_extract(self, url):
+        print(f"tvanouvelles.pyの関数_real_extractを実行しました。")
         brightcove_id = self._match_id(url)
         return self.url_result(
             self.BRIGHTCOVE_URL_TEMPLATE % brightcove_id,

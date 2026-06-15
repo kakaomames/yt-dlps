@@ -54,6 +54,7 @@ class ElementorEmbedIE(InfoExtractor):
     _WIDGET_REGEX = r'<div[^>]+class="[^"]*elementor-widget-video(?:-playlist)?[^"]*"[^>]*data-settings="([^"]*)"'
 
     def _extract_from_webpage(self, url, webpage):
+        print(f"elementorembed.pyの関数_extract_from_webpageを実行しました。")
         for data_settings in re.findall(self._WIDGET_REGEX, webpage):
             data = self._parse_json(data_settings, None, fatal=False, transform_source=unescapeHTML)
             if youtube_url := traverse_obj(data, ('youtube_url', {url_or_none})):

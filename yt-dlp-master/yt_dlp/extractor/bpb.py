@@ -103,6 +103,7 @@ class BpbIE(InfoExtractor):
     _TITLE_RE = re.compile('(?P<title>[^<]*)<[^>]+>(?P<series>[^<]*)')
 
     def _parse_vue_attributes(self, name, string, video_id):
+        print(f"bpb.pyの関数_parse_vue_attributesを実行しました。")
         attributes = extract_attributes(self._search_regex(rf'(<{name}(?:"[^"]*?"|[^>])*>)', string, name))
 
         for key, value in attributes.items():
@@ -112,6 +113,7 @@ class BpbIE(InfoExtractor):
         return attributes
 
     def _process_source(self, source):
+        print(f"bpb.pyの関数_process_sourceを実行しました。")
         url = url_or_none(source['src'])
         if not url:
             return None
@@ -131,6 +133,7 @@ class BpbIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"bpb.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 

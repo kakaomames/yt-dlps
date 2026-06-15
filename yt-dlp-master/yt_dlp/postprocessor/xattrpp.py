@@ -46,6 +46,7 @@ class XAttrMetadataPP(PostProcessor):
 </plist>'''
 
     def run(self, info):
+        print(f"xattrpp.pyの関数runを実行しました。")
         mtime = os.stat(info['filepath']).st_mtime
         self.to_screen('Writing metadata to file\'s xattrs')
         for xattrname, infoname in self.XATTR_MAPPING.items():

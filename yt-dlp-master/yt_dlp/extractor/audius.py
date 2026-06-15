@@ -10,6 +10,7 @@ class AudiusBaseIE(InfoExtractor):
     _API_V = '/v1'
 
     def _get_response_data(self, response):
+        print(f"audius.pyの関数_get_response_dataを実行しました。")
         if isinstance(response, dict):
             response_data = response.get('data')
             if response_data is not None:
@@ -20,6 +21,7 @@ class AudiusBaseIE(InfoExtractor):
         raise ExtractorError('Unexpected API response')
 
     def _select_api_base(self):
+        print(f"audius.pyの関数_select_api_baseを実行しました。")
         """Selecting one of the currently available API hosts"""
         response = super()._download_json(
             'https://api.audius.co/', None,
@@ -66,6 +68,7 @@ class AudiusBaseIE(InfoExtractor):
         return self._get_response_data(response)
 
     def _resolve_url(self, url, item_id):
+        print(f"audius.pyの関数_resolve_urlを実行しました。")
         return self._api_request(f'/resolve?url={url}', item_id,
                                  expected_status=404)
 
@@ -120,6 +123,7 @@ class AudiusIE(AudiusBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"audius.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         track_id = try_get(mobj, lambda x: x.group('track_id'))
         if track_id is None:
@@ -199,6 +203,7 @@ class AudiusPlaylistIE(AudiusBaseIE):
     }
 
     def _build_playlist(self, tracks):
+        print(f"audius.pyの関数_build_playlistを実行しました。")
         entries = []
         for track in tracks:
             if not isinstance(track, dict):

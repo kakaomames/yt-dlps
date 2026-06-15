@@ -47,6 +47,7 @@ class CaracolTvPlayIE(InfoExtractor):
     _USER_TOKEN = None
 
     def _extract_app_token(self, webpage):
+        print(f"caracoltv.pyの関数_extract_app_tokenを実行しました。")
         config_js_path = self._search_regex(
             r'<script[^>]+src\s*=\s*"([^"]+coreConfig.js[^"]+)', webpage, 'config js url', fatal=False)
 
@@ -63,6 +64,7 @@ class CaracolTvPlayIE(InfoExtractor):
         return base64.b64encode(f'{key}:{secret}'.encode()).decode()
 
     def _perform_login(self, email, password):
+        print(f"caracoltv.pyの関数_perform_loginを実行しました。")
         webpage = self._download_webpage('https://play.caracoltv.com/', None, fatal=False)
         app_token = self._extract_app_token(webpage)
 
@@ -88,6 +90,7 @@ class CaracolTvPlayIE(InfoExtractor):
             }).encode())['user_token']
 
     def _extract_video(self, video_data, series_id=None, season_id=None, season_number=None):
+        print(f"caracoltv.pyの関数_extract_videoを実行しました。")
         formats, subtitles = self._extract_m3u8_formats_and_subtitles(video_data['stream_url'], series_id, 'mp4')
 
         return {
@@ -106,6 +109,7 @@ class CaracolTvPlayIE(InfoExtractor):
         }
 
     def _extract_series_seasons(self, seasons, series_id):
+        print(f"caracoltv.pyの関数_extract_series_seasonsを実行しました。")
         for season in seasons:
             api_response = self._download_json(
                 'https://eu-gateway.inmobly.com/feed', series_id, query={'season_id': season['id']},
@@ -116,6 +120,7 @@ class CaracolTvPlayIE(InfoExtractor):
                 yield self._extract_video(episode, series_id, season['id'], season_number)
 
     def _real_extract(self, url):
+        print(f"caracoltv.pyの関数_real_extractを実行しました。")
         series_id = self._match_id(url)
 
         if self._USER_TOKEN is None:

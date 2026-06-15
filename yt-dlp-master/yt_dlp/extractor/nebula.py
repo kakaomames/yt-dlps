@@ -27,6 +27,7 @@ class NebulaBaseIE(InfoExtractor):
     _token = _api_token = None
 
     def _perform_login(self, username, password):
+        print(f"nebula.pyの関数_perform_loginを実行しました。")
         try:
             response = self._download_json(
                 'https://nebula.tv/auth/login/', None,
@@ -42,6 +43,7 @@ class NebulaBaseIE(InfoExtractor):
             raise ExtractorError('Login failed: No token')
 
     def _call_api(self, *args, **kwargs):
+        print(f"nebula.pyの関数_call_apiを実行しました。")
         if self._token:
             kwargs.setdefault('headers', {})['Authorization'] = f'Bearer {self._token}'
         try:
@@ -57,6 +59,7 @@ class NebulaBaseIE(InfoExtractor):
             return self._download_json(*args, **kwargs)
 
     def _real_initialize(self):
+        print(f"nebula.pyの関数_real_initializeを実行しました。")
         if not self._api_token:
             self._api_token = try_call(
                 lambda: self._get_cookies('https://nebula.tv')['nebula_auth.apiToken'].value)
@@ -66,6 +69,7 @@ class NebulaBaseIE(InfoExtractor):
             note='Authorizing to Nebula', data=b'')['token']
 
     def _extract_formats(self, content_id, slug):
+        print(f"nebula.pyの関数_extract_formatsを実行しました。")
         for retry in (False, True):
             try:
                 fmts, subs = self._extract_m3u8_formats_and_subtitles(
@@ -89,6 +93,7 @@ class NebulaBaseIE(InfoExtractor):
         return {'formats': fmts, 'subtitles': subs}
 
     def _extract_video_metadata(self, episode):
+        print(f"nebula.pyの関数_extract_video_metadataを実行しました。")
         channel_url = traverse_obj(
             episode, (('channel_slug', 'class_slug'), {urljoin('https://nebula.tv/')}), get_all=False)
         return {
@@ -116,6 +121,7 @@ class NebulaBaseIE(InfoExtractor):
         }
 
     def _mark_watched(self, content_id, slug):
+        print(f"nebula.pyの関数_mark_watchedを実行しました。")
         self._call_api(
             PATCHRequest(f'https://content.api.nebula.app/{content_id.split(":")[0]}s/{content_id}/progress/'),
             slug, 'Marking watched', 'Unable to mark watched', fatal=False,
@@ -229,6 +235,7 @@ class NebulaIE(NebulaBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"nebula.pyの関数_real_extractを実行しました。")
         slug = self._match_id(url)
         url, smuggled_data = unsmuggle_url(url, {})
         if smuggled_data.get('id'):
@@ -363,6 +370,7 @@ class NebulaSubscriptionsIE(NebulaBaseIE):
     }]
 
     def _generate_playlist_entries(self):
+        print(f"nebula.pyの関数_generate_playlist_entriesを実行しました。")
         next_url = update_url_query('https://content.api.nebula.app/video_episodes/', {
             'following': 'true',
             'include': 'engagement',
@@ -443,6 +451,7 @@ class NebulaChannelIE(NebulaBaseIE):
                 break
 
     def _generate_class_entries(self, channel):
+        print(f"nebula.pyの関数_generate_class_entriesを実行しました。")
         for lesson in channel['lessons']:
             metadata = self._extract_video_metadata(lesson)
             yield self.url_result(smuggle_url(
@@ -450,6 +459,7 @@ class NebulaChannelIE(NebulaBaseIE):
                 {'id': lesson['id']}), NebulaClassIE, url_transparent=True, **metadata)
 
     def _generate_podcast_entries(self, collection_id, collection_slug):
+        print(f"nebula.pyの関数_generate_podcast_entriesを実行しました。")
         next_url = f'https://content.api.nebula.app/podcast_channels/{collection_id}/podcast_episodes/?ordering=-published_at&premium=true'
         for page_num in itertools.count(1):
             episodes = self._call_api(next_url, collection_slug, note=f'Retrieving podcast page {page_num}')
@@ -510,6 +520,7 @@ class NebulaSeasonIE(NebulaBaseIE):
     }]
 
     def _build_url_result(self, item):
+        print(f"nebula.pyの関数_build_url_resultを実行しました。")
         url = (
             traverse_obj(item, ('share_url', {url_or_none}))
             or urljoin('https://nebula.tv/', item.get('app_path'))
@@ -520,6 +531,7 @@ class NebulaSeasonIE(NebulaBaseIE):
             **self._extract_video_metadata(item))
 
     def _entries(self, data):
+        print(f"nebula.pyの関数_entriesを実行しました。")
         for episode in traverse_obj(data, ('episodes', lambda _, v: v['video']['id'], 'video')):
             yield self._build_url_result(episode)
         for extra in traverse_obj(data, ('extras', ..., 'items', lambda _, v: v['id'])):

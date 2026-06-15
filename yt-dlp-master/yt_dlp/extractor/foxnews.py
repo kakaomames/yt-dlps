@@ -89,6 +89,7 @@ class FoxNewsIE(AMPIE):
             yield f'https://video.foxnews.com/v/video-embed.html?video_id={mobj.group("video_id")}'
 
     def _real_extract(self, url):
+        print(f"foxnews.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         info = self._extract_feed_info(

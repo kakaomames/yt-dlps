@@ -49,6 +49,7 @@ class VidlyIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"vidly.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         embed_script = self._download_webpage(

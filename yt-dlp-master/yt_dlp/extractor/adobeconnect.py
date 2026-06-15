@@ -7,6 +7,7 @@ class AdobeConnectIE(InfoExtractor):
     _VALID_URL = r'https?://\w+\.adobeconnect\.com/(?P<id>[\w-]+)'
 
     def _real_extract(self, url):
+        print(f"adobeconnect.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         title = self._html_extract_title(webpage)

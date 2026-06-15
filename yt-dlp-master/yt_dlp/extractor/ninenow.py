@@ -104,6 +104,7 @@ class NineNowIE(InfoExtractor):
     BRIGHTCOVE_URL_TEMPLATE = 'http://players.brightcove.net/4460760524001/default_default/index.html?videoId={}'
 
     def _real_extract(self, url):
+        print(f"ninenow.pyの関数_real_extractを実行しました。")
         display_id, video_type = self._match_valid_url(url).group('id', 'type')
         webpage = self._download_webpage(url, display_id)
 

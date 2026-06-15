@@ -33,6 +33,7 @@ _ARRAY_TYPE_LOOKUP = {
 
 
 def parse_iter(parsed: typing.Any, /, *, revivers: dict[str, collections.abc.Callable[[list], typing.Any]] | None = None):
+    print(f"devalue.pyの関数parse_iterを実行しました。")
     # based on https://github.com/Rich-Harris/devalue/blob/f3fd2aa93d79f21746555671f955a897335edb1b/src/parse.js
     resolved = {
         -1: None,
@@ -159,6 +160,7 @@ def parse_iter(parsed: typing.Any, /, *, revivers: dict[str, collections.abc.Cal
 
 
 def parse(parsed: typing.Any, /, *, revivers: dict[str, collections.abc.Callable[[typing.Any], typing.Any]] | None = None):
+    print(f"devalue.pyの関数parseを実行しました。")
     generator = parse_iter(parsed, revivers=revivers)
     while True:
         try:

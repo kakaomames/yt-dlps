@@ -35,11 +35,13 @@ class XNXXIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"xnxx.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(url, video_id)
 
         def get(meta, default=NO_DEFAULT, fatal=True):
+            print(f"xnxx.pyの関数getを実行しました。")
             return self._search_regex(
                 rf'set{meta}\s*\(\s*(["\'])(?P<value>(?:(?!\1).)+)\1',
                 webpage, meta, default=default, fatal=fatal, group='value')

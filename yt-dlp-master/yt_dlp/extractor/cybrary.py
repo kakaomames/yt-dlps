@@ -21,22 +21,26 @@ class CybraryBaseIE(InfoExtractor):
     _TOKEN = None
 
     def _perform_login(self, username, password):
+        print(f"cybrary.pyの関数_perform_loginを実行しました。")
         CybraryBaseIE._TOKEN = self._download_json(
             f'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={self._API_KEY}',
             None, data=urlencode_postdata({'email': username, 'password': password, 'returnSecureToken': True}),
             note='Logging in')['idToken']
 
     def _real_initialize(self):
+        print(f"cybrary.pyの関数_real_initializeを実行しました。")
         if not self._TOKEN:
             self.raise_login_required(method='password')
 
     def _call_api(self, endpoint, item_id):
+        print(f"cybrary.pyの関数_call_apiを実行しました。")
         return self._download_json(
             self._ENDPOINTS[endpoint].format(item_id), item_id,
             note=f'Downloading {endpoint} JSON metadata',
             headers={'Authorization': f'Bearer {self._TOKEN}'})
 
     def _get_vimeo_id(self, activity_id):
+        print(f"cybrary.pyの関数_get_vimeo_idを実行しました。")
         launch_api = self._call_api('launch', activity_id)
 
         if launch_api.get('url'):
@@ -85,6 +89,7 @@ class CybraryIE(CybraryBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"cybrary.pyの関数_real_extractを実行しました。")
         activity_id, enrollment_id = self._match_valid_url(url).group('id', 'enrollment')
         course = self._call_api('enrollment', enrollment_id)['content']
         activity = traverse_obj(course, ('learning_modules', ..., 'activities', lambda _, v: int(activity_id) == v['id']), get_all=False)

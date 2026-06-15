@@ -56,6 +56,7 @@ class NineGagIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"ninegag.pyの関数_real_extractを実行しました。")
         post_id = self._match_id(url)
         post = self._download_json(
             'https://9gag.com/v1/post', post_id, query={

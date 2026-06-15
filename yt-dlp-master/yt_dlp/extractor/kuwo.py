@@ -22,6 +22,7 @@ class KuwoBaseIE(InfoExtractor):
     ]
 
     def _get_formats(self, song_id, tolerate_ip_deny=False):
+        print(f"kuwo.pyの関数_get_formatsを実行しました。")
         formats = []
         for file_format in self._FORMATS:
             query = {
@@ -88,6 +89,7 @@ class KuwoIE(KuwoBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"kuwo.pyの関数_real_extractを実行しました。")
         song_id = self._match_id(url)
         webpage, urlh = self._download_webpage_handle(
             url, song_id, note='Download song detail info',
@@ -236,6 +238,7 @@ class KuwoSingerIE(InfoExtractor):
             r'data-page="(\d+)"', webpage, 'page count'))
 
         def page_func(page_num):
+            print(f"kuwo.pyの関数page_funcを実行しました。")
             webpage = self._download_webpage(
                 'http://www.kuwo.cn/artist/contentMusicsAjax',
                 singer_id, note=f'Download song list page #{page_num + 1}',

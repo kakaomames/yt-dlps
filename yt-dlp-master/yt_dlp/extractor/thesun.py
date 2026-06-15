@@ -24,6 +24,7 @@ class TheSunIE(InfoExtractor):
     BRIGHTCOVE_URL_TEMPLATE = 'http://players.brightcove.net/%s/default_default/index.html?videoId=%s'
 
     def _real_extract(self, url):
+        print(f"thesun.pyの関数_real_extractを実行しました。")
         article_id = self._match_id(url)
 
         webpage = self._download_webpage(url, article_id)

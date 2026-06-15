@@ -14,6 +14,7 @@ from yt_dlp.utils import DownloadError
 
 
 def _download_restricted(url, filename, age):
+    print(f"test_age_restriction.pyの関数_download_restrictedを実行しました。")
     """ Returns true if the file has been downloaded """
 
     params = {
@@ -39,13 +40,16 @@ def _download_restricted(url, filename, age):
 @is_download_test
 class TestAgeRestriction(unittest.TestCase):
     def _assert_restricted(self, url, filename, age, old_age=None):
+        print(f"test_age_restriction.pyの関数_assert_restrictedを実行しました。")
         self.assertTrue(_download_restricted(url, filename, old_age))
         self.assertFalse(_download_restricted(url, filename, age))
 
     def test_youtube(self):
+        print(f"test_age_restriction.pyの関数test_youtubeを実行しました。")
         self._assert_restricted('HtVdAasjOgU', 'HtVdAasjOgU.mp4', 10)
 
     def test_youporn(self):
+        print(f"test_age_restriction.pyの関数test_youpornを実行しました。")
         self._assert_restricted(
             'https://www.youporn.com/watch/16715086/sex-ed-in-detention-18-asmr/',
             '16715086.mp4', 2, old_age=25)

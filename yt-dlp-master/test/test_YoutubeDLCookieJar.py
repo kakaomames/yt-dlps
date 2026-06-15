@@ -16,6 +16,7 @@ from yt_dlp.cookies import YoutubeDLCookieJar
 
 class TestYoutubeDLCookieJar(unittest.TestCase):
     def test_keep_session_cookies(self):
+        print(f"test_YoutubeDLCookieJar.pyの関数test_keep_session_cookiesを実行しました。")
         cookiejar = YoutubeDLCookieJar('./test/testdata/cookies/session_cookies.txt')
         cookiejar.load()
         tf = tempfile.NamedTemporaryFile(delete=False)
@@ -31,16 +32,19 @@ class TestYoutubeDLCookieJar(unittest.TestCase):
             os.remove(tf.name)
 
     def test_strip_httponly_prefix(self):
+        print(f"test_YoutubeDLCookieJar.pyの関数test_strip_httponly_prefixを実行しました。")
         cookiejar = YoutubeDLCookieJar('./test/testdata/cookies/httponly_cookies.txt')
         cookiejar.load()
 
         def assert_cookie_has_value(key):
+            print(f"test_YoutubeDLCookieJar.pyの関数assert_cookie_has_valueを実行しました。")
             self.assertEqual(cookiejar._cookies['www.foobar.foobar']['/'][key].value, key + '_VALUE')
 
         assert_cookie_has_value('HTTPONLY_COOKIE')
         assert_cookie_has_value('JS_ACCESSIBLE_COOKIE')
 
     def test_malformed_cookies(self):
+        print(f"test_YoutubeDLCookieJar.pyの関数test_malformed_cookiesを実行しました。")
         cookiejar = YoutubeDLCookieJar('./test/testdata/cookies/malformed_cookies.txt')
         cookiejar.load()
         # Cookies should be empty since all malformed cookie file entries
@@ -48,12 +52,14 @@ class TestYoutubeDLCookieJar(unittest.TestCase):
         self.assertFalse(cookiejar._cookies)
 
     def test_get_cookie_header(self):
+        print(f"test_YoutubeDLCookieJar.pyの関数test_get_cookie_headerを実行しました。")
         cookiejar = YoutubeDLCookieJar('./test/testdata/cookies/httponly_cookies.txt')
         cookiejar.load()
         header = cookiejar.get_cookie_header('https://www.foobar.foobar')
         self.assertIn('HTTPONLY_COOKIE', header)
 
     def test_get_cookies_for_url(self):
+        print(f"test_YoutubeDLCookieJar.pyの関数test_get_cookies_for_urlを実行しました。")
         cookiejar = YoutubeDLCookieJar('./test/testdata/cookies/session_cookies.txt')
         cookiejar.load()
         cookies = cookiejar.get_cookies_for_url('https://www.foobar.foobar/')

@@ -42,6 +42,7 @@ class ERTFlixBaseIE(InfoExtractor):
             return response
 
     def _call_api_get_tiles(self, video_id, *tile_ids):
+        print(f"ertgr.pyの関数_call_api_get_tilesを実行しました。")
         requested_tile_ids = [video_id, *tile_ids]
         requested_tiles = [{'Id': tile_id} for tile_id in requested_tile_ids]
         tiles_response = self._call_api(
@@ -72,6 +73,7 @@ class ERTFlixCodenameIE(ERTFlixBaseIE):
     }]
 
     def _extract_formats_and_subs(self, video_id):
+        print(f"ertgr.pyの関数_extract_formats_and_subsを実行しました。")
         media_info = self._call_api(video_id, codename=video_id)
         formats, subtitles = [], {}
         for media in traverse_obj(media_info, (
@@ -97,6 +99,7 @@ class ERTFlixCodenameIE(ERTFlixBaseIE):
         return formats, subtitles
 
     def _real_extract(self, url):
+        print(f"ertgr.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         formats, subs = self._extract_formats_and_subs(video_id)
@@ -172,6 +175,7 @@ class ERTFlixIE(ERTFlixBaseIE):
     }]
 
     def _extract_episode(self, episode):
+        print(f"ertgr.pyの関数_extract_episodeを実行しました。")
         codename = try_get(episode, lambda x: x['Codename'], str)
         title = episode.get('Title')
         description = clean_html(dict_get(episode, ('ShortDescription', 'TinyDescription')))
@@ -204,6 +208,7 @@ class ERTFlixIE(ERTFlixBaseIE):
             or (info_dict.get('IsKidsContent') and 0))
 
     def _extract_series(self, video_id, season_titles=None, season_numbers=None):
+        print(f"ertgr.pyの関数_extract_seriesを実行しました。")
         media_info = self._call_api(video_id, method='Tile/GetSeriesDetails', id=video_id)
 
         series = try_get(media_info, lambda x: x['Series'], dict) or {}
@@ -219,6 +224,7 @@ class ERTFlixIE(ERTFlixBaseIE):
                     season_titles.append(season['Title'])
 
         def gen_episode(m_info, season_titles):
+            print(f"ertgr.pyの関数gen_episodeを実行しました。")
             for episode_group in try_get(m_info, lambda x: x['EpisodeGroups'], list) or []:
                 if season_titles and episode_group.get('Title') not in season_titles:
                     continue

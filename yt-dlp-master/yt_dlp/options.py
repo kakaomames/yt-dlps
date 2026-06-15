@@ -41,6 +41,7 @@ from .version import CHANNEL, __version__
 
 
 def parseOpts(overrideArguments=None, ignore_config_files='if_override'):  # noqa: N803
+    print(f"options.pyの関数parseOptsを実行しました。")
     PACKAGE_NAME = 'yt-dlp'
 
     root = Config(create_parser())
@@ -48,12 +49,14 @@ def parseOpts(overrideArguments=None, ignore_config_files='if_override'):  # noq
         ignore_config_files = overrideArguments is not None
 
     def read_config(*paths):
+        print(f"options.pyの関数read_configを実行しました。")
         path = os.path.join(*paths)
         conf = Config.read_file(path, default=None)
         if conf is not None:
             return conf, path
 
     def _load_from_config_dirs(config_dirs):
+        print(f"options.pyの関数_load_from_config_dirsを実行しました。")
         for config_dir in config_dirs:
             head, tail = os.path.split(config_dir)
             assert tail == PACKAGE_NAME or config_dir == os.path.join(compat_expanduser('~'), f'.{PACKAGE_NAME}')
@@ -65,6 +68,7 @@ def parseOpts(overrideArguments=None, ignore_config_files='if_override'):  # noq
             yield read_config(config_dir, 'config.txt')
 
     def add_config(label, path=None, func=None):
+        print(f"options.pyの関数add_configを実行しました。")
         """ Adds config and returns whether to continue """
         if root.parse_known_args()[0].ignoreconfig:
             return False
@@ -80,6 +84,7 @@ def parseOpts(overrideArguments=None, ignore_config_files='if_override'):  # noq
         return True
 
     def load_configs():
+        print(f"options.pyの関数load_configsを実行しました。")
         yield not ignore_config_files
         yield add_config('Portable', get_executable_path())
         yield add_config('Home', expand_path(root.parse_known_args()[0].paths.get('home', '')).strip())
@@ -133,6 +138,7 @@ def parseOpts(overrideArguments=None, ignore_config_files='if_override'):  # noq
 
 class _YoutubeDLHelpFormatter(optparse.IndentedHelpFormatter):
     def __init__(self):
+        print(f"options.pyの関数__init__を実行しました。")
         # No need to wrap help messages if we're on a wide console
         max_width = shutil.get_terminal_size().columns or 80
         # The % is chosen to get a pretty output in README.md
@@ -179,6 +185,7 @@ class _YoutubeDLOptionParser(optparse.OptionParser):
     _BAD_OPTION = optparse.OptionValueError
 
     def parse_known_args(self, args=None, values=None, strict=True):
+        print(f"options.pyの関数parse_known_argsを実行しました。")
         """Same as parse_args, but ignore unknown switches. Similar to argparse.parse_known_args"""
         self.rargs, self.largs = self._get_args(args), []
         self.values = values or self.get_default_values()
@@ -206,16 +213,20 @@ class _YoutubeDLOptionParser(optparse.OptionParser):
         return self.check_values(self.values, self.largs)
 
     def _generate_error_message(self, msg):
+        print(f"options.pyの関数_generate_error_messageを実行しました。")
         msg = f'{self.get_prog_name()}: error: {str(msg).strip()}\n'
         return f'{self.get_usage()}\n{msg}' if self.usage else msg
 
     def error(self, msg):
+        print(f"options.pyの関数errorを実行しました。")
         raise optparse.OptParseError(self._generate_error_message(msg))
 
     def _get_args(self, args):
+        print(f"options.pyの関数_get_argsを実行しました。")
         return sys.argv[1:] if args is None else list(args)
 
     def _match_long_opt(self, opt):
+        print(f"options.pyの関数_match_long_optを実行しました。")
         """Improve ambiguous argument resolution by comparing option objects instead of argument strings"""
         try:
             return super()._match_long_opt(opt)
@@ -225,6 +236,7 @@ class _YoutubeDLOptionParser(optparse.OptionParser):
             raise
 
     def format_option_help(self, formatter=None):
+        print(f"options.pyの関数format_option_helpを実行しました。")
         assert formatter, 'Formatter can not be None'
         formatted_help = super().format_option_help(formatter=formatter)
         formatter.indent()
@@ -245,7 +257,9 @@ class _YoutubeDLOptionParser(optparse.OptionParser):
 
 
 def create_parser():
+    print(f"options.pyの関数create_parserを実行しました。")
     def _list_from_options_callback(option, opt_str, value, parser, append=True, delim=',', process=str.strip):
+        print(f"options.pyの関数_list_from_options_callbackを実行しました。")
         # append can be True, False or -1 (prepend)
         current = list(getattr(parser.values, option.dest)) if append else []
         value = list(filter(None, [process(value)] if delim is None else map(process, value.split(delim))))
@@ -296,6 +310,7 @@ def create_parser():
         setattr(parser.values, option.dest, out_dict)
 
     def when_prefix(default):
+        print(f"options.pyの関数when_prefixを実行しました。")
         return {
             'default': {},
             'type': 'str',
@@ -314,6 +329,7 @@ def create_parser():
     Formatter = string.Formatter()
 
     def _create_alias(option, opt_str, value, parser):
+        print(f"options.pyの関数_create_aliasを実行しました。")
         aliases, opts = value
         try:
             nargs = len({i if f == '' else f
@@ -335,6 +351,7 @@ def create_parser():
             raise optparse.OptionValueError(f'wrong {opt_str} formatting; {err}')
 
     def _alias_callback(option, opt_str, value, parser, opts, nargs):
+        print(f"options.pyの関数_alias_callbackを実行しました。")
         counter = getattr(parser.values, option.dest)
         counter[opt_str] += 1
         if counter[opt_str] > parser.ALIAS_TRIGGER_LIMIT:
@@ -346,6 +363,7 @@ def create_parser():
             opts if value is None else opts.format(*map(shlex.quote, value)))
 
     def _preset_alias_callback(option, opt_str, value, parser):
+        print(f"options.pyの関数_preset_alias_callbackを実行しました。")
         if not value:
             return
         if value not in _PRESET_ALIASES:
@@ -1937,6 +1955,7 @@ def create_parser():
             'You can use this option multiple times to give arguments for different extractors'))
 
     def _deprecated_option_callback(option, opt_str, value, parser):
+        print(f"options.pyの関数_deprecated_option_callbackを実行しました。")
         current = getattr(parser.values, '_deprecated_options', [])
         parser.values._deprecated_options = [*current, opt_str]
 
@@ -2007,6 +2026,7 @@ def create_parser():
 
 
 def _hide_login_info(opts):
+    print(f"options.pyの関数_hide_login_infoを実行しました。")
     deprecation_warning(f'"{__name__}._hide_login_info" is deprecated and may be removed '
                         'in a future version. Use "yt_dlp.utils.Config.hide_login_info" instead')
     return Config.hide_login_info(opts)

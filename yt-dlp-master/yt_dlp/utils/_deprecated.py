@@ -18,6 +18,7 @@ import struct
 
 
 def bytes_to_intlist(bs):
+    print(f"_deprecated.pyの関数bytes_to_intlistを実行しました。")
     if not bs:
         return []
     if isinstance(bs[0], int):  # Python 3
@@ -27,12 +28,14 @@ def bytes_to_intlist(bs):
 
 
 def intlist_to_bytes(xs):
+    print(f"_deprecated.pyの関数intlist_to_bytesを実行しました。")
     if not xs:
         return b''
     return struct.pack('%dB' % len(xs), *xs)
 
 
 def jwt_encode_hs256(payload_data, key, headers={}):
+    print(f"_deprecated.pyの関数jwt_encode_hs256を実行しました。")
     header_data = {
         'alg': 'HS256',
         'typ': 'JWT',
@@ -44,6 +47,19 @@ def jwt_encode_hs256(payload_data, key, headers={}):
     h = hmac.new(key.encode(), header_b64 + b'.' + payload_b64, hashlib.sha256)
     signature_b64 = base64.b64encode(h.digest())
     return header_b64 + b'.' + payload_b64 + b'.' + signature_b64
+
+
+def make_dir(path, to_screen=None):
+    print(f"_deprecated.pyの関数make_dirを実行しました。")
+    from . import make_parent_dirs
+
+    try:
+        make_parent_dirs(path)
+        return True
+    except OSError as e:
+        if to_screen is not None:
+            to_screen(f'Unable to create directory: {e}')
+        return False
 
 
 compiled_regex_type = type(re.compile(''))

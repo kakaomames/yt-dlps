@@ -45,6 +45,7 @@ class DigitallySpeakingIE(InfoExtractor):
     }]
 
     def _parse_mp4(self, metadata):
+        print(f"dispeak.pyの関数_parse_mp4を実行しました。")
         video_formats = []
         video_root = None
 
@@ -81,6 +82,7 @@ class DigitallySpeakingIE(InfoExtractor):
         return video_formats
 
     def _parse_flv(self, metadata):
+        print(f"dispeak.pyの関数_parse_flvを実行しました。")
         formats = []
         akamai_url = xpath_text(metadata, './akamaiHost', fatal=True)
         audios = metadata.findall('./audios/audio')
@@ -109,6 +111,7 @@ class DigitallySpeakingIE(InfoExtractor):
         return formats
 
     def _real_extract(self, url):
+        print(f"dispeak.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         xml_description = self._download_xml(url, video_id)

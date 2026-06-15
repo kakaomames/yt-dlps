@@ -57,6 +57,7 @@ class BilibiliBaseIE(InfoExtractor):
         return bool(self._get_cookies('https://api.bilibili.com').get('SESSDATA'))
 
     def _check_missing_formats(self, play_info, formats):
+        print(f"bilibili.pyの関数_check_missing_formatsを実行しました。")
         parsed_qualities = set(traverse_obj(formats, (..., 'quality')))
         missing_formats = join_nonempty(*[
             traverse_obj(fmt, 'new_description', 'display_desc', 'quality')
@@ -68,6 +69,7 @@ class BilibiliBaseIE(InfoExtractor):
                 f'become a premium member to download them. {self._login_hint()}')
 
     def extract_formats(self, play_info):
+        print(f"bilibili.pyの関数extract_formatsを実行しました。")
         format_names = {
             r['quality']: traverse_obj(r, 'new_description', 'display_desc')
             for r in traverse_obj(play_info, ('support_formats', lambda _, v: v['quality']))
@@ -132,6 +134,7 @@ class BilibiliBaseIE(InfoExtractor):
         return formats
 
     def _get_wbi_key(self, video_id):
+        print(f"bilibili.pyの関数_get_wbi_keyを実行しました。")
         if time.time() < self._wbi_key_cache.get('ts', 0) + self._WBI_KEY_CACHE_TIMEOUT:
             return self._wbi_key_cache['key']
 
@@ -157,6 +160,7 @@ class BilibiliBaseIE(InfoExtractor):
         return self._wbi_key_cache['key']
 
     def _sign_wbi(self, params, video_id):
+        print(f"bilibili.pyの関数_sign_wbiを実行しました。")
         params['wts'] = round(time.time())
         params = {
             k: ''.join(filter(lambda char: char not in "!'()*", str(v)))
@@ -167,6 +171,7 @@ class BilibiliBaseIE(InfoExtractor):
         return params
 
     def _download_playinfo(self, bvid, cid, headers=None, query=None):
+        print(f"bilibili.pyの関数_download_playinfoを実行しました。")
         params = {'bvid': bvid, 'cid': cid, 'fnval': 4048, **(query or {})}
         if self.is_logged_in:
             params.pop('try_look', None)
@@ -180,6 +185,7 @@ class BilibiliBaseIE(InfoExtractor):
             query=self._sign_wbi(params, bvid), headers=headers, note=note)['data']
 
     def json2srt(self, json_data):
+        print(f"bilibili.pyの関数json2srtを実行しました。")
         srt_data = ''
         for idx, line in enumerate(json_data.get('body') or []):
             srt_data += (f'{idx + 1}\n'
@@ -188,6 +194,7 @@ class BilibiliBaseIE(InfoExtractor):
         return srt_data
 
     def _get_subtitles(self, video_id, cid, aid=None):
+        print(f"bilibili.pyの関数_get_subtitlesを実行しました。")
         subtitles = {
             'danmaku': [{
                 'ext': 'xml',
@@ -211,6 +218,7 @@ class BilibiliBaseIE(InfoExtractor):
         return subtitles
 
     def _get_chapters(self, aid, cid):
+        print(f"bilibili.pyの関数_get_chaptersを実行しました。")
         chapters = aid and cid and self._download_json(
             'https://api.bilibili.com/x/player/wbi/v2', aid, query={'aid': aid, 'cid': cid},
             note='Extracting chapters', fatal=False, headers=self._HEADERS)
@@ -221,6 +229,7 @@ class BilibiliBaseIE(InfoExtractor):
         })) or None
 
     def _get_comments(self, aid):
+        print(f"bilibili.pyの関数_get_commentsを実行しました。")
         for idx in itertools.count(1):
             replies = traverse_obj(
                 self._download_json(
@@ -233,6 +242,7 @@ class BilibiliBaseIE(InfoExtractor):
                 yield from children
 
     def _get_all_children(self, reply):
+        print(f"bilibili.pyの関数_get_all_childrenを実行しました。")
         yield {
             'author': traverse_obj(reply, ('member', 'uname')),
             'author_id': traverse_obj(reply, ('member', 'mid')),
@@ -245,6 +255,7 @@ class BilibiliBaseIE(InfoExtractor):
             yield from children
 
     def _get_episodes_from_season(self, ss_id, url):
+        print(f"bilibili.pyの関数_get_episodes_from_seasonを実行しました。")
         season_info = self._download_json(
             'https://api.bilibili.com/pgc/web/season/section', ss_id,
             note='Downloading season info', query={'season_id': ss_id},
@@ -256,6 +267,7 @@ class BilibiliBaseIE(InfoExtractor):
             yield self.url_result(entry['share_url'], BiliBiliBangumiIE, str_or_none(entry.get('id')))
 
     def _get_divisions(self, video_id, graph_version, edges, edge_id, cid_edges=None):
+        print(f"bilibili.pyの関数_get_divisionsを実行しました。")
         cid_edges = cid_edges or {}
         division_data = self._download_json(
             'https://api.bilibili.com/x/stein/edgeinfo_v2', video_id,
@@ -284,6 +296,7 @@ class BilibiliBaseIE(InfoExtractor):
         return cid_edges
 
     def _get_interactive_entries(self, video_id, cid, metainfo, headers=None):
+        print(f"bilibili.pyの関数_get_interactive_entriesを実行しました。")
         graph_version = traverse_obj(
             self._download_json(
                 'https://api.bilibili.com/x/player/wbi/v2', video_id,
@@ -656,6 +669,7 @@ class BiliBiliIE(BilibiliBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"bilibili.pyの関数_real_extractを実行しました。")
         video_id, prefix = self._match_valid_url(url).group('id', 'prefix')
         headers = self.geo_verification_headers()
         webpage, urlh = self._download_webpage_handle(url, video_id, headers=headers)
@@ -1127,6 +1141,7 @@ class BiliBiliBangumiSeasonIE(BilibiliBaseIE):
 
 class BilibiliCheeseBaseIE(BilibiliBaseIE):
     def _extract_episode(self, season_info, ep_id):
+        print(f"bilibili.pyの関数_extract_episodeを実行しました。")
         episode_info = traverse_obj(season_info, (
             'episodes', lambda _, v: v['id'] == int(ep_id)), get_all=False)
         aid, cid = episode_info['aid'], episode_info['cid']
@@ -1168,6 +1183,7 @@ class BilibiliCheeseBaseIE(BilibiliBaseIE):
         }
 
     def _download_season_info(self, query_key, video_id):
+        print(f"bilibili.pyの関数_download_season_infoを実行しました。")
         return self._download_json(
             f'https://api.bilibili.com/pugv/view/web/season?{query_key}={video_id}', video_id,
             headers=self._HEADERS, note='Downloading season info')['data']
@@ -1240,6 +1256,7 @@ class BilibiliCheeseSeasonIE(BilibiliCheeseBaseIE):
     }]
 
     def _get_cheese_entries(self, season_info):
+        print(f"bilibili.pyの関数_get_cheese_entriesを実行しました。")
         for ep_id in traverse_obj(season_info, ('episodes', lambda _, v: v['episode_can_view'], 'id')):
             yield self._extract_episode(season_info, ep_id)
 
@@ -1257,6 +1274,7 @@ class BilibiliCheeseSeasonIE(BilibiliCheeseBaseIE):
 
 class BilibiliSpaceBaseIE(BilibiliBaseIE):
     def _extract_playlist(self, fetch_page, get_metadata, get_entries):
+        print(f"bilibili.pyの関数_extract_playlistを実行しました。")
         first_page = fetch_page(0)
         metadata = get_metadata(first_page)
 
@@ -1310,6 +1328,7 @@ class BilibiliSpaceVideoIE(BilibiliSpaceBaseIE):
                            'To download audios, add a "/upload/audio" to the URL')
 
         def fetch_page(page_idx):
+            print(f"bilibili.pyの関数fetch_pageを実行しました。")
             query = {
                 'keyword': '',
                 'mid': playlist_id,
@@ -1349,6 +1368,7 @@ class BilibiliSpaceVideoIE(BilibiliSpaceBaseIE):
             return response['data']
 
         def get_metadata(page_data):
+            print(f"bilibili.pyの関数get_metadataを実行しました。")
             page_size = page_data['page']['ps']
             entry_count = page_data['page']['count']
             return {
@@ -1357,6 +1377,7 @@ class BilibiliSpaceVideoIE(BilibiliSpaceBaseIE):
             }
 
         def get_entries(page_data):
+            print(f"bilibili.pyの関数get_entriesを実行しました。")
             for entry in traverse_obj(page_data, ('list', 'vlist', ..., {dict})):
                 if traverse_obj(entry, ('meta', 'attribute')) == 156:
                     # hidden-mode collection doesn't show its videos in uploads; extract as playlist instead
@@ -1406,10 +1427,12 @@ class BilibiliSpaceAudioIE(BilibiliSpaceBaseIE):
 
 class BilibiliSpaceListBaseIE(BilibiliSpaceBaseIE):
     def _get_entries(self, page_data, bvid_keys, ending_key='bvid'):
+        print(f"bilibili.pyの関数_get_entriesを実行しました。")
         for bvid in traverse_obj(page_data, (*variadic(bvid_keys, (str, bytes, dict, set)), ..., ending_key, {str})):
             yield self.url_result(f'https://www.bilibili.com/video/{bvid}', BiliBiliIE, bvid)
 
     def _get_uploader(self, uid, playlist_id):
+        print(f"bilibili.pyの関数_get_uploaderを実行しました。")
         webpage = self._download_webpage(f'https://space.bilibili.com/{uid}', playlist_id, fatal=False)
         return self._search_regex(r'(?s)<title\b[^>]*>([^<]+)的个人空间-', webpage, 'uploader', fatal=False)
 
@@ -1692,6 +1715,7 @@ class BilibiliPlaylistIE(BilibiliSpaceListBaseIE):
     }]
 
     def _extract_medialist(self, query, list_id):
+        print(f"bilibili.pyの関数_extract_medialistを実行しました。")
         for page_num in itertools.count(1):
             page_data = self._download_json(
                 'https://api.bilibili.com/x/v2/medialist/resource/list',
@@ -1763,6 +1787,7 @@ class BilibiliCategoryIE(InfoExtractor):
     }]
 
     def _fetch_page(self, api_url, num_pages, query, page_num):
+        print(f"bilibili.pyの関数_fetch_pageを実行しました。")
         parsed_json = self._download_json(
             api_url, query, query={'Search_key': query, 'pn': page_num},
             note=f'Extracting results from page {page_num} of {num_pages}')
@@ -1776,6 +1801,7 @@ class BilibiliCategoryIE(InfoExtractor):
                 'https://www.bilibili.com/video/{}'.format(video['bvid']), 'BiliBili', video['bvid'])
 
     def _entries(self, category, subcategory, query):
+        print(f"bilibili.pyの関数_entriesを実行しました。")
         # map of categories : subcategories : RIDs
         rid_map = {
             'kichiku': {
@@ -1847,6 +1873,7 @@ class BiliBiliSearchIE(SearchInfoExtractor):
     }]
 
     def _search_results(self, query):
+        print(f"bilibili.pyの関数_search_resultsを実行しました。")
         if not self._get_cookies('https://api.bilibili.com').get('buvid3'):
             self._set_cookie('.bilibili.com', 'buvid3', f'{uuid.uuid4()}infoc')
         for page_num in itertools.count(1):
@@ -1872,6 +1899,7 @@ class BiliBiliSearchIE(SearchInfoExtractor):
 
 class BilibiliAudioBaseIE(InfoExtractor):
     def _call_api(self, path, sid, query=None):
+        print(f"bilibili.pyの関数_call_apiを実行しました。")
         if not query:
             query = {'sid': sid}
         return self._download_json(
@@ -2114,6 +2142,7 @@ class BiliIntlBaseIE(InfoExtractor):
         return subtitles
 
     def _get_formats(self, *, ep_id=None, aid=None):
+        print(f"bilibili.pyの関数_get_formatsを実行しました。")
         video_json = self._call_api(
             '/web/playurl', ep_id or aid, note='Downloading video formats',
             errnote='Unable to download video formats', query=filter_dict({
@@ -2154,6 +2183,7 @@ class BiliIntlBaseIE(InfoExtractor):
         return formats
 
     def _parse_video_metadata(self, video_data):
+        print(f"bilibili.pyの関数_parse_video_metadataを実行しました。")
         return {
             'title': video_data.get('title_display') or video_data.get('title'),
             'description': video_data.get('desc'),
@@ -2164,6 +2194,7 @@ class BiliIntlBaseIE(InfoExtractor):
         }
 
     def _perform_login(self, username, password):
+        print(f"bilibili.pyの関数_perform_loginを実行しました。")
         if not Cryptodome.RSA:
             raise ExtractorError('pycryptodomex not found. Please install', expected=True)
 
@@ -2341,6 +2372,7 @@ class BiliIntlIE(BiliIntlBaseIE):
         return f'https://www.bilibili.tv/en/video/{video_id}'
 
     def _extract_video_metadata(self, url, video_id, season_id):
+        print(f"bilibili.pyの関数_extract_video_metadataを実行しました。")
         url, smuggled_data = unsmuggle_url(url, {})
         if smuggled_data.get('title'):
             return smuggled_data
@@ -2370,6 +2402,7 @@ class BiliIntlIE(BiliIntlBaseIE):
             }, self._search_json_ld(webpage, video_id, default={}))
 
     def _get_comments_reply(self, root_id, next_id=0, display_id=None):
+        print(f"bilibili.pyの関数_get_comments_replyを実行しました。")
         comment_api_raw_data = self._download_json(
             'https://api.bilibili.tv/reply/web/detail', display_id,
             note=f'Downloading reply comment of {root_id} - {next_id}',
@@ -2556,6 +2589,7 @@ class BiliLiveIE(InfoExtractor):
         return api_result.get('data') or {}
 
     def _parse_formats(self, qn, fmt):
+        print(f"bilibili.pyの関数_parse_formatsを実行しました。")
         for codec in fmt.get('codec') or []:
             if codec.get('current_qn') != qn:
                 continue

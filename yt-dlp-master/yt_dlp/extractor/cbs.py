@@ -18,6 +18,7 @@ from ..utils import (
 
 class CBSBaseIE(ThePlatformFeedIE):  # XXX: Do not subclass from concrete IE
     def _parse_smil_subtitles(self, smil, namespace=None, subtitles_lang='en'):
+        print(f"cbs.pyの関数_parse_smil_subtitlesを実行しました。")
         subtitles = {}
         for k, ext in [('sMPTE-TTCCURL', 'tt'), ('ClosedCaptionURL', 'ttml'), ('webVTTCaptionURL', 'vtt')]:
             cc_e = find_xpath_attr(smil, self._xpath_ns('.//param', namespace), 'name', k)
@@ -31,6 +32,7 @@ class CBSBaseIE(ThePlatformFeedIE):  # XXX: Do not subclass from concrete IE
         return subtitles
 
     def _extract_common_video_info(self, content_id, asset_types, mpx_acc, extra_info):
+        print(f"cbs.pyの関数_extract_common_video_infoを実行しました。")
         tp_path = f'dJ5BDC/media/guid/{mpx_acc}/{content_id}'
         tp_release_url = f'https://link.theplatform.com/s/{tp_path}'
         info = self._extract_theplatform_metadata(tp_path, content_id)
@@ -68,10 +70,12 @@ class CBSBaseIE(ThePlatformFeedIE):  # XXX: Do not subclass from concrete IE
         return info
 
     def _extract_video_info(self, *args, **kwargs):
+        print(f"cbs.pyの関数_extract_video_infoを実行しました。")
         # Extract assets + metadata and call _extract_common_video_info
         raise NotImplementedError('This method must be implemented by subclasses')
 
     def _real_extract(self, url):
+        print(f"cbs.pyの関数_real_extractを実行しました。")
         return self._extract_video_info(self._match_id(url))
 
 

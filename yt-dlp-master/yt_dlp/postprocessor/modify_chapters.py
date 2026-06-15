@@ -57,6 +57,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         self.write_debug('Concat spec = {}'.format(', '.join(f'{c.get("inpoint", 0.0)}-{c.get("outpoint", "inf")}' for c in concat_opts)))
 
         def remove_chapters(file, is_sub):
+            print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
             return file, self.remove_chapters(file, cuts, concat_opts, self._force_keyframes and not is_sub)
 
         in_out_files = [remove_chapters(info['filepath'], False)]
@@ -75,6 +76,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         return files_to_remove, info
 
     def _mark_chapters_to_remove(self, chapters, sponsor_chapters):
+        print(f"modify_chapters.pyの関数_mark_chapters_to_removeを実行しました。")
         if self._remove_chapters_patterns:
             warn_no_chapter_to_remove = True
             if not chapters:
@@ -110,6 +112,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         return chapters, sponsor_chapters
 
     def _get_supported_subs(self, info):
+        print(f"modify_chapters.pyの関数_get_supported_subsを実行しました。")
         for sub in (info.get('requested_subtitles') or {}).values():
             sub_file = sub.get('filepath')
             # The file might have been removed by --embed-subs
@@ -123,10 +126,12 @@ class ModifyChaptersPP(FFmpegPostProcessor):
             yield sub_file
 
     def _remove_marked_arrange_sponsors(self, chapters):
+        print(f"modify_chapters.pyの関数_remove_marked_arrange_sponsorsを実行しました。")
         # Store cuts separately, since adjacent and overlapping cuts must be merged.
         cuts = []
 
         def append_cut(c):
+            print(f"modify_chapters.pyの関数append_cutを実行しました。")
             assert 'remove' in c, 'Not a cut is appended to cuts'
             last_to_cut = cuts[-1] if cuts else None
             if last_to_cut and last_to_cut['end_time'] >= c['start_time']:
@@ -136,6 +141,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
             return len(cuts) - 1
 
         def excess_duration(c):
+            print(f"modify_chapters.pyの関数excess_durationを実行しました。")
             # Cuts that are completely within the chapter reduce chapters' duration.
             # Since cuts can overlap, excess duration may be less that the sum of cuts' durations.
             # To avoid that, chapter stores the index to the fist cut within the chapter,
@@ -155,6 +161,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         new_chapters = []
 
         def append_chapter(c):
+            print(f"modify_chapters.pyの関数append_chapterを実行しました。")
             assert 'remove' not in c, 'Cut is appended to chapters'
             length = c['end_time'] - c['start_time'] - excess_duration(c)
             # Chapter is completely covered by cuts or sponsors.
@@ -264,6 +271,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         return self._remove_tiny_rename_sponsors(new_chapters), cuts
 
     def _remove_tiny_rename_sponsors(self, chapters):
+        print(f"modify_chapters.pyの関数_remove_tiny_rename_sponsorsを実行しました。")
         new_chapters = []
         for i, c in enumerate(chapters):
             # Merge with the previous/next if the chapter is tiny.
@@ -311,6 +319,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         return new_chapters
 
     def remove_chapters(self, filename, ranges_to_cut, concat_opts, force_keyframes=False):
+        print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
         in_file = filename
         out_file = prepend_extension(in_file, 'temp')
         if force_keyframes:

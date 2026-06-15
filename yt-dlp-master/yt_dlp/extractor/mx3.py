@@ -33,6 +33,7 @@ class Mx3BaseIE(InfoExtractor):
     }]
 
     def _extract_formats(self, track_id):
+        print(f"mx3.pyの関数_extract_formatsを実行しました。")
         formats = []
         for fmt in self._FORMATS:
             format_url = f'https://{self._DOMAIN}/tracks/{track_id}/{fmt["url"]}'
@@ -49,12 +50,14 @@ class Mx3BaseIE(InfoExtractor):
         return formats
 
     def _real_extract(self, url):
+        print(f"mx3.pyの関数_real_extractを実行しました。")
         track_id = self._match_id(url)
         webpage = self._download_webpage(url, track_id)
         more_info = get_element_by_class('single-more-info', webpage)
         data = self._download_json(f'https://{self._DOMAIN}/t/{track_id}.json', track_id, fatal=False)
 
         def get_info_field(name):
+            print(f"mx3.pyの関数get_info_fieldを実行しました。")
             return self._html_search_regex(
                 rf'<dt[^>]*>\s*{name}\s*</dt>\s*<dd[^>]*>(.*?)</dd>',
                 more_info, name, default=None, flags=re.DOTALL)

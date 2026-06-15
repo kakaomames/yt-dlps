@@ -61,6 +61,7 @@ class AllstarBaseIE(InfoExtractor):
     @staticmethod
     def _parse_video_data(video_data):
         def media_url_or_none(path):
+            print(f"allstar.pyの関数media_url_or_noneを実行しました。")
             return urljoin('https://media.allstar.gg/', path)
 
         info = traverse_obj(video_data, {
@@ -90,6 +91,7 @@ class AllstarBaseIE(InfoExtractor):
         return info
 
     def _call_api(self, query, variables, path, video_id=None, note=None):
+        print(f"allstar.pyの関数_call_apiを実行しました。")
         response = self._download_json(
             'https://a1.allstar.gg/graphql', video_id, note=note,
             headers={'content-type': 'application/json'},
@@ -175,6 +177,7 @@ class AllstarIE(AllstarBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"allstar.pyの関数_real_extractを実行しました。")
         query_id, video_id = self._match_valid_url(url).group('type', 'id')
 
         return self._parse_video_data(
@@ -218,6 +221,7 @@ class AllstarProfileIE(AllstarBaseIE):
     _PAGE_SIZE = 10
 
     def _get_page(self, user_id, display_id, game, query, page_num):
+        print(f"allstar.pyの関数_get_pageを実行しました。")
         page_num += 1
 
         for video_data in self._call_api(

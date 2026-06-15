@@ -76,6 +76,7 @@ class ThreeQSDNIE(InfoExtractor):
     }]
 
     def _extract_from_webpage(self, url, webpage):
+        print(f"threeqsdn.pyの関数_extract_from_webpageを実行しました。")
         for res in super()._extract_from_webpage(url, webpage):
             yield {
                 **res,
@@ -84,6 +85,7 @@ class ThreeQSDNIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"threeqsdn.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         try:

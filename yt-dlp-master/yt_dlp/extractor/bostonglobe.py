@@ -40,6 +40,7 @@ class BostonGlobeIE(InfoExtractor):
     ]
 
     def _real_extract(self, url):
+        print(f"bostonglobe.pyの関数_real_extractを実行しました。")
         page_id = self._match_id(url)
         webpage = self._download_webpage(url, page_id)
 

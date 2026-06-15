@@ -42,6 +42,7 @@ class PacktPubIE(PacktPubBaseIE):
     _TOKEN = None
 
     def _perform_login(self, username, password):
+        print(f"packtpub.pyの関数_perform_loginを実行しました。")
         try:
             self._TOKEN = self._download_json(
                 'https://services.packtpub.com/auth-v1/users/tokens', None,
@@ -56,6 +57,7 @@ class PacktPubIE(PacktPubBaseIE):
             raise
 
     def _real_extract(self, url):
+        print(f"packtpub.pyの関数_real_extractを実行しました。")
         course_id, chapter_id, video_id, display_id = self._match_valid_url(url).groups()
 
         headers = {}

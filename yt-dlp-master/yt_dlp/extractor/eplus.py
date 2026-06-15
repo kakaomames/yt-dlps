@@ -94,6 +94,7 @@ class EplusIbIE(InfoExtractor):
     _USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0'
 
     def _login(self, username, password, urlh):
+        print(f"eplus.pyの関数_loginを実行しました。")
         if not self._get_cookies('https://live.eplus.jp/').get('ci_session'):
             raise ExtractorError('Unable to get ci_session cookie')
 
@@ -126,6 +127,7 @@ class EplusIbIE(InfoExtractor):
             }), headers={'Referer': urlh.url})
 
     def _real_extract(self, url):
+        print(f"eplus.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage, urlh = self._download_webpage_handle(
             url, video_id, headers={'User-Agent': self._USER_AGENT})

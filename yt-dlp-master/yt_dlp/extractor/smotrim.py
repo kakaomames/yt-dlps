@@ -30,6 +30,7 @@ class SmotrimBaseIE(InfoExtractor):
     _GEO_COUNTRIES = ['RU']
 
     def _extract_from_smotrim_api(self, typ, item_id):
+        print(f"smotrim.pyの関数_extract_from_smotrim_apiを実行しました。")
         path = f'data{typ.replace("-", "")}/{"uid" if typ == "live" else "id"}'
         data = self._download_json(
             f'https://player.smotrim.ru/iframe/{path}/{item_id}/sid/smotrim', item_id)
@@ -181,6 +182,7 @@ class SmotrimIE(SmotrimBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"smotrim.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         return self._extract_from_smotrim_api('video', video_id)
@@ -365,6 +367,7 @@ class SmotrimPlaylistIE(SmotrimBaseIE):
     }]
 
     def _fetch_page(self, endpoint, key, playlist_id, page):
+        print(f"smotrim.pyの関数_fetch_pageを実行しました。")
         page += 1
         items = self._download_json(
             f'{self._BASE_URL}/api/{endpoint}', playlist_id,

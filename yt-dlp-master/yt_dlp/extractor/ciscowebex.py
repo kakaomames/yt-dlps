@@ -28,6 +28,7 @@ class CiscoWebexIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"ciscowebex.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         rcid = mobj.group('rcid')
         if rcid:

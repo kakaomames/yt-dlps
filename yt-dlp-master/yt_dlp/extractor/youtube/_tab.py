@@ -35,6 +35,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
     @staticmethod
     def passthrough_smuggled_data(func):
         def _smuggle(info, smuggled_data):
+            print(f"_tab.pyの関数_smuggleを実行しました。")
             if info.get('_type') not in ('url', 'url_transparent'):
                 return info
             if smuggled_data.get('is_music_url'):
@@ -74,6 +75,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                 return renderer
 
     def _extract_video(self, renderer):
+        print(f"_tab.pyの関数_extract_videoを実行しました。")
         video_id = renderer.get('videoId')
 
         reel_header_renderer = traverse_obj(renderer, (
@@ -169,6 +171,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         }
 
     def _extract_channel_renderer(self, renderer):
+        print(f"_tab.pyの関数_extract_channel_rendererを実行しました。")
         channel_id = self.ucid_or_none(renderer['channelId'])
         title = self._get_text(renderer, 'title')
         channel_url = format_field(channel_id, None, 'https://www.youtube.com/channel/%s', default=None)
@@ -207,6 +210,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         }
 
     def _grid_entries(self, grid_renderer):
+        print(f"_tab.pyの関数_grid_entriesを実行しました。")
         for item in grid_renderer['items']:
             if not isinstance(item, dict):
                 continue
@@ -250,6 +254,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                         break
 
     def _music_reponsive_list_entry(self, renderer):
+        print(f"_tab.pyの関数_music_reponsive_list_entryを実行しました。")
         video_id = traverse_obj(renderer, ('playlistItemData', 'videoId'))
         if video_id:
             title = traverse_obj(renderer, (
@@ -271,6 +276,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                                    ie=YoutubeTabIE.ie_key(), video_id=browse_id)
 
     def _shelf_entries_from_content(self, shelf_renderer):
+        print(f"_tab.pyの関数_shelf_entries_from_contentを実行しました。")
         content = shelf_renderer.get('content')
         if not isinstance(content, dict):
             return
@@ -286,6 +292,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             pass
 
     def _shelf_entries(self, shelf_renderer, skip_channels=False):
+        print(f"_tab.pyの関数_shelf_entriesを実行しました。")
         ep = try_get(
             shelf_renderer, lambda x: x['endpoint']['commandMetadata']['webCommandMetadata']['url'],
             str)
@@ -302,6 +309,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         yield from self._shelf_entries_from_content(shelf_renderer)
 
     def _playlist_entries(self, video_list_renderer):
+        print(f"_tab.pyの関数_playlist_entriesを実行しました。")
         for content in video_list_renderer['contents']:
             if not isinstance(content, dict):
                 continue
@@ -314,6 +322,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             yield self._extract_video(renderer)
 
     def _extract_lockup_view_model(self, view_model):
+        print(f"_tab.pyの関数_extract_lockup_view_modelを実行しました。")
         content_id = view_model.get('contentId')
         if not content_id:
             return
@@ -349,6 +358,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                 if self._configuration_arg('approximate_date', ie_key=YoutubeTabIE) else None))
 
     def _rich_entries(self, rich_grid_renderer):
+        print(f"_tab.pyの関数_rich_entriesを実行しました。")
         if lockup_view_model := traverse_obj(rich_grid_renderer, ('content', 'lockupViewModel', {dict})):
             if entry := self._extract_lockup_view_model(lockup_view_model):
                 yield entry
@@ -387,11 +397,13 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             return
 
     def _video_entry(self, video_renderer):
+        print(f"_tab.pyの関数_video_entryを実行しました。")
         video_id = video_renderer.get('videoId')
         if video_id:
             return self._extract_video(video_renderer)
 
     def _hashtag_tile_entry(self, hashtag_tile_renderer):
+        print(f"_tab.pyの関数_hashtag_tile_entryを実行しました。")
         url = urljoin('https://youtube.com', traverse_obj(
             hashtag_tile_renderer, ('onTapCommand', 'commandMetadata', 'webCommandMetadata', 'url')))
         if url:
@@ -399,6 +411,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                 url, ie=YoutubeTabIE.ie_key(), title=self._get_text(hashtag_tile_renderer, 'hashtag'))
 
     def _post_thread_entries(self, post_thread_renderer):
+        print(f"_tab.pyの関数_post_thread_entriesを実行しました。")
         post_renderer = try_get(
             post_thread_renderer, lambda x: x['post']['backstagePostRenderer'], dict)
         if not post_renderer:
@@ -435,6 +448,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             yield self.url_result(ep_url, ie=YoutubeIE.ie_key(), video_id=ep_video_id)
 
     def _post_thread_continuation_entries(self, post_thread_continuation):
+        print(f"_tab.pyの関数_post_thread_continuation_entriesを実行しました。")
         contents = post_thread_continuation.get('contents')
         if not isinstance(contents, list):
             return
@@ -449,6 +463,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
 
     r''' # unused
     def _rich_grid_entries(self, contents):
+        print(f"_tab.pyの関数_rich_grid_entriesを実行しました。")
         for content in contents:
             video_renderer = try_get(content, lambda x: x['richItemRenderer']['content']['videoRenderer'], dict)
             if video_renderer:
@@ -458,6 +473,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
     '''
 
     def _report_history_entries(self, renderer):
+        print(f"_tab.pyの関数_report_history_entriesを実行しました。")
         for url in traverse_obj(renderer, (
                 'rows', ..., 'reportHistoryTableRowRenderer', 'cells', ...,
                 'reportHistoryTableCellRenderer', 'cell', 'reportHistoryTableTextCellRenderer', 'text', 'runs', ...,
@@ -465,6 +481,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             yield self.url_result(urljoin('https://www.youtube.com', url), YoutubeIE)
 
     def _extract_entries(self, parent_renderer, continuation_list):
+        print(f"_tab.pyの関数_extract_entriesを実行しました。")
         # continuation_list is modified in-place with continuation_list = [continuation_token]
         continuation_list[:] = [None]
         contents = try_get(parent_renderer, lambda x: x['contents'], list) or []
@@ -520,6 +537,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             continuation_list[0] = self._extract_continuation(parent_renderer)
 
     def _entries(self, tab, item_id, ytcfg, delegated_session_id, visitor_data):
+        print(f"_tab.pyの関数_entriesを実行しました。")
         continuation_list = [None]
         extract_entries = lambda x: self._extract_entries(x, continuation_list)
         tab_content = try_get(tab, lambda x: x['content'], dict)
@@ -614,6 +632,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             response, ('contents', 'twoColumnBrowseResultsRenderer', 'tabs', ..., ('tabRenderer', 'expandableTabRenderer')), expected_type=dict)
 
     def _extract_from_tabs(self, item_id, ytcfg, data, tabs):
+        print(f"_tab.pyの関数_extract_from_tabsを実行しました。")
         metadata = self._extract_metadata_from_tabs(item_id, data)
 
         selected_tab = self._extract_selected_tab(tabs)
@@ -628,6 +647,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             **metadata)
 
     def _extract_metadata_from_tabs(self, item_id, data):
+        print(f"_tab.pyの関数_extract_metadata_from_tabsを実行しました。")
         info = {'id': item_id}
 
         metadata_renderer = traverse_obj(data, ('metadata', 'channelMetadataRenderer'), expected_type=dict)
@@ -650,6 +670,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         # We can get the uncropped banner/avatar by replacing the crop params with '=s0'
         # See: https://github.com/yt-dlp/yt-dlp/issues/2237#issuecomment-1013694714
         def _get_uncropped(url):
+            print(f"_tab.pyの関数_get_uncroppedを実行しました。")
             return url_or_none((url or '').split('=')[0] + '=s0')
 
         avatar_thumbnails = self._extract_thumbnails(metadata_renderer, 'avatar')
@@ -761,6 +782,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         return info
 
     def _extract_inline_playlist(self, playlist, playlist_id, data, ytcfg):
+        print(f"_tab.pyの関数_extract_inline_playlistを実行しました。")
         first_id = last_id = response = None
         for page_num in itertools.count(1):
             videos = list(self._playlist_entries(playlist))
@@ -792,6 +814,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                 response, lambda x: x['contents']['twoColumnWatchNextResults']['playlist']['playlist'], dict)
 
     def _extract_from_playlist(self, item_id, url, data, playlist, ytcfg):
+        print(f"_tab.pyの関数_extract_from_playlistを実行しました。")
         title = playlist.get('title') or try_get(
             data, lambda x: x['titleText']['simpleText'], str)
         playlist_id = playlist.get('playlistId') or item_id
@@ -815,6 +838,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             playlist_id=playlist_id, playlist_title=title)
 
     def _extract_availability(self, data):
+        print(f"_tab.pyの関数_extract_availabilityを実行しました。")
         """
         Gets the availability of a given playlist/tab.
         Note: Unless YouTube tells us explicitly, we do not assume it is public
@@ -865,6 +889,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                 return renderer
 
     def _reload_with_unavailable_videos(self, item_id, data, ytcfg):
+        print(f"_tab.pyの関数_reload_with_unavailable_videosを実行しました。")
         """
         Reload playlists with unavailable videos (e.g. private videos, region blocked, etc.)
         """
@@ -889,6 +914,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         return 'webpage' in self._configuration_arg('skip', ie_key=YoutubeTabIE.ie_key())
 
     def _extract_webpage(self, url, item_id, fatal=True):
+        print(f"_tab.pyの関数_extract_webpageを実行しました。")
         webpage, data = None, None
         for retry in self.RetryManager(fatal=fatal):
             try:
@@ -918,6 +944,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         return webpage, data
 
     def _report_playlist_authcheck(self, ytcfg, fatal=True):
+        print(f"_tab.pyの関数_report_playlist_authcheckを実行しました。")
         """Use if failed to extract ytcfg (and data) from initial webpage"""
         if not ytcfg and self.is_authenticated:
             msg = 'Playlists that require authentication may not extract correctly without a successful webpage download'
@@ -930,6 +957,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             self.report_warning(msg, only_once=True)
 
     def _extract_data(self, url, item_id, ytcfg=None, fatal=True, webpage_fatal=False, default_client='web'):
+        print(f"_tab.pyの関数_extract_dataを実行しました。")
         data = None
         if not self.skip_webpage:
             webpage, data = self._extract_webpage(url, item_id, fatal=webpage_fatal)
@@ -949,6 +977,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         return data, ytcfg
 
     def _extract_tab_endpoint(self, url, item_id, ytcfg=None, fatal=True, default_client='web'):
+        print(f"_tab.pyの関数_extract_tab_endpointを実行しました。")
         headers = self.generate_api_headers(ytcfg=ytcfg, default_client=default_client)
         resolve_response = self._extract_response(
             item_id=item_id, query={'url': url}, check_get_keys='endpoint', headers=headers, ytcfg=ytcfg, fatal=fatal,
@@ -969,6 +998,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
     _SEARCH_PARAMS = None
 
     def _search_results(self, query, params=NO_DEFAULT, default_client='web'):
+        print(f"_tab.pyの関数_search_resultsを実行しました。")
         data = {'query': query}
         if params is NO_DEFAULT:
             params = self._SEARCH_PARAMS
@@ -1032,14 +1062,14 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         'playlist_mincount': 94,
         'info_dict': {
             'id': 'UCqj7Cz7revf5maW9g5pgNcg',
-            'title': 'Igor Kleiner  - Playlists',
-            'description': r're:(?s)Добро пожаловать на мой канал! Здесь вы найдете видео .{504}/a1/50b/10a$',
-            'uploader': 'Igor Kleiner ',
+            'title': 'Igor DS: ИИ, Наука и Творчество  - Playlists',
+            'description': r're:(?s)Добро пожаловать! Здесь сложные технологии встречаются.+\n$',
+            'uploader': 'Igor DS: ИИ, Наука и Творчество ',
             'uploader_id': '@IgorDataScience',
             'uploader_url': 'https://www.youtube.com/@IgorDataScience',
-            'channel': 'Igor Kleiner ',
+            'channel': 'Igor DS: ИИ, Наука и Творчество ',
             'channel_id': 'UCqj7Cz7revf5maW9g5pgNcg',
-            'tags': 'count:23',
+            'tags': 'count:19',
             'channel_url': 'https://www.youtube.com/channel/UCqj7Cz7revf5maW9g5pgNcg',
             'channel_follower_count': int,
         },
@@ -1049,14 +1079,13 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         'playlist_mincount': 94,
         'info_dict': {
             'id': 'UCqj7Cz7revf5maW9g5pgNcg',
-            'title': 'Igor Kleiner  - Playlists',
-            'description': r're:(?s)Добро пожаловать на мой канал! Здесь вы найдете видео .{504}/a1/50b/10a$',
-            'uploader': 'Igor Kleiner ',
+            'title': 'Igor DS: ИИ, Наука и Творчество  - Playlists',
+            'description': r're:(?s)Добро пожаловать! Здесь сложные технологии встречаются.+\n$',
             'uploader_id': '@IgorDataScience',
             'uploader_url': 'https://www.youtube.com/@IgorDataScience',
-            'tags': 'count:23',
+            'tags': 'count:19',
             'channel_id': 'UCqj7Cz7revf5maW9g5pgNcg',
-            'channel': 'Igor Kleiner ',
+            'channel': 'Igor DS: ИИ, Наука и Творчество ',
             'channel_url': 'https://www.youtube.com/channel/UCqj7Cz7revf5maW9g5pgNcg',
             'channel_follower_count': int,
         },
@@ -1139,90 +1168,89 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         'playlist_count': 0,
     }, {
         'note': 'Home tab',
-        'url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w/featured',
+        'url': 'https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q/featured',
         'info_dict': {
-            'id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'title': 'lex will - Home',
-            'description': 'md5:2163c5d0ff54ed5f598d6a7e6211e488',
-            'uploader': 'lex will',
-            'uploader_id': '@lexwill718',
-            'channel': 'lex will',
-            'tags': ['bible', 'history', 'prophesy'],
-            'uploader_url': 'https://www.youtube.com/@lexwill718',
-            'channel_url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w',
-            'channel_id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
+            'id': 'UCTwECeGqMZee77BjdoYtI2Q',
+            'title': 'Creative Commons - Home',
+            'description': 'md5:7cfc22824277588d26a66054f22d93c8',
+            'uploader': 'Creative Commons',
+            'uploader_id': '@creativecommons',
+            'uploader_url': 'https://www.youtube.com/@creativecommons',
+            'channel': 'Creative Commons',
+            'channel_id': 'UCTwECeGqMZee77BjdoYtI2Q',
+            'channel_url': 'https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q',
             'channel_follower_count': int,
+            'tags': ['creative commons', 'remix', 'culture', 'nonprofit'],
         },
-        'playlist_mincount': 2,
+        'playlist_mincount': 6,
     }, {
         'note': 'Videos tab',
-        'url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w/videos',
+        'url': 'https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q/videos',
         'info_dict': {
-            'id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'title': 'lex will - Videos',
-            'description': 'md5:2163c5d0ff54ed5f598d6a7e6211e488',
-            'uploader': 'lex will',
-            'uploader_id': '@lexwill718',
-            'tags': ['bible', 'history', 'prophesy'],
-            'channel_url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w',
-            'channel_id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'uploader_url': 'https://www.youtube.com/@lexwill718',
-            'channel': 'lex will',
+            'id': 'UCTwECeGqMZee77BjdoYtI2Q',
+            'title': 'Creative Commons - Videos',
+            'description': 'md5:7cfc22824277588d26a66054f22d93c8',
+            'uploader': 'Creative Commons',
+            'uploader_id': '@creativecommons',
+            'uploader_url': 'https://www.youtube.com/@creativecommons',
+            'channel': 'Creative Commons',
+            'channel_id': 'UCTwECeGqMZee77BjdoYtI2Q',
+            'channel_url': 'https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q',
             'channel_follower_count': int,
+            'tags': ['creative commons', 'remix', 'culture', 'nonprofit'],
         },
-        'playlist_mincount': 975,
+        'playlist_mincount': 239,
     }, {
         'note': 'Videos tab, sorted by popular',
-        'url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w/videos?view=0&sort=p&flow=grid',
+        'url': 'https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q/videos?view=0&sort=p&flow=grid',
         'info_dict': {
-            'id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'title': 'lex will - Videos',
-            'description': 'md5:2163c5d0ff54ed5f598d6a7e6211e488',
-            'uploader': 'lex will',
-            'uploader_id': '@lexwill718',
-            'channel_id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'uploader_url': 'https://www.youtube.com/@lexwill718',
-            'channel': 'lex will',
-            'tags': ['bible', 'history', 'prophesy'],
-            'channel_url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w',
+            'id': 'UCTwECeGqMZee77BjdoYtI2Q',
+            'title': 'Creative Commons - Videos',
+            'description': 'md5:7cfc22824277588d26a66054f22d93c8',
+            'uploader': 'Creative Commons',
+            'uploader_id': '@creativecommons',
+            'uploader_url': 'https://www.youtube.com/@creativecommons',
+            'channel': 'Creative Commons',
+            'channel_id': 'UCTwECeGqMZee77BjdoYtI2Q',
+            'channel_url': 'https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q',
             'channel_follower_count': int,
+            'tags': ['creative commons', 'remix', 'culture', 'nonprofit'],
         },
-        'playlist_mincount': 199,
+        'playlist_mincount': 239,
     }, {
         'note': 'Playlists tab',
-        'url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w/playlists',
+        'url': 'https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q/playlists',
         'info_dict': {
-            'id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'title': 'lex will - Playlists',
-            'description': 'md5:2163c5d0ff54ed5f598d6a7e6211e488',
-            'uploader': 'lex will',
-            'uploader_id': '@lexwill718',
-            'uploader_url': 'https://www.youtube.com/@lexwill718',
-            'channel': 'lex will',
-            'channel_url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w',
-            'channel_id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'tags': ['bible', 'history', 'prophesy'],
+            'id': 'UCTwECeGqMZee77BjdoYtI2Q',
+            'title': 'Creative Commons - Playlists',
+            'description': 'md5:7cfc22824277588d26a66054f22d93c8',
+            'uploader': 'Creative Commons',
+            'uploader_id': '@creativecommons',
+            'uploader_url': 'https://www.youtube.com/@creativecommons',
+            'channel': 'Creative Commons',
+            'channel_id': 'UCTwECeGqMZee77BjdoYtI2Q',
+            'channel_url': 'https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q',
             'channel_follower_count': int,
+            'tags': ['creative commons', 'remix', 'culture', 'nonprofit'],
         },
-        'playlist_mincount': 17,
+        'playlist_mincount': 20,
     }, {
         'note': 'Posts tab',
-        'url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w/community',
+        'url': 'https://www.youtube.com/channel/UCtS3BcCw-tITPFYSvkbP0Bg/posts',
         'info_dict': {
-            'id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'title': 'lex will - Posts',
-            'description': 'md5:2163c5d0ff54ed5f598d6a7e6211e488',
-            'channel': 'lex will',
-            'channel_url': 'https://www.youtube.com/channel/UCKfVa3S1e4PHvxWcwyMMg8w',
-            'channel_id': 'UCKfVa3S1e4PHvxWcwyMMg8w',
-            'tags': ['bible', 'history', 'prophesy'],
+            'id': 'UCtS3BcCw-tITPFYSvkbP0Bg',
+            'title': 'Office Hours Live with Tim Heidecker - Posts',
+            'description': 'md5:01ec1460ea6c6e2aa47d3be9c756559c',
+            'uploader': 'Office Hours Live with Tim Heidecker',
+            'uploader_id': '@OfficeHoursLive',
+            'uploader_url': 'https://www.youtube.com/@OfficeHoursLive',
+            'channel': 'Office Hours Live with Tim Heidecker',
+            'channel_id': 'UCtS3BcCw-tITPFYSvkbP0Bg',
+            'channel_url': 'https://www.youtube.com/channel/UCtS3BcCw-tITPFYSvkbP0Bg',
             'channel_follower_count': int,
-            'uploader_url': 'https://www.youtube.com/@lexwill718',
-            'uploader_id': '@lexwill718',
-            'uploader': 'lex will',
+            'tags': 'count:17',
         },
-        'playlist_mincount': 18,
-        'skip': 'This Community isn\'t available',
+        'playlist_mincount': 145,
     }, {
         # TODO: fix channel_is_verified extraction
         'note': 'Search tab',
@@ -1272,6 +1300,7 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         },
         'playlist_count': 96,
     }, {
+        # TODO: fix availability extraction
         'note': 'Large playlist',
         'url': 'https://www.youtube.com/playlist?list=UUBABnxM4Ar9ten8Mdjj1j0Q',
         'info_dict': {
@@ -1296,6 +1325,8 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         'url': 'http://www.youtube.com/user/NASAgovVideo/videos',
         'only_matching': True,
     }, {
+        # TODO: fix availability extraction
+        # The 'note' below is outdated: there is no longer a "Load more" button
         'note': 'Buggy playlist: the webpage has a "Load more" button but it doesn\'t have more videos',
         'url': 'https://www.youtube.com/playlist?list=UUXw-G3eDE9trcvY2sBMM_aA',
         'info_dict': {
@@ -1313,7 +1344,7 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
             'uploader': 'Interstellar Movie',
             'uploader_url': 'https://www.youtube.com/@InterstellarMovie',
         },
-        'playlist_mincount': 21,
+        'playlist_mincount': 10,
     }, {
         # TODO: fix availability extraction
         'note': 'Playlist with "show unavailable videos" button',
@@ -1336,6 +1367,7 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         'playlist_mincount': 150,
         'expected_warnings': [r'[Uu]navailable videos (are|will be) hidden'],
     }, {
+        # TODO: fix availability extraction
         'note': 'Playlist with unavailable videos in page 7',
         'url': 'https://www.youtube.com/playlist?list=UU8l9frL61Yl5KFOl87nIm2w',
         'info_dict': {
@@ -1407,7 +1439,7 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
     }, {
         'url': 'https://www.youtube.com/channel/UCoMdktPbSTixAyNGwb-UYkQ/live',
         'info_dict': {
-            'id': 'VFGoUmo74wE',  # This will keep changing
+            'id': 'ubIX-TwVqZI',  # This will keep changing
             'ext': 'mp4',
             'title': str,
             'upload_date': r're:\d{8}',
@@ -1586,6 +1618,7 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         'playlist_count': 50,
         'expected_warnings': ['YouTube Music is not directly supported'],
     }, {
+        # TODO: investigate test failing on differing channel*/uploader*/view_count
         'note': 'unlisted single video playlist',
         'url': 'https://www.youtube.com/playlist?list=PLt5yu3-wZAlQLfIN0MMgp0wVV6MP3bM4_',
         'info_dict': {
@@ -1809,7 +1842,7 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
             'title': 'Not Just Bikes - Shorts',
             'tags': 'count:10',
             'channel_url': 'https://www.youtube.com/channel/UC0intLFzLaudFG-xAvUEO-A',
-            'description': 'md5:295758591d0d43d8594277be54584da7',
+            'description': 'md5:2cb3ccdafa58608fa016f1de4930ec54',
             'channel_follower_count': int,
             'channel_id': 'UC0intLFzLaudFG-xAvUEO-A',
             'channel': 'Not Just Bikes',
@@ -1831,8 +1864,8 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
             'channel': '中村悠一',
             'channel_follower_count': int,
             'description': 'md5:76b312b48a26c3b0e4d90e2dfc1b417d',
-            'uploader_url': 'https://www.youtube.com/@Yuichi-Nakamura',
-            'uploader_id': '@Yuichi-Nakamura',
+            'uploader_url': 'https://www.youtube.com/@中村悠一のあそびば',
+            'uploader_id': '@中村悠一のあそびば',
             'uploader': '中村悠一',
         },
         'playlist_mincount': 60,
@@ -2010,7 +2043,7 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
             'channel': '99% Invisible',
             'uploader_id': '@99percentinvisiblepodcast',
         },
-        'playlist_count': 5,
+        'playlist_mincount': 5,
     }, {
         # Releases tab, with rich entry playlistRenderers (same as Podcasts tab)
         # TODO: fix channel_is_verified extraction
@@ -2034,6 +2067,7 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         # Playlist with only shorts, shown as reel renderers
         # FIXME: future: YouTube currently doesn't give continuation for this,
         # may do in future.
+        # TODO: fix availability extraction
         'url': 'https://www.youtube.com/playlist?list=UUxqPAgubo4coVn9Lx1FuKcg',
         'info_dict': {
             'id': 'UUxqPAgubo4coVn9Lx1FuKcg',
@@ -2101,11 +2135,13 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
     _URL_RE = re.compile(rf'(?P<pre>{_VALID_URL})(?(not_channel)|(?P<tab>/[^?#/]+))?(?P<post>.*)$')
 
     def _get_url_mobj(self, url):
+        print(f"_tab.pyの関数_get_url_mobjを実行しました。")
         mobj = self._URL_RE.match(url).groupdict()
         mobj.update((k, '') for k, v in mobj.items() if v is None)
         return mobj
 
     def _extract_tab_id_and_name(self, tab, base_url='https://www.youtube.com'):
+        print(f"_tab.pyの関数_extract_tab_id_and_nameを実行しました。")
         tab_name = (tab.get('title') or '').lower()
         tab_url = urljoin(base_url, traverse_obj(
             tab, ('endpoint', 'commandMetadata', 'webCommandMetadata', 'url')))
@@ -2128,9 +2164,11 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         }.get(tab_name, tab_name), tab_name
 
     def _has_tab(self, tabs, tab_id):
+        print(f"_tab.pyの関数_has_tabを実行しました。")
         return any(self._extract_tab_id_and_name(tab)[0] == tab_id for tab in tabs)
 
     def _empty_playlist(self, item_id, data):
+        print(f"_tab.pyの関数_empty_playlistを実行しました。")
         return self.playlist_result([], item_id, **self._extract_metadata_from_tabs(item_id, data))
 
     @YoutubeTabBaseInfoExtractor.passthrough_smuggled_data
@@ -2398,6 +2436,7 @@ class YoutubePlaylistIE(YoutubeBaseInfoExtractor):
         return super().suitable(url)
 
     def _real_extract(self, url):
+        print(f"_tab.pyの関数_real_extractを実行しました。")
         playlist_id = self._match_id(url)
         is_music_url = YoutubeBaseInfoExtractor.is_music_url(url)
         url = update_url_query(

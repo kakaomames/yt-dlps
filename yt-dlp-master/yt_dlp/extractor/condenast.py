@@ -123,6 +123,7 @@ class CondeNastIE(InfoExtractor):
     }]
 
     def _extract_series(self, url, webpage):
+        print(f"condenast.pyの関数_extract_seriesを実行しました。")
         title = self._html_search_regex(
             r'(?s)<div class="cne-series-info">.*?<h1>(.+?)</h1>',
             webpage, 'series title')
@@ -135,6 +136,7 @@ class CondeNastIE(InfoExtractor):
         return self.playlist_result(entries, playlist_title=title)
 
     def _extract_video_params(self, webpage, display_id):
+        print(f"condenast.pyの関数_extract_video_paramsを実行しました。")
         query = self._parse_json(
             self._search_regex(
                 r'(?s)var\s+params\s*=\s*({.+?})[;,]', webpage, 'player params',
@@ -156,6 +158,7 @@ class CondeNastIE(InfoExtractor):
         return query
 
     def _extract_video(self, params):
+        print(f"condenast.pyの関数_extract_videoを実行しました。")
         video_id = params['videoId']
 
         video_info = None
@@ -236,6 +239,7 @@ class CondeNastIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"condenast.pyの関数_real_extractを実行しました。")
         video_id, player_id, target, url_type, display_id = self._match_valid_url(url).groups()
 
         if video_id:

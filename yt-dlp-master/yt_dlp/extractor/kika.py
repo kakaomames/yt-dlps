@@ -75,6 +75,7 @@ class KikaIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"kika.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         doc = self._download_json(f'https://www.kika.de/_next-api/proxy/v1/videos/{video_id}', video_id)
@@ -113,6 +114,7 @@ class KikaIE(InfoExtractor):
         }
 
     def _extract_formats(self, media_info, video_id):
+        print(f"kika.pyの関数_extract_formatsを実行しました。")
         for media in traverse_obj(media_info, ('assets', lambda _, v: url_or_none(v['url']))):
             stream_url = media['url']
             ext = determine_ext(stream_url)
@@ -148,6 +150,7 @@ class KikaPlaylistIE(InfoExtractor):
     }]
 
     def _entries(self, playlist_url, playlist_id):
+        print(f"kika.pyの関数_entriesを実行しました。")
         for page in itertools.count(1):
             data = self._download_json(playlist_url, playlist_id, note=f'Downloading page {page}')
             for item in traverse_obj(data, ('content', lambda _, v: url_or_none(v['api']['url']))):

@@ -70,6 +70,7 @@ class SoundcloudEmbedIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"soundcloud.pyの関数_real_extractを実行しました。")
         query = parse_qs(url)
         api_url = query['url'][0]
         secret_token = query.get('secret_token')
@@ -116,9 +117,11 @@ class SoundcloudBaseIE(InfoExtractor):
         ))).fullmatch
 
     def _store_client_id(self, client_id):
+        print(f"soundcloud.pyの関数_store_client_idを実行しました。")
         self.cache.store('soundcloud', 'client_id', client_id)
 
     def _update_client_id(self):
+        print(f"soundcloud.pyの関数_update_client_idを実行しました。")
         webpage = self._download_webpage('https://soundcloud.com/', None, 'Downloading main page')
         for src in reversed(re.findall(r'<script[^>]+src="([^"]+)"', webpage)):
             script = self._download_webpage(src, None, 'Downloading JS asset', fatal=False)
@@ -133,6 +136,7 @@ class SoundcloudBaseIE(InfoExtractor):
         raise ExtractorError('Unable to extract client id')
 
     def _call_api(self, *args, **kwargs):
+        print(f"soundcloud.pyの関数_call_apiを実行しました。")
         non_fatal = kwargs.get('fatal') is False
         if non_fatal:
             del kwargs['fatal']
@@ -153,12 +157,14 @@ class SoundcloudBaseIE(InfoExtractor):
                 raise
 
     def _initialize_pre_login(self):
+        print(f"soundcloud.pyの関数_initialize_pre_loginを実行しました。")
         self._CLIENT_ID = self.cache.load('soundcloud', 'client_id')
         if self._CLIENT_ID:
             return
         self._update_client_id()
 
     def _verify_oauth_token(self, token):
+        print(f"soundcloud.pyの関数_verify_oauth_tokenを実行しました。")
         if self._request_webpage(
                 self._API_VERIFY_AUTH_TOKEN % (self._API_AUTH_QUERY_TEMPLATE % self._CLIENT_ID),
                 None, note='Verifying login token...', fatal=False,
@@ -169,12 +175,14 @@ class SoundcloudBaseIE(InfoExtractor):
             self.report_warning('Provided authorization token is invalid. Continuing as guest')
 
     def _real_initialize(self):
+        print(f"soundcloud.pyの関数_real_initializeを実行しました。")
         if self._HEADERS:
             return
         if token := try_call(lambda: self._get_cookies(self._BASE_URL)['oauth_token'].value):
             self._verify_oauth_token(token)
 
     def _perform_login(self, username, password):
+        print(f"soundcloud.pyの関数_perform_loginを実行しました。")
         if username != 'oauth':
             raise ExtractorError(
                 'Login using username and password is not currently supported. '
@@ -186,7 +194,9 @@ class SoundcloudBaseIE(InfoExtractor):
 
         r'''
         def genDevId():
+            print(f"soundcloud.pyの関数genDevIdを実行しました。")
             def genNumBlock():
+                print(f"soundcloud.pyの関数genNumBlockを実行しました。")
                 return ''.join([str(random.randrange(10)) for i in range(6)])
             return '-'.join([genNumBlock() for i in range(4)])
 
@@ -218,6 +228,7 @@ class SoundcloudBaseIE(InfoExtractor):
 
     # signature generation
     def sign(self, user, pw, clid):
+        print(f"soundcloud.pyの関数signを実行しました。")
         a = 33
         i = 1
         s = 440123
@@ -247,6 +258,7 @@ class SoundcloudBaseIE(InfoExtractor):
         return f'{y}:{d}:{m:x}:{c}'
 
     def _extract_info_dict(self, info, full_title=None, secret_token=None, extract_flat=False):
+        print(f"soundcloud.pyの関数_extract_info_dictを実行しました。")
         track_id = str(info['id'])
 
         format_urls = set()
@@ -294,6 +306,7 @@ class SoundcloudBaseIE(InfoExtractor):
                     })
 
         def invalid_url(url):
+            print(f"soundcloud.pyの関数invalid_urlを実行しました。")
             return not url or url in format_urls
 
         # New API
@@ -405,6 +418,7 @@ class SoundcloudBaseIE(InfoExtractor):
                 thumbnails = [{'url': thumbnail}]
 
         def extract_count(key):
+            print(f"soundcloud.pyの関数extract_countを実行しました。")
             return int_or_none(info.get(f'{key}_count'))
 
         return {
@@ -748,6 +762,7 @@ class SoundcloudIE(SoundcloudBaseIE):
 
 class SoundcloudPlaylistBaseIE(SoundcloudBaseIE):
     def _extract_set(self, playlist, token=None):
+        print(f"soundcloud.pyの関数_extract_setを実行しました。")
         playlist_id = str(playlist['id'])
         tracks = playlist.get('tracks') or []
         if not all(t.get('permalink_url') for t in tracks) and token:
@@ -837,6 +852,7 @@ class SoundcloudSetIE(SoundcloudPlaylistBaseIE):
 
 class SoundcloudPagedPlaylistBaseIE(SoundcloudBaseIE):
     def _extract_playlist(self, base_url, playlist_id, playlist_title):
+        print(f"soundcloud.pyの関数_extract_playlistを実行しました。")
         return {
             '_type': 'playlist',
             'id': playlist_id,
@@ -869,6 +885,7 @@ class SoundcloudPagedPlaylistBaseIE(SoundcloudBaseIE):
         return filtered[-1]
 
     def _entries(self, url, playlist_id):
+        print(f"soundcloud.pyの関数_entriesを実行しました。")
         # Per the SoundCloud documentation, the maximum limit for a linked partitioning query is 200.
         # https://developers.soundcloud.com/blog/offset-pagination-deprecated
         query = {
@@ -895,6 +912,7 @@ class SoundcloudPagedPlaylistBaseIE(SoundcloudBaseIE):
                     continue
 
             def resolve_entry(*candidates):
+                print(f"soundcloud.pyの関数resolve_entryを実行しました。")
                 for cand in candidates:
                     if not isinstance(cand, dict):
                         continue
@@ -1160,6 +1178,7 @@ class SoundcloudSearchIE(SoundcloudBaseIE, SearchInfoExtractor):
     _DEFAULT_RESULTS_PER_PAGE = 50
 
     def _get_collection(self, endpoint, collection_id, **query):
+        print(f"soundcloud.pyの関数_get_collectionを実行しました。")
         limit = min(
             query.get('limit', self._DEFAULT_RESULTS_PER_PAGE),
             self._MAX_RESULTS_PER_PAGE)
@@ -1185,6 +1204,7 @@ class SoundcloudSearchIE(SoundcloudBaseIE, SearchInfoExtractor):
                 break
 
     def _get_n_results(self, query, n):
+        print(f"soundcloud.pyの関数_get_n_resultsを実行しました。")
         return self.playlist_result(itertools.islice(
             self._get_collection('search/tracks', query, limit=n, q=query),
             0, None if n == float('inf') else n), query, query)

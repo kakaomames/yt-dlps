@@ -75,6 +75,7 @@ class MuxIE(InfoExtractor):
             yield embed_url
 
     def _real_extract(self, url):
+        print(f"mux.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url, {})
         video_id = self._match_id(url)
 

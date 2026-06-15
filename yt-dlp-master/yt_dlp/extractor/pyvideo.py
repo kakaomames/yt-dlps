@@ -24,6 +24,7 @@ class PyvideoIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"pyvideo.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         category = mobj.group('category')
         video_id = mobj.group('id')

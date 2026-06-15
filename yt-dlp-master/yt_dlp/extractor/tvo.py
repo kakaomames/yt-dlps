@@ -94,6 +94,7 @@ class TvoIE(InfoExtractor):
     BRIGHTCOVE_URL_TEMPLATE = 'https://players.brightcove.net/18140038001/default_default/index.html?videoId=%s'
 
     def _real_extract(self, url):
+        print(f"tvo.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         video_data = self._download_json(
             'https://hmy0rc1bo2.execute-api.ca-central-1.amazonaws.com/graphql',

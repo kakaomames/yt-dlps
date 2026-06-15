@@ -4,6 +4,7 @@ import re
 from .common import InfoExtractor
 from ..utils import (
     OnDemandPagedList,
+    filter_dict,
     format_field,
     int_or_none,
     parse_resolution,
@@ -1358,7 +1359,7 @@ class PeerTubeIE(InfoExtractor):
             'ext': 'mp4',
             'title': 'E2E tests',
             'categories': ['Unknown'],
-            'channel': 'Main chocobozzz channel',
+            'channel': 'Chocobozzz test channel',
             'channel_id': '5187',
             'channel_url': 'https://peertube2.cpy.re/video-channels/chocobozzz_channel',
             'description': 'md5:67daf92c833c41c95db874e18fcb2786',
@@ -1382,7 +1383,7 @@ class PeerTubeIE(InfoExtractor):
             'ext': 'mp4',
             'title': 'E2E tests',
             'categories': ['Unknown'],
-            'channel': 'Main chocobozzz channel',
+            'channel': 'Chocobozzz test channel',
             'channel_id': '5187',
             'channel_url': 'https://peertube2.cpy.re/video-channels/chocobozzz_channel',
             'description': 'md5:67daf92c833c41c95db874e18fcb2786',
@@ -1406,7 +1407,7 @@ class PeerTubeIE(InfoExtractor):
             'ext': 'mp4',
             'title': 'E2E tests',
             'categories': ['Unknown'],
-            'channel': 'Main chocobozzz channel',
+            'channel': 'Chocobozzz test channel',
             'channel_id': '5187',
             'channel_url': 'https://peertube2.cpy.re/video-channels/chocobozzz_channel',
             'description': 'md5:67daf92c833c41c95db874e18fcb2786',
@@ -1452,6 +1453,36 @@ class PeerTubeIE(InfoExtractor):
     }, {
         'url': 'peertube:framatube.org:b37a5b9f-e6b5-415c-b700-04a5cd6ec205',
         'only_matching': True,
+    }, {
+        'url': 'https://videos.john-livingston.fr/w/mna1A6SxZ94cra4hMtjRQm',
+        'md5': '6a5faad22916e41ba4078ef59c33bc9f',
+        'info_dict': {
+            'id': 'mna1A6SxZ94cra4hMtjRQm',
+            'ext': 'mp4',
+            'title': 'test yt-dlp',
+            'description': 'md5:d8556ee790ad9b3fac6f0bb3eb5b67bd',
+            'thumbnail': r're:https?://videos.john-livingston\.fr/lazy-static/thumbnails/.+\.jpg',
+            'timestamp': 1780645286,
+            'upload_date': '20260605',
+            'uploader': 'John Livingston',
+            'uploader_id': '5',
+            'uploader_url': 'https://videos.john-livingston.fr/accounts/john',
+            'channel': 'john_livingston',
+            'channel_id': '4',
+            'channel_url': 'https://videos.john-livingston.fr/video-channels/john_livingston',
+            'license': 'Unknown',
+            'duration': 16,
+            'view_count': int,
+            'like_count': int,
+            'dislike_count': int,
+            'tags': 'count:0',
+            'categories': ['Unknown'],
+        },
+        'params': {
+            'videopassword': 'thepassword',
+            'format': '600p',
+        },
+        'expected_warnings': ['Ignoring subtitle tracks found in the HLS manifest'],
     }]
     _WEBPAGE_TESTS = [{
         'url': 'https://video.macver.org/w/6gvhZpUGQVd4SQ6oYDc9pC',
@@ -1492,6 +1523,10 @@ class PeerTubeIE(InfoExtractor):
                 '>We are sorry but it seems that PeerTube is not compatible with your web browser.<')):
             return 'peertube:{}:{}'.format(*mobj.group('host', 'id'))
 
+    def _get_headers(self):
+        print(f"peertube.pyの関数_get_headersを実行しました。")
+        return filter_dict({'x-peertube-video-password': self.get_param('videopassword')})
+
     @classmethod
     def _extract_embed_urls(cls, url, webpage):
         embeds = tuple(super()._extract_embed_urls(url, webpage))
@@ -1503,11 +1538,13 @@ class PeerTubeIE(InfoExtractor):
             return [peertube_url]
 
     def _call_api(self, host, video_id, path, note=None, errnote=None, fatal=True):
+        print(f"peertube.pyの関数_call_apiを実行しました。")
         return self._download_json(
             self._API_BASE % (host, video_id, path), video_id,
-            note=note, errnote=errnote, fatal=fatal)
+            note=note, errnote=errnote, fatal=fatal, headers=self._get_headers())
 
     def _get_subtitles(self, host, video_id):
+        print(f"peertube.pyの関数_get_subtitlesを実行しました。")
         captions = self._call_api(
             host, video_id, 'captions', note='Downloading captions JSON',
             fatal=False)
@@ -1528,6 +1565,7 @@ class PeerTubeIE(InfoExtractor):
         return subtitles
 
     def _real_extract(self, url):
+        print(f"peertube.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         host = mobj.group('host') or mobj.group('host_2')
         video_id = mobj.group('id')
@@ -1545,7 +1583,7 @@ class PeerTubeIE(InfoExtractor):
             if playlist_url := url_or_none(playlist.get('playlistUrl')):
                 is_live = True
                 formats.extend(self._extract_m3u8_formats(
-                    playlist_url, video_id, fatal=False, live=True))
+                    playlist_url, video_id, fatal=False, live=True, headers=self._get_headers()))
             playlist_files = playlist.get('files')
             if not (playlist_files and isinstance(playlist_files, list)):
                 continue
@@ -1585,12 +1623,15 @@ class PeerTubeIE(InfoExtractor):
         subtitles = self.extract_subtitles(host, video_id)
 
         def data(section, field, type_):
+            print(f"peertube.pyの関数dataを実行しました。")
             return try_get(video, lambda x: x[section][field], type_)
 
         def account_data(field, type_):
+            print(f"peertube.pyの関数account_dataを実行しました。")
             return data('account', field, type_)
 
         def channel_data(field, type_):
+            print(f"peertube.pyの関数channel_dataを実行しました。")
             return data('channel', field, type_)
 
         category = data('category', 'label', str)
@@ -1629,6 +1670,8 @@ class PeerTubeIE(InfoExtractor):
             'subtitles': subtitles,
             'is_live': is_live,
             'webpage_url': webpage_url,
+            # Headers are needed for ALL format requests, but not thumbnails
+            'http_headers': self._get_headers(),
         }
 
 
@@ -1697,10 +1740,12 @@ class PeerTubePlaylistIE(InfoExtractor):
     _PAGE_SIZE = 30
 
     def call_api(self, host, name, path, base, **kwargs):
+        print(f"peertube.pyの関数call_apiを実行しました。")
         return self._download_json(
             self._API_BASE % (host, base, name, path), name, **kwargs)
 
     def fetch_page(self, host, playlist_id, playlist_type, page):
+        print(f"peertube.pyの関数fetch_pageを実行しました。")
         page += 1
         video_data = self.call_api(
             host, playlist_id,
@@ -1714,6 +1759,7 @@ class PeerTubePlaylistIE(InfoExtractor):
                 video_id=short_uuid, video_title=video_title)
 
     def _extract_playlist(self, host, playlist_type, playlist_id):
+        print(f"peertube.pyの関数_extract_playlistを実行しました。")
         info = self.call_api(host, playlist_id, '', playlist_type, note='Downloading playlist information', fatal=False)
 
         playlist_title = info.get('displayName')

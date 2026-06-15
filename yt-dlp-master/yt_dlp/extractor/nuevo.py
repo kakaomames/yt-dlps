@@ -4,6 +4,7 @@ from ..utils import float_or_none, xpath_text
 
 class NuevoBaseIE(InfoExtractor):
     def _extract_nuevo(self, config_url, video_id, headers={}):
+        print(f"nuevo.pyの関数_extract_nuevoを実行しました。")
         config = self._download_xml(
             config_url, video_id, transform_source=lambda s: s.strip(),
             headers=headers)

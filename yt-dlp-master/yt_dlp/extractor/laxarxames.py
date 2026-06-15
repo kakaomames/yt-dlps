@@ -29,6 +29,7 @@ class LaXarxaMesIE(InfoExtractor):
     }]
 
     def _perform_login(self, username, password):
+        print(f"laxarxames.pyの関数_perform_loginを実行しました。")
         if self._TOKEN:
             return
 
@@ -50,6 +51,7 @@ class LaXarxaMesIE(InfoExtractor):
             raise ExtractorError('Login failed', expected=True)
 
     def _real_extract(self, url):
+        print(f"laxarxames.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         if not self._TOKEN:
             self.raise_login_required()

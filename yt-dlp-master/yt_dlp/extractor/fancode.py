@@ -41,6 +41,7 @@ class FancodeVodIE(InfoExtractor):
     }
 
     def _perform_login(self, username, password):
+        print(f"fancode.pyの関数_perform_loginを実行しました。")
         # Access tokens are shortlived, so get them using the refresh token.
         if username != 'refresh':
             self.report_warning(f'Login using username and password is not currently supported. {self._LOGIN_HINT}')
@@ -62,6 +63,7 @@ class FancodeVodIE(InfoExtractor):
             self.headers.update({'Authorization': f'Bearer {self._ACCESS_TOKEN}'})
 
     def _check_login_required(self, is_available, is_premium):
+        print(f"fancode.pyの関数_check_login_requiredを実行しました。")
         msg = None
         if is_premium and self._ACCESS_TOKEN is None:
             msg = f'This video is only available for registered users. {self._LOGIN_HINT}'
@@ -71,12 +73,14 @@ class FancodeVodIE(InfoExtractor):
             self.raise_login_required(msg, metadata_available=True, method=None)
 
     def download_gql(self, variable, data, note, fatal=False, headers=headers):
+        print(f"fancode.pyの関数download_gqlを実行しました。")
         return self._download_json(
             'https://www.fancode.com/graphql', variable,
             data=data.encode(), note=note,
             headers=headers, fatal=fatal)
 
     def _real_extract(self, url):
+        print(f"fancode.pyの関数_real_extractを実行しました。")
 
         BRIGHTCOVE_URL_TEMPLATE = 'https://players.brightcove.net/%s/default_default/index.html?videoId=%s'
         video_id = self._match_id(url)

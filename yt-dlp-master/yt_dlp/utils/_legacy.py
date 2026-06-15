@@ -33,6 +33,7 @@ has_websockets = bool(websockets)
 
 
 def load_plugins(name, suffix, namespace):
+    print(f"_legacy.pyの関数load_pluginsを実行しました。")
     from ..plugins import load_plugins
     ret = load_plugins(name, suffix)
     namespace.update(ret)
@@ -40,19 +41,23 @@ def load_plugins(name, suffix, namespace):
 
 
 def traverse_dict(dictn, keys, casesense=True):
+    print(f"_legacy.pyの関数traverse_dictを実行しました。")
     return traverse_obj(dictn, keys, casesense=casesense, is_user_input=True, traverse_string=True)
 
 
 def decode_base(value, digits):
+    print(f"_legacy.pyの関数decode_baseを実行しました。")
     return decode_base_n(value, table=digits)
 
 
 def platform_name():
+    print(f"_legacy.pyの関数platform_nameを実行しました。")
     """ Returns the platform name as a str """
     return platform.platform()
 
 
 def get_subprocess_encoding():
+    print(f"_legacy.pyの関数get_subprocess_encodingを実行しました。")
     if sys.platform == 'win32' and sys.getwindowsversion()[0] >= 5:
         # For subprocess calls, encode with locale encoding
         # Refer to http://stackoverflow.com/a/9951851/35070
@@ -68,6 +73,7 @@ def get_subprocess_encoding():
 # Based on png2str() written by @gdkchan and improved by @yokrysty
 # Originally posted at https://github.com/ytdl-org/youtube-dl/issues/9706
 def decode_png(png_data):
+    print(f"_legacy.pyの関数decode_pngを実行しました。")
     # Reference: https://www.w3.org/TR/PNG/
     header = png_data[8:]
 
@@ -117,6 +123,7 @@ def decode_png(png_data):
     pixels = []
 
     def _get_pixel(idx):
+        print(f"_legacy.pyの関数_get_pixelを実行しました。")
         x = idx % stride
         y = idx // stride
         return pixels[y][x]
@@ -173,6 +180,7 @@ def decode_png(png_data):
 
 
 def register_socks_protocols():
+    print(f"_legacy.pyの関数register_socks_protocolsを実行しました。")
     # "Register" SOCKS protocols
     # In Python < 2.6.5, urlsplit() suffers from bug https://bugs.python.org/issue7904
     # URLs with protocols not in urlparse.uses_netloc are not handled correctly
@@ -182,6 +190,7 @@ def register_socks_protocols():
 
 
 def handle_youtubedl_headers(headers):
+    print(f"_legacy.pyの関数handle_youtubedl_headersを実行しました。")
     filtered_headers = headers
 
     if 'Youtubedl-no-compression' in filtered_headers:
@@ -192,6 +201,7 @@ def handle_youtubedl_headers(headers):
 
 
 def request_to_url(req):
+    print(f"_legacy.pyの関数request_to_urlを実行しました。")
     if isinstance(req, urllib.request.Request):
         return req.get_full_url()
     else:
@@ -199,6 +209,7 @@ def request_to_url(req):
 
 
 def sanitized_Request(url, *args, **kwargs):
+    print(f"_legacy.pyの関数sanitized_Requestを実行しました。")
     from ..utils import extract_basic_auth, sanitize_url
     url, auth_header = extract_basic_auth(escape_url(sanitize_url(url)))
     if auth_header is not None:
@@ -209,6 +220,7 @@ def sanitized_Request(url, *args, **kwargs):
 
 class YoutubeDLHandler(HTTPHandler):
     def __init__(self, params, *args, **kwargs):
+        print(f"_legacy.pyの関数__init__を実行しました。")
         self._params = params
         super().__init__(*args, **kwargs)
 
@@ -221,6 +233,7 @@ class YoutubeDLCookieProcessor(urllib.request.HTTPCookieProcessor):
         urllib.request.HTTPCookieProcessor.__init__(self, cookiejar)
 
     def http_response(self, request, response):
+        print(f"_legacy.pyの関数http_responseを実行しました。")
         return urllib.request.HTTPCookieProcessor.http_response(self, request, response)
 
     https_request = urllib.request.HTTPCookieProcessor.http_request
@@ -228,6 +241,7 @@ class YoutubeDLCookieProcessor(urllib.request.HTTPCookieProcessor):
 
 
 def make_HTTPS_handler(params, **kwargs):
+    print(f"_legacy.pyの関数make_HTTPS_handlerを実行しました。")
     return YoutubeDLHTTPSHandler(params, context=make_ssl_context(
         verify=not params.get('nocheckcertificate'),
         client_certificate=params.get('client_certificate'),
@@ -239,23 +253,28 @@ def make_HTTPS_handler(params, **kwargs):
 
 
 def process_communicate_or_kill(p, *args, **kwargs):
+    print(f"_legacy.pyの関数process_communicate_or_killを実行しました。")
     return Popen.communicate_or_kill(p, *args, **kwargs)
 
 
 def encodeFilename(s, for_subprocess=False):
+    print(f"_legacy.pyの関数encodeFilenameを実行しました。")
     assert isinstance(s, str)
     return s
 
 
 def decodeFilename(b, for_subprocess=False):
+    print(f"_legacy.pyの関数decodeFilenameを実行しました。")
     return b
 
 
 def decodeArgument(b):
+    print(f"_legacy.pyの関数decodeArgumentを実行しました。")
     return b
 
 
 def decodeOption(optval):
+    print(f"_legacy.pyの関数decodeOptionを実行しました。")
     if optval is None:
         return optval
     if isinstance(optval, bytes):
@@ -266,4 +285,5 @@ def decodeOption(optval):
 
 
 def error_to_compat_str(err):
+    print(f"_legacy.pyの関数error_to_compat_strを実行しました。")
     return str(err)

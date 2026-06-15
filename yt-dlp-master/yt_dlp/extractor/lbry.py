@@ -30,6 +30,7 @@ class LBRYBaseIE(InfoExtractor):
     _PAGE_SIZE = 50
 
     def _call_api_proxy(self, method, display_id, params, resource):
+        print(f"lbry.pyの関数_call_api_proxyを実行しました。")
         headers = {'Content-Type': 'application/json-rpc'}
         token = try_get(self._get_cookies('https://odysee.com'), lambda x: x['auth_token'].value)
         if token:
@@ -49,15 +50,18 @@ class LBRYBaseIE(InfoExtractor):
         return response['result']
 
     def _resolve_url(self, url, display_id, resource):
+        print(f"lbry.pyの関数_resolve_urlを実行しました。")
         return self._call_api_proxy(
             'resolve', display_id, {'urls': url}, resource)[url]
 
     def _permanent_url(self, url, claim_name, claim_id):
+        print(f"lbry.pyの関数_permanent_urlを実行しました。")
         return urljoin(
             url.replace('lbry://', 'https://lbry.tv/'),
             f'/{claim_name}:{claim_id}')
 
     def _parse_stream(self, stream, url):
+        print(f"lbry.pyの関数_parse_streamを実行しました。")
         stream_type = traverse_obj(stream, ('value', 'stream_type', {str}))
 
         info = traverse_obj(stream, {
@@ -80,6 +84,7 @@ class LBRYBaseIE(InfoExtractor):
         return info
 
     def _fetch_page(self, display_id, url, params, page):
+        print(f"lbry.pyの関数_fetch_pageを実行しました。")
         page += 1
         page_params = {
             'no_totals': True,
@@ -99,6 +104,7 @@ class LBRYBaseIE(InfoExtractor):
             }
 
     def _playlist_entries(self, url, display_id, claim_param, metadata):
+        print(f"lbry.pyの関数_playlist_entriesを実行しました。")
         qs = parse_qs(url)
         content = qs.get('content', [None])[0]
         params = {
@@ -296,6 +302,7 @@ class LBRYIE(LBRYBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"lbry.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         if display_id.startswith('@'):
             display_id = display_id.replace(':', '#')

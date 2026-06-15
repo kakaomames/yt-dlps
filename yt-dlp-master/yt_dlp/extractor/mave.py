@@ -17,16 +17,19 @@ class MaveBaseIE(InfoExtractor):
     _API_BASE_STORAGE_URL = 'https://store.cloud.mts.ru/mave/'
 
     def _load_channel_meta(self, channel_id, display_id):
+        print(f"mave.pyの関数_load_channel_metaを実行しました。")
         return traverse_obj(self._download_json(
             f'{self._API_BASE_URL}/{channel_id}/', display_id,
             note='Downloading channel metadata'), 'podcast')
 
     def _load_episode_meta(self, channel_id, episode_code, display_id):
+        print(f"mave.pyの関数_load_episode_metaを実行しました。")
         return self._download_json(
             f'{self._API_BASE_URL}/{channel_id}/episodes/{episode_code}',
             display_id, note='Downloading episode metadata')
 
     def _create_entry(self, channel_id, channel_meta, episode_meta):
+        print(f"mave.pyの関数_create_entryを実行しました。")
         episode_code = traverse_obj(episode_meta, ('code', {int}, {require('episode code')}))
         return {
             'display_id': f'{channel_id}-{episode_code}',
@@ -121,6 +124,7 @@ class MaveIE(MaveBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"mave.pyの関数_real_extractを実行しました。")
         channel_id, episode_code = self._match_valid_url(url).group(
             'channel_id', 'episode_code')
         display_id = f'{channel_id}-{episode_code}'
@@ -162,6 +166,7 @@ class MaveChannelIE(MaveBaseIE):
     _PAGE_SIZE = 50
 
     def _entries(self, channel_id, channel_meta, page_num):
+        print(f"mave.pyの関数_entriesを実行しました。")
         page_data = self._download_json(
             f'{self._API_BASE_URL}/{channel_id}/episodes', channel_id, query={
                 'view': 'all',

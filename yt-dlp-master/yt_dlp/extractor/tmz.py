@@ -167,6 +167,7 @@ class TMZIE(InfoExtractor):
     ]
 
     def _real_extract(self, url):
+        print(f"tmz.pyの関数_real_extractを実行しました。")
         webpage = self._download_webpage(url, url)
         jsonld = self._search_json_ld(webpage, url)
         if not jsonld or 'url' not in jsonld:

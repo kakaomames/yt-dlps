@@ -49,6 +49,7 @@ class AZMedienIE(InfoExtractor):
     _PARTNER_ID = '1719221'
 
     def _real_extract(self, url):
+        print(f"azmedien.pyの関数_real_extractを実行しました。")
         display_id, entry_id = self._match_valid_url(url).groups()
 
         if not entry_id:

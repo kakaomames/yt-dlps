@@ -87,6 +87,7 @@ class AdultSwimIE(TurnerBaseIE):
     _SOFTWARE_STATEMENT = 'eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIwNjg5ZmU2My00OTc5LTQxZmQtYWYxNC1hYjVlNmJjNWVkZWIiLCJuYmYiOjE1MzcxOTA2NzQsImlzcyI6ImF1dGguYWRvYmUuY29tIiwiaWF0IjoxNTM3MTkwNjc0fQ.Xl3AEduM0s1TxDQ6-XssdKIiLm261hhsEv1C1yo_nitIajZThSI9rXILqtIzO0aujoHhdzUnu_dUCq9ffiSBzEG632tTa1la-5tegHtce80cMhewBN4n2t8n9O5tiaPx8MPY8ALdm5wS7QzWE6DO_LTJKgE8Bl7Yv-CWJT4q4SywtNiQWLVOuhBRnDyfsRezxRwptw8qTn9dv5ZzUrVJaby5fDZ_nOncMKvegOgaKd5KEuCAGQ-mg-PSuValMjGuf6FwDguGaK7IyI5Y2oOrzXmD4Dj7q4WBg8w9QoZhtLeAU56mcsGILolku2R5FHlVLO9xhjResyt-pfmegOkpSw'
 
     def _real_extract(self, url):
+        print(f"adultswim.pyの関数_real_extractを実行しました。")
         show_path, episode_path = self._match_valid_url(url).groups()
         display_id = episode_path or show_path
         query = '''query {

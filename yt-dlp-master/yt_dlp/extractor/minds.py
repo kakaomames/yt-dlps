@@ -12,6 +12,7 @@ class MindsBaseIE(InfoExtractor):
     _VALID_URL_BASE = r'https?://(?:www\.)?minds\.com/'
 
     def _call_api(self, path, video_id, resource, query=None):
+        print(f"minds.pyの関数_call_apiを実行しました。")
         api_url = 'https://www.minds.com/api/' + path
         token = self._get_cookies(api_url).get('XSRF-TOKEN')
         return self._download_json(
@@ -66,6 +67,7 @@ class MindsIE(MindsBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"minds.pyの関数_real_extractを実行しました。")
         entity_id = self._match_id(url)
         entity = self._call_api(
             'v1/entities/entity/' + entity_id, entity_id, 'entity')['entity']
@@ -130,6 +132,7 @@ class MindsFeedBaseIE(MindsBaseIE):
     _PAGE_SIZE = 150
 
     def _entries(self, feed_id):
+        print(f"minds.pyの関数_entriesを実行しました。")
         query = {'limit': self._PAGE_SIZE, 'sync': 1}
         i = 1
         while True:

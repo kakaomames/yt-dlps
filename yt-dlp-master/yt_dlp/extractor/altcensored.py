@@ -38,6 +38,7 @@ class AltCensoredIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"altcensored.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         category = clean_html(self._html_search_regex(
@@ -90,6 +91,7 @@ class AltCensoredChannelIE(InfoExtractor):
             webpage, 'page count', default='1'))
 
         def page_func(page_num):
+            print(f"altcensored.pyの関数page_funcを実行しました。")
             page_num += 1
             webpage = self._download_webpage(
                 f'https://altcensored.com/channel/{channel_id}/page/{page_num}',

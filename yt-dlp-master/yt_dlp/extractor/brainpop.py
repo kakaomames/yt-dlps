@@ -34,6 +34,7 @@ class BrainPOPBaseIE(InfoExtractor):
         return rf'{root}/(?P<slug>[^/]+/[^/]+/(?P<id>[^/?#&]+))'
 
     def _assemble_formats(self, slug, format_id, display_id, token='', extra_fields={}):
+        print(f"brainpop.pyの関数_assemble_formatsを実行しました。")
         formats = []
         formats = self._extract_m3u8_formats(
             f'{urljoin(self._HLS_URL, slug)}.m3u8?{token}',
@@ -47,6 +48,7 @@ class BrainPOPBaseIE(InfoExtractor):
         return formats
 
     def _extract_adaptive_formats(self, data, token, display_id, key_format='%s', extra_fields={}):
+        print(f"brainpop.pyの関数_extract_adaptive_formatsを実行しました。")
         formats = []
         additional_key_formats = {
             '%s': {},
@@ -67,6 +69,7 @@ class BrainPOPBaseIE(InfoExtractor):
         return formats
 
     def _perform_login(self, username, password):
+        print(f"brainpop.pyの関数_perform_loginを実行しました。")
         login_res = self._download_json(
             'https://api.brainpop.com/api/login', None,
             data=json.dumps({'username': username, 'password': password}).encode(),
@@ -110,6 +113,7 @@ class BrainPOPIE(BrainPOPBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"brainpop.pyの関数_real_extractを実行しました。")
         slug, display_id = self._match_valid_url(url).group('slug', 'id')
         movie_data = self._download_json(
             f'https://api.brainpop.com/api/content/published/bp/en/{slug}/movie?full=1', display_id,
@@ -160,6 +164,7 @@ class BrainPOPIE(BrainPOPBaseIE):
 
 class BrainPOPLegacyBaseIE(BrainPOPBaseIE):
     def _parse_js_topic_data(self, topic_data, display_id, token):
+        print(f"brainpop.pyの関数_parse_js_topic_dataを実行しました。")
         movie_data = topic_data['movies']
         # TODO: Are there non-burned subtitles?
         formats = self._extract_adaptive_formats(movie_data, token, display_id)

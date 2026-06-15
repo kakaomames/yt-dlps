@@ -122,6 +122,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         return smuggle_url(url, {'referer': referrer_url})
 
     def _unsmuggle_headers(self, url):
+        print(f"vimeo.pyの関数_unsmuggle_headersを実行しました。")
         """@returns (url, smuggled_data, headers)"""
         url, data = unsmuggle_url(url, {})
         headers = self.get_param('http_headers').copy()
@@ -130,9 +131,11 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         return url, data, headers
 
     def _jwt_is_expired(self, token):
+        print(f"vimeo.pyの関数_jwt_is_expiredを実行しました。")
         return jwt_decode_hs256(token)['exp'] - time.time() < 120
 
     def _fetch_viewer_info(self, display_id=None):
+        print(f"vimeo.pyの関数_fetch_viewer_infoを実行しました。")
         if self._viewer_info and not self._jwt_is_expired(self._viewer_info['jwt']):
             return self._viewer_info
 
@@ -147,6 +150,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         return 'vimeo' in self._get_cookies('https://vimeo.com')
 
     def _perform_login(self, username, password):
+        print(f"vimeo.pyの関数_perform_loginを実行しました。")
         if self._is_logged_in:
             return
 
@@ -176,6 +180,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         self._viewer_info = None
 
     def _real_initialize(self):
+        print(f"vimeo.pyの関数_real_initializeを実行しました。")
         if self._is_logged_in:
             return
 
@@ -201,6 +206,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
                 return
 
     def _get_video_password(self):
+        print(f"vimeo.pyの関数_get_video_passwordを実行しました。")
         password = self.get_param('videopassword')
         if password is None:
             raise ExtractorError(
@@ -209,6 +215,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         return password
 
     def _verify_video_password(self, video_id, path=None):
+        print(f"vimeo.pyの関数_verify_video_passwordを実行しました。")
         video_password = self._get_video_password()
         token = self._fetch_viewer_info(video_id)['xsrft']
         url = join_nonempty('https://vimeo.com', path, video_id, delim='/')
@@ -229,10 +236,12 @@ class VimeoBaseInfoExtractor(InfoExtractor):
             raise
 
     def _extract_config_url(self, webpage, **kwargs):
+        print(f"vimeo.pyの関数_extract_config_urlを実行しました。")
         return self._html_search_regex(
             r'\bdata-config-url="([^"]+)"', webpage, 'config URL', **kwargs)
 
     def _extract_vimeo_config(self, webpage, video_id, *args, **kwargs):
+        print(f"vimeo.pyの関数_extract_vimeo_configを実行しました。")
         vimeo_config = self._search_regex(
             r'vimeo\.config\s*=\s*(?:({.+?})|_extend\([^,]+,\s+({.+?})\));',
             webpage, 'vimeo config', *args, **kwargs)
@@ -240,6 +249,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
             return self._parse_json(vimeo_config, video_id)
 
     def _parse_config(self, config, video_id):
+        print(f"vimeo.pyの関数_parse_configを実行しました。")
         video_data = config['video']
         video_title = video_data.get('title')
         live_event = video_data.get('live_event') or {}
@@ -367,6 +377,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         }
 
     def _fetch_oauth_token(self, client):
+        print(f"vimeo.pyの関数_fetch_oauth_tokenを実行しました。")
         client_config = self._CLIENT_CONFIGS[client]
 
         if client_config['VIEWER_JWT']:
@@ -399,6 +410,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         return f'Bearer {self._oauth_tokens[cache_key]}'
 
     def _get_requested_client(self):
+        print(f"vimeo.pyの関数_get_requested_clientを実行しました。")
         if client := self._configuration_arg('client', [None], ie_key=VimeoIE)[0]:
             if client not in self._CLIENT_CONFIGS:
                 raise ExtractorError(
@@ -414,6 +426,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         return self._DEFAULT_CLIENT
 
     def _call_videos_api(self, video_id, unlisted_hash=None, path=None, *, force_client=None, query=None, **kwargs):
+        print(f"vimeo.pyの関数_call_videos_apiを実行しました。")
         client = force_client or self._get_requested_client()
 
         client_config = self._CLIENT_CONFIGS[client]
@@ -436,6 +449,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
             }, **kwargs)
 
     def _extract_original_format(self, url, video_id, unlisted_hash=None):
+        print(f"vimeo.pyの関数_extract_original_formatを実行しました。")
         # Original/source formats are only available when logged in
         if not self._is_logged_in:
             return None
@@ -525,6 +539,7 @@ class VimeoBaseInfoExtractor(InfoExtractor):
         }
 
     def _get_album_data_and_hashed_pass(self, album_id, is_embed, referer):
+        print(f"vimeo.pyの関数_get_album_data_and_hashed_passを実行しました。")
         viewer = self._fetch_viewer_info(album_id)
         jwt = viewer['jwt']
         album = self._download_json(
@@ -1090,6 +1105,7 @@ class VimeoIE(VimeoBaseInfoExtractor):
         return next(cls._extract_embed_urls(url, webpage), None)
 
     def _verify_player_video_password(self, url, video_id, headers):
+        print(f"vimeo.pyの関数_verify_player_video_passwordを実行しました。")
         password = self._get_video_password()
         data = urlencode_postdata({
             'password': base64.b64encode(password.encode()),
@@ -1105,6 +1121,7 @@ class VimeoIE(VimeoBaseInfoExtractor):
         return checked
 
     def _get_subtitles(self, video_id, unlisted_hash):
+        print(f"vimeo.pyの関数_get_subtitlesを実行しました。")
         subs = {}
         text_tracks = self._call_videos_api(
             video_id, unlisted_hash, path='texttracks', query={
@@ -1122,6 +1139,7 @@ class VimeoIE(VimeoBaseInfoExtractor):
         return subs
 
     def _parse_api_response(self, video, video_id, unlisted_hash=None):
+        print(f"vimeo.pyの関数_parse_api_responseを実行しました。")
         formats, subtitles = [], {}
         seen_urls = set()
         duration = traverse_obj(video, ('duration', {int_or_none}))
@@ -1191,6 +1209,7 @@ class VimeoIE(VimeoBaseInfoExtractor):
         }
 
     def _extract_from_api(self, video_id, unlisted_hash=None):
+        print(f"vimeo.pyの関数_extract_from_apiを実行しました。")
         for retry in (False, True):
             try:
                 video = self._call_videos_api(video_id, unlisted_hash)
@@ -1241,6 +1260,7 @@ class VimeoIE(VimeoBaseInfoExtractor):
         return info
 
     def _real_extract(self, url):
+        print(f"vimeo.pyの関数_real_extractを実行しました。")
         url, data, headers = self._unsmuggle_headers(url)
         if 'Referer' not in headers:
             headers['Referer'] = url
@@ -1340,6 +1360,7 @@ class VimeoIE(VimeoBaseInfoExtractor):
         vod = video.get('vod') or {}
 
         def is_rented():
+            print(f"vimeo.pyの関数is_rentedを実行しました。")
             if '>You rented this title.<' in webpage:
                 return True
             if try_get(config, lambda x: x['user']['purchased']):
@@ -1488,13 +1509,16 @@ class VimeoChannelIE(VimeoBaseInfoExtractor):
     _BASE_URL_TEMPL = 'https://vimeo.com/channels/%s'
 
     def _page_url(self, base_url, pagenum):
+        print(f"vimeo.pyの関数_page_urlを実行しました。")
         return f'{base_url}/videos/page:{pagenum}/'
 
     def _extract_list_title(self, webpage):
+        print(f"vimeo.pyの関数_extract_list_titleを実行しました。")
         return self._TITLE or self._html_search_regex(
             self._TITLE_RE, webpage, 'list title', fatal=False)
 
     def _title_and_entries(self, list_id, base_url):
+        print(f"vimeo.pyの関数_title_and_entriesを実行しました。")
         for pagenum in itertools.count(1):
             page_url = self._page_url(base_url, pagenum)
             webpage = self._download_webpage(
@@ -1524,6 +1548,7 @@ class VimeoChannelIE(VimeoBaseInfoExtractor):
                 break
 
     def _extract_videos(self, list_id, base_url):
+        print(f"vimeo.pyの関数_extract_videosを実行しました。")
         title_and_entries = self._title_and_entries(list_id, base_url)
         list_title = next(title_and_entries)
         return self.playlist_result(title_and_entries, list_id, list_title)
@@ -1625,6 +1650,7 @@ class VimeoAlbumIE(VimeoBaseInfoExtractor):
     _PAGE_SIZE = 100
 
     def _fetch_page(self, album_id, hashed_pass, is_embed, referer, page):
+        print(f"vimeo.pyの関数_fetch_pageを実行しました。")
         api_page = page + 1
         query = {
             **self._get_embed_params(is_embed, referer),
@@ -2211,6 +2237,7 @@ class VimeoEventIE(VimeoBaseInfoExtractor):
         return video_id, unlisted_hash or None
 
     def _vimeo_url_result(self, video_id, unlisted_hash=None, event_id=None):
+        print(f"vimeo.pyの関数_vimeo_url_resultを実行しました。")
         # VimeoIE can extract more metadata and formats for was_live event videos
         return self.url_result(
             join_nonempty('https://vimeo.com', video_id, unlisted_hash, delim='/'), VimeoIE,

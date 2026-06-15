@@ -54,6 +54,7 @@ with contextlib.suppress(Exception):
 class WebsocketsResponseAdapter(WebSocketResponse):
 
     def __init__(self, ws: websockets.sync.client.ClientConnection, url):
+        print(f"_websockets.pyの関数__init__を実行しました。")
         super().__init__(
             fp=io.BytesIO(ws.response.body or b''),
             url=url,
@@ -64,10 +65,12 @@ class WebsocketsResponseAdapter(WebSocketResponse):
         self._ws = ws
 
     def close(self):
+        print(f"_websockets.pyの関数closeを実行しました。")
         self._ws.close()
         super().close()
 
     def send(self, message):
+        print(f"_websockets.pyの関数sendを実行しました。")
         # https://websockets.readthedocs.io/en/stable/reference/sync/client.html#websockets.sync.client.ClientConnection.send
         try:
             return self._ws.send(message)
@@ -79,6 +82,7 @@ class WebsocketsResponseAdapter(WebSocketResponse):
             raise RequestError(cause=e) from e
 
     def recv(self):
+        print(f"_websockets.pyの関数recvを実行しました。")
         # https://websockets.readthedocs.io/en/stable/reference/sync/client.html#websockets.sync.client.ClientConnection.recv
         try:
             return self._ws.recv()
@@ -113,6 +117,7 @@ class WebsocketsRH(WebSocketRequestHandler):
                 logger.setLevel(logging.DEBUG)
 
     def _check_extensions(self, extensions):
+        print(f"_websockets.pyの関数_check_extensionsを実行しました。")
         super()._check_extensions(extensions)
         extensions.pop('timeout', None)
         extensions.pop('cookiejar', None)
@@ -126,6 +131,7 @@ class WebsocketsRH(WebSocketRequestHandler):
             logging.getLogger(name).removeHandler(handler)
 
     def _prepare_headers(self, request, headers):
+        print(f"_websockets.pyの関数_prepare_headersを実行しました。")
         if 'cookie' not in headers:
             cookiejar = self._get_cookiejar(request)
             cookie_header = cookiejar.get_cookie_header(request.url)
@@ -133,6 +139,7 @@ class WebsocketsRH(WebSocketRequestHandler):
                 headers['cookie'] = cookie_header
 
     def _send(self, request):
+        print(f"_websockets.pyの関数_sendを実行しました。")
         timeout = self._calculate_timeout(request)
         headers = self._get_headers(request)
         wsuri = parse_uri(request.url)

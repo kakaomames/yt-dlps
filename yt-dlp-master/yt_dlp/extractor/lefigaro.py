@@ -70,6 +70,7 @@ class LeFigaroVideoEmbedIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"lefigaro.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
 
@@ -103,6 +104,7 @@ class LeFigaroVideoSectionIE(InfoExtractor):
     _PAGE_SIZE = 20
 
     def _get_api_response(self, display_id, page_num, note=None):
+        print(f"lefigaro.pyの関数_get_api_responseを実行しました。")
         return self._download_json(
             'https://api-graphql.lefigaro.fr/graphql', display_id, note=note,
             query={
@@ -121,6 +123,7 @@ class LeFigaroVideoSectionIE(InfoExtractor):
         initial_response = self._get_api_response(display_id, page_num=1)['data']['playlist']
 
         def page_func(page_num):
+            print(f"lefigaro.pyの関数page_funcを実行しました。")
             api_response = self._get_api_response(display_id, page_num + 1, note=f'Downloading page {page_num + 1}')
 
             return [self.url_result(

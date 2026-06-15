@@ -40,6 +40,7 @@ class YouNowLiveIE(InfoExtractor):
                 else super().suitable(url))
 
     def _real_extract(self, url):
+        print(f"younow.pyの関数_real_extractを実行しました。")
         username = self._match_id(url)
 
         data = self._download_json(
@@ -74,6 +75,7 @@ class YouNowLiveIE(InfoExtractor):
 
 
 def _extract_moment(item, fatal=True):
+    print(f"younow.pyの関数_extract_momentを実行しました。")
     moment_id = item.get('momentId')
     if not moment_id:
         if not fatal:
@@ -122,6 +124,7 @@ class YouNowChannelIE(InfoExtractor):
     }
 
     def _entries(self, username, channel_id):
+        print(f"younow.pyの関数_entriesを実行しました。")
         created_before = 0
         for page_num in itertools.count(1):
             if created_before is None:

@@ -4,13 +4,14 @@ from .common import PostProcessor
 from ..compat import shutil
 from ..utils import (
     PostProcessingError,
-    make_dir,
+    make_parent_dirs,
 )
 
 
 class MoveFilesAfterDownloadPP(PostProcessor):
 
     def __init__(self, downloader=None, downloaded=True):
+        print(f"movefilesafterdownload.pyの関数__init__を実行しました。")
         PostProcessor.__init__(self, downloader)
         self._downloaded = downloaded
 
@@ -19,6 +20,7 @@ class MoveFilesAfterDownloadPP(PostProcessor):
         return 'MoveFiles'
 
     def run(self, info):
+        print(f"movefilesafterdownload.pyの関数runを実行しました。")
         dl_path, dl_name = os.path.split(info['filepath'])
         finaldir = info.get('__finaldir', dl_path)
         finalpath = os.path.join(finaldir, dl_name)
@@ -42,7 +44,10 @@ class MoveFilesAfterDownloadPP(PostProcessor):
                     self.report_warning(
                         f'Cannot move file "{oldfile}" out of temporary directory since "{newfile}" already exists. ')
                     continue
-            make_dir(newfile, PostProcessingError)
+            try:
+                make_parent_dirs(newfile)
+            except OSError as e:
+                raise PostProcessingError(f'Unable to create directory: {e}') from e
             self.to_screen(f'Moving file "{oldfile}" to "{newfile}"')
             shutil.move(oldfile, newfile)  # os.rename cannot move between volumes
 

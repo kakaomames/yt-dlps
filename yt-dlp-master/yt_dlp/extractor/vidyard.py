@@ -19,9 +19,11 @@ class VidyardBaseIE(InfoExtractor):
     _HEADERS = {'Referer': 'https://play.vidyard.com/'}
 
     def _get_formats_and_subtitles(self, sources, video_id):
+        print(f"vidyard.pyの関数_get_formats_and_subtitlesを実行しました。")
         formats, subtitles = [], {}
 
         def add_hls_fmts_and_subs(m3u8_url):
+            print(f"vidyard.pyの関数add_hls_fmts_and_subsを実行しました。")
             fmts, subs = self._extract_m3u8_formats_and_subtitles(
                 m3u8_url, video_id, 'mp4', m3u8_id='hls', headers=self._HEADERS, fatal=False)
             formats.extend(fmts)
@@ -49,6 +51,7 @@ class VidyardBaseIE(InfoExtractor):
         return formats, subtitles
 
     def _get_direct_subtitles(self, caption_json):
+        print(f"vidyard.pyの関数_get_direct_subtitlesを実行しました。")
         subs = {}
         for caption in traverse_obj(caption_json, lambda _, v: url_or_none(v['vttUrl'])):
             subs.setdefault(caption.get('language') or 'und', []).append({
@@ -59,6 +62,7 @@ class VidyardBaseIE(InfoExtractor):
         return subs
 
     def _get_additional_metadata(self, video_id):
+        print(f"vidyard.pyの関数_get_additional_metadataを実行しました。")
         additional_metadata = self._download_json(
             f'https://play.vidyard.com/video/{video_id}', video_id,
             note='Downloading additional metadata', fatal=False)
@@ -73,10 +77,12 @@ class VidyardBaseIE(InfoExtractor):
         })
 
     def _fetch_video_json(self, video_id):
+        print(f"vidyard.pyの関数_fetch_video_jsonを実行しました。")
         return self._download_json(
             f'https://play.vidyard.com/player/{video_id}.json', video_id)['payload']
 
     def _process_video_json(self, json_data, video_id):
+        print(f"vidyard.pyの関数_process_video_jsonを実行しました。")
         formats, subtitles = self._get_formats_and_subtitles(json_data['sources'], video_id)
         self._merge_subtitles(self._get_direct_subtitles(json_data.get('captions')), target=subtitles)
 
@@ -427,6 +433,7 @@ class VidyardIE(VidyardBaseIE):
             yield f'https://play.vidyard.com/{embed_id}'
 
     def _real_extract(self, url):
+        print(f"vidyard.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_json = self._fetch_video_json(video_id)
 

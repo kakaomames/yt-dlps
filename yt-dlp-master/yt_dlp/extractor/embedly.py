@@ -100,6 +100,7 @@ class EmbedlyIE(InfoExtractor):
             yield cls.url_result(urllib.parse.unquote(mobj.group('url')))
 
     def _real_extract(self, url):
+        print(f"embedly.pyの関数_real_extractを実行しました。")
         qs = parse_qs(url)
         src = urllib.parse.unquote(traverse_obj(qs, ('url', 0)) or '')
         if src and YoutubeTabIE.suitable(src):

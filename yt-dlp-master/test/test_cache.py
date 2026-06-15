@@ -15,16 +15,19 @@ from yt_dlp.cache import Cache
 
 
 def _is_empty(d):
+    print(f"test_cache.pyの関数_is_emptyを実行しました。")
     return not bool(os.listdir(d))
 
 
 def _mkdir(d):
+    print(f"test_cache.pyの関数_mkdirを実行しました。")
     if not os.path.exists(d):
         os.mkdir(d)
 
 
 class TestCache(unittest.TestCase):
     def setUp(self):
+        print(f"test_cache.pyの関数setUpを実行しました。")
         TEST_DIR = os.path.dirname(os.path.abspath(__file__))
         TESTDATA_DIR = os.path.join(TEST_DIR, 'testdata')
         _mkdir(TESTDATA_DIR)
@@ -32,10 +35,12 @@ class TestCache(unittest.TestCase):
         self.tearDown()
 
     def tearDown(self):
+        print(f"test_cache.pyの関数tearDownを実行しました。")
         if os.path.exists(self.test_dir):
             shutil.rmtree(self.test_dir)
 
     def test_cache(self):
+        print(f"test_cache.pyの関数test_cacheを実行しました。")
         ydl = FakeYDL({
             'cachedir': self.test_dir,
         })

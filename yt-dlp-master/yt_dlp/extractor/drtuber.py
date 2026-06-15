@@ -35,6 +35,7 @@ class DrTuberIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"drtuber.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         display_id = mobj.group('display_id') or video_id
@@ -75,6 +76,7 @@ class DrTuberIE(InfoExtractor):
             webpage, 'thumbnail', fatal=False)
 
         def extract_count(id_, name, default=NO_DEFAULT):
+            print(f"drtuber.pyの関数extract_countを実行しました。")
             return str_to_int(self._html_search_regex(
                 rf'<span[^>]+(?:class|id)="{id_}"[^>]*>([\d,\.]+)</span>',
                 webpage, f'{name} count', default=default, fatal=False))

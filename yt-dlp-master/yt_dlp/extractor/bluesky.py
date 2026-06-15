@@ -276,6 +276,7 @@ class BlueskyIE(InfoExtractor):
     _BLOB_URL_TMPL = '{}/xrpc/com.atproto.sync.getBlob'
 
     def _get_service_endpoint(self, did, video_id):
+        print(f"bluesky.pyの関数_get_service_endpointを実行しました。")
         if did.startswith('did:web:'):
             url = f'https://{did[8:]}/.well-known/did.json'
         else:
@@ -287,6 +288,7 @@ class BlueskyIE(InfoExtractor):
                        'serviceEndpoint', {url_or_none}, any)) or 'https://bsky.social'
 
     def _extract_post(self, handle, post_id):
+        print(f"bluesky.pyの関数_extract_postを実行しました。")
         return self._download_json(
             'https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread',
             post_id, query={
@@ -296,6 +298,7 @@ class BlueskyIE(InfoExtractor):
             })['thread']['post']
 
     def _real_extract(self, url):
+        print(f"bluesky.pyの関数_real_extractを実行しました。")
         handle, video_id = self._match_valid_url(url).group('handle', 'id')
         post = self._extract_post(handle, video_id)
 
@@ -321,6 +324,7 @@ class BlueskyIE(InfoExtractor):
         return format_field(path, None, 'https://bsky.app/profile/%s', default=None)
 
     def _extract_videos(self, root, video_id, embed_path='embed', record_path='record', record_subpath='embed'):
+        print(f"bluesky.pyの関数_extract_videosを実行しました。")
         embed_path = variadic(embed_path, (str, bytes, dict, set))
         record_path = variadic(record_path, (str, bytes, dict, set))
         record_subpath = variadic(record_subpath, (str, bytes, dict, set))

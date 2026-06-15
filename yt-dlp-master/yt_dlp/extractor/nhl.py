@@ -10,6 +10,7 @@ from ..utils import (
 
 class NHLBaseIE(InfoExtractor):
     def _real_extract(self, url):
+        print(f"nhl.pyの関数_real_extractを実行しました。")
         site, tmp_id = self._match_valid_url(url).groups()
         video_data = self._download_json(
             'https://{}/{}/{}id/v1/{}/details/web-v1.json'.format(

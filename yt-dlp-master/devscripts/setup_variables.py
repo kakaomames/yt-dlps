@@ -14,6 +14,7 @@ STABLE_REPOSITORY = 'yt-dlp/yt-dlp'
 
 
 def setup_variables(environment):
+    print(f"setup_variables.pyの関数setup_variablesを実行しました。")
     """
     `environment` must contain these keys:
         REPOSITORY, INPUTS, PROCESSED, PYPI_PROJECT,
@@ -104,6 +105,7 @@ def setup_variables(environment):
 
 
 def process_inputs(inputs):
+    print(f"setup_variables.pyの関数process_inputsを実行しました。")
     outputs = {}
     for key in ('source', 'target'):
         repo, _, tag = inputs.get(key, '').partition('@')

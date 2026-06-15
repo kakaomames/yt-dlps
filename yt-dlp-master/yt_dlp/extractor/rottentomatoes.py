@@ -48,6 +48,7 @@ class RottenTomatoesIE(InfoExtractor):
     }]
 
     def _extract_videos(self, data, display_id):
+        print(f"rottentomatoes.pyの関数_extract_videosを実行しました。")
         for video in traverse_obj(data, (lambda _, v: v['publicId'] and v['file'] and v['type'] == 'hls')):
             yield {
                 'formats': self._extract_m3u8_formats(
@@ -62,6 +63,7 @@ class RottenTomatoesIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"rottentomatoes.pyの関数_real_extractを実行しました。")
         playlist_id, trailers, video_id = self._match_valid_url(url).group('playlist', 'tr', 'id')
         playlist_id = join_nonempty(playlist_id, trailers)
         webpage = self._download_webpage(url, playlist_id)

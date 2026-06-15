@@ -116,6 +116,7 @@ class MediasiteIE(InfoExtractor):
             yield smuggle_url(embed_url, {'UrlReferrer': url})
 
     def __extract_slides(self, *, stream_id, snum, stream, duration, images):
+        print(f"mediasite.pyの関数__extract_slidesを実行しました。")
         slide_base_url = stream['SlideBaseUrl']
 
         fname_template = stream['SlideImageFileNameTemplate']
@@ -162,6 +163,7 @@ class MediasiteIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"mediasite.pyの関数_real_extractを実行しました。")
         url, data = unsmuggle_url(url, {})
         mobj = self._match_valid_url(url)
         resource_id = mobj.group('id')

@@ -21,6 +21,7 @@ class DPlayBaseIE(InfoExtractor):
     _auth_token_cache = {}
 
     def _get_auth(self, disco_base, display_id, realm, needs_device_id=True):
+        print(f"dplay.pyの関数_get_authを実行しました。")
         key = (disco_base, realm)
         st = self._get_cookies(disco_base).get('st')
         token = (st and st.value) or self._auth_token_cache.get(key)
@@ -40,6 +41,7 @@ class DPlayBaseIE(InfoExtractor):
         return f'Bearer {token}'
 
     def _process_errors(self, e, geo_countries):
+        print(f"dplay.pyの関数_process_errorsを実行しました。")
         info = self._parse_json(e.cause.response.read().decode('utf-8'), None)
         error = info['errors'][0]
         error_code = error.get('code')
@@ -51,9 +53,11 @@ class DPlayBaseIE(InfoExtractor):
         raise ExtractorError(info['errors'][0]['detail'], expected=True)
 
     def _update_disco_api_headers(self, headers, disco_base, display_id, realm):
+        print(f"dplay.pyの関数_update_disco_api_headersを実行しました。")
         headers['Authorization'] = self._get_auth(disco_base, display_id, realm, False)
 
     def _download_video_playback_info(self, disco_base, video_id, headers):
+        print(f"dplay.pyの関数_download_video_playback_infoを実行しました。")
         streaming = self._download_json(
             disco_base + 'playback/videoPlaybackInfo/' + video_id,
             video_id, headers=headers)['data']['attributes']['streaming']
@@ -66,6 +70,7 @@ class DPlayBaseIE(InfoExtractor):
         return streaming_list
 
     def _get_disco_api_info(self, url, display_id, disco_host, realm, country, domain=''):
+        print(f"dplay.pyの関数_get_disco_api_infoを実行しました。")
         country = self.get_param('geo_bypass_country') or country
         geo_countries = [country.upper()]
         self._initialize_geo_bypass({
@@ -311,6 +316,7 @@ class DPlayIE(DPlayBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"dplay.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         display_id = mobj.group('id')
         domain = remove_start(mobj.group('domain'), 'www.')
@@ -1204,6 +1210,7 @@ class DiscoveryNetworksDeIE(DiscoveryPlusBaseIE):
 class DiscoveryPlusShowBaseIE(DPlayBaseIE):
 
     def _entries(self, show_name):
+        print(f"dplay.pyの関数_entriesを実行しました。")
         headers = {
             'x-disco-client': self._X_CLIENT,
             'x-disco-params': f'realm={self._REALM}',
