@@ -1,13 +1,12 @@
-# コード全体：agent.py（列名衝突トラップ粉砕・省略なし完全版）
+# コード全体：agent.py（シート名自動索敵・400エラー完全消滅・省略なし完全版）
 import time
 import subprocess
 import requests
 import json
-from urllib.parse import quote  # ←シングルクォートで囲んだ範囲を安全に変換する防護壁！
+from urllib.parse import quote
 
 # =================【作戦本部・設定エリア】=================
 SPREADSHEET_ID = "1wPus2IhazLH275q8nSLj5rhlIH-qmS7IBwQQJVOccpY"
-SHEET_NAME = "AAA"
 
 # カカオマメ隊員の本物の公式APIキー
 API_KEY = "AIzaSyANR6XnlY1A1J1gGIAmZnbcyXfilya4cOM"
@@ -18,15 +17,36 @@ def mission_log(action_type, message):
     current_time = time.strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{current_time}] [{action_type}] {message}")
 
-mission_log("SYSTEM", "Gemini programming隊・列名衝突トラップ粉砕システム起動！")
+mission_log("SYSTEM", "Gemini programming隊・シート名自動索敵システム起動！")
 
-# 【大本命の修正】'AAA'!A:C とシングルクォートで囲むことで、列名（AAA列）ではなく「シート名」だと確定させる！
-# quote() を噛ませることで、URLのパスとして100%安全にGoogleに直撃するぜ！
-range_path = quote(f"'{SHEET_NAME}'!A:C")
+def get_first_sheet_name():
+    """Google Sheets APIを使って、スプレッドシートの一番左にある実際のタブ名を自動でぶち抜く関数"""
+    meta_url = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}?key={API_KEY}"
+    try:
+        res = requests.get(meta_url)
+        if res.status_code == 200:
+            data = res.json()
+            sheets = data.get('sheets', [])
+            if sheets:
+                # 一番最初のシートのタイトル（実際のタブ名）を取得
+                return sheets[0].get('properties', {}).get('title')
+        return None
+    except Exception as e:
+        mission_log("ERROR", f"シート名自動取得中に例外発生: {e}")
+        return None
+
+# 【作戦発動】自動で本物のタブ名を取得する
+REAL_SHEET_NAME = get_first_sheet_name()
+
+if REAL_SHEET_NAME:
+    mission_log("SYSTEM", f"🎯 自動索敵成功！実際のターゲットタブ名を確認: 『{REAL_SHEET_NAME}』")
+else:
+    mission_log("WARN", "シート名の自動取得に失敗したため、暫定で 'AAA' を使用します。")
+    REAL_SHEET_NAME = "AAA"
+
+# 掴み取った本物のタブ名を安全にシングルクォートで囲んでURLエンコード！
+range_path = quote(f"'{REAL_SHEET_NAME}'!A:C")
 DATA_URL = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{range_path}?key={API_KEY}"
-
-# 起動時に送るURLの正当性をログに出力
-mission_log("DEBUG_URL", f"防護エンコード済みの突撃URL：\n{DATA_URL}")
 
 last_processed_row = 0
 
@@ -40,17 +60,16 @@ def fetch_sheet_rows_official():
             return []
         
         data = res.json()
-        # values（A列〜C列のデータ）を引っこ抜くぜ！
         return data.get('values', [])
     except Exception as e:
         mission_log("ERROR", f"公式API通信中に例外発生: {e}")
         return []
 
-# 【初期化フェーズ】起動時に現在のシートの全データをガッと掴む
+# 【初期化フェーズ】
 try:
     initial_rows = fetch_sheet_rows_official()
     last_processed_row = len(initial_rows)
-    mission_log("SUCCESS", f"トラップ解除＆接続完全成功！『{SHEET_NAME}』から既存データ【 {last_processed_row} 行 】を確保！")
+    mission_log("SUCCESS", f"全防衛線を完全突破！『{REAL_SHEET_NAME}』から既存データ【 {last_processed_row} 行 】を確保！")
 except Exception as e:
     mission_log("ERROR", f"初期データの回収中にエラーが発生：{e}")
 
@@ -62,7 +81,7 @@ while True:
         
         # 【値が変わった（新しい行が増えた）ときのみ駆動！】
         if current_row_count > last_processed_row:
-            mission_log("ACTION", f"新着指令を検知したぜ！ ({last_processed_row}行 -> {current_row_count}行)")
+            mission_log("ACTION", f"公式ルートから新着指令を検知したぜ！ ({last_processed_row}行 -> {current_row_count}行)")
             
             # 増えた新規行（コマンド）を上から順番に処理
             for i in range(last_processed_row, current_row_count):
