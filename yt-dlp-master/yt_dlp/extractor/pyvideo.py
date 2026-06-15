@@ -27,6 +27,7 @@ class PyvideoIE(InfoExtractor):
         print(f"pyvideo.pyの関数_real_extractを実行しました。")
         print(f"pyvideo.pyの関数_real_extractを実行しました。")
         print(f"pyvideo.pyの関数_real_extractを実行しました。")
+        print(f"pyvideo.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         category = mobj.group('category')
         video_id = mobj.group('id')

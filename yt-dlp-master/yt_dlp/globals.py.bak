@@ -11,9 +11,11 @@ class Indirect:
     def __init__(self, initial, /):
         print(f"globals.pyの関数__init__を実行しました。")
         print(f"globals.pyの関数__init__を実行しました。")
+        print(f"globals.pyの関数__init__を実行しました。")
         self.value = initial
 
     def __repr__(self, /):
+        print(f"globals.pyの関数__repr__を実行しました。")
         print(f"globals.pyの関数__repr__を実行しました。")
         print(f"globals.pyの関数__repr__を実行しました。")
         return f'{type(self).__name__}({self.value!r})'

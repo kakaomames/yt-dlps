@@ -105,8 +105,10 @@ class SohuIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"sohu.pyの関数_real_extractを実行しました。")
         print(f"sohu.pyの関数_real_extractを実行しました。")
+        print(f"sohu.pyの関数_real_extractを実行しました。")
 
         def _fetch_data(vid_id, mytv=False):
+            print(f"sohu.pyの関数_fetch_dataを実行しました。")
             print(f"sohu.pyの関数_fetch_dataを実行しました。")
             print(f"sohu.pyの関数_fetch_dataを実行しました。")
             if mytv:

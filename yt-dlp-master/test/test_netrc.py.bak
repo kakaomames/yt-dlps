@@ -18,6 +18,7 @@ class TestNetRc(unittest.TestCase):
     def test_netrc_present(self):
         print(f"test_netrc.pyの関数test_netrc_presentを実行しました。")
         print(f"test_netrc.pyの関数test_netrc_presentを実行しました。")
+        print(f"test_netrc.pyの関数test_netrc_presentを実行しました。")
         for ie in gen_extractor_classes():
             if ie._perform_login is NO_LOGIN:
                 continue

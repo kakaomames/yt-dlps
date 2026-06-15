@@ -97,6 +97,7 @@ class TV5MondePlusIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"tv5mondeplus.pyの関数_real_extractを実行しました。")
         print(f"tv5mondeplus.pyの関数_real_extractを実行しました。")
+        print(f"tv5mondeplus.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id, impersonate=True)
 
@@ -113,6 +114,7 @@ class TV5MondePlusIE(InfoExtractor):
         video_id = None
 
         def process_video_files(v):
+            print(f"tv5mondeplus.pyの関数process_video_filesを実行しました。")
             print(f"tv5mondeplus.pyの関数process_video_filesを実行しました。")
             print(f"tv5mondeplus.pyの関数process_video_filesを実行しました。")
             nonlocal video_id

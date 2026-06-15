@@ -29,6 +29,7 @@ class UrortIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"urort.pyの関数_real_extractを実行しました。")
         print(f"urort.pyの関数_real_extractを実行しました。")
+        print(f"urort.pyの関数_real_extractを実行しました。")
         playlist_id = self._match_id(url)
 
         fstr = urllib.parse.quote(f"InternalBandUrl eq '{playlist_id}'")

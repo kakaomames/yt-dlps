@@ -128,6 +128,7 @@ class NewgroundsIE(InfoExtractor):
     def _perform_login(self, username, password):
         print(f"newgrounds.pyの関数_perform_loginを実行しました。")
         print(f"newgrounds.pyの関数_perform_loginを実行しました。")
+        print(f"newgrounds.pyの関数_perform_loginを実行しました。")
         login_webpage = self._download_webpage(self._LOGIN_URL, None, 'Downloading login page')
         login_url = urljoin(self._LOGIN_URL, self._search_regex(
             r'<form action="([^"]+)"', login_webpage, 'login endpoint', default=None))
@@ -144,6 +145,7 @@ class NewgroundsIE(InfoExtractor):
             raise ExtractorError(', '.join(errors) or 'Unknown Error', expected=True)
 
     def _real_extract(self, url):
+        print(f"newgrounds.pyの関数_real_extractを実行しました。")
         print(f"newgrounds.pyの関数_real_extractを実行しました。")
         print(f"newgrounds.pyの関数_real_extractを実行しました。")
         media_id = self._match_id(url)
@@ -293,6 +295,7 @@ class NewgroundsUserIE(InfoExtractor):
     _PAGE_SIZE = 30
 
     def _fetch_page(self, channel_id, url, page):
+        print(f"newgrounds.pyの関数_fetch_pageを実行しました。")
         print(f"newgrounds.pyの関数_fetch_pageを実行しました。")
         print(f"newgrounds.pyの関数_fetch_pageを実行しました。")
         page += 1

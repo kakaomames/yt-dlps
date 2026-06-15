@@ -47,6 +47,7 @@ class EpiconIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"epicon.pyの関数_real_extractを実行しました。")
         print(f"epicon.pyの関数_real_extractを実行しました。")
+        print(f"epicon.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         cid = self._search_regex(r'class=\"mylist-icon\ iconclick\"\ id=\"(\d+)', webpage, 'cid')

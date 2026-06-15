@@ -35,6 +35,7 @@ class YDL(FakeYDL):
     def __init__(self, *args, **kwargs):
         print(f"test_YoutubeDL.pyの関数__init__を実行しました。")
         print(f"test_YoutubeDL.pyの関数__init__を実行しました。")
+        print(f"test_YoutubeDL.pyの関数__init__を実行しました。")
         super().__init__(*args, **kwargs)
         self.downloaded_info_dicts = []
         self.msgs = []
@@ -42,9 +43,11 @@ class YDL(FakeYDL):
     def process_info(self, info_dict):
         print(f"test_YoutubeDL.pyの関数process_infoを実行しました。")
         print(f"test_YoutubeDL.pyの関数process_infoを実行しました。")
+        print(f"test_YoutubeDL.pyの関数process_infoを実行しました。")
         self.downloaded_info_dicts.append(info_dict.copy())
 
     def to_screen(self, msg, *args, **kwargs):
+        print(f"test_YoutubeDL.pyの関数to_screenを実行しました。")
         print(f"test_YoutubeDL.pyの関数to_screenを実行しました。")
         print(f"test_YoutubeDL.pyの関数to_screenを実行しました。")
         self.msgs.append(msg)
@@ -52,10 +55,12 @@ class YDL(FakeYDL):
     def dl(self, *args, **kwargs):
         print(f"test_YoutubeDL.pyの関数dlを実行しました。")
         print(f"test_YoutubeDL.pyの関数dlを実行しました。")
+        print(f"test_YoutubeDL.pyの関数dlを実行しました。")
         assert False, 'Downloader must not be invoked for test_YoutubeDL'
 
 
 def _make_result(formats, **kwargs):
+    print(f"test_YoutubeDL.pyの関数_make_resultを実行しました。")
     print(f"test_YoutubeDL.pyの関数_make_resultを実行しました。")
     print(f"test_YoutubeDL.pyの関数_make_resultを実行しました。")
     res = {
@@ -72,6 +77,7 @@ def _make_result(formats, **kwargs):
 
 class TestFormatSelection(unittest.TestCase):
     def test_prefer_free_formats(self):
+        print(f"test_YoutubeDL.pyの関数test_prefer_free_formatsを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_prefer_free_formatsを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_prefer_free_formatsを実行しました。")
         # Same resolution => download webm
@@ -129,6 +135,7 @@ class TestFormatSelection(unittest.TestCase):
     def test_format_selection(self):
         print(f"test_YoutubeDL.pyの関数test_format_selectionを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selectionを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_format_selectionを実行しました。")
         formats = [
             {'format_id': '35', 'ext': 'mp4', 'preference': 0, 'url': TEST_URL},
             {'format_id': 'example-with-dashes', 'ext': 'webm', 'preference': 1, 'url': TEST_URL},
@@ -139,6 +146,7 @@ class TestFormatSelection(unittest.TestCase):
         info_dict = _make_result(formats)
 
         def test(inp, *expected, multi=False):
+            print(f"test_YoutubeDL.pyの関数testを実行しました。")
             print(f"test_YoutubeDL.pyの関数testを実行しました。")
             print(f"test_YoutubeDL.pyの関数testを実行しました。")
             ydl = YDL({
@@ -162,6 +170,7 @@ class TestFormatSelection(unittest.TestCase):
         test('7_a/worst', '35')
 
     def test_format_selection_audio(self):
+        print(f"test_YoutubeDL.pyの関数test_format_selection_audioを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_audioを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_audioを実行しました。")
         formats = [
@@ -196,6 +205,7 @@ class TestFormatSelection(unittest.TestCase):
     def test_format_selection_audio_exts(self):
         print(f"test_YoutubeDL.pyの関数test_format_selection_audio_extsを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_audio_extsを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_format_selection_audio_extsを実行しました。")
         formats = [
             {'format_id': 'mp3-64', 'ext': 'mp3', 'abr': 64, 'url': 'http://_', 'vcodec': 'none'},
             {'format_id': 'ogg-64', 'ext': 'ogg', 'abr': 64, 'url': 'http://_', 'vcodec': 'none'},
@@ -224,6 +234,7 @@ class TestFormatSelection(unittest.TestCase):
         self.assertEqual(downloaded['format_id'], 'ogg-64')
 
     def test_format_selection_video(self):
+        print(f"test_YoutubeDL.pyの関数test_format_selection_videoを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_videoを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_videoを実行しました。")
         formats = [
@@ -261,6 +272,7 @@ class TestFormatSelection(unittest.TestCase):
     def test_format_selection_by_vcodec_sort(self):
         print(f"test_YoutubeDL.pyの関数test_format_selection_by_vcodec_sortを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_by_vcodec_sortを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_format_selection_by_vcodec_sortを実行しました。")
         formats = [
             {'format_id': 'av1-format', 'ext': 'mp4', 'vcodec': 'av1', 'acodec': 'none', 'url': TEST_URL},
             {'format_id': 'vp9-hdr-format', 'ext': 'mp4', 'vcodec': 'vp09.02.50.10.01.09.18.09.00', 'acodec': 'none', 'url': TEST_URL},
@@ -290,6 +302,7 @@ class TestFormatSelection(unittest.TestCase):
         self.assertEqual(downloaded['format_id'], 'vp9-sdr-format')
 
     def test_format_selection_string_ops(self):
+        print(f"test_YoutubeDL.pyの関数test_format_selection_string_opsを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_string_opsを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_string_opsを実行しました。")
         formats = [
@@ -364,6 +377,7 @@ class TestFormatSelection(unittest.TestCase):
     def test_audio_only_extractor_format_selection(self):
         print(f"test_YoutubeDL.pyの関数test_audio_only_extractor_format_selectionを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_audio_only_extractor_format_selectionを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_audio_only_extractor_format_selectionを実行しました。")
         # For extractors with incomplete formats (all formats are audio-only or
         # video-only) best and worst should fallback to corresponding best/worst
         # video-only or audio-only formats (as per
@@ -387,6 +401,7 @@ class TestFormatSelection(unittest.TestCase):
     def test_format_not_available(self):
         print(f"test_YoutubeDL.pyの関数test_format_not_availableを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_not_availableを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_format_not_availableを実行しました。")
         formats = [
             {'format_id': 'regular', 'ext': 'mp4', 'height': 360, 'url': TEST_URL},
             {'format_id': 'video', 'ext': 'mp4', 'height': 720, 'acodec': 'none', 'url': TEST_URL},
@@ -400,6 +415,7 @@ class TestFormatSelection(unittest.TestCase):
         self.assertRaises(ExtractorError, ydl.process_ie_result, info_dict.copy())
 
     def test_format_selection_issue_10083(self):
+        print(f"test_YoutubeDL.pyの関数test_format_selection_issue_10083を実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_issue_10083を実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_selection_issue_10083を実行しました。")
         # See https://github.com/ytdl-org/youtube-dl/issues/10083
@@ -417,7 +433,9 @@ class TestFormatSelection(unittest.TestCase):
     def test_invalid_format_specs(self):
         print(f"test_YoutubeDL.pyの関数test_invalid_format_specsを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_invalid_format_specsを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_invalid_format_specsを実行しました。")
         def assert_syntax_error(format_spec):
+            print(f"test_YoutubeDL.pyの関数assert_syntax_errorを実行しました。")
             print(f"test_YoutubeDL.pyの関数assert_syntax_errorを実行しました。")
             print(f"test_YoutubeDL.pyの関数assert_syntax_errorを実行しました。")
             self.assertRaises(SyntaxError, YDL, {'format': format_spec})
@@ -429,6 +447,7 @@ class TestFormatSelection(unittest.TestCase):
         assert_syntax_error('[720<height]')
 
     def test_format_filtering(self):
+        print(f"test_YoutubeDL.pyの関数test_format_filteringを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_filteringを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_filteringを実行しました。")
         formats = [
@@ -568,7 +587,9 @@ class TestYoutubeDL(unittest.TestCase):
     def test_subtitles(self):
         print(f"test_YoutubeDL.pyの関数test_subtitlesを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_subtitlesを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_subtitlesを実行しました。")
         def s_formats(lang, autocaption=False):
+            print(f"test_YoutubeDL.pyの関数s_formatsを実行しました。")
             print(f"test_YoutubeDL.pyの関数s_formatsを実行しました。")
             print(f"test_YoutubeDL.pyの関数s_formatsを実行しました。")
             return [{
@@ -589,6 +610,7 @@ class TestYoutubeDL(unittest.TestCase):
         }
 
         def get_info(params={}):
+            print(f"test_YoutubeDL.pyの関数get_infoを実行しました。")
             print(f"test_YoutubeDL.pyの関数get_infoを実行しました。")
             print(f"test_YoutubeDL.pyの関数get_infoを実行しました。")
             params.setdefault('simulate', True)
@@ -654,6 +676,7 @@ class TestYoutubeDL(unittest.TestCase):
     def test_add_extra_info(self):
         print(f"test_YoutubeDL.pyの関数test_add_extra_infoを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_add_extra_infoを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_add_extra_infoを実行しました。")
         test_dict = {
             'extractor': 'Foo',
         }
@@ -690,6 +713,7 @@ class TestYoutubeDL(unittest.TestCase):
     }
 
     def test_prepare_outtmpl_and_filename(self):
+        print(f"test_YoutubeDL.pyの関数test_prepare_outtmpl_and_filenameを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_prepare_outtmpl_and_filenameを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_prepare_outtmpl_and_filenameを実行しました。")
         def test(tmpl, expected, *, info=None, **params):
@@ -767,6 +791,7 @@ class TestYoutubeDL(unittest.TestCase):
 
         # Entire info_dict
         def expect_same_infodict(out):
+            print(f"test_YoutubeDL.pyの関数expect_same_infodictを実行しました。")
             print(f"test_YoutubeDL.pyの関数expect_same_infodictを実行しました。")
             print(f"test_YoutubeDL.pyの関数expect_same_infodictを実行しました。")
             got_dict = json.loads(out)
@@ -883,6 +908,7 @@ class TestYoutubeDL(unittest.TestCase):
         def gen():
             print(f"test_YoutubeDL.pyの関数genを実行しました。")
             print(f"test_YoutubeDL.pyの関数genを実行しました。")
+            print(f"test_YoutubeDL.pyの関数genを実行しました。")
             yield from range(5)
             raise self.assertTrue(False, 'LazyList should not be evaluated till here')
         test('%(key.4)s', '4', info={'key': LazyList(gen())})
@@ -912,6 +938,7 @@ class TestYoutubeDL(unittest.TestCase):
     def test_format_note(self):
         print(f"test_YoutubeDL.pyの関数test_format_noteを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_format_noteを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_format_noteを実行しました。")
         ydl = YoutubeDL()
         self.assertEqual(ydl._format_note({}), '')
         assertRegexpMatches(self, ydl._format_note({
@@ -924,6 +951,7 @@ class TestYoutubeDL(unittest.TestCase):
     def test_postprocessors(self):
         print(f"test_YoutubeDL.pyの関数test_postprocessorsを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_postprocessorsを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_postprocessorsを実行しました。")
         filename = 'post-processor-testfile.mp4'
         audiofile = filename + '.mp3'
 
@@ -931,11 +959,13 @@ class TestYoutubeDL(unittest.TestCase):
             def run(self, info):
                 print(f"test_YoutubeDL.pyの関数runを実行しました。")
                 print(f"test_YoutubeDL.pyの関数runを実行しました。")
+                print(f"test_YoutubeDL.pyの関数runを実行しました。")
                 with open(audiofile, 'w') as f:
                     f.write('EXAMPLE')
                 return [info['filepath']], info
 
         def run_pp(params, pp):
+            print(f"test_YoutubeDL.pyの関数run_ppを実行しました。")
             print(f"test_YoutubeDL.pyの関数run_ppを実行しました。")
             print(f"test_YoutubeDL.pyの関数run_ppを実行しました。")
             with open(filename, 'w') as f:
@@ -968,6 +998,7 @@ class TestYoutubeDL(unittest.TestCase):
     def test_match_filter(self):
         print(f"test_YoutubeDL.pyの関数test_match_filterを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_match_filterを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_match_filterを実行しました。")
         first = {
             'id': '1',
             'url': TEST_URL,
@@ -997,6 +1028,7 @@ class TestYoutubeDL(unittest.TestCase):
         def get_videos(filter_=None):
             print(f"test_YoutubeDL.pyの関数get_videosを実行しました。")
             print(f"test_YoutubeDL.pyの関数get_videosを実行しました。")
+            print(f"test_YoutubeDL.pyの関数get_videosを実行しました。")
             ydl = YDL({'match_filter': filter_, 'simulate': True})
             for v in videos:
                 ydl.process_ie_result(v.copy(), download=True)
@@ -1006,6 +1038,7 @@ class TestYoutubeDL(unittest.TestCase):
         self.assertEqual(res, ['1', '2'])
 
         def f(v, incomplete):
+            print(f"test_YoutubeDL.pyの関数fを実行しました。")
             print(f"test_YoutubeDL.pyの関数fを実行しました。")
             print(f"test_YoutubeDL.pyの関数fを実行しました。")
             if v['id'] == '1':
@@ -1058,9 +1091,11 @@ class TestYoutubeDL(unittest.TestCase):
     def test_playlist_items_selection(self):
         print(f"test_YoutubeDL.pyの関数test_playlist_items_selectionを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_playlist_items_selectionを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_playlist_items_selectionを実行しました。")
         INDICES, PAGE_SIZE = list(range(1, 11)), 3
 
         def entry(i, evaluated):
+            print(f"test_YoutubeDL.pyの関数entryを実行しました。")
             print(f"test_YoutubeDL.pyの関数entryを実行しました。")
             print(f"test_YoutubeDL.pyの関数entryを実行しました。")
             evaluated.append(i)
@@ -1073,7 +1108,9 @@ class TestYoutubeDL(unittest.TestCase):
         def pagedlist_entries(evaluated):
             print(f"test_YoutubeDL.pyの関数pagedlist_entriesを実行しました。")
             print(f"test_YoutubeDL.pyの関数pagedlist_entriesを実行しました。")
+            print(f"test_YoutubeDL.pyの関数pagedlist_entriesを実行しました。")
             def page_func(n):
+                print(f"test_YoutubeDL.pyの関数page_funcを実行しました。")
                 print(f"test_YoutubeDL.pyの関数page_funcを実行しました。")
                 print(f"test_YoutubeDL.pyの関数page_funcを実行しました。")
                 start = PAGE_SIZE * n
@@ -1084,9 +1121,11 @@ class TestYoutubeDL(unittest.TestCase):
         def page_num(i):
             print(f"test_YoutubeDL.pyの関数page_numを実行しました。")
             print(f"test_YoutubeDL.pyの関数page_numを実行しました。")
+            print(f"test_YoutubeDL.pyの関数page_numを実行しました。")
             return (i + PAGE_SIZE - 1) // PAGE_SIZE
 
         def generator_entries(evaluated):
+            print(f"test_YoutubeDL.pyの関数generator_entriesを実行しました。")
             print(f"test_YoutubeDL.pyの関数generator_entriesを実行しました。")
             print(f"test_YoutubeDL.pyの関数generator_entriesを実行しました。")
             for i in INDICES:
@@ -1095,14 +1134,17 @@ class TestYoutubeDL(unittest.TestCase):
         def list_entries(evaluated):
             print(f"test_YoutubeDL.pyの関数list_entriesを実行しました。")
             print(f"test_YoutubeDL.pyの関数list_entriesを実行しました。")
+            print(f"test_YoutubeDL.pyの関数list_entriesを実行しました。")
             return list(generator_entries(evaluated))
 
         def lazylist_entries(evaluated):
             print(f"test_YoutubeDL.pyの関数lazylist_entriesを実行しました。")
             print(f"test_YoutubeDL.pyの関数lazylist_entriesを実行しました。")
+            print(f"test_YoutubeDL.pyの関数lazylist_entriesを実行しました。")
             return LazyList(generator_entries(evaluated))
 
         def get_downloaded_info_dicts(params, entries):
+            print(f"test_YoutubeDL.pyの関数get_downloaded_info_dictsを実行しました。")
             print(f"test_YoutubeDL.pyの関数get_downloaded_info_dictsを実行しました。")
             print(f"test_YoutubeDL.pyの関数get_downloaded_info_dictsを実行しました。")
             ydl = YDL(params)
@@ -1117,6 +1159,7 @@ class TestYoutubeDL(unittest.TestCase):
             return ydl.downloaded_info_dicts
 
         def test_selection(params, expected_ids, evaluate_all=False):
+            print(f"test_YoutubeDL.pyの関数test_selectionを実行しました。")
             print(f"test_YoutubeDL.pyの関数test_selectionを実行しました。")
             print(f"test_YoutubeDL.pyの関数test_selectionを実行しました。")
             expected_ids = list(expected_ids)
@@ -1188,12 +1231,14 @@ class TestYoutubeDL(unittest.TestCase):
     def test_do_not_override_ie_key_in_url_transparent(self):
         print(f"test_YoutubeDL.pyの関数test_do_not_override_ie_key_in_url_transparentを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_do_not_override_ie_key_in_url_transparentを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_do_not_override_ie_key_in_url_transparentを実行しました。")
         ydl = YDL()
 
         class Foo1IE(InfoExtractor):
             _VALID_URL = r'foo1:'
 
             def _real_extract(self, url):
+                print(f"test_YoutubeDL.pyの関数_real_extractを実行しました。")
                 print(f"test_YoutubeDL.pyの関数_real_extractを実行しました。")
                 print(f"test_YoutubeDL.pyの関数_real_extractを実行しました。")
                 return {
@@ -1235,14 +1280,17 @@ class TestYoutubeDL(unittest.TestCase):
     def test_ignoreerrors_for_playlist_with_url_transparent_iterable_entries(self):
         print(f"test_YoutubeDL.pyの関数test_ignoreerrors_for_playlist_with_url_transparent_iterable_entriesを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_ignoreerrors_for_playlist_with_url_transparent_iterable_entriesを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_ignoreerrors_for_playlist_with_url_transparent_iterable_entriesを実行しました。")
 
         class _YDL(YDL):
             def __init__(self, *args, **kwargs):
                 print(f"test_YoutubeDL.pyの関数__init__を実行しました。")
                 print(f"test_YoutubeDL.pyの関数__init__を実行しました。")
+                print(f"test_YoutubeDL.pyの関数__init__を実行しました。")
                 super().__init__(*args, **kwargs)
 
             def trouble(self, s, tb=None):
+                print(f"test_YoutubeDL.pyの関数troubleを実行しました。")
                 print(f"test_YoutubeDL.pyの関数troubleを実行しました。")
                 print(f"test_YoutubeDL.pyの関数troubleを実行しました。")
                 pass
@@ -1280,6 +1328,7 @@ class TestYoutubeDL(unittest.TestCase):
             def _entries(self):
                 print(f"test_YoutubeDL.pyの関数_entriesを実行しました。")
                 print(f"test_YoutubeDL.pyの関数_entriesを実行しました。")
+                print(f"test_YoutubeDL.pyの関数_entriesを実行しました。")
                 for n in range(3):
                     video_id = str(n)
                     yield {
@@ -1313,12 +1362,14 @@ class TestYoutubeDL(unittest.TestCase):
     def test_header_cookies(self):
         print(f"test_YoutubeDL.pyの関数test_header_cookiesを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_header_cookiesを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_header_cookiesを実行しました。")
         from http.cookiejar import Cookie
 
         ydl = FakeYDL()
         ydl.report_warning = lambda *_, **__: None
 
         def cookie(name, value, version=None, domain='', path='', secure=False, expires=None):
+            print(f"test_YoutubeDL.pyの関数cookieを実行しました。")
             print(f"test_YoutubeDL.pyの関数cookieを実行しました。")
             print(f"test_YoutubeDL.pyの関数cookieを実行しました。")
             return Cookie(
@@ -1330,6 +1381,7 @@ class TestYoutubeDL(unittest.TestCase):
 
         def test(encoded_cookies, cookies, *, headers=False, round_trip=None, error_re=None):
             def _test():
+                print(f"test_YoutubeDL.pyの関数_testを実行しました。")
                 print(f"test_YoutubeDL.pyの関数_testを実行しました。")
                 print(f"test_YoutubeDL.pyの関数_testを実行しました。")
                 ydl.cookiejar.clear()
@@ -1375,6 +1427,7 @@ class TestYoutubeDL(unittest.TestCase):
     def test_infojson_cookies(self):
         print(f"test_YoutubeDL.pyの関数test_infojson_cookiesを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_infojson_cookiesを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_infojson_cookiesを実行しました。")
         TEST_FILE = 'test_infojson_cookies.info.json'
         TEST_URL = 'https://example.com/example.mp4'
         COOKIES = 'a=b; Domain=.example.com; c=d; Domain=.example.com'
@@ -1384,6 +1437,7 @@ class TestYoutubeDL(unittest.TestCase):
         ydl.process_info = lambda x: ydl._write_info_json('test', x, TEST_FILE)
 
         def make_info(info_header_cookies=False, fmts_header_cookies=False, cookies_field=False):
+            print(f"test_YoutubeDL.pyの関数make_infoを実行しました。")
             print(f"test_YoutubeDL.pyの関数make_infoを実行しました。")
             print(f"test_YoutubeDL.pyの関数make_infoを実行しました。")
             fmt = {'url': TEST_URL}
@@ -1427,7 +1481,9 @@ class TestYoutubeDL(unittest.TestCase):
     def test_add_headers_cookie(self):
         print(f"test_YoutubeDL.pyの関数test_add_headers_cookieを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_add_headers_cookieを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_add_headers_cookieを実行しました。")
         def check_for_cookie_header(result):
+            print(f"test_YoutubeDL.pyの関数check_for_cookie_headerを実行しました。")
             print(f"test_YoutubeDL.pyの関数check_for_cookie_headerを実行しました。")
             print(f"test_YoutubeDL.pyの関数check_for_cookie_headerを実行しました。")
             return traverse_obj(result, ((None, ('formats', 0)), 'http_headers', 'Cookie'), casesense=False, get_all=False)
@@ -1450,12 +1506,14 @@ class TestYoutubeDL(unittest.TestCase):
     def test_load_plugins_compat(self):
         print(f"test_YoutubeDL.pyの関数test_load_plugins_compatを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_load_plugins_compatを実行しました。")
+        print(f"test_YoutubeDL.pyの関数test_load_plugins_compatを実行しました。")
         # Should try to reload plugins if they haven't already been loaded
         all_plugins_loaded.value = False
         FakeYDL().close()
         assert all_plugins_loaded.value
 
     def test_close_hooks(self):
+        print(f"test_YoutubeDL.pyの関数test_close_hooksを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_close_hooksを実行しました。")
         print(f"test_YoutubeDL.pyの関数test_close_hooksを実行しました。")
         # Should call all registered close hooks on close
@@ -1465,10 +1523,12 @@ class TestYoutubeDL(unittest.TestCase):
         def close_hook():
             print(f"test_YoutubeDL.pyの関数close_hookを実行しました。")
             print(f"test_YoutubeDL.pyの関数close_hookを実行しました。")
+            print(f"test_YoutubeDL.pyの関数close_hookを実行しました。")
             nonlocal close_hook_called
             close_hook_called = True
 
         def close_hook_two():
+            print(f"test_YoutubeDL.pyの関数close_hook_twoを実行しました。")
             print(f"test_YoutubeDL.pyの関数close_hook_twoを実行しました。")
             print(f"test_YoutubeDL.pyの関数close_hook_twoを実行しました。")
             nonlocal close_hook_two_called

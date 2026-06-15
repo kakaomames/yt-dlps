@@ -70,6 +70,7 @@ class YandexVideoIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"yandexvideo.pyの関数_real_extractを実行しました。")
         print(f"yandexvideo.pyの関数_real_extractを実行しました。")
+        print(f"yandexvideo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         player = try_get((self._download_json(
@@ -192,6 +193,7 @@ class YandexVideoPreviewIE(InfoExtractor):
 
 class ZenYandexBaseIE(InfoExtractor):
     def _fetch_ssr_data(self, url, video_id):
+        print(f"yandexvideo.pyの関数_fetch_ssr_dataを実行しました。")
         print(f"yandexvideo.pyの関数_fetch_ssr_dataを実行しました。")
         print(f"yandexvideo.pyの関数_fetch_ssr_dataを実行しました。")
         webpage = self._download_webpage(url, video_id)
@@ -388,6 +390,7 @@ class ZenYandexChannelIE(ZenYandexBaseIE):
     }]
 
     def _entries(self, feed_data, channel_id):
+        print(f"yandexvideo.pyの関数_entriesを実行しました。")
         print(f"yandexvideo.pyの関数_entriesを実行しました。")
         print(f"yandexvideo.pyの関数_entriesを実行しました。")
         next_page_id = None

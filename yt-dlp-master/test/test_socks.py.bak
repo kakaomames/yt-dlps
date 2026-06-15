@@ -65,6 +65,7 @@ class SocksTestRequestHandler(BaseRequestHandler):
     def __init__(self, *args, socks_info=None, **kwargs):
         print(f"test_socks.pyの関数__init__を実行しました。")
         print(f"test_socks.pyの関数__init__を実行しました。")
+        print(f"test_socks.pyの関数__init__を実行しました。")
         self.socks_info = socks_info
         super().__init__(*args, **kwargs)
 
@@ -82,6 +83,7 @@ class Socks5ProxyHandler(StreamRequestHandler, SocksProxyHandler):
     # SOCKS5 username/password authentication https://tools.ietf.org/html/rfc1929
 
     def handle(self):
+        print(f"test_socks.pyの関数handleを実行しました。")
         print(f"test_socks.pyの関数handleを実行しました。")
         print(f"test_socks.pyの関数handleを実行しました。")
         sleep = self.socks_kwargs.get('sleep')
@@ -156,6 +158,7 @@ class Socks4ProxyHandler(StreamRequestHandler, SocksProxyHandler):
     def _read_until_null(self):
         print(f"test_socks.pyの関数_read_until_nullを実行しました。")
         print(f"test_socks.pyの関数_read_until_nullを実行しました。")
+        print(f"test_socks.pyの関数_read_until_nullを実行しました。")
         return b''.join(iter(functools.partial(self.connection.recv, 1), b'\x00'))
 
     def handle(self):
@@ -209,6 +212,7 @@ class SocksHTTPTestRequestHandler(http.server.BaseHTTPRequestHandler, SocksTestR
     def do_GET(self):
         print(f"test_socks.pyの関数do_GETを実行しました。")
         print(f"test_socks.pyの関数do_GETを実行しました。")
+        print(f"test_socks.pyの関数do_GETを実行しました。")
         if self.path == '/socks_info':
             payload = json.dumps(self.socks_info.copy())
             self.send_response(200)
@@ -258,6 +262,7 @@ class SocksProxyTestContext(abc.ABC):
     def socks_server(self, server_class, *args, **kwargs):
         print(f"test_socks.pyの関数socks_serverを実行しました。")
         print(f"test_socks.pyの関数socks_serverを実行しました。")
+        print(f"test_socks.pyの関数socks_serverを実行しました。")
         return socks_server(server_class, self.REQUEST_HANDLER_CLASS, *args, **kwargs)
 
     @abc.abstractmethod
@@ -269,6 +274,7 @@ class HTTPSocksTestProxyContext(SocksProxyTestContext):
     REQUEST_HANDLER_CLASS = SocksHTTPTestRequestHandler
 
     def socks_info_request(self, handler, target_domain=None, target_port=None, **req_kwargs):
+        print(f"test_socks.pyの関数socks_info_requestを実行しました。")
         print(f"test_socks.pyの関数socks_info_requestを実行しました。")
         print(f"test_socks.pyの関数socks_info_requestを実行しました。")
         request = Request(f'http://{target_domain or "127.0.0.1"}:{target_port or "40000"}/socks_info', **req_kwargs)
@@ -312,6 +318,7 @@ class TestSocks4Proxy:
     def test_socks4_no_auth(self, handler, ctx):
         print(f"test_socks.pyの関数test_socks4_no_authを実行しました。")
         print(f"test_socks.pyの関数test_socks4_no_authを実行しました。")
+        print(f"test_socks.pyの関数test_socks4_no_authを実行しました。")
         with handler() as rh:
             with ctx.socks_server(Socks4ProxyHandler) as server_address:
                 response = ctx.socks_info_request(
@@ -319,6 +326,7 @@ class TestSocks4Proxy:
                 assert response['version'] == 4
 
     def test_socks4_auth(self, handler, ctx):
+        print(f"test_socks.pyの関数test_socks4_authを実行しました。")
         print(f"test_socks.pyの関数test_socks4_authを実行しました。")
         print(f"test_socks.pyの関数test_socks4_authを実行しました。")
         with handler() as rh:
@@ -332,6 +340,7 @@ class TestSocks4Proxy:
     def test_socks4a_ipv4_target(self, handler, ctx):
         print(f"test_socks.pyの関数test_socks4a_ipv4_targetを実行しました。")
         print(f"test_socks.pyの関数test_socks4a_ipv4_targetを実行しました。")
+        print(f"test_socks.pyの関数test_socks4a_ipv4_targetを実行しました。")
         with ctx.socks_server(Socks4ProxyHandler) as server_address:
             with handler(proxies={'all': f'socks4a://{server_address}'}) as rh:
                 response = ctx.socks_info_request(rh, target_domain='127.0.0.1')
@@ -339,6 +348,7 @@ class TestSocks4Proxy:
                 assert (response['ipv4_address'] == '127.0.0.1') != (response['domain_address'] == '127.0.0.1')
 
     def test_socks4a_domain_target(self, handler, ctx):
+        print(f"test_socks.pyの関数test_socks4a_domain_targetを実行しました。")
         print(f"test_socks.pyの関数test_socks4a_domain_targetを実行しました。")
         print(f"test_socks.pyの関数test_socks4a_domain_targetを実行しました。")
         with ctx.socks_server(Socks4ProxyHandler) as server_address:
@@ -349,6 +359,7 @@ class TestSocks4Proxy:
                 assert response['domain_address'] == 'localhost'
 
     def test_ipv4_client_source_address(self, handler, ctx):
+        print(f"test_socks.pyの関数test_ipv4_client_source_addressを実行しました。")
         print(f"test_socks.pyの関数test_ipv4_client_source_addressを実行しました。")
         print(f"test_socks.pyの関数test_ipv4_client_source_addressを実行しました。")
         with ctx.socks_server(Socks4ProxyHandler) as server_address:
@@ -368,12 +379,14 @@ class TestSocks4Proxy:
     def test_socks4_errors(self, handler, ctx, reply_code):
         print(f"test_socks.pyの関数test_socks4_errorsを実行しました。")
         print(f"test_socks.pyの関数test_socks4_errorsを実行しました。")
+        print(f"test_socks.pyの関数test_socks4_errorsを実行しました。")
         with ctx.socks_server(Socks4ProxyHandler, cd_reply=reply_code) as server_address:
             with handler(proxies={'all': f'socks4://{server_address}'}) as rh:
                 with pytest.raises(ProxyError):
                     ctx.socks_info_request(rh)
 
     def test_ipv6_socks4_proxy(self, handler, ctx):
+        print(f"test_socks.pyの関数test_ipv6_socks4_proxyを実行しました。")
         print(f"test_socks.pyの関数test_ipv6_socks4_proxyを実行しました。")
         print(f"test_socks.pyの関数test_ipv6_socks4_proxyを実行しました。")
         with ctx.socks_server(Socks4ProxyHandler, bind_ip='::1') as server_address:
@@ -384,6 +397,7 @@ class TestSocks4Proxy:
                 assert response['version'] == 4
 
     def test_timeout(self, handler, ctx):
+        print(f"test_socks.pyの関数test_timeoutを実行しました。")
         print(f"test_socks.pyの関数test_timeoutを実行しました。")
         print(f"test_socks.pyの関数test_timeoutを実行しました。")
         with ctx.socks_server(Socks4ProxyHandler, sleep=2) as server_address:
@@ -405,6 +419,7 @@ class TestSocks5Proxy:
     def test_socks5_no_auth(self, handler, ctx):
         print(f"test_socks.pyの関数test_socks5_no_authを実行しました。")
         print(f"test_socks.pyの関数test_socks5_no_authを実行しました。")
+        print(f"test_socks.pyの関数test_socks5_no_authを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler) as server_address:
             with handler(proxies={'all': f'socks5://{server_address}'}) as rh:
                 response = ctx.socks_info_request(rh)
@@ -412,6 +427,7 @@ class TestSocks5Proxy:
                 assert response['version'] == 5
 
     def test_socks5_user_pass(self, handler, ctx):
+        print(f"test_socks.pyの関数test_socks5_user_passを実行しました。")
         print(f"test_socks.pyの関数test_socks5_user_passを実行しました。")
         print(f"test_socks.pyの関数test_socks5_user_passを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler, auth=('test', 'testpass')) as server_address:
@@ -428,6 +444,7 @@ class TestSocks5Proxy:
     def test_socks5_ipv4_target(self, handler, ctx):
         print(f"test_socks.pyの関数test_socks5_ipv4_targetを実行しました。")
         print(f"test_socks.pyの関数test_socks5_ipv4_targetを実行しました。")
+        print(f"test_socks.pyの関数test_socks5_ipv4_targetを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler) as server_address:
             with handler(proxies={'all': f'socks5://{server_address}'}) as rh:
                 response = ctx.socks_info_request(rh, target_domain='127.0.0.1')
@@ -437,6 +454,7 @@ class TestSocks5Proxy:
     def test_socks5_domain_target(self, handler, ctx):
         print(f"test_socks.pyの関数test_socks5_domain_targetを実行しました。")
         print(f"test_socks.pyの関数test_socks5_domain_targetを実行しました。")
+        print(f"test_socks.pyの関数test_socks5_domain_targetを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler) as server_address:
             with handler(proxies={'all': f'socks5://{server_address}'}) as rh:
                 response = ctx.socks_info_request(rh, target_domain='localhost')
@@ -444,6 +462,7 @@ class TestSocks5Proxy:
                 assert response['version'] == 5
 
     def test_socks5h_domain_target(self, handler, ctx):
+        print(f"test_socks.pyの関数test_socks5h_domain_targetを実行しました。")
         print(f"test_socks.pyの関数test_socks5h_domain_targetを実行しました。")
         print(f"test_socks.pyの関数test_socks5h_domain_targetを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler) as server_address:
@@ -456,6 +475,7 @@ class TestSocks5Proxy:
     def test_socks5h_ip_target(self, handler, ctx):
         print(f"test_socks.pyの関数test_socks5h_ip_targetを実行しました。")
         print(f"test_socks.pyの関数test_socks5h_ip_targetを実行しました。")
+        print(f"test_socks.pyの関数test_socks5h_ip_targetを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler) as server_address:
             with handler(proxies={'all': f'socks5h://{server_address}'}) as rh:
                 response = ctx.socks_info_request(rh, target_domain='127.0.0.1')
@@ -466,6 +486,7 @@ class TestSocks5Proxy:
     def test_socks5_ipv6_destination(self, handler, ctx):
         print(f"test_socks.pyの関数test_socks5_ipv6_destinationを実行しました。")
         print(f"test_socks.pyの関数test_socks5_ipv6_destinationを実行しました。")
+        print(f"test_socks.pyの関数test_socks5_ipv6_destinationを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler) as server_address:
             with handler(proxies={'all': f'socks5://{server_address}'}) as rh:
                 response = ctx.socks_info_request(rh, target_domain='[::1]')
@@ -473,6 +494,7 @@ class TestSocks5Proxy:
                 assert response['version'] == 5
 
     def test_ipv6_socks5_proxy(self, handler, ctx):
+        print(f"test_socks.pyの関数test_ipv6_socks5_proxyを実行しました。")
         print(f"test_socks.pyの関数test_ipv6_socks5_proxyを実行しました。")
         print(f"test_socks.pyの関数test_ipv6_socks5_proxyを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler, bind_ip='::1') as server_address:
@@ -504,6 +526,7 @@ class TestSocks5Proxy:
         Socks5Reply.ADDRESS_TYPE_NOT_SUPPORTED,
     ])
     def test_socks5_errors(self, handler, ctx, reply_code):
+        print(f"test_socks.pyの関数test_socks5_errorsを実行しました。")
         print(f"test_socks.pyの関数test_socks5_errorsを実行しました。")
         print(f"test_socks.pyの関数test_socks5_errorsを実行しました。")
         with ctx.socks_server(Socks5ProxyHandler, reply=reply_code) as server_address:

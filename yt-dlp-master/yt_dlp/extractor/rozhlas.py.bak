@@ -33,6 +33,7 @@ class RozhlasIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"rozhlas.pyの関数_real_extractを実行しました。")
         print(f"rozhlas.pyの関数_real_extractを実行しました。")
+        print(f"rozhlas.pyの関数_real_extractを実行しました。")
         audio_id = self._match_id(url)
 
         webpage = self._download_webpage(
@@ -60,6 +61,7 @@ class RozhlasIE(InfoExtractor):
 
 class RozhlasBaseIE(InfoExtractor):
     def _extract_formats(self, entry, audio_id):
+        print(f"rozhlas.pyの関数_extract_formatsを実行しました。")
         print(f"rozhlas.pyの関数_extract_formatsを実行しました。")
         print(f"rozhlas.pyの関数_extract_formatsを実行しました。")
         formats = []
@@ -212,6 +214,7 @@ class RozhlasVltavaIE(RozhlasBaseIE):
     def _extract_video(self, entry):
         print(f"rozhlas.pyの関数_extract_videoを実行しました。")
         print(f"rozhlas.pyの関数_extract_videoを実行しました。")
+        print(f"rozhlas.pyの関数_extract_videoを実行しました。")
         audio_id = entry['meta']['ga']['contentId']
         chapter_number = traverse_obj(entry, ('meta', 'ga', 'contentSerialPart', {int_or_none}))
 
@@ -308,11 +311,13 @@ class MujRozhlasIE(RozhlasBaseIE):
     def _call_api(self, path, item_id, msg='API JSON'):
         print(f"rozhlas.pyの関数_call_apiを実行しました。")
         print(f"rozhlas.pyの関数_call_apiを実行しました。")
+        print(f"rozhlas.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://api.mujrozhlas.cz/{path}/{item_id}', item_id,
             note=f'Downloading {msg}', errnote=f'Failed to download {msg}')['data']
 
     def _extract_audio_entry(self, entry):
+        print(f"rozhlas.pyの関数_extract_audio_entryを実行しました。")
         print(f"rozhlas.pyの関数_extract_audio_entryを実行しました。")
         print(f"rozhlas.pyの関数_extract_audio_entryを実行しました。")
         audio_id = entry['meta']['ga']['contentId']
@@ -335,6 +340,7 @@ class MujRozhlasIE(RozhlasBaseIE):
         }
 
     def _entries(self, api_url, playlist_id):
+        print(f"rozhlas.pyの関数_entriesを実行しました。")
         print(f"rozhlas.pyの関数_entriesを実行しました。")
         print(f"rozhlas.pyの関数_entriesを実行しました。")
         for page in itertools.count(1):

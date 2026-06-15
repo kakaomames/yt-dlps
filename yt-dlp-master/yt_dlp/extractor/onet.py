@@ -23,10 +23,12 @@ class OnetBaseIE(InfoExtractor):
         print(f"onet.pyの関数_search_mvp_idを実行しました。")
         print(f"onet.pyの関数_search_mvp_idを実行しました。")
         print(f"onet.pyの関数_search_mvp_idを実行しました。")
+        print(f"onet.pyの関数_search_mvp_idを実行しました。")
         return self._search_regex(
             r'id=(["\'])mvp:(?P<id>.+?)\1', webpage, 'mvp id', group='id')
 
     def _extract_from_id(self, video_id, webpage=None):
+        print(f"onet.pyの関数_extract_from_idを実行しました。")
         print(f"onet.pyの関数_extract_from_idを実行しました。")
         print(f"onet.pyの関数_extract_from_idを実行しました。")
         print(f"onet.pyの関数_extract_from_idを実行しました。")
@@ -115,6 +117,7 @@ class OnetMVPIE(OnetBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"onet.pyの関数_real_extractを実行しました。")
         print(f"onet.pyの関数_real_extractを実行しました。")
         print(f"onet.pyの関数_real_extractを実行しました。")
         print(f"onet.pyの関数_real_extractを実行しました。")

@@ -34,6 +34,7 @@ class NoSupportingHandlers(RequestError):
         print(f"exceptions.pyの関数__init__を実行しました。")
         print(f"exceptions.pyの関数__init__を実行しました。")
         print(f"exceptions.pyの関数__init__を実行しました。")
+        print(f"exceptions.pyの関数__init__を実行しました。")
         self.unsupported_errors = unsupported_errors or []
         self.unexpected_errors = unexpected_errors or []
 
@@ -73,9 +74,11 @@ class HTTPError(RequestError):
         print(f"exceptions.pyの関数closeを実行しました。")
         print(f"exceptions.pyの関数closeを実行しました。")
         print(f"exceptions.pyの関数closeを実行しました。")
+        print(f"exceptions.pyの関数closeを実行しました。")
         self.response.close()
 
     def __repr__(self):
+        print(f"exceptions.pyの関数__repr__を実行しました。")
         print(f"exceptions.pyの関数__repr__を実行しました。")
         print(f"exceptions.pyの関数__repr__を実行しました。")
         print(f"exceptions.pyの関数__repr__を実行しました。")

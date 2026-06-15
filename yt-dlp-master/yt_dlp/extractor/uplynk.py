@@ -23,6 +23,7 @@ class UplynkBaseIE(InfoExtractor):
         print(f"uplynk.pyの関数_extract_uplynk_infoを実行しました。")
         print(f"uplynk.pyの関数_extract_uplynk_infoを実行しました。")
         print(f"uplynk.pyの関数_extract_uplynk_infoを実行しました。")
+        print(f"uplynk.pyの関数_extract_uplynk_infoを実行しました。")
         uplynk_content_url, smuggled_data = unsmuggle_url(url, {})
         mobj = re.match(self._UPLYNK_URL_RE, uplynk_content_url)
         if not mobj:
@@ -72,6 +73,7 @@ class UplynkIE(UplynkBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"uplynk.pyの関数_real_extractを実行しました。")
         print(f"uplynk.pyの関数_real_extractを実行しました。")
         print(f"uplynk.pyの関数_real_extractを実行しました。")
         print(f"uplynk.pyの関数_real_extractを実行しました。")

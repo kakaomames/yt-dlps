@@ -21,10 +21,12 @@ class NiconicoChannelPlusBaseIE(InfoExtractor):
     def _call_api(self, path, item_id, **kwargs):
         print(f"niconicochannelplus.pyの関数_call_apiを実行しました。")
         print(f"niconicochannelplus.pyの関数_call_apiを実行しました。")
+        print(f"niconicochannelplus.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://nfc-api.nicochannel.jp/fc/{path}', video_id=item_id, **kwargs)
 
     def _find_fanclub_site_id(self, channel_name):
+        print(f"niconicochannelplus.pyの関数_find_fanclub_site_idを実行しました。")
         print(f"niconicochannelplus.pyの関数_find_fanclub_site_idを実行しました。")
         print(f"niconicochannelplus.pyの関数_find_fanclub_site_idを実行しました。")
         fanclub_list_json = self._call_api(
@@ -41,12 +43,14 @@ class NiconicoChannelPlusBaseIE(InfoExtractor):
     def _get_channel_base_info(self, fanclub_site_id):
         print(f"niconicochannelplus.pyの関数_get_channel_base_infoを実行しました。")
         print(f"niconicochannelplus.pyの関数_get_channel_base_infoを実行しました。")
+        print(f"niconicochannelplus.pyの関数_get_channel_base_infoを実行しました。")
         return traverse_obj(self._call_api(
             f'fanclub_sites/{fanclub_site_id}/page_base_info', item_id=f'fanclub_sites/{fanclub_site_id}',
             note='Fetching channel base info', errnote='Unable to fetch channel base info', fatal=False,
         ), ('data', 'fanclub_site', {dict})) or {}
 
     def _get_channel_user_info(self, fanclub_site_id):
+        print(f"niconicochannelplus.pyの関数_get_channel_user_infoを実行しました。")
         print(f"niconicochannelplus.pyの関数_get_channel_user_infoを実行しました。")
         print(f"niconicochannelplus.pyの関数_get_channel_user_infoを実行しました。")
         return traverse_obj(self._call_api(
@@ -109,6 +113,7 @@ class NiconicoChannelPlusIE(NiconicoChannelPlusBaseIE):
     def _real_extract(self, url):
         print(f"niconicochannelplus.pyの関数_real_extractを実行しました。")
         print(f"niconicochannelplus.pyの関数_real_extractを実行しました。")
+        print(f"niconicochannelplus.pyの関数_real_extractを実行しました。")
         content_code, channel_id = self._match_valid_url(url).group('code', 'channel')
         fanclub_site_id = self._find_fanclub_site_id(channel_id)
 
@@ -163,6 +168,7 @@ class NiconicoChannelPlusIE(NiconicoChannelPlusBaseIE):
     def _get_comments(self, content_code, comment_group_id):
         print(f"niconicochannelplus.pyの関数_get_commentsを実行しました。")
         print(f"niconicochannelplus.pyの関数_get_commentsを実行しました。")
+        print(f"niconicochannelplus.pyの関数_get_commentsを実行しました。")
         item_id = f'{content_code}/comments'
 
         if not comment_group_id:
@@ -197,6 +203,7 @@ class NiconicoChannelPlusIE(NiconicoChannelPlusBaseIE):
             }, get_all=False)
 
     def _get_live_status_and_session_id(self, content_code, data_json):
+        print(f"niconicochannelplus.pyの関数_get_live_status_and_session_idを実行しました。")
         print(f"niconicochannelplus.pyの関数_get_live_status_and_session_idを実行しました。")
         print(f"niconicochannelplus.pyの関数_get_live_status_and_session_idを実行しました。")
         video_type = data_json.get('type')
@@ -248,6 +255,7 @@ class NiconicoChannelPlusChannelBaseIE(NiconicoChannelPlusBaseIE):
     _PAGE_SIZE = 12
 
     def _fetch_paged_channel_video_list(self, path, query, channel_name, item_id, page):
+        print(f"niconicochannelplus.pyの関数_fetch_paged_channel_video_listを実行しました。")
         print(f"niconicochannelplus.pyの関数_fetch_paged_channel_video_listを実行しました。")
         print(f"niconicochannelplus.pyの関数_fetch_paged_channel_video_listを実行しました。")
         response = self._call_api(

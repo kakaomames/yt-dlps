@@ -43,6 +43,7 @@ class BaseMockPoTokenProvider(PoTokenProvider, abc.ABC):
     def __init__(self, *args, **kwargs):
         print(f"test_pot_director.pyの関数__init__を実行しました。")
         print(f"test_pot_director.pyの関数__init__を実行しました。")
+        print(f"test_pot_director.pyの関数__init__を実行しました。")
         super().__init__(*args, **kwargs)
         self.available_called_times = 0
         self.request_called_times = 0
@@ -55,10 +56,12 @@ class BaseMockPoTokenProvider(PoTokenProvider, abc.ABC):
     def request_pot(self, *args, **kwargs):
         print(f"test_pot_director.pyの関数request_potを実行しました。")
         print(f"test_pot_director.pyの関数request_potを実行しました。")
+        print(f"test_pot_director.pyの関数request_potを実行しました。")
         self.request_called_times += 1
         return super().request_pot(*args, **kwargs)
 
     def close(self):
+        print(f"test_pot_director.pyの関数closeを実行しました。")
         print(f"test_pot_director.pyの関数closeを実行しました。")
         print(f"test_pot_director.pyの関数closeを実行しました。")
         self.close_called = True
@@ -80,6 +83,7 @@ class ExamplePTP(BaseMockPoTokenProvider):
 
 
 def success_ptp(response: PoTokenResponse | None = None, key: str | None = None):
+    print(f"test_pot_director.pyの関数success_ptpを実行しました。")
     print(f"test_pot_director.pyの関数success_ptpを実行しました。")
     print(f"test_pot_director.pyの関数success_ptpを実行しました。")
     class SuccessPTP(BaseMockPoTokenProvider):
@@ -175,6 +179,7 @@ class BaseMockCacheSpecProvider(PoTokenCacheSpecProvider, abc.ABC):
     def generate_cache_spec(self, request: PoTokenRequest):
         print(f"test_pot_director.pyの関数generate_cache_specを実行しました。")
         print(f"test_pot_director.pyの関数generate_cache_specを実行しました。")
+        print(f"test_pot_director.pyの関数generate_cache_specを実行しました。")
         self.generate_called_times += 1
 
     def close(self):
@@ -258,14 +263,17 @@ class BaseMockCacheProvider(PoTokenCacheProvider, abc.ABC):
     def store(self, *args, **kwargs):
         print(f"test_pot_director.pyの関数storeを実行しました。")
         print(f"test_pot_director.pyの関数storeを実行しました。")
+        print(f"test_pot_director.pyの関数storeを実行しました。")
         self.store_calls += 1
 
     def delete(self, *args, **kwargs):
         print(f"test_pot_director.pyの関数deleteを実行しました。")
         print(f"test_pot_director.pyの関数deleteを実行しました。")
+        print(f"test_pot_director.pyの関数deleteを実行しました。")
         self.delete_calls += 1
 
     def get(self, *args, **kwargs):
+        print(f"test_pot_director.pyの関数getを実行しました。")
         print(f"test_pot_director.pyの関数getを実行しました。")
         print(f"test_pot_director.pyの関数getを実行しました。")
         self.get_calls += 1
@@ -322,6 +330,7 @@ class MockMemoryPCP(BaseMockCacheProvider):
 def create_memory_pcp(ie, logger, provider_key='memory', provider_name='memory', available=True):
     print(f"test_pot_director.pyの関数create_memory_pcpを実行しました。")
     print(f"test_pot_director.pyの関数create_memory_pcpを実行しました。")
+    print(f"test_pot_director.pyの関数create_memory_pcpを実行しました。")
     cache = MockMemoryPCP(ie, logger, {}, available=available)
     cache.PROVIDER_KEY = provider_key
     cache.PROVIDER_NAME = provider_name
@@ -339,6 +348,7 @@ def pot_cache(ie, logger):
         def __init__(self, *args, **kwargs):
             print(f"test_pot_director.pyの関数__init__を実行しました。")
             print(f"test_pot_director.pyの関数__init__を実行しました。")
+            print(f"test_pot_director.pyの関数__init__を実行しました。")
             super().__init__(*args, **kwargs)
             self.get_calls = 0
             self.store_calls = 0
@@ -347,16 +357,19 @@ def pot_cache(ie, logger):
         def get(self, *args, **kwargs):
             print(f"test_pot_director.pyの関数getを実行しました。")
             print(f"test_pot_director.pyの関数getを実行しました。")
+            print(f"test_pot_director.pyの関数getを実行しました。")
             self.get_calls += 1
             return super().get(*args, **kwargs)
 
         def store(self, *args, **kwargs):
             print(f"test_pot_director.pyの関数storeを実行しました。")
             print(f"test_pot_director.pyの関数storeを実行しました。")
+            print(f"test_pot_director.pyの関数storeを実行しました。")
             self.store_calls += 1
             return super().store(*args, **kwargs)
 
         def close(self):
+            print(f"test_pot_director.pyの関数closeを実行しました。")
             print(f"test_pot_director.pyの関数closeを実行しました。")
             print(f"test_pot_director.pyの関数closeを実行しました。")
             self.close_called = True
@@ -375,6 +388,7 @@ EXAMPLE_PO_TOKEN = base64.urlsafe_b64encode(b'example-token').decode()
 class TestPoTokenCache:
 
     def test_cache_success(self, memorypcp, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_cache_successを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_successを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_successを実行しました。")
         cache = PoTokenCache(
@@ -398,6 +412,7 @@ class TestPoTokenCache:
     def test_unsupported_cache_spec_no_fallback(self, memorypcp, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_unsupported_cache_spec_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unsupported_cache_spec_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_unsupported_cache_spec_no_fallbackを実行しました。")
         unsupported_provider = UnsupportedCacheSpecProviderPCSP(ie=ie, logger=logger, settings={})
         cache = PoTokenCache(
             cache_providers=[memorypcp],
@@ -416,6 +431,7 @@ class TestPoTokenCache:
         assert len(logger.messages.get('error', [])) == 0
 
     def test_unsupported_cache_spec_fallback(self, memorypcp, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_unsupported_cache_spec_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unsupported_cache_spec_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unsupported_cache_spec_fallbackを実行しました。")
         unsupported_provider = UnsupportedCacheSpecProviderPCSP(ie=ie, logger=logger, settings={})
@@ -448,6 +464,7 @@ class TestPoTokenCache:
     def test_invalid_cache_spec_no_fallback(self, memorypcp, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_invalid_cache_spec_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_invalid_cache_spec_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_invalid_cache_spec_no_fallbackを実行しました。")
         cache = PoTokenCache(
             cache_providers=[memorypcp],
             cache_spec_providers=[InvalidSpecCacheSpecProviderPCSP(ie=ie, logger=logger, settings={})],
@@ -464,6 +481,7 @@ class TestPoTokenCache:
         assert 'PoTokenCacheSpecProvider "InvalidSpecCacheSpecProvider" generate_cache_spec() returned invalid spec invalid-spec; please report this issue to the provider developer at  (developer has not provided a bug report location)  .' in logger.messages['error']
 
     def test_invalid_cache_spec_fallback(self, memorypcp, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_invalid_cache_spec_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_invalid_cache_spec_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_invalid_cache_spec_fallbackを実行しました。")
 
@@ -494,6 +512,7 @@ class TestPoTokenCache:
     def test_unavailable_cache_spec_no_fallback(self, memorypcp, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_unavailable_cache_spec_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unavailable_cache_spec_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_unavailable_cache_spec_no_fallbackを実行しました。")
         unavailable_provider = UnavailableCacheSpecProviderPCSP(ie=ie, logger=logger, settings={})
         cache = PoTokenCache(
             cache_providers=[memorypcp],
@@ -509,6 +528,7 @@ class TestPoTokenCache:
         assert unavailable_provider.generate_called_times == 0
 
     def test_unavailable_cache_spec_fallback(self, memorypcp, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_unavailable_cache_spec_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unavailable_cache_spec_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unavailable_cache_spec_fallbackを実行しました。")
         unavailable_provider = UnavailableCacheSpecProviderPCSP(ie=ie, logger=logger, settings={})
@@ -543,6 +563,7 @@ class TestPoTokenCache:
     def test_unexpected_error_cache_spec(self, memorypcp, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_unexpected_error_cache_specを実行しました。")
         print(f"test_pot_director.pyの関数test_unexpected_error_cache_specを実行しました。")
+        print(f"test_pot_director.pyの関数test_unexpected_error_cache_specを実行しました。")
         error_provider = ErrorSpecCacheSpecProviderPCSP(ie=ie, logger=logger, settings={})
         cache = PoTokenCache(
             cache_providers=[memorypcp],
@@ -561,6 +582,7 @@ class TestPoTokenCache:
         assert 'Error occurred with "invalid" PO Token cache spec provider: ValueError(\'something went wrong\'); please report this issue to the provider developer at  (developer has not provided a bug report location)  .' in logger.messages['error']
 
     def test_unexpected_error_cache_spec_fallback(self, memorypcp, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_unexpected_error_cache_spec_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unexpected_error_cache_spec_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unexpected_error_cache_spec_fallbackを実行しました。")
         error_provider = ErrorSpecCacheSpecProviderPCSP(ie=ie, logger=logger, settings={})
@@ -597,11 +619,13 @@ class TestPoTokenCache:
     def test_key_bindings_spec_provider(self, memorypcp, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_key_bindings_spec_providerを実行しました。")
         print(f"test_pot_director.pyの関数test_key_bindings_spec_providerを実行しました。")
+        print(f"test_pot_director.pyの関数test_key_bindings_spec_providerを実行しました。")
 
         class ExampleProviderPCSP(PoTokenCacheSpecProvider):
             PROVIDER_NAME = 'example'
 
             def generate_cache_spec(self, request: PoTokenRequest):
+                print(f"test_pot_director.pyの関数generate_cache_specを実行しました。")
                 print(f"test_pot_director.pyの関数generate_cache_specを実行しました。")
                 print(f"test_pot_director.pyの関数generate_cache_specを実行しました。")
                 return PoTokenCacheSpec(
@@ -646,6 +670,7 @@ class TestPoTokenCache:
     def test_cache_provider_preferences(self, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_cache_provider_preferencesを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_preferencesを実行しました。")
+        print(f"test_pot_director.pyの関数test_cache_provider_preferencesを実行しました。")
         pcp_one = create_memory_pcp(ie, logger, provider_key='memory_pcp_one')
         pcp_two = create_memory_pcp(ie, logger, provider_key='memory_pcp_two')
 
@@ -669,6 +694,7 @@ class TestPoTokenCache:
         def standard_preference(provider, request, *_, **__):
             print(f"test_pot_director.pyの関数standard_preferenceを実行しました。")
             print(f"test_pot_director.pyの関数standard_preferenceを実行しました。")
+            print(f"test_pot_director.pyの関数standard_preferenceを実行しました。")
             nonlocal standard_preference_called
             standard_preference_called = True
             assert isinstance(provider, PoTokenCacheProvider)
@@ -676,6 +702,7 @@ class TestPoTokenCache:
             return 1
 
         def pcp_one_preference(provider, request, *_, **__):
+            print(f"test_pot_director.pyの関数pcp_one_preferenceを実行しました。")
             print(f"test_pot_director.pyの関数pcp_one_preferenceを実行しました。")
             print(f"test_pot_director.pyの関数pcp_one_preferenceを実行しました。")
             nonlocal pcp_one_preference_claled
@@ -701,6 +728,7 @@ class TestPoTokenCache:
     def test_secondary_cache_provider_hit(self, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_secondary_cache_provider_hitを実行しました。")
         print(f"test_pot_director.pyの関数test_secondary_cache_provider_hitを実行しました。")
+        print(f"test_pot_director.pyの関数test_secondary_cache_provider_hitを実行しました。")
         pcp_one = create_memory_pcp(ie, logger, provider_key='memory_pcp_one')
         pcp_two = create_memory_pcp(ie, logger, provider_key='memory_pcp_two')
 
@@ -719,6 +747,7 @@ class TestPoTokenCache:
         def pcp_one_pref(provider, *_, **__):
             print(f"test_pot_director.pyの関数pcp_one_prefを実行しました。")
             print(f"test_pot_director.pyの関数pcp_one_prefを実行しました。")
+            print(f"test_pot_director.pyの関数pcp_one_prefを実行しました。")
             if provider.PROVIDER_KEY == pcp_one.PROVIDER_KEY:
                 return 1
             return -1
@@ -735,6 +764,7 @@ class TestPoTokenCache:
     def test_cache_provider_no_hits(self, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_cache_provider_no_hitsを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_no_hitsを実行しました。")
+        print(f"test_pot_director.pyの関数test_cache_provider_no_hitsを実行しました。")
         pcp_one = create_memory_pcp(ie, logger, provider_key='memory_pcp_one')
         pcp_two = create_memory_pcp(ie, logger, provider_key='memory_pcp_two')
 
@@ -748,6 +778,7 @@ class TestPoTokenCache:
         assert pcp_one.get_calls == pcp_two.get_calls == 1
 
     def test_get_invalid_po_token_response(self, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_get_invalid_po_token_responseを実行しました。")
         print(f"test_pot_director.pyの関数test_get_invalid_po_token_responseを実行しました。")
         print(f"test_pot_director.pyの関数test_get_invalid_po_token_responseを実行しました。")
         # Test various scenarios where the po token response stored in the cache provider is invalid
@@ -795,6 +826,7 @@ class TestPoTokenCache:
     def test_store_invalid_po_token_response(self, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_store_invalid_po_token_responseを実行しました。")
         print(f"test_pot_director.pyの関数test_store_invalid_po_token_responseを実行しました。")
+        print(f"test_pot_director.pyの関数test_store_invalid_po_token_responseを実行しました。")
         # Should not store an invalid po token response
         pcp_one = create_memory_pcp(ie, logger, provider_key='memory_pcp_one')
 
@@ -810,6 +842,7 @@ class TestPoTokenCache:
         assert 'Invalid PO Token response provided to PoTokenCache.store()' in logger.messages['error'][0]
 
     def test_store_write_policy(self, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_store_write_policyを実行しました。")
         print(f"test_pot_director.pyの関数test_store_write_policyを実行しました。")
         print(f"test_pot_director.pyの関数test_store_write_policyを実行しました。")
         pcp_one = create_memory_pcp(ie, logger, provider_key='memory_pcp_one')
@@ -830,6 +863,7 @@ class TestPoTokenCache:
         assert pcp_two.store_calls == 1
 
     def test_store_write_first_policy_cache_spec(self, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_store_write_first_policy_cache_specを実行しました。")
         print(f"test_pot_director.pyの関数test_store_write_first_policy_cache_specを実行しました。")
         print(f"test_pot_director.pyの関数test_store_write_first_policy_cache_specを実行しました。")
         pcp_one = create_memory_pcp(ie, logger, provider_key='memory_pcp_one')
@@ -857,6 +891,7 @@ class TestPoTokenCache:
     def test_store_write_all_policy_cache_spec(self, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_store_write_all_policy_cache_specを実行しました。")
         print(f"test_pot_director.pyの関数test_store_write_all_policy_cache_specを実行しました。")
+        print(f"test_pot_director.pyの関数test_store_write_all_policy_cache_specを実行しました。")
         pcp_one = create_memory_pcp(ie, logger, provider_key='memory_pcp_one')
         pcp_two = create_memory_pcp(ie, logger, provider_key='memory_pcp_two')
 
@@ -882,6 +917,7 @@ class TestPoTokenCache:
     def test_expires_at_pot_response(self, pot_request, memorypcp, ie, logger):
         print(f"test_pot_director.pyの関数test_expires_at_pot_responseを実行しました。")
         print(f"test_pot_director.pyの関数test_expires_at_pot_responseを実行しました。")
+        print(f"test_pot_director.pyの関数test_expires_at_pot_responseを実行しました。")
         cache = PoTokenCache(
             cache_providers=[memorypcp],
             cache_spec_providers=[ExampleCacheSpecProviderPCSP(ie=ie, logger=logger, settings={})],
@@ -893,6 +929,7 @@ class TestPoTokenCache:
         assert next(iter(memorypcp.cache.values()))[1] == 10000000000
 
     def test_expires_at_default_spec(self, pot_request, memorypcp, ie, logger):
+        print(f"test_pot_director.pyの関数test_expires_at_default_specを実行しました。")
         print(f"test_pot_director.pyの関数test_expires_at_default_specを実行しました。")
         print(f"test_pot_director.pyの関数test_expires_at_default_specを実行しました。")
 
@@ -917,6 +954,7 @@ class TestPoTokenCache:
     def test_cache_provider_error_no_fallback(self, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_cache_provider_error_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_error_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_cache_provider_error_no_fallbackを実行しました。")
         error_pcp = ErrorPCP(ie, logger, {})
         cache = PoTokenCache(
             cache_providers=[error_pcp],
@@ -933,6 +971,7 @@ class TestPoTokenCache:
         assert logger.messages['warning'].count("Error from \"error\" PO Token cache provider: PoTokenCacheProviderError('something went wrong'); example bug report message") == 2
 
     def test_cache_provider_error_fallback(self, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_cache_provider_error_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_error_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_error_fallbackを実行しました。")
         error_pcp = ErrorPCP(ie, logger, {})
@@ -963,6 +1002,7 @@ class TestPoTokenCache:
     def test_cache_provider_unexpected_error_no_fallback(self, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_cache_provider_unexpected_error_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_unexpected_error_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_cache_provider_unexpected_error_no_fallbackを実行しました。")
         error_pcp = UnexpectedErrorPCP(ie, logger, {})
         cache = PoTokenCache(
             cache_providers=[error_pcp],
@@ -979,6 +1019,7 @@ class TestPoTokenCache:
         assert logger.messages['error'].count("Error occurred with \"unexpected_error\" PO Token cache provider: ValueError('something went wrong'); example bug report message") == 2
 
     def test_cache_provider_unexpected_error_fallback(self, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_cache_provider_unexpected_error_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_unexpected_error_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_unexpected_error_fallbackを実行しました。")
         error_pcp = UnexpectedErrorPCP(ie, logger, {})
@@ -1009,6 +1050,7 @@ class TestPoTokenCache:
     def test_cache_provider_unavailable_no_fallback(self, pot_request, ie, logger):
         print(f"test_pot_director.pyの関数test_cache_provider_unavailable_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_unavailable_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_cache_provider_unavailable_no_fallbackを実行しました。")
         provider = create_memory_pcp(ie, logger, available=False)
 
         cache = PoTokenCache(
@@ -1025,6 +1067,7 @@ class TestPoTokenCache:
         assert provider.available_called_times
 
     def test_cache_provider_unavailable_fallback(self, pot_request, ie, logger):
+        print(f"test_pot_director.pyの関数test_cache_provider_unavailable_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_unavailable_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_provider_unavailable_fallbackを実行しました。")
         provider_unavailable = create_memory_pcp(ie, logger, provider_key='unavailable', provider_name='unavailable', available=False)
@@ -1051,6 +1094,7 @@ class TestPoTokenCache:
         assert 'Attempting to fetch a PO Token response from "available" provider' not in logger.messages['trace']
 
     def test_available_not_called(self, ie, pot_request, logger):
+        print(f"test_pot_director.pyの関数test_available_not_calledを実行しました。")
         print(f"test_pot_director.pyの関数test_available_not_calledを実行しました。")
         print(f"test_pot_director.pyの関数test_available_not_calledを実行しました。")
         # Test that the available method is not called when provider higher in the list is available
@@ -1080,6 +1124,7 @@ class TestPoTokenCache:
     def test_available_called_trace(self, ie, pot_request, logger):
         print(f"test_pot_director.pyの関数test_available_called_traceを実行しました。")
         print(f"test_pot_director.pyの関数test_available_called_traceを実行しました。")
+        print(f"test_pot_director.pyの関数test_available_called_traceを実行しました。")
         # But if logging level is trace should call available (as part of debug logging)
         provider_unavailable = create_memory_pcp(
             ie, logger, provider_key='unavailable', provider_name='unavailable', available=False)
@@ -1107,6 +1152,7 @@ class TestPoTokenCache:
     def test_close(self, ie, pot_request, logger):
         print(f"test_pot_director.pyの関数test_closeを実行しました。")
         print(f"test_pot_director.pyの関数test_closeを実行しました。")
+        print(f"test_pot_director.pyの関数test_closeを実行しました。")
         # Should call close on the cache providers and cache specs
         memory_pcp = create_memory_pcp(ie, logger, provider_key='memory')
         memory2_pcp = create_memory_pcp(ie, logger, provider_key='memory2')
@@ -1132,12 +1178,14 @@ class TestPoTokenRequestDirector:
     def test_request_pot_success(self, ie, pot_request, pot_cache, pot_provider, logger):
         print(f"test_pot_director.pyの関数test_request_pot_successを実行しました。")
         print(f"test_pot_director.pyの関数test_request_pot_successを実行しました。")
+        print(f"test_pot_director.pyの関数test_request_pot_successを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         director.register_provider(pot_provider)
         response = director.get_po_token(pot_request)
         assert response == EXAMPLE_PO_TOKEN
 
     def test_request_and_cache(self, ie, pot_request, pot_cache, pot_provider, logger):
+        print(f"test_pot_director.pyの関数test_request_and_cacheを実行しました。")
         print(f"test_pot_director.pyの関数test_request_and_cacheを実行しました。")
         print(f"test_pot_director.pyの関数test_request_and_cacheを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
@@ -1156,6 +1204,7 @@ class TestPoTokenRequestDirector:
         assert pot_provider.request_called_times == 1
 
     def test_bypass_cache(self, ie, pot_request, pot_cache, logger, pot_provider):
+        print(f"test_pot_director.pyの関数test_bypass_cacheを実行しました。")
         print(f"test_pot_director.pyの関数test_bypass_cacheを実行しました。")
         print(f"test_pot_director.pyの関数test_bypass_cacheを実行しました。")
         pot_request.bypass_cache = True
@@ -1186,6 +1235,7 @@ class TestPoTokenRequestDirector:
     def test_clean_pot_generate(self, ie, pot_request, pot_cache, logger):
         print(f"test_pot_director.pyの関数test_clean_pot_generateを実行しました。")
         print(f"test_pot_director.pyの関数test_clean_pot_generateを実行しました。")
+        print(f"test_pot_director.pyの関数test_clean_pot_generateを実行しました。")
         # Token should be cleaned before returning
         base_token = base64.urlsafe_b64encode(b'token').decode()
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
@@ -1203,6 +1253,7 @@ class TestPoTokenRequestDirector:
     def test_clean_pot_cache(self, ie, pot_request, pot_cache, logger, pot_provider):
         print(f"test_pot_director.pyの関数test_clean_pot_cacheを実行しました。")
         print(f"test_pot_director.pyの関数test_clean_pot_cacheを実行しました。")
+        print(f"test_pot_director.pyの関数test_clean_pot_cacheを実行しました。")
         # Token retrieved from cache should be cleaned before returning
         base_token = base64.urlsafe_b64encode(b'token').decode()
         pot_cache.store(pot_request, PoTokenResponse(base_token + '?extra=params'))
@@ -1217,6 +1268,7 @@ class TestPoTokenRequestDirector:
     def test_cache_expires_at_none(self, ie, pot_request, pot_cache, logger, pot_provider):
         print(f"test_pot_director.pyの関数test_cache_expires_at_noneを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_expires_at_noneを実行しました。")
+        print(f"test_pot_director.pyの関数test_cache_expires_at_noneを実行しました。")
         # Should cache if expires_at=None in the response
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         provider = success_ptp(PoTokenResponse(EXAMPLE_PO_TOKEN, expires_at=None))(ie, logger, settings={})
@@ -1228,6 +1280,7 @@ class TestPoTokenRequestDirector:
         assert pot_cache.get(pot_request).po_token == EXAMPLE_PO_TOKEN
 
     def test_cache_expires_at_positive(self, ie, pot_request, pot_cache, logger, pot_provider):
+        print(f"test_pot_director.pyの関数test_cache_expires_at_positiveを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_expires_at_positiveを実行しました。")
         print(f"test_pot_director.pyの関数test_cache_expires_at_positiveを実行しました。")
         # Should cache if expires_at is a positive number in the response
@@ -1255,11 +1308,13 @@ class TestPoTokenRequestDirector:
     def test_no_providers(self, ie, pot_request, pot_cache, logger):
         print(f"test_pot_director.pyの関数test_no_providersを実行しました。")
         print(f"test_pot_director.pyの関数test_no_providersを実行しました。")
+        print(f"test_pot_director.pyの関数test_no_providersを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         response = director.get_po_token(pot_request)
         assert response is None
 
     def test_try_cache_no_providers(self, ie, pot_request, pot_cache, logger):
+        print(f"test_pot_director.pyの関数test_try_cache_no_providersを実行しました。")
         print(f"test_pot_director.pyの関数test_try_cache_no_providersを実行しました。")
         print(f"test_pot_director.pyの関数test_try_cache_no_providersを実行しました。")
         # Should still try the cache even if no providers are configured
@@ -1283,6 +1338,7 @@ class TestPoTokenRequestDirector:
         assert pot_cache.close_called
 
     def test_pot_provider_preferences(self, pot_request, pot_cache, ie, logger):
+        print(f"test_pot_director.pyの関数test_pot_provider_preferencesを実行しました。")
         print(f"test_pot_director.pyの関数test_pot_provider_preferencesを実行しました。")
         print(f"test_pot_director.pyの関数test_pot_provider_preferencesを実行しました。")
         pot_request.bypass_cache = True
@@ -1314,6 +1370,7 @@ class TestPoTokenRequestDirector:
         def example_preference(provider, request, *_, **__):
             print(f"test_pot_director.pyの関数example_preferenceを実行しました。")
             print(f"test_pot_director.pyの関数example_preferenceを実行しました。")
+            print(f"test_pot_director.pyの関数example_preferenceを実行しました。")
             nonlocal example_preference_called
             example_preference_called = True
             assert isinstance(provider, PoTokenProvider)
@@ -1336,6 +1393,7 @@ class TestPoTokenRequestDirector:
     def test_unsupported_request_no_fallback(self, ie, logger, pot_cache, pot_request):
         print(f"test_pot_director.pyの関数test_unsupported_request_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unsupported_request_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_unsupported_request_no_fallbackを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         provider = UnsupportedPTP(ie, logger, {})
         director.register_provider(provider)
@@ -1345,6 +1403,7 @@ class TestPoTokenRequestDirector:
         assert provider.request_called_times == 1
 
     def test_unsupported_request_fallback(self, ie, logger, pot_cache, pot_request, pot_provider):
+        print(f"test_pot_director.pyの関数test_unsupported_request_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unsupported_request_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unsupported_request_fallbackを実行しました。")
         # Should fallback to the next provider if the first one does not support the request
@@ -1362,6 +1421,7 @@ class TestPoTokenRequestDirector:
     def test_unavailable_request_no_fallback(self, ie, logger, pot_cache, pot_request):
         print(f"test_pot_director.pyの関数test_unavailable_request_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unavailable_request_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_unavailable_request_no_fallbackを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         provider = UnavailablePTP(ie, logger, {})
         director.register_provider(provider)
@@ -1372,6 +1432,7 @@ class TestPoTokenRequestDirector:
         assert provider.available_called_times
 
     def test_unavailable_request_fallback(self, ie, logger, pot_cache, pot_request, pot_provider):
+        print(f"test_pot_director.pyの関数test_unavailable_request_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unavailable_request_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_unavailable_request_fallbackを実行しました。")
         # Should fallback to the next provider if the first one is unavailable
@@ -1425,6 +1486,7 @@ class TestPoTokenRequestDirector:
     def test_provider_error_no_fallback_unexpected(self, ie, logger, pot_cache, pot_request):
         print(f"test_pot_director.pyの関数test_provider_error_no_fallback_unexpectedを実行しました。")
         print(f"test_pot_director.pyの関数test_provider_error_no_fallback_unexpectedを実行しました。")
+        print(f"test_pot_director.pyの関数test_provider_error_no_fallback_unexpectedを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         provider = ErrorPTP(ie, logger, {})
         director.register_provider(provider)
@@ -1437,6 +1499,7 @@ class TestPoTokenRequestDirector:
     def test_provider_error_no_fallback_expected(self, ie, logger, pot_cache, pot_request):
         print(f"test_pot_director.pyの関数test_provider_error_no_fallback_expectedを実行しました。")
         print(f"test_pot_director.pyの関数test_provider_error_no_fallback_expectedを実行しました。")
+        print(f"test_pot_director.pyの関数test_provider_error_no_fallback_expectedを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         provider = ErrorPTP(ie, logger, {})
         director.register_provider(provider)
@@ -1447,6 +1510,7 @@ class TestPoTokenRequestDirector:
         assert "Error fetching PO Token from \"error\" provider: PoTokenProviderError('an error occurred')" in logger.messages['warning']
 
     def test_provider_error_fallback(self, ie, logger, pot_cache, pot_request, pot_provider):
+        print(f"test_pot_director.pyの関数test_provider_error_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_provider_error_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_provider_error_fallbackを実行しました。")
         # Should fallback to the next provider if the first one raises an error
@@ -1464,6 +1528,7 @@ class TestPoTokenRequestDirector:
     def test_provider_unexpected_error_no_fallback(self, ie, logger, pot_cache, pot_request):
         print(f"test_pot_director.pyの関数test_provider_unexpected_error_no_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_provider_unexpected_error_no_fallbackを実行しました。")
+        print(f"test_pot_director.pyの関数test_provider_unexpected_error_no_fallbackを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         provider = UnexpectedErrorPTP(ie, logger, {})
         director.register_provider(provider)
@@ -1474,6 +1539,7 @@ class TestPoTokenRequestDirector:
         assert "Unexpected error when fetching PO Token from \"unexpected_error\" provider: ValueError('an unexpected error occurred'); please report this issue to the provider developer at  https://unexpected.example.com/issues  ." in logger.messages['error']
 
     def test_provider_unexpected_error_fallback(self, ie, logger, pot_cache, pot_request, pot_provider):
+        print(f"test_pot_director.pyの関数test_provider_unexpected_error_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_provider_unexpected_error_fallbackを実行しました。")
         print(f"test_pot_director.pyの関数test_provider_unexpected_error_fallbackを実行しました。")
         # Should fallback to the next provider if the first one raises an unexpected error
@@ -1489,6 +1555,7 @@ class TestPoTokenRequestDirector:
         assert "Unexpected error when fetching PO Token from \"unexpected_error\" provider: ValueError('an unexpected error occurred'); please report this issue to the provider developer at  https://unexpected.example.com/issues  ." in logger.messages['error']
 
     def test_invalid_po_token_response_type(self, ie, logger, pot_cache, pot_request, pot_provider):
+        print(f"test_pot_director.pyの関数test_invalid_po_token_response_typeを実行しました。")
         print(f"test_pot_director.pyの関数test_invalid_po_token_response_typeを実行しました。")
         print(f"test_pot_director.pyの関数test_invalid_po_token_response_typeを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
@@ -1512,6 +1579,7 @@ class TestPoTokenRequestDirector:
     def test_invalid_po_token_response(self, ie, logger, pot_cache, pot_request, pot_provider):
         print(f"test_pot_director.pyの関数test_invalid_po_token_responseを実行しました。")
         print(f"test_pot_director.pyの関数test_invalid_po_token_responseを実行しました。")
+        print(f"test_pot_director.pyの関数test_invalid_po_token_responseを実行しました。")
         director = PoTokenRequestDirector(logger=logger, cache=pot_cache)
         provider = InvalidPTP(ie, logger, {})
         director.register_provider(provider)
@@ -1529,6 +1597,7 @@ class TestPoTokenRequestDirector:
         assert pot_provider.request_called_times == 1
 
     def test_copy_request_provider(self, ie, logger, pot_cache, pot_request):
+        print(f"test_pot_director.pyの関数test_copy_request_providerを実行しました。")
         print(f"test_pot_director.pyの関数test_copy_request_providerを実行しました。")
         print(f"test_pot_director.pyの関数test_copy_request_providerを実行しました。")
 
@@ -1579,6 +1648,7 @@ class TestPoTokenRequestDirector:
 def test_validate_cache_spec(spec, expected):
     print(f"test_pot_director.pyの関数test_validate_cache_specを実行しました。")
     print(f"test_pot_director.pyの関数test_validate_cache_specを実行しました。")
+    print(f"test_pot_director.pyの関数test_validate_cache_specを実行しました。")
     assert validate_cache_spec(spec) == expected
 
 
@@ -1587,6 +1657,7 @@ def test_validate_cache_spec(spec, expected):
     '123',
 ])
 def test_clean_pot_fail(po_token):
+    print(f"test_pot_director.pyの関数test_clean_pot_failを実行しました。")
     print(f"test_pot_director.pyの関数test_clean_pot_failを実行しました。")
     print(f"test_pot_director.pyの関数test_clean_pot_failを実行しました。")
     with pytest.raises(ValueError, match='Invalid PO Token'):
@@ -1598,6 +1669,7 @@ def test_clean_pot_fail(po_token):
     ('TwAA%5F%2D9VA6Q92v%5FvEQ4==?extra-param=2', 'TwAA_-9VA6Q92v_vEQ4='),
 ])
 def test_clean_pot(po_token, expected):
+    print(f"test_pot_director.pyの関数test_clean_potを実行しました。")
     print(f"test_pot_director.pyの関数test_clean_potを実行しました。")
     print(f"test_pot_director.pyの関数test_clean_potを実行しました。")
     assert clean_pot(po_token) == expected
@@ -1622,14 +1694,17 @@ def test_clean_pot(po_token, expected):
 def test_validate_pot_response(response, expected):
     print(f"test_pot_director.pyの関数test_validate_pot_responseを実行しました。")
     print(f"test_pot_director.pyの関数test_validate_pot_responseを実行しました。")
+    print(f"test_pot_director.pyの関数test_validate_pot_responseを実行しました。")
     assert validate_response(response) == expected
 
 
 def test_built_in_provider(ie, logger):
     print(f"test_pot_director.pyの関数test_built_in_providerを実行しました。")
     print(f"test_pot_director.pyの関数test_built_in_providerを実行しました。")
+    print(f"test_pot_director.pyの関数test_built_in_providerを実行しました。")
     class BuiltinProviderDefaultT(BuiltinIEContentProvider, suffix='T'):
         def is_available(self):
+            print(f"test_pot_director.pyの関数is_availableを実行しました。")
             print(f"test_pot_director.pyの関数is_availableを実行しました。")
             print(f"test_pot_director.pyの関数is_availableを実行しました。")
             return True

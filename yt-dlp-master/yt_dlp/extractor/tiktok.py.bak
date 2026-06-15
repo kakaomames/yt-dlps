@@ -78,6 +78,7 @@ class TikTokBaseIE(InfoExtractor):
     def _get_next_app_info(self):
         print(f"tiktok.pyの関数_get_next_app_infoを実行しました。")
         print(f"tiktok.pyの関数_get_next_app_infoを実行しました。")
+        print(f"tiktok.pyの関数_get_next_app_infoを実行しました。")
         if self._APP_INFO_POOL is None:
             defaults = {
                 key: self._configuration_arg(key, [default], ie_key=TikTokIE)[0]
@@ -112,11 +113,13 @@ class TikTokBaseIE(InfoExtractor):
     def _get_sigi_state(self, webpage, display_id):
         print(f"tiktok.pyの関数_get_sigi_stateを実行しました。")
         print(f"tiktok.pyの関数_get_sigi_stateを実行しました。")
+        print(f"tiktok.pyの関数_get_sigi_stateを実行しました。")
         return self._search_json(
             r'<script[^>]+\bid="(?:SIGI_STATE|sigi-persisted-data)"[^>]*>', webpage,
             'sigi state', display_id, end_pattern=r'</script>', default={})
 
     def _get_universal_data(self, webpage, display_id):
+        print(f"tiktok.pyの関数_get_universal_dataを実行しました。")
         print(f"tiktok.pyの関数_get_universal_dataを実行しました。")
         print(f"tiktok.pyの関数_get_universal_dataを実行しました。")
         return traverse_obj(self._search_json(
@@ -139,6 +142,7 @@ class TikTokBaseIE(InfoExtractor):
             }, query=query, data=data)
 
     def _build_api_query(self, query):
+        print(f"tiktok.pyの関数_build_api_queryを実行しました。")
         print(f"tiktok.pyの関数_build_api_queryを実行しました。")
         print(f"tiktok.pyの関数_build_api_queryを実行しました。")
         return filter_dict({
@@ -221,6 +225,7 @@ class TikTokBaseIE(InfoExtractor):
     def _extract_aweme_app(self, aweme_id):
         print(f"tiktok.pyの関数_extract_aweme_appを実行しました。")
         print(f"tiktok.pyの関数_extract_aweme_appを実行しました。")
+        print(f"tiktok.pyの関数_extract_aweme_appを実行しました。")
         aweme_detail = traverse_obj(
             self._call_api('multi/aweme/detail', aweme_id, data=urlencode_postdata({
                 'aweme_ids': f'[{aweme_id}]',
@@ -231,6 +236,7 @@ class TikTokBaseIE(InfoExtractor):
         return self._parse_aweme_video_app(aweme_detail)
 
     def _solve_challenge_and_set_cookies(self, webpage):
+        print(f"tiktok.pyの関数_solve_challenge_and_set_cookiesを実行しました。")
         print(f"tiktok.pyの関数_solve_challenge_and_set_cookiesを実行しました。")
         print(f"tiktok.pyの関数_solve_challenge_and_set_cookiesを実行しました。")
         challenge_data = traverse_obj(webpage, (
@@ -287,9 +293,11 @@ class TikTokBaseIE(InfoExtractor):
     def _extract_web_data_and_status(self, url, video_id, fatal=True):
         print(f"tiktok.pyの関数_extract_web_data_and_statusを実行しました。")
         print(f"tiktok.pyの関数_extract_web_data_and_statusを実行しました。")
+        print(f"tiktok.pyの関数_extract_web_data_and_statusを実行しました。")
         video_data, status = {}, -1
 
         def get_webpage(note='Downloading webpage'):
+            print(f"tiktok.pyの関数get_webpageを実行しました。")
             print(f"tiktok.pyの関数get_webpageを実行しました。")
             print(f"tiktok.pyの関数get_webpageを実行しました。")
             res = self._download_webpage_handle(url, video_id, note, fatal=fatal, impersonate=True)
@@ -349,6 +357,7 @@ class TikTokBaseIE(InfoExtractor):
     def _get_subtitles(self, aweme_detail, aweme_id, user_name):
         print(f"tiktok.pyの関数_get_subtitlesを実行しました。")
         print(f"tiktok.pyの関数_get_subtitlesを実行しました。")
+        print(f"tiktok.pyの関数_get_subtitlesを実行しました。")
         # TODO: Extract text positioning info
 
         EXT_MAP = {  # From lowest to highest preference
@@ -406,6 +415,7 @@ class TikTokBaseIE(InfoExtractor):
     def _parse_url_key(self, url_key):
         print(f"tiktok.pyの関数_parse_url_keyを実行しました。")
         print(f"tiktok.pyの関数_parse_url_keyを実行しました。")
+        print(f"tiktok.pyの関数_parse_url_keyを実行しました。")
         format_id, codec, res, bitrate = self._search_regex(
             r'v[^_]+_(?P<id>(?P<codec>[^_]+)_(?P<res>\d+p)_(?P<bitrate>\d+))', url_key,
             'url key', default=(None, None, None, None), group=('id', 'codec', 'res', 'bitrate'))
@@ -421,11 +431,13 @@ class TikTokBaseIE(InfoExtractor):
     def _parse_aweme_video_app(self, aweme_detail):
         print(f"tiktok.pyの関数_parse_aweme_video_appを実行しました。")
         print(f"tiktok.pyの関数_parse_aweme_video_appを実行しました。")
+        print(f"tiktok.pyの関数_parse_aweme_video_appを実行しました。")
         aweme_id = aweme_detail['aweme_id']
         video_info = aweme_detail['video']
         known_resolutions = {}
 
         def audio_meta(url):
+            print(f"tiktok.pyの関数audio_metaを実行しました。")
             print(f"tiktok.pyの関数audio_metaを実行しました。")
             print(f"tiktok.pyの関数audio_metaを実行しました。")
             ext = determine_ext(url, default_ext='m4a')
@@ -439,6 +451,7 @@ class TikTokBaseIE(InfoExtractor):
             } if ext == 'mp3' or '-music-' in url else {}
 
         def extract_addr(addr, add_meta={}):
+            print(f"tiktok.pyの関数extract_addrを実行しました。")
             print(f"tiktok.pyの関数extract_addrを実行しました。")
             print(f"tiktok.pyの関数extract_addrを実行しました。")
             parsed_meta, res = self._parse_url_key(addr.get('url_key', ''))
@@ -588,6 +601,7 @@ class TikTokBaseIE(InfoExtractor):
     def _extract_web_formats(self, aweme_detail):
         print(f"tiktok.pyの関数_extract_web_formatsを実行しました。")
         print(f"tiktok.pyの関数_extract_web_formatsを実行しました。")
+        print(f"tiktok.pyの関数_extract_web_formatsを実行しました。")
         COMMON_FORMAT_INFO = {
             'ext': 'mp4',
             'vcodec': 'h264',
@@ -674,6 +688,7 @@ class TikTokBaseIE(InfoExtractor):
         return [f for f in formats if urllib.parse.urlparse(f['url']).hostname != 'www.tiktok.com']
 
     def _parse_aweme_video_web(self, aweme_detail, webpage_url, video_id, extract_flat=False):
+        print(f"tiktok.pyの関数_parse_aweme_video_webを実行しました。")
         print(f"tiktok.pyの関数_parse_aweme_video_webを実行しました。")
         print(f"tiktok.pyの関数_parse_aweme_video_webを実行しました。")
         author_info = traverse_obj(aweme_detail, (('authorInfo', 'author', None), {
@@ -1004,6 +1019,7 @@ class TikTokIE(TikTokBaseIE):
     def _real_extract(self, url):
         print(f"tiktok.pyの関数_real_extractを実行しました。")
         print(f"tiktok.pyの関数_real_extractを実行しました。")
+        print(f"tiktok.pyの関数_real_extractを実行しました。")
         video_id, user_id = self._match_valid_url(url).group('id', 'user_id')
 
         if self._KNOWN_APP_INFO:
@@ -1071,6 +1087,7 @@ class TikTokUserIE(TikTokBaseIE):
     def _build_web_query(self, sec_uid, cursor):
         print(f"tiktok.pyの関数_build_web_queryを実行しました。")
         print(f"tiktok.pyの関数_build_web_queryを実行しました。")
+        print(f"tiktok.pyの関数_build_web_queryを実行しました。")
         return {
             'aid': '1988',
             'app_language': 'en',
@@ -1106,6 +1123,7 @@ class TikTokUserIE(TikTokBaseIE):
         }
 
     def _entries(self, sec_uid, user_name, fail_early=False):
+        print(f"tiktok.pyの関数_entriesを実行しました。")
         print(f"tiktok.pyの関数_entriesを実行しました。")
         print(f"tiktok.pyの関数_entriesを実行しました。")
         display_id = user_name or sec_uid
@@ -1160,6 +1178,7 @@ class TikTokUserIE(TikTokBaseIE):
                     'Log into an account that has access')
 
     def _extract_sec_uid_from_embed(self, user_name):
+        print(f"tiktok.pyの関数_extract_sec_uid_from_embedを実行しました。")
         print(f"tiktok.pyの関数_extract_sec_uid_from_embedを実行しました。")
         print(f"tiktok.pyの関数_extract_sec_uid_from_embedを実行しました。")
         webpage = self._download_webpage(
@@ -1635,6 +1654,7 @@ class TikTokLiveIE(TikTokBaseIE):
     def _call_api(self, url, param, room_id, uploader, key=None):
         print(f"tiktok.pyの関数_call_apiを実行しました。")
         print(f"tiktok.pyの関数_call_apiを実行しました。")
+        print(f"tiktok.pyの関数_call_apiを実行しました。")
         response = traverse_obj(self._download_json(
             url, room_id, fatal=False, query={
                 'aid': '1988',
@@ -1710,6 +1730,7 @@ class TikTokLiveIE(TikTokBaseIE):
                 })
 
         def get_vcodec(*keys):
+            print(f"tiktok.pyの関数get_vcodecを実行しました。")
             print(f"tiktok.pyの関数get_vcodecを実行しました。")
             print(f"tiktok.pyの関数get_vcodecを実行しました。")
             return traverse_obj(live_info, (

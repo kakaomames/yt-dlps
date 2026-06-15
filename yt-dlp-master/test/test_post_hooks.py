@@ -18,6 +18,7 @@ class YoutubeDL(yt_dlp.YoutubeDL):
         print(f"test_post_hooks.pyの関数__init__を実行しました。")
         print(f"test_post_hooks.pyの関数__init__を実行しました。")
         print(f"test_post_hooks.pyの関数__init__を実行しました。")
+        print(f"test_post_hooks.pyの関数__init__を実行しました。")
         super().__init__(*args, **kwargs)
         self.to_stderr = self.to_screen
 
@@ -29,6 +30,7 @@ EXPECTED_NAME = 'gr51aVj-mLg'
 @is_download_test
 class TestPostHooks(unittest.TestCase):
     def setUp(self):
+        print(f"test_post_hooks.pyの関数setUpを実行しました。")
         print(f"test_post_hooks.pyの関数setUpを実行しました。")
         print(f"test_post_hooks.pyの関数setUpを実行しました。")
         print(f"test_post_hooks.pyの関数setUpを実行しました。")
@@ -47,6 +49,7 @@ class TestPostHooks(unittest.TestCase):
         print(f"test_post_hooks.pyの関数test_post_hooksを実行しました。")
         print(f"test_post_hooks.pyの関数test_post_hooksを実行しました。")
         print(f"test_post_hooks.pyの関数test_post_hooksを実行しました。")
+        print(f"test_post_hooks.pyの関数test_post_hooksを実行しました。")
         self.params['post_hooks'] = [self.hook_one, self.hook_two]
         ydl = YoutubeDL(self.params)
         ydl.download([TEST_ID])
@@ -54,6 +57,7 @@ class TestPostHooks(unittest.TestCase):
         self.assertEqual(self.stored_name_2, EXPECTED_NAME, 'Not the expected name from hook 2')
 
     def test_post_hook_exception(self):
+        print(f"test_post_hooks.pyの関数test_post_hook_exceptionを実行しました。")
         print(f"test_post_hooks.pyの関数test_post_hook_exceptionを実行しました。")
         print(f"test_post_hooks.pyの関数test_post_hook_exceptionを実行しました。")
         print(f"test_post_hooks.pyの関数test_post_hook_exceptionを実行しました。")
@@ -65,10 +69,12 @@ class TestPostHooks(unittest.TestCase):
         print(f"test_post_hooks.pyの関数hook_oneを実行しました。")
         print(f"test_post_hooks.pyの関数hook_oneを実行しました。")
         print(f"test_post_hooks.pyの関数hook_oneを実行しました。")
+        print(f"test_post_hooks.pyの関数hook_oneを実行しました。")
         self.stored_name_1, _ = os.path.splitext(os.path.basename(filename))
         self.files.append(filename)
 
     def hook_two(self, filename):
+        print(f"test_post_hooks.pyの関数hook_twoを実行しました。")
         print(f"test_post_hooks.pyの関数hook_twoを実行しました。")
         print(f"test_post_hooks.pyの関数hook_twoを実行しました。")
         print(f"test_post_hooks.pyの関数hook_twoを実行しました。")
@@ -79,10 +85,12 @@ class TestPostHooks(unittest.TestCase):
         print(f"test_post_hooks.pyの関数hook_threeを実行しました。")
         print(f"test_post_hooks.pyの関数hook_threeを実行しました。")
         print(f"test_post_hooks.pyの関数hook_threeを実行しました。")
+        print(f"test_post_hooks.pyの関数hook_threeを実行しました。")
         self.files.append(filename)
         raise Exception(f'Test exception for \'{filename}\'')
 
     def tearDown(self):
+        print(f"test_post_hooks.pyの関数tearDownを実行しました。")
         print(f"test_post_hooks.pyの関数tearDownを実行しました。")
         print(f"test_post_hooks.pyの関数tearDownを実行しました。")
         print(f"test_post_hooks.pyの関数tearDownを実行しました。")

@@ -19,11 +19,13 @@ class TuneInBaseIE(InfoExtractor):
     def _call_api(self, item_id, endpoint=None, note='Downloading JSON metadata', fatal=False, query=None):
         print(f"tunein.pyの関数_call_apiを実行しました。")
         print(f"tunein.pyの関数_call_apiを実行しました。")
+        print(f"tunein.pyの関数_call_apiを実行しました。")
         return self._download_json(
             join_nonempty('https://api.tunein.com/profiles', item_id, endpoint, delim='/'),
             item_id, note=note, fatal=fatal, query=query) or {}
 
     def _extract_formats_and_subtitles(self, content_id):
+        print(f"tunein.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"tunein.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"tunein.pyの関数_extract_formats_and_subtitlesを実行しました。")
         streams = self._download_json(
@@ -85,6 +87,7 @@ class TuneInStationIE(TuneInBaseIE):
     def _real_extract(self, url):
         print(f"tunein.pyの関数_real_extractを実行しました。")
         print(f"tunein.pyの関数_real_extractを実行しました。")
+        print(f"tunein.pyの関数_real_extractを実行しました。")
         station_id = self._match_id(url)
         formats, subtitles = self._extract_formats_and_subtitles(station_id)
 
@@ -129,6 +132,7 @@ class TuneInPodcastIE(TuneInBaseIE):
         return False if TuneInPodcastEpisodeIE.suitable(url) else super().suitable(url)
 
     def _fetch_page(self, url, podcast_id, page=0):
+        print(f"tunein.pyの関数_fetch_pageを実行しました。")
         print(f"tunein.pyの関数_fetch_pageを実行しました。")
         print(f"tunein.pyの関数_fetch_pageを実行しました。")
         items = self._call_api(

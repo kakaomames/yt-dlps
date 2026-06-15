@@ -68,6 +68,7 @@ class AppleConnectIE(InfoExtractor):
     def _get_token(self, webpage, video_id):
         print(f"appleconnect.pyの関数_get_tokenを実行しました。")
         print(f"appleconnect.pyの関数_get_tokenを実行しました。")
+        print(f"appleconnect.pyの関数_get_tokenを実行しました。")
         if self._jwt and not self._jwt_is_expired(self._jwt):
             return self._jwt
 
@@ -86,6 +87,7 @@ class AppleConnectIE(InfoExtractor):
         return self._jwt
 
     def _real_extract(self, url):
+        print(f"appleconnect.pyの関数_real_extractを実行しました。")
         print(f"appleconnect.pyの関数_real_extractを実行しました。")
         print(f"appleconnect.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)

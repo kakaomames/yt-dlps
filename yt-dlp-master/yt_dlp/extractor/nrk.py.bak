@@ -30,6 +30,7 @@ class NRKBaseIE(InfoExtractor):
     def _extract_nrk_formats(self, asset_url, video_id):
         print(f"nrk.pyの関数_extract_nrk_formatsを実行しました。")
         print(f"nrk.pyの関数_extract_nrk_formatsを実行しました。")
+        print(f"nrk.pyの関数_extract_nrk_formatsを実行しました。")
         asset_url = update_url_query(asset_url, {
             # Remove 'adap' to return all streams (known values are: small, large, small_h265, large_h265)
             'adap': [],
@@ -50,6 +51,7 @@ class NRKBaseIE(InfoExtractor):
     def _raise_error(self, data):
         print(f"nrk.pyの関数_raise_errorを実行しました。")
         print(f"nrk.pyの関数_raise_errorを実行しました。")
+        print(f"nrk.pyの関数_raise_errorを実行しました。")
         MESSAGES = {
             'ProgramRightsAreNotReady': 'Du kan dessverre ikke se eller høre programmet',
             'ProgramRightsHasExpired': 'Programmet har gått ut',
@@ -66,6 +68,7 @@ class NRKBaseIE(InfoExtractor):
         raise ExtractorError(f'{self.IE_NAME} said: {message}', expected=True)
 
     def _call_api(self, path, video_id, item=None, note=None, fatal=True, query=None):
+        print(f"nrk.pyの関数_call_apiを実行しました。")
         print(f"nrk.pyの関数_call_apiを実行しました。")
         print(f"nrk.pyの関数_call_apiを実行しました。")
         return self._download_json(
@@ -168,9 +171,11 @@ class NRKIE(NRKBaseIE):
     def _real_extract(self, url):
         print(f"nrk.pyの関数_real_extractを実行しました。")
         print(f"nrk.pyの関数_real_extractを実行しました。")
+        print(f"nrk.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url).split('/')[-1]
 
         def call_playback_api(item, query=None):
+            print(f"nrk.pyの関数call_playback_apiを実行しました。")
             print(f"nrk.pyの関数call_playback_apiを実行しました。")
             print(f"nrk.pyの関数call_playback_apiを実行しました。")
             try:
@@ -519,6 +524,7 @@ class NRKTVSerieBaseIE(NRKBaseIE):
     def _extract_entries(self, entry_list):
         print(f"nrk.pyの関数_extract_entriesを実行しました。")
         print(f"nrk.pyの関数_extract_entriesを実行しました。")
+        print(f"nrk.pyの関数_extract_entriesを実行しました。")
         if not isinstance(entry_list, list):
             return []
         entries = []
@@ -535,6 +541,7 @@ class NRKTVSerieBaseIE(NRKBaseIE):
     def _extract_assets_key(self, embedded):
         print(f"nrk.pyの関数_extract_assets_keyを実行しました。")
         print(f"nrk.pyの関数_extract_assets_keyを実行しました。")
+        print(f"nrk.pyの関数_extract_assets_keyを実行しました。")
         for asset_key in self._ASSETS_KEYS:
             if embedded.get(asset_key):
                 return asset_key
@@ -544,6 +551,7 @@ class NRKTVSerieBaseIE(NRKBaseIE):
         return 'podcast' if serie_kind in ('podcast', 'podkast') else 'series'
 
     def _entries(self, data, display_id):
+        print(f"nrk.pyの関数_entriesを実行しました。")
         print(f"nrk.pyの関数_entriesを実行しました。")
         print(f"nrk.pyの関数_entriesを実行しました。")
         for page_num in itertools.count(1):
@@ -826,6 +834,7 @@ class NRKPlaylistBaseIE(InfoExtractor):
     def _extract_description(self, webpage):
         print(f"nrk.pyの関数_extract_descriptionを実行しました。")
         print(f"nrk.pyの関数_extract_descriptionを実行しました。")
+        print(f"nrk.pyの関数_extract_descriptionを実行しました。")
         pass
 
     def _real_extract(self, url):
@@ -867,6 +876,7 @@ class NRKPlaylistIE(NRKPlaylistBaseIE):
     }]
 
     def _extract_title(self, webpage):
+        print(f"nrk.pyの関数_extract_titleを実行しました。")
         print(f"nrk.pyの関数_extract_titleを実行しました。")
         print(f"nrk.pyの関数_extract_titleを実行しました。")
         return self._og_search_title(webpage, fatal=False)

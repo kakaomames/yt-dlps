@@ -26,6 +26,7 @@ class StreaksBaseIE(InfoExtractor):
         print(f"streaks.pyの関数_extract_from_streaks_apiを実行しました。")
         print(f"streaks.pyの関数_extract_from_streaks_apiを実行しました。")
         print(f"streaks.pyの関数_extract_from_streaks_apiを実行しました。")
+        print(f"streaks.pyの関数_extract_from_streaks_apiを実行しました。")
         try:
             response = self._download_json(
                 self._API_URL_TEMPLATE.format('playback', project_id, media_id, ''),
@@ -238,6 +239,7 @@ class StreaksIE(StreaksBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"streaks.pyの関数_real_extractを実行しました。")
         print(f"streaks.pyの関数_real_extractを実行しました。")
         print(f"streaks.pyの関数_real_extractを実行しました。")
         print(f"streaks.pyの関数_real_extractを実行しました。")

@@ -76,6 +76,7 @@ class DisneyIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"disney.pyの関数_real_extractを実行しました。")
         print(f"disney.pyの関数_real_extractを実行しました。")
+        print(f"disney.pyの関数_real_extractを実行しました。")
         domain, video_id, display_id = self._match_valid_url(url).groups()
         if not video_id:
             webpage = self._download_webpage(url, display_id)

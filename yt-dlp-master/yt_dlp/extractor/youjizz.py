@@ -31,6 +31,7 @@ class YouJizzIE(InfoExtractor):
         print(f"youjizz.pyの関数_real_extractを実行しました。")
         print(f"youjizz.pyの関数_real_extractを実行しました。")
         print(f"youjizz.pyの関数_real_extractを実行しました。")
+        print(f"youjizz.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id') or mobj.group('embed_id')
 

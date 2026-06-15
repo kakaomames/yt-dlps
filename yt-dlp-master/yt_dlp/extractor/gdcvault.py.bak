@@ -122,6 +122,7 @@ class GDCVaultIE(InfoExtractor):
     def _login(self, webpage_url, display_id):
         print(f"gdcvault.pyの関数_loginを実行しました。")
         print(f"gdcvault.pyの関数_loginを実行しました。")
+        print(f"gdcvault.pyの関数_loginを実行しました。")
         username, password = self._get_login_info()
         if username is None or password is None:
             self.report_warning('It looks like ' + webpage_url + ' requires a login. Try specifying a username and password and try again.')
@@ -145,6 +146,7 @@ class GDCVaultIE(InfoExtractor):
         return start_page
 
     def _real_extract(self, url):
+        print(f"gdcvault.pyの関数_real_extractを実行しました。")
         print(f"gdcvault.pyの関数_real_extractを実行しました。")
         print(f"gdcvault.pyの関数_real_extractを実行しました。")
         video_id, name = self._match_valid_url(url).groups()

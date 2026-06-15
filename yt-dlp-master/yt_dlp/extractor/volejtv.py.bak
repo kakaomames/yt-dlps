@@ -28,6 +28,7 @@ class VolejTVBaseIE(InfoExtractor):
     def _call_api(self, endpoint, display_id, query=None):
         print(f"volejtv.pyの関数_call_apiを実行しました。")
         print(f"volejtv.pyの関数_call_apiを実行しました。")
+        print(f"volejtv.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://api-volejtv-prod.apps.okd4.devopsie.cloud/api/{endpoint}',
             display_id, query=query)
@@ -65,6 +66,7 @@ class VolejTVIE(VolejTVBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"volejtv.pyの関数_real_extractを実行しました。")
         print(f"volejtv.pyの関数_real_extractを実行しました。")
         print(f"volejtv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
@@ -109,11 +111,13 @@ class VolejTVPlaylistBaseIE(VolejTVBaseIE):
     def _get_page(self, playlist_id, page):
         print(f"volejtv.pyの関数_get_pageを実行しました。")
         print(f"volejtv.pyの関数_get_pageを実行しました。")
+        print(f"volejtv.pyの関数_get_pageを実行しました。")
         return self._call_api(
             f'match/{self._API_FILTER}/{playlist_id}', playlist_id,
             query={'page': page + 1, 'take': self._PAGE_SIZE, 'order': 'DESC'})
 
     def _entries(self, playlist_id, first_page_data, page):
+        print(f"volejtv.pyの関数_entriesを実行しました。")
         print(f"volejtv.pyの関数_entriesを実行しました。")
         print(f"volejtv.pyの関数_entriesを実行しました。")
         entries = first_page_data if page == 0 else self._get_page(playlist_id, page)
@@ -160,6 +164,7 @@ class VolejTVCategoryPlaylistIE(VolejTVPlaylistBaseIE):
     _PAGE_SIZE = 10
 
     def _get_category(self, playlist_id):
+        print(f"volejtv.pyの関数_get_categoryを実行しました。")
         print(f"volejtv.pyの関数_get_categoryを実行しました。")
         print(f"volejtv.pyの関数_get_categoryを実行しました。")
         categories = self._call_api('category', playlist_id)

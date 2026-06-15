@@ -73,6 +73,7 @@ class TrtWorldIE(InfoExtractor):
         print(f"trtworld.pyの関数_real_extractを実行しました。")
         print(f"trtworld.pyの関数_real_extractを実行しました。")
         print(f"trtworld.pyの関数_real_extractを実行しました。")
+        print(f"trtworld.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         nuxtjs_data = self._search_nuxt_data(webpage, display_id)['videoData']['content']['platforms']

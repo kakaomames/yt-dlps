@@ -267,6 +267,7 @@ class KnownDRMIE(UnsupportedInfoExtractor):
     def _real_extract(self, url):
         print(f"unsupported.pyの関数_real_extractを実行しました。")
         print(f"unsupported.pyの関数_real_extractを実行しました。")
+        print(f"unsupported.pyの関数_real_extractを実行しました。")
         raise ExtractorError(
             f'The requested site is known to use DRM protection. '
             f'It will {self._downloader._format_err("NOT", self._downloader.Styles.EMPHASIS)} be supported.{LF}'

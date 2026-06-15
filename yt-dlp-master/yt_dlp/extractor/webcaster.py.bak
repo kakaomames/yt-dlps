@@ -28,6 +28,7 @@ class WebcasterIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"webcaster.pyの関数_real_extractを実行しました。")
         print(f"webcaster.pyの関数_real_extractを実行しました。")
+        print(f"webcaster.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         video = self._download_xml(url, video_id)
@@ -72,6 +73,7 @@ class WebcasterFeedIE(InfoExtractor):
     }
 
     def _extract_from_webpage(self, url, webpage):
+        print(f"webcaster.pyの関数_extract_from_webpageを実行しました。")
         print(f"webcaster.pyの関数_extract_from_webpageを実行しました。")
         print(f"webcaster.pyの関数_extract_from_webpageを実行しました。")
         yield from super()._extract_from_webpage(url, webpage)

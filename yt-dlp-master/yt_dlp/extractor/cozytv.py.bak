@@ -22,6 +22,7 @@ class CozyTVIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"cozytv.pyの関数_real_extractを実行しました。")
         print(f"cozytv.pyの関数_real_extractを実行しました。")
+        print(f"cozytv.pyの関数_real_extractを実行しました。")
         uploader, date = self._match_valid_url(url).groups()
         video_id = f'{uploader}-{date}'
         data_json = self._download_json(f'https://api.cozy.tv/cache/{uploader}/replay/{date}', video_id)

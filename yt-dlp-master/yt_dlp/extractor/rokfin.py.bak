@@ -132,6 +132,7 @@ class RokfinIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"rokfin.pyの関数_real_extractを実行しました。")
         print(f"rokfin.pyの関数_real_extractを実行しました。")
+        print(f"rokfin.pyの関数_real_extractを実行しました。")
         video_id, video_type = self._match_valid_url(url).group('id', 'type')
         metadata = self._download_json_using_access_token(f'{_API_BASE_URL}{video_id}', video_id)
 
@@ -191,6 +192,7 @@ class RokfinIE(InfoExtractor):
     def _get_comments(self, video_id):
         print(f"rokfin.pyの関数_get_commentsを実行しました。")
         print(f"rokfin.pyの関数_get_commentsを実行しました。")
+        print(f"rokfin.pyの関数_get_commentsを実行しました。")
         pages_total = None
         for page_n in itertools.count():
             raw_comments = self._download_json(
@@ -216,6 +218,7 @@ class RokfinIE(InfoExtractor):
                 return
 
     def _perform_login(self, username, password):
+        print(f"rokfin.pyの関数_perform_loginを実行しました。")
         print(f"rokfin.pyの関数_perform_loginを実行しました。")
         print(f"rokfin.pyの関数_perform_loginを実行しました。")
         # https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth (Sec. 3.1)
@@ -258,6 +261,7 @@ class RokfinIE(InfoExtractor):
     def _authentication_active(self):
         print(f"rokfin.pyの関数_authentication_activeを実行しました。")
         print(f"rokfin.pyの関数_authentication_activeを実行しました。")
+        print(f"rokfin.pyの関数_authentication_activeを実行しました。")
         return not (
             {'KEYCLOAK_IDENTITY', 'KEYCLOAK_IDENTITY_LEGACY', 'KEYCLOAK_SESSION', 'KEYCLOAK_SESSION_LEGACY'}
             - set(self._get_cookies(self._AUTH_BASE)))
@@ -265,9 +269,11 @@ class RokfinIE(InfoExtractor):
     def _get_auth_token(self):
         print(f"rokfin.pyの関数_get_auth_tokenを実行しました。")
         print(f"rokfin.pyの関数_get_auth_tokenを実行しました。")
+        print(f"rokfin.pyの関数_get_auth_tokenを実行しました。")
         return try_get(self._access_mgmt_tokens, lambda x: ' '.join([x['token_type'], x['access_token']]))
 
     def _download_json_using_access_token(self, url_or_request, video_id, headers={}, query={}):
+        print(f"rokfin.pyの関数_download_json_using_access_tokenを実行しました。")
         print(f"rokfin.pyの関数_download_json_using_access_tokenを実行しました。")
         print(f"rokfin.pyの関数_download_json_using_access_tokenを実行しました。")
         assert 'authorization' not in headers
@@ -307,6 +313,7 @@ class RokfinPlaylistBaseIE(InfoExtractor):
     }
 
     def _get_video_data(self, metadata):
+        print(f"rokfin.pyの関数_get_video_dataを実行しました。")
         print(f"rokfin.pyの関数_get_video_dataを実行しました。")
         print(f"rokfin.pyの関数_get_video_dataを実行しました。")
         for content in metadata.get('content') or []:
@@ -363,9 +370,11 @@ class RokfinChannelIE(RokfinPlaylistBaseIE):
     def _real_initialize(self):
         print(f"rokfin.pyの関数_real_initializeを実行しました。")
         print(f"rokfin.pyの関数_real_initializeを実行しました。")
+        print(f"rokfin.pyの関数_real_initializeを実行しました。")
         self._validate_extractor_args()
 
     def _validate_extractor_args(self):
+        print(f"rokfin.pyの関数_validate_extractor_argsを実行しました。")
         print(f"rokfin.pyの関数_validate_extractor_argsを実行しました。")
         print(f"rokfin.pyの関数_validate_extractor_argsを実行しました。")
         requested_tabs = self._configuration_arg('tab', None)
@@ -373,6 +382,7 @@ class RokfinChannelIE(RokfinPlaylistBaseIE):
             raise ExtractorError(f'Invalid extractor-arg "tab". Must be one of {", ".join(self._TABS)}', expected=True)
 
     def _entries(self, channel_id, channel_name, tab):
+        print(f"rokfin.pyの関数_entriesを実行しました。")
         print(f"rokfin.pyの関数_entriesを実行しました。")
         print(f"rokfin.pyの関数_entriesを実行しました。")
         pages_total = None
@@ -432,6 +442,7 @@ class RokfinSearchIE(SearchInfoExtractor):
     def _search_results(self, query):
         print(f"rokfin.pyの関数_search_resultsを実行しました。")
         print(f"rokfin.pyの関数_search_resultsを実行しました。")
+        print(f"rokfin.pyの関数_search_resultsを実行しました。")
         total_pages = None
         for page_number in itertools.count(1):
             search_results = self._run_search_query(
@@ -450,6 +461,7 @@ class RokfinSearchIE(SearchInfoExtractor):
     def _run_search_query(self, video_id, data, **kwargs):
         print(f"rokfin.pyの関数_run_search_queryを実行しました。")
         print(f"rokfin.pyの関数_run_search_queryを実行しました。")
+        print(f"rokfin.pyの関数_run_search_queryを実行しました。")
         data = json.dumps(data).encode()
         for attempt in range(2):
             search_results = self._download_json(
@@ -461,6 +473,7 @@ class RokfinSearchIE(SearchInfoExtractor):
             self._get_db_access_credentials(video_id)
 
     def _get_db_access_credentials(self, video_id=None):
+        print(f"rokfin.pyの関数_get_db_access_credentialsを実行しました。")
         print(f"rokfin.pyの関数_get_db_access_credentialsを実行しました。")
         print(f"rokfin.pyの関数_get_db_access_credentialsを実行しました。")
         auth_data = {'SEARCH_KEY': None, 'ENDPOINT_BASE': None}

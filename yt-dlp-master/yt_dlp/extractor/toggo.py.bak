@@ -41,6 +41,7 @@ class ToggoIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"toggo.pyの関数_real_extractを実行しました。")
         print(f"toggo.pyの関数_real_extractを実行しました。")
+        print(f"toggo.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         data = self._download_json(
             f'https://production-n.toggo.de/api/assetstore/vod/asset/{display_id}', display_id)['data']

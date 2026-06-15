@@ -85,9 +85,11 @@ class PodchaserIE(InfoExtractor):
     def _call_api(self, path, *args, **kwargs):
         print(f"podchaser.pyの関数_call_apiを実行しました。")
         print(f"podchaser.pyの関数_call_apiを実行しました。")
+        print(f"podchaser.pyの関数_call_apiを実行しました。")
         return self._download_json(f'https://api.podchaser.com/{path}', *args, **kwargs)
 
     def _fetch_page(self, podcast_id, podcast, page):
+        print(f"podchaser.pyの関数_fetch_pageを実行しました。")
         print(f"podchaser.pyの関数_fetch_pageを実行しました。")
         print(f"podchaser.pyの関数_fetch_pageを実行しました。")
         json_response = self._call_api(
@@ -107,6 +109,7 @@ class PodchaserIE(InfoExtractor):
             yield self._parse_episode(episode, podcast)
 
     def _real_extract(self, url):
+        print(f"podchaser.pyの関数_real_extractを実行しました。")
         print(f"podchaser.pyの関数_real_extractを実行しました。")
         print(f"podchaser.pyの関数_real_extractを実行しました。")
         podcast_id, episode_id = self._match_valid_url(url).group('podcast_id', 'id')

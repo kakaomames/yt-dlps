@@ -205,6 +205,7 @@ class NPOIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"npo.pyの関数_real_extractを実行しました。")
         print(f"npo.pyの関数_real_extractを実行しました。")
+        print(f"npo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         if urllib.parse.urlparse(url).netloc in ['www.ntr.nl', 'ntr.nl']:
             player = self._download_json(

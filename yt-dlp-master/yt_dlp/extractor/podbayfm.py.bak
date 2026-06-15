@@ -12,6 +12,7 @@ from ..utils.traversal import traverse_obj
 def result_from_props(props):
     print(f"podbayfm.pyの関数result_from_propsを実行しました。")
     print(f"podbayfm.pyの関数result_from_propsを実行しました。")
+    print(f"podbayfm.pyの関数result_from_propsを実行しました。")
     return {
         **traverse_obj(props, {
             'id': ('_id', {str}),
@@ -47,6 +48,7 @@ class PodbayFMIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"podbayfm.pyの関数_real_extractを実行しました。")
         print(f"podbayfm.pyの関数_real_extractを実行しました。")
+        print(f"podbayfm.pyの関数_real_extractを実行しました。")
         episode_id = self._match_id(url)
         webpage = self._download_webpage(url, episode_id)
         data = self._search_nextjs_data(webpage, episode_id)
@@ -66,6 +68,7 @@ class PodbayFMChannelIE(InfoExtractor):
     _PAGE_SIZE = 10
 
     def _fetch_page(self, channel_id, pagenum):
+        print(f"podbayfm.pyの関数_fetch_pageを実行しました。")
         print(f"podbayfm.pyの関数_fetch_pageを実行しました。")
         print(f"podbayfm.pyの関数_fetch_pageを実行しました。")
         return self._download_json(

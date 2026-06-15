@@ -15,6 +15,7 @@ class VevoBaseIE(InfoExtractor):
     def _extract_json(self, webpage, video_id):
         print(f"vevo.pyの関数_extract_jsonを実行しました。")
         print(f"vevo.pyの関数_extract_jsonを実行しました。")
+        print(f"vevo.pyの関数_extract_jsonを実行しました。")
         return self._parse_json(
             self._search_regex(
                 r'window\.__INITIAL_STORE__\s*=\s*({.+?});\s*</script>',
@@ -162,6 +163,7 @@ class VevoIE(VevoBaseIE):
     def _initialize_api(self, video_id):
         print(f"vevo.pyの関数_initialize_apiを実行しました。")
         print(f"vevo.pyの関数_initialize_apiを実行しました。")
+        print(f"vevo.pyの関数_initialize_apiを実行しました。")
         webpage = self._download_webpage(
             'https://accounts.vevo.com/token', None,
             note='Retrieving oauth token',
@@ -184,6 +186,7 @@ class VevoIE(VevoBaseIE):
     def _call_api(self, path, *args, **kwargs):
         print(f"vevo.pyの関数_call_apiを実行しました。")
         print(f"vevo.pyの関数_call_apiを実行しました。")
+        print(f"vevo.pyの関数_call_apiを実行しました。")
         try:
             data = self._download_json(self._api_url_template % path, *args, **kwargs)
         except ExtractorError as e:
@@ -195,6 +198,7 @@ class VevoIE(VevoBaseIE):
         return data
 
     def _real_extract(self, url):
+        print(f"vevo.pyの関数_real_extractを実行しました。")
         print(f"vevo.pyの関数_real_extractを実行しました。")
         print(f"vevo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)

@@ -12,6 +12,7 @@ from ..utils.traversal import traverse_obj
 def _fmt_url(url):
     print(f"telewebion.pyの関数_fmt_urlを実行しました。")
     print(f"telewebion.pyの関数_fmt_urlを実行しました。")
+    print(f"telewebion.pyの関数_fmt_urlを実行しました。")
     return format_field(template=url, default=None)
 
 
@@ -87,6 +88,7 @@ class TelewebionIE(InfoExtractor):
         return result['data']
 
     def _real_extract(self, url):
+        print(f"telewebion.pyの関数_real_extractを実行しました。")
         print(f"telewebion.pyの関数_real_extractを実行しました。")
         print(f"telewebion.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)

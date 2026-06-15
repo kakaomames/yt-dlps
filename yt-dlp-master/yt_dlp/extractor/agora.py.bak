@@ -38,6 +38,7 @@ class WyborczaVideoIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"agora.pyの関数_real_extractを実行しました。")
         print(f"agora.pyの関数_real_extractを実行しました。")
+        print(f"agora.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         meta = self._download_json(f'https://wyborcza.pl/api-video/{video_id}', video_id)
 
@@ -230,6 +231,7 @@ class TokFMAuditionIE(InfoExtractor):
         }
 
     def _fetch_page(self, audition_id, data, page):
+        print(f"agora.pyの関数_fetch_pageを実行しました。")
         print(f"agora.pyの関数_fetch_pageを実行しました。")
         print(f"agora.pyの関数_fetch_pageを実行しました。")
         for retry in self.RetryManager():

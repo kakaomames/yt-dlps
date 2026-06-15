@@ -55,6 +55,7 @@ class BoxIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"box.pyの関数_real_extractを実行しました。")
         print(f"box.pyの関数_real_extractを実行しました。")
+        print(f"box.pyの関数_real_extractを実行しました。")
         shared_name, file_id, service = self._match_valid_url(url).group('shared_name', 'id', 'service')
         webpage = self._download_webpage(url, file_id or shared_name)
 

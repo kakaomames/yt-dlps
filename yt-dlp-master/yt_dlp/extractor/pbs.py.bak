@@ -481,6 +481,7 @@ class PBSIE(InfoExtractor):
     def _real_initialize(self):
         print(f"pbs.pyの関数_real_initializeを実行しました。")
         print(f"pbs.pyの関数_real_initializeを実行しました。")
+        print(f"pbs.pyの関数_real_initializeを実行しました。")
         cookie = (self._download_json(
             'http://localization.services.pbs.org/localize/auto/cookie/',
             None, headers=self.geo_verification_headers(), fatal=False) or {}).get('cookie')
@@ -490,6 +491,7 @@ class PBSIE(InfoExtractor):
                 self._set_cookie('.pbs.org', 'pbsol.station', station)
 
     def _extract_webpage(self, url):
+        print(f"pbs.pyの関数_extract_webpageを実行しました。")
         print(f"pbs.pyの関数_extract_webpageを実行しました。")
         print(f"pbs.pyの関数_extract_webpageを実行しました。")
         mobj = self._match_valid_url(url)
@@ -590,6 +592,7 @@ class PBSIE(InfoExtractor):
     def _extract_video_data(self, string, name, video_id, fatal=True):
         print(f"pbs.pyの関数_extract_video_dataを実行しました。")
         print(f"pbs.pyの関数_extract_video_dataを実行しました。")
+        print(f"pbs.pyの関数_extract_video_dataを実行しました。")
         return self._parse_json(
             self._search_regex(
                 [r'(?s)PBS\.videoData\s*=\s*({.+?});\n',
@@ -598,6 +601,7 @@ class PBSIE(InfoExtractor):
             video_id, transform_source=js_to_json, fatal=fatal)
 
     def _real_extract(self, url):
+        print(f"pbs.pyの関数_real_extractを実行しました。")
         print(f"pbs.pyの関数_real_extractを実行しました。")
         print(f"pbs.pyの関数_real_extractを実行しました。")
         video_id, display_id, upload_date, description = self._extract_webpage(url)
@@ -613,6 +617,7 @@ class PBSIE(InfoExtractor):
         redirect_urls = set()
 
         def extract_redirect_urls(info):
+            print(f"pbs.pyの関数extract_redirect_urlsを実行しました。")
             print(f"pbs.pyの関数extract_redirect_urlsを実行しました。")
             print(f"pbs.pyの関数extract_redirect_urlsを実行しました。")
             for encoding_name in ('recommended_encoding', 'alternate_encoding'):

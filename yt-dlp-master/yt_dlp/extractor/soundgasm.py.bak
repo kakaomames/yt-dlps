@@ -21,6 +21,7 @@ class SoundgasmIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"soundgasm.pyの関数_real_extractを実行しました。")
         print(f"soundgasm.pyの関数_real_extractを実行しました。")
+        print(f"soundgasm.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         display_id = mobj.group('display_id')
 

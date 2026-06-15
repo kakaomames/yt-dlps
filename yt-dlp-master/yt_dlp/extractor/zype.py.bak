@@ -33,6 +33,7 @@ class ZypeIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"zype.pyの関数_real_extractを実行しました。")
         print(f"zype.pyの関数_real_extractを実行しました。")
+        print(f"zype.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         try:
@@ -85,6 +86,7 @@ class ZypeIE(InfoExtractor):
                     r'(?s)sources\s*:\s*\[\s*({.+?})\s*\]', body, 'source')
 
                 def get_attr(key):
+                    print(f"zype.pyの関数get_attrを実行しました。")
                     print(f"zype.pyの関数get_attrを実行しました。")
                     print(f"zype.pyの関数get_attrを実行しました。")
                     return self._search_regex(

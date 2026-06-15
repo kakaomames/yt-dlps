@@ -39,6 +39,7 @@ class VKBaseIE(InfoExtractor):
     def _download_webpage_handle(self, url_or_request, video_id, *args, fatal=True, **kwargs):
         print(f"vk.pyの関数_download_webpage_handleを実行しました。")
         print(f"vk.pyの関数_download_webpage_handleを実行しました。")
+        print(f"vk.pyの関数_download_webpage_handleを実行しました。")
         response = super()._download_webpage_handle(url_or_request, video_id, *args, fatal=fatal, **kwargs)
         if response is False:
             return response
@@ -77,6 +78,7 @@ class VKBaseIE(InfoExtractor):
     def _perform_login(self, username, password):
         print(f"vk.pyの関数_perform_loginを実行しました。")
         print(f"vk.pyの関数_perform_loginを実行しました。")
+        print(f"vk.pyの関数_perform_loginを実行しました。")
         login_page, url_handle = self._download_webpage_handle(
             'https://vk.com', None, 'Downloading login page')
 
@@ -101,6 +103,7 @@ class VKBaseIE(InfoExtractor):
                 'Unable to login, incorrect username and/or password', expected=True)
 
     def _download_payload(self, path, video_id, data, fatal=True):
+        print(f"vk.pyの関数_download_payloadを実行しました。")
         print(f"vk.pyの関数_download_payloadを実行しました。")
         print(f"vk.pyの関数_download_payloadを実行しました。")
         endpoint = f'https://vk.com/{path}.php'
@@ -398,6 +401,7 @@ class VKIE(VKBaseIE):
     def _real_extract(self, url):
         print(f"vk.pyの関数_real_extractを実行しました。")
         print(f"vk.pyの関数_real_extractを実行しました。")
+        print(f"vk.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('videoid')
 
@@ -643,6 +647,7 @@ class VKUserVideosIE(VKBaseIE):
     def _entries(self, page_id, section):
         print(f"vk.pyの関数_entriesを実行しました。")
         print(f"vk.pyの関数_entriesを実行しました。")
+        print(f"vk.pyの関数_entriesを実行しました。")
         video_list_json = self._download_payload('al_video', page_id, {
             'act': 'load_videos_silent',
             'offset': 0,
@@ -752,6 +757,7 @@ class VKWallPostIE(VKBaseIE):
     def _decode(self, enc):
         print(f"vk.pyの関数_decodeを実行しました。")
         print(f"vk.pyの関数_decodeを実行しました。")
+        print(f"vk.pyの関数_decodeを実行しました。")
         dec = ''
         e = n = 0
         for c in enc:
@@ -764,6 +770,7 @@ class VKWallPostIE(VKBaseIE):
         return dec
 
     def _unmask_url(self, mask_url, vk_id):
+        print(f"vk.pyの関数_unmask_urlを実行しました。")
         print(f"vk.pyの関数_unmask_urlを実行しました。")
         print(f"vk.pyの関数_unmask_urlを実行しました。")
         if 'audio_api_unavailable' in mask_url:
@@ -843,6 +850,7 @@ class VKPlayBaseIE(InfoExtractor):
     def _extract_from_initial_state(self, url, video_id, path):
         print(f"vk.pyの関数_extract_from_initial_stateを実行しました。")
         print(f"vk.pyの関数_extract_from_initial_stateを実行しました。")
+        print(f"vk.pyの関数_extract_from_initial_stateを実行しました。")
         webpage = self._download_webpage(url, video_id)
         video_info = traverse_obj(self._search_json(
             r'<script[^>]+\bid="initial-state"[^>]*>', webpage, 'initial state', video_id),
@@ -852,6 +860,7 @@ class VKPlayBaseIE(InfoExtractor):
         return video_info
 
     def _extract_formats(self, stream_info, video_id):
+        print(f"vk.pyの関数_extract_formatsを実行しました。")
         print(f"vk.pyの関数_extract_formatsを実行しました。")
         print(f"vk.pyの関数_extract_formatsを実行しました。")
         formats = []
@@ -875,6 +884,7 @@ class VKPlayBaseIE(InfoExtractor):
         return formats
 
     def _extract_common_meta(self, stream_info):
+        print(f"vk.pyの関数_extract_common_metaを実行しました。")
         print(f"vk.pyの関数_extract_common_metaを実行しました。")
         print(f"vk.pyの関数_extract_common_metaを実行しました。")
         return traverse_obj(stream_info, {

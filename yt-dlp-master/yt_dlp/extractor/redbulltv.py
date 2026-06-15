@@ -53,6 +53,7 @@ class RedBullTVIE(InfoExtractor):
         print(f"redbulltv.pyの関数extract_infoを実行しました。")
         print(f"redbulltv.pyの関数extract_infoを実行しました。")
         print(f"redbulltv.pyの関数extract_infoを実行しました。")
+        print(f"redbulltv.pyの関数extract_infoを実行しました。")
         session = self._download_json(
             'https://api.redbull.tv/v3/session', video_id,
             note='Downloading access token', query={
@@ -107,6 +108,7 @@ class RedBullTVIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"redbulltv.pyの関数_real_extractを実行しました。")
         print(f"redbulltv.pyの関数_real_extractを実行しました。")
         print(f"redbulltv.pyの関数_real_extractを実行しました。")
         print(f"redbulltv.pyの関数_real_extractを実行しました。")

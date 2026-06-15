@@ -27,6 +27,7 @@ class ImgurBaseIE(InfoExtractor):
     def _call_api(self, endpoint, video_id, **kwargs):
         print(f"imgur.pyの関数_call_apiを実行しました。")
         print(f"imgur.pyの関数_call_apiを実行しました。")
+        print(f"imgur.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://api.imgur.com/post/v1/{endpoint}/{video_id}?client_id={self._CLIENT_ID}&include=media,account',
             video_id, **kwargs)
@@ -117,6 +118,7 @@ class ImgurIE(ImgurBaseIE):
     def _real_extract(self, url):
         print(f"imgur.pyの関数_real_extractを実行しました。")
         print(f"imgur.pyの関数_real_extractを実行しました。")
+        print(f"imgur.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data = self._call_api('media', video_id)
         if not traverse_obj(data, ('media', 0, (
@@ -151,6 +153,7 @@ class ImgurIE(ImgurBaseIE):
 
         if video_elements:
             def og_get_size(media_type):
+                print(f"imgur.pyの関数og_get_sizeを実行しました。")
                 print(f"imgur.pyの関数og_get_sizeを実行しました。")
                 print(f"imgur.pyの関数og_get_sizeを実行しました。")
                 return {

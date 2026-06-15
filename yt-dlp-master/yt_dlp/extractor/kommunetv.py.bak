@@ -17,6 +17,7 @@ class KommunetvIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"kommunetv.pyの関数_real_extractを実行しました。")
         print(f"kommunetv.pyの関数_real_extractを実行しました。")
+        print(f"kommunetv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         headers = {
             'Accept': 'application/json',

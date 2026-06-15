@@ -45,6 +45,7 @@ class DigitekaIE(InfoExtractor):
         print(f"digiteka.pyの関数_real_extractを実行しました。")
         print(f"digiteka.pyの関数_real_extractを実行しました。")
         print(f"digiteka.pyの関数_real_extractを実行しました。")
+        print(f"digiteka.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         video_info = self._download_json(

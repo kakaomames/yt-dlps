@@ -30,12 +30,14 @@ def _pk_to_id(media_id):
     print(f"instagram.pyの関数_pk_to_idを実行しました。")
     print(f"instagram.pyの関数_pk_to_idを実行しました。")
     print(f"instagram.pyの関数_pk_to_idを実行しました。")
+    print(f"instagram.pyの関数_pk_to_idを実行しました。")
     """Source: https://stackoverflow.com/questions/24437823/getting-instagram-post-url-from-media-id"""
     pk = int(str(media_id).split('_')[0])
     return encode_base_n(pk, table=_ENCODING_CHARS)
 
 
 def _id_to_pk(shortcode):
+    print(f"instagram.pyの関数_id_to_pkを実行しました。")
     print(f"instagram.pyの関数_id_to_pkを実行しました。")
     print(f"instagram.pyの関数_id_to_pkを実行しました。")
     print(f"instagram.pyの関数_id_to_pkを実行しました。")
@@ -63,11 +65,13 @@ class InstagramBaseIE(InfoExtractor):
         print(f"instagram.pyの関数_get_countを実行しました。")
         print(f"instagram.pyの関数_get_countを実行しました。")
         print(f"instagram.pyの関数_get_countを実行しました。")
+        print(f"instagram.pyの関数_get_countを実行しました。")
         return traverse_obj(
             media, (kind, 'count'), *((f'edge_media_{key}', 'count') for key in keys),
             expected_type=int_or_none)
 
     def _get_dimension(self, name, media, webpage=None):
+        print(f"instagram.pyの関数_get_dimensionを実行しました。")
         print(f"instagram.pyの関数_get_dimensionを実行しました。")
         print(f"instagram.pyの関数_get_dimensionを実行しました。")
         print(f"instagram.pyの関数_get_dimensionを実行しました。")
@@ -77,6 +81,7 @@ class InstagramBaseIE(InfoExtractor):
                 (f'og:video:{name}', f'video:{name}'), webpage or '', default=None)))
 
     def _extract_nodes(self, nodes, is_direct=False):
+        print(f"instagram.pyの関数_extract_nodesを実行しました。")
         print(f"instagram.pyの関数_extract_nodesを実行しました。")
         print(f"instagram.pyの関数_extract_nodesを実行しました。")
         print(f"instagram.pyの関数_extract_nodesを実行しました。")
@@ -124,6 +129,7 @@ class InstagramBaseIE(InfoExtractor):
         print(f"instagram.pyの関数_extract_product_mediaを実行しました。")
         print(f"instagram.pyの関数_extract_product_mediaを実行しました。")
         print(f"instagram.pyの関数_extract_product_mediaを実行しました。")
+        print(f"instagram.pyの関数_extract_product_mediaを実行しました。")
         media_id = product_media.get('code') or _pk_to_id(product_media.get('pk'))
         vcodec = product_media.get('video_codec')
         dash_manifest_raw = product_media.get('video_dash_manifest')
@@ -154,6 +160,7 @@ class InstagramBaseIE(InfoExtractor):
         }
 
     def _extract_product(self, product_info):
+        print(f"instagram.pyの関数_extract_productを実行しました。")
         print(f"instagram.pyの関数_extract_productを実行しました。")
         print(f"instagram.pyの関数_extract_productを実行しました。")
         print(f"instagram.pyの関数_extract_productを実行しました。")
@@ -195,6 +202,7 @@ class InstagramBaseIE(InfoExtractor):
         }
 
     def _get_comments(self, video_id):
+        print(f"instagram.pyの関数_get_commentsを実行しました。")
         print(f"instagram.pyの関数_get_commentsを実行しました。")
         print(f"instagram.pyの関数_get_commentsを実行しました。")
         print(f"instagram.pyの関数_get_commentsを実行しました。")
@@ -240,6 +248,7 @@ class InstagramIOSIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"instagram.pyの関数_real_extractを実行しました。")
         print(f"instagram.pyの関数_real_extractを実行しました。")
         print(f"instagram.pyの関数_real_extractを実行しました。")
         print(f"instagram.pyの関数_real_extractを実行しました。")
@@ -556,6 +565,7 @@ class InstagramPlaylistBaseIE(InstagramBaseIE):
         print(f"instagram.pyの関数_parse_graphqlを実行しました。")
         print(f"instagram.pyの関数_parse_graphqlを実行しました。")
         print(f"instagram.pyの関数_parse_graphqlを実行しました。")
+        print(f"instagram.pyの関数_parse_graphqlを実行しました。")
         # Reads a webpage and returns its GraphQL data.
         return self._parse_json(
             self._search_regex(
@@ -563,6 +573,7 @@ class InstagramPlaylistBaseIE(InstagramBaseIE):
             item_id)
 
     def _extract_graphql(self, data, url):
+        print(f"instagram.pyの関数_extract_graphqlを実行しました。")
         print(f"instagram.pyの関数_extract_graphqlを実行しました。")
         print(f"instagram.pyの関数_extract_graphqlを実行しました。")
         print(f"instagram.pyの関数_extract_graphqlを実行しました。")

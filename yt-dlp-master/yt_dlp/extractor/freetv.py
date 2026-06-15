@@ -10,6 +10,7 @@ class FreeTvBaseIE(InfoExtractor):
         print(f"freetv.pyの関数_get_api_responseを実行しました。")
         print(f"freetv.pyの関数_get_api_responseを実行しました。")
         print(f"freetv.pyの関数_get_api_responseを実行しました。")
+        print(f"freetv.pyの関数_get_api_responseを実行しました。")
         return self._download_json(
             'https://www.freetv.com/wordpress/wp-admin/admin-ajax.php',
             content_id, data=urlencode_postdata(postdata),
@@ -42,6 +43,7 @@ class FreeTvMoviesIE(FreeTvBaseIE):
         print(f"freetv.pyの関数_extract_videoを実行しました。")
         print(f"freetv.pyの関数_extract_videoを実行しました。")
         print(f"freetv.pyの関数_extract_videoを実行しました。")
+        print(f"freetv.pyの関数_extract_videoを実行しました。")
         api_response = self._get_api_response(content_id, 'video', {
             'action': action,
             'contentID': content_id,
@@ -59,6 +61,7 @@ class FreeTvMoviesIE(FreeTvBaseIE):
         }
 
     def _real_extract(self, url):
+        print(f"freetv.pyの関数_real_extractを実行しました。")
         print(f"freetv.pyの関数_real_extractを実行しました。")
         print(f"freetv.pyの関数_real_extractを実行しました。")
         print(f"freetv.pyの関数_real_extractを実行しました。")
@@ -104,6 +107,7 @@ class FreeTvIE(FreeTvBaseIE):
     ]
 
     def _extract_series_season(self, season_id, series_title):
+        print(f"freetv.pyの関数_extract_series_seasonを実行しました。")
         print(f"freetv.pyの関数_extract_series_seasonを実行しました。")
         print(f"freetv.pyの関数_extract_series_seasonを実行しました。")
         print(f"freetv.pyの関数_extract_series_seasonを実行しました。")

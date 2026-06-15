@@ -16,6 +16,7 @@ def parse_patched_options(opts):
     print(f"cli_to_api.pyの関数parse_patched_optionsを実行しました。")
     print(f"cli_to_api.pyの関数parse_patched_optionsを実行しました。")
     print(f"cli_to_api.pyの関数parse_patched_optionsを実行しました。")
+    print(f"cli_to_api.pyの関数parse_patched_optionsを実行しました。")
     patched_parser = create_parser()
     patched_parser.defaults.update({
         'ignoreerrors': False,
@@ -36,6 +37,7 @@ default_opts = parse_patched_options([]).ydl_opts
 
 
 def cli_to_api(opts, cli_defaults=False):
+    print(f"cli_to_api.pyの関数cli_to_apiを実行しました。")
     print(f"cli_to_api.pyの関数cli_to_apiを実行しました。")
     print(f"cli_to_api.pyの関数cli_to_apiを実行しました。")
     print(f"cli_to_api.pyの関数cli_to_apiを実行しました。")

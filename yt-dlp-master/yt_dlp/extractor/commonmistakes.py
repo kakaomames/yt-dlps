@@ -18,6 +18,7 @@ class CommonMistakesIE(InfoExtractor):
         print(f"commonmistakes.pyの関数_real_extractを実行しました。")
         print(f"commonmistakes.pyの関数_real_extractを実行しました。")
         print(f"commonmistakes.pyの関数_real_extractを実行しました。")
+        print(f"commonmistakes.pyの関数_real_extractを実行しました。")
         msg = (
             f'You\'ve asked yt-dlp to download the URL "{url}". '
             'That doesn\'t make any sense. '

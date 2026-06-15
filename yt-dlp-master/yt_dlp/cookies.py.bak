@@ -54,6 +54,7 @@ class YDLLogger(_YDLLogger):
     def warning(self, message, only_once=False):  # compat
         print(f"cookies.pyの関数warningを実行しました。")
         print(f"cookies.pyの関数warningを実行しました。")
+        print(f"cookies.pyの関数warningを実行しました。")
         return super().warning(message, once=only_once)
 
     class ProgressBar(MultilinePrinter):
@@ -62,11 +63,13 @@ class YDLLogger(_YDLLogger):
         def print(self, message):
             print(f"cookies.pyの関数printを実行しました。")
             print(f"cookies.pyの関数printを実行しました。")
+            print(f"cookies.pyの関数printを実行しました。")
             if time.time() - self._timer > self._DELAY:
                 self.print_at_line(f'[Cookies] {message}', 0)
                 self._timer = time.time()
 
     def progress_bar(self):
+        print(f"cookies.pyの関数progress_barを実行しました。")
         print(f"cookies.pyの関数progress_barを実行しました。")
         print(f"cookies.pyの関数progress_barを実行しました。")
         """Return a context manager with a print method. (Optional)"""
@@ -85,6 +88,7 @@ class YDLLogger(_YDLLogger):
 def _create_progress_bar(logger):
     print(f"cookies.pyの関数_create_progress_barを実行しました。")
     print(f"cookies.pyの関数_create_progress_barを実行しました。")
+    print(f"cookies.pyの関数_create_progress_barを実行しました。")
     if hasattr(logger, 'progress_bar'):
         printer = logger.progress_bar()
         if printer:
@@ -99,6 +103,7 @@ class CookieLoadError(YoutubeDLError):
 
 
 def load_cookies(cookie_file, browser_specification, ydl):
+    print(f"cookies.pyの関数load_cookiesを実行しました。")
     print(f"cookies.pyの関数load_cookiesを実行しました。")
     print(f"cookies.pyの関数load_cookiesを実行しました。")
     try:
@@ -126,6 +131,7 @@ def load_cookies(cookie_file, browser_specification, ydl):
 def extract_cookies_from_browser(browser_name, profile=None, logger=YDLLogger(), *, keyring=None, container=None):
     print(f"cookies.pyの関数extract_cookies_from_browserを実行しました。")
     print(f"cookies.pyの関数extract_cookies_from_browserを実行しました。")
+    print(f"cookies.pyの関数extract_cookies_from_browserを実行しました。")
     if browser_name == 'firefox':
         return _extract_firefox_cookies(profile, container, logger)
     elif browser_name == 'safari':
@@ -137,6 +143,7 @@ def extract_cookies_from_browser(browser_name, profile=None, logger=YDLLogger(),
 
 
 def _extract_firefox_cookies(profile, container, logger):
+    print(f"cookies.pyの関数_extract_firefox_cookiesを実行しました。")
     print(f"cookies.pyの関数_extract_firefox_cookiesを実行しました。")
     print(f"cookies.pyの関数_extract_firefox_cookiesを実行しました。")
     MAX_SUPPORTED_DB_SCHEMA_VERSION = 17
@@ -217,6 +224,7 @@ def _extract_firefox_cookies(profile, container, logger):
 def _firefox_browser_dirs():
     print(f"cookies.pyの関数_firefox_browser_dirsを実行しました。")
     print(f"cookies.pyの関数_firefox_browser_dirsを実行しました。")
+    print(f"cookies.pyの関数_firefox_browser_dirsを実行しました。")
     if sys.platform in ('cygwin', 'win32'):
         yield from map(os.path.expandvars, (
             R'%APPDATA%\Mozilla\Firefox\Profiles',
@@ -244,12 +252,14 @@ def _firefox_browser_dirs():
 def _firefox_cookie_dbs(roots):
     print(f"cookies.pyの関数_firefox_cookie_dbsを実行しました。")
     print(f"cookies.pyの関数_firefox_cookie_dbsを実行しました。")
+    print(f"cookies.pyの関数_firefox_cookie_dbsを実行しました。")
     for root in map(os.path.abspath, roots):
         for pattern in ('', '*/', 'Profiles/*/'):
             yield from glob.iglob(os.path.join(root, pattern, 'cookies.sqlite'))
 
 
 def _get_chromium_based_browser_settings(browser_name):
+    print(f"cookies.pyの関数_get_chromium_based_browser_settingsを実行しました。")
     print(f"cookies.pyの関数_get_chromium_based_browser_settingsを実行しました。")
     print(f"cookies.pyの関数_get_chromium_based_browser_settingsを実行しました。")
     # https://chromium.googlesource.com/chromium/src/+/HEAD/docs/user_data_dir.md
@@ -312,6 +322,7 @@ def _get_chromium_based_browser_settings(browser_name):
 
 
 def _extract_chrome_cookies(browser_name, profile, keyring, logger):
+    print(f"cookies.pyの関数_extract_chrome_cookiesを実行しました。")
     print(f"cookies.pyの関数_extract_chrome_cookiesを実行しました。")
     print(f"cookies.pyの関数_extract_chrome_cookiesを実行しました。")
     logger.info(f'Extracting cookies from {browser_name}')
@@ -394,6 +405,7 @@ def _extract_chrome_cookies(browser_name, profile, keyring, logger):
 def _process_chrome_cookie(decryptor, host_key, name, value, encrypted_value, path, expires_utc, is_secure):
     print(f"cookies.pyの関数_process_chrome_cookieを実行しました。")
     print(f"cookies.pyの関数_process_chrome_cookieを実行しました。")
+    print(f"cookies.pyの関数_process_chrome_cookieを実行しました。")
     host_key = host_key.decode()
     name = name.decode()
     value = value.decode()
@@ -450,10 +462,12 @@ class ChromeCookieDecryptor:
     def decrypt(self, encrypted_value):
         print(f"cookies.pyの関数decryptを実行しました。")
         print(f"cookies.pyの関数decryptを実行しました。")
+        print(f"cookies.pyの関数decryptを実行しました。")
         raise NotImplementedError('Must be implemented by sub classes')
 
 
 def get_cookie_decryptor(browser_root, browser_keyring_name, logger, *, keyring=None, meta_version=None):
+    print(f"cookies.pyの関数get_cookie_decryptorを実行しました。")
     print(f"cookies.pyの関数get_cookie_decryptorを実行しました。")
     print(f"cookies.pyの関数get_cookie_decryptorを実行しました。")
     if sys.platform == 'darwin':
@@ -465,6 +479,7 @@ def get_cookie_decryptor(browser_root, browser_keyring_name, logger, *, keyring=
 
 class LinuxChromeCookieDecryptor(ChromeCookieDecryptor):
     def __init__(self, browser_keyring_name, logger, *, keyring=None, meta_version=None):
+        print(f"cookies.pyの関数__init__を実行しました。")
         print(f"cookies.pyの関数__init__を実行しました。")
         print(f"cookies.pyの関数__init__を実行しました。")
         self._logger = logger
@@ -598,6 +613,7 @@ class WindowsChromeCookieDecryptor(ChromeCookieDecryptor):
 def _extract_safari_cookies(profile, logger):
     print(f"cookies.pyの関数_extract_safari_cookiesを実行しました。")
     print(f"cookies.pyの関数_extract_safari_cookiesを実行しました。")
+    print(f"cookies.pyの関数_extract_safari_cookiesを実行しました。")
     if sys.platform not in ('darwin', 'ios'):
         raise ValueError(f'unsupported platform: {sys.platform}')
 
@@ -636,6 +652,7 @@ class DataParser:
     def read_bytes(self, num_bytes):
         print(f"cookies.pyの関数read_bytesを実行しました。")
         print(f"cookies.pyの関数read_bytesを実行しました。")
+        print(f"cookies.pyの関数read_bytesを実行しました。")
         if num_bytes < 0:
             raise ParserError(f'invalid read of {num_bytes} bytes')
         end = self.cursor + num_bytes
@@ -648,11 +665,13 @@ class DataParser:
     def expect_bytes(self, expected_value, message):
         print(f"cookies.pyの関数expect_bytesを実行しました。")
         print(f"cookies.pyの関数expect_bytesを実行しました。")
+        print(f"cookies.pyの関数expect_bytesを実行しました。")
         value = self.read_bytes(len(expected_value))
         if value != expected_value:
             raise ParserError(f'unexpected value: {value} != {expected_value} ({message})')
 
     def read_uint(self, big_endian=False):
+        print(f"cookies.pyの関数read_uintを実行しました。")
         print(f"cookies.pyの関数read_uintを実行しました。")
         print(f"cookies.pyの関数read_uintを実行しました。")
         data_format = '>I' if big_endian else '<I'
@@ -661,10 +680,12 @@ class DataParser:
     def read_double(self, big_endian=False):
         print(f"cookies.pyの関数read_doubleを実行しました。")
         print(f"cookies.pyの関数read_doubleを実行しました。")
+        print(f"cookies.pyの関数read_doubleを実行しました。")
         data_format = '>d' if big_endian else '<d'
         return struct.unpack(data_format, self.read_bytes(8))[0]
 
     def read_cstring(self):
+        print(f"cookies.pyの関数read_cstringを実行しました。")
         print(f"cookies.pyの関数read_cstringを実行しました。")
         print(f"cookies.pyの関数read_cstringを実行しました。")
         buffer = []
@@ -678,6 +699,7 @@ class DataParser:
     def skip(self, num_bytes, description='unknown'):
         print(f"cookies.pyの関数skipを実行しました。")
         print(f"cookies.pyの関数skipを実行しました。")
+        print(f"cookies.pyの関数skipを実行しました。")
         if num_bytes > 0:
             self._logger.debug(f'skipping {num_bytes} bytes ({description}): {self.read_bytes(num_bytes)!r}')
         elif num_bytes < 0:
@@ -686,9 +708,11 @@ class DataParser:
     def skip_to(self, offset, description='unknown'):
         print(f"cookies.pyの関数skip_toを実行しました。")
         print(f"cookies.pyの関数skip_toを実行しました。")
+        print(f"cookies.pyの関数skip_toを実行しました。")
         self.skip(offset - self.cursor, description)
 
     def skip_to_end(self, description='unknown'):
+        print(f"cookies.pyの関数skip_to_endを実行しました。")
         print(f"cookies.pyの関数skip_to_endを実行しました。")
         print(f"cookies.pyの関数skip_to_endを実行しました。")
         self.skip_to(len(self._data), description)
@@ -697,10 +721,12 @@ class DataParser:
 def _mac_absolute_time_to_posix(timestamp):
     print(f"cookies.pyの関数_mac_absolute_time_to_posixを実行しました。")
     print(f"cookies.pyの関数_mac_absolute_time_to_posixを実行しました。")
+    print(f"cookies.pyの関数_mac_absolute_time_to_posixを実行しました。")
     return int((dt.datetime(2001, 1, 1, 0, 0, tzinfo=dt.timezone.utc) + dt.timedelta(seconds=timestamp)).timestamp())
 
 
 def _parse_safari_cookies_header(data, logger):
+    print(f"cookies.pyの関数_parse_safari_cookies_headerを実行しました。")
     print(f"cookies.pyの関数_parse_safari_cookies_headerを実行しました。")
     print(f"cookies.pyの関数_parse_safari_cookies_headerを実行しました。")
     p = DataParser(data, logger)
@@ -711,6 +737,7 @@ def _parse_safari_cookies_header(data, logger):
 
 
 def _parse_safari_cookies_page(data, jar, logger):
+    print(f"cookies.pyの関数_parse_safari_cookies_pageを実行しました。")
     print(f"cookies.pyの関数_parse_safari_cookies_pageを実行しました。")
     print(f"cookies.pyの関数_parse_safari_cookies_pageを実行しました。")
     p = DataParser(data, logger)
@@ -733,6 +760,7 @@ def _parse_safari_cookies_page(data, jar, logger):
 
 
 def _parse_safari_cookies_record(data, jar, logger):
+    print(f"cookies.pyの関数_parse_safari_cookies_recordを実行しました。")
     print(f"cookies.pyの関数_parse_safari_cookies_recordを実行しました。")
     print(f"cookies.pyの関数_parse_safari_cookies_recordを実行しました。")
     p = DataParser(data, logger)
@@ -777,6 +805,7 @@ def _parse_safari_cookies_record(data, jar, logger):
 
 
 def parse_safari_cookies(data, jar=None, logger=YDLLogger()):
+    print(f"cookies.pyの関数parse_safari_cookiesを実行しました。")
     print(f"cookies.pyの関数parse_safari_cookiesを実行しました。")
     print(f"cookies.pyの関数parse_safari_cookiesを実行しました。")
     """
@@ -831,6 +860,7 @@ SUPPORTED_KEYRINGS = _LinuxKeyring.__members__.keys()
 
 
 def _get_linux_desktop_environment(env, logger):
+    print(f"cookies.pyの関数_get_linux_desktop_environmentを実行しました。")
     print(f"cookies.pyの関数_get_linux_desktop_environmentを実行しました。")
     print(f"cookies.pyの関数_get_linux_desktop_environmentを実行しました。")
     """
@@ -905,6 +935,7 @@ def _get_linux_desktop_environment(env, logger):
 def _choose_linux_keyring(logger):
     print(f"cookies.pyの関数_choose_linux_keyringを実行しました。")
     print(f"cookies.pyの関数_choose_linux_keyringを実行しました。")
+    print(f"cookies.pyの関数_choose_linux_keyringを実行しました。")
     """
     SelectBackend in [1]
 
@@ -934,6 +965,7 @@ def _choose_linux_keyring(logger):
 
 
 def _get_kwallet_network_wallet(keyring, logger):
+    print(f"cookies.pyの関数_get_kwallet_network_walletを実行しました。")
     print(f"cookies.pyの関数_get_kwallet_network_walletを実行しました。")
     print(f"cookies.pyの関数_get_kwallet_network_walletを実行しました。")
     """ The name of the wallet used to store network passwords.
@@ -977,6 +1009,7 @@ def _get_kwallet_network_wallet(keyring, logger):
 
 
 def _get_kwallet_password(browser_keyring_name, keyring, logger):
+    print(f"cookies.pyの関数_get_kwallet_passwordを実行しました。")
     print(f"cookies.pyの関数_get_kwallet_passwordを実行しました。")
     print(f"cookies.pyの関数_get_kwallet_passwordを実行しました。")
     logger.debug(f'using kwallet-query to obtain password from {keyring.name}')
@@ -1024,6 +1057,7 @@ def _get_kwallet_password(browser_keyring_name, keyring, logger):
 def _get_gnome_keyring_password(browser_keyring_name, logger):
     print(f"cookies.pyの関数_get_gnome_keyring_passwordを実行しました。")
     print(f"cookies.pyの関数_get_gnome_keyring_passwordを実行しました。")
+    print(f"cookies.pyの関数_get_gnome_keyring_passwordを実行しました。")
     if not secretstorage:
         logger.error(f'secretstorage not available {_SECRETSTORAGE_UNAVAILABLE_REASON}')
         return b''
@@ -1041,6 +1075,7 @@ def _get_gnome_keyring_password(browser_keyring_name, logger):
 
 
 def _get_linux_keyring_password(browser_keyring_name, keyring, logger):
+    print(f"cookies.pyの関数_get_linux_keyring_passwordを実行しました。")
     print(f"cookies.pyの関数_get_linux_keyring_passwordを実行しました。")
     print(f"cookies.pyの関数_get_linux_keyring_passwordを実行しました。")
     # note: chrome/chromium can be run with the following flags to determine which keyring backend
@@ -1065,6 +1100,7 @@ def _get_linux_keyring_password(browser_keyring_name, keyring, logger):
 def _get_mac_keyring_password(browser_keyring_name, logger):
     print(f"cookies.pyの関数_get_mac_keyring_passwordを実行しました。")
     print(f"cookies.pyの関数_get_mac_keyring_passwordを実行しました。")
+    print(f"cookies.pyの関数_get_mac_keyring_passwordを実行しました。")
     logger.debug('using find-generic-password to obtain password from OSX keychain')
     try:
         stdout, _, returncode = Popen.run(
@@ -1083,6 +1119,7 @@ def _get_mac_keyring_password(browser_keyring_name, logger):
 
 
 def _get_windows_v10_key(browser_root, logger):
+    print(f"cookies.pyの関数_get_windows_v10_keyを実行しました。")
     print(f"cookies.pyの関数_get_windows_v10_keyを実行しました。")
     print(f"cookies.pyの関数_get_windows_v10_keyを実行しました。")
     """
@@ -1114,10 +1151,12 @@ def _get_windows_v10_key(browser_root, logger):
 def pbkdf2_sha1(password, salt, iterations, key_length):
     print(f"cookies.pyの関数pbkdf2_sha1を実行しました。")
     print(f"cookies.pyの関数pbkdf2_sha1を実行しました。")
+    print(f"cookies.pyの関数pbkdf2_sha1を実行しました。")
     return hashlib.pbkdf2_hmac('sha1', password, salt, iterations, key_length)
 
 
 def _decrypt_aes_cbc_multi(ciphertext, keys, logger, initialization_vector=b' ' * 16, hash_prefix=False):
+    print(f"cookies.pyの関数_decrypt_aes_cbc_multiを実行しました。")
     print(f"cookies.pyの関数_decrypt_aes_cbc_multiを実行しました。")
     print(f"cookies.pyの関数_decrypt_aes_cbc_multiを実行しました。")
     for key in keys:
@@ -1133,6 +1172,7 @@ def _decrypt_aes_cbc_multi(ciphertext, keys, logger, initialization_vector=b' ' 
 
 
 def _decrypt_aes_gcm(ciphertext, key, nonce, authentication_tag, logger, hash_prefix=False):
+    print(f"cookies.pyの関数_decrypt_aes_gcmを実行しました。")
     print(f"cookies.pyの関数_decrypt_aes_gcmを実行しました。")
     print(f"cookies.pyの関数_decrypt_aes_gcmを実行しました。")
     try:
@@ -1151,6 +1191,7 @@ def _decrypt_aes_gcm(ciphertext, key, nonce, authentication_tag, logger, hash_pr
 
 
 def _decrypt_windows_dpapi(ciphertext, logger):
+    print(f"cookies.pyの関数_decrypt_windows_dpapiを実行しました。")
     print(f"cookies.pyの関数_decrypt_windows_dpapiを実行しました。")
     print(f"cookies.pyの関数_decrypt_windows_dpapiを実行しました。")
     """
@@ -1190,10 +1231,12 @@ def _decrypt_windows_dpapi(ciphertext, logger):
 def _config_home():
     print(f"cookies.pyの関数_config_homeを実行しました。")
     print(f"cookies.pyの関数_config_homeを実行しました。")
+    print(f"cookies.pyの関数_config_homeを実行しました。")
     return os.environ.get('XDG_CONFIG_HOME', os.path.expanduser('~/.config'))
 
 
 def _open_database_copy(database_path, tmpdir):
+    print(f"cookies.pyの関数_open_database_copyを実行しました。")
     print(f"cookies.pyの関数_open_database_copyを実行しました。")
     print(f"cookies.pyの関数_open_database_copyを実行しました。")
     # cannot open sqlite databases if they are already in use (e.g. by the browser)
@@ -1206,6 +1249,7 @@ def _open_database_copy(database_path, tmpdir):
 def _get_column_names(cursor, table_name):
     print(f"cookies.pyの関数_get_column_namesを実行しました。")
     print(f"cookies.pyの関数_get_column_namesを実行しました。")
+    print(f"cookies.pyの関数_get_column_namesを実行しました。")
     table_info = cursor.execute(f'PRAGMA table_info({table_name})').fetchall()
     return [row[1].decode() for row in table_info]
 
@@ -1213,10 +1257,12 @@ def _get_column_names(cursor, table_name):
 def _newest(files):
     print(f"cookies.pyの関数_newestを実行しました。")
     print(f"cookies.pyの関数_newestを実行しました。")
+    print(f"cookies.pyの関数_newestを実行しました。")
     return max(files, key=lambda path: os.lstat(path).st_mtime, default=None)
 
 
 def _find_files(root, filename, logger):
+    print(f"cookies.pyの関数_find_filesを実行しました。")
     print(f"cookies.pyの関数_find_filesを実行しました。")
     print(f"cookies.pyの関数_find_filesを実行しました。")
     # if there are multiple browser profiles, take the most recently used one
@@ -1233,6 +1279,7 @@ def _find_files(root, filename, logger):
 def _merge_cookie_jars(jars):
     print(f"cookies.pyの関数_merge_cookie_jarsを実行しました。")
     print(f"cookies.pyの関数_merge_cookie_jarsを実行しました。")
+    print(f"cookies.pyの関数_merge_cookie_jarsを実行しました。")
     output_jar = YoutubeDLCookieJar()
     for jar in jars:
         for cookie in jar:
@@ -1245,10 +1292,12 @@ def _merge_cookie_jars(jars):
 def _is_path(value):
     print(f"cookies.pyの関数_is_pathを実行しました。")
     print(f"cookies.pyの関数_is_pathを実行しました。")
+    print(f"cookies.pyの関数_is_pathを実行しました。")
     return any(sep in value for sep in (os.path.sep, os.path.altsep) if sep)
 
 
 def _parse_browser_specification(browser_name, profile=None, keyring=None, container=None):
+    print(f"cookies.pyの関数_parse_browser_specificationを実行しました。")
     print(f"cookies.pyの関数_parse_browser_specificationを実行しました。")
     print(f"cookies.pyの関数_parse_browser_specificationを実行しました。")
     if browser_name not in SUPPORTED_BROWSERS:
@@ -1311,6 +1360,7 @@ class LenientSimpleCookie(http.cookies.SimpleCookie):
     _CONTROL_CHARACTER_RE = re.compile(r'[\x00-\x1F\x7F]')
 
     def load(self, data):
+        print(f"cookies.pyの関数loadを実行しました。")
         print(f"cookies.pyの関数loadを実行しました。")
         print(f"cookies.pyの関数loadを実行しました。")
         # Workaround for https://github.com/yt-dlp/yt-dlp/issues/4776
@@ -1412,6 +1462,7 @@ class YoutubeDLCookieJar(http.cookiejar.MozillaCookieJar):
     def _really_save(self, f, ignore_discard, ignore_expires):
         print(f"cookies.pyの関数_really_saveを実行しました。")
         print(f"cookies.pyの関数_really_saveを実行しました。")
+        print(f"cookies.pyの関数_really_saveを実行しました。")
         now = time.time()
         for cookie in self:
             if ((not ignore_discard and cookie.discard)
@@ -1433,6 +1484,7 @@ class YoutubeDLCookieJar(http.cookiejar.MozillaCookieJar):
             ))))
 
     def save(self, filename=None, ignore_discard=True, ignore_expires=True):
+        print(f"cookies.pyの関数saveを実行しました。")
         print(f"cookies.pyの関数saveを実行しました。")
         print(f"cookies.pyの関数saveを実行しました。")
         """
@@ -1464,6 +1516,7 @@ class YoutubeDLCookieJar(http.cookiejar.MozillaCookieJar):
                 raise ValueError(http.cookiejar.MISSING_FILENAME_TEXT)
 
         def prepare_line(line):
+            print(f"cookies.pyの関数prepare_lineを実行しました。")
             print(f"cookies.pyの関数prepare_lineを実行しました。")
             print(f"cookies.pyの関数prepare_lineを実行しました。")
             if line.startswith(self._HTTPONLY_PREFIX):
@@ -1511,12 +1564,14 @@ class YoutubeDLCookieJar(http.cookiejar.MozillaCookieJar):
     def get_cookie_header(self, url):
         print(f"cookies.pyの関数get_cookie_headerを実行しました。")
         print(f"cookies.pyの関数get_cookie_headerを実行しました。")
+        print(f"cookies.pyの関数get_cookie_headerを実行しました。")
         """Generate a Cookie HTTP header for a given url"""
         cookie_req = urllib.request.Request(normalize_url(sanitize_url(url)))
         self.add_cookie_header(cookie_req)
         return cookie_req.get_header('Cookie')
 
     def get_cookies_for_url(self, url):
+        print(f"cookies.pyの関数get_cookies_for_urlを実行しました。")
         print(f"cookies.pyの関数get_cookies_for_urlを実行しました。")
         print(f"cookies.pyの関数get_cookies_for_urlを実行しました。")
         """Generate a list of Cookie objects for a given url"""
@@ -1526,6 +1581,7 @@ class YoutubeDLCookieJar(http.cookiejar.MozillaCookieJar):
         return self._cookies_for_request(urllib.request.Request(normalize_url(sanitize_url(url))))
 
     def clear(self, *args, **kwargs):
+        print(f"cookies.pyの関数clearを実行しました。")
         print(f"cookies.pyの関数clearを実行しました。")
         print(f"cookies.pyの関数clearを実行しました。")
         with contextlib.suppress(KeyError):

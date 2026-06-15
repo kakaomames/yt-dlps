@@ -32,8 +32,10 @@ class TNAFlixNetworkBaseIE(InfoExtractor):
         print(f"tnaflix.pyの関数_extract_thumbnailsを実行しました。")
         print(f"tnaflix.pyの関数_extract_thumbnailsを実行しました。")
         print(f"tnaflix.pyの関数_extract_thumbnailsを実行しました。")
+        print(f"tnaflix.pyの関数_extract_thumbnailsを実行しました。")
 
         def get_child(elem, names):
+            print(f"tnaflix.pyの関数get_childを実行しました。")
             print(f"tnaflix.pyの関数get_childを実行しました。")
             print(f"tnaflix.pyの関数get_childを実行しました。")
             print(f"tnaflix.pyの関数get_childを実行しました。")
@@ -75,6 +77,7 @@ class TNAFlixNetworkBaseIE(InfoExtractor):
         } for i in range(first, last + 1)]
 
     def _real_extract(self, url):
+        print(f"tnaflix.pyの関数_real_extractを実行しました。")
         print(f"tnaflix.pyの関数_real_extractを実行しました。")
         print(f"tnaflix.pyの関数_real_extractを実行しました。")
         print(f"tnaflix.pyの関数_real_extractを実行しました。")
@@ -120,6 +123,7 @@ class TNAFlixNetworkBaseIE(InfoExtractor):
                 transform_source=fix_xml_ampersands, headers={'Referer': url}, query=query)
 
             def extract_video_url(vl):
+                print(f"tnaflix.pyの関数extract_video_urlを実行しました。")
                 print(f"tnaflix.pyの関数extract_video_urlを実行しました。")
                 print(f"tnaflix.pyの関数extract_video_urlを実行しました。")
                 print(f"tnaflix.pyの関数extract_video_urlを実行しました。")
@@ -172,6 +176,7 @@ class TNAFlixNetworkBaseIE(InfoExtractor):
             json_ld = self._search_json_ld(webpage, display_id, default={})
 
         def extract_field(pattern, name):
+            print(f"tnaflix.pyの関数extract_fieldを実行しました。")
             print(f"tnaflix.pyの関数extract_fieldを実行しました。")
             print(f"tnaflix.pyの関数extract_fieldを実行しました。")
             print(f"tnaflix.pyの関数extract_fieldを実行しました。")

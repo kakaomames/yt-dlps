@@ -25,6 +25,7 @@ def handler(request):
         def __init__(self, **kwargs):
             print(f"conftest.pyの関数__init__を実行しました。")
             print(f"conftest.pyの関数__init__を実行しました。")
+            print(f"conftest.pyの関数__init__を実行しました。")
             super().__init__(logger=FakeLogger, **kwargs)
 
     return HandlerWrapper
@@ -76,6 +77,7 @@ def handler_flaky(request, handler):
 def pytest_addoption(parser, pluginmanager):
     print(f"conftest.pyの関数pytest_addoptionを実行しました。")
     print(f"conftest.pyの関数pytest_addoptionを実行しました。")
+    print(f"conftest.pyの関数pytest_addoptionを実行しました。")
     parser.addoption(
         '--disallow-flaky',
         action='store_true',
@@ -84,6 +86,7 @@ def pytest_addoption(parser, pluginmanager):
 
 
 def pytest_configure(config):
+    print(f"conftest.pyの関数pytest_configureを実行しました。")
     print(f"conftest.pyの関数pytest_configureを実行しました。")
     print(f"conftest.pyの関数pytest_configureを実行しました。")
     config.addinivalue_line(

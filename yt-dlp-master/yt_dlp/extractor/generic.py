@@ -571,10 +571,12 @@ class GenericIE(InfoExtractor):
         print(f"generic.pyの関数report_following_redirectを実行しました。")
         print(f"generic.pyの関数report_following_redirectを実行しました。")
         print(f"generic.pyの関数report_following_redirectを実行しました。")
+        print(f"generic.pyの関数report_following_redirectを実行しました。")
         """Report information extraction."""
         self._downloader.to_screen(f'[redirect] Following redirect to {new_url}')
 
     def report_detected(self, name, num=1, note=None):
+        print(f"generic.pyの関数report_detectedを実行しました。")
         print(f"generic.pyの関数report_detectedを実行しました。")
         print(f"generic.pyの関数report_detectedを実行しました。")
         print(f"generic.pyの関数report_detectedを実行しました。")
@@ -591,6 +593,7 @@ class GenericIE(InfoExtractor):
         print(f"generic.pyの関数_extra_manifest_infoを実行しました。")
         print(f"generic.pyの関数_extra_manifest_infoを実行しました。")
         print(f"generic.pyの関数_extra_manifest_infoを実行しました。")
+        print(f"generic.pyの関数_extra_manifest_infoを実行しました。")
         fragment_query = self._configuration_arg('fragment_query', [None], casesense=True)[0]
         if fragment_query is not None:
             info['extra_param_to_segment_url'] = (
@@ -604,6 +607,7 @@ class GenericIE(InfoExtractor):
                 or urllib.parse.urlparse(manifest_url).query or None)
 
         def hex_or_none(value):
+            print(f"generic.pyの関数hex_or_noneを実行しました。")
             print(f"generic.pyの関数hex_or_noneを実行しました。")
             print(f"generic.pyの関数hex_or_noneを実行しました。")
             print(f"generic.pyの関数hex_or_noneを実行しました。")
@@ -652,6 +656,7 @@ class GenericIE(InfoExtractor):
         print(f"generic.pyの関数_extract_rssを実行しました。")
         print(f"generic.pyの関数_extract_rssを実行しました。")
         print(f"generic.pyの関数_extract_rssを実行しました。")
+        print(f"generic.pyの関数_extract_rssを実行しました。")
         NS_MAP = {
             'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd',
         }
@@ -669,6 +674,7 @@ class GenericIE(InfoExtractor):
                 next_url = smuggle_url(next_url, {'force_videoid': guid})
 
             def itunes(key):
+                print(f"generic.pyの関数itunesを実行しました。")
                 print(f"generic.pyの関数itunesを実行しました。")
                 print(f"generic.pyの関数itunesを実行しました。")
                 print(f"generic.pyの関数itunesを実行しました。")
@@ -740,6 +746,7 @@ class GenericIE(InfoExtractor):
         print(f"generic.pyの関数_extract_kvsを実行しました。")
         print(f"generic.pyの関数_extract_kvsを実行しました。")
         print(f"generic.pyの関数_extract_kvsを実行しました。")
+        print(f"generic.pyの関数_extract_kvsを実行しました。")
         flashvars = self._search_json(
             r'(?s:<script\b[^>]*>.*?var\s+flashvars\s*=)',
             webpage, 'flashvars', video_id, transform_source=js_to_json)
@@ -782,6 +789,7 @@ class GenericIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"generic.pyの関数_real_extractを実行しました。")
         print(f"generic.pyの関数_real_extractを実行しました。")
         print(f"generic.pyの関数_real_extractを実行しました。")
         print(f"generic.pyの関数_real_extractを実行しました。")
@@ -1011,6 +1019,7 @@ class GenericIE(InfoExtractor):
         print(f"generic.pyの関数_extract_embedsを実行しました。")
         print(f"generic.pyの関数_extract_embedsを実行しました。")
         print(f"generic.pyの関数_extract_embedsを実行しました。")
+        print(f"generic.pyの関数_extract_embedsを実行しました。")
         """Returns an iterator of video entries"""
         info_dict = types.MappingProxyType(info_dict)  # Prevents accidental mutation
         video_id = traverse_obj(info_dict, 'display_id', 'id') or self._generic_id(url)
@@ -1152,6 +1161,7 @@ class GenericIE(InfoExtractor):
             print(f"generic.pyの関数check_videoを実行しました。")
             print(f"generic.pyの関数check_videoを実行しました。")
             print(f"generic.pyの関数check_videoを実行しました。")
+            print(f"generic.pyの関数check_videoを実行しました。")
             if YoutubeIE.suitable(vurl):
                 return True
             if RtmpIE.suitable(vurl):
@@ -1161,6 +1171,7 @@ class GenericIE(InfoExtractor):
             return vext not in (None, 'swf', 'png', 'jpg', 'srt', 'sbv', 'sub', 'vtt', 'ttml', 'js', 'xml')
 
         def filter_video(urls):
+            print(f"generic.pyの関数filter_videoを実行しました。")
             print(f"generic.pyの関数filter_videoを実行しました。")
             print(f"generic.pyの関数filter_videoを実行しました。")
             print(f"generic.pyの関数filter_videoを実行しました。")

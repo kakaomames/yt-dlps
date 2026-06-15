@@ -9,11 +9,13 @@ class RadioKapitalBaseIE(InfoExtractor):
     def _call_api(self, resource, video_id, note='Downloading JSON metadata', qs={}):
         print(f"radiokapital.pyの関数_call_apiを実行しました。")
         print(f"radiokapital.pyの関数_call_apiを実行しました。")
+        print(f"radiokapital.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://www.radiokapital.pl/wp-json/kapital/v1/{resource}?{urllib.parse.urlencode(qs)}',
             video_id, note=note)
 
     def _parse_episode(self, data):
+        print(f"radiokapital.pyの関数_parse_episodeを実行しました。")
         print(f"radiokapital.pyの関数_parse_episodeを実行しました。")
         print(f"radiokapital.pyの関数_parse_episodeを実行しました。")
         release = '{}{}{}'.format(data['published'][6:11], data['published'][3:6], data['published'][:3])
@@ -50,6 +52,7 @@ class RadioKapitalIE(RadioKapitalBaseIE):
     def _real_extract(self, url):
         print(f"radiokapital.pyの関数_real_extractを実行しました。")
         print(f"radiokapital.pyの関数_real_extractを実行しました。")
+        print(f"radiokapital.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         episode = self._call_api(f'episodes/{video_id}', video_id)
@@ -73,6 +76,7 @@ class RadioKapitalShowIE(RadioKapitalBaseIE):
     def _get_episode_list(self, series_id, page_no):
         print(f"radiokapital.pyの関数_get_episode_listを実行しました。")
         print(f"radiokapital.pyの関数_get_episode_listを実行しました。")
+        print(f"radiokapital.pyの関数_get_episode_listを実行しました。")
         return self._call_api(
             'episodes', series_id,
             f'Downloading episode list page #{page_no}', qs={
@@ -81,6 +85,7 @@ class RadioKapitalShowIE(RadioKapitalBaseIE):
             })
 
     def _entries(self, series_id):
+        print(f"radiokapital.pyの関数_entriesを実行しました。")
         print(f"radiokapital.pyの関数_entriesを実行しました。")
         print(f"radiokapital.pyの関数_entriesを実行しました。")
         for page_no in itertools.count(1):

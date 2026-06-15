@@ -62,6 +62,7 @@ class LnkIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"lnk.pyの関数_real_extractを実行しました。")
         print(f"lnk.pyの関数_real_extractを実行しました。")
+        print(f"lnk.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_json = self._download_json(f'https://lnk.lt/api/video/video-config/{video_id}', video_id)['videoInfo']
         formats, subtitles = [], {}

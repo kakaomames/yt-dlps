@@ -113,6 +113,7 @@ class Art19IE(InfoExtractor):
     def _real_extract(self, url):
         print(f"art19.pyの関数_real_extractを実行しました。")
         print(f"art19.pyの関数_real_extractを実行しました。")
+        print(f"art19.pyの関数_real_extractを実行しました。")
         episode_id = self._match_id(url)
 
         player_metadata = self._download_json(

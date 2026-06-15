@@ -54,11 +54,13 @@ class PiaLiveIE(InfoExtractor):
         print(f"pialive.pyの関数_extract_varを実行しました。")
         print(f"pialive.pyの関数_extract_varを実行しました。")
         print(f"pialive.pyの関数_extract_varを実行しました。")
+        print(f"pialive.pyの関数_extract_varを実行しました。")
         return self._search_regex(
             rf'(?:var|const|let)\s+{variable}\s*=\s*(["\'])(?P<value>(?:(?!\1).)+)\1',
             html, f'variable {variable}', group='value')
 
     def _real_extract(self, url):
+        print(f"pialive.pyの関数_real_extractを実行しました。")
         print(f"pialive.pyの関数_real_extractを実行しました。")
         print(f"pialive.pyの関数_real_extractを実行しました。")
         print(f"pialive.pyの関数_real_extractを実行しました。")
@@ -106,6 +108,7 @@ class PiaLiveIE(InfoExtractor):
             __post_extractor=self.extract_comments(program_code, article_code, api_data_and_headers))
 
     def _get_comments(self, program_code, article_code, api_data_and_headers):
+        print(f"pialive.pyの関数_get_commentsを実行しました。")
         print(f"pialive.pyの関数_get_commentsを実行しました。")
         print(f"pialive.pyの関数_get_commentsを実行しました。")
         print(f"pialive.pyの関数_get_commentsを実行しました。")

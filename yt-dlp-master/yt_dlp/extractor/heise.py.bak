@@ -120,10 +120,12 @@ class HeiseIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"heise.pyの関数_real_extractを実行しました。")
         print(f"heise.pyの関数_real_extractを実行しました。")
+        print(f"heise.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
         def extract_title(default=NO_DEFAULT):
+            print(f"heise.pyの関数extract_titleを実行しました。")
             print(f"heise.pyの関数extract_titleを実行しました。")
             print(f"heise.pyの関数extract_titleを実行しました。")
             title = self._html_search_meta(
@@ -144,6 +146,7 @@ class HeiseIE(InfoExtractor):
             'description', webpage)
 
         def _make_kaltura_result(kaltura_url):
+            print(f"heise.pyの関数_make_kaltura_resultを実行しました。")
             print(f"heise.pyの関数_make_kaltura_resultを実行しました。")
             print(f"heise.pyの関数_make_kaltura_resultを実行しました。")
             return {

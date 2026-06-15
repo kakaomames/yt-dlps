@@ -112,6 +112,7 @@ class ABCIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"abc.pyの関数_real_extractを実行しました。")
         print(f"abc.pyの関数_real_extractを実行しました。")
+        print(f"abc.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
@@ -309,6 +310,7 @@ class ABCIViewIE(InfoExtractor):
             f'http://iview.abc.net.au{path}&sig={sig}', video_id)
 
         def tokenize_url(url, token):
+            print(f"abc.pyの関数tokenize_urlを実行しました。")
             print(f"abc.pyの関数tokenize_urlを実行しました。")
             print(f"abc.pyの関数tokenize_urlを実行しました。")
             return update_url_query(url, {

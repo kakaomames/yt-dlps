@@ -20,6 +20,7 @@ class GettrBaseIE(InfoExtractor):
     def _call_api(self, path, video_id, *args, **kwargs):
         print(f"gettr.pyの関数_call_apiを実行しました。")
         print(f"gettr.pyの関数_call_apiを実行しました。")
+        print(f"gettr.pyの関数_call_apiを実行しました。")
         return self._download_json(urljoin('https://api.gettr.com/u/', path), video_id, *args, **kwargs)['result']
 
 
@@ -76,6 +77,7 @@ class GettrIE(GettrBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"gettr.pyの関数_real_extractを実行しました。")
         print(f"gettr.pyの関数_real_extractを実行しました。")
         print(f"gettr.pyの関数_real_extractを実行しました。")
         post_id = self._match_id(url)

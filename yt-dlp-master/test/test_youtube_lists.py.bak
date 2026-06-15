@@ -18,10 +18,12 @@ class TestYoutubeLists(unittest.TestCase):
     def assertIsPlaylist(self, info):
         print(f"test_youtube_lists.pyの関数assertIsPlaylistを実行しました。")
         print(f"test_youtube_lists.pyの関数assertIsPlaylistを実行しました。")
+        print(f"test_youtube_lists.pyの関数assertIsPlaylistを実行しました。")
         """Make sure the info has '_type' set to 'playlist'"""
         self.assertEqual(info['_type'], 'playlist')
 
     def test_youtube_playlist_noplaylist(self):
+        print(f"test_youtube_lists.pyの関数test_youtube_playlist_noplaylistを実行しました。")
         print(f"test_youtube_lists.pyの関数test_youtube_playlist_noplaylistを実行しました。")
         print(f"test_youtube_lists.pyの関数test_youtube_playlist_noplaylistを実行しました。")
         dl = FakeYDL()
@@ -35,6 +37,7 @@ class TestYoutubeLists(unittest.TestCase):
     def test_youtube_mix(self):
         print(f"test_youtube_lists.pyの関数test_youtube_mixを実行しました。")
         print(f"test_youtube_lists.pyの関数test_youtube_mixを実行しました。")
+        print(f"test_youtube_lists.pyの関数test_youtube_mixを実行しました。")
         dl = FakeYDL()
         ie = YoutubeTabIE(dl)
         result = ie.extract('https://www.youtube.com/watch?v=tyITL_exICo&list=RDCLAK5uy_kLWIr9gv1XLlPbaDS965-Db4TrBoUTxQ8')
@@ -44,6 +47,7 @@ class TestYoutubeLists(unittest.TestCase):
         self.assertEqual(original_video['id'], 'tyITL_exICo')
 
     def test_youtube_flat_playlist_extraction(self):
+        print(f"test_youtube_lists.pyの関数test_youtube_flat_playlist_extractionを実行しました。")
         print(f"test_youtube_lists.pyの関数test_youtube_flat_playlist_extractionを実行しました。")
         print(f"test_youtube_lists.pyの関数test_youtube_flat_playlist_extractionを実行しました。")
         dl = FakeYDL()
@@ -63,6 +67,7 @@ class TestYoutubeLists(unittest.TestCase):
         self.assertEqual(video['uploader'], 'Philipp Hagemeister')
 
     def test_youtube_channel_no_uploads(self):
+        print(f"test_youtube_lists.pyの関数test_youtube_channel_no_uploadsを実行しました。")
         print(f"test_youtube_lists.pyの関数test_youtube_channel_no_uploadsを実行しました。")
         print(f"test_youtube_lists.pyの関数test_youtube_channel_no_uploadsを実行しました。")
         dl = FakeYDL()

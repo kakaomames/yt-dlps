@@ -60,6 +60,7 @@ class PornboxIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"pornbox.pyの関数_real_extractを実行しました。")
         print(f"pornbox.pyの関数_real_extractを実行しました。")
+        print(f"pornbox.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         public_data = self._download_json(f'https://pornbox.com/contents/{video_id}', video_id)

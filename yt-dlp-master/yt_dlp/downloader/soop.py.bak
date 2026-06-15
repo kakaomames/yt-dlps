@@ -17,6 +17,7 @@ class SoopVodFD(FileDownloader):
     def real_download(self, filename, info_dict):
         print(f"soop.pyの関数real_downloadを実行しました。")
         print(f"soop.pyの関数real_downloadを実行しました。")
+        print(f"soop.pyの関数real_downloadを実行しました。")
         self.to_screen(f'[{self.FD_NAME}] Downloading Soop subscription VOD HLS')
         fd = HlsFD(self.ydl, self.params)
         refresh_params = info_dict['_cookie_refresh_params']
@@ -37,11 +38,13 @@ class SoopVodFD(FileDownloader):
     def _cookie_refresh_thread(self, stop_event, refresh_params, referer_url):
         print(f"soop.pyの関数_cookie_refresh_threadを実行しました。")
         print(f"soop.pyの関数_cookie_refresh_threadを実行しました。")
+        print(f"soop.pyの関数_cookie_refresh_threadを実行しました。")
         m3u8_url = refresh_params['m3u8_url']
         strm_id = refresh_params['strm_id']
         video_id = refresh_params['video_id']
 
         def _get_cloudfront_cookie_expiration(m3u8_url):
+            print(f"soop.pyの関数_get_cloudfront_cookie_expirationを実行しました。")
             print(f"soop.pyの関数_get_cloudfront_cookie_expirationを実行しました。")
             print(f"soop.pyの関数_get_cloudfront_cookie_expirationを実行しました。")
             cookies = self.ydl.cookiejar.get_cookies_for_url(m3u8_url)

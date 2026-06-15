@@ -25,9 +25,11 @@ class QQMusicBaseIE(InfoExtractor):
         print(f"qqmusic.pyの関数_get_cookieを実行しました。")
         print(f"qqmusic.pyの関数_get_cookieを実行しました。")
         print(f"qqmusic.pyの関数_get_cookieを実行しました。")
+        print(f"qqmusic.pyの関数_get_cookieを実行しました。")
         return getattr(self._get_cookies('https://y.qq.com').get(key), 'value', default)
 
     def _get_g_tk(self):
+        print(f"qqmusic.pyの関数_get_g_tkを実行しました。")
         print(f"qqmusic.pyの関数_get_g_tkを実行しました。")
         print(f"qqmusic.pyの関数_get_g_tkを実行しました。")
         print(f"qqmusic.pyの関数_get_g_tkを実行しました。")
@@ -37,6 +39,7 @@ class QQMusicBaseIE(InfoExtractor):
         return n & 2147483647
 
     def _get_uin(self):
+        print(f"qqmusic.pyの関数_get_uinを実行しました。")
         print(f"qqmusic.pyの関数_get_uinを実行しました。")
         print(f"qqmusic.pyの関数_get_uinを実行しました。")
         print(f"qqmusic.pyの関数_get_uinを実行しました。")
@@ -57,11 +60,13 @@ class QQMusicBaseIE(InfoExtractor):
         print(f"qqmusic.pyの関数_download_init_dataを実行しました。")
         print(f"qqmusic.pyの関数_download_init_dataを実行しました。")
         print(f"qqmusic.pyの関数_download_init_dataを実行しました。")
+        print(f"qqmusic.pyの関数_download_init_dataを実行しました。")
         webpage = self._download_webpage(url, mid, fatal=fatal)
         return self._search_json(r'window\.__INITIAL_DATA__\s*=', webpage,
                                  'init data', mid, transform_source=js_to_json, fatal=fatal)
 
     def _make_fcu_req(self, req_dict, mid, headers={}, **kwargs):
+        print(f"qqmusic.pyの関数_make_fcu_reqを実行しました。")
         print(f"qqmusic.pyの関数_make_fcu_reqを実行しました。")
         print(f"qqmusic.pyの関数_make_fcu_reqを実行しました。")
         print(f"qqmusic.pyの関数_make_fcu_reqを実行しました。")
@@ -157,6 +162,7 @@ class QQMusicIE(QQMusicBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"qqmusic.pyの関数_real_extractを実行しました。")
         print(f"qqmusic.pyの関数_real_extractを実行しました。")
         print(f"qqmusic.pyの関数_real_extractを実行しました。")
         print(f"qqmusic.pyの関数_real_extractを実行しました。")
@@ -291,6 +297,7 @@ class QQMusicSingerIE(QQMusicBaseIE):
         print(f"qqmusic.pyの関数_fetch_pageを実行しました。")
         print(f"qqmusic.pyの関数_fetch_pageを実行しました。")
         print(f"qqmusic.pyの関数_fetch_pageを実行しました。")
+        print(f"qqmusic.pyの関数_fetch_pageを実行しました。")
         data = self._make_fcu_req({'req_1': {
             'module': 'music.web_singer_info_svr',
             'method': 'get_singer_detail_info',
@@ -318,6 +325,7 @@ class QQMusicSingerIE(QQMusicBaseIE):
 
 class QQPlaylistBaseIE(InfoExtractor):
     def _extract_entries(self, info_json, path):
+        print(f"qqmusic.pyの関数_extract_entriesを実行しました。")
         print(f"qqmusic.pyの関数_extract_entriesを実行しました。")
         print(f"qqmusic.pyの関数_extract_entriesを実行しました。")
         print(f"qqmusic.pyの関数_extract_entriesを実行しました。")
@@ -474,6 +482,7 @@ class QQMusicVideoIE(QQMusicBaseIE):
     }]
 
     def _parse_url_formats(self, url_data):
+        print(f"qqmusic.pyの関数_parse_url_formatsを実行しました。")
         print(f"qqmusic.pyの関数_parse_url_formatsを実行しました。")
         print(f"qqmusic.pyの関数_parse_url_formatsを実行しました。")
         print(f"qqmusic.pyの関数_parse_url_formatsを実行しました。")

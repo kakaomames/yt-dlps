@@ -16,6 +16,7 @@ class GlobalPlayerBaseIE(InfoExtractor):
         print(f"globalplayer.pyの関数_get_page_propsを実行しました。")
         print(f"globalplayer.pyの関数_get_page_propsを実行しました。")
         print(f"globalplayer.pyの関数_get_page_propsを実行しました。")
+        print(f"globalplayer.pyの関数_get_page_propsを実行しました。")
         webpage = self._download_webpage(url, video_id)
         return self._search_nextjs_data(webpage, video_id)['props']['pageProps']
 
@@ -23,10 +24,12 @@ class GlobalPlayerBaseIE(InfoExtractor):
         print(f"globalplayer.pyの関数_request_extを実行しました。")
         print(f"globalplayer.pyの関数_request_extを実行しました。")
         print(f"globalplayer.pyの関数_request_extを実行しました。")
+        print(f"globalplayer.pyの関数_request_extを実行しました。")
         return urlhandle_detect_ext(self._request_webpage(  # Server rejects HEAD requests
             url, video_id, note='Determining source extension'))
 
     def _extract_audio(self, episode, series):
+        print(f"globalplayer.pyの関数_extract_audioを実行しました。")
         print(f"globalplayer.pyの関数_extract_audioを実行しました。")
         print(f"globalplayer.pyの関数_extract_audioを実行しました。")
         print(f"globalplayer.pyの関数_extract_audioを実行しました。")
@@ -90,6 +93,7 @@ class GlobalPlayerLiveIE(GlobalPlayerBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"globalplayer.pyの関数_real_extractを実行しました。")
         print(f"globalplayer.pyの関数_real_extractを実行しました。")
         print(f"globalplayer.pyの関数_real_extractを実行しました。")
         print(f"globalplayer.pyの関数_real_extractを実行しました。")

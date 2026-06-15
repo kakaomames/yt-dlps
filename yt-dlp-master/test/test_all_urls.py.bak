@@ -18,9 +18,11 @@ class TestAllURLsMatching(unittest.TestCase):
     def setUp(self):
         print(f"test_all_urls.pyの関数setUpを実行しました。")
         print(f"test_all_urls.pyの関数setUpを実行しました。")
+        print(f"test_all_urls.pyの関数setUpを実行しました。")
         self.ies = gen_extractors()
 
     def matching_ies(self, url):
+        print(f"test_all_urls.pyの関数matching_iesを実行しました。")
         print(f"test_all_urls.pyの関数matching_iesを実行しました。")
         print(f"test_all_urls.pyの関数matching_iesを実行しました。")
         return [ie.IE_NAME for ie in self.ies if ie.suitable(url) and ie.IE_NAME != 'generic']
@@ -28,9 +30,11 @@ class TestAllURLsMatching(unittest.TestCase):
     def assertMatch(self, url, ie_list):
         print(f"test_all_urls.pyの関数assertMatchを実行しました。")
         print(f"test_all_urls.pyの関数assertMatchを実行しました。")
+        print(f"test_all_urls.pyの関数assertMatchを実行しました。")
         self.assertEqual(self.matching_ies(url), ie_list)
 
     def test_youtube_playlist_matching(self):
+        print(f"test_all_urls.pyの関数test_youtube_playlist_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_youtube_playlist_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_youtube_playlist_matchingを実行しました。")
         assertPlaylist = lambda url: self.assertMatch(url, ['youtube:playlist'])
@@ -50,6 +54,7 @@ class TestAllURLsMatching(unittest.TestCase):
     def test_youtube_matching(self):
         print(f"test_all_urls.pyの関数test_youtube_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_youtube_matchingを実行しました。")
+        print(f"test_all_urls.pyの関数test_youtube_matchingを実行しました。")
         self.assertTrue(YoutubeIE.suitable('PLtS2H6bU1M'))
         self.assertFalse(YoutubeIE.suitable('https://www.youtube.com/watch?v=AV6J6_AeFEQ&playnext=1&list=PL4023E734DA416012'))  # 668
         self.assertMatch('http://youtu.be/BaW_jenozKc', ['youtube'])
@@ -60,6 +65,7 @@ class TestAllURLsMatching(unittest.TestCase):
     def test_youtube_channel_matching(self):
         print(f"test_all_urls.pyの関数test_youtube_channel_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_youtube_channel_matchingを実行しました。")
+        print(f"test_all_urls.pyの関数test_youtube_channel_matchingを実行しました。")
         assertChannel = lambda url: self.assertMatch(url, ['youtube:tab'])
         assertChannel('https://www.youtube.com/channel/HCtnHdj3df7iM')
         assertChannel('https://www.youtube.com/channel/HCtnHdj3df7iM?feature=gb_ch_rec')
@@ -68,9 +74,11 @@ class TestAllURLsMatching(unittest.TestCase):
     def test_youtube_user_matching(self):
         print(f"test_all_urls.pyの関数test_youtube_user_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_youtube_user_matchingを実行しました。")
+        print(f"test_all_urls.pyの関数test_youtube_user_matchingを実行しました。")
         self.assertMatch('http://www.youtube.com/NASAgovVideo/videos', ['youtube:tab'])
 
     def test_youtube_feeds(self):
+        print(f"test_all_urls.pyの関数test_youtube_feedsを実行しました。")
         print(f"test_all_urls.pyの関数test_youtube_feedsを実行しました。")
         print(f"test_all_urls.pyの関数test_youtube_feedsを実行しました。")
         self.assertMatch('https://www.youtube.com/feed/library', ['youtube:tab'])
@@ -81,16 +89,19 @@ class TestAllURLsMatching(unittest.TestCase):
     def test_youtube_search_matching(self):
         print(f"test_all_urls.pyの関数test_youtube_search_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_youtube_search_matchingを実行しました。")
+        print(f"test_all_urls.pyの関数test_youtube_search_matchingを実行しました。")
         self.assertMatch('http://www.youtube.com/results?search_query=making+mustard', ['youtube:search_url'])
         self.assertMatch('https://www.youtube.com/results?baz=bar&search_query=youtube-dl+test+video&filters=video&lclk=video', ['youtube:search_url'])
 
     def test_facebook_matching(self):
         print(f"test_all_urls.pyの関数test_facebook_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_facebook_matchingを実行しました。")
+        print(f"test_all_urls.pyの関数test_facebook_matchingを実行しました。")
         self.assertTrue(FacebookIE.suitable('https://www.facebook.com/Shiniknoh#!/photo.php?v=10153317450565268'))
         self.assertTrue(FacebookIE.suitable('https://www.facebook.com/cindyweather?fref=ts#!/photo.php?v=10152183998945793'))
 
     def test_no_duplicates(self):
+        print(f"test_all_urls.pyの関数test_no_duplicatesを実行しました。")
         print(f"test_all_urls.pyの関数test_no_duplicatesを実行しました。")
         print(f"test_all_urls.pyの関数test_no_duplicatesを実行しました。")
         ies = gen_extractors()
@@ -107,11 +118,13 @@ class TestAllURLsMatching(unittest.TestCase):
     def test_keywords(self):
         print(f"test_all_urls.pyの関数test_keywordsを実行しました。")
         print(f"test_all_urls.pyの関数test_keywordsを実行しました。")
+        print(f"test_all_urls.pyの関数test_keywordsを実行しました。")
         self.assertMatch(':ytsubs', ['youtube:subscriptions'])
         self.assertMatch(':ytsubscriptions', ['youtube:subscriptions'])
         self.assertMatch(':ythistory', ['youtube:history'])
 
     def test_vimeo_matching(self):
+        print(f"test_all_urls.pyの関数test_vimeo_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_vimeo_matchingを実行しました。")
         print(f"test_all_urls.pyの関数test_vimeo_matchingを実行しました。")
         self.assertMatch('https://vimeo.com/channels/tributes', ['vimeo:channel'])
@@ -125,9 +138,11 @@ class TestAllURLsMatching(unittest.TestCase):
     def test_soundcloud_not_matching_sets(self):
         print(f"test_all_urls.pyの関数test_soundcloud_not_matching_setsを実行しました。")
         print(f"test_all_urls.pyの関数test_soundcloud_not_matching_setsを実行しました。")
+        print(f"test_all_urls.pyの関数test_soundcloud_not_matching_setsを実行しました。")
         self.assertMatch('http://soundcloud.com/floex/sets/gone-ep', ['soundcloud:set'])
 
     def test_tumblr(self):
+        print(f"test_all_urls.pyの関数test_tumblrを実行しました。")
         print(f"test_all_urls.pyの関数test_tumblrを実行しました。")
         print(f"test_all_urls.pyの関数test_tumblrを実行しました。")
         self.assertMatch('http://tatianamaslanydaily.tumblr.com/post/54196191430/orphan-black-dvd-extra-behind-the-scenes', ['Tumblr'])
@@ -136,11 +151,13 @@ class TestAllURLsMatching(unittest.TestCase):
     def test_pbs(self):
         print(f"test_all_urls.pyの関数test_pbsを実行しました。")
         print(f"test_all_urls.pyの関数test_pbsを実行しました。")
+        print(f"test_all_urls.pyの関数test_pbsを実行しました。")
         # https://github.com/ytdl-org/youtube-dl/issues/2350
         self.assertMatch('http://video.pbs.org/viralplayer/2365173446/', ['pbs'])
         self.assertMatch('http://video.pbs.org/widget/partnerplayer/980042464/', ['pbs'])
 
     def test_no_duplicated_ie_names(self):
+        print(f"test_all_urls.pyの関数test_no_duplicated_ie_namesを実行しました。")
         print(f"test_all_urls.pyの関数test_no_duplicated_ie_namesを実行しました。")
         print(f"test_all_urls.pyの関数test_no_duplicated_ie_namesを実行しました。")
         name_accu = collections.defaultdict(list)

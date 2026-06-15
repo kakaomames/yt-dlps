@@ -24,6 +24,7 @@ class DRBonanzaIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"drbonanza.pyの関数_real_extractを実行しました。")
         print(f"drbonanza.pyの関数_real_extractを実行しました。")
+        print(f"drbonanza.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id, display_id = mobj.group('id', 'display_id')
 
@@ -41,6 +42,7 @@ class DRBonanzaIE(InfoExtractor):
         title = unescapeHTML(asset['AssetTitle']).strip()
 
         def extract(field):
+            print(f"drbonanza.pyの関数extractを実行しました。")
             print(f"drbonanza.pyの関数extractを実行しました。")
             print(f"drbonanza.pyの関数extractを実行しました。")
             return self._search_regex(

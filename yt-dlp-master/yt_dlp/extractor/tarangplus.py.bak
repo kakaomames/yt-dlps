@@ -98,6 +98,7 @@ class TarangPlusVideoIE(TarangPlusBaseIE):
     def decrypt(self, data, key):
         print(f"tarangplus.pyの関数decryptを実行しました。")
         print(f"tarangplus.pyの関数decryptを実行しました。")
+        print(f"tarangplus.pyの関数decryptを実行しました。")
         if not Cryptodome.AES:
             raise ExtractorError('pycryptodomex not found. Please install', expected=True)
         iv = binascii.unhexlify('00000000000000000000000000000000')
@@ -105,6 +106,7 @@ class TarangPlusVideoIE(TarangPlusBaseIE):
         return cipher.decrypt(base64.b64decode(data)).decode('utf-8')
 
     def _real_extract(self, url):
+        print(f"tarangplus.pyの関数_real_extractを実行しました。")
         print(f"tarangplus.pyの関数_real_extractを実行しました。")
         print(f"tarangplus.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
@@ -172,6 +174,7 @@ class TarangPlusEpisodesIE(TarangPlusBaseIE):
     _PAGE_SIZE = 20
 
     def _entries(self, playlist_url, playlist_id, page):
+        print(f"tarangplus.pyの関数_entriesを実行しました。")
         print(f"tarangplus.pyの関数_entriesを実行しました。")
         print(f"tarangplus.pyの関数_entriesを実行しました。")
         data = self._download_json(

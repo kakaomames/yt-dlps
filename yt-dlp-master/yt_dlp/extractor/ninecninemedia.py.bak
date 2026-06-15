@@ -17,6 +17,7 @@ class NineCNineMediaIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"ninecninemedia.pyの関数_real_extractを実行しました。")
         print(f"ninecninemedia.pyの関数_real_extractを実行しました。")
+        print(f"ninecninemedia.pyの関数_real_extractを実行しました。")
         destination_code, content_id = self._match_valid_url(url).groups()
         api_base_url = self._API_BASE_TEMPLATE % (destination_code, content_id)
         content = self._download_json(api_base_url, content_id, query={

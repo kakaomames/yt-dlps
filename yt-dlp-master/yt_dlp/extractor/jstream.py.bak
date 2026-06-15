@@ -29,9 +29,11 @@ class JStreamIE(InfoExtractor):
     def _parse_jsonp(self, callback, string, video_id):
         print(f"jstream.pyの関数_parse_jsonpを実行しました。")
         print(f"jstream.pyの関数_parse_jsonpを実行しました。")
+        print(f"jstream.pyの関数_parse_jsonpを実行しました。")
         return self._search_json(rf'\s*{re.escape(callback)}\s*\(', string, callback, video_id)
 
     def _find_formats(self, video_id, movie_list_hls, host, publisher, subtitles):
+        print(f"jstream.pyの関数_find_formatsを実行しました。")
         print(f"jstream.pyの関数_find_formatsを実行しました。")
         print(f"jstream.pyの関数_find_formatsを実行しました。")
         for value in movie_list_hls:
@@ -45,6 +47,7 @@ class JStreamIE(InfoExtractor):
             yield from fmts
 
     def _real_extract(self, url):
+        print(f"jstream.pyの関数_real_extractを実行しました。")
         print(f"jstream.pyの関数_real_extractを実行しました。")
         print(f"jstream.pyの関数_real_extractを実行しました。")
         host, publisher, mid, video_id = self._match_valid_url(url).group('host', 'publisher', 'mid', 'id')

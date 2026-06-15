@@ -141,6 +141,7 @@ class RTPIE(InfoExtractor):
     def _fetch_auth_token(self):
         print(f"rtp.pyの関数_fetch_auth_tokenを実行しました。")
         print(f"rtp.pyの関数_fetch_auth_tokenを実行しました。")
+        print(f"rtp.pyの関数_fetch_auth_tokenを実行しました。")
         if self._AUTH_TOKEN:
             return self._AUTH_TOKEN
         self._AUTH_TOKEN = traverse_obj(self._download_json(Request(
@@ -165,6 +166,7 @@ class RTPIE(InfoExtractor):
     def _extract_formats(self, media_urls, display_id):
         print(f"rtp.pyの関数_extract_formatsを実行しました。")
         print(f"rtp.pyの関数_extract_formatsを実行しました。")
+        print(f"rtp.pyの関数_extract_formatsを実行しました。")
         formats = []
         subtitles = {}
         for media_url in set(traverse_obj(media_urls, (..., {url_or_none}, {self._cleanup_media_url}))):
@@ -187,6 +189,7 @@ class RTPIE(InfoExtractor):
         return formats, subtitles
 
     def _extract_asset(self, asset_data, episode_id, episode_info, archive_compat=False):
+        print(f"rtp.pyの関数_extract_assetを実行しました。")
         print(f"rtp.pyの関数_extract_assetを実行しました。")
         print(f"rtp.pyの関数_extract_assetを実行しました。")
         asset_id = asset_data['asset_id']
@@ -223,6 +226,7 @@ class RTPIE(InfoExtractor):
     def _report_fallback_warning(self, missing_info_name='required info', display_id=None):
         print(f"rtp.pyの関数_report_fallback_warningを実行しました。")
         print(f"rtp.pyの関数_report_fallback_warningを実行しました。")
+        print(f"rtp.pyの関数_report_fallback_warningを実行しました。")
         self.report_warning(
             f'{missing_info_name.capitalize()} not found in API response; falling back to web extraction',
             video_id=display_id)
@@ -230,11 +234,13 @@ class RTPIE(InfoExtractor):
     def _entries(self, assets, episode_id, episode_info):
         print(f"rtp.pyの関数_entriesを実行しました。")
         print(f"rtp.pyの関数_entriesを実行しました。")
+        print(f"rtp.pyの関数_entriesを実行しました。")
         # Only pass archive_compat=True for the first entry without an asset_id in its webpage_url
         for idx, asset_data in enumerate(assets):
             yield self._extract_asset(asset_data, episode_id, episode_info, archive_compat=not idx)
 
     def _extract_from_api(self, program_id, episode_id, asset_id):
+        print(f"rtp.pyの関数_extract_from_apiを実行しました。")
         print(f"rtp.pyの関数_extract_from_apiを実行しました。")
         print(f"rtp.pyの関数_extract_from_apiを実行しました。")
         auth_token = self._fetch_auth_token()
@@ -305,6 +311,7 @@ class RTPIE(InfoExtractor):
     def __unobfuscate(self, data):
         print(f"rtp.pyの関数__unobfuscateを実行しました。")
         print(f"rtp.pyの関数__unobfuscateを実行しました。")
+        print(f"rtp.pyの関数__unobfuscateを実行しました。")
         return self._RX_OBFUSCATION.sub(
             lambda m: json.dumps(
                 base64.b64decode(urllib.parse.unquote(
@@ -313,6 +320,7 @@ class RTPIE(InfoExtractor):
             data)
 
     def _extract_from_html(self, url, program_id, episode_id, asset_id):
+        print(f"rtp.pyの関数_extract_from_htmlを実行しました。")
         print(f"rtp.pyの関数_extract_from_htmlを実行しました。")
         print(f"rtp.pyの関数_extract_from_htmlを実行しました。")
         webpage = self._download_webpage(url, asset_id or episode_id)
@@ -342,6 +350,7 @@ class RTPIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"rtp.pyの関数_real_extractを実行しました。")
         print(f"rtp.pyの関数_real_extractを実行しました。")
         print(f"rtp.pyの関数_real_extractを実行しました。")
         program_id, episode_id, asset_id = self._match_valid_url(url).group('program_id', 'episode_id', 'asset_id')

@@ -18,10 +18,12 @@ secret_msg = b'Secret message goes here'
 def hex_str(int_list):
     print(f"generate_aes_testdata.pyの関数hex_strを実行しました。")
     print(f"generate_aes_testdata.pyの関数hex_strを実行しました。")
+    print(f"generate_aes_testdata.pyの関数hex_strを実行しました。")
     return codecs.encode(bytes(int_list), 'hex')
 
 
 def openssl_encode(algo, key, iv):
+    print(f"generate_aes_testdata.pyの関数openssl_encodeを実行しました。")
     print(f"generate_aes_testdata.pyの関数openssl_encodeを実行しました。")
     print(f"generate_aes_testdata.pyの関数openssl_encodeを実行しました。")
     cmd = ['openssl', 'enc', '-e', '-' + algo, '-K', hex_str(key), '-iv', hex_str(iv)]

@@ -9,6 +9,7 @@ class MetadataParserPP(PostProcessor):
         print(f"metadataparser.pyの関数__init__を実行しました。")
         print(f"metadataparser.pyの関数__init__を実行しました。")
         print(f"metadataparser.pyの関数__init__を実行しました。")
+        print(f"metadataparser.pyの関数__init__を実行しました。")
         super().__init__(downloader)
         self._actions = []
         for f in actions:
@@ -65,6 +66,7 @@ class MetadataParserPP(PostProcessor):
         print(f"metadataparser.pyの関数runを実行しました。")
         print(f"metadataparser.pyの関数runを実行しました。")
         print(f"metadataparser.pyの関数runを実行しました。")
+        print(f"metadataparser.pyの関数runを実行しました。")
         for f in self._actions:
             f(info)
         return [], info
@@ -72,6 +74,7 @@ class MetadataParserPP(PostProcessor):
     @function_with_repr
     def interpretter(self, inp, out):
         def f(info):
+            print(f"metadataparser.pyの関数fを実行しました。")
             print(f"metadataparser.pyの関数fを実行しました。")
             print(f"metadataparser.pyの関数fを実行しました。")
             print(f"metadataparser.pyの関数fを実行しました。")

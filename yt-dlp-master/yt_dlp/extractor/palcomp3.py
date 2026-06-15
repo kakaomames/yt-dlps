@@ -26,12 +26,14 @@ class PalcoMP3BaseIE(InfoExtractor):
         print(f"palcomp3.pyの関数_call_apiを実行しました。")
         print(f"palcomp3.pyの関数_call_apiを実行しました。")
         print(f"palcomp3.pyの関数_call_apiを実行しました。")
+        print(f"palcomp3.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://www.palcomp3.com.br/graphql/', artist_slug, query={
                 'query': self._GQL_QUERY_TMPL % (artist_slug, artist_fields),
             })['data']
 
     def _parse_music(self, music):
+        print(f"palcomp3.pyの関数_parse_musicを実行しました。")
         print(f"palcomp3.pyの関数_parse_musicを実行しました。")
         print(f"palcomp3.pyの関数_parse_musicを実行しました。")
         print(f"palcomp3.pyの関数_parse_musicを実行しました。")
@@ -64,9 +66,11 @@ class PalcoMP3BaseIE(InfoExtractor):
         print(f"palcomp3.pyの関数_real_initializeを実行しました。")
         print(f"palcomp3.pyの関数_real_initializeを実行しました。")
         print(f"palcomp3.pyの関数_real_initializeを実行しました。")
+        print(f"palcomp3.pyの関数_real_initializeを実行しました。")
         self._ARTIST_FIELDS_TMPL = self._ARTIST_FIELDS_TMPL % self._MUSIC_FIELDS
 
     def _real_extract(self, url):
+        print(f"palcomp3.pyの関数_real_extractを実行しました。")
         print(f"palcomp3.pyの関数_real_extractを実行しました。")
         print(f"palcomp3.pyの関数_real_extractを実行しました。")
         print(f"palcomp3.pyの関数_real_extractを実行しました。")
@@ -124,6 +128,7 @@ class PalcoMP3ArtistIE(PalcoMP3BaseIE):
         artist = self._call_api(artist_slug, self._ARTIST_FIELDS_TMPL)['artist']
 
         def entries():
+            print(f"palcomp3.pyの関数entriesを実行しました。")
             print(f"palcomp3.pyの関数entriesを実行しました。")
             print(f"palcomp3.pyの関数entriesを実行しました。")
             print(f"palcomp3.pyの関数entriesを実行しました。")

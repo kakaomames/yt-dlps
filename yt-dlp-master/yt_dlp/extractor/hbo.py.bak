@@ -54,6 +54,7 @@ class HBOBaseIE(InfoExtractor):
     def _extract_info(self, url, display_id):
         print(f"hbo.pyの関数_extract_infoを実行しました。")
         print(f"hbo.pyの関数_extract_infoを実行しました。")
+        print(f"hbo.pyの関数_extract_infoを実行しました。")
         video_data = self._download_xml(url, display_id)
         video_id = xpath_text(video_data, 'id', fatal=True)
         episode_title = title = xpath_text(video_data, 'title', fatal=True)
@@ -167,6 +168,7 @@ class HBOIE(HBOBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"hbo.pyの関数_real_extractを実行しました。")
         print(f"hbo.pyの関数_real_extractを実行しました。")
         print(f"hbo.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)

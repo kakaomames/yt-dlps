@@ -58,6 +58,7 @@ class ZingMp3BaseIE(InfoExtractor):
     def _api_url(self, url_type, params):
         print(f"zingmp3.pyの関数_api_urlを実行しました。")
         print(f"zingmp3.pyの関数_api_urlを実行しました。")
+        print(f"zingmp3.pyの関数_api_urlを実行しました。")
         api_slug = self._API_SLUGS[url_type]
         params.update({'ctime': '1'})
         sha256 = hashlib.sha256(
@@ -73,12 +74,14 @@ class ZingMp3BaseIE(InfoExtractor):
     def _call_api(self, url_type, params, display_id=None, **kwargs):
         print(f"zingmp3.pyの関数_call_apiを実行しました。")
         print(f"zingmp3.pyの関数_call_apiを実行しました。")
+        print(f"zingmp3.pyの関数_call_apiを実行しました。")
         resp = self._download_json(
             self._api_url(url_type, params), display_id or params.get('id'),
             note=f'Downloading {url_type} JSON metadata', **kwargs)
         return (resp or {}).get('data') or {}
 
     def _real_initialize(self):
+        print(f"zingmp3.pyの関数_real_initializeを実行しました。")
         print(f"zingmp3.pyの関数_real_initializeを実行しました。")
         print(f"zingmp3.pyの関数_real_initializeを実行しました。")
         if not self._cookies_passed:
@@ -88,15 +91,18 @@ class ZingMp3BaseIE(InfoExtractor):
     def _parse_items(self, items):
         print(f"zingmp3.pyの関数_parse_itemsを実行しました。")
         print(f"zingmp3.pyの関数_parse_itemsを実行しました。")
+        print(f"zingmp3.pyの関数_parse_itemsを実行しました。")
         for url in traverse_obj(items, (..., 'link')) or []:
             yield self.url_result(urljoin(self._DOMAIN, url))
 
     def _fetch_page(self, id_, url_type, page):
         print(f"zingmp3.pyの関数_fetch_pageを実行しました。")
         print(f"zingmp3.pyの関数_fetch_pageを実行しました。")
+        print(f"zingmp3.pyの関数_fetch_pageを実行しました。")
         raise NotImplementedError('This method must be implemented by subclasses')
 
     def _paged_list(self, _id, url_type):
+        print(f"zingmp3.pyの関数_paged_listを実行しました。")
         print(f"zingmp3.pyの関数_paged_listを実行しました。")
         print(f"zingmp3.pyの関数_paged_listを実行しました。")
         count = 0
@@ -183,6 +189,7 @@ class ZingMp3IE(ZingMp3BaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"zingmp3.pyの関数_real_extractを実行しました。")
         print(f"zingmp3.pyの関数_real_extractを実行しました。")
         print(f"zingmp3.pyの関数_real_extractを実行しました。")
         song_id, url_type = self._match_valid_url(url).group('id', 'type')

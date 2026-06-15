@@ -22,6 +22,7 @@ class PerformGroupIE(InfoExtractor):
         print(f"performgroup.pyの関数_call_apiを実行しました。")
         print(f"performgroup.pyの関数_call_apiを実行しました。")
         print(f"performgroup.pyの関数_call_apiを実行しました。")
+        print(f"performgroup.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'http://ep3.performfeeds.com/ep{service}/{auth_token}/{content_id}/',
             content_id, headers={
@@ -32,6 +33,7 @@ class PerformGroupIE(InfoExtractor):
             })
 
     def _real_extract(self, url):
+        print(f"performgroup.pyの関数_real_extractを実行しました。")
         print(f"performgroup.pyの関数_real_extractを実行しました。")
         print(f"performgroup.pyの関数_real_extractを実行しました。")
         print(f"performgroup.pyの関数_real_extractを実行しました。")

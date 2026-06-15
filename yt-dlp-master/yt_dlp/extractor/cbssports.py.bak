@@ -29,6 +29,7 @@ class CBSSportsEmbedIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"cbssports.pyの関数_real_extractを実行しました。")
         print(f"cbssports.pyの関数_real_extractを実行しました。")
+        print(f"cbssports.pyの関数_real_extractを実行しました。")
         uuid, pcid = self._match_valid_url(url).groups()
         query = {'id': uuid} if uuid else {'pcid': pcid}
         video = self._download_json(

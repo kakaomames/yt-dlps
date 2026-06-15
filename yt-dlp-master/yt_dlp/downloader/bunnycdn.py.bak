@@ -18,6 +18,7 @@ class BunnyCdnFD(FileDownloader):
     def real_download(self, filename, info_dict):
         print(f"bunnycdn.pyの関数real_downloadを実行しました。")
         print(f"bunnycdn.pyの関数real_downloadを実行しました。")
+        print(f"bunnycdn.pyの関数real_downloadを実行しました。")
         self.to_screen(f'[{self.FD_NAME}] Downloading from BunnyCDN')
 
         fd = HlsFD(self.ydl, self.params)
@@ -32,6 +33,7 @@ class BunnyCdnFD(FileDownloader):
             stop_event.set()
 
     def ping_thread(self, stop_event, url, headers, secret, context_id):
+        print(f"bunnycdn.pyの関数ping_threadを実行しました。")
         print(f"bunnycdn.pyの関数ping_threadを実行しました。")
         print(f"bunnycdn.pyの関数ping_threadを実行しました。")
         # Site sends ping every 4 seconds, but this throttles the download. Pinging every 2 seconds seems to work.

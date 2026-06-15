@@ -49,6 +49,7 @@ class BYUtvIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"byutv.pyの関数_real_extractを実行しました。")
         print(f"byutv.pyの関数_real_extractを実行しました。")
+        print(f"byutv.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         display_id = mobj.group('display_id') or video_id

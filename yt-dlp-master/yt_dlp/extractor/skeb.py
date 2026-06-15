@@ -71,6 +71,7 @@ class SkebIE(InfoExtractor):
         print(f"skeb.pyの関数_call_apiを実行しました。")
         print(f"skeb.pyの関数_call_apiを実行しました。")
         print(f"skeb.pyの関数_call_apiを実行しました。")
+        print(f"skeb.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://skeb.jp/api/users/{uploader_id}/works/{work_id}', work_id, headers={
                 'Accept': 'application/json',
@@ -78,6 +79,7 @@ class SkebIE(InfoExtractor):
             })
 
     def _real_extract(self, url):
+        print(f"skeb.pyの関数_real_extractを実行しました。")
         print(f"skeb.pyの関数_real_extractを実行しました。")
         print(f"skeb.pyの関数_real_extractを実行しました。")
         print(f"skeb.pyの関数_real_extractを実行しました。")

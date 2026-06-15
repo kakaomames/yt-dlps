@@ -63,6 +63,7 @@ class NYTimesBaseIE(InfoExtractor):
         print(f"nytimes.pyの関数_call_apiを実行しました。")
         print(f"nytimes.pyの関数_call_apiを実行しました。")
         print(f"nytimes.pyの関数_call_apiを実行しました。")
+        print(f"nytimes.pyの関数_call_apiを実行しました。")
         # reference: `id-to-uri.js`
         video_uuid = uuid.uuid5(self._DNS_NAMESPACE, 'video')
         media_uuid = uuid.uuid5(video_uuid, media_id)
@@ -83,6 +84,7 @@ class NYTimesBaseIE(InfoExtractor):
         print(f"nytimes.pyの関数_extract_thumbnailsを実行しました。")
         print(f"nytimes.pyの関数_extract_thumbnailsを実行しました。")
         print(f"nytimes.pyの関数_extract_thumbnailsを実行しました。")
+        print(f"nytimes.pyの関数_extract_thumbnailsを実行しました。")
         return traverse_obj(thumbs, (lambda _, v: url_or_none(v['url']), {
             'url': 'url',
             'width': ('width', {int_or_none}),
@@ -90,6 +92,7 @@ class NYTimesBaseIE(InfoExtractor):
         }), default=None)
 
     def _extract_formats_and_subtitles(self, video_id, content_media_json):
+        print(f"nytimes.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"nytimes.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"nytimes.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"nytimes.pyの関数_extract_formats_and_subtitlesを実行しました。")
@@ -127,6 +130,7 @@ class NYTimesBaseIE(InfoExtractor):
         return formats, subtitles
 
     def _extract_video(self, media_id):
+        print(f"nytimes.pyの関数_extract_videoを実行しました。")
         print(f"nytimes.pyの関数_extract_videoを実行しました。")
         print(f"nytimes.pyの関数_extract_videoを実行しました。")
         print(f"nytimes.pyの関数_extract_videoを実行しました。")
@@ -171,6 +175,7 @@ class NYTimesIE(NYTimesBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"nytimes.pyの関数_real_extractを実行しました。")
         print(f"nytimes.pyの関数_real_extractを実行しました。")
         print(f"nytimes.pyの関数_real_extractを実行しました。")
         print(f"nytimes.pyの関数_real_extractを実行しました。")
@@ -261,6 +266,7 @@ class NYTimesArticleIE(NYTimesBaseIE):
     }]
 
     def _extract_content_from_block(self, block):
+        print(f"nytimes.pyの関数_extract_content_from_blockを実行しました。")
         print(f"nytimes.pyの関数_extract_content_from_blockを実行しました。")
         print(f"nytimes.pyの関数_extract_content_from_blockを実行しました。")
         print(f"nytimes.pyの関数_extract_content_from_blockを実行しました。")

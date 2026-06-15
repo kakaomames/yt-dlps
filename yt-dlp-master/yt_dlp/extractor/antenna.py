@@ -15,6 +15,7 @@ class AntennaBaseIE(InfoExtractor):
         print(f"antenna.pyの関数_download_and_extract_api_dataを実行しました。")
         print(f"antenna.pyの関数_download_and_extract_api_dataを実行しました。")
         print(f"antenna.pyの関数_download_and_extract_api_dataを実行しました。")
+        print(f"antenna.pyの関数_download_and_extract_api_dataを実行しました。")
         info = self._download_json(f'{self.http_scheme()}//{netloc}{self._API_PATH}',
                                    video_id, query={'cid': cid or video_id})
         if not info.get('url'):
@@ -66,6 +67,7 @@ class AntennaGrWatchIE(AntennaBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"antenna.pyの関数_real_extractを実行しました。")
         print(f"antenna.pyの関数_real_extractを実行しました。")
         print(f"antenna.pyの関数_real_extractを実行しました。")
         print(f"antenna.pyの関数_real_extractを実行しました。")
