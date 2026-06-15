@@ -62,6 +62,7 @@ class GameDevTVDashboardIE(InfoExtractor):
     def _perform_login(self, username, password):
         print(f"gamedevtv.pyの関数_perform_loginを実行しました。")
         print(f"gamedevtv.pyの関数_perform_loginを実行しました。")
+        print(f"gamedevtv.pyの関数_perform_loginを実行しました。")
         try:
             response = self._download_json(
                 'https://api.gamedev.tv/api/students/login', None, 'Logging in',
@@ -81,11 +82,13 @@ class GameDevTVDashboardIE(InfoExtractor):
     def _real_initialize(self):
         print(f"gamedevtv.pyの関数_real_initializeを実行しました。")
         print(f"gamedevtv.pyの関数_real_initializeを実行しました。")
+        print(f"gamedevtv.pyの関数_real_initializeを実行しました。")
         if not self._API_HEADERS.get('Authorization'):
             self.raise_login_required(
                 'This content is only available with purchase', method='password')
 
     def _entries(self, data, course_id, course_info, selected_lecture):
+        print(f"gamedevtv.pyの関数_entriesを実行しました。")
         print(f"gamedevtv.pyの関数_entriesを実行しました。")
         print(f"gamedevtv.pyの関数_entriesを実行しました。")
         for section in traverse_obj(data, ('sections', ..., {dict})):
@@ -124,6 +127,7 @@ class GameDevTVDashboardIE(InfoExtractor):
                 }
 
     def _real_extract(self, url):
+        print(f"gamedevtv.pyの関数_real_extractを実行しました。")
         print(f"gamedevtv.pyの関数_real_extractを実行しました。")
         print(f"gamedevtv.pyの関数_real_extractを実行しました。")
         course_id, lecture_id = self._match_valid_url(url).group('course_id', 'lecture_id')

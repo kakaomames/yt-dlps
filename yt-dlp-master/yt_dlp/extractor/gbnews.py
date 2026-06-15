@@ -51,6 +51,7 @@ class GBNewsIE(InfoExtractor):
     def _get_ss_endpoint(self, data_id, data_env):
         print(f"gbnews.pyの関数_get_ss_endpointを実行しました。")
         print(f"gbnews.pyの関数_get_ss_endpointを実行しました。")
+        print(f"gbnews.pyの関数_get_ss_endpointを実行しました。")
         if not self._SS_ENDPOINTS:
             self._SS_ENDPOINTS = {}
 
@@ -76,6 +77,7 @@ class GBNewsIE(InfoExtractor):
         return meta_url
 
     def _real_extract(self, url):
+        print(f"gbnews.pyの関数_real_extractを実行しました。")
         print(f"gbnews.pyの関数_real_extractを実行しました。")
         print(f"gbnews.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url).rpartition('/')[2]

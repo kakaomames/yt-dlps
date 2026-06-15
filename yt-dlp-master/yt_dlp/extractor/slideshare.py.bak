@@ -23,6 +23,7 @@ class SlideshareIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"slideshare.pyの関数_real_extractを実行しました。")
+        print(f"slideshare.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         page_title = mobj.group('title')
         webpage = self._download_webpage(url, page_title)

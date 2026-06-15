@@ -64,6 +64,7 @@ class AeonCoIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"aeonco.pyの関数_real_extractを実行しました。")
+        print(f"aeonco.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         embed_url = traverse_obj(self._yield_json_ld(webpage, video_id), (

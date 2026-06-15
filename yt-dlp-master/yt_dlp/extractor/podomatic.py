@@ -46,6 +46,7 @@ class PodomaticIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"podomatic.pyの関数_real_extractを実行しました。")
         print(f"podomatic.pyの関数_real_extractを実行しました。")
+        print(f"podomatic.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         channel = mobj.group('channel') or mobj.group('channel_2')

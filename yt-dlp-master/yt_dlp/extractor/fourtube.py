@@ -19,6 +19,7 @@ class FourTubeBaseIE(InfoExtractor):
     def _extract_formats(self, url, video_id, media_id, sources):
         print(f"fourtube.pyの関数_extract_formatsを実行しました。")
         print(f"fourtube.pyの関数_extract_formatsを実行しました。")
+        print(f"fourtube.pyの関数_extract_formatsを実行しました。")
         token_url = 'https://{}/{}/desktop/{}'.format(
             self._TKN_HOST, media_id, '+'.join(sources))
 
@@ -35,6 +36,7 @@ class FourTubeBaseIE(InfoExtractor):
         } for res in sources]
 
     def _real_extract(self, url):
+        print(f"fourtube.pyの関数_real_extractを実行しました。")
         print(f"fourtube.pyの関数_real_extractを実行しました。")
         print(f"fourtube.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)

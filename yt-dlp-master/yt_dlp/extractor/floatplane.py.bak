@@ -20,6 +20,7 @@ from ..utils.traversal import require, traverse_obj
 class FloatplaneBaseIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"floatplane.pyの関数_real_extractを実行しました。")
+        print(f"floatplane.pyの関数_real_extractを実行しました。")
         post_id = self._match_id(url)
 
         post_data = self._download_json(
@@ -316,6 +317,7 @@ class FloatplaneIE(FloatplaneBaseIE):
 
     def _real_initialize(self):
         print(f"floatplane.pyの関数_real_initializeを実行しました。")
+        print(f"floatplane.pyの関数_real_initializeを実行しました。")
         if not self._get_cookies(self._BASE_URL).get('sails.sid'):
             self.raise_login_required()
 
@@ -324,6 +326,7 @@ class FloatplaneChannelBaseIE(InfoExtractor):
     """Subclasses must set _RESULT_IE, _BASE_URL and _PAGE_SIZE"""
 
     def _fetch_page(self, display_id, creator_id, channel_id, page):
+        print(f"floatplane.pyの関数_fetch_pageを実行しました。")
         print(f"floatplane.pyの関数_fetch_pageを実行しました。")
         query = {
             'id': creator_id,

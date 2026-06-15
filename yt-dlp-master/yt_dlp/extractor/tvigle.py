@@ -52,6 +52,7 @@ class TvigleIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"tvigle.pyの関数_real_extractを実行しました。")
         print(f"tvigle.pyの関数_real_extractを実行しました。")
+        print(f"tvigle.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         display_id = mobj.group('display_id')

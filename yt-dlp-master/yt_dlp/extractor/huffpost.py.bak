@@ -39,6 +39,7 @@ class HuffPostIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"huffpost.pyの関数_real_extractを実行しました。")
+        print(f"huffpost.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         api_url = f'http://embed.live.huffingtonpost.com/api/segments/{video_id}.json'

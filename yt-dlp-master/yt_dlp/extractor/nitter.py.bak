@@ -291,6 +291,7 @@ class NitterIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"nitter.pyの関数_real_extractを実行しました。")
+        print(f"nitter.pyの関数_real_extractを実行しました。")
         video_id, uploader_id = self._match_valid_url(url).group('id', 'uploader_id')
         parsed_url = urllib.parse.urlparse(url)
         base_url = f'{parsed_url.scheme}://{parsed_url.netloc}'

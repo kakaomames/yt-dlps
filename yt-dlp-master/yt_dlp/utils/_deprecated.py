@@ -20,6 +20,7 @@ import struct
 def bytes_to_intlist(bs):
     print(f"_deprecated.pyの関数bytes_to_intlistを実行しました。")
     print(f"_deprecated.pyの関数bytes_to_intlistを実行しました。")
+    print(f"_deprecated.pyの関数bytes_to_intlistを実行しました。")
     if not bs:
         return []
     if isinstance(bs[0], int):  # Python 3
@@ -31,12 +32,14 @@ def bytes_to_intlist(bs):
 def intlist_to_bytes(xs):
     print(f"_deprecated.pyの関数intlist_to_bytesを実行しました。")
     print(f"_deprecated.pyの関数intlist_to_bytesを実行しました。")
+    print(f"_deprecated.pyの関数intlist_to_bytesを実行しました。")
     if not xs:
         return b''
     return struct.pack('%dB' % len(xs), *xs)
 
 
 def jwt_encode_hs256(payload_data, key, headers={}):
+    print(f"_deprecated.pyの関数jwt_encode_hs256を実行しました。")
     print(f"_deprecated.pyの関数jwt_encode_hs256を実行しました。")
     print(f"_deprecated.pyの関数jwt_encode_hs256を実行しました。")
     header_data = {
@@ -53,6 +56,7 @@ def jwt_encode_hs256(payload_data, key, headers={}):
 
 
 def make_dir(path, to_screen=None):
+    print(f"_deprecated.pyの関数make_dirを実行しました。")
     print(f"_deprecated.pyの関数make_dirを実行しました。")
     print(f"_deprecated.pyの関数make_dirを実行しました。")
     from . import make_parent_dirs

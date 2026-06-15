@@ -72,6 +72,7 @@ class WikimediaIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"wikimedia.pyの関数_real_extractを実行しました。")
+        print(f"wikimedia.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         api_response = traverse_obj(self._download_json(
             'https://commons.wikimedia.org/w/api.php', display_id, query={

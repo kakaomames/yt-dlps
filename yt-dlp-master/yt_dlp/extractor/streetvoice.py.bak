@@ -41,6 +41,7 @@ class StreetVoiceIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"streetvoice.pyの関数_real_extractを実行しました。")
+        print(f"streetvoice.pyの関数_real_extractを実行しました。")
         song_id = self._match_id(url)
         base_url = f'https://streetvoice.com/api/v4/song/{song_id}/'
         song = self._download_json(base_url, song_id, query={

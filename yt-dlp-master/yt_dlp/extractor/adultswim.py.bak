@@ -88,6 +88,7 @@ class AdultSwimIE(TurnerBaseIE):
 
     def _real_extract(self, url):
         print(f"adultswim.pyの関数_real_extractを実行しました。")
+        print(f"adultswim.pyの関数_real_extractを実行しました。")
         show_path, episode_path = self._match_valid_url(url).groups()
         display_id = episode_path or show_path
         query = '''query {

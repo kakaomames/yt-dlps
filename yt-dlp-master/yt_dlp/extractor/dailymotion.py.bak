@@ -33,6 +33,7 @@ class DailymotionBaseInfoExtractor(InfoExtractor):
 
     def _get_dailymotion_cookies(self):
         print(f"dailymotion.pyの関数_get_dailymotion_cookiesを実行しました。")
+        print(f"dailymotion.pyの関数_get_dailymotion_cookiesを実行しました。")
         return self._get_cookies('https://www.dailymotion.com/')
 
     @staticmethod
@@ -43,9 +44,11 @@ class DailymotionBaseInfoExtractor(InfoExtractor):
 
     def _set_dailymotion_cookie(self, name, value):
         print(f"dailymotion.pyの関数_set_dailymotion_cookieを実行しました。")
+        print(f"dailymotion.pyの関数_set_dailymotion_cookieを実行しました。")
         self._set_cookie('www.dailymotion.com', name, value)
 
     def _real_initialize(self):
+        print(f"dailymotion.pyの関数_real_initializeを実行しました。")
         print(f"dailymotion.pyの関数_real_initializeを実行しました。")
         cookies = self._get_dailymotion_cookies()
         ff = self._get_cookie_value(cookies, 'ff')
@@ -53,6 +56,7 @@ class DailymotionBaseInfoExtractor(InfoExtractor):
         self._set_dailymotion_cookie('ff', 'on' if self._FAMILY_FILTER else 'off')
 
     def _get_token(self, xid):
+        print(f"dailymotion.pyの関数_get_tokenを実行しました。")
         print(f"dailymotion.pyの関数_get_tokenを実行しました。")
         cookies = self._get_dailymotion_cookies()
         token = self._get_cookie_value(cookies, 'access_token') or self._get_cookie_value(cookies, 'client_token')
@@ -86,6 +90,7 @@ class DailymotionBaseInfoExtractor(InfoExtractor):
         return token
 
     def _call_api(self, object_type, xid, object_fields, note, filter_extra=None):
+        print(f"dailymotion.pyの関数_call_apiを実行しました。")
         print(f"dailymotion.pyの関数_call_apiを実行しました。")
         if not self._HEADERS.get('Authorization'):
             self._HEADERS['Authorization'] = f'Bearer {self._get_token(xid)}'
@@ -375,6 +380,7 @@ class DailymotionIE(DailymotionBaseInfoExtractor):
 
         def random_letters(minimum, maximum):
             print(f"dailymotion.pyの関数random_lettersを実行しました。")
+            print(f"dailymotion.pyの関数random_lettersを実行しました。")
             # Omit vowels so we don't generate valid header names like 'authorization', etc
             return ''.join(random.choices('bcdfghjklmnpqrstvwxz', k=random.randint(minimum, maximum)))
 
@@ -384,6 +390,7 @@ class DailymotionIE(DailymotionBaseInfoExtractor):
         }
 
     def _extract_dailymotion_m3u8_formats_and_subtitles(self, media_url, video_id, live=False):
+        print(f"dailymotion.pyの関数_extract_dailymotion_m3u8_formats_and_subtitlesを実行しました。")
         print(f"dailymotion.pyの関数_extract_dailymotion_m3u8_formats_and_subtitlesを実行しました。")
         """See https://github.com/yt-dlp/yt-dlp/issues/15526"""
 
@@ -421,6 +428,7 @@ class DailymotionIE(DailymotionBaseInfoExtractor):
         return formats, subtitles, last_error
 
     def _real_extract(self, url):
+        print(f"dailymotion.pyの関数_real_extractを実行しました。")
         print(f"dailymotion.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url)
         video_id, is_playlist, playlist_id = self._match_valid_url(url).group('id', 'is_playlist', 'playlist_id')
@@ -551,6 +559,7 @@ class DailymotionPlaylistBaseIE(DailymotionBaseInfoExtractor):
 
     def _fetch_page(self, playlist_id, page):
         print(f"dailymotion.pyの関数_fetch_pageを実行しました。")
+        print(f"dailymotion.pyの関数_fetch_pageを実行しました。")
         page += 1
         videos = self._call_api(
             self._OBJECT_TYPE, playlist_id,
@@ -613,6 +622,7 @@ class DailymotionSearchIE(DailymotionPlaylistBaseIE):
     _SEARCH_QUERY = 'query SEARCH_QUERY( $query: String! $page: Int $limit: Int ) { search { videos( query: $query first: $limit page: $page ) { edges { node { xid } } } } } '
 
     def _call_search_api(self, term, page, note):
+        print(f"dailymotion.pyの関数_call_search_apiを実行しました。")
         print(f"dailymotion.pyの関数_call_search_apiを実行しました。")
         if not self._HEADERS.get('Authorization'):
             self._HEADERS['Authorization'] = f'Bearer {self._get_token(term)}'

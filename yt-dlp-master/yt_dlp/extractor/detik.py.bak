@@ -115,6 +115,7 @@ class DetikEmbedIE(InfoExtractor):
 
     def _extract_from_webpage(self, url, webpage):
         print(f"detik.pyの関数_extract_from_webpageを実行しました。")
+        print(f"detik.pyの関数_extract_from_webpageを実行しました。")
         player_type, video_data = self._search_regex(
             r'<script\s*[^>]+src="https?://(aws)?cdn\.detik\.net\.id/(?P<type>flowplayer|detikVideo)[^>]+>\s*(?P<video_data>{[^}]+})',
             webpage, 'playerjs', group=('type', 'video_data'), default=(None, ''))

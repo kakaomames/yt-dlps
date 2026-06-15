@@ -33,6 +33,7 @@ class GlomexBaseIE(InfoExtractor):
     def _get_videoid_type(self, video_id):
         print(f"glomex.pyの関数_get_videoid_typeを実行しました。")
         print(f"glomex.pyの関数_get_videoid_typeを実行しました。")
+        print(f"glomex.pyの関数_get_videoid_typeを実行しました。")
         _VIDEOID_TYPES = {
             'v': 'video',
             'pl': 'playlist',
@@ -43,6 +44,7 @@ class GlomexBaseIE(InfoExtractor):
         return _VIDEOID_TYPES.get(prefix, 'unknown type')
 
     def _download_api_data(self, video_id, integration, current_url=None):
+        print(f"glomex.pyの関数_download_api_dataを実行しました。")
         print(f"glomex.pyの関数_download_api_dataを実行しました。")
         print(f"glomex.pyの関数_download_api_dataを実行しました。")
         query = {
@@ -60,6 +62,7 @@ class GlomexBaseIE(InfoExtractor):
     def _download_and_extract_api_data(self, video_id, integration, current_url):
         print(f"glomex.pyの関数_download_and_extract_api_dataを実行しました。")
         print(f"glomex.pyの関数_download_and_extract_api_dataを実行しました。")
+        print(f"glomex.pyの関数_download_and_extract_api_dataを実行しました。")
         api_data = self._download_api_data(video_id, integration, current_url)
         videos = api_data['videos']
         if not videos:
@@ -68,6 +71,7 @@ class GlomexBaseIE(InfoExtractor):
         return videos[0] if len(videos) == 1 else self.playlist_result(videos, video_id)
 
     def _extract_api_data(self, video, video_id):
+        print(f"glomex.pyの関数_extract_api_dataを実行しました。")
         print(f"glomex.pyの関数_extract_api_dataを実行しました。")
         print(f"glomex.pyの関数_extract_api_dataを実行しました。")
         if video.get('error_code') == 'contentGeoblocked':
@@ -134,6 +138,7 @@ class GlomexIE(GlomexBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"glomex.pyの関数_real_extractを実行しました。")
         print(f"glomex.pyの関数_real_extractを実行しました。")
         print(f"glomex.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)

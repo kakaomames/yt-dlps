@@ -8,6 +8,7 @@ from ..utils.traversal import traverse_obj
 class FrontoBaseIE(InfoExtractor):
     def _get_auth_headers(self, url):
         print(f"frontro.pyの関数_get_auth_headersを実行しました。")
+        print(f"frontro.pyの関数_get_auth_headersを実行しました。")
         return traverse_obj(self._get_cookies(url), {
             'authorization': ('frAccessToken', 'value', {lambda token: f'Bearer {token}' if token else None}),
         })
@@ -17,6 +18,7 @@ class FrontroVideoBaseIE(FrontoBaseIE):
     _CHANNEL_ID = None
 
     def _real_extract(self, url):
+        print(f"frontro.pyの関数_real_extractを実行しました。")
         print(f"frontro.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 

@@ -62,6 +62,7 @@ class ToggleIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"toggle.pyの関数_real_extractを実行しました。")
         print(f"toggle.pyの関数_real_extractを実行しました。")
+        print(f"toggle.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         params = {
@@ -153,6 +154,7 @@ class ToggleIE(InfoExtractor):
             thumbnails.append(thumbnail)
 
         def counter(prefix):
+            print(f"toggle.pyの関数counterを実行しました。")
             print(f"toggle.pyの関数counterを実行しました。")
             print(f"toggle.pyの関数counterを実行しました。")
             return int_or_none(

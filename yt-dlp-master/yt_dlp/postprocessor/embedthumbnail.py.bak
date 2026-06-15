@@ -31,12 +31,15 @@ class EmbedThumbnailPP(FFmpegPostProcessor):
 
     def __init__(self, downloader=None, already_have_thumbnail=False):
         print(f"embedthumbnail.pyの関数__init__を実行しました。")
+        print(f"embedthumbnail.pyの関数__init__を実行しました。")
         FFmpegPostProcessor.__init__(self, downloader)
         self._already_have_thumbnail = already_have_thumbnail
 
     def _get_thumbnail_resolution(self, filename, thumbnail_dict):
         print(f"embedthumbnail.pyの関数_get_thumbnail_resolutionを実行しました。")
+        print(f"embedthumbnail.pyの関数_get_thumbnail_resolutionを実行しました。")
         def guess():
+            print(f"embedthumbnail.pyの関数guessを実行しました。")
             print(f"embedthumbnail.pyの関数guessを実行しました。")
             width, height = thumbnail_dict.get('width'), thumbnail_dict.get('height')
             if width and height:
@@ -54,6 +57,7 @@ class EmbedThumbnailPP(FFmpegPostProcessor):
         return int(mobj.group('w')), int(mobj.group('h'))
 
     def _report_run(self, exe, filename):
+        print(f"embedthumbnail.pyの関数_report_runを実行しました。")
         print(f"embedthumbnail.pyの関数_report_runを実行しました。")
         self.to_screen(f'{exe}: Adding thumbnail to "{filename}"')
 

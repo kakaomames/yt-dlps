@@ -85,6 +85,7 @@ class WeverseBaseIE(InfoExtractor):
 
     def _access_token_is_valid(self):
         print(f"weverse.pyの関数_access_token_is_validを実行しました。")
+        print(f"weverse.pyの関数_access_token_is_validを実行しました。")
         response = self._download_json(
             f'{self._ACCOUNT_API_BASE}/api/v1/token/validate', None,
             'Validating access token', 'Unable to valid access token',
@@ -96,12 +97,14 @@ class WeverseBaseIE(InfoExtractor):
 
     def _token_is_expired(self, key):
         print(f"weverse.pyの関数_token_is_expiredを実行しました。")
+        print(f"weverse.pyの関数_token_is_expiredを実行しました。")
         is_expired = jwt_decode_hs256(self._oauth_tokens[key])['exp'] - time.time() < 3600
         if key == self._REFRESH_TOKEN_KEY or not is_expired:
             return is_expired
         return not self._access_token_is_valid()
 
     def _refresh_access_token(self):
+        print(f"weverse.pyの関数_refresh_access_tokenを実行しました。")
         print(f"weverse.pyの関数_refresh_access_tokenを実行しました。")
         if not self._oauth_tokens.get(self._REFRESH_TOKEN_KEY):
             self._report_login_error('no_refresh_token')
@@ -144,6 +147,7 @@ class WeverseBaseIE(InfoExtractor):
 
     def _get_authorization_header(self):
         print(f"weverse.pyの関数_get_authorization_headerを実行しました。")
+        print(f"weverse.pyの関数_get_authorization_headerを実行しました。")
         if not self._is_logged_in:
             return {}
         if self._token_is_expired(self._ACCESS_TOKEN_KEY):
@@ -151,6 +155,7 @@ class WeverseBaseIE(InfoExtractor):
         return {'Authorization': f'Bearer {self._oauth_tokens[self._ACCESS_TOKEN_KEY]}'}
 
     def _report_login_error(self, error_id):
+        print(f"weverse.pyの関数_report_login_errorを実行しました。")
         print(f"weverse.pyの関数_report_login_errorを実行しました。")
         error_msg = self._LOGIN_ERRORS_MAP[error_id]
         username = self._get_login_info()[0]
@@ -166,6 +171,7 @@ class WeverseBaseIE(InfoExtractor):
             'Or else you can u', self._login_hint(method='session_cookies')[1:], delim=''), expected=True)
 
     def _perform_login(self, username, password):
+        print(f"weverse.pyの関数_perform_loginを実行しました。")
         print(f"weverse.pyの関数_perform_loginを実行しました。")
         if self._is_logged_in:
             return
@@ -187,6 +193,7 @@ class WeverseBaseIE(InfoExtractor):
 
     def _real_initialize(self):
         print(f"weverse.pyの関数_real_initializeを実行しました。")
+        print(f"weverse.pyの関数_real_initializeを実行しました。")
         cookies = self._get_cookies('https://weverse.io/')
 
         if not self._device_id:
@@ -203,6 +210,7 @@ class WeverseBaseIE(InfoExtractor):
             self._refresh_access_token()
 
     def _call_api(self, ep, video_id, data=None, note='Downloading API JSON'):
+        print(f"weverse.pyの関数_call_apiを実行しました。")
         print(f"weverse.pyの関数_call_apiを実行しました。")
         # Ref: https://ssl.pstatic.net/static/wevweb/2_3_2_11101725/public/static/js/2488.a09b41ff.chunk.js
         # From https://ssl.pstatic.net/static/wevweb/2_3_2_11101725/public/static/js/main.e206f7c1.js:
@@ -247,16 +255,19 @@ class WeverseBaseIE(InfoExtractor):
 
     def _call_post_api(self, video_id):
         print(f"weverse.pyの関数_call_post_apiを実行しました。")
+        print(f"weverse.pyの関数_call_post_apiを実行しました。")
         path = '' if self._is_logged_in else '/preview'
         return self._call_api(f'/post/v1.0/post-{video_id}{path}?fieldSet=postV1', video_id)
 
     def _get_community_id(self, channel):
+        print(f"weverse.pyの関数_get_community_idを実行しました。")
         print(f"weverse.pyの関数_get_community_idを実行しました。")
         return str(self._call_api(
             f'/community/v1.0/communityIdUrlPathByUrlPathArtistCode?keyword={channel}',
             channel, note='Fetching community ID')['communityId'])
 
     def _get_formats(self, data, video_id):
+        print(f"weverse.pyの関数_get_formatsを実行しました。")
         print(f"weverse.pyの関数_get_formatsを実行しました。")
         formats = traverse_obj(data, ('videos', 'list', lambda _, v: url_or_none(v['source']), {
             'url': 'source',
@@ -285,6 +296,7 @@ class WeverseBaseIE(InfoExtractor):
 
     def _get_subs(self, caption_url):
         print(f"weverse.pyの関数_get_subsを実行しました。")
+        print(f"weverse.pyの関数_get_subsを実行しました。")
         subs_ext_re = r'\.(?:ttml|vtt)'
         replace_ext = lambda x, y: re.sub(subs_ext_re, y, x)
         if re.search(subs_ext_re, caption_url):
@@ -292,6 +304,7 @@ class WeverseBaseIE(InfoExtractor):
         return [caption_url]
 
     def _parse_post_meta(self, metadata):
+        print(f"weverse.pyの関数_parse_post_metaを実行しました。")
         print(f"weverse.pyの関数_parse_post_metaを実行しました。")
         return traverse_obj(metadata, {
             'title': ((('extension', 'mediaInfo', 'title'), 'title'), {str}),
@@ -311,12 +324,14 @@ class WeverseBaseIE(InfoExtractor):
 
     def _extract_availability(self, data):
         print(f"weverse.pyの関数_extract_availabilityを実行しました。")
+        print(f"weverse.pyの関数_extract_availabilityを実行しました。")
         return self._availability(**traverse_obj(data, ((('extension', 'video'), None), {
             'needs_premium': 'paid',
             'needs_subscription': 'membershipOnly',
         }), get_all=False, expected_type=bool), needs_auth=True)
 
     def _extract_live_status(self, data):
+        print(f"weverse.pyの関数_extract_live_statusを実行しました。")
         print(f"weverse.pyの関数_extract_live_statusを実行しました。")
         data = traverse_obj(data, ('extension', 'video', {dict})) or {}
         if data.get('type') == 'LIVE':
@@ -422,6 +437,7 @@ class WeverseIE(WeverseBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"weverse.pyの関数_real_extractを実行しました。")
         print(f"weverse.pyの関数_real_extractを実行しました。")
         channel, video_id = self._match_valid_url(url).group('artist', 'id')
         post = self._call_post_api(video_id)
@@ -632,6 +648,7 @@ class WeverseTabBaseIE(WeverseBaseIE):
     _RESULT_IE = None
 
     def _entries(self, channel_id, channel, first_page):
+        print(f"weverse.pyの関数_entriesを実行しました。")
         print(f"weverse.pyの関数_entriesを実行しました。")
         query = self._QUERY.copy()
 

@@ -79,6 +79,7 @@ class AtresPlayerIE(InfoExtractor):
 
     def _perform_login(self, username, password):
         print(f"atresplayer.pyの関数_perform_loginを実行しました。")
+        print(f"atresplayer.pyの関数_perform_loginを実行しました。")
         try:
             self._download_webpage(
                 'https://account.atresplayer.com/auth/v1/login', None,
@@ -92,6 +93,7 @@ class AtresPlayerIE(InfoExtractor):
             raise
 
     def _real_extract(self, url):
+        print(f"atresplayer.pyの関数_real_extractを実行しました。")
         print(f"atresplayer.pyの関数_real_extractを実行しました。")
         display_id, video_id = self._match_valid_url(url).groups()
 

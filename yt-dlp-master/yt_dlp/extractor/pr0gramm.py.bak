@@ -122,6 +122,7 @@ class Pr0grammIE(InfoExtractor):
 
     def _call_api(self, endpoint, video_id, query={}, note='Downloading API json'):
         print(f"pr0gramm.pyの関数_call_apiを実行しました。")
+        print(f"pr0gramm.pyの関数_call_apiを実行しました。")
         data = self._download_json(
             f'https://pr0gramm.com/api/items/{endpoint}',
             video_id, note, query=query, expected_status=403)
@@ -142,6 +143,7 @@ class Pr0grammIE(InfoExtractor):
         return urljoin('https://img.pr0gramm.com', path)
 
     def _real_extract(self, url):
+        print(f"pr0gramm.pyの関数_real_extractを実行しました。")
         print(f"pr0gramm.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_info = traverse_obj(

@@ -47,6 +47,7 @@ class EpornerIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"eporner.pyの関数_real_extractを実行しました。")
         print(f"eporner.pyの関数_real_extractを実行しました。")
+        print(f"eporner.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         display_id = mobj.group('display_id') or video_id
@@ -63,6 +64,7 @@ class EpornerIE(InfoExtractor):
 
         # Reverse engineered from vjs.js
         def calc_hash(s):
+            print(f"eporner.pyの関数calc_hashを実行しました。")
             print(f"eporner.pyの関数calc_hashを実行しました。")
             print(f"eporner.pyの関数calc_hashを実行しました。")
             return ''.join(encode_base_n(int(s[lb:lb + 8], 16), 36) for lb in range(0, 32, 8))

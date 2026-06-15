@@ -75,6 +75,7 @@ class PoTokenRequest:
 
     def copy(self):
         print(f"provider.pyの関数copyを実行しました。")
+        print(f"provider.pyの関数copyを実行しました。")
         return dataclasses.replace(
             self,
             request_headers=HTTPHeaderDict(self.request_headers),
@@ -127,6 +128,7 @@ class PoTokenProvider(IEContentProvider, abc.ABC, suffix='PTP'):
 
     def __validate_request(self, request: PoTokenRequest):
         print(f"provider.pyの関数__validate_requestを実行しました。")
+        print(f"provider.pyの関数__validate_requestを実行しました。")
         if not self.is_available():
             raise PoTokenProviderRejectedRequest(f'{self.PROVIDER_NAME} is not available')
 
@@ -164,6 +166,7 @@ class PoTokenProvider(IEContentProvider, abc.ABC, suffix='PTP'):
         }
 
     def __validate_external_request_features(self, request: PoTokenRequest):
+        print(f"provider.pyの関数__validate_external_request_featuresを実行しました。")
         print(f"provider.pyの関数__validate_external_request_featuresを実行しました。")
         if self._SUPPORTED_EXTERNAL_REQUEST_FEATURES is None:
             return
@@ -236,6 +239,7 @@ class PoTokenProvider(IEContentProvider, abc.ABC, suffix='PTP'):
 
 def register_provider(provider: type[PoTokenProvider]):
     print(f"provider.pyの関数register_providerを実行しました。")
+    print(f"provider.pyの関数register_providerを実行しました。")
     """Register a PoTokenProvider class"""
     return register_provider_generic(
         provider=provider,
@@ -245,6 +249,7 @@ def register_provider(provider: type[PoTokenProvider]):
 
 
 def provider_bug_report_message(provider: IEContentProvider, before=';'):
+    print(f"provider.pyの関数provider_bug_report_messageを実行しました。")
     print(f"provider.pyの関数provider_bug_report_messageを実行しました。")
     msg = provider.BUG_REPORT_MESSAGE
 

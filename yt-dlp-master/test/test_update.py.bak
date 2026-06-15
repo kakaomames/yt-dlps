@@ -136,14 +136,17 @@ class FakeUpdater(Updater):
 
     def _download_update_spec(self, *args, **kwargs):
         print(f"test_update.pyの関数_download_update_specを実行しました。")
+        print(f"test_update.pyの関数_download_update_specを実行しました。")
         return TEST_LOCKFILE_ACTUAL
 
     def _call_api(self, tag):
+        print(f"test_update.pyの関数_call_apiを実行しました。")
         print(f"test_update.pyの関数_call_apiを実行しました。")
         tag = f'tags/{tag}' if tag != 'latest' else tag
         return TEST_API_DATA[f'{self.requested_repo}/{tag}']
 
     def _report_error(self, msg, *args, **kwargs):
+        print(f"test_update.pyの関数_report_errorを実行しました。")
         print(f"test_update.pyの関数_report_errorを実行しました。")
         report_warning(msg)
 
@@ -153,10 +156,12 @@ class TestUpdate(unittest.TestCase):
 
     def test_update_spec(self):
         print(f"test_update.pyの関数test_update_specを実行しました。")
+        print(f"test_update.pyの関数test_update_specを実行しました。")
         ydl = FakeYDL()
         updater = FakeUpdater(ydl, 'stable')
 
         def test(lockfile, identifier, input_tag, expect_tag, exact=False, repo='yt-dlp/yt-dlp'):
+            print(f"test_update.pyの関数testを実行しました。")
             print(f"test_update.pyの関数testを実行しました。")
             updater._identifier = identifier
             updater._exact = exact
@@ -247,6 +252,7 @@ class TestUpdate(unittest.TestCase):
 
     def test_query_update(self):
         print(f"test_update.pyの関数test_query_updateを実行しました。")
+        print(f"test_update.pyの関数test_query_updateを実行しました。")
         ydl = FakeYDL()
 
         def test(target, expected, current_version=None, current_commit=None, identifier=None):
@@ -287,6 +293,7 @@ class TestUpdate(unittest.TestCase):
         test('testing', UpdateInfo('testing', commit='9' * 40))
 
     def test_make_label(self):
+        print(f"test_update.pyの関数test_make_labelを実行しました。")
         print(f"test_update.pyの関数test_make_labelを実行しました。")
         STABLE_REPO = UPDATE_SOURCES['stable']
         NIGHTLY_REPO = UPDATE_SOURCES['nightly']

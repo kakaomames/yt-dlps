@@ -91,6 +91,7 @@ class TV2DKIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"tv2dk.pyの関数_real_extractを実行しました。")
         print(f"tv2dk.pyの関数_real_extractを実行しました。")
+        print(f"tv2dk.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         search_space = traverse_obj(webpage, {find_element(tag='article')}) or webpage

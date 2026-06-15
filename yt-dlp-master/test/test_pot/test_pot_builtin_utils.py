@@ -26,6 +26,7 @@ class TestGetWebPoContentBinding:
     def test_get_webpo_content_binding(self, pot_request, client_name, context, is_authenticated, expected):
         print(f"test_pot_builtin_utils.pyの関数test_get_webpo_content_bindingを実行しました。")
         print(f"test_pot_builtin_utils.pyの関数test_get_webpo_content_bindingを実行しました。")
+        print(f"test_pot_builtin_utils.pyの関数test_get_webpo_content_bindingを実行しました。")
         pot_request.innertube_context['client']['clientName'] = client_name
         pot_request.context = context
         pot_request.is_authenticated = is_authenticated
@@ -34,10 +35,12 @@ class TestGetWebPoContentBinding:
     def test_extract_visitor_id(self, pot_request):
         print(f"test_pot_builtin_utils.pyの関数test_extract_visitor_idを実行しました。")
         print(f"test_pot_builtin_utils.pyの関数test_extract_visitor_idを実行しました。")
+        print(f"test_pot_builtin_utils.pyの関数test_extract_visitor_idを実行しました。")
         pot_request.visitor_data = 'CgsxMjNhYmNYWVpfLSiA4s%2DqBg%3D%3D'
         assert get_webpo_content_binding(pot_request, bind_to_visitor_id=True) == ('123abcXYZ_-', ContentBindingType.VISITOR_ID)
 
     def test_invalid_visitor_id(self, pot_request):
+        print(f"test_pot_builtin_utils.pyの関数test_invalid_visitor_idを実行しました。")
         print(f"test_pot_builtin_utils.pyの関数test_invalid_visitor_idを実行しました。")
         print(f"test_pot_builtin_utils.pyの関数test_invalid_visitor_idを実行しました。")
         # visitor id not alphanumeric (i.e. protobuf extraction failed)
@@ -47,16 +50,19 @@ class TestGetWebPoContentBinding:
     def test_no_visitor_id(self, pot_request):
         print(f"test_pot_builtin_utils.pyの関数test_no_visitor_idを実行しました。")
         print(f"test_pot_builtin_utils.pyの関数test_no_visitor_idを実行しました。")
+        print(f"test_pot_builtin_utils.pyの関数test_no_visitor_idを実行しました。")
         pot_request.visitor_data = 'KIDiz6oG'
         assert get_webpo_content_binding(pot_request, bind_to_visitor_id=True) == (pot_request.visitor_data, ContentBindingType.VISITOR_DATA)
 
     def test_invalid_base64(self, pot_request):
         print(f"test_pot_builtin_utils.pyの関数test_invalid_base64を実行しました。")
         print(f"test_pot_builtin_utils.pyの関数test_invalid_base64を実行しました。")
+        print(f"test_pot_builtin_utils.pyの関数test_invalid_base64を実行しました。")
         pot_request.visitor_data = 'invalid-base64'
         assert get_webpo_content_binding(pot_request, bind_to_visitor_id=True) == (pot_request.visitor_data, ContentBindingType.VISITOR_DATA)
 
     def test_gvs_video_id_binding_experiment(self, pot_request):
+        print(f"test_pot_builtin_utils.pyの関数test_gvs_video_id_binding_experimentを実行しました。")
         print(f"test_pot_builtin_utils.pyの関数test_gvs_video_id_binding_experimentを実行しました。")
         print(f"test_pot_builtin_utils.pyの関数test_gvs_video_id_binding_experimentを実行しました。")
         pot_request.context = PoTokenContext.GVS

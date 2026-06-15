@@ -40,6 +40,7 @@ class PatreonBaseIE(InfoExtractor):
 
     def _call_api(self, ep, item_id, query=None, headers=None, fatal=True, note=None):
         print(f"patreon.pyの関数_call_apiを実行しました。")
+        print(f"patreon.pyの関数_call_apiを実行しました。")
         if headers is None:
             headers = {}
         if 'User-Agent' not in headers and self.patreon_user_agent:
@@ -340,6 +341,7 @@ class PatreonIE(PatreonBaseIE):
 
     def _extract_from_media_api(self, media_id):
         print(f"patreon.pyの関数_extract_from_media_apiを実行しました。")
+        print(f"patreon.pyの関数_extract_from_media_apiを実行しました。")
         attributes = traverse_obj(
             self._call_api(f'media/{media_id}', media_id, fatal=False),
             ('data', 'attributes', {dict}))
@@ -380,6 +382,7 @@ class PatreonIE(PatreonBaseIE):
         return info_dict
 
     def _real_extract(self, url):
+        print(f"patreon.pyの関数_real_extractを実行しました。")
         print(f"patreon.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         post = self._call_api(
@@ -525,6 +528,7 @@ class PatreonIE(PatreonBaseIE):
         return info
 
     def _get_comments(self, post_id):
+        print(f"patreon.pyの関数_get_commentsを実行しました。")
         print(f"patreon.pyの関数_get_commentsを実行しました。")
         cursor = None
         count = 0
@@ -683,6 +687,7 @@ class PatreonCampaignIE(PatreonBaseIE):
     }]
 
     def _entries(self, campaign_id):
+        print(f"patreon.pyの関数_entriesを実行しました。")
         print(f"patreon.pyの関数_entriesを実行しました。")
         cursor = None
         params = {

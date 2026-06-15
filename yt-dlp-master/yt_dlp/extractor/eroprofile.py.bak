@@ -39,6 +39,7 @@ class EroProfileIE(InfoExtractor):
 
     def _perform_login(self, username, password):
         print(f"eroprofile.pyの関数_perform_loginを実行しました。")
+        print(f"eroprofile.pyの関数_perform_loginを実行しました。")
         query = urllib.parse.urlencode({
             'username': username,
             'password': password,
@@ -58,6 +59,7 @@ class EroProfileIE(InfoExtractor):
         self._download_webpage(redirect_url, None, False)
 
     def _real_extract(self, url):
+        print(f"eroprofile.pyの関数_real_extractを実行しました。")
         print(f"eroprofile.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
@@ -101,10 +103,12 @@ class EroProfileAlbumIE(InfoExtractor):
 
     def _extract_from_page(self, page):
         print(f"eroprofile.pyの関数_extract_from_pageを実行しました。")
+        print(f"eroprofile.pyの関数_extract_from_pageを実行しました。")
         for url in re.findall(r'href=".*?(/m/videos/view/[^"]+)"', page):
             yield self.url_result(f'https://www.eroprofile.com{url}', EroProfileIE.ie_key())
 
     def _entries(self, playlist_id, first_page):
+        print(f"eroprofile.pyの関数_entriesを実行しました。")
         print(f"eroprofile.pyの関数_entriesを実行しました。")
         yield from self._extract_from_page(first_page)
 

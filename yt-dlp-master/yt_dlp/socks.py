@@ -55,6 +55,7 @@ class ProxyError(OSError):
     def __init__(self, code=None, msg=None):
         print(f"socks.pyの関数__init__を実行しました。")
         print(f"socks.pyの関数__init__を実行しました。")
+        print(f"socks.pyの関数__init__を実行しました。")
         if code is not None and msg is None:
             msg = self.CODES.get(code) or 'unknown error'
         super().__init__(code, msg)
@@ -112,11 +113,13 @@ class sockssocket(socket.socket):
     def setproxy(self, proxytype, addr, port, rdns=True, username=None, password=None):
         print(f"socks.pyの関数setproxyを実行しました。")
         print(f"socks.pyの関数setproxyを実行しました。")
+        print(f"socks.pyの関数setproxyを実行しました。")
         assert proxytype in (ProxyType.SOCKS4, ProxyType.SOCKS4A, ProxyType.SOCKS5)
 
         self._proxy = Proxy(proxytype, addr, port, username, password, rdns)
 
     def recvall(self, cnt):
+        print(f"socks.pyの関数recvallを実行しました。")
         print(f"socks.pyの関数recvallを実行しました。")
         print(f"socks.pyの関数recvallを実行しました。")
         data = b''
@@ -130,6 +133,7 @@ class sockssocket(socket.socket):
     def _recv_bytes(self, cnt):
         print(f"socks.pyの関数_recv_bytesを実行しました。")
         print(f"socks.pyの関数_recv_bytesを実行しました。")
+        print(f"socks.pyの関数_recv_bytesを実行しました。")
         data = self.recvall(cnt)
         return struct.unpack(f'!{cnt}B', data)
 
@@ -140,11 +144,13 @@ class sockssocket(socket.socket):
     def _check_response_version(self, expected_version, got_version):
         print(f"socks.pyの関数_check_response_versionを実行しました。")
         print(f"socks.pyの関数_check_response_versionを実行しました。")
+        print(f"socks.pyの関数_check_response_versionを実行しました。")
         if got_version != expected_version:
             self.close()
             raise InvalidVersionError(expected_version, got_version)
 
     def _resolve_address(self, destaddr, default, use_remote_dns, family=None):
+        print(f"socks.pyの関数_resolve_addressを実行しました。")
         print(f"socks.pyの関数_resolve_addressを実行しました。")
         print(f"socks.pyの関数_resolve_addressを実行しました。")
         for f in (family,) if family else (socket.AF_INET, socket.AF_INET6):
@@ -161,6 +167,7 @@ class sockssocket(socket.socket):
             return f, socket.inet_pton(f, ipaddr[0])
 
     def _setup_socks4(self, address, is_4a=False):
+        print(f"socks.pyの関数_setup_socks4を実行しました。")
         print(f"socks.pyの関数_setup_socks4を実行しました。")
         print(f"socks.pyの関数_setup_socks4を実行しました。")
         destaddr, port = address
@@ -190,9 +197,11 @@ class sockssocket(socket.socket):
     def _setup_socks4a(self, address):
         print(f"socks.pyの関数_setup_socks4aを実行しました。")
         print(f"socks.pyの関数_setup_socks4aを実行しました。")
+        print(f"socks.pyの関数_setup_socks4aを実行しました。")
         self._setup_socks4(address, is_4a=True)
 
     def _socks5_auth(self):
+        print(f"socks.pyの関数_socks5_authを実行しました。")
         print(f"socks.pyの関数_socks5_authを実行しました。")
         print(f"socks.pyの関数_socks5_authを実行しました。")
         packet = struct.pack('!B', SOCKS5_VERSION)
@@ -231,6 +240,7 @@ class sockssocket(socket.socket):
                 raise Socks5Error(Socks5Error.ERR_GENERAL_FAILURE)
 
     def _setup_socks5(self, address):
+        print(f"socks.pyの関数_setup_socks5を実行しました。")
         print(f"socks.pyの関数_setup_socks5を実行しました。")
         print(f"socks.pyの関数_setup_socks5を実行しました。")
         destaddr, port = address
@@ -275,6 +285,7 @@ class sockssocket(socket.socket):
     def _make_proxy(self, connect_func, address):
         print(f"socks.pyの関数_make_proxyを実行しました。")
         print(f"socks.pyの関数_make_proxyを実行しました。")
+        print(f"socks.pyの関数_make_proxyを実行しました。")
         if not self._proxy:
             return connect_func(self, address)
 
@@ -292,9 +303,11 @@ class sockssocket(socket.socket):
     def connect(self, address):
         print(f"socks.pyの関数connectを実行しました。")
         print(f"socks.pyの関数connectを実行しました。")
+        print(f"socks.pyの関数connectを実行しました。")
         self._make_proxy(socket.socket.connect, address)
 
     def connect_ex(self, address):
+        print(f"socks.pyの関数connect_exを実行しました。")
         print(f"socks.pyの関数connect_exを実行しました。")
         print(f"socks.pyの関数connect_exを実行しました。")
         return self._make_proxy(socket.socket.connect_ex, address)

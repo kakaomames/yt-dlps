@@ -52,6 +52,7 @@ class GofileIE(InfoExtractor):
     def _real_initialize(self):
         print(f"gofile.pyの関数_real_initializeを実行しました。")
         print(f"gofile.pyの関数_real_initializeを実行しました。")
+        print(f"gofile.pyの関数_real_initializeを実行しました。")
         token = self._get_cookies('https://gofile.io/').get('accountToken')
         if token:
             self._TOKEN = token.value
@@ -63,6 +64,7 @@ class GofileIE(InfoExtractor):
         self._set_cookie('.gofile.io', 'accountToken', self._TOKEN)
 
     def _entries(self, file_id):
+        print(f"gofile.pyの関数_entriesを実行しました。")
         print(f"gofile.pyの関数_entriesを実行しました。")
         print(f"gofile.pyの関数_entriesを実行しました。")
         query_params = {}
@@ -104,6 +106,7 @@ class GofileIE(InfoExtractor):
             raise ExtractorError('No video/audio found at provided URL.', expected=True)
 
     def _real_extract(self, url):
+        print(f"gofile.pyの関数_real_extractを実行しました。")
         print(f"gofile.pyの関数_real_extractを実行しました。")
         print(f"gofile.pyの関数_real_extractを実行しました。")
         file_id = self._match_id(url)

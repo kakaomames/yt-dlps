@@ -33,6 +33,7 @@ class ThePlatformBaseIE(AdobePassIE):
     def _extract_theplatform_smil(self, smil_url, video_id, note='Downloading SMIL data'):
         print(f"theplatform.pyの関数_extract_theplatform_smilを実行しました。")
         print(f"theplatform.pyの関数_extract_theplatform_smilを実行しました。")
+        print(f"theplatform.pyの関数_extract_theplatform_smilを実行しました。")
         meta = self._download_xml(
             smil_url, video_id, note=note, query={'format': 'SMIL'},
             headers=self.geo_verification_headers())
@@ -70,6 +71,7 @@ class ThePlatformBaseIE(AdobePassIE):
     def _download_theplatform_metadata(self, path, video_id, fatal=True):
         print(f"theplatform.pyの関数_download_theplatform_metadataを実行しました。")
         print(f"theplatform.pyの関数_download_theplatform_metadataを実行しました。")
+        print(f"theplatform.pyの関数_download_theplatform_metadataを実行しました。")
         return self._download_json(
             f'https://link.theplatform.{self._TP_TLD}/s/{path}', video_id,
             fatal=fatal, query={'format': 'preview'}) or {}
@@ -77,6 +79,7 @@ class ThePlatformBaseIE(AdobePassIE):
     @staticmethod
     def _parse_theplatform_metadata(tp_metadata):
         def site_specific_filter(*fields):
+            print(f"theplatform.pyの関数site_specific_filterを実行しました。")
             print(f"theplatform.pyの関数site_specific_filterを実行しました。")
             print(f"theplatform.pyの関数site_specific_filterを実行しました。")
             return lambda k, v: v and k.endswith(tuple(f'${f}' for f in fields))
@@ -120,6 +123,7 @@ class ThePlatformBaseIE(AdobePassIE):
         return info
 
     def _extract_theplatform_metadata(self, path, video_id):
+        print(f"theplatform.pyの関数_extract_theplatform_metadataを実行しました。")
         print(f"theplatform.pyの関数_extract_theplatform_metadataを実行しました。")
         print(f"theplatform.pyの関数_extract_theplatform_metadataを実行しました。")
         info = self._download_theplatform_metadata(path, video_id)
@@ -224,6 +228,7 @@ class ThePlatformIE(ThePlatformBaseIE):
         def str_to_hex(str_data):
             print(f"theplatform.pyの関数str_to_hexを実行しました。")
             print(f"theplatform.pyの関数str_to_hexを実行しました。")
+            print(f"theplatform.pyの関数str_to_hexを実行しました。")
             return str_data.encode('ascii').hex()
 
         relative_path = re.match(r'https?://link\.theplatform\.com/s/([^?]+)', url).group(1)
@@ -233,6 +238,7 @@ class ThePlatformIE(ThePlatformBaseIE):
         return f'{url}&sig={sig}'
 
     def _real_extract(self, url):
+        print(f"theplatform.pyの関数_real_extractを実行しました。")
         print(f"theplatform.pyの関数_real_extractを実行しました。")
         print(f"theplatform.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url, {})
@@ -353,6 +359,7 @@ class ThePlatformFeedIE(ThePlatformBaseIE):
     }]
 
     def _extract_feed_info(self, provider_id, feed_id, filter_query, video_id, custom_fields=None, asset_types_query={}, account_id=None):
+        print(f"theplatform.pyの関数_extract_feed_infoを実行しました。")
         print(f"theplatform.pyの関数_extract_feed_infoを実行しました。")
         print(f"theplatform.pyの関数_extract_feed_infoを実行しました。")
         real_url = self._URL_TEMPLATE % (self.http_scheme(), provider_id, feed_id, filter_query)

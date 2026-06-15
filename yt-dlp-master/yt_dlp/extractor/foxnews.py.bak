@@ -90,6 +90,7 @@ class FoxNewsIE(AMPIE):
 
     def _real_extract(self, url):
         print(f"foxnews.pyの関数_real_extractを実行しました。")
+        print(f"foxnews.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         info = self._extract_feed_info(

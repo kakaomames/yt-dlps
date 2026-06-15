@@ -38,6 +38,7 @@ class GoodGameIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"goodgame.pyの関数_real_extractを実行しました。")
+        print(f"goodgame.pyの関数_real_extractを実行しました。")
         channel_name = self._match_id(url)
         response = self._download_json(f'https://goodgame.ru/api/4/users/{channel_name}/stream', channel_name)
         player_id = response['streamkey']

@@ -54,6 +54,7 @@ class ScrippsNetworksWatchIE(AWSIE):
     def _real_extract(self, url):
         print(f"scrippsnetworks.pyの関数_real_extractを実行しました。")
         print(f"scrippsnetworks.pyの関数_real_extractを実行しました。")
+        print(f"scrippsnetworks.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         site_id, video_id = mobj.group('site', 'id')
 
@@ -86,6 +87,7 @@ class ScrippsNetworksWatchIE(AWSIE):
             })
 
         def get(key):
+            print(f"scrippsnetworks.pyの関数getを実行しました。")
             print(f"scrippsnetworks.pyの関数getを実行しました。")
             print(f"scrippsnetworks.pyの関数getを実行しました。")
             return xpath_text(

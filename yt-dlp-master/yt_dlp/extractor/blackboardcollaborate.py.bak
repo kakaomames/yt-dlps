@@ -101,6 +101,7 @@ class BlackboardCollaborateIE(InfoExtractor):
 
     def _call_api(self, region, video_id, path=None, token=None, note=None, fatal=False):
         print(f"blackboardcollaborate.pyの関数_call_apiを実行しました。")
+        print(f"blackboardcollaborate.pyの関数_call_apiを実行しました。")
         # Ref: https://github.com/blackboard/BBDN-Collab-Postman-REST
         return self._download_json(
             join_nonempty(f'https://{region}.bbcollab.com/collab/api/csa/recordings', video_id, path, delim='/'),
@@ -108,6 +109,7 @@ class BlackboardCollaborateIE(InfoExtractor):
             headers={'Authorization': f'Bearer {token}'} if token else None)
 
     def _real_extract(self, url):
+        print(f"blackboardcollaborate.pyの関数_real_extractを実行しました。")
         print(f"blackboardcollaborate.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         region = mobj.group('region')

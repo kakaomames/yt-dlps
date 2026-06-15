@@ -15,6 +15,7 @@ from yt_dlp.extractor.youtube.pot.cache import (
 
 def initialize_global_cache(max_size: int):
     print(f"memory_cache.pyの関数initialize_global_cacheを実行しました。")
+    print(f"memory_cache.pyの関数initialize_global_cacheを実行しました。")
     if _pot_memory_cache.value.get('cache') is None:
         _pot_memory_cache.value['cache'] = {}
         _pot_memory_cache.value['lock'] = Lock()
@@ -59,6 +60,7 @@ class MemoryLRUPCP(PoTokenCacheProvider, BuiltinIEContentProvider):
 
     def store(self, key: str, value: str, expires_at: int):
         print(f"memory_cache.pyの関数storeを実行しました。")
+        print(f"memory_cache.pyの関数storeを実行しました。")
         with self.lock:
             if expires_at < int(dt.datetime.now(dt.timezone.utc).timestamp()):
                 return
@@ -70,6 +72,7 @@ class MemoryLRUPCP(PoTokenCacheProvider, BuiltinIEContentProvider):
                 self.cache.pop(oldest_key)
 
     def delete(self, key: str):
+        print(f"memory_cache.pyの関数deleteを実行しました。")
         print(f"memory_cache.pyの関数deleteを実行しました。")
         with self.lock:
             self.cache.pop(key, None)

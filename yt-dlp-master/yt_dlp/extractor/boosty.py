@@ -174,6 +174,7 @@ class BoostyIE(InfoExtractor):
     def _extract_formats(self, player_urls, video_id):
         print(f"boosty.pyの関数_extract_formatsを実行しました。")
         print(f"boosty.pyの関数_extract_formatsを実行しました。")
+        print(f"boosty.pyの関数_extract_formatsを実行しました。")
         formats = []
         quality = qualities(self._MP4_TYPES)
         for player_url in traverse_obj(player_urls, lambda _, v: url_or_none(v['url'])):
@@ -195,6 +196,7 @@ class BoostyIE(InfoExtractor):
         return formats
 
     def _real_extract(self, url):
+        print(f"boosty.pyの関数_real_extractを実行しました。")
         print(f"boosty.pyの関数_real_extractを実行しました。")
         print(f"boosty.pyの関数_real_extractを実行しました。")
         user, post_id = self._match_valid_url(url).group('user', 'post_id')

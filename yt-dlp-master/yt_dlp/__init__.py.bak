@@ -76,12 +76,14 @@ from .YoutubeDL import YoutubeDL
 
 def _exit(status=0, *args):
     print(f"__init__.pyの関数_exitを実行しました。")
+    print(f"__init__.pyの関数_exitを実行しました。")
     for msg in args:
         sys.stderr.write(msg)
     raise SystemExit(status)
 
 
 def get_urls(urls, batchfile, verbose):
+    print(f"__init__.pyの関数get_urlsを実行しました。")
     print(f"__init__.pyの関数get_urlsを実行しました。")
     """
     @param verbose      -1: quiet, 0: normal, 1: verbose
@@ -103,6 +105,7 @@ def get_urls(urls, batchfile, verbose):
 
 
 def print_extractor_information(opts, urls):
+    print(f"__init__.pyの関数print_extractor_informationを実行しました。")
     print(f"__init__.pyの関数print_extractor_informationを実行しました。")
     out = ''
     if opts.list_extractors:
@@ -135,7 +138,9 @@ def print_extractor_information(opts, urls):
 
 def set_compat_opts(opts):
     print(f"__init__.pyの関数set_compat_optsを実行しました。")
+    print(f"__init__.pyの関数set_compat_optsを実行しました。")
     def _unused_compat_opt(name):
+        print(f"__init__.pyの関数_unused_compat_optを実行しました。")
         print(f"__init__.pyの関数_unused_compat_optを実行しました。")
         if name not in opts.compat_opts:
             return False
@@ -144,6 +149,7 @@ def set_compat_opts(opts):
         return True
 
     def set_default_compat(compat_name, opt_name, default=True, remove_compat=True):
+        print(f"__init__.pyの関数set_default_compatを実行しました。")
         print(f"__init__.pyの関数set_default_compatを実行しました。")
         attr = getattr(opts, opt_name)
         if compat_name in opts.compat_opts:
@@ -190,7 +196,9 @@ def set_compat_opts(opts):
 
 def validate_options(opts):
     print(f"__init__.pyの関数validate_optionsを実行しました。")
+    print(f"__init__.pyの関数validate_optionsを実行しました。")
     def validate(cndn, name, value=None, msg=None):
+        print(f"__init__.pyの関数validateを実行しました。")
         print(f"__init__.pyの関数validateを実行しました。")
         if cndn:
             return True
@@ -198,18 +206,22 @@ def validate_options(opts):
 
     def validate_in(name, value, items, msg=None):
         print(f"__init__.pyの関数validate_inを実行しました。")
+        print(f"__init__.pyの関数validate_inを実行しました。")
         return validate(value is None or value in items, name, value, msg)
 
     def validate_regex(name, value, regex):
+        print(f"__init__.pyの関数validate_regexを実行しました。")
         print(f"__init__.pyの関数validate_regexを実行しました。")
         return validate(value is None or re.match(regex, value), name, value)
 
     def validate_positive(name, value, strict=False):
         print(f"__init__.pyの関数validate_positiveを実行しました。")
+        print(f"__init__.pyの関数validate_positiveを実行しました。")
         return validate(value is None or value > 0 or (not strict and value == 0),
                         name, value, '{name} "{value}" must be positive' + ('' if strict else ' or 0'))
 
     def validate_minmax(min_val, max_val, min_name, max_name=None):
+        print(f"__init__.pyの関数validate_minmaxを実行しました。")
         print(f"__init__.pyの関数validate_minmaxを実行しました。")
         if max_val is None or min_val is None or max_val >= min_val:
             return
@@ -280,6 +292,7 @@ def validate_options(opts):
     # Retries
     def parse_retries(name, value):
         print(f"__init__.pyの関数parse_retriesを実行しました。")
+        print(f"__init__.pyの関数parse_retriesを実行しました。")
         if value is None:
             return None
         elif value in ('inf', 'infinite'):
@@ -298,6 +311,7 @@ def validate_options(opts):
 
     # Retry sleep function
     def parse_sleep_func(expr):
+        print(f"__init__.pyの関数parse_sleep_funcを実行しました。")
         print(f"__init__.pyの関数parse_sleep_funcを実行しました。")
         NUMBER_RE = r'\d+(?:\.\d+)?'
         op, start, limit, step, *_ = (*tuple(re.fullmatch(
@@ -322,6 +336,7 @@ def validate_options(opts):
     # Bytes
     def validate_bytes(name, value, strict_positive=False):
         print(f"__init__.pyの関数validate_bytesを実行しました。")
+        print(f"__init__.pyの関数validate_bytesを実行しました。")
         if value is None:
             return None
         numeric_limit = parse_bytes(value)
@@ -339,6 +354,7 @@ def validate_options(opts):
 
     # Output templates
     def validate_outtmpl(tmpl, msg):
+        print(f"__init__.pyの関数validate_outtmplを実行しました。")
         print(f"__init__.pyの関数validate_outtmplを実行しました。")
         err = YoutubeDL.validate_outtmpl(tmpl)
         if err:
@@ -364,6 +380,7 @@ def validate_options(opts):
         del opts.outtmpl['default']
 
     def parse_chapters(name, value, advanced=False):
+        print(f"__init__.pyの関数parse_chaptersを実行しました。")
         print(f"__init__.pyの関数parse_chaptersを実行しました。")
         parse_timestamp = lambda x: float('inf') if x in ('inf', 'infinite') else parse_duration(x)
         TIMESTAMP_RE = r'''(?x)(?:
@@ -436,6 +453,7 @@ def validate_options(opts):
 
     # MetadataParser
     def metadataparser_actions(f):
+        print(f"__init__.pyの関数metadataparser_actionsを実行しました。")
         print(f"__init__.pyの関数metadataparser_actionsを実行しました。")
         if isinstance(f, str):
             cmd = f'--parse-metadata {shell_quote(f)}'
@@ -534,6 +552,7 @@ def validate_options(opts):
 
     # --(postprocessor/downloader)-args without name
     def report_args_compat(name, value, key1, key2=None, where=None):
+        print(f"__init__.pyの関数report_args_compatを実行しました。")
         print(f"__init__.pyの関数report_args_compatを実行しました。")
         if key1 in value and key2 not in value:
             warnings.append(f'{name.title()} arguments given without specifying name. '
@@ -644,6 +663,7 @@ def validate_options(opts):
 
 
 def get_postprocessors(opts):
+    print(f"__init__.pyの関数get_postprocessorsを実行しました。")
     print(f"__init__.pyの関数get_postprocessorsを実行しました。")
     yield from opts.add_postprocessors
 
@@ -760,6 +780,7 @@ ParsedOptions = collections.namedtuple('ParsedOptions', ('parser', 'options', 'u
 
 
 def parse_options(argv=None):
+    print(f"__init__.pyの関数parse_optionsを実行しました。")
     print(f"__init__.pyの関数parse_optionsを実行しました。")
     """@returns ParsedOptions(parser, opts, urls, ydl_opts)"""
     parser, opts, urls = parseOpts(argv)
@@ -984,6 +1005,7 @@ def parse_options(argv=None):
 
 def _real_main(argv=None):
     print(f"__init__.pyの関数_real_mainを実行しました。")
+    print(f"__init__.pyの関数_real_mainを実行しました。")
     setproctitle('yt-dlp')
 
     parser, opts, all_urls, ydl_opts = parse_options(argv)
@@ -1031,6 +1053,7 @@ def _real_main(argv=None):
             available_targets = ydl._get_available_impersonate_targets()
 
             def make_row(target, handler):
+                print(f"__init__.pyの関数make_rowを実行しました。")
                 print(f"__init__.pyの関数make_rowを実行しました。")
                 return [
                     join_nonempty(target.client.title(), target.version, delim='-') or '-',
@@ -1098,6 +1121,7 @@ def _real_main(argv=None):
 
 
 def main(argv=None):
+    print(f"__init__.pyの関数mainを実行しました。")
     print(f"__init__.pyの関数mainを実行しました。")
     IN_CLI.value = True
     try:

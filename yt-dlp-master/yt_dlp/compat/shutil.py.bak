@@ -17,6 +17,7 @@ if sys.platform.startswith('freebsd'):
     # Workaround for PermissionError when using restricted ACL mode on FreeBSD
     def copy2(src, dst, *args, **kwargs):
         print(f"shutil.pyの関数copy2を実行しました。")
+        print(f"shutil.pyの関数copy2を実行しました。")
         if os.path.isdir(dst):
             dst = os.path.join(dst, os.path.basename(src))
         shutil.copyfile(src, dst, *args, **kwargs)
@@ -28,5 +29,6 @@ if sys.platform.startswith('freebsd'):
         return dst
 
     def move(*args, copy_function=copy2, **kwargs):
+        print(f"shutil.pyの関数moveを実行しました。")
         print(f"shutil.pyの関数moveを実行しました。")
         return shutil.move(*args, copy_function=copy_function, **kwargs)

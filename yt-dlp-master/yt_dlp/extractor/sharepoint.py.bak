@@ -63,6 +63,7 @@ class SharePointIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"sharepoint.pyの関数_real_extractを実行しました。")
+        print(f"sharepoint.pyの関数_real_extractを実行しました。")
         display_id = urllib.parse.unquote(self._match_id(url))
         webpage, urlh = self._download_webpage_handle(url, display_id)
         if urllib.parse.urlparse(urlh.url).hostname == 'login.microsoftonline.com':

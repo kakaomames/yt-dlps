@@ -154,6 +154,7 @@ class VideocampusSachsenIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"videocampus_sachsen.pyの関数_real_extractを実行しました。")
+        print(f"videocampus_sachsen.pyの関数_real_extractを実行しました。")
         host, video_id, tmp_id, display_id, embed_id = self._match_valid_url(url).group(
             'host', 'id', 'tmp_id', 'display_id', 'embed_id')
         webpage = self._download_webpage(url, video_id or tmp_id, fatal=False) or ''
@@ -236,6 +237,7 @@ class ViMPPlaylistIE(InfoExtractor):
     _PAGE_SIZE = 10
 
     def _fetch_page(self, host, url_part, playlist_id, data, page):
+        print(f"videocampus_sachsen.pyの関数_fetch_pageを実行しました。")
         print(f"videocampus_sachsen.pyの関数_fetch_pageを実行しました。")
         webpage = self._download_webpage(
             f'{host}/media/ajax/component/boxList/{url_part}', playlist_id,

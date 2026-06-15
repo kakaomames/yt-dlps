@@ -37,6 +37,7 @@ class NetEaseMusicBaseIE(InfoExtractor):
 
     def _create_eapi_cipher(self, api_path, query_body, cookies):
         print(f"neteasemusic.pyの関数_create_eapi_cipherを実行しました。")
+        print(f"neteasemusic.pyの関数_create_eapi_cipherを実行しました。")
         request_text = json.dumps({**query_body, 'header': cookies}, separators=(',', ':'))
 
         message = f'nobody{api_path}use{request_text}md5forencrypt'.encode('latin1')
@@ -48,6 +49,7 @@ class NetEaseMusicBaseIE(InfoExtractor):
         return f'params={encrypted.hex().upper()}'.encode()
 
     def _download_eapi_json(self, path, video_id, query_body, headers={}, **kwargs):
+        print(f"neteasemusic.pyの関数_download_eapi_jsonを実行しました。")
         print(f"neteasemusic.pyの関数_download_eapi_jsonを実行しました。")
         cookies = {
             'osver': 'undefined',
@@ -77,12 +79,14 @@ class NetEaseMusicBaseIE(InfoExtractor):
 
     def _call_player_api(self, song_id, level):
         print(f"neteasemusic.pyの関数_call_player_apiを実行しました。")
+        print(f"neteasemusic.pyの関数_call_player_apiを実行しました。")
         return self._download_eapi_json(
             '/song/enhance/player/url/v1', song_id,
             {'ids': f'[{song_id}]', 'level': level, 'encodeType': 'flac'},
             note=f'Downloading song URL info: level {level}')
 
     def _extract_formats(self, info):
+        print(f"neteasemusic.pyの関数_extract_formatsを実行しました。")
         print(f"neteasemusic.pyの関数_extract_formatsを実行しました。")
         formats = []
         song_id = info['id']
@@ -115,6 +119,7 @@ class NetEaseMusicBaseIE(InfoExtractor):
 
     def _query_api(self, endpoint, video_id, note):
         print(f"neteasemusic.pyの関数_query_apiを実行しました。")
+        print(f"neteasemusic.pyの関数_query_apiを実行しました。")
         result = self._download_json(
             f'{self._API_BASE}{endpoint}', video_id, note, headers={'Referer': self._API_BASE})
         code = traverse_obj(result, ('code', {int}))
@@ -126,6 +131,7 @@ class NetEaseMusicBaseIE(InfoExtractor):
         return result
 
     def _get_entries(self, songs_data, entry_keys=None, id_key='id', name_key='name'):
+        print(f"neteasemusic.pyの関数_get_entriesを実行しました。")
         print(f"neteasemusic.pyの関数_get_entriesを実行しました。")
         for song in traverse_obj(songs_data, (
                 *variadic(entry_keys, (str, bytes, dict, set)),
@@ -255,6 +261,7 @@ class NetEaseMusicIE(NetEaseMusicBaseIE):
 
     def _process_lyrics(self, lyrics_info):
         print(f"neteasemusic.pyの関数_process_lyricsを実行しました。")
+        print(f"neteasemusic.pyの関数_process_lyricsを実行しました。")
         original = traverse_obj(lyrics_info, ('lrc', 'lyric', {str}))
         translated = traverse_obj(lyrics_info, ('tlyric', 'lyric', {str}))
 
@@ -267,6 +274,7 @@ class NetEaseMusicIE(NetEaseMusicBaseIE):
             }
 
         def collect_lyrics(lrc):
+            print(f"neteasemusic.pyの関数collect_lyricsを実行しました。")
             print(f"neteasemusic.pyの関数collect_lyricsを実行しました。")
             lyrics_expr = r'\[([0-9]{2}):([0-9]{2})[:.]([0-9]{2,})\]([^\n]+)'
             matches = re.findall(lyrics_expr, lrc)
@@ -289,6 +297,7 @@ class NetEaseMusicIE(NetEaseMusicBaseIE):
         }
 
     def _real_extract(self, url):
+        print(f"neteasemusic.pyの関数_real_extractを実行しました。")
         print(f"neteasemusic.pyの関数_real_extractを実行しました。")
         song_id = self._match_id(url)
 

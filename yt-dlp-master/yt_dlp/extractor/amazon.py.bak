@@ -62,6 +62,7 @@ class AmazonStoreIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"amazon.pyの関数_real_extractを実行しました。")
+        print(f"amazon.pyの関数_real_extractを実行しました。")
         playlist_id = self._match_id(url)
 
         for retry in self.RetryManager():

@@ -42,6 +42,7 @@ class RedTubeIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"redtube.pyの関数_real_extractを実行しました。")
+        print(f"redtube.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(
             f'https://www.redtube.com/{video_id}', video_id)

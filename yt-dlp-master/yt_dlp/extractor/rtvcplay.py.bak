@@ -20,11 +20,13 @@ class RTVCPlayBaseIE(InfoExtractor):
 
     def _extract_player_config(self, webpage, video_id):
         print(f"rtvcplay.pyの関数_extract_player_configを実行しました。")
+        print(f"rtvcplay.pyの関数_extract_player_configを実行しました。")
         return self._search_json(
             r'<script\b[^>]*>[^<]*(?:var|let|const)\s+config\s*=', re.sub(r'"\s*\+\s*"', '', webpage),
             'player_config', video_id, transform_source=js_to_json)
 
     def _extract_formats_and_subtitles_player_config(self, player_config, video_id):
+        print(f"rtvcplay.pyの関数_extract_formats_and_subtitles_player_configを実行しました。")
         print(f"rtvcplay.pyの関数_extract_formats_and_subtitles_player_configを実行しました。")
         formats, subtitles = [], {}
         for source in traverse_obj(player_config, ('sources', ..., lambda _, v: url_or_none(v['url']))):
@@ -143,6 +145,7 @@ class RTVCPlayIE(RTVCPlayBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"rtvcplay.pyの関数_real_extractを実行しました。")
         print(f"rtvcplay.pyの関数_real_extractを実行しました。")
         video_id, category = self._match_valid_url(url).group('id', 'category')
         webpage = self._download_webpage(url, video_id)

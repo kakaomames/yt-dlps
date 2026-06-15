@@ -14,6 +14,7 @@ class SkyBaseIE(InfoExtractor):
     def _process_video_element(self, webpage, sdc_el, url):
         print(f"sky.pyの関数_process_video_elementを実行しました。")
         print(f"sky.pyの関数_process_video_elementを実行しました。")
+        print(f"sky.pyの関数_process_video_elementを実行しました。")
         sdc = extract_attributes(sdc_el)
         provider = sdc.get('data-provider')
         if provider == 'brightcove':
@@ -31,6 +32,7 @@ class SkyBaseIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"sky.pyの関数_real_extractを実行しました。")
         print(f"sky.pyの関数_real_extractを実行しました。")
         print(f"sky.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)

@@ -103,6 +103,7 @@ class GloboIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"globo.pyの関数_real_extractを実行しました。")
         print(f"globo.pyの関数_real_extractを実行しました。")
+        print(f"globo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         info = self._download_json(

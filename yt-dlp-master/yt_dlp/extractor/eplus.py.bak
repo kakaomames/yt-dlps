@@ -95,6 +95,7 @@ class EplusIbIE(InfoExtractor):
 
     def _login(self, username, password, urlh):
         print(f"eplus.pyの関数_loginを実行しました。")
+        print(f"eplus.pyの関数_loginを実行しました。")
         if not self._get_cookies('https://live.eplus.jp/').get('ci_session'):
             raise ExtractorError('Unable to get ci_session cookie')
 
@@ -127,6 +128,7 @@ class EplusIbIE(InfoExtractor):
             }), headers={'Referer': urlh.url})
 
     def _real_extract(self, url):
+        print(f"eplus.pyの関数_real_extractを実行しました。")
         print(f"eplus.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage, urlh = self._download_webpage_handle(

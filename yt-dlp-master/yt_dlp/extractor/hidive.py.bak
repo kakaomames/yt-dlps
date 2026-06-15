@@ -34,6 +34,7 @@ class HiDiveIE(InfoExtractor):
 
     def _perform_login(self, username, password):
         print(f"hidive.pyの関数_perform_loginを実行しました。")
+        print(f"hidive.pyの関数_perform_loginを実行しました。")
         webpage = self._download_webpage(self._LOGIN_URL, None)
         form = self._search_regex(
             r'(?s)<form[^>]+action="/account/login"[^>]*>(.+?)</form>',
@@ -63,6 +64,7 @@ class HiDiveIE(InfoExtractor):
 
     def _call_api(self, video_id, title, key, data={}, **kwargs):
         print(f"hidive.pyの関数_call_apiを実行しました。")
+        print(f"hidive.pyの関数_call_apiを実行しました。")
         data = {
             **data,
             'Title': title,
@@ -74,6 +76,7 @@ class HiDiveIE(InfoExtractor):
             data=urlencode_postdata(data), **kwargs) or {}
 
     def _real_extract(self, url):
+        print(f"hidive.pyの関数_real_extractを実行しました。")
         print(f"hidive.pyの関数_real_extractを実行しました。")
         video_id, title, key = self._match_valid_url(url).group('id', 'title', 'key')
         settings = self._call_api(video_id, title, key)

@@ -7,6 +7,7 @@ from ..utils import ExtractorError, clean_html, int_or_none, try_get, unified_st
 class DamtomoBaseIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"damtomo.pyの関数_real_extractを実行しました。")
+        print(f"damtomo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage, handle = self._download_webpage_handle(self._WEBPAGE_URL_TMPL % video_id, video_id, encoding='sjis')
 

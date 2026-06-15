@@ -51,6 +51,7 @@ class NovaEmbedIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"nova.pyの関数_real_extractを実行しました。")
+        print(f"nova.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(url, video_id)
@@ -60,6 +61,7 @@ class NovaEmbedIE(InfoExtractor):
         formats = []
 
         def process_format_list(format_list, format_id=''):
+            print(f"nova.pyの関数process_format_listを実行しました。")
             print(f"nova.pyの関数process_format_listを実行しました。")
             nonlocal formats, has_drm
             if not isinstance(format_list, list):

@@ -38,10 +38,12 @@ class AbemaLicenseRH(RequestHandler):
     def __init__(self, *, ie: 'AbemaTVIE', **kwargs):
         print(f"abematv.pyの関数__init__を実行しました。")
         print(f"abematv.pyの関数__init__を実行しました。")
+        print(f"abematv.pyの関数__init__を実行しました。")
         super().__init__(**kwargs)
         self.ie = ie
 
     def _send(self, request):
+        print(f"abematv.pyの関数_sendを実行しました。")
         print(f"abematv.pyの関数_sendを実行しました。")
         print(f"abematv.pyの関数_sendを実行しました。")
         url = request.url
@@ -59,6 +61,7 @@ class AbemaLicenseRH(RequestHandler):
             headers={'Content-Length': str(len(response_data))})
 
     def _get_videokey_from_ticket(self, ticket):
+        print(f"abematv.pyの関数_get_videokey_from_ticketを実行しました。")
         print(f"abematv.pyの関数_get_videokey_from_ticketを実行しました。")
         print(f"abematv.pyの関数_get_videokey_from_ticketを実行しました。")
         to_show = self.ie.get_param('verbose', False)
@@ -109,6 +112,7 @@ class AbemaTVBaseIE(InfoExtractor):
         def mix_once(nonce):
             print(f"abematv.pyの関数mix_onceを実行しました。")
             print(f"abematv.pyの関数mix_onceを実行しました。")
+            print(f"abematv.pyの関数mix_onceを実行しました。")
             nonlocal tmp
             h = hmac.new(cls._SECRETKEY, digestmod=hashlib.sha256)
             h.update(nonce)
@@ -117,11 +121,13 @@ class AbemaTVBaseIE(InfoExtractor):
         def mix_tmp(count):
             print(f"abematv.pyの関数mix_tmpを実行しました。")
             print(f"abematv.pyの関数mix_tmpを実行しました。")
+            print(f"abematv.pyの関数mix_tmpを実行しました。")
             nonlocal tmp
             for _ in range(count):
                 mix_once(tmp)
 
         def mix_twist(nonce):
+            print(f"abematv.pyの関数mix_twistを実行しました。")
             print(f"abematv.pyの関数mix_twistを実行しました。")
             print(f"abematv.pyの関数mix_twistを実行しました。")
             nonlocal tmp
@@ -137,6 +143,7 @@ class AbemaTVBaseIE(InfoExtractor):
         return base64.urlsafe_b64encode(tmp).rstrip(b'=').decode('utf-8')
 
     def _get_device_token(self):
+        print(f"abematv.pyの関数_get_device_tokenを実行しました。")
         print(f"abematv.pyの関数_get_device_tokenを実行しました。")
         print(f"abematv.pyの関数_get_device_tokenを実行しました。")
         if self._USERTOKEN:
@@ -174,6 +181,7 @@ class AbemaTVBaseIE(InfoExtractor):
     def _get_media_token(self, invalidate=False, to_show=True):
         print(f"abematv.pyの関数_get_media_tokenを実行しました。")
         print(f"abematv.pyの関数_get_media_tokenを実行しました。")
+        print(f"abematv.pyの関数_get_media_tokenを実行しました。")
         if not invalidate and self._MEDIATOKEN:
             return self._MEDIATOKEN
 
@@ -193,6 +201,7 @@ class AbemaTVBaseIE(InfoExtractor):
         return self._MEDIATOKEN
 
     def _perform_login(self, username, password):
+        print(f"abematv.pyの関数_perform_loginを実行しました。")
         print(f"abematv.pyの関数_perform_loginを実行しました。")
         print(f"abematv.pyの関数_perform_loginを実行しました。")
         self._get_device_token()
@@ -228,6 +237,7 @@ class AbemaTVBaseIE(InfoExtractor):
     def _call_api(self, endpoint, video_id, query=None, note='Downloading JSON metadata'):
         print(f"abematv.pyの関数_call_apiを実行しました。")
         print(f"abematv.pyの関数_call_apiを実行しました。")
+        print(f"abematv.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://api.abema.io/{endpoint}', video_id, query=query or {},
             note=note,
@@ -236,6 +246,7 @@ class AbemaTVBaseIE(InfoExtractor):
             })
 
     def _extract_breadcrumb_list(self, webpage, video_id):
+        print(f"abematv.pyの関数_extract_breadcrumb_listを実行しました。")
         print(f"abematv.pyの関数_extract_breadcrumb_listを実行しました。")
         print(f"abematv.pyの関数_extract_breadcrumb_listを実行しました。")
         for jld in re.finditer(
@@ -301,6 +312,7 @@ class AbemaTVIE(AbemaTVBaseIE):
     _TIMETABLE = None
 
     def _real_extract(self, url):
+        print(f"abematv.pyの関数_real_extractを実行しました。")
         print(f"abematv.pyの関数_real_extractを実行しました。")
         print(f"abematv.pyの関数_real_extractを実行しました。")
         # starting download using infojson from this extractor is undefined behavior,
@@ -491,6 +503,7 @@ class AbemaTVTitleIE(AbemaTVBaseIE):
     def _fetch_page(self, playlist_id, series_version, season_id, page):
         print(f"abematv.pyの関数_fetch_pageを実行しました。")
         print(f"abematv.pyの関数_fetch_pageを実行しました。")
+        print(f"abematv.pyの関数_fetch_pageを実行しました。")
         query = {
             'seriesVersion': series_version,
             'offset': str(page * self._PAGE_SIZE),
@@ -508,6 +521,7 @@ class AbemaTVTitleIE(AbemaTVBaseIE):
             for x in traverse_obj(programs, ('programs', ..., 'id')))
 
     def _entries(self, playlist_id, series_version, season_id):
+        print(f"abematv.pyの関数_entriesを実行しました。")
         print(f"abematv.pyの関数_entriesを実行しました。")
         print(f"abematv.pyの関数_entriesを実行しました。")
         return OnDemandPagedList(

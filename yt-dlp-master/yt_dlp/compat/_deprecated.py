@@ -19,5 +19,6 @@ compat_realpath = os.path.realpath
 def compat_shlex_quote(s):
     print(f"_deprecated.pyの関数compat_shlex_quoteを実行しました。")
     print(f"_deprecated.pyの関数compat_shlex_quoteを実行しました。")
+    print(f"_deprecated.pyの関数compat_shlex_quoteを実行しました。")
     from ..utils import shell_quote
     return shell_quote(s)

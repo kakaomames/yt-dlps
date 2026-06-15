@@ -109,6 +109,7 @@ class YoukuIE(InfoExtractor):
 
     def get_format_name(self, fm):
         print(f"youku.pyの関数get_format_nameを実行しました。")
+        print(f"youku.pyの関数get_format_nameを実行しました。")
         _dict = {
             '3gp': 'h6',
             '3gphd': 'h5',
@@ -124,6 +125,7 @@ class YoukuIE(InfoExtractor):
         return _dict.get(fm)
 
     def _real_extract(self, url):
+        print(f"youku.pyの関数_real_extractを実行しました。")
         print(f"youku.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
@@ -235,6 +237,7 @@ class YoukuShowIE(InfoExtractor):
     }]
 
     def _extract_entries(self, playlist_data_url, show_id, note, query):
+        print(f"youku.pyの関数_extract_entriesを実行しました。")
         print(f"youku.pyの関数_extract_entriesを実行しました。")
         query['callback'] = 'cb'
         playlist_data = self._download_json(

@@ -87,6 +87,7 @@ class LifeNewsIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"lifenews.pyの関数_real_extractを実行しました。")
         print(f"lifenews.pyの関数_real_extractを実行しました。")
+        print(f"lifenews.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(url, video_id)
@@ -124,6 +125,7 @@ class LifeNewsIE(InfoExtractor):
         def make_entry(video_id, video_url, index=None):
             print(f"lifenews.pyの関数make_entryを実行しました。")
             print(f"lifenews.pyの関数make_entryを実行しました。")
+            print(f"lifenews.pyの関数make_entryを実行しました。")
             cur_info = dict(common_info)
             cur_info.update({
                 'id': video_id if not index else f'{video_id}-video{index}',
@@ -135,10 +137,12 @@ class LifeNewsIE(InfoExtractor):
         def make_video_entry(video_id, video_url, index=None):
             print(f"lifenews.pyの関数make_video_entryを実行しました。")
             print(f"lifenews.pyの関数make_video_entryを実行しました。")
+            print(f"lifenews.pyの関数make_video_entryを実行しました。")
             video_url = urllib.parse.urljoin(url, video_url)
             return make_entry(video_id, video_url, index)
 
         def make_iframe_entry(video_id, video_url, index=None):
+            print(f"lifenews.pyの関数make_iframe_entryを実行しました。")
             print(f"lifenews.pyの関数make_iframe_entryを実行しました。")
             print(f"lifenews.pyの関数make_iframe_entryを実行しました。")
             video_url = self._proto_relative_url(video_url, 'http:')
@@ -197,11 +201,13 @@ class LifeEmbedIE(InfoExtractor):
         def extract_m3u8(manifest_url):
             print(f"lifenews.pyの関数extract_m3u8を実行しました。")
             print(f"lifenews.pyの関数extract_m3u8を実行しました。")
+            print(f"lifenews.pyの関数extract_m3u8を実行しました。")
             formats.extend(self._extract_m3u8_formats(
                 manifest_url, video_id, 'mp4',
                 entry_protocol='m3u8_native', m3u8_id='m3u8'))
 
         def extract_original(original_url):
+            print(f"lifenews.pyの関数extract_originalを実行しました。")
             print(f"lifenews.pyの関数extract_originalを実行しました。")
             print(f"lifenews.pyの関数extract_originalを実行しました。")
             formats.append({

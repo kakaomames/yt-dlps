@@ -27,6 +27,7 @@ class RedGifsBaseIE(InfoExtractor):
 
     def _parse_gif_data(self, gif_data):
         print(f"redgifs.pyの関数_parse_gif_dataを実行しました。")
+        print(f"redgifs.pyの関数_parse_gif_dataを実行しました。")
         video_id = gif_data.get('id')
         quality = qualities(tuple(self._FORMATS.keys()))
 
@@ -66,6 +67,7 @@ class RedGifsBaseIE(InfoExtractor):
 
     def _fetch_oauth_token(self, video_id):
         print(f"redgifs.pyの関数_fetch_oauth_tokenを実行しました。")
+        print(f"redgifs.pyの関数_fetch_oauth_tokenを実行しました。")
         # https://github.com/Redgifs/api/wiki/Temporary-tokens
         auth = self._download_json('https://api.redgifs.com/v2/auth/temporary',
                                    video_id, note='Fetching temporary token')
@@ -74,6 +76,7 @@ class RedGifsBaseIE(InfoExtractor):
         self._API_HEADERS['authorization'] = f'Bearer {auth["token"]}'
 
     def _call_api(self, ep, video_id, **kwargs):
+        print(f"redgifs.pyの関数_call_apiを実行しました。")
         print(f"redgifs.pyの関数_call_apiを実行しました。")
         for first_attempt in True, False:
             if 'authorization' not in self._API_HEADERS:
@@ -96,6 +99,7 @@ class RedGifsBaseIE(InfoExtractor):
 
     def _fetch_page(self, ep, video_id, query, page):
         print(f"redgifs.pyの関数_fetch_pageを実行しました。")
+        print(f"redgifs.pyの関数_fetch_pageを実行しました。")
         query['page'] = page + 1
         data = self._call_api(
             ep, video_id, query=query, note=f'Downloading JSON metadata page {page + 1}')
@@ -105,6 +109,7 @@ class RedGifsBaseIE(InfoExtractor):
 
     def _prepare_api_query(self, query, fields):
         print(f"redgifs.pyの関数_prepare_api_queryを実行しました。")
+        print(f"redgifs.pyの関数_prepare_api_queryを実行しました。")
         api_query = [
             (field_name, query.get(field_name, (default,))[0])
             for field_name, default in fields.items()]
@@ -112,6 +117,7 @@ class RedGifsBaseIE(InfoExtractor):
         return {key: val for key, val in api_query if val is not None}
 
     def _paged_entries(self, ep, item_id, query, fields):
+        print(f"redgifs.pyの関数_paged_entriesを実行しました。")
         print(f"redgifs.pyの関数_paged_entriesを実行しました。")
         page = int_or_none(query.get('page', (None,))[0])
         page_fetcher = functools.partial(
@@ -172,6 +178,7 @@ class RedGifsIE(RedGifsBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"redgifs.pyの関数_real_extractを実行しました。")
         print(f"redgifs.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url).lower()
         video_info = self._call_api(

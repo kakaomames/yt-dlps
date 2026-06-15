@@ -59,6 +59,7 @@ class CroatianFilmIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"croatianfilm.pyの関数_real_extractを実行しました。")
+        print(f"croatianfilm.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         api_data = self._download_json(
             f'https://api.croatian.film/api/videos/{display_id}',

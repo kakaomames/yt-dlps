@@ -62,6 +62,7 @@ class PiaproIE(InfoExtractor):
     def _perform_login(self, username, password):
         print(f"piapro.pyの関数_perform_loginを実行しました。")
         print(f"piapro.pyの関数_perform_loginを実行しました。")
+        print(f"piapro.pyの関数_perform_loginを実行しました。")
         login_ok = True
         login_form_strs = {
             '_username': username,
@@ -88,6 +89,7 @@ class PiaproIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"piapro.pyの関数_real_extractを実行しました。")
         print(f"piapro.pyの関数_real_extractを実行しました。")
+        print(f"piapro.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
@@ -96,6 +98,7 @@ class PiaproIE(InfoExtractor):
             raise ExtractorError('The URL does not contain audio.', expected=True)
 
         def extract_info(name, description):
+            print(f"piapro.pyの関数extract_infoを実行しました。")
             print(f"piapro.pyの関数extract_infoを実行しました。")
             print(f"piapro.pyの関数extract_infoを実行しました。")
             return self._search_regex(rf'{name}[：:]\s*([\d\s,:/]+)\s*</p>', webpage, description, default=None)

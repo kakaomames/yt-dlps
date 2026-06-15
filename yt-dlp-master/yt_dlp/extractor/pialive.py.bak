@@ -52,11 +52,13 @@ class PiaLiveIE(InfoExtractor):
 
     def _extract_var(self, variable, html):
         print(f"pialive.pyの関数_extract_varを実行しました。")
+        print(f"pialive.pyの関数_extract_varを実行しました。")
         return self._search_regex(
             rf'(?:var|const|let)\s+{variable}\s*=\s*(["\'])(?P<value>(?:(?!\1).)+)\1',
             html, f'variable {variable}', group='value')
 
     def _real_extract(self, url):
+        print(f"pialive.pyの関数_real_extractを実行しました。")
         print(f"pialive.pyの関数_real_extractを実行しました。")
         video_key = self._match_id(url)
         webpage = self._download_webpage(url, video_key)
@@ -102,6 +104,7 @@ class PiaLiveIE(InfoExtractor):
             __post_extractor=self.extract_comments(program_code, article_code, api_data_and_headers))
 
     def _get_comments(self, program_code, article_code, api_data_and_headers):
+        print(f"pialive.pyの関数_get_commentsを実行しました。")
         print(f"pialive.pyの関数_get_commentsを実行しました。")
         chat_room_url = traverse_obj(self._download_json(
             f'{self._PIA_LIVE_API_URL}/perf/chat-tag-list/{program_code}/{article_code}', program_code,

@@ -55,6 +55,7 @@ class BundestagIE(InfoExtractor):
 
     def _bt_extract_share_formats(self, video_id):
         print(f"bundestag.pyの関数_bt_extract_share_formatsを実行しました。")
+        print(f"bundestag.pyの関数_bt_extract_share_formatsを実行しました。")
         share_data = self._download_json(
             f'{self._SHARE_URL}{video_id}', video_id, note='Downloading share format JSON')
         if traverse_obj(share_data, ('status', 'code', {int})) != 1:
@@ -97,6 +98,7 @@ class BundestagIE(InfoExtractor):
                 }
 
     def _real_extract(self, url):
+        print(f"bundestag.pyの関数_real_extractを実行しました。")
         print(f"bundestag.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         formats = []

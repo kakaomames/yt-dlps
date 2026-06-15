@@ -51,6 +51,7 @@ class MonstercatIE(InfoExtractor):
     def _extract_tracks(self, table, album_meta):
         print(f"monstercat.pyの関数_extract_tracksを実行しました。")
         print(f"monstercat.pyの関数_extract_tracksを実行しました。")
+        print(f"monstercat.pyの関数_extract_tracksを実行しました。")
         for td in re.findall(r'<tr[^<]*>((?:(?!</tr>)[\w\W])+)', table):  # regex by chatgpt due to lack of get_elements_by_tag
             title = traverse_obj(td, (
                 {find_element(cls='d-inline-flex flex-column')},
@@ -77,6 +78,7 @@ class MonstercatIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"monstercat.pyの関数_real_extractを実行しました。")
         print(f"monstercat.pyの関数_real_extractを実行しました。")
         print(f"monstercat.pyの関数_real_extractを実行しました。")
         url_id = self._match_id(url)

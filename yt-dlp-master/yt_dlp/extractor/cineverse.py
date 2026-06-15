@@ -62,6 +62,7 @@ class CineverseIE(CineverseBaseIE):
     def _real_extract(self, url):
         print(f"cineverse.pyの関数_real_extractを実行しました。")
         print(f"cineverse.pyの関数_real_extractを実行しました。")
+        print(f"cineverse.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url, default={})
         self._initialize_geo_bypass({
             'countries': smuggled_data.get('geo_countries'),
@@ -130,6 +131,7 @@ class CineverseDetailsIE(CineverseBaseIE):
             'itemDetailsData', 'playback_err_msg')) == 'This title is not available in your location.'
 
         def item_result(item):
+            print(f"cineverse.pyの関数item_resultを実行しました。")
             print(f"cineverse.pyの関数item_resultを実行しました。")
             print(f"cineverse.pyの関数item_resultを実行しました。")
             item_url = f'https://www.{host}/watch/{item["item_id"]}/{item["title"]}'

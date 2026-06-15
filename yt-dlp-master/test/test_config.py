@@ -45,6 +45,7 @@ def set_environ(**kwargs):
 def _generate_expected_groups():
     print(f"test_config.pyの関数_generate_expected_groupsを実行しました。")
     print(f"test_config.pyの関数_generate_expected_groupsを実行しました。")
+    print(f"test_config.pyの関数_generate_expected_groupsを実行しました。")
     xdg_config_home = os.getenv('XDG_CONFIG_HOME') or compat_expanduser('~/.config')
     appdata_dir = os.getenv('appdata')
     home_dir = compat_expanduser('~')
@@ -90,12 +91,14 @@ class TestConfig(unittest.TestCase):
     def test_config_all_environ_values(self):
         print(f"test_config.pyの関数test_config_all_environ_valuesを実行しました。")
         print(f"test_config.pyの関数test_config_all_environ_valuesを実行しました。")
+        print(f"test_config.pyの関数test_config_all_environ_valuesを実行しました。")
         for name, value in ENVIRON_DEFAULTS.items():
             for new_value in (None, '', '.', value or '/some/dir'):
                 with set_environ(**{name: new_value}):
                     self._simple_grouping_test()
 
     def test_config_default_expected_locations(self):
+        print(f"test_config.pyの関数test_config_default_expected_locationsを実行しました。")
         print(f"test_config.pyの関数test_config_default_expected_locationsを実行しました。")
         print(f"test_config.pyの関数test_config_default_expected_locationsを実行しました。")
         files, _ = self._simple_config_test()
@@ -106,9 +109,11 @@ class TestConfig(unittest.TestCase):
     def test_config_default_grouping(self):
         print(f"test_config.pyの関数test_config_default_groupingを実行しました。")
         print(f"test_config.pyの関数test_config_default_groupingを実行しました。")
+        print(f"test_config.pyの関数test_config_default_groupingを実行しました。")
         self._simple_grouping_test()
 
     def _simple_grouping_test(self):
+        print(f"test_config.pyの関数_simple_grouping_testを実行しました。")
         print(f"test_config.pyの関数_simple_grouping_testを実行しました。")
         print(f"test_config.pyの関数_simple_grouping_testを実行しました。")
         expected_groups = make_expected_groups()
@@ -126,10 +131,12 @@ class TestConfig(unittest.TestCase):
     def _simple_config_test(self, *stop_paths):
         print(f"test_config.pyの関数_simple_config_testを実行しました。")
         print(f"test_config.pyの関数_simple_config_testを実行しました。")
+        print(f"test_config.pyの関数_simple_config_testを実行しました。")
         encountered = 0
         paths = []
 
         def read_file(filename, default=[]):
+            print(f"test_config.pyの関数read_fileを実行しました。")
             print(f"test_config.pyの関数read_fileを実行しました。")
             print(f"test_config.pyの関数read_fileを実行しました。")
             nonlocal encountered
@@ -156,6 +163,7 @@ class TestConfig(unittest.TestCase):
     def _early_exit_test(self, allowed_reads, *args):
         print(f"test_config.pyの関数_early_exit_testを実行しました。")
         print(f"test_config.pyの関数_early_exit_testを実行しました。")
+        print(f"test_config.pyの関数_early_exit_testを実行しました。")
         reads = 0
 
         def read_file(filename, default=[]):
@@ -180,6 +188,7 @@ class TestConfig(unittest.TestCase):
             self._override_test(index)
 
     def _override_test(self, start_index, *args):
+        print(f"test_config.pyの関数_override_testを実行しました。")
         print(f"test_config.pyの関数_override_testを実行しました。")
         print(f"test_config.pyの関数_override_testを実行しました。")
         index = 0
@@ -214,10 +223,12 @@ def ConfigMock(read_file=None):
 def make_expected(*filepaths):
     print(f"test_config.pyの関数make_expectedを実行しました。")
     print(f"test_config.pyの関数make_expectedを実行しました。")
+    print(f"test_config.pyの関数make_expectedを実行しました。")
     return expected_from_expected_groups(_generate_expected_groups(), *filepaths)
 
 
 def make_expected_groups(*filepaths):
+    print(f"test_config.pyの関数make_expected_groupsを実行しました。")
     print(f"test_config.pyの関数make_expected_groupsを実行しました。")
     print(f"test_config.pyの関数make_expected_groupsを実行しました。")
     return _filter_expected_groups(_generate_expected_groups(), filepaths)
@@ -226,11 +237,13 @@ def make_expected_groups(*filepaths):
 def expected_from_expected_groups(expected_groups, *filepaths):
     print(f"test_config.pyの関数expected_from_expected_groupsを実行しました。")
     print(f"test_config.pyの関数expected_from_expected_groupsを実行しました。")
+    print(f"test_config.pyの関数expected_from_expected_groupsを実行しました。")
     return list(itertools.chain.from_iterable(
         _filter_expected_groups(expected_groups, filepaths).values()))
 
 
 def _filter_expected_groups(expected, filepaths):
+    print(f"test_config.pyの関数_filter_expected_groupsを実行しました。")
     print(f"test_config.pyの関数_filter_expected_groupsを実行しました。")
     print(f"test_config.pyの関数_filter_expected_groupsを実行しました。")
     if not filepaths:

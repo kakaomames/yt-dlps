@@ -58,9 +58,11 @@ body > figure > img {
 
     def _gen_cid(self, i, fragment, frag_boundary):
         print(f"mhtml.pyの関数_gen_cidを実行しました。")
+        print(f"mhtml.pyの関数_gen_cidを実行しました。")
         return f'{i}.{frag_boundary}@yt-dlp.github.io.invalid'
 
     def _gen_stub(self, *, fragments, frag_boundary, title):
+        print(f"mhtml.pyの関数_gen_stubを実行しました。")
         print(f"mhtml.pyの関数_gen_stubを実行しました。")
         output = io.StringIO()
 
@@ -96,6 +98,7 @@ body > figure > img {
         return output.getvalue()
 
     def real_download(self, filename, info_dict):
+        print(f"mhtml.pyの関数real_downloadを実行しました。")
         print(f"mhtml.pyの関数real_downloadを実行しました。")
         fragment_base_url = info_dict.get('fragment_base_url')
         fragments = info_dict['fragments'][:1] if self.params.get(

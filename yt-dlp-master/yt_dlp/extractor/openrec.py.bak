@@ -15,10 +15,12 @@ class OpenRecBaseIE(InfoExtractor):
 
     def _extract_pagestore(self, webpage, video_id):
         print(f"openrec.pyの関数_extract_pagestoreを実行しました。")
+        print(f"openrec.pyの関数_extract_pagestoreを実行しました。")
         return self._parse_json(
             self._search_regex(r'(?m)window\.pageStore\s*=\s*(\{.+?\});$', webpage, 'window.pageStore'), video_id)
 
     def _expand_media(self, video_id, media):
+        print(f"openrec.pyの関数_expand_mediaを実行しました。")
         print(f"openrec.pyの関数_expand_mediaを実行しました。")
         for name, m3u8_url in (media or {}).items():
             if not m3u8_url:
@@ -27,6 +29,7 @@ class OpenRecBaseIE(InfoExtractor):
                 m3u8_url, video_id, ext='mp4', m3u8_id=name, headers=self._M3U8_HEADERS)
 
     def _extract_movie(self, webpage, video_id, name, is_live):
+        print(f"openrec.pyの関数_extract_movieを実行しました。")
         print(f"openrec.pyの関数_extract_movieを実行しました。")
         window_stores = self._extract_pagestore(webpage, video_id)
         movie_stores = [
@@ -80,6 +83,7 @@ class OpenRecIE(OpenRecBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"openrec.pyの関数_real_extractを実行しました。")
         print(f"openrec.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(f'https://www.openrec.tv/live/{video_id}', video_id)

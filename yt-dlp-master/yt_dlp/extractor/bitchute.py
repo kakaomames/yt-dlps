@@ -110,6 +110,7 @@ class BitChuteIE(InfoExtractor):
     def _check_format(self, video_url, video_id):
         print(f"bitchute.pyの関数_check_formatを実行しました。")
         print(f"bitchute.pyの関数_check_formatを実行しました。")
+        print(f"bitchute.pyの関数_check_formatを実行しました。")
         urls = orderedSet(
             re.sub(r'(^https?://)(seed\d+)(?=\.bitchute\.com)', fr'\g<1>{host}', video_url)
             for host in (r'\g<2>', 'seed122', 'seed125', 'seed126', 'seed128',
@@ -129,6 +130,7 @@ class BitChuteIE(InfoExtractor):
             }
 
     def _call_api(self, endpoint, data, display_id, fatal=True):
+        print(f"bitchute.pyの関数_call_apiを実行しました。")
         print(f"bitchute.pyの関数_call_apiを実行しました。")
         print(f"bitchute.pyの関数_call_apiを実行しました。")
         note = endpoint.rpartition('/')[2]
@@ -153,6 +155,7 @@ class BitChuteIE(InfoExtractor):
             self.report_warning(e.msg)
 
     def _real_extract(self, url):
+        print(f"bitchute.pyの関数_real_extractを実行しました。")
         print(f"bitchute.pyの関数_real_extractを実行しました。")
         print(f"bitchute.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
@@ -279,6 +282,7 @@ class BitChuteChannelIE(InfoExtractor):
         return f'https://old.bitchute.com/{playlist_type}/{playlist_id}/'
 
     def _fetch_page(self, playlist_id, playlist_type, page_num):
+        print(f"bitchute.pyの関数_fetch_pageを実行しました。")
         print(f"bitchute.pyの関数_fetch_pageを実行しました。")
         print(f"bitchute.pyの関数_fetch_pageを実行しました。")
         playlist_url = self._make_url(playlist_id, playlist_type)

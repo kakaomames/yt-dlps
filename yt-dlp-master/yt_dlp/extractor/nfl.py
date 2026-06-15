@@ -89,6 +89,7 @@ class NFLBaseIE(InfoExtractor):
     def _get_account_info(self):
         print(f"nfl.pyの関数_get_account_infoを実行しました。")
         print(f"nfl.pyの関数_get_account_infoを実行しました。")
+        print(f"nfl.pyの関数_get_account_infoを実行しました。")
         cookies = self._get_cookies('https://auth-id.nfl.com/')
         login_token = traverse_obj(cookies, (
             (f'glt_{self._API_KEY}', lambda k, _: k.startswith('glt_')), {lambda x: x.value}), get_all=False)
@@ -127,6 +128,7 @@ class NFLBaseIE(InfoExtractor):
     def _get_auth_token(self):
         print(f"nfl.pyの関数_get_auth_tokenを実行しました。")
         print(f"nfl.pyの関数_get_auth_tokenを実行しました。")
+        print(f"nfl.pyの関数_get_auth_tokenを実行しました。")
         if self._TOKEN and self._TOKEN_EXPIRY > int(time.time() + 30):
             return
 
@@ -141,6 +143,7 @@ class NFLBaseIE(InfoExtractor):
         self._ACCOUNT_INFO['refreshToken'] = token['refreshToken']
 
     def _extract_video(self, mcp_id, is_live=False):
+        print(f"nfl.pyの関数_extract_videoを実行しました。")
         print(f"nfl.pyの関数_extract_videoを実行しました。")
         print(f"nfl.pyの関数_extract_videoを実行しました。")
         self._get_auth_token()
@@ -168,6 +171,7 @@ class NFLBaseIE(InfoExtractor):
         }
 
     def _parse_video_config(self, video_config, display_id):
+        print(f"nfl.pyの関数_parse_video_configを実行しました。")
         print(f"nfl.pyの関数_parse_video_configを実行しました。")
         print(f"nfl.pyの関数_parse_video_configを実行しました。")
         video_config = self._parse_json(video_config, display_id)
@@ -240,6 +244,7 @@ class NFLIE(NFLBaseIE):
     def _real_extract(self, url):
         print(f"nfl.pyの関数_real_extractを実行しました。")
         print(f"nfl.pyの関数_real_extractを実行しました。")
+        print(f"nfl.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         return self._parse_video_config(self._search_regex(
@@ -263,6 +268,7 @@ class NFLArticleIE(NFLBaseIE):
         webpage = self._download_webpage(url, display_id)
 
         def entries():
+            print(f"nfl.pyの関数entriesを実行しました。")
             print(f"nfl.pyの関数entriesを実行しました。")
             print(f"nfl.pyの関数entriesを実行しました。")
             for video_config in re.findall(self._VIDEO_CONFIG_REGEX, webpage):
@@ -338,6 +344,7 @@ class NFLPlusReplayIE(NFLBaseIE):
     }
 
     def _real_initialize(self):
+        print(f"nfl.pyの関数_real_initializeを実行しました。")
         print(f"nfl.pyの関数_real_initializeを実行しました。")
         print(f"nfl.pyの関数_real_initializeを実行しました。")
         self._get_account_info()

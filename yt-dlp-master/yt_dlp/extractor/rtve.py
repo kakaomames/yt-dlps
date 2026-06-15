@@ -78,6 +78,7 @@ class RTVEBaseIE(InfoExtractor):
     def _extract_png_formats_and_subtitles(self, video_id, media_type='videos'):
         print(f"rtve.pyの関数_extract_png_formats_and_subtitlesを実行しました。")
         print(f"rtve.pyの関数_extract_png_formats_and_subtitlesを実行しました。")
+        print(f"rtve.pyの関数_extract_png_formats_and_subtitlesを実行しました。")
         formats, subtitles = [], {}
         q = qualities(['Media', 'Alta', 'HQ', 'HD_READY', 'HD_FULL'])
         for manager in ('rtveplayw', 'default'):
@@ -108,6 +109,7 @@ class RTVEBaseIE(InfoExtractor):
         return formats, subtitles
 
     def _parse_metadata(self, metadata):
+        print(f"rtve.pyの関数_parse_metadataを実行しました。")
         print(f"rtve.pyの関数_parse_metadataを実行しました。")
         print(f"rtve.pyの関数_parse_metadataを実行しました。")
         return traverse_obj(metadata, {
@@ -201,6 +203,7 @@ class RTVEALaCartaIE(RTVEBaseIE):
     def _get_subtitles(self, video_id):
         print(f"rtve.pyの関数_get_subtitlesを実行しました。")
         print(f"rtve.pyの関数_get_subtitlesを実行しました。")
+        print(f"rtve.pyの関数_get_subtitlesを実行しました。")
         subtitle_data = self._download_json(
             f'https://api2.rtve.es/api/videos/{video_id}/subtitulos.json', video_id,
             'Downloading subtitles info')
@@ -210,6 +213,7 @@ class RTVEALaCartaIE(RTVEBaseIE):
         }, all, {subs_list_to_dict(lang='es')}))
 
     def _real_extract(self, url):
+        print(f"rtve.pyの関数_real_extractを実行しました。")
         print(f"rtve.pyの関数_real_extractを実行しました。")
         print(f"rtve.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
@@ -400,6 +404,7 @@ class RTVEProgramIE(RTVEBaseIE):
     def _fetch_page(self, program_id, page_num):
         print(f"rtve.pyの関数_fetch_pageを実行しました。")
         print(f"rtve.pyの関数_fetch_pageを実行しました。")
+        print(f"rtve.pyの関数_fetch_pageを実行しました。")
         return self._download_json(
             f'https://www.rtve.es/api/programas/{program_id}/videos',
             program_id, note=f'Downloading page {page_num}',
@@ -410,6 +415,7 @@ class RTVEProgramIE(RTVEBaseIE):
             })
 
     def _entries(self, page_data):
+        print(f"rtve.pyの関数_entriesを実行しました。")
         print(f"rtve.pyの関数_entriesを実行しました。")
         print(f"rtve.pyの関数_entriesを実行しました。")
         for video in traverse_obj(page_data, ('page', 'items', lambda _, v: url_or_none(v['htmlUrl']))):

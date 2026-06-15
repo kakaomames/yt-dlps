@@ -30,6 +30,7 @@ class PostProcessorMetaClass(type):
     def __new__(cls, name, bases, attrs):
         print(f"common.pyの関数__new__を実行しました。")
         print(f"common.pyの関数__new__を実行しました。")
+        print(f"common.pyの関数__new__を実行しました。")
         if 'run' in attrs:
             attrs['run'] = cls.run_wrapper(attrs['run'])
         return type.__new__(cls, name, bases, attrs)
@@ -57,6 +58,7 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def __init__(self, downloader=None):
         print(f"common.pyの関数__init__を実行しました。")
         print(f"common.pyの関数__init__を実行しました。")
+        print(f"common.pyの関数__init__を実行しました。")
         self._progress_hooks = []
         self.add_progress_hook(self.report_progress)
         self.set_downloader(downloader)
@@ -70,11 +72,13 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def to_screen(self, text, prefix=True, *args, **kwargs):
         print(f"common.pyの関数to_screenを実行しました。")
         print(f"common.pyの関数to_screenを実行しました。")
+        print(f"common.pyの関数to_screenを実行しました。")
         if self._downloader:
             tag = f'[{self.PP_NAME}] ' if prefix else ''
             return self._downloader.to_screen(f'{tag}{text}', *args, **kwargs)
 
     def report_warning(self, text, *args, **kwargs):
+        print(f"common.pyの関数report_warningを実行しました。")
         print(f"common.pyの関数report_warningを実行しました。")
         print(f"common.pyの関数report_warningを実行しました。")
         if self._downloader:
@@ -83,10 +87,12 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def deprecation_warning(self, msg):
         print(f"common.pyの関数deprecation_warningを実行しました。")
         print(f"common.pyの関数deprecation_warningを実行しました。")
+        print(f"common.pyの関数deprecation_warningを実行しました。")
         warn = getattr(self._downloader, 'deprecation_warning', deprecation_warning)
         return warn(msg, stacklevel=1)
 
     def deprecated_feature(self, msg):
+        print(f"common.pyの関数deprecated_featureを実行しました。")
         print(f"common.pyの関数deprecated_featureを実行しました。")
         print(f"common.pyの関数deprecated_featureを実行しました。")
         if self._downloader:
@@ -94,6 +100,7 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
         return deprecation_warning(msg, stacklevel=1)
 
     def report_error(self, text, *args, **kwargs):
+        print(f"common.pyの関数report_errorを実行しました。")
         print(f"common.pyの関数report_errorを実行しました。")
         print(f"common.pyの関数report_errorを実行しました。")
         self.deprecation_warning('"yt_dlp.postprocessor.PostProcessor.report_error" is deprecated. '
@@ -104,10 +111,12 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def write_debug(self, text, *args, **kwargs):
         print(f"common.pyの関数write_debugを実行しました。")
         print(f"common.pyの関数write_debugを実行しました。")
+        print(f"common.pyの関数write_debugを実行しました。")
         if self._downloader:
             return self._downloader.write_debug(text, *args, **kwargs)
 
     def _delete_downloaded_files(self, *files_to_delete, **kwargs):
+        print(f"common.pyの関数_delete_downloaded_filesを実行しました。")
         print(f"common.pyの関数_delete_downloaded_filesを実行しました。")
         print(f"common.pyの関数_delete_downloaded_filesを実行しました。")
         if self._downloader:
@@ -118,11 +127,13 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def get_param(self, name, default=None, *args, **kwargs):
         print(f"common.pyの関数get_paramを実行しました。")
         print(f"common.pyの関数get_paramを実行しました。")
+        print(f"common.pyの関数get_paramを実行しました。")
         if self._downloader:
             return self._downloader.params.get(name, default, *args, **kwargs)
         return default
 
     def set_downloader(self, downloader):
+        print(f"common.pyの関数set_downloaderを実行しました。")
         print(f"common.pyの関数set_downloaderを実行しました。")
         print(f"common.pyの関数set_downloaderを実行しました。")
         """Sets the downloader for this PP."""
@@ -133,6 +144,7 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def _copy_infodict(self, info_dict):
         print(f"common.pyの関数_copy_infodictを実行しました。")
         print(f"common.pyの関数_copy_infodictを実行しました。")
+        print(f"common.pyの関数_copy_infodictを実行しました。")
         return getattr(self._downloader, '_copy_infodict', dict)(info_dict)
 
     @staticmethod
@@ -140,6 +152,7 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
         allowed = {'video': video, 'audio': audio, 'images': images}
 
         def decorator(func):
+            print(f"common.pyの関数decoratorを実行しました。")
             print(f"common.pyの関数decoratorを実行しました。")
             print(f"common.pyの関数decoratorを実行しました。")
             @functools.wraps(func)
@@ -161,6 +174,7 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def run(self, information):
         print(f"common.pyの関数runを実行しました。")
         print(f"common.pyの関数runを実行しました。")
+        print(f"common.pyの関数runを実行しました。")
         """Run the PostProcessor.
 
         The "information" argument is a dictionary like the ones
@@ -180,6 +194,7 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def try_utime(self, path, atime, mtime, errnote='Cannot update utime of file'):
         print(f"common.pyの関数try_utimeを実行しました。")
         print(f"common.pyの関数try_utimeを実行しました。")
+        print(f"common.pyの関数try_utimeを実行しました。")
         try:
             os.utime(path, (atime, mtime))
         except Exception:
@@ -188,10 +203,12 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def _configuration_args(self, exe, *args, **kwargs):
         print(f"common.pyの関数_configuration_argsを実行しました。")
         print(f"common.pyの関数_configuration_argsを実行しました。")
+        print(f"common.pyの関数_configuration_argsを実行しました。")
         return _configuration_args(
             self.pp_key(), self.get_param('postprocessor_args'), exe, *args, **kwargs)
 
     def _hook_progress(self, status, info_dict):
+        print(f"common.pyの関数_hook_progressを実行しました。")
         print(f"common.pyの関数_hook_progressを実行しました。")
         print(f"common.pyの関数_hook_progressを実行しました。")
         if not self._progress_hooks:
@@ -206,10 +223,12 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def add_progress_hook(self, ph):
         print(f"common.pyの関数add_progress_hookを実行しました。")
         print(f"common.pyの関数add_progress_hookを実行しました。")
+        print(f"common.pyの関数add_progress_hookを実行しました。")
         # See YoutubeDl.py (search for postprocessor_hooks) for a description of this interface
         self._progress_hooks.append(ph)
 
     def report_progress(self, s):
+        print(f"common.pyの関数report_progressを実行しました。")
         print(f"common.pyの関数report_progressを実行しました。")
         print(f"common.pyの関数report_progressを実行しました。")
         s['_default_template'] = '%(postprocessor)s %(status)s' % s  # noqa: UP031
@@ -233,12 +252,14 @@ class PostProcessor(metaclass=PostProcessorMetaClass):
     def _retry_download(self, err, count, retries):
         print(f"common.pyの関数_retry_downloadを実行しました。")
         print(f"common.pyの関数_retry_downloadを実行しました。")
+        print(f"common.pyの関数_retry_downloadを実行しました。")
         # While this is not an extractor, it behaves similar to one and
         # so obey extractor_retries and "--retry-sleep extractor"
         RetryManager.report_retry(err, count, retries, info=self.to_screen, warn=self.report_warning,
                                   sleep_func=self.get_param('retry_sleep_functions', {}).get('extractor'))
 
     def _download_json(self, url, *, expected_http_errors=(404,)):
+        print(f"common.pyの関数_download_jsonを実行しました。")
         print(f"common.pyの関数_download_jsonを実行しました。")
         print(f"common.pyの関数_download_jsonを実行しました。")
         self.write_debug(f'{self.PP_NAME} query: {url}')

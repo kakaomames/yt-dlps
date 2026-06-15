@@ -22,6 +22,7 @@ from ..utils import (
 class ViceBaseIE(InfoExtractor):
     def _call_api(self, resource, resource_key, resource_id, locale, fields, args=''):
         print(f"vice.pyの関数_call_apiを実行しました。")
+        print(f"vice.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://video.vice.com/api/v1/graphql', resource_id, query={
                 'query': '''{
@@ -104,6 +105,7 @@ class ViceIE(ViceBaseIE, AdobePassIE):
     _SOFTWARE_STATEMENT = 'eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIwMTVjODBlZC04ZDcxLTQ4ZGEtOTZkZi00NzU5NjIwNzJlYTQiLCJuYmYiOjE2NjgwMTM0ODQsImlzcyI6ImF1dGguYWRvYmUuY29tIiwiaWF0IjoxNjY4MDEzNDg0fQ.CjhUnTrlh-bmYnEFHyC2Y4it5Y_Zfza1x66O4-ki5gBR7JT6aUunYI_YflXomQPACriMpObkITFz4grVaDwdd8Xp9hrQ2R0SwRBdaklkdy1_j68RqSP5PnexJIa0q_ThtOwfRBd5uGcb33nMJ9Qs92W4kVXuca0Ta-i7SJyWgXUaPDlRDdgyCL3hKj5wuM7qUIwrd9A5CMm-j3dMIBCDgw7X6TwRK65eUQe6gTWqcvL2yONHHTpmIfeOTUxGwwKFr29COOTBowm0VJ6HE08xjXCShP08Neusu-JsgkjzhkEbiDE2531EKgfAki_7WCd2JUZVsAsCusv4a1maokk6NA'
 
     def _real_extract(self, url):
+        print(f"vice.pyの関数_real_extractを実行しました。")
         print(f"vice.pyの関数_real_extractを実行しました。")
         locale, video_id = self._match_valid_url(url).groups()
 
@@ -204,6 +206,7 @@ class ViceShowIE(ViceBaseIE):
 
     def _fetch_page(self, locale, show_id, page):
         print(f"vice.pyの関数_fetch_pageを実行しました。")
+        print(f"vice.pyの関数_fetch_pageを実行しました。")
         videos = self._call_api('videos', 'show_id', show_id, locale, '''body
     id
     url''', f', page: {page + 1}, per_page: {self._PAGE_SIZE}')
@@ -296,6 +299,7 @@ class ViceArticleIE(ViceBaseIE):
         body = article['body']
 
         def _url_res(video_url, ie_key):
+            print(f"vice.pyの関数_url_resを実行しました。")
             print(f"vice.pyの関数_url_resを実行しました。")
             return {
                 '_type': 'url_transparent',

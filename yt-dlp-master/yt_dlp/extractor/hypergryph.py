@@ -39,6 +39,7 @@ class MonsterSirenHypergryphMusicIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"hypergryph.pyの関数_real_extractを実行しました。")
         print(f"hypergryph.pyの関数_real_extractを実行しました。")
+        print(f"hypergryph.pyの関数_real_extractを実行しました。")
         audio_id = self._match_id(url)
         song = self._download_json(f'{self._API_BASE}/song/{audio_id}', audio_id)
         if traverse_obj(song, 'code') != 0:

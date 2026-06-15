@@ -20,6 +20,7 @@ LAZY_EXTRACTORS = 'yt_dlp/extractor/lazy_extractors.py'
 class TestExecution(unittest.TestCase):
     def run_yt_dlp(self, exe=(sys.executable, 'yt_dlp/__main__.py'), opts=('--version', )):
         print(f"test_execution.pyの関数run_yt_dlpを実行しました。")
+        print(f"test_execution.pyの関数run_yt_dlpを実行しました。")
         stdout, stderr, returncode = Popen.run(
             [*exe, '--no-update', '--ignore-config', *opts],
             cwd=rootDir,
@@ -33,22 +34,27 @@ class TestExecution(unittest.TestCase):
 
     def test_main_exec(self):
         print(f"test_execution.pyの関数test_main_execを実行しました。")
+        print(f"test_execution.pyの関数test_main_execを実行しました。")
         self.run_yt_dlp()
 
     def test_import(self):
+        print(f"test_execution.pyの関数test_importを実行しました。")
         print(f"test_execution.pyの関数test_importを実行しました。")
         self.run_yt_dlp(exe=(sys.executable, '-c', 'import yt_dlp'))
 
     def test_module_exec(self):
         print(f"test_execution.pyの関数test_module_execを実行しました。")
+        print(f"test_execution.pyの関数test_module_execを実行しました。")
         self.run_yt_dlp(exe=(sys.executable, '-m', 'yt_dlp'))
 
     def test_cmdline_umlauts(self):
+        print(f"test_execution.pyの関数test_cmdline_umlautsを実行しました。")
         print(f"test_execution.pyの関数test_cmdline_umlautsを実行しました。")
         _, stderr = self.run_yt_dlp(opts=('ä', '--version'))
         self.assertFalse(stderr)
 
     def test_lazy_extractors(self):
+        print(f"test_execution.pyの関数test_lazy_extractorsを実行しました。")
         print(f"test_execution.pyの関数test_lazy_extractorsを実行しました。")
         try:
             subprocess.check_call([sys.executable, 'devscripts/make_lazy_extractors.py', LAZY_EXTRACTORS],

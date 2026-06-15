@@ -29,6 +29,7 @@ class TeamcocoBaseIE(TurnerBaseIE):
     def _get_formats_and_subtitles(self, info, video_id):
         print(f"teamcoco.pyの関数_get_formats_and_subtitlesを実行しました。")
         print(f"teamcoco.pyの関数_get_formats_and_subtitlesを実行しました。")
+        print(f"teamcoco.pyの関数_get_formats_and_subtitlesを実行しました。")
         formats, subtitles = [], {}
 
         for src in traverse_obj(info, ('src', ..., {dict})):
@@ -131,6 +132,7 @@ class TeamcocoIE(TeamcocoBaseIE):
     ]
 
     def _real_extract(self, url):
+        print(f"teamcoco.pyの関数_real_extractを実行しました。")
         print(f"teamcoco.pyの関数_real_extractを実行しました。")
         print(f"teamcoco.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url).replace('/', '_')

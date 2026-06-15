@@ -22,6 +22,7 @@ from ..utils import (
 def md5_text(s):
     print(f"anvato.pyの関数md5_textを実行しました。")
     print(f"anvato.pyの関数md5_textを実行しました。")
+    print(f"anvato.pyの関数md5_textを実行しました。")
     return hashlib.md5(str(s).encode()).hexdigest()
 
 
@@ -226,11 +227,13 @@ class AnvatoIE(InfoExtractor):
     def _server_time(self, access_key, video_id):
         print(f"anvato.pyの関数_server_timeを実行しました。")
         print(f"anvato.pyの関数_server_timeを実行しました。")
+        print(f"anvato.pyの関数_server_timeを実行しました。")
         return int_or_none(traverse_obj(self._download_json(
             f'{self._API_BASE_URL}/server_time', video_id, query={'anvack': access_key},
             note='Fetching server time', fatal=False), 'server_time')) or int(time.time())
 
     def _get_video_json(self, access_key, video_id, extracted_token):
+        print(f"anvato.pyの関数_get_video_jsonを実行しました。")
         print(f"anvato.pyの関数_get_video_jsonを実行しました。")
         print(f"anvato.pyの関数_get_video_jsonを実行しました。")
         # See et() in anvplayer.min.js, which is an alias of getVideoJSON()
@@ -261,6 +264,7 @@ class AnvatoIE(InfoExtractor):
             data=json.dumps({'api': api}, separators=(',', ':')).encode())
 
     def _get_anvato_videos(self, access_key, video_id, token):
+        print(f"anvato.pyの関数_get_anvato_videosを実行しました。")
         print(f"anvato.pyの関数_get_anvato_videosを実行しました。")
         print(f"anvato.pyの関数_get_anvato_videosを実行しました。")
         video_data = self._get_video_json(access_key, video_id, token)
@@ -354,6 +358,7 @@ class AnvatoIE(InfoExtractor):
             yield cls.url_result(url, AnvatoIE, video_id)
 
     def _real_extract(self, url):
+        print(f"anvato.pyの関数_real_extractを実行しました。")
         print(f"anvato.pyの関数_real_extractを実行しました。")
         print(f"anvato.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url, {})

@@ -21,12 +21,14 @@ class ImgGamingBaseIE(InfoExtractor):
     def _initialize_pre_login(self):
         print(f"imggaming.pyの関数_initialize_pre_loginを実行しました。")
         print(f"imggaming.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"imggaming.pyの関数_initialize_pre_loginを実行しました。")
         self._HEADERS = {
             'Realm': 'dce.' + self._REALM,
             'x-api-key': self._API_KEY,
         }
 
     def _perform_login(self, username, password):
+        print(f"imggaming.pyの関数_perform_loginを実行しました。")
         print(f"imggaming.pyの関数_perform_loginを実行しました。")
         print(f"imggaming.pyの関数_perform_loginを実行しました。")
         p_headers = self._HEADERS.copy()
@@ -41,16 +43,19 @@ class ImgGamingBaseIE(InfoExtractor):
     def _real_initialize(self):
         print(f"imggaming.pyの関数_real_initializeを実行しました。")
         print(f"imggaming.pyの関数_real_initializeを実行しました。")
+        print(f"imggaming.pyの関数_real_initializeを実行しました。")
         if not self._HEADERS.get('Authorization'):
             self.raise_login_required(method='password')
 
     def _call_api(self, path, media_id):
         print(f"imggaming.pyの関数_call_apiを実行しました。")
         print(f"imggaming.pyの関数_call_apiを実行しました。")
+        print(f"imggaming.pyの関数_call_apiを実行しました。")
         return self._download_json(
             self._API_BASE + path + media_id, media_id, headers=self._HEADERS)
 
     def _extract_dve_api_url(self, media_id, media_type):
+        print(f"imggaming.pyの関数_extract_dve_api_urlを実行しました。")
         print(f"imggaming.pyの関数_extract_dve_api_urlを実行しました。")
         print(f"imggaming.pyの関数_extract_dve_api_urlを実行しました。")
         stream_path = 'stream'
@@ -69,6 +74,7 @@ class ImgGamingBaseIE(InfoExtractor):
             raise
 
     def _real_extract(self, url):
+        print(f"imggaming.pyの関数_real_extractを実行しました。")
         print(f"imggaming.pyの関数_real_extractを実行しました。")
         print(f"imggaming.pyの関数_real_extractを実行しました。")
         domain, media_type, media_id, playlist_id = self._match_valid_url(url).groups()

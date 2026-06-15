@@ -33,6 +33,7 @@ class RadioFranceIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"radiofrance.pyの関数_real_extractを実行しました。")
+        print(f"radiofrance.pyの関数_real_extractを実行しました。")
         m = self._match_valid_url(url)
         video_id = m.group('id')
 
@@ -81,6 +82,7 @@ class RadioFranceBaseIE(InfoExtractor):
     )))
 
     def _extract_data_from_webpage(self, webpage, display_id, key):
+        print(f"radiofrance.pyの関数_extract_data_from_webpageを実行しました。")
         print(f"radiofrance.pyの関数_extract_data_from_webpageを実行しました。")
         return traverse_obj(self._search_json(
             r'\bconst\s+data\s*=', webpage, key, display_id,
@@ -271,9 +273,11 @@ class RadioFrancePlaylistBaseIE(RadioFranceBaseIE):
 
     def _call_api(self, content_id, cursor, page_num):
         print(f"radiofrance.pyの関数_call_apiを実行しました。")
+        print(f"radiofrance.pyの関数_call_apiを実行しました。")
         raise NotImplementedError('This method must be implemented by subclasses')
 
     def _generate_playlist_entries(self, content_id, content_response):
+        print(f"radiofrance.pyの関数_generate_playlist_entriesを実行しました。")
         print(f"radiofrance.pyの関数_generate_playlist_entriesを実行しました。")
         for page_num in itertools.count(2):
             for entry in content_response['items']:

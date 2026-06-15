@@ -150,11 +150,13 @@ class BandcampIE(InfoExtractor):
 
     def _extract_data_attr(self, webpage, video_id, attr='tralbum', fatal=True):
         print(f"bandcamp.pyの関数_extract_data_attrを実行しました。")
+        print(f"bandcamp.pyの関数_extract_data_attrを実行しました。")
         return self._parse_json(self._html_search_regex(
             rf'data-{attr}=(["\'])({{.+?}})\1', webpage,
             attr + ' data', group=2), video_id, fatal=fatal)
 
     def _real_extract(self, url):
+        print(f"bandcamp.pyの関数_real_extractを実行しました。")
         print(f"bandcamp.pyの関数_real_extractを実行しました。")
         title, uploader = self._match_valid_url(url).group('id', 'uploader')
         webpage = self._download_webpage(url, title)
@@ -529,6 +531,7 @@ class BandcampUserIE(InfoExtractor):
     }]
 
     def _yield_items(self, webpage):
+        print(f"bandcamp.pyの関数_yield_itemsを実行しました。")
         print(f"bandcamp.pyの関数_yield_itemsを実行しました。")
         yield from (
             re.findall(r'<li data-item-id=["\'][^>]+>\s*<a href=["\'](?![^"\'/]*?/merch)([^"\']+)', webpage)

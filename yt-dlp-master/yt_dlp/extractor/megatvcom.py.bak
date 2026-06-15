@@ -20,6 +20,7 @@ class MegaTVComBaseIE(InfoExtractor):
 
     def _extract_player_attrs(self, webpage):
         print(f"megatvcom.pyの関数_extract_player_attrsを実行しました。")
+        print(f"megatvcom.pyの関数_extract_player_attrsを実行しました。")
         player_el = get_element_html_by_id(self._PLAYER_DIV_ID, webpage)
         return {
             re.sub(r'^data-(?:kwik_)?', '', k): v
@@ -60,6 +61,7 @@ class MegaTVComIE(MegaTVComBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"megatvcom.pyの関数_real_extractを実行しました。")
         print(f"megatvcom.pyの関数_real_extractを実行しました。")
         video_id, display_id = self._match_valid_url(url).group('id', 'slug')
         _is_article = video_id is None
@@ -144,6 +146,7 @@ class MegaTVComEmbedIE(MegaTVComBaseIE):
     }]
 
     def _match_canonical_url(self, webpage):
+        print(f"megatvcom.pyの関数_match_canonical_urlを実行しました。")
         print(f"megatvcom.pyの関数_match_canonical_urlを実行しました。")
         LINK_RE = r'''(?x)
         <link(?:

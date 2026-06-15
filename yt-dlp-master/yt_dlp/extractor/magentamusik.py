@@ -25,6 +25,7 @@ class MagentaMusikIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"magentamusik.pyの関数_real_extractを実行しました。")
         print(f"magentamusik.pyの関数_real_extractを実行しました。")
+        print(f"magentamusik.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         player_config = self._search_json(

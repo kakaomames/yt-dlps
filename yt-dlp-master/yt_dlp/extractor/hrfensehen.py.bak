@@ -41,6 +41,7 @@ class HRFernsehenIE(InfoExtractor):
 
     def extract_formats(self, loader_data):
         print(f"hrfensehen.pyの関数extract_formatsを実行しました。")
+        print(f"hrfensehen.pyの関数extract_formatsを実行しました。")
         stream_formats = []
         data = loader_data['mediaCollection']['streams'][0]['media']
         for inner in data[1:]:
@@ -62,6 +63,7 @@ class HRFernsehenIE(InfoExtractor):
         return stream_formats
 
     def _real_extract(self, url):
+        print(f"hrfensehen.pyの関数_real_extractを実行しました。")
         print(f"hrfensehen.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)

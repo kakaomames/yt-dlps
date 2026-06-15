@@ -14,11 +14,13 @@ class StoryFireBaseIE(InfoExtractor):
 
     def _call_api(self, path, video_id, resource, query=None):
         print(f"storyfire.pyの関数_call_apiを実行しました。")
+        print(f"storyfire.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://storyfire.com/app/{path}/{video_id}', video_id,
             f'Downloading {resource} JSON metadata', query=query)
 
     def _parse_video(self, video):
+        print(f"storyfire.pyの関数_parse_videoを実行しました。")
         print(f"storyfire.pyの関数_parse_videoを実行しました。")
         title = video['title']
         vimeo_id = self._search_regex(
@@ -76,6 +78,7 @@ class StoryFireIE(StoryFireBaseIE):
 
     def _real_extract(self, url):
         print(f"storyfire.pyの関数_real_extractを実行しました。")
+        print(f"storyfire.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video = self._call_api(
             'generic/video-detail', video_id, 'video')['video']
@@ -94,6 +97,7 @@ class StoryFireUserIE(StoryFireBaseIE):
     _PAGE_SIZE = 20
 
     def _fetch_page(self, user_id, page):
+        print(f"storyfire.pyの関数_fetch_pageを実行しました。")
         print(f"storyfire.pyの関数_fetch_pageを実行しました。")
         videos = self._call_api(
             'publicVideos', user_id, f'page {page + 1}', {
@@ -126,6 +130,7 @@ class StoryFireSeriesIE(StoryFireBaseIE):
     }]
 
     def _extract_videos(self, stories):
+        print(f"storyfire.pyの関数_extract_videosを実行しました。")
         print(f"storyfire.pyの関数_extract_videosを実行しました。")
         for story in stories.values():
             if story.get('hasVideo'):

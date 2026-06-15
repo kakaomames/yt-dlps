@@ -98,6 +98,7 @@ class SBSIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"sbs.pyの関数_real_extractを実行しました。")
         print(f"sbs.pyの関数_real_extractを実行しました。")
+        print(f"sbs.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         formats, subtitles = self._extract_smil_formats_and_subtitles(
             update_url_query(f'{self._PLAYER_API}/video_smil', {'id': video_id}), video_id)

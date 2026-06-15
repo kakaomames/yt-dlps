@@ -58,6 +58,7 @@ class NZOnScreenIE(InfoExtractor):
     def _extract_formats(self, playlist):
         print(f"nzonscreen.pyの関数_extract_formatsを実行しました。")
         print(f"nzonscreen.pyの関数_extract_formatsを実行しました。")
+        print(f"nzonscreen.pyの関数_extract_formatsを実行しました。")
         for quality, (id_, url) in enumerate(traverse_obj(
                 playlist, ('h264', {'lo': 'lo_res', 'hi': 'hi_res'}), expected_type=url_or_none).items()):
             yield {
@@ -71,6 +72,7 @@ class NZOnScreenIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"nzonscreen.pyの関数_real_extractを実行しました。")
         print(f"nzonscreen.pyの関数_real_extractを実行しました。")
         print(f"nzonscreen.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)

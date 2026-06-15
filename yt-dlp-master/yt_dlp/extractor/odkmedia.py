@@ -56,6 +56,7 @@ class OnDemandChinaEpisodeIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"odkmedia.pyの関数_real_extractを実行しました。")
         print(f"odkmedia.pyの関数_real_extractを実行しました。")
+        print(f"odkmedia.pyの関数_real_extractを実行しました。")
         program_slug, display_id, ep_number = self._match_valid_url(url).group('series', 'id', 'ep')
         webpage = self._download_webpage(url, display_id)
 

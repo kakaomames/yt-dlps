@@ -55,11 +55,13 @@ class TVIPlayerIE(InfoExtractor):
     def _real_initialize(self):
         print(f"tviplayer.pyの関数_real_initializeを実行しました。")
         print(f"tviplayer.pyの関数_real_initializeを実行しました。")
+        print(f"tviplayer.pyの関数_real_initializeを実行しました。")
         self.wms_auth_sign_token = self._download_webpage(
             'https://services.iol.pt/matrix?userId=', 'wmsAuthSign',
             note='Trying to get wmsAuthSign token')
 
     def _real_extract(self, url):
+        print(f"tviplayer.pyの関数_real_extractを実行しました。")
         print(f"tviplayer.pyの関数_real_extractを実行しました。")
         print(f"tviplayer.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)

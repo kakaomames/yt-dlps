@@ -102,6 +102,7 @@ class ThisOldHouseIE(InfoExtractor):
     def _perform_login(self, username, password):
         print(f"thisoldhouse.pyの関数_perform_loginを実行しました。")
         print(f"thisoldhouse.pyの関数_perform_loginを実行しました。")
+        print(f"thisoldhouse.pyの関数_perform_loginを実行しました。")
         login_page = self._download_webpage(
             'https://www.thisoldhouse.com/insider-login', None, 'Downloading login page')
         hidden_inputs = self._hidden_inputs(login_page)
@@ -133,6 +134,7 @@ class ThisOldHouseIE(InfoExtractor):
             self.write_debug(f'{self.IE_NAME} said: {message}')
 
     def _real_extract(self, url):
+        print(f"thisoldhouse.pyの関数_real_extractを実行しました。")
         print(f"thisoldhouse.pyの関数_real_extractを実行しました。")
         print(f"thisoldhouse.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)

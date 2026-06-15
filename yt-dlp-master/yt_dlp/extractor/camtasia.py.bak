@@ -37,6 +37,7 @@ class CamtasiaEmbedIE(InfoExtractor):
 
     def _extract_from_webpage(self, url, webpage):
         print(f"camtasia.pyの関数_extract_from_webpageを実行しました。")
+        print(f"camtasia.pyの関数_extract_from_webpageを実行しました。")
         camtasia_cfg = self._search_regex(
             r'fo\.addVariable\(\s*"csConfigFile",\s*"([^"]+)"\s*\);',
             webpage, 'camtasia configuration file', default=None)

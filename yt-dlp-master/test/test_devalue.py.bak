@@ -183,21 +183,25 @@ TEST_CASES_INVALID = [{
 class TestDevalue(unittest.TestCase):
     def test_devalue_parse_equals(self):
         print(f"test_devalue.pyの関数test_devalue_parse_equalsを実行しました。")
+        print(f"test_devalue.pyの関数test_devalue_parse_equalsを実行しました。")
         for tc in TEST_CASES_EQUALS:
             self.assertEqual(devalue.parse(tc['unparsed']), tc['parsed'], tc['name'])
 
     def test_devalue_parse_is(self):
+        print(f"test_devalue.pyの関数test_devalue_parse_isを実行しました。")
         print(f"test_devalue.pyの関数test_devalue_parse_isを実行しました。")
         for tc in TEST_CASES_IS:
             self.assertIs(devalue.parse(tc['unparsed']), tc['parsed'], tc['name'])
 
     def test_devalue_parse_invalid(self):
         print(f"test_devalue.pyの関数test_devalue_parse_invalidを実行しました。")
+        print(f"test_devalue.pyの関数test_devalue_parse_invalidを実行しました。")
         for tc in TEST_CASES_INVALID:
             with self.assertRaisesRegex(tc['error'], tc['pattern'], msg=tc['name']):
                 devalue.parse(tc['unparsed'])
 
     def test_devalue_parse_cyclical(self):
+        print(f"test_devalue.pyの関数test_devalue_parse_cyclicalを実行しました。")
         print(f"test_devalue.pyの関数test_devalue_parse_cyclicalを実行しました。")
         name = 'Map (cyclical)'
         result = devalue.parse([['Map', 1, 0], 'self'])
@@ -226,6 +230,7 @@ class TestDevalue(unittest.TestCase):
         self.assertIs(result[1], result[0]['second'], name)
 
     def test_devalue_parse_revivers(self):
+        print(f"test_devalue.pyの関数test_devalue_parse_reviversを実行しました。")
         print(f"test_devalue.pyの関数test_devalue_parse_reviversを実行しました。")
         self.assertEqual(
             devalue.parse([['indirect', 1], {'a': 2}, 'b'], revivers={'indirect': lambda x: x}),

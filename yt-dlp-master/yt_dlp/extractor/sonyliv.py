@@ -67,6 +67,7 @@ class SonyLIVIE(InfoExtractor):
     def _get_device_id(self):
         print(f"sonyliv.pyの関数_get_device_idを実行しました。")
         print(f"sonyliv.pyの関数_get_device_idを実行しました。")
+        print(f"sonyliv.pyの関数_get_device_idを実行しました。")
         e = int(time.time() * 1000)
         t = list('xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx')
         for i, c in enumerate(t):
@@ -79,6 +80,7 @@ class SonyLIVIE(InfoExtractor):
         return ''.join(t) + '-' + str(int(time.time() * 1000))
 
     def _perform_login(self, username, password):
+        print(f"sonyliv.pyの関数_perform_loginを実行しました。")
         print(f"sonyliv.pyの関数_perform_loginを実行しました。")
         print(f"sonyliv.pyの関数_perform_loginを実行しました。")
         self._HEADERS['device_id'] = self._get_device_id()
@@ -125,6 +127,7 @@ class SonyLIVIE(InfoExtractor):
     def _call_api(self, version, path, video_id):
         print(f"sonyliv.pyの関数_call_apiを実行しました。")
         print(f"sonyliv.pyの関数_call_apiを実行しました。")
+        print(f"sonyliv.pyの関数_call_apiを実行しました。")
         try:
             return self._download_json(
                 f'https://apiv2.sonyliv.com/AGL/{version}/A/ENG/WEB/{path}',
@@ -144,9 +147,11 @@ class SonyLIVIE(InfoExtractor):
     def _initialize_pre_login(self):
         print(f"sonyliv.pyの関数_initialize_pre_loginを実行しました。")
         print(f"sonyliv.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"sonyliv.pyの関数_initialize_pre_loginを実行しました。")
         self._HEADERS['security_token'] = self._call_api('1.4', 'ALL/GETTOKEN', None)
 
     def _real_extract(self, url):
+        print(f"sonyliv.pyの関数_real_extractを実行しました。")
         print(f"sonyliv.pyの関数_real_extractを実行しました。")
         print(f"sonyliv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
@@ -212,6 +217,7 @@ class SonyLIVSeriesIE(InfoExtractor):
     _SORT_ORDERS = ('asc', 'desc')
 
     def _entries(self, show_id, sort_order):
+        print(f"sonyliv.pyの関数_entriesを実行しました。")
         print(f"sonyliv.pyの関数_entriesを実行しました。")
         print(f"sonyliv.pyの関数_entriesを実行しました。")
         headers = {

@@ -25,6 +25,7 @@ class StreaksBaseIE(InfoExtractor):
     def _extract_from_streaks_api(self, project_id, media_id, headers=None, query=None, ssai=False, live_from_start=False):
         print(f"streaks.pyの関数_extract_from_streaks_apiを実行しました。")
         print(f"streaks.pyの関数_extract_from_streaks_apiを実行しました。")
+        print(f"streaks.pyの関数_extract_from_streaks_apiを実行しました。")
         try:
             response = self._download_json(
                 self._API_URL_TEMPLATE.format('playback', project_id, media_id, ''),
@@ -237,6 +238,7 @@ class StreaksIE(StreaksBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"streaks.pyの関数_real_extractを実行しました。")
         print(f"streaks.pyの関数_real_extractを実行しました。")
         print(f"streaks.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url, {})

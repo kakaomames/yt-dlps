@@ -24,10 +24,12 @@ class TestWebPoPCSP:
     def test_base_type(self):
         print(f"test_pot_builtin_webpospec.pyの関数test_base_typeを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_base_typeを実行しました。")
+        print(f"test_pot_builtin_webpospec.pyの関数test_base_typeを実行しました。")
         assert issubclass(WebPoPCSP, IEContentProvider)
         assert issubclass(WebPoPCSP, BuiltinIEContentProvider)
 
     def test_init(self, ie, logger):
+        print(f"test_pot_builtin_webpospec.pyの関数test_initを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_initを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_initを実行しました。")
         pcs = WebPoPCSP(ie=ie, logger=logger, settings={})
@@ -39,6 +41,7 @@ class TestWebPoPCSP:
     def test_is_registered(self):
         print(f"test_pot_builtin_webpospec.pyの関数test_is_registeredを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_is_registeredを実行しました。")
+        print(f"test_pot_builtin_webpospec.pyの関数test_is_registeredを実行しました。")
         assert _pot_pcs_providers.value.get('WebPo') == WebPoPCSP
 
     @pytest.mark.parametrize('client_name, context, is_authenticated', [
@@ -47,6 +50,7 @@ class TestWebPoPCSP:
         ('IOS', PoTokenContext.PLAYER, False),
     ])
     def test_not_supports(self, ie, logger, pot_request, client_name, context, is_authenticated):
+        print(f"test_pot_builtin_webpospec.pyの関数test_not_supportsを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_not_supportsを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_not_supportsを実行しました。")
         pcs = WebPoPCSP(ie=ie, logger=logger, settings={})
@@ -71,6 +75,7 @@ class TestWebPoPCSP:
     def test_generate_key_bindings(self, ie, logger, pot_request, client_name, context, is_authenticated, remote_host, source_address, request_proxy, expected):
         print(f"test_pot_builtin_webpospec.pyの関数test_generate_key_bindingsを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_generate_key_bindingsを実行しました。")
+        print(f"test_pot_builtin_webpospec.pyの関数test_generate_key_bindingsを実行しました。")
         pcs = WebPoPCSP(ie=ie, logger=logger, settings={})
         pot_request.innertube_context['client']['clientName'] = client_name
         pot_request.context = context
@@ -85,6 +90,7 @@ class TestWebPoPCSP:
     def test_no_bind_visitor_id(self, ie, logger, pot_request):
         print(f"test_pot_builtin_webpospec.pyの関数test_no_bind_visitor_idを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_no_bind_visitor_idを実行しました。")
+        print(f"test_pot_builtin_webpospec.pyの関数test_no_bind_visitor_idを実行しました。")
         # Should not bind to visitor id if setting is set to False
         pcs = WebPoPCSP(ie=ie, logger=logger, settings={'bind_to_visitor_id': ['false']})
         pot_request.innertube_context['client']['clientName'] = 'WEB'
@@ -95,10 +101,12 @@ class TestWebPoPCSP:
     def test_default_ttl(self, ie, logger, pot_request):
         print(f"test_pot_builtin_webpospec.pyの関数test_default_ttlを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_default_ttlを実行しました。")
+        print(f"test_pot_builtin_webpospec.pyの関数test_default_ttlを実行しました。")
         pcs = WebPoPCSP(ie=ie, logger=logger, settings={})
         assert pcs.generate_cache_spec(pot_request).default_ttl == 6 * 60 * 60  # should default to 6 hours
 
     def test_write_policy(self, ie, logger, pot_request):
+        print(f"test_pot_builtin_webpospec.pyの関数test_write_policyを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_write_policyを実行しました。")
         print(f"test_pot_builtin_webpospec.pyの関数test_write_policyを実行しました。")
         pcs = WebPoPCSP(ie=ie, logger=logger, settings={})

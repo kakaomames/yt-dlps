@@ -36,6 +36,7 @@ class PinkbikeIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"pinkbike.pyの関数_real_extractを実行しました。")
         print(f"pinkbike.pyの関数_real_extractを実行しました。")
+        print(f"pinkbike.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(
@@ -73,6 +74,7 @@ class PinkbikeIE(InfoExtractor):
             webpage, 'location', fatal=False)
 
         def extract_count(webpage, label):
+            print(f"pinkbike.pyの関数extract_countを実行しました。")
             print(f"pinkbike.pyの関数extract_countを実行しました。")
             print(f"pinkbike.pyの関数extract_countを実行しました。")
             return str_to_int(self._search_regex(

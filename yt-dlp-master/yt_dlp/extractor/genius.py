@@ -61,6 +61,7 @@ class GeniusIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"genius.pyの関数_real_extractを実行しました。")
         print(f"genius.pyの関数_real_extractを実行しました。")
+        print(f"genius.pyの関数_real_extractを実行しました。")
         display_id, is_article = self._match_valid_url(url).group('id', 'article')
         webpage = self._download_webpage(url, display_id)
 

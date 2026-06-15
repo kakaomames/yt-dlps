@@ -14,6 +14,7 @@ class PeekVidsBaseIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"peekvids.pyの関数_real_extractを実行しました。")
         print(f"peekvids.pyの関数_real_extractを実行しました。")
+        print(f"peekvids.pyの関数_real_extractを実行しました。")
         domain, video_id = self._match_valid_url(url).group('domain', 'id')
         webpage = self._download_webpage(url, video_id, expected_status=429)
         if '>Rate Limit Exceeded' in webpage:
@@ -61,6 +62,7 @@ class PeekVidsBaseIE(InfoExtractor):
         info['title'] = re.sub(r'\s*[,-][^,-]+$', '', info.get('title') or title) or self._generic_title(url)
 
         def cat_tags(name, html):
+            print(f"peekvids.pyの関数cat_tagsを実行しました。")
             print(f"peekvids.pyの関数cat_tagsを実行しました。")
             print(f"peekvids.pyの関数cat_tagsを実行しました。")
             l = self._html_search_regex(

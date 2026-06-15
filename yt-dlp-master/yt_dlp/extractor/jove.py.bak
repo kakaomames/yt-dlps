@@ -35,6 +35,7 @@ class JoveIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"jove.pyの関数_real_extractを実行しました。")
+        print(f"jove.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
 

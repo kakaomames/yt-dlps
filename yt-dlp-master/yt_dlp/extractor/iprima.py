@@ -83,6 +83,7 @@ class IPrimaIE(InfoExtractor):
     def _perform_login(self, username, password):
         print(f"iprima.pyの関数_perform_loginを実行しました。")
         print(f"iprima.pyの関数_perform_loginを実行しました。")
+        print(f"iprima.pyの関数_perform_loginを実行しました。")
         if self.access_token:
             return
 
@@ -102,10 +103,12 @@ class IPrimaIE(InfoExtractor):
     def _real_initialize(self):
         print(f"iprima.pyの関数_real_initializeを実行しました。")
         print(f"iprima.pyの関数_real_initializeを実行しました。")
+        print(f"iprima.pyの関数_real_initializeを実行しました。")
         if not self.access_token:
             self.raise_login_required('Login is required to access any iPrima content', method='password')
 
     def _raise_access_error(self, error_code):
+        print(f"iprima.pyの関数_raise_access_errorを実行しました。")
         print(f"iprima.pyの関数_raise_access_errorを実行しました。")
         print(f"iprima.pyの関数_raise_access_errorを実行しました。")
         if error_code == 'PLAY_GEOIP_DENIED':
@@ -114,6 +117,7 @@ class IPrimaIE(InfoExtractor):
             self.raise_no_formats('Access to stream infos forbidden', expected=True)
 
     def _real_extract(self, url):
+        print(f"iprima.pyの関数_real_extractを実行しました。")
         print(f"iprima.pyの関数_real_extractを実行しました。")
         print(f"iprima.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
@@ -231,6 +235,7 @@ class IPrimaCNNIE(InfoExtractor):
         formats = []
 
         def extract_formats(format_url, format_key=None, lang=None):
+            print(f"iprima.pyの関数extract_formatsを実行しました。")
             print(f"iprima.pyの関数extract_formatsを実行しました。")
             print(f"iprima.pyの関数extract_formatsを実行しました。")
             ext = determine_ext(format_url)

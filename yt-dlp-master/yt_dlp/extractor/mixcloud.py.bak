@@ -18,6 +18,7 @@ from ..utils.traversal import traverse_obj
 class MixcloudBaseIE(InfoExtractor):
     def _call_api(self, object_type, object_fields, display_id, username, slug=None):
         print(f"mixcloud.pyの関数_call_apiを実行しました。")
+        print(f"mixcloud.pyの関数_call_apiを実行しました。")
         lookup_key = object_type + 'Lookup'
         return self._download_json(
             'https://app.mixcloud.com/graphql', display_id, query={
@@ -91,6 +92,7 @@ class MixcloudIE(MixcloudBaseIE):
             for ch, k in zip(ciphertext, itertools.cycle(key))])
 
     def _real_extract(self, url):
+        print(f"mixcloud.pyの関数_real_extractを実行しました。")
         print(f"mixcloud.pyの関数_real_extractを実行しました。")
         username, slug = self._match_valid_url(url).groups()
         username, slug = urllib.parse.unquote(username), urllib.parse.unquote(slug)
@@ -224,9 +226,11 @@ class MixcloudIE(MixcloudBaseIE):
 class MixcloudPlaylistBaseIE(MixcloudBaseIE):
     def _get_cloudcast(self, node):
         print(f"mixcloud.pyの関数_get_cloudcastを実行しました。")
+        print(f"mixcloud.pyの関数_get_cloudcastを実行しました。")
         return node
 
     def _get_playlist_title(self, title, slug):
+        print(f"mixcloud.pyの関数_get_playlist_titleを実行しました。")
         print(f"mixcloud.pyの関数_get_playlist_titleを実行しました。")
         return title
 

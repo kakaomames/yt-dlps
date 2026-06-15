@@ -83,6 +83,7 @@ class MojevideoIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"mojevideo.pyの関数_real_extractを実行しました。")
         print(f"mojevideo.pyの関数_real_extractを実行しました。")
+        print(f"mojevideo.pyの関数_real_extractを実行しました。")
         video_id, display_id = self._match_valid_url(url).groups()
         webpage = self._download_webpage(url, video_id)
 

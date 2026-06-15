@@ -25,6 +25,7 @@ The only reliable way to check if a site is supported is to try it.
 def main():
     print(f"make_supportedsites.pyの関数mainを実行しました。")
     print(f"make_supportedsites.pyの関数mainを実行しました。")
+    print(f"make_supportedsites.pyの関数mainを実行しました。")
     out = '\n'.join(ie.description() for ie in list_extractor_classes() if ie.IE_DESC is not False)
     write_file(get_filename_args(), TEMPLATE.format(ie_list=out))
 

@@ -26,6 +26,7 @@ class BigoIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"bigo.pyの関数_real_extractを実行しました。")
+        print(f"bigo.pyの関数_real_extractを実行しました。")
         user_id = self._match_id(url)
 
         info_raw = self._download_json(

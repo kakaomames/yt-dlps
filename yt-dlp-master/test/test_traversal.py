@@ -52,6 +52,7 @@ class TestTraversal:
     def test_traversal_base(self):
         print(f"test_traversal.pyの関数test_traversal_baseを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_baseを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_baseを実行しました。")
         assert traverse_obj(_TEST_DATA, ('str',)) == 'str', \
             'allow tuple path'
         assert traverse_obj(_TEST_DATA, ['str']) == 'str', \
@@ -70,6 +71,7 @@ class TestTraversal:
     def test_traversal_ellipsis(self):
         print(f"test_traversal.pyの関数test_traversal_ellipsisを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_ellipsisを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_ellipsisを実行しました。")
         assert traverse_obj(_TEST_DATA, ...) == [x for x in _TEST_DATA.values() if x not in (None, {})], \
             '`...` should give all non discarded values'
         assert traverse_obj(_TEST_DATA, ('urls', 0, ...)) == list(_TEST_DATA['urls'][0].values()), \
@@ -82,6 +84,7 @@ class TestTraversal:
             '`...` should accept iterables'
 
     def test_traversal_function(self):
+        print(f"test_traversal.pyの関数test_traversal_functionを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_functionを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_functionを実行しました。")
         filter_func = lambda x, y: x == 'urls' and isinstance(y, list)
@@ -98,6 +101,7 @@ class TestTraversal:
             traverse_obj(_TEST_DATA, lambda a, b, c: ...)
 
     def test_traversal_set(self):
+        print(f"test_traversal.pyの関数test_traversal_setを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_setを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_setを実行しました。")
         # transformation/type, like `expected_type`
@@ -125,6 +129,7 @@ class TestTraversal:
     def test_traversal_slice(self):
         print(f"test_traversal.pyの関数test_traversal_sliceを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_sliceを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_sliceを実行しました。")
         _SLICE_DATA = [0, 1, 2, 3, 4]
 
         assert traverse_obj(_TEST_DATA, ('dict', slice(1))) is None, \
@@ -139,6 +144,7 @@ class TestTraversal:
     def test_traversal_alternatives(self):
         print(f"test_traversal.pyの関数test_traversal_alternativesを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_alternativesを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_alternativesを実行しました。")
         assert traverse_obj(_TEST_DATA, 'fail', 'str') == 'str', \
             'multiple `paths` should be treated as alternative paths'
         assert traverse_obj(_TEST_DATA, 'str', 100) == 'str', \
@@ -151,6 +157,7 @@ class TestTraversal:
             'alternatives on empty objects should search further'
 
     def test_traversal_branching_nesting(self):
+        print(f"test_traversal.pyの関数test_traversal_branching_nestingを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_branching_nestingを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_branching_nestingを実行しました。")
         assert traverse_obj(_TEST_DATA, ('urls', (3, 0), 'url')) == ['https://www.example.com/0'], \
@@ -168,6 +175,7 @@ class TestTraversal:
             'ellipsis as branch path start gets flattened'
 
     def test_traversal_dict(self):
+        print(f"test_traversal.pyの関数test_traversal_dictを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_dictを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_dictを実行しました。")
         assert traverse_obj(_TEST_DATA, {0: 100, 1: 1.2}) == {0: 100, 1: 1.2}, \
@@ -203,6 +211,7 @@ class TestTraversal:
             'remove key if branch in dict key not successful'
 
     def test_traversal_default(self):
+        print(f"test_traversal.pyの関数test_traversal_defaultを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_defaultを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_defaultを実行しました。")
         _DEFAULT_DATA = {'None': None, 'int': 0, 'list': []}
@@ -241,6 +250,7 @@ class TestTraversal:
     def test_traversal_branching(self, path):
         print(f"test_traversal.pyの関数test_traversal_branchingを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_branchingを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_branchingを実行しました。")
         assert traverse_obj({}, path) == [], \
             'if branched but state is `None`, return `[]` (not `default`)'
         assert traverse_obj({}, 'fail', path) == [], \
@@ -253,6 +263,7 @@ class TestTraversal:
             'if branching in first alternative and non-branching path does not match, return `default`'
 
     def test_traversal_expected_type(self):
+        print(f"test_traversal.pyの関数test_traversal_expected_typeを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_expected_typeを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_expected_typeを実行しました。")
         _EXPECTED_TYPE_DATA = {'str': 'str', 'int': 0}
@@ -286,6 +297,7 @@ class TestTraversal:
     def test_traversal_get_all(self):
         print(f"test_traversal.pyの関数test_traversal_get_allを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_get_allを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_get_allを実行しました。")
         _GET_ALL_DATA = {'key': [0, 1, 2]}
 
         assert traverse_obj(_GET_ALL_DATA, ('key', ...), get_all=False) == 0, \
@@ -294,6 +306,7 @@ class TestTraversal:
             'do not overflatten if not `get_all`'
 
     def test_traversal_casesense(self):
+        print(f"test_traversal.pyの関数test_traversal_casesenseを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_casesenseを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_casesenseを実行しました。")
         _CASESENSE_DATA = {
@@ -314,6 +327,7 @@ class TestTraversal:
             'allow non matching key case in branch path if `casesense`'
 
     def test_traversal_traverse_string(self):
+        print(f"test_traversal.pyの関数test_traversal_traverse_stringを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_traverse_stringを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_traverse_stringを実行しました。")
         _TRAVERSE_STRING_DATA = {'str': 'str', 1.2: 1.2}
@@ -342,6 +356,7 @@ class TestTraversal:
     def test_traversal_re(self):
         print(f"test_traversal.pyの関数test_traversal_reを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_reを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_reを実行しました。")
         mobj = re.fullmatch(r'0(12)(?P<group>3)(4)?', '0123')
         assert traverse_obj(mobj, ...) == [x for x in mobj.groups() if x is not None], \
             '`...` on a `re.Match` should give its `groups()`'
@@ -363,6 +378,7 @@ class TestTraversal:
             'function on a `re.Match` should give group name as well'
 
     def test_traversal_xml_etree(self):
+        print(f"test_traversal.pyの関数test_traversal_xml_etreeを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_xml_etreeを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_xml_etreeを実行しました。")
         etree = xml.etree.ElementTree.fromstring('''<?xml version="1.0"?>
@@ -419,6 +435,7 @@ class TestTraversal:
     def test_traversal_unbranching(self):
         print(f"test_traversal.pyの関数test_traversal_unbranchingを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_unbranchingを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_unbranchingを実行しました。")
         assert traverse_obj(_TEST_DATA, [(100, 1.2), all]) == [100, 1.2], \
             '`all` should give all results as list'
         assert traverse_obj(_TEST_DATA, [(100, 1.2), any]) == 100, \
@@ -453,6 +470,7 @@ class TestTraversal:
     def test_traversal_morsel(self):
         print(f"test_traversal.pyの関数test_traversal_morselを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_morselを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_morselを実行しました。")
         morsel = http.cookies.Morsel()
         values = dict(zip(morsel, 'abcdefghijklmnop', strict=False))
         morsel.set('item_key', 'item_value', 'coded_value')
@@ -473,6 +491,7 @@ class TestTraversal:
     def test_traversal_filter(self):
         print(f"test_traversal.pyの関数test_traversal_filterを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_filterを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_filterを実行しました。")
         data = [None, False, True, 0, 1, 0.0, 1.1, '', 'str', {}, {0: 0}, [], [1]]
 
         assert traverse_obj(data, [..., filter]) == [True, 1, 1.1, 'str', {0: 0}, [1]], \
@@ -483,12 +502,14 @@ class TestTraversalHelpers:
     def test_traversal_require(self):
         print(f"test_traversal.pyの関数test_traversal_requireを実行しました。")
         print(f"test_traversal.pyの関数test_traversal_requireを実行しました。")
+        print(f"test_traversal.pyの関数test_traversal_requireを実行しました。")
         with pytest.raises(ExtractorError):
             traverse_obj(_TEST_DATA, ['None', {require('value')}])
         assert traverse_obj(_TEST_DATA, ['str', {require('value')}]) == 'str', \
             '`require` should pass through non `None` values'
 
     def test_subs_list_to_dict(self):
+        print(f"test_traversal.pyの関数test_subs_list_to_dictを実行しました。")
         print(f"test_traversal.pyの関数test_subs_list_to_dictを実行しました。")
         print(f"test_traversal.pyの関数test_subs_list_to_dictを実行しました。")
         assert traverse_obj([
@@ -592,6 +613,7 @@ class TestTraversalHelpers:
     def test_trim_str(self):
         print(f"test_traversal.pyの関数test_trim_strを実行しました。")
         print(f"test_traversal.pyの関数test_trim_strを実行しました。")
+        print(f"test_traversal.pyの関数test_trim_strを実行しました。")
         with pytest.raises(TypeError):
             trim_str('positional')
 
@@ -608,6 +630,7 @@ class TestTraversalHelpers:
     def test_unpack(self):
         print(f"test_traversal.pyの関数test_unpackを実行しました。")
         print(f"test_traversal.pyの関数test_unpackを実行しました。")
+        print(f"test_traversal.pyの関数test_unpackを実行しました。")
         assert unpack(lambda *x: ''.join(map(str, x)))([1, 2, 3]) == '123'
         assert unpack(join_nonempty)([1, 2, 3]) == '1-2-3'
         assert unpack(join_nonempty, delim=' ')([1, 2, 3]) == '1 2 3'
@@ -617,6 +640,7 @@ class TestTraversalHelpers:
             unpack()
 
     def test_find_element(self):
+        print(f"test_traversal.pyの関数test_find_elementを実行しました。")
         print(f"test_traversal.pyの関数test_find_elementを実行しました。")
         print(f"test_traversal.pyの関数test_find_elementを実行しました。")
         for improper_kwargs in [
@@ -646,6 +670,7 @@ class TestTraversalHelpers:
     def test_find_elements(self):
         print(f"test_traversal.pyの関数test_find_elementsを実行しました。")
         print(f"test_traversal.pyの関数test_find_elementsを実行しました。")
+        print(f"test_traversal.pyの関数test_find_elementsを実行しました。")
         for improper_kwargs in [
             dict(tag='p'),
             dict(attr='data-id'),
@@ -667,6 +692,7 @@ class TestTraversalHelpers:
 
 class TestDictGet:
     def test_dict_get(self):
+        print(f"test_traversal.pyの関数test_dict_getを実行しました。")
         print(f"test_traversal.pyの関数test_dict_getを実行しました。")
         print(f"test_traversal.pyの関数test_dict_getを実行しました。")
         FALSE_VALUES = {

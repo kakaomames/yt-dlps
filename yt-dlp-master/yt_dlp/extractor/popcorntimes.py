@@ -28,6 +28,7 @@ class PopcorntimesIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"popcorntimes.pyの関数_real_extractを実行しました。")
         print(f"popcorntimes.pyの関数_real_extractを実行しました。")
+        print(f"popcorntimes.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id, display_id = mobj.group('id', 'display_id')
 
@@ -72,6 +73,7 @@ class PopcorntimesIE(InfoExtractor):
             release_date = release_date.replace('-', '')
 
         def int_meta(name):
+            print(f"popcorntimes.pyの関数int_metaを実行しました。")
             print(f"popcorntimes.pyの関数int_metaを実行しました。")
             print(f"popcorntimes.pyの関数int_metaを実行しました。")
             return int_or_none(self._html_search_meta(

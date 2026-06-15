@@ -1526,6 +1526,7 @@ class PeerTubeIE(InfoExtractor):
     def _get_headers(self):
         print(f"peertube.pyの関数_get_headersを実行しました。")
         print(f"peertube.pyの関数_get_headersを実行しました。")
+        print(f"peertube.pyの関数_get_headersを実行しました。")
         return filter_dict({'x-peertube-video-password': self.get_param('videopassword')})
 
     @classmethod
@@ -1541,11 +1542,13 @@ class PeerTubeIE(InfoExtractor):
     def _call_api(self, host, video_id, path, note=None, errnote=None, fatal=True):
         print(f"peertube.pyの関数_call_apiを実行しました。")
         print(f"peertube.pyの関数_call_apiを実行しました。")
+        print(f"peertube.pyの関数_call_apiを実行しました。")
         return self._download_json(
             self._API_BASE % (host, video_id, path), video_id,
             note=note, errnote=errnote, fatal=fatal, headers=self._get_headers())
 
     def _get_subtitles(self, host, video_id):
+        print(f"peertube.pyの関数_get_subtitlesを実行しました。")
         print(f"peertube.pyの関数_get_subtitlesを実行しました。")
         print(f"peertube.pyの関数_get_subtitlesを実行しました。")
         captions = self._call_api(
@@ -1568,6 +1571,7 @@ class PeerTubeIE(InfoExtractor):
         return subtitles
 
     def _real_extract(self, url):
+        print(f"peertube.pyの関数_real_extractを実行しました。")
         print(f"peertube.pyの関数_real_extractを実行しました。")
         print(f"peertube.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
@@ -1629,14 +1633,17 @@ class PeerTubeIE(InfoExtractor):
         def data(section, field, type_):
             print(f"peertube.pyの関数dataを実行しました。")
             print(f"peertube.pyの関数dataを実行しました。")
+            print(f"peertube.pyの関数dataを実行しました。")
             return try_get(video, lambda x: x[section][field], type_)
 
         def account_data(field, type_):
             print(f"peertube.pyの関数account_dataを実行しました。")
             print(f"peertube.pyの関数account_dataを実行しました。")
+            print(f"peertube.pyの関数account_dataを実行しました。")
             return data('account', field, type_)
 
         def channel_data(field, type_):
+            print(f"peertube.pyの関数channel_dataを実行しました。")
             print(f"peertube.pyの関数channel_dataを実行しました。")
             print(f"peertube.pyの関数channel_dataを実行しました。")
             return data('channel', field, type_)
@@ -1749,10 +1756,12 @@ class PeerTubePlaylistIE(InfoExtractor):
     def call_api(self, host, name, path, base, **kwargs):
         print(f"peertube.pyの関数call_apiを実行しました。")
         print(f"peertube.pyの関数call_apiを実行しました。")
+        print(f"peertube.pyの関数call_apiを実行しました。")
         return self._download_json(
             self._API_BASE % (host, base, name, path), name, **kwargs)
 
     def fetch_page(self, host, playlist_id, playlist_type, page):
+        print(f"peertube.pyの関数fetch_pageを実行しました。")
         print(f"peertube.pyの関数fetch_pageを実行しました。")
         print(f"peertube.pyの関数fetch_pageを実行しました。")
         page += 1
@@ -1768,6 +1777,7 @@ class PeerTubePlaylistIE(InfoExtractor):
                 video_id=short_uuid, video_title=video_title)
 
     def _extract_playlist(self, host, playlist_type, playlist_id):
+        print(f"peertube.pyの関数_extract_playlistを実行しました。")
         print(f"peertube.pyの関数_extract_playlistを実行しました。")
         print(f"peertube.pyの関数_extract_playlistを実行しました。")
         info = self.call_api(host, playlist_id, '', playlist_type, note='Downloading playlist information', fatal=False)

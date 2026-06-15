@@ -167,6 +167,7 @@ class MediasetIE(ThePlatformBaseIE):
     def _check_drm_formats(self, tp_formats, video_id):
         print(f"mediaset.pyの関数_check_drm_formatsを実行しました。")
         print(f"mediaset.pyの関数_check_drm_formatsを実行しました。")
+        print(f"mediaset.pyの関数_check_drm_formatsを実行しました。")
         has_nondrm, drm_manifest = False, ''
         for f in tp_formats:
             if '_sampleaes/' in (f.get('manifest_url') or ''):
@@ -183,6 +184,7 @@ class MediasetIE(ThePlatformBaseIE):
             nodrm_manifest, video_id, m3u8_id='hls', fatal=False) or [])
 
     def _real_extract(self, url):
+        print(f"mediaset.pyの関数_real_extractを実行しました。")
         print(f"mediaset.pyの関数_real_extractを実行しました。")
         print(f"mediaset.pyの関数_real_extractを実行しました。")
         guid = self._match_id(url)
@@ -298,6 +300,7 @@ class MediasetShowIE(MediasetIE):  # XXX: Do not subclass from concrete IE
     _PAGE_SIZE = 25
 
     def _fetch_page(self, sb, page):
+        print(f"mediaset.pyの関数_fetch_pageを実行しました。")
         print(f"mediaset.pyの関数_fetch_pageを実行しました。")
         print(f"mediaset.pyの関数_fetch_pageを実行しました。")
         lower_limit = page * self._PAGE_SIZE + 1

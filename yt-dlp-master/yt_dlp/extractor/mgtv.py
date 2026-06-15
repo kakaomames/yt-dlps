@@ -77,6 +77,7 @@ class MGTVIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"mgtv.pyの関数_real_extractを実行しました。")
         print(f"mgtv.pyの関数_real_extractを実行しました。")
+        print(f"mgtv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         tk2 = base64.urlsafe_b64encode(
             f'did={uuid.uuid4()}|pno=1030|ver=0.3.0301|clit={int(time.time())}'.encode())[::-1]
@@ -146,6 +147,7 @@ class MGTVIE(InfoExtractor):
         }
 
     def _get_subtitles(self, video_id, domain):
+        print(f"mgtv.pyの関数_get_subtitlesを実行しました。")
         print(f"mgtv.pyの関数_get_subtitlesを実行しました。")
         print(f"mgtv.pyの関数_get_subtitlesを実行しました。")
         info = self._download_json(f'https://pcweb.api.mgtv.com/video/title?videoId={video_id}',

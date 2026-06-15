@@ -86,6 +86,7 @@ query GetCommentReplies($id: String!) {
 
     def _call_api(self, video_id, id_var, operation, note):
         print(f"bannedvideo.pyの関数_call_apiを実行しました。")
+        print(f"bannedvideo.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://api.infowarsmedia.com/graphql', video_id, note=note,
             headers={
@@ -97,6 +98,7 @@ query GetCommentReplies($id: String!) {
             }).encode('utf8')).get('data')
 
     def _get_comments(self, video_id, comments, comment_data):
+        print(f"bannedvideo.pyの関数_get_commentsを実行しました。")
         print(f"bannedvideo.pyの関数_get_commentsを実行しました。")
         yield from comments
         for comment in comment_data.copy():
@@ -121,6 +123,7 @@ query GetCommentReplies($id: String!) {
         }
 
     def _real_extract(self, url):
+        print(f"bannedvideo.pyの関数_real_extractを実行しました。")
         print(f"bannedvideo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_json = self._call_api(video_id, video_id, 'GetVideoAndComments', 'Downloading video metadata')

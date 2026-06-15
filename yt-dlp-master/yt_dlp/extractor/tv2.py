@@ -44,6 +44,7 @@ class TV2IE(InfoExtractor):
     def _real_extract(self, url):
         print(f"tv2.pyの関数_real_extractを実行しました。")
         print(f"tv2.pyの関数_real_extractを実行しました。")
+        print(f"tv2.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         asset = self._download_json('https://sumo.tv2.no/rest/assets/' + video_id, video_id,
                                     'Downloading metadata JSON')
@@ -314,6 +315,7 @@ class MTVUutisetArticleIE(InfoExtractor):
             article_id)
 
         def entries():
+            print(f"tv2.pyの関数entriesを実行しました。")
             print(f"tv2.pyの関数entriesを実行しました。")
             print(f"tv2.pyの関数entriesを実行しました。")
             for video in (article.get('videos') or []):

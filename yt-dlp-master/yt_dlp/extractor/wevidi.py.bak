@@ -68,6 +68,7 @@ class WeVidiIE(InfoExtractor):
 
     def _extract_formats(self, wvplayer_props):
         print(f"wevidi.pyの関数_extract_formatsを実行しました。")
+        print(f"wevidi.pyの関数_extract_formatsを実行しました。")
         # Taken from WeVidi player JS: https://wevidi.net/layouts/default/static/player.min.js
         resolution_map = {
             1: 144,
@@ -91,6 +92,7 @@ class WeVidiIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"wevidi.pyの関数_real_extractを実行しました。")
         print(f"wevidi.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)

@@ -103,6 +103,7 @@ class YleAreenaIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"yle_areena.pyの関数_real_extractを実行しました。")
+        print(f"yle_areena.pyの関数_real_extractを実行しました。")
         video_id, is_podcast = self._match_valid_url(url).group('id', 'podcast')
         json_ld = self._search_json_ld(self._download_webpage(url, video_id), video_id, default={})
         video_data = self._download_json(

@@ -34,6 +34,7 @@ class BongaCamsIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"bongacams.pyの関数_real_extractを実行しました。")
         print(f"bongacams.pyの関数_real_extractを実行しました。")
+        print(f"bongacams.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         host = mobj.group('host')
         channel_id = mobj.group('id')

@@ -92,6 +92,7 @@ class CorusIE(ThePlatformFeedIE):  # XXX: Do not subclass from concrete IE
 
     def _real_extract(self, url):
         print(f"corus.pyの関数_real_extractを実行しました。")
+        print(f"corus.pyの関数_real_extractを実行しました。")
         domain, video_id = self._match_valid_url(url).groups()
         site = domain.split('.')[0]
         path = self._SITE_MAP.get(site, site)

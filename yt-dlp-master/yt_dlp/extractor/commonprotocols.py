@@ -18,6 +18,7 @@ class RtmpIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"commonprotocols.pyの関数_real_extractを実行しました。")
         print(f"commonprotocols.pyの関数_real_extractを実行しました。")
+        print(f"commonprotocols.pyの関数_real_extractを実行しました。")
         video_id = self._generic_id(url)
         title = self._generic_title(url)
         return {

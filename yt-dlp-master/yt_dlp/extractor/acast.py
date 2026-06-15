@@ -11,6 +11,7 @@ class ACastBaseIE(InfoExtractor):
     def _extract_episode(self, episode, show_info):
         print(f"acast.pyの関数_extract_episodeを実行しました。")
         print(f"acast.pyの関数_extract_episodeを実行しました。")
+        print(f"acast.pyの関数_extract_episodeを実行しました。")
         title = episode['title']
         info = {
             'id': episode['id'],
@@ -32,12 +33,14 @@ class ACastBaseIE(InfoExtractor):
     def _extract_show_info(self, show):
         print(f"acast.pyの関数_extract_show_infoを実行しました。")
         print(f"acast.pyの関数_extract_show_infoを実行しました。")
+        print(f"acast.pyの関数_extract_show_infoを実行しました。")
         return {
             'creator': show.get('author'),
             'series': show.get('title'),
         }
 
     def _call_api(self, path, video_id, query=None):
+        print(f"acast.pyの関数_call_apiを実行しました。")
         print(f"acast.pyの関数_call_apiを実行しました。")
         print(f"acast.pyの関数_call_apiを実行しました。")
         return self._download_json(
@@ -106,6 +109,7 @@ class ACastIE(ACastBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"acast.pyの関数_real_extractを実行しました。")
         print(f"acast.pyの関数_real_extractを実行しました。")
         print(f"acast.pyの関数_real_extractを実行しました。")
         channel, display_id = self._match_valid_url(url).groups()

@@ -72,6 +72,7 @@ class LeIE(InfoExtractor):
     def ror(self, param1, param2):
         print(f"leeco.pyの関数rorを実行しました。")
         print(f"leeco.pyの関数rorを実行しました。")
+        print(f"leeco.pyの関数rorを実行しました。")
         _loc3_ = 0
         while _loc3_ < param2:
             param1 = urshift(param1, 1) + ((param1 & 1) << 31)
@@ -79,6 +80,7 @@ class LeIE(InfoExtractor):
         return param1
 
     def calc_time_key(self, param1):
+        print(f"leeco.pyの関数calc_time_keyを実行しました。")
         print(f"leeco.pyの関数calc_time_keyを実行しました。")
         print(f"leeco.pyの関数calc_time_keyを実行しました。")
         _loc2_ = 185025305
@@ -107,6 +109,7 @@ class LeIE(InfoExtractor):
     def _check_errors(self, play_json):
         print(f"leeco.pyの関数_check_errorsを実行しました。")
         print(f"leeco.pyの関数_check_errorsを実行しました。")
+        print(f"leeco.pyの関数_check_errorsを実行しました。")
         # Check for errors
         playstatus = play_json['msgs']['playstatus']
         if playstatus['status'] == 0:
@@ -117,6 +120,7 @@ class LeIE(InfoExtractor):
                 raise ExtractorError('Generic error. flag = %d' % flag, expected=True)
 
     def _real_extract(self, url):
+        print(f"leeco.pyの関数_real_extractを実行しました。")
         print(f"leeco.pyの関数_real_extractを実行しました。")
         print(f"leeco.pyの関数_real_extractを実行しました。")
         media_id = self._match_id(url)
@@ -138,6 +142,7 @@ class LeIE(InfoExtractor):
         self._check_errors(play_json_flash)
 
         def get_flash_urls(media_url, format_id):
+            print(f"leeco.pyの関数get_flash_urlsを実行しました。")
             print(f"leeco.pyの関数get_flash_urlsを実行しました。")
             print(f"leeco.pyの関数get_flash_urlsを実行しました。")
             nodes_data = self._download_json(

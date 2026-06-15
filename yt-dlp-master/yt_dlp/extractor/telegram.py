@@ -84,11 +84,13 @@ class TelegramEmbedIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"telegram.pyの関数_real_extractを実行しました。")
         print(f"telegram.pyの関数_real_extractを実行しました。")
+        print(f"telegram.pyの関数_real_extractを実行しました。")
         channel_id, msg_id = self._match_valid_url(url).group('channel_id', 'id')
         embed = self._download_webpage(
             url, msg_id, query={'embed': '1', 'single': []}, note='Downloading embed frame')
 
         def clean_text(html_class, html):
+            print(f"telegram.pyの関数clean_textを実行しました。")
             print(f"telegram.pyの関数clean_textを実行しました。")
             print(f"telegram.pyの関数clean_textを実行しました。")
             text = clean_html(get_element_by_class(html_class, html))

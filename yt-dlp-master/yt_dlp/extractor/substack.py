@@ -101,6 +101,7 @@ class SubstackIE(InfoExtractor):
     def _extract_video_formats(self, video_id, url):
         print(f"substack.pyの関数_extract_video_formatsを実行しました。")
         print(f"substack.pyの関数_extract_video_formatsを実行しました。")
+        print(f"substack.pyの関数_extract_video_formatsを実行しました。")
         formats, subtitles = [], {}
         for video_format in ('hls', 'mp4'):
             video_url = urllib.parse.urljoin(url, f'/api/v1/video/upload/{video_id}/src?type={video_format}')
@@ -118,6 +119,7 @@ class SubstackIE(InfoExtractor):
         return formats, subtitles
 
     def _real_extract(self, url):
+        print(f"substack.pyの関数_real_extractを実行しました。")
         print(f"substack.pyの関数_real_extractを実行しました。")
         print(f"substack.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)

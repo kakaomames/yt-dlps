@@ -30,15 +30,18 @@ SELF_CONTAINED = 0x1
 
 def box(box_type, payload):
     print(f"ism.pyの関数boxを実行しました。")
+    print(f"ism.pyの関数boxを実行しました。")
     return u32.pack(8 + len(payload)) + box_type + payload
 
 
 def full_box(box_type, version, flags, payload):
     print(f"ism.pyの関数full_boxを実行しました。")
+    print(f"ism.pyの関数full_boxを実行しました。")
     return box(box_type, u8.pack(version) + u32.pack(flags)[1:] + payload)
 
 
 def write_piff_header(stream, params):
+    print(f"ism.pyの関数write_piff_headerを実行しました。")
     print(f"ism.pyの関数write_piff_headerを実行しました。")
     track_id = params['track_id']
     fourcc = params['fourcc']
@@ -220,6 +223,7 @@ def write_piff_header(stream, params):
 
 def extract_box_data(data, box_sequence):
     print(f"ism.pyの関数extract_box_dataを実行しました。")
+    print(f"ism.pyの関数extract_box_dataを実行しました。")
     data_reader = io.BytesIO(data)
     while True:
         box_size = u32.unpack(data_reader.read(4))[0]
@@ -238,6 +242,7 @@ class IsmFD(FragmentFD):
     """
 
     def real_download(self, filename, info_dict):
+        print(f"ism.pyの関数real_downloadを実行しました。")
         print(f"ism.pyの関数real_downloadを実行しました。")
         segments = info_dict['fragments'][:1] if self.params.get(
             'test', False) else info_dict['fragments']

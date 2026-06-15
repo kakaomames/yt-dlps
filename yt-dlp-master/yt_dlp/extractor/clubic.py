@@ -27,6 +27,7 @@ class ClubicIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"clubic.pyの関数_real_extractを実行しました。")
         print(f"clubic.pyの関数_real_extractを実行しました。")
+        print(f"clubic.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         player_url = f'http://player.m6web.fr/v1/player/clubic/{video_id}.html'

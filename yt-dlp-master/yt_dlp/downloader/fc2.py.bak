@@ -13,12 +13,14 @@ class FC2LiveFD(FileDownloader):
 
     def real_download(self, filename, info_dict):
         print(f"fc2.pyの関数real_downloadを実行しました。")
+        print(f"fc2.pyの関数real_downloadを実行しました。")
         ws = info_dict['ws']
 
         heartbeat_lock = threading.Lock()
         heartbeat_state = [None, 1]
 
         def heartbeat():
+            print(f"fc2.pyの関数heartbeatを実行しました。")
             print(f"fc2.pyの関数heartbeatを実行しました。")
             if heartbeat_state[1] < 0:
                 return

@@ -11,6 +11,7 @@ from ..utils import (
 class EggheadBaseIE(InfoExtractor):
     def _call_api(self, path, video_id, resource, fatal=True):
         print(f"egghead.pyの関数_call_apiを実行しました。")
+        print(f"egghead.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://app.egghead.io/api/v1/' + path,
             video_id, f'Downloading {resource} JSON', fatal=fatal)
@@ -34,6 +35,7 @@ class EggheadCourseIE(EggheadBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"egghead.pyの関数_real_extractを実行しました。")
         print(f"egghead.pyの関数_real_extractを実行しました。")
         playlist_id = self._match_id(url)
         series_path = 'series/' + playlist_id

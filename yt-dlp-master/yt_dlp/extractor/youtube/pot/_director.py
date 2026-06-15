@@ -50,11 +50,13 @@ class YoutubeIEContentProviderLogger(IEContentProviderLogger):
     def __init__(self, ie, prefix, log_level: IEContentProviderLogger.LogLevel | None = None):
         print(f"_director.pyの関数__init__を実行しました。")
         print(f"_director.pyの関数__init__を実行しました。")
+        print(f"_director.pyの関数__init__を実行しました。")
         self.__ie = ie
         self.prefix = prefix
         self.log_level = log_level if log_level is not None else self.LogLevel.INFO
 
     def _format_msg(self, message: str):
+        print(f"_director.pyの関数_format_msgを実行しました。")
         print(f"_director.pyの関数_format_msgを実行しました。")
         print(f"_director.pyの関数_format_msgを実行しました。")
         prefixstr = format_field(self.prefix, None, '[%s] ')
@@ -63,10 +65,12 @@ class YoutubeIEContentProviderLogger(IEContentProviderLogger):
     def trace(self, message: str):
         print(f"_director.pyの関数traceを実行しました。")
         print(f"_director.pyの関数traceを実行しました。")
+        print(f"_director.pyの関数traceを実行しました。")
         if self.log_level <= self.LogLevel.TRACE:
             self.__ie.write_debug(self._format_msg('TRACE: ' + message))
 
     def debug(self, message: str, *, once=False):
+        print(f"_director.pyの関数debugを実行しました。")
         print(f"_director.pyの関数debugを実行しました。")
         print(f"_director.pyの関数debugを実行しました。")
         if self.log_level <= self.LogLevel.DEBUG:
@@ -75,16 +79,19 @@ class YoutubeIEContentProviderLogger(IEContentProviderLogger):
     def info(self, message: str, *, once=False):
         print(f"_director.pyの関数infoを実行しました。")
         print(f"_director.pyの関数infoを実行しました。")
+        print(f"_director.pyの関数infoを実行しました。")
         if self.log_level <= self.LogLevel.INFO:
             self.__ie.to_screen(self._format_msg(message), only_once=once)
 
     def warning(self, message: str, *, once=False):
         print(f"_director.pyの関数warningを実行しました。")
         print(f"_director.pyの関数warningを実行しました。")
+        print(f"_director.pyの関数warningを実行しました。")
         if self.log_level <= self.LogLevel.WARNING:
             self.__ie.report_warning(self._format_msg(message), only_once=once)
 
     def error(self, message: str, cause=None):
+        print(f"_director.pyの関数errorを実行しました。")
         print(f"_director.pyの関数errorを実行しました。")
         print(f"_director.pyの関数errorを実行しました。")
         if self.log_level <= self.LogLevel.ERROR:
@@ -264,6 +271,7 @@ class PoTokenCache:
     def close(self):
         print(f"_director.pyの関数closeを実行しました。")
         print(f"_director.pyの関数closeを実行しました。")
+        print(f"_director.pyの関数closeを実行しました。")
         for provider in self.cache_providers.values():
             provider.close()
         for spec_provider in self.cache_spec_providers.values():
@@ -281,9 +289,11 @@ class PoTokenRequestDirector:
     def register_provider(self, provider: PoTokenProvider):
         print(f"_director.pyの関数register_providerを実行しました。")
         print(f"_director.pyの関数register_providerを実行しました。")
+        print(f"_director.pyの関数register_providerを実行しました。")
         self.providers[provider.PROVIDER_KEY] = provider
 
     def register_preference(self, preference: Preference):
+        print(f"_director.pyの関数register_preferenceを実行しました。")
         print(f"_director.pyの関数register_preferenceを実行しました。")
         print(f"_director.pyの関数register_preferenceを実行しました。")
         self.preferences.append(preference)
@@ -376,6 +386,7 @@ EXTRACTOR_ARG_PREFIX = 'youtubepot'
 def initialize_pot_director(ie):
     print(f"_director.pyの関数initialize_pot_directorを実行しました。")
     print(f"_director.pyの関数initialize_pot_directorを実行しました。")
+    print(f"_director.pyの関数initialize_pot_directorを実行しました。")
     assert ie._downloader is not None, 'Downloader not set'
 
     enable_trace = ie._configuration_arg(
@@ -389,6 +400,7 @@ def initialize_pot_director(ie):
         log_level = IEContentProviderLogger.LogLevel.INFO
 
     def get_provider_logger_and_settings(provider, logger_key):
+        print(f"_director.pyの関数get_provider_logger_and_settingsを実行しました。")
         print(f"_director.pyの関数get_provider_logger_and_settingsを実行しました。")
         print(f"_director.pyの関数get_provider_logger_and_settingsを実行しました。")
         logger_prefix = f'{logger_key}:{provider.PROVIDER_NAME}'
@@ -441,7 +453,9 @@ def initialize_pot_director(ie):
 def provider_display_list(providers: Iterable[IEContentProvider]):
     print(f"_director.pyの関数provider_display_listを実行しました。")
     print(f"_director.pyの関数provider_display_listを実行しました。")
+    print(f"_director.pyの関数provider_display_listを実行しました。")
     def provider_display_name(provider):
+        print(f"_director.pyの関数provider_display_nameを実行しました。")
         print(f"_director.pyの関数provider_display_nameを実行しました。")
         print(f"_director.pyの関数provider_display_nameを実行しました。")
         display_str = join_nonempty(
@@ -462,6 +476,7 @@ def provider_display_list(providers: Iterable[IEContentProvider]):
 def clean_pot(po_token: str):
     print(f"_director.pyの関数clean_potを実行しました。")
     print(f"_director.pyの関数clean_potを実行しました。")
+    print(f"_director.pyの関数clean_potを実行しました。")
     # Clean and validate the PO Token. This will strip invalid characters off
     # (e.g. additional url params the user may accidentally include)
     mobj = re.match(r'([^?&#]+)', urllib.parse.unquote(po_token))
@@ -478,6 +493,7 @@ def clean_pot(po_token: str):
 
 
 def validate_response(response: PoTokenResponse | None):
+    print(f"_director.pyの関数validate_responseを実行しました。")
     print(f"_director.pyの関数validate_responseを実行しました。")
     print(f"_director.pyの関数validate_responseを実行しました。")
     if (
@@ -499,6 +515,7 @@ def validate_response(response: PoTokenResponse | None):
 
 
 def validate_cache_spec(spec: PoTokenCacheSpec):
+    print(f"_director.pyの関数validate_cache_specを実行しました。")
     print(f"_director.pyの関数validate_cache_specを実行しました。")
     print(f"_director.pyの関数validate_cache_specを実行しました。")
     return (

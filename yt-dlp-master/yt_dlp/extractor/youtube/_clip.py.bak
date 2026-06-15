@@ -43,6 +43,7 @@ class YoutubeClipIE(YoutubeTabBaseInfoExtractor):
 
     def _real_extract(self, url):
         print(f"_clip.pyの関数_real_extractを実行しました。")
+        print(f"_clip.pyの関数_real_extractを実行しました。")
         clip_id = self._match_id(url)
         _, data = self._extract_webpage(url, clip_id)
 
