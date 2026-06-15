@@ -21,11 +21,12 @@ jobs:
         with:
           deno-version: v1.x
 
-      - name: Fetch and Rename Meta
+      - name: python -m pip install requests curl_cffi
         run: |
           python -m pip install requests curl_cffi
-          
-          # 環境変数としてプロキシを定義（これが一番確実！）
+
+      - name: Fetch and Rename Meta
+        run: |
           # export http_proxy="http://dave-sixth-knives-gas.trycloudflare.com"
           # export https_proxy="https://dave-sixth-knives-gas.trycloudflare.com"
           
