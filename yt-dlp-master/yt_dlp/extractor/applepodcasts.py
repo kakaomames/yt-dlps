@@ -54,6 +54,7 @@ class ApplePodcastsIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"applepodcasts.pyの関数_real_extractを実行しました。")
+        print(f"applepodcasts.pyの関数_real_extractを実行しました。")
         episode_id = self._match_id(url)
         webpage = self._download_webpage(url, episode_id)
         server_data = self._search_json(

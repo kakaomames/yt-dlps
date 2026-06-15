@@ -42,6 +42,7 @@ class UlizaPlayerIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"uliza.pyの関数_real_extractを実行しました。")
+        print(f"uliza.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         player_data = self._download_webpage(
             url, display_id, headers={'Referer': 'https://player-api.p.uliza.jp/'},

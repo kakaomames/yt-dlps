@@ -31,6 +31,7 @@ class GlomexBaseIE(InfoExtractor):
         return unsmuggled_url, data['origin']
 
     def _get_videoid_type(self, video_id):
+        print(f"glomex.pyの関数_get_videoid_typeを実行しました。")
         _VIDEOID_TYPES = {
             'v': 'video',
             'pl': 'playlist',
@@ -41,6 +42,7 @@ class GlomexBaseIE(InfoExtractor):
         return _VIDEOID_TYPES.get(prefix, 'unknown type')
 
     def _download_api_data(self, video_id, integration, current_url=None):
+        print(f"glomex.pyの関数_download_api_dataを実行しました。")
         query = {
             'integration_id': integration,
             'playlist_id': video_id,
@@ -54,6 +56,7 @@ class GlomexBaseIE(InfoExtractor):
             query=query)
 
     def _download_and_extract_api_data(self, video_id, integration, current_url):
+        print(f"glomex.pyの関数_download_and_extract_api_dataを実行しました。")
         api_data = self._download_api_data(video_id, integration, current_url)
         videos = api_data['videos']
         if not videos:
@@ -62,6 +65,7 @@ class GlomexBaseIE(InfoExtractor):
         return videos[0] if len(videos) == 1 else self.playlist_result(videos, video_id)
 
     def _extract_api_data(self, video, video_id):
+        print(f"glomex.pyの関数_extract_api_dataを実行しました。")
         if video.get('error_code') == 'contentGeoblocked':
             self.raise_geo_restricted(countries=video['geo_locations'])
 
@@ -126,6 +130,7 @@ class GlomexIE(GlomexBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"glomex.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         return self.url_result(
             GlomexEmbedIE.build_player_url(video_id, self._INTEGRATION_ID, url),

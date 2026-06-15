@@ -18,6 +18,7 @@ class PRXBaseIE(InfoExtractor):
 
     def _call_api(self, item_id, path, query=None, fatal=True, note='Downloading CMS API JSON'):
         print(f"prx.pyの関数_call_apiを実行しました。")
+        print(f"prx.pyの関数_call_apiを実行しました。")
         return self._download_json(
             urljoin('https://cms.prx.org/api/v1/', path), item_id, query=query, fatal=fatal, note=note)
 
@@ -117,6 +118,7 @@ class PRXBaseIE(InfoExtractor):
 
     def _entries(self, item_id, endpoint, entry_func, query=None):
         print(f"prx.pyの関数_entriesを実行しました。")
+        print(f"prx.pyの関数_entriesを実行しました。")
         """
         Extract entries from paginated list API
         @param entry_func: Function to generate entry from response item
@@ -140,6 +142,7 @@ class PRXBaseIE(InfoExtractor):
 
     def _story_playlist_entry(self, response):
         print(f"prx.pyの関数_story_playlist_entryを実行しました。")
+        print(f"prx.pyの関数_story_playlist_entryを実行しました。")
         story = self._extract_story_info(response)
         if not story:
             return
@@ -151,6 +154,7 @@ class PRXBaseIE(InfoExtractor):
         return story
 
     def _series_playlist_entry(self, response):
+        print(f"prx.pyの関数_series_playlist_entryを実行しました。")
         print(f"prx.pyの関数_series_playlist_entryを実行しました。")
         series = self._extract_series_info(response)
         if not series:
@@ -286,6 +290,7 @@ class PRXStoryIE(PRXBaseIE):
 
     def _extract_audio_pieces(self, audio_response):
         print(f"prx.pyの関数_extract_audio_piecesを実行しました。")
+        print(f"prx.pyの関数_extract_audio_piecesを実行しました。")
         return [{
             'format_id': str_or_none(piece_response.get('id')),
             'format_note': str_or_none(piece_response.get('label')),
@@ -301,6 +306,7 @@ class PRXStoryIE(PRXBaseIE):
             key=lambda p: int_or_none(p.get('position')))]
 
     def _extract_story(self, story_response):
+        print(f"prx.pyの関数_extract_storyを実行しました。")
         print(f"prx.pyの関数_extract_storyを実行しました。")
         info = self._extract_story_info(story_response)
         if not info:
@@ -325,6 +331,7 @@ class PRXStoryIE(PRXBaseIE):
         }
 
     def _real_extract(self, url):
+        print(f"prx.pyの関数_real_extractを実行しました。")
         print(f"prx.pyの関数_real_extractを実行しました。")
         story_id = self._match_id(url)
         response = self._call_api(story_id, f'stories/{story_id}')
@@ -370,6 +377,7 @@ class PRXSeriesIE(PRXBaseIE):
 
     def _extract_series(self, series_response):
         print(f"prx.pyの関数_extract_seriesを実行しました。")
+        print(f"prx.pyの関数_extract_seriesを実行しました。")
         info = self._extract_series_info(series_response)
         return {
             '_type': 'playlist',
@@ -401,6 +409,7 @@ class PRXAccountIE(PRXBaseIE):
 
     def _extract_account(self, account_response):
         print(f"prx.pyの関数_extract_accountを実行しました。")
+        print(f"prx.pyの関数_extract_accountを実行しました。")
         info = self._extract_account_info(account_response)
         series = self._entries(
             info['id'], f'accounts/{info["id"]}/series', self._series_playlist_entry)
@@ -424,6 +433,7 @@ class PRXStoriesSearchIE(PRXBaseIE, SearchInfoExtractor):
     _SEARCH_KEY = 'prxstories'
 
     def _search_results(self, query):
+        print(f"prx.pyの関数_search_resultsを実行しました。")
         print(f"prx.pyの関数_search_resultsを実行しました。")
         yield from self._entries(
             f'query {query}', 'stories/search', self._story_playlist_entry, query={'q': query})

@@ -41,6 +41,7 @@ class JioSaavnBaseIE(InfoExtractor):
         return requested_bitrates
 
     def _extract_formats(self, item_data):
+        print(f"jiosaavn.pyの関数_extract_formatsを実行しました。")
         # Show/episode JSON data has a slightly different structure than song JSON data
         if media_url := traverse_obj(item_data, ('more_info', 'encrypted_media_url', {str})):
             item_data.setdefault('encrypted_media_url', media_url)
@@ -68,6 +69,7 @@ class JioSaavnBaseIE(InfoExtractor):
             }
 
     def _call_api(self, type_, token, note='API', params={}):
+        print(f"jiosaavn.pyの関数_call_apiを実行しました。")
         return self._download_json(
             self._API_URL, token, f'Downloading {note} JSON', f'Unable to download {note} JSON',
             query={
@@ -128,6 +130,7 @@ class JioSaavnBaseIE(InfoExtractor):
         return info
 
     def _extract_jiosaavn_result(self, url, endpoint, response_key, parse_func):
+        print(f"jiosaavn.pyの関数_extract_jiosaavn_resultを実行しました。")
         url, smuggled_data = unsmuggle_url(url)
         data = traverse_obj(smuggled_data, ({
             'id': ('id', {str}),
@@ -145,6 +148,7 @@ class JioSaavnBaseIE(InfoExtractor):
         return result
 
     def _yield_items(self, playlist_data, keys=None, parse_func=None):
+        print(f"jiosaavn.pyの関数_yield_itemsを実行しました。")
         """Subclasses using this method must set _ENTRY_IE"""
         if parse_func is None:
             parse_func = self._extract_song
@@ -211,6 +215,7 @@ class JioSaavnSongIE(JioSaavnBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"jiosaavn.pyの関数_real_extractを実行しました。")
         return self._extract_jiosaavn_result(url, 'song', 'songs', self._extract_song)
 
 
@@ -303,10 +308,12 @@ class JioSaavnPlaylistIE(JioSaavnBaseIE):
     _PAGE_SIZE = 50
 
     def _fetch_page(self, token, page):
+        print(f"jiosaavn.pyの関数_fetch_pageを実行しました。")
         return self._call_api(
             'playlist', token, f'playlist page {page}', {'p': page, 'n': self._PAGE_SIZE})
 
     def _entries(self, token, first_page_data, page):
+        print(f"jiosaavn.pyの関数_entriesを実行しました。")
         page_data = first_page_data if not page else self._fetch_page(token, page + 1)
         yield from self._yield_items(page_data, 'songs')
 

@@ -167,6 +167,7 @@ class PlaySuisseIE(InfoExtractor):
 
     def _perform_login(self, username, password):
         print(f"playsuisse.pyの関数_perform_loginを実行しました。")
+        print(f"playsuisse.pyの関数_perform_loginを実行しました。")
         code_verifier = uuid.uuid4().hex + uuid.uuid4().hex + uuid.uuid4().hex
         code_challenge = base64.urlsafe_b64encode(
             hashlib.sha256(code_verifier.encode()).digest()).decode().rstrip('=')
@@ -234,6 +235,7 @@ class PlaySuisseIE(InfoExtractor):
 
     def _get_media_data(self, media_id, locale=None):
         print(f"playsuisse.pyの関数_get_media_dataを実行しました。")
+        print(f"playsuisse.pyの関数_get_media_dataを実行しました。")
         response = self._download_json(
             'https://www.playsuisse.ch/api/graphql',
             media_id, data=json.dumps({
@@ -246,6 +248,7 @@ class PlaySuisseIE(InfoExtractor):
         return response['data']['assetV2']
 
     def _real_extract(self, url):
+        print(f"playsuisse.pyの関数_real_extractを実行しました。")
         print(f"playsuisse.pyの関数_real_extractを実行しました。")
         if not self._ID_TOKEN:
             self.raise_login_required(method='password')
@@ -261,6 +264,7 @@ class PlaySuisseIE(InfoExtractor):
         return info
 
     def _extract_single(self, media_data):
+        print(f"playsuisse.pyの関数_extract_singleを実行しました。")
         print(f"playsuisse.pyの関数_extract_singleを実行しました。")
         thumbnails = traverse_obj(media_data, lambda k, _: k.startswith('thumbnail'))
 

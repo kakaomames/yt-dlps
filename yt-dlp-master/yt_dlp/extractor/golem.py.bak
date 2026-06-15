@@ -24,6 +24,7 @@ class GolemIE(InfoExtractor):
     _PREFIX = 'http://video.golem.de'
 
     def _real_extract(self, url):
+        print(f"golem.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         config = self._download_xml(

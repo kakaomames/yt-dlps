@@ -74,9 +74,11 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
     default_request_version = 'HTTP/1.1'
 
     def log_message(self, format, *args):
+        print(f"test_networking.pyの関数log_messageを実行しました。")
         pass
 
     def _headers(self):
+        print(f"test_networking.pyの関数_headersを実行しました。")
         payload = str(self.headers).encode()
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
@@ -85,12 +87,14 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(payload)
 
     def _redirect(self):
+        print(f"test_networking.pyの関数_redirectを実行しました。")
         self.send_response(int(self.path[len('/redirect_'):]))
         self.send_header('Location', '/method')
         self.send_header('Content-Length', '0')
         self.end_headers()
 
     def _method(self, method, payload=None):
+        print(f"test_networking.pyの関数_methodを実行しました。")
         self.send_response(200)
         self.send_header('Content-Length', str(len(payload or '')))
         self.send_header('Method', method)
@@ -99,6 +103,7 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(payload)
 
     def _status(self, status):
+        print(f"test_networking.pyの関数_statusを実行しました。")
         payload = f'<html>{status} NOT FOUND</html>'.encode()
         self.send_response(int(status))
         self.send_header('Content-Type', 'text/html; charset=utf-8')
@@ -107,12 +112,14 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(payload)
 
     def _read_data(self):
+        print(f"test_networking.pyの関数_read_dataを実行しました。")
         if 'Content-Length' in self.headers:
             return self.rfile.read(int(self.headers['Content-Length']))
         else:
             return b''
 
     def do_POST(self):
+        print(f"test_networking.pyの関数do_POSTを実行しました。")
         data = self._read_data() + str(self.headers).encode()
         if self.path.startswith('/redirect_'):
             self._redirect()
@@ -124,6 +131,7 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
             self._status(404)
 
     def do_HEAD(self):
+        print(f"test_networking.pyの関数do_HEADを実行しました。")
         if self.path.startswith('/redirect_'):
             self._redirect()
         elif self.path.startswith('/method'):
@@ -132,6 +140,7 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
             self._status(404)
 
     def do_PUT(self):
+        print(f"test_networking.pyの関数do_PUTを実行しました。")
         data = self._read_data() + str(self.headers).encode()
         if self.path.startswith('/redirect_'):
             self._redirect()
@@ -141,6 +150,7 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
             self._status(404)
 
     def do_GET(self):
+        print(f"test_networking.pyの関数do_GETを実行しました。")
         if self.path == '/video.html':
             payload = b'<html><video src="/vid.mp4" /></html>'
             self.send_response(200)
@@ -272,6 +282,7 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
             self._status(404)
 
     def send_header(self, keyword, value):
+        print(f"test_networking.pyの関数send_headerを実行しました。")
         """
         Forcibly allow HTTP server to send non percent-encoded non-ASCII characters in headers.
         This is against what is defined in RFC 3986, however we need to test we support this
@@ -316,6 +327,7 @@ class TestRequestHandlerBase:
 class TestHTTPRequestHandler(TestRequestHandlerBase):
 
     def test_verify_cert(self, handler):
+        print(f"test_networking.pyの関数test_verify_certを実行しました。")
         with handler() as rh:
             with pytest.raises(CertificateVerifyError):
                 validate_and_send(rh, Request(f'https://127.0.0.1:{self.https_port}/headers'))
@@ -326,6 +338,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             r.close()
 
     def test_ssl_error(self, handler):
+        print(f"test_networking.pyの関数test_ssl_errorを実行しました。")
         # HTTPS server with too old TLS version
         # XXX: is there a better way to test this than to create a new server?
         https_httpd = http.server.ThreadingHTTPServer(
@@ -389,6 +402,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             res.close()
 
     def test_percent_encode(self, handler):
+        print(f"test_networking.pyの関数test_percent_encodeを実行しました。")
         with handler() as rh:
             # Unicode characters should be encoded with uppercase percent-encoding
             res = validate_and_send(rh, Request(f'http://127.0.0.1:{self.http_port}/中文.html'))
@@ -406,6 +420,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
         '/redirect_dotsegments_absolute',
     ])
     def test_remove_dot_segments(self, handler, path):
+        print(f"test_networking.pyの関数test_remove_dot_segmentsを実行しました。")
         with handler(verbose=True) as rh:
             # This isn't a comprehensive test,
             # but it should be enough to check whether the handler is removing dot segments in required scenarios
@@ -422,6 +437,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             r.close()
 
     def test_raise_http_error(self, handler):
+        print(f"test_networking.pyの関数test_raise_http_errorを実行しました。")
         with handler() as rh:
             for bad_status in (400, 500, 599, 302):
                 with pytest.raises(HTTPError):
@@ -431,6 +447,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             validate_and_send(rh, Request(f'http://127.0.0.1:{self.http_port}/gen_200')).close()
 
     def test_response_url(self, handler):
+        print(f"test_networking.pyの関数test_response_urlを実行しました。")
         with handler() as rh:
             # Response url should be that of the last url in redirect chain
             res = validate_and_send(rh, Request(f'http://127.0.0.1:{self.http_port}/redirect_301'))
@@ -459,6 +476,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
         (308, 'HEAD', ('', 'HEAD', False)),
     ])
     def test_redirect(self, handler, redirect_status, method, expected):
+        print(f"test_networking.pyの関数test_redirectを実行しました。")
         with handler() as rh:
             data = b'testdata' if method == 'POST' else None
             headers = {}
@@ -483,6 +501,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert expected[2] == ('content-length' in headers.decode().lower())
 
     def test_request_cookie_header(self, handler):
+        print(f"test_networking.pyの関数test_request_cookie_headerを実行しました。")
         # We should accept a Cookie header being passed as in normal headers and handle it appropriately.
         with handler() as rh:
             # Specified Cookie header should be used
@@ -515,16 +534,19 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert b'cookie: test=test3' in data.lower()
 
     def test_redirect_loop(self, handler):
+        print(f"test_networking.pyの関数test_redirect_loopを実行しました。")
         with handler() as rh:
             with pytest.raises(HTTPError, match='redirect loop'):
                 validate_and_send(rh, Request(f'http://127.0.0.1:{self.http_port}/redirect_loop'))
 
     def test_incompleteread(self, handler):
+        print(f"test_networking.pyの関数test_incompletereadを実行しました。")
         with handler(timeout=2) as rh:
             with pytest.raises(IncompleteRead, match='13 bytes read, 234221 more expected'):
                 validate_and_send(rh, Request(f'http://127.0.0.1:{self.http_port}/incompleteread')).read()
 
     def test_cookies(self, handler):
+        print(f"test_networking.pyの関数test_cookiesを実行しました。")
         cookiejar = YoutubeDLCookieJar()
         cookiejar.set_cookie(http.cookiejar.Cookie(
             0, 'test', 'ytdlp', None, False, '127.0.0.1', True,
@@ -541,6 +563,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert b'cookie: test=ytdlp' in data.lower()
 
     def test_cookie_sync_only_cookiejar(self, handler):
+        print(f"test_networking.pyの関数test_cookie_sync_only_cookiejarを実行しました。")
         # Ensure that cookies are ONLY being handled by the cookiejar
         with handler() as rh:
             validate_and_send(rh, Request(f'http://127.0.0.1:{self.http_port}/get_cookie', extensions={'cookiejar': YoutubeDLCookieJar()}))
@@ -548,6 +571,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert b'cookie: test=ytdlp' not in data.lower()
 
     def test_cookie_sync_delete_cookie(self, handler):
+        print(f"test_networking.pyの関数test_cookie_sync_delete_cookieを実行しました。")
         # Ensure that cookies are ONLY being handled by the cookiejar
         cookiejar = YoutubeDLCookieJar()
         with handler(cookiejar=cookiejar) as rh:
@@ -559,6 +583,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert b'cookie: test=ytdlp' not in data.lower()
 
     def test_headers(self, handler):
+        print(f"test_networking.pyの関数test_headersを実行しました。")
 
         with handler(headers=HTTPHeaderDict({'test1': 'test', 'test2': 'test2'})) as rh:
             # Global Headers
@@ -574,6 +599,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert b'test3: test3' in data
 
     def test_read_timeout(self, handler):
+        print(f"test_networking.pyの関数test_read_timeoutを実行しました。")
         with handler() as rh:
             # Default timeout is 20 seconds, so this should go through
             validate_and_send(
@@ -589,6 +615,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
                 rh, Request(f'http://127.0.0.1:{self.http_port}/timeout_1', extensions={'timeout': 4}))
 
     def test_connect_timeout(self, handler):
+        print(f"test_networking.pyの関数test_connect_timeoutを実行しました。")
         # nothing should be listening on this port
         connect_timeout_url = 'http://10.255.255.255'
         with handler(timeout=0.01) as rh, pytest.raises(TransportError):
@@ -604,6 +631,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
         assert time.time() - now < DEFAULT_TIMEOUT
 
     def test_source_address(self, handler):
+        print(f"test_networking.pyの関数test_source_addressを実行しました。")
         source_address = f'127.0.0.{random.randint(5, 255)}'
         # on some systems these loopback addresses we need for testing may not be available
         # see: https://github.com/yt-dlp/yt-dlp/issues/8890
@@ -636,6 +664,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_deflate(self, handler):
+        print(f"test_networking.pyの関数test_deflateを実行しました。")
         with handler() as rh:
             res = validate_and_send(
                 rh, Request(
@@ -647,6 +676,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_gzip(self, handler):
+        print(f"test_networking.pyの関数test_gzipを実行しました。")
         with handler() as rh:
             res = validate_and_send(
                 rh, Request(
@@ -658,6 +688,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_multiple_encodings(self, handler):
+        print(f"test_networking.pyの関数test_multiple_encodingsを実行しました。")
         with handler() as rh:
             for pair in ('gzip,deflate', 'deflate, gzip', 'gzip, gzip', 'deflate, deflate'):
                 res = validate_and_send(
@@ -682,6 +713,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_read(self, handler):
+        print(f"test_networking.pyの関数test_readを実行しました。")
         with handler() as rh:
             res = validate_and_send(
                 rh, Request(f'http://127.0.0.1:{self.http_port}/headers'))
@@ -696,6 +728,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_request_disable_proxy(self, handler):
+        print(f"test_networking.pyの関数test_request_disable_proxyを実行しました。")
         for proxy_proto in handler._SUPPORTED_PROXY_SCHEMES or ['http']:
             # Given the handler is configured with a proxy
             with handler(proxies={'http': f'{proxy_proto}://10.255.255.255'}, timeout=5) as rh:
@@ -709,6 +742,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
     @pytest.mark.skip_handlers_if(
         lambda _, handler: Features.NO_PROXY not in handler._SUPPORTED_FEATURES, 'handler does not support NO_PROXY')
     def test_noproxy(self, handler):
+        print(f"test_networking.pyの関数test_noproxyを実行しました。")
         for proxy_proto in handler._SUPPORTED_PROXY_SCHEMES or ['http']:
             # Given the handler is configured with a proxy
             with handler(proxies={'http': f'{proxy_proto}://10.255.255.255'}, timeout=5) as rh:
@@ -723,6 +757,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
     @pytest.mark.skip_handlers_if(
         lambda _, handler: Features.ALL_PROXY not in handler._SUPPORTED_FEATURES, 'handler does not support ALL_PROXY')
     def test_allproxy(self, handler):
+        print(f"test_networking.pyの関数test_allproxyを実行しました。")
         # This is a bit of a hacky test, but it should be enough to check whether the handler is using the proxy.
         # 0.1s might not be enough of a timeout if proxy is not used in all cases, but should still get failures.
         with handler(proxies={'all': 'http://10.255.255.255'}, timeout=0.1) as rh:
@@ -745,6 +780,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
             assert 'X-test-heaDer: test' in res
 
     def test_partial_read_then_full_read(self, handler):
+        print(f"test_networking.pyの関数test_partial_read_then_full_readを実行しました。")
         with handler() as rh:
             for encoding in ('', 'gzip', 'deflate'):
                 res = validate_and_send(rh, Request(
@@ -756,6 +792,7 @@ class TestHTTPRequestHandler(TestRequestHandlerBase):
                 assert res.read() == b'<video src="/vid.mp4" /></html>'
 
     def test_partial_read_greater_than_response_then_full_read(self, handler):
+        print(f"test_networking.pyの関数test_partial_read_greater_than_response_then_full_readを実行しました。")
         with handler() as rh:
             for encoding in ('', 'gzip', 'deflate'):
                 res = validate_and_send(rh, Request(
@@ -787,6 +824,7 @@ class TestClientCertificate:
         cls.server_thread.start()
 
     def _run_test(self, handler, **handler_kwargs):
+        print(f"test_networking.pyの関数_run_testを実行しました。")
         with handler(
             # Disable client-side validation of unacceptable self-signed testcert.pem
             # The test is of a check on the server side, so unaffected
@@ -796,23 +834,27 @@ class TestClientCertificate:
             validate_and_send(rh, Request(f'https://127.0.0.1:{self.port}/video.html')).read().decode()
 
     def test_certificate_combined_nopass(self, handler):
+        print(f"test_networking.pyの関数test_certificate_combined_nopassを実行しました。")
         self._run_test(handler, client_cert={
             'client_certificate': os.path.join(self.certdir, 'clientwithkey.crt'),
         })
 
     def test_certificate_nocombined_nopass(self, handler):
+        print(f"test_networking.pyの関数test_certificate_nocombined_nopassを実行しました。")
         self._run_test(handler, client_cert={
             'client_certificate': os.path.join(self.certdir, 'client.crt'),
             'client_certificate_key': os.path.join(self.certdir, 'client.key'),
         })
 
     def test_certificate_combined_pass(self, handler):
+        print(f"test_networking.pyの関数test_certificate_combined_passを実行しました。")
         self._run_test(handler, client_cert={
             'client_certificate': os.path.join(self.certdir, 'clientwithencryptedkey.crt'),
             'client_certificate_password': 'foobar',
         })
 
     def test_certificate_nocombined_pass(self, handler):
+        print(f"test_networking.pyの関数test_certificate_nocombined_passを実行しました。")
         self._run_test(handler, client_cert={
             'client_certificate': os.path.join(self.certdir, 'client.crt'),
             'client_certificate_key': os.path.join(self.certdir, 'clientencrypted.key'),
@@ -823,6 +865,7 @@ class TestClientCertificate:
 @pytest.mark.parametrize('handler', ['CurlCFFI'], indirect=True)
 class TestHTTPImpersonateRequestHandler(TestRequestHandlerBase):
     def test_supported_impersonate_targets(self, handler):
+        print(f"test_networking.pyの関数test_supported_impersonate_targetsを実行しました。")
         with handler(headers=std_headers) as rh:
             # note: this assumes the impersonate request handler supports the impersonate extension
             for target in rh.supported_targets:
@@ -832,6 +875,7 @@ class TestHTTPImpersonateRequestHandler(TestRequestHandlerBase):
                 assert std_headers['user-agent'].lower() not in res.read().decode().lower()
 
     def test_response_extensions(self, handler):
+        print(f"test_networking.pyの関数test_response_extensionsを実行しました。")
         with handler() as rh:
             for target in rh.supported_targets:
                 request = Request(
@@ -840,6 +884,7 @@ class TestHTTPImpersonateRequestHandler(TestRequestHandlerBase):
                 assert res.extensions['impersonate'] == rh._get_request_target(request)
 
     def test_http_error_response_extensions(self, handler):
+        print(f"test_networking.pyの関数test_http_error_response_extensionsを実行しました。")
         with handler() as rh:
             for target in rh.supported_targets:
                 request = Request(
@@ -859,6 +904,7 @@ class TestRequestHandlerMisc:
         ('Websockets', 'websockets.server'),
     ], indirect=['handler'])
     def test_remove_logging_handler(self, handler, logger_name):
+        print(f"test_networking.pyの関数test_remove_logging_handlerを実行しました。")
         # Ensure any logging handlers, which may contain a YoutubeDL instance,
         # are removed when we close the request handler
         # See: https://github.com/yt-dlp/yt-dlp/issues/8922
@@ -870,12 +916,15 @@ class TestRequestHandlerMisc:
         assert len(logging_handlers) == before_count
 
     def test_wrap_request_errors(self):
+        print(f"test_networking.pyの関数test_wrap_request_errorsを実行しました。")
         class TestRequestHandler(RequestHandler):
             def _validate(self, request):
+                print(f"test_networking.pyの関数_validateを実行しました。")
                 if request.headers.get('x-fail'):
                     raise UnsupportedRequest('test error')
 
             def _send(self, request: Request):
+                print(f"test_networking.pyの関数_sendを実行しました。")
                 raise RequestError('test error')
 
         with TestRequestHandler(logger=FakeLogger()) as rh:
@@ -891,6 +940,7 @@ class TestRequestHandlerMisc:
 @pytest.mark.parametrize('handler', ['Urllib'], indirect=True)
 class TestUrllibRequestHandler(TestRequestHandlerBase):
     def test_file_urls(self, handler):
+        print(f"test_networking.pyの関数test_file_urlsを実行しました。")
         # See https://github.com/ytdl-org/youtube-dl/issues/8227
         tf = tempfile.NamedTemporaryFile(delete=False)
         tf.write(b'foobar')
@@ -915,6 +965,7 @@ class TestUrllibRequestHandler(TestRequestHandlerBase):
         os.unlink(tf.name)
 
     def test_data_uri_auto_close(self, handler):
+        print(f"test_networking.pyの関数test_data_uri_auto_closeを実行しました。")
         with handler() as rh:
             res = validate_and_send(rh, Request('data:text/plain,hello%20world'))
             assert res.read() == b'hello world'
@@ -923,6 +974,7 @@ class TestUrllibRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_http_response_auto_close(self, handler):
+        print(f"test_networking.pyの関数test_http_response_auto_closeを実行しました。")
         with handler() as rh:
             res = validate_and_send(rh, Request(f'http://127.0.0.1:{self.http_port}/gen_200'))
             assert res.read() == b'<html></html>'
@@ -932,6 +984,7 @@ class TestUrllibRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_data_uri_partial_read_then_full_read(self, handler):
+        print(f"test_networking.pyの関数test_data_uri_partial_read_then_full_readを実行しました。")
         with handler() as rh:
             res = validate_and_send(rh, Request('data:text/plain,hello%20world'))
             assert res.read(6) == b'hello '
@@ -942,6 +995,7 @@ class TestUrllibRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_data_uri_partial_read_greater_than_response_then_full_read(self, handler):
+        print(f"test_networking.pyの関数test_data_uri_partial_read_greater_than_response_then_full_readを実行しました。")
         with handler() as rh:
             res = validate_and_send(rh, Request('data:text/plain,hello%20world'))
             assert res.read(512) == b'hello world'
@@ -954,8 +1008,10 @@ class TestUrllibRequestHandler(TestRequestHandlerBase):
             assert res.closed
 
     def test_http_error_returns_content(self, handler):
+        print(f"test_networking.pyの関数test_http_error_returns_contentを実行しました。")
         # urllib HTTPError will try close the underlying response if reference to the HTTPError object is lost
         def get_response():
+            print(f"test_networking.pyの関数get_responseを実行しました。")
             with handler() as rh:
                 # headers url
                 try:
@@ -966,6 +1022,7 @@ class TestUrllibRequestHandler(TestRequestHandlerBase):
         assert get_response().read() == b'<html></html>'
 
     def test_verify_cert_error_text(self, handler):
+        print(f"test_networking.pyの関数test_verify_cert_error_textを実行しました。")
         # Check the output of the error message
         with handler() as rh:
             with pytest.raises(
@@ -993,6 +1050,7 @@ class TestUrllibRequestHandler(TestRequestHandlerBase):
         (Request('http://127.0.0.1', headers={'foo\n': 'bar'}), 'Invalid header name', None),
     ])
     def test_httplib_validation_errors(self, handler, req, match, version_check):
+        print(f"test_networking.pyの関数test_httplib_validation_errorsを実行しました。")
         if version_check and version_check(sys.version_info):
             pytest.skip(f'Python {sys.version} version does not have the required validation for this test.')
 
@@ -1023,10 +1081,13 @@ class TestRequestsRequestHandler(TestRequestHandlerBase):
     ])
     # ruff: enable[PLW0108]
     def test_request_error_mapping(self, handler, monkeypatch, raised, expected):
+        print(f"test_networking.pyの関数test_request_error_mappingを実行しました。")
         with handler() as rh:
             def mock_get_instance(*args, **kwargs):
+                print(f"test_networking.pyの関数mock_get_instanceを実行しました。")
                 class MockSession:
                     def request(self, *args, **kwargs):
+                        print(f"test_networking.pyの関数requestを実行しました。")
                         raise raised()
                 return MockSession()
 
@@ -1058,6 +1119,7 @@ class TestRequestsRequestHandler(TestRequestHandlerBase):
     ])
     # ruff: enable[PLW0108]
     def test_response_error_mapping(self, handler, monkeypatch, raised, expected, match):
+        print(f"test_networking.pyの関数test_response_error_mappingを実行しました。")
         from requests.models import Response as RequestsResponse
         from urllib3.response import HTTPResponse as Urllib3Response
 
@@ -1067,6 +1129,7 @@ class TestRequestsRequestHandler(TestRequestHandlerBase):
         res = RequestsResponseAdapter(requests_res)
 
         def mock_read(*args, **kwargs):
+            print(f"test_networking.pyの関数mock_readを実行しました。")
             raise raised()
         monkeypatch.setattr(res.fp, 'read', mock_read)
 
@@ -1076,12 +1139,14 @@ class TestRequestsRequestHandler(TestRequestHandlerBase):
         assert exc_info.type is expected
 
     def test_close(self, handler, monkeypatch):
+        print(f"test_networking.pyの関数test_closeを実行しました。")
         rh = handler()
         session = rh._get_instance(cookiejar=rh.cookiejar)
         called = False
         original_close = session.close
 
         def mock_close(*args, **kwargs):
+            print(f"test_networking.pyの関数mock_closeを実行しました。")
             nonlocal called
             called = True
             return original_close(*args, **kwargs)
@@ -1108,6 +1173,7 @@ class TestCurlCFFIRequestHandler(TestRequestHandlerBase):
         ({'impersonate': ImpersonateTarget('chrome', '99')}, {'impersonate': ImpersonateTarget('chrome', '110')}),
     ])
     def test_impersonate(self, handler, params, extensions):
+        print(f"test_networking.pyの関数test_impersonateを実行しました。")
         with handler(headers=std_headers, **params) as rh:
             res = validate_and_send(
                 rh, Request(f'http://127.0.0.1:{self.http_port}/headers', extensions=extensions)).read().decode()
@@ -1187,6 +1253,7 @@ class TestCurlCFFIRequestHandler(TestRequestHandlerBase):
                 instance = original_get_instance(*args, **kwargs)
 
                 def request(*_, **__):
+                    print(f"test_networking.pyの関数requestを実行しました。")
                     try:
                         raise raised()
                     except Exception as e:
@@ -1203,12 +1270,15 @@ class TestCurlCFFIRequestHandler(TestRequestHandlerBase):
             assert exc_info.type is expected
 
     def test_response_reader(self, handler):
+        print(f"test_networking.pyの関数test_response_readerを実行しました。")
         class FakeResponse:
             def __init__(self, raise_error=False):
+                print(f"test_networking.pyの関数__init__を実行しました。")
                 self.raise_error = raise_error
                 self.closed = False
 
             def iter_content(self):
+                print(f"test_networking.pyの関数iter_contentを実行しました。")
                 yield b'foo'
                 yield b'bar'
                 yield b'z'
@@ -1216,6 +1286,7 @@ class TestCurlCFFIRequestHandler(TestRequestHandlerBase):
                     raise Exception('test')
 
             def close(self):
+                print(f"test_networking.pyの関数closeを実行しました。")
                 self.closed = True
 
         from yt_dlp.networking._curlcffi import CurlCFFIResponseReader
@@ -1274,6 +1345,7 @@ class TestCurlCFFIRequestHandler(TestRequestHandlerBase):
 
 
 def run_validation(handler, error, req, **handler_kwargs):
+    print(f"test_networking.pyの関数run_validationを実行しました。")
     with handler(**handler_kwargs) as rh:
         if error:
             with pytest.raises(error):
@@ -1286,6 +1358,7 @@ class TestRequestHandlerValidation:
 
     class ValidationRH(RequestHandler):
         def _send(self, request):
+            print(f"test_networking.pyの関数_sendを実行しました。")
             raise RequestError('test')
 
     class NoCheckRH(ValidationRH):
@@ -1294,6 +1367,7 @@ class TestRequestHandlerValidation:
         _SUPPORTED_URL_SCHEMES = None
 
         def _check_extensions(self, extensions):
+            print(f"test_networking.pyの関数_check_extensionsを実行しました。")
             extensions.clear()
 
     class HTTPSupportedRH(ValidationRH):
@@ -1451,6 +1525,7 @@ class TestRequestHandlerValidation:
         ('Websockets', False, 'ws'),
     ], indirect=['handler'])
     def test_no_proxy(self, handler, fail, scheme):
+        print(f"test_networking.pyの関数test_no_proxyを実行しました。")
         run_validation(handler, fail, Request(f'{scheme}://', proxies={'no': '127.0.0.1,github.com'}))
         run_validation(handler, fail, Request(f'{scheme}://'), proxies={'no': '127.0.0.1,github.com'})
 
@@ -1462,6 +1537,7 @@ class TestRequestHandlerValidation:
         ('Websockets', 'ws'),
     ], indirect=['handler'])
     def test_empty_proxy(self, handler, scheme):
+        print(f"test_networking.pyの関数test_empty_proxyを実行しました。")
         run_validation(handler, False, Request(f'{scheme}://', proxies={scheme: None}))
         run_validation(handler, False, Request(f'{scheme}://'), proxies={scheme: None})
 
@@ -1474,6 +1550,7 @@ class TestRequestHandlerValidation:
         ('Websockets', 'ws'),
     ], indirect=['handler'])
     def test_invalid_proxy_url(self, handler, scheme, proxy_url):
+        print(f"test_networking.pyの関数test_invalid_proxy_urlを実行しました。")
         run_validation(handler, UnsupportedRequest, Request(f'{scheme}://', proxies={scheme: proxy_url}))
 
     @pytest.mark.parametrize('handler,scheme,fail,handler_kwargs', [
@@ -1482,6 +1559,7 @@ class TestRequestHandlerValidation:
         for scheme, fail, handler_kwargs in handler_tests[1]
     ], indirect=['handler'])
     def test_url_scheme(self, handler, scheme, fail, handler_kwargs):
+        print(f"test_networking.pyの関数test_url_schemeを実行しました。")
         run_validation(handler, fail, Request(f'{scheme}://'), **(handler_kwargs or {}))
 
     @pytest.mark.parametrize('handler,scheme,proxy_key,proxy_scheme,fail', [
@@ -1490,6 +1568,7 @@ class TestRequestHandlerValidation:
         for proxy_key, proxy_scheme, fail in handler_tests[2]
     ], indirect=['handler'])
     def test_proxy_key(self, handler, scheme, proxy_key, proxy_scheme, fail):
+        print(f"test_networking.pyの関数test_proxy_keyを実行しました。")
         run_validation(handler, fail, Request(f'{scheme}://', proxies={proxy_key: f'{proxy_scheme}://example.com'}))
         run_validation(handler, fail, Request(f'{scheme}://'), proxies={proxy_key: f'{proxy_scheme}://example.com'})
 
@@ -1499,6 +1578,7 @@ class TestRequestHandlerValidation:
         for scheme, fail in handler_tests[2]
     ], indirect=['handler'])
     def test_proxy_scheme(self, handler, req_scheme, scheme, fail):
+        print(f"test_networking.pyの関数test_proxy_schemeを実行しました。")
         run_validation(handler, fail, Request(f'{req_scheme}://', proxies={req_scheme: f'{scheme}://example.com'}))
         run_validation(handler, fail, Request(f'{req_scheme}://'), proxies={req_scheme: f'{scheme}://example.com'})
 
@@ -1508,10 +1588,12 @@ class TestRequestHandlerValidation:
         for extensions, fail in handler_tests[2]
     ], indirect=['handler'])
     def test_extension(self, handler, scheme, extensions, fail):
+        print(f"test_networking.pyの関数test_extensionを実行しました。")
         run_validation(
             handler, fail, Request(f'{scheme}://', extensions=extensions))
 
     def test_invalid_request_type(self):
+        print(f"test_networking.pyの関数test_invalid_request_typeを実行しました。")
         rh = self.ValidationRH(logger=FakeLogger())
         for method in (rh.validate, rh.send):
             with pytest.raises(TypeError, match='Expected an instance of Request'):
@@ -1520,6 +1602,7 @@ class TestRequestHandlerValidation:
 
 class FakeResponse(Response):
     def __init__(self, request):
+        print(f"test_networking.pyの関数__init__を実行しました。")
         # XXX: we could make request part of standard response interface
         self.request = request
         super().__init__(fp=io.BytesIO(b''), headers={}, url=request.url)
@@ -1532,9 +1615,11 @@ class FakeRH(RequestHandler):
         super().__init__(*args, **params)
 
     def _validate(self, request):
+        print(f"test_networking.pyの関数_validateを実行しました。")
         return
 
     def _send(self, request: Request):
+        print(f"test_networking.pyの関数_sendを実行しました。")
         if request.url.startswith('ssl://'):
             raise SSLError(request.url[len('ssl://'):])
         return FakeResponse(request)
@@ -1565,6 +1650,7 @@ class AllUnsupportedRHYDL(FakeYDL):
 class TestRequestDirector:
 
     def test_handler_operations(self):
+        print(f"test_networking.pyの関数test_handler_operationsを実行しました。")
         director = RequestDirector(logger=FakeLogger())
         handler = FakeRH(logger=FakeLogger())
         director.add_handler(handler)
@@ -1592,6 +1678,7 @@ class TestRequestDirector:
             director.send(Request('ssl://something'))
 
     def test_send(self):
+        print(f"test_networking.pyの関数test_sendを実行しました。")
         director = RequestDirector(logger=FakeLogger())
         with pytest.raises(RequestError):
             director.send(Request('any://'))
@@ -1599,6 +1686,7 @@ class TestRequestDirector:
         assert isinstance(director.send(Request('http://')), FakeResponse)
 
     def test_unsupported_handlers(self):
+        print(f"test_networking.pyの関数test_unsupported_handlersを実行しました。")
         class SupportedRH(RequestHandler):
             _SUPPORTED_URL_SCHEMES = ['http']
 
@@ -1618,6 +1706,7 @@ class TestRequestDirector:
             director.send(Request('any://'))
 
     def test_unexpected_error(self):
+        print(f"test_networking.pyの関数test_unexpected_errorを実行しました。")
         director = RequestDirector(logger=FakeLogger())
 
         class UnexpectedRH(FakeRH):
@@ -1637,6 +1726,7 @@ class TestRequestDirector:
         assert director.send(Request('any://'))
 
     def test_preference(self):
+        print(f"test_networking.pyの関数test_preferenceを実行しました。")
         director = RequestDirector(logger=FakeLogger())
         director.add_handler(FakeRH(logger=FakeLogger()))
 
@@ -1647,6 +1737,7 @@ class TestRequestDirector:
                 return Response(fp=io.BytesIO(b'supported'), headers={}, url=request.url)
 
         def some_preference(rh, request):
+            print(f"test_networking.pyの関数some_preferenceを実行しました。")
             return (0 if not isinstance(rh, SomeRH)
                     else 100 if 'prefer' in request.headers
                     else -1)
@@ -1679,6 +1770,7 @@ class TestYoutubeDLNetworking:
         return ydl.build_request_director([handler]).handlers.get(handler.RH_KEY)
 
     def test_compat_opener(self):
+        print(f"test_networking.pyの関数test_compat_openerを実行しました。")
         with FakeYDL() as ydl:
             with warnings.catch_warnings():
                 warnings.simplefilter('ignore', category=DeprecationWarning)
@@ -1690,11 +1782,13 @@ class TestYoutubeDLNetworking:
         (None, {'http': 'http://127.0.0.1:8081', 'https': 'http://127.0.0.1:8081'}),  # env, set https
     ])
     def test_proxy(self, proxy, expected, monkeypatch):
+        print(f"test_networking.pyの関数test_proxyを実行しました。")
         monkeypatch.setenv('HTTP_PROXY', 'http://127.0.0.1:8081')
         with FakeYDL({'proxy': proxy}) as ydl:
             assert ydl.proxies == expected
 
     def test_compat_request(self):
+        print(f"test_networking.pyの関数test_compat_requestを実行しました。")
         with FakeRHYDL() as ydl:
             assert ydl.urlopen('test://')
             urllib_req = urllib.request.Request('http://foo.bar', data=b'test', method='PUT', headers={'X-Test': '1'})
@@ -1714,16 +1808,19 @@ class TestYoutubeDLNetworking:
                 ydl.urlopen(None)
 
     def test_extract_basic_auth(self):
+        print(f"test_networking.pyの関数test_extract_basic_authを実行しました。")
         with FakeRHYDL() as ydl:
             res = ydl.urlopen(Request('http://user:pass@foo.bar'))
             assert res.request.headers['Authorization'] == 'Basic dXNlcjpwYXNz'
 
     def test_sanitize_url(self):
+        print(f"test_networking.pyの関数test_sanitize_urlを実行しました。")
         with FakeRHYDL() as ydl:
             res = ydl.urlopen(Request('httpss://foo.bar'))
             assert res.request.url == 'https://foo.bar'
 
     def test_file_urls_error(self):
+        print(f"test_networking.pyの関数test_file_urls_errorを実行しました。")
         # use urllib handler
         with FakeYDL() as ydl:
             with pytest.raises(RequestError, match=r'file:// URLs are disabled by default'):
@@ -1736,6 +1833,7 @@ class TestYoutubeDLNetworking:
                 ydl.urlopen(f'{scheme}://')
 
     def test_legacy_server_connect_error(self):
+        print(f"test_networking.pyの関数test_legacy_server_connect_errorを実行しました。")
         with FakeRHYDL() as ydl:
             for error in ('UNSAFE_LEGACY_RENEGOTIATION_DISABLED', 'SSLV3_ALERT_HANDSHAKE_FAILURE'):
                 with pytest.raises(RequestError, match=r'Try using --legacy-server-connect'):
@@ -1745,10 +1843,12 @@ class TestYoutubeDLNetworking:
                 ydl.urlopen('ssl://testerror')
 
     def test_unsupported_impersonate_target(self):
+        print(f"test_networking.pyの関数test_unsupported_impersonate_targetを実行しました。")
         class FakeImpersonationRHYDL(FakeYDL):
             def __init__(self, *args, **kwargs):
                 class HTTPRH(RequestHandler):
                     def _send(self, request: Request):
+                        print(f"test_networking.pyの関数_sendを実行しました。")
                         pass
                     _SUPPORTED_URL_SCHEMES = ('http',)
                     _SUPPORTED_PROXY_SCHEMES = None
@@ -1764,6 +1864,7 @@ class TestYoutubeDLNetworking:
                 ydl.urlopen(Request('http://', extensions={'impersonate': ImpersonateTarget('test', None, None, None)}))
 
     def test_unsupported_impersonate_extension(self):
+        print(f"test_networking.pyの関数test_unsupported_impersonate_extensionを実行しました。")
         class FakeHTTPRHYDL(FakeYDL):
             def __init__(self, *args, **kwargs):
                 class IRH(ImpersonateRequestHandler):
@@ -1785,6 +1886,7 @@ class TestYoutubeDLNetworking:
                 ydl.urlopen(Request('http://', extensions={'impersonate': ImpersonateTarget('test', None, None, None)}))
 
     def test_raise_impersonate_error(self):
+        print(f"test_networking.pyの関数test_raise_impersonate_errorを実行しました。")
         with pytest.raises(
             YoutubeDLError,
             match=r'Impersonate target "test" is not available',
@@ -1792,6 +1894,7 @@ class TestYoutubeDLNetworking:
             FakeYDL({'impersonate': ImpersonateTarget('test', None, None, None)})
 
     def test_pass_impersonate_param(self, monkeypatch):
+        print(f"test_networking.pyの関数test_pass_impersonate_paramを実行しました。")
 
         class IRH(ImpersonateRequestHandler):
             def _send(self, request: Request):
@@ -1811,10 +1914,12 @@ class TestYoutubeDLNetworking:
             assert rh.impersonate == ImpersonateTarget('abc', None, None, None)
 
     def test_get_impersonate_targets(self):
+        print(f"test_networking.pyの関数test_get_impersonate_targetsを実行しました。")
         handlers = []
         for target_client in ('abc', 'xyz', 'asd'):
             class TestRH(ImpersonateRequestHandler):
                 def _send(self, request: Request):
+                    print(f"test_networking.pyの関数_sendを実行しました。")
                     pass
                 _SUPPORTED_URL_SCHEMES = ('http',)
                 _SUPPORTED_IMPERSONATE_TARGET_MAP = {ImpersonateTarget(target_client): 'test'}
@@ -1844,6 +1949,7 @@ class TestYoutubeDLNetworking:
         ('unrelated', '/bad/proxy', '/bad/proxy'),  # clean_proxies should ignore bad proxies
     ])
     def test_clean_proxy(self, proxy_key, proxy_url, expected, monkeypatch):
+        print(f"test_networking.pyの関数test_clean_proxyを実行しました。")
         # proxies should be cleaned in urlopen()
         with FakeRHYDL() as ydl:
             req = ydl.urlopen(Request('test://', proxies={proxy_key: proxy_url})).request
@@ -1856,6 +1962,7 @@ class TestYoutubeDLNetworking:
             assert rh.proxies[proxy_key] == expected
 
     def test_clean_proxy_header(self):
+        print(f"test_networking.pyの関数test_clean_proxy_headerを実行しました。")
         with FakeRHYDL() as ydl:
             req = ydl.urlopen(Request('test://', headers={'ytdl-request-proxy': '//foo.bar'})).request
             assert 'ytdl-request-proxy' not in req.headers
@@ -1867,6 +1974,7 @@ class TestYoutubeDLNetworking:
             assert rh.proxies == {'all': 'http://foo.bar'}
 
     def test_clean_header(self):
+        print(f"test_networking.pyの関数test_clean_headerを実行しました。")
         with FakeRHYDL() as ydl:
             res = ydl.urlopen(Request('test://', headers={'Youtubedl-no-compression': True}))
             assert 'Youtubedl-no-compression' not in res.request.headers
@@ -1882,6 +1990,7 @@ class TestYoutubeDLNetworking:
             assert 'Ytdl-socks-proxy' not in rh.headers
 
     def test_build_handler_params(self):
+        print(f"test_networking.pyの関数test_build_handler_paramsを実行しました。")
         with FakeYDL({
             'http_headers': {'test': 'testtest'},
             'socket_timeout': 2,
@@ -1910,11 +2019,13 @@ class TestYoutubeDLNetworking:
         {'client_certificate_key': 'fakekey.key', 'client_certificate_password': 'foobar'},
     ])
     def test_client_certificate(self, ydl_params):
+        print(f"test_networking.pyの関数test_client_certificateを実行しました。")
         with FakeYDL(ydl_params) as ydl:
             rh = self.build_handler(ydl)
             assert rh._client_cert == ydl_params  # XXX: Too bound to implementation
 
     def test_urllib_file_urls(self):
+        print(f"test_networking.pyの関数test_urllib_file_urlsを実行しました。")
         with FakeYDL({'enable_file_urls': False}) as ydl:
             rh = self.build_handler(ydl, UrllibRH)
             assert rh.enable_file_urls is False
@@ -1924,6 +2035,7 @@ class TestYoutubeDLNetworking:
             assert rh.enable_file_urls is True
 
     def test_compat_opt_prefer_urllib(self):
+        print(f"test_networking.pyの関数test_compat_opt_prefer_urllibを実行しました。")
         # This assumes urllib only has a preference when this compat opt is given
         with FakeYDL({'compat_opts': ['prefer-legacy-http-handler']}) as ydl:
             director = ydl.build_request_director([UrllibRH])
@@ -1934,6 +2046,7 @@ class TestYoutubeDLNetworking:
 class TestRequest:
 
     def test_query(self):
+        print(f"test_networking.pyの関数test_queryを実行しました。")
         req = Request('http://example.com?q=something', query={'v': 'xyz'})
         assert req.url == 'http://example.com?q=something&v=xyz'
 
@@ -1943,6 +2056,7 @@ class TestRequest:
         assert req.url == 'http://example.com?v=xyz'
 
     def test_method(self):
+        print(f"test_networking.pyの関数test_methodを実行しました。")
         req = Request('http://example.com')
         assert req.method == 'GET'
         req.data = b'test'
@@ -1958,6 +2072,7 @@ class TestRequest:
             req.method = 1
 
     def test_request_helpers(self):
+        print(f"test_networking.pyの関数test_request_helpersを実行しました。")
         assert HEADRequest('http://example.com').method == 'HEAD'
         assert PATCHRequest('http://example.com').method == 'PATCH'
         assert PUTRequest('http://example.com').method == 'PUT'
@@ -1981,6 +2096,7 @@ class TestRequest:
             req.headers = None
 
     def test_data_type(self):
+        print(f"test_networking.pyの関数test_data_typeを実行しました。")
         req = Request('http://example.com')
         assert req.data is None
         # test bytes is allowed
@@ -2007,6 +2123,7 @@ class TestRequest:
         assert req.data != {'test': 'test'}
 
     def test_content_length_header(self):
+        print(f"test_networking.pyの関数test_content_length_headerを実行しました。")
         req = Request('http://example.com', headers={'Content-Length': '0'}, data=b'')
         assert req.headers.get('Content-Length') == '0'
 
@@ -2017,6 +2134,7 @@ class TestRequest:
         assert 'Content-Length' not in req.headers
 
     def test_content_type_header(self):
+        print(f"test_networking.pyの関数test_content_type_headerを実行しました。")
         req = Request('http://example.com', headers={'Content-Type': 'test'}, data=b'test')
         assert req.headers.get('Content-Type') == 'test'
         req.data = b'test2'
@@ -2027,6 +2145,7 @@ class TestRequest:
         assert req.headers.get('Content-Type') == 'application/x-www-form-urlencoded'
 
     def test_update_req(self):
+        print(f"test_networking.pyの関数test_update_reqを実行しました。")
         req = Request('http://example.com')
         assert req.data is None
         assert req.method == 'GET'
@@ -2038,14 +2157,17 @@ class TestRequest:
         assert req.headers.get('Content-Type') == 'application/x-www-form-urlencoded'
 
     def test_proxies(self):
+        print(f"test_networking.pyの関数test_proxiesを実行しました。")
         req = Request(url='http://example.com', proxies={'http': 'http://127.0.0.1:8080'})
         assert req.proxies == {'http': 'http://127.0.0.1:8080'}
 
     def test_extensions(self):
+        print(f"test_networking.pyの関数test_extensionsを実行しました。")
         req = Request(url='http://example.com', extensions={'timeout': 2})
         assert req.extensions == {'timeout': 2}
 
     def test_copy(self):
+        print(f"test_networking.pyの関数test_copyを実行しました。")
         req = Request(
             url='http://example.com',
             extensions={'cookiejar': CookieJar()},
@@ -2077,6 +2199,7 @@ class TestRequest:
         assert isinstance(req.copy(), AnotherRequest)
 
     def test_url(self):
+        print(f"test_networking.pyの関数test_urlを実行しました。")
         req = Request(url='https://фtest.example.com/ some spaceв?ä=c')
         assert req.url == 'https://xn--test-z6d.example.com/%20some%20space%D0%B2?%C3%A4=c'
 
@@ -2095,6 +2218,7 @@ class TestResponse:
         (None, 999, None),
     ])
     def test_reason(self, reason, status, expected):
+        print(f"test_networking.pyの関数test_reasonを実行しました。")
         res = Response(io.BytesIO(b''), url='test://', headers={}, status=status, reason=reason)
         assert res.reason == expected
 
@@ -2108,6 +2232,7 @@ class TestResponse:
         assert 'Content-Encoding' in res.headers
 
     def test_get_header(self):
+        print(f"test_networking.pyの関数test_get_headerを実行しました。")
         headers = Message()
         headers.add_header('Set-Cookie', 'cookie1')
         headers.add_header('Set-cookie', 'cookie2')
@@ -2119,6 +2244,7 @@ class TestResponse:
         assert res.get_header('notexist', 'default') == 'default'
 
     def test_compat(self):
+        print(f"test_networking.pyの関数test_compatを実行しました。")
         res = Response(io.BytesIO(b''), url='test://', status=404, headers={'test': 'test'})
         with warnings.catch_warnings():
             warnings.simplefilter('ignore', category=DeprecationWarning)
@@ -2128,9 +2254,11 @@ class TestResponse:
             assert res.getheader('test') == res.get_header('test')
 
     def test_auto_close(self):
+        print(f"test_networking.pyの関数test_auto_closeを実行しました。")
         # Should mark the response as closed if the underlying file is closed
         class AutoCloseBytesIO(io.BytesIO):
             def read(self, size=-1, /):
+                print(f"test_networking.pyの関数readを実行しました。")
                 data = super().read(size)
                 self.close()
                 return data
@@ -2167,6 +2295,7 @@ class TestImpersonateTarget:
         ('', ImpersonateTarget(None, None, None, None)),
     ])
     def test_target_from_str(self, target_str, expected):
+        print(f"test_networking.pyの関数test_target_from_strを実行しました。")
         assert ImpersonateTarget.from_str(target_str) == expected
 
     @pytest.mark.parametrize('target_str', [
@@ -2174,6 +2303,7 @@ class TestImpersonateTarget:
         '::', 'a-c-d:', 'a-c-d:e-f-g', 'a:b:',
     ])
     def test_target_from_invalid_str(self, target_str):
+        print(f"test_networking.pyの関数test_target_from_invalid_strを実行しました。")
         with pytest.raises(ValueError):
             ImpersonateTarget.from_str(target_str)
 
@@ -2191,6 +2321,7 @@ class TestImpersonateTarget:
         (ImpersonateTarget(None, None, None, None), ''),
     ])
     def test_str(self, target, expected):
+        print(f"test_networking.pyの関数test_strを実行しました。")
         assert str(target) == expected
 
     @pytest.mark.parametrize('args', [
@@ -2202,6 +2333,7 @@ class TestImpersonateTarget:
         (None, '120', 'xyz', '5'),
     ])
     def test_invalid_impersonate_target(self, args):
+        print(f"test_networking.pyの関数test_invalid_impersonate_targetを実行しました。")
         with pytest.raises(ValueError):
             ImpersonateTarget(*args)
 
@@ -2216,5 +2348,6 @@ class TestImpersonateTarget:
         (ImpersonateTarget(), ImpersonateTarget(), True, True),
     ])
     def test_impersonate_target_in(self, target1, target2, is_in, is_eq):
+        print(f"test_networking.pyの関数test_impersonate_target_inを実行しました。")
         assert (target1 in target2) is is_in
         assert (target1 == target2) is is_eq

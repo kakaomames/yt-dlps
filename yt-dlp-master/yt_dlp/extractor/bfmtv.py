@@ -13,6 +13,7 @@ class BFMTVBaseIE(InfoExtractor):
 
     def _extract_video(self, video_block):
         print(f"bfmtv.pyの関数_extract_videoを実行しました。")
+        print(f"bfmtv.pyの関数_extract_videoを実行しました。")
         video_element = self._search_regex(
             self._VIDEO_ELEMENT_REGEX, video_block, 'video element', default=None)
         if video_element:
@@ -54,6 +55,7 @@ class BFMTVIE(BFMTVBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"bfmtv.pyの関数_real_extractを実行しました。")
         print(f"bfmtv.pyの関数_real_extractを実行しました。")
         bfmtv_id = self._match_id(url)
         webpage = self._download_webpage(url, bfmtv_id)
@@ -131,6 +133,7 @@ class BFMTVArticleIE(BFMTVBaseIE):
     }]
 
     def _entries(self, webpage):
+        print(f"bfmtv.pyの関数_entriesを実行しました。")
         print(f"bfmtv.pyの関数_entriesを実行しました。")
         for video_block_el in re.findall(self._VIDEO_BLOCK_REGEX, webpage):
             video = self._extract_video(video_block_el)

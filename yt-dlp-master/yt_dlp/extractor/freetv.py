@@ -8,6 +8,7 @@ from ..utils import int_or_none, traverse_obj, urlencode_postdata
 class FreeTvBaseIE(InfoExtractor):
     def _get_api_response(self, content_id, resource_type, postdata):
         print(f"freetv.pyの関数_get_api_responseを実行しました。")
+        print(f"freetv.pyの関数_get_api_responseを実行しました。")
         return self._download_json(
             'https://www.freetv.com/wordpress/wp-admin/admin-ajax.php',
             content_id, data=urlencode_postdata(postdata),
@@ -38,6 +39,7 @@ class FreeTvMoviesIE(FreeTvBaseIE):
 
     def _extract_video(self, content_id, action='olyott_video_play'):
         print(f"freetv.pyの関数_extract_videoを実行しました。")
+        print(f"freetv.pyの関数_extract_videoを実行しました。")
         api_response = self._get_api_response(content_id, 'video', {
             'action': action,
             'contentID': content_id,
@@ -55,6 +57,7 @@ class FreeTvMoviesIE(FreeTvBaseIE):
         }
 
     def _real_extract(self, url):
+        print(f"freetv.pyの関数_real_extractを実行しました。")
         print(f"freetv.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
@@ -98,6 +101,7 @@ class FreeTvIE(FreeTvBaseIE):
     ]
 
     def _extract_series_season(self, season_id, series_title):
+        print(f"freetv.pyの関数_extract_series_seasonを実行しました。")
         print(f"freetv.pyの関数_extract_series_seasonを実行しました。")
         episodes = self._get_api_response(season_id, 'series', {
             'contentID': season_id,

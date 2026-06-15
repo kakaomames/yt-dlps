@@ -23,10 +23,12 @@ class TapTapBaseIE(InfoExtractor):
 
     def _get_api(self, url, video_id, query, **kwargs):
         print(f"taptap.pyの関数_get_apiを実行しました。")
+        print(f"taptap.pyの関数_get_apiを実行しました。")
         query = {**query, 'X-UA': self._X_UA.format(uuid=uuid.uuid4())}
         return self._download_json(url, video_id, query=query, **kwargs)['data']
 
     def _extract_video(self, video_id):
+        print(f"taptap.pyの関数_extract_videoを実行しました。")
         print(f"taptap.pyの関数_extract_videoを実行しました。")
         video_data = self._get_api(self._VIDEO_API, video_id, query={'video_ids': video_id})['list'][0]
 
@@ -47,6 +49,7 @@ class TapTapBaseIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"taptap.pyの関数_real_extractを実行しました。")
         print(f"taptap.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         query = {self._INFO_QUERY_KEY: video_id}

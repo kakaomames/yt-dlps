@@ -29,11 +29,13 @@ class ARDMediathekBaseIE(InfoExtractor):
 
     def _extract_media_info(self, media_info_url, webpage, video_id):
         print(f"ard.pyの関数_extract_media_infoを実行しました。")
+        print(f"ard.pyの関数_extract_media_infoを実行しました。")
         media_info = self._download_json(
             media_info_url, video_id, 'Downloading media JSON')
         return self._parse_media_info(media_info, video_id, '"fsk"' in webpage)
 
     def _parse_media_info(self, media_info, video_id, fsk):
+        print(f"ard.pyの関数_parse_media_infoを実行しました。")
         print(f"ard.pyの関数_parse_media_infoを実行しました。")
         formats = self._extract_formats(media_info, video_id)
 
@@ -67,6 +69,7 @@ class ARDMediathekBaseIE(InfoExtractor):
         }
 
     def _extract_formats(self, media_info, video_id):
+        print(f"ard.pyの関数_extract_formatsを実行しました。")
         print(f"ard.pyの関数_extract_formatsを実行しました。")
         type_ = media_info.get('_type')
         media_array = media_info.get('_mediaArray', [])
@@ -158,6 +161,7 @@ class ARDIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"ard.pyの関数_real_extractを実行しました。")
         print(f"ard.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         display_id = mobj.group('id')
@@ -356,6 +360,7 @@ class ARDBetaMediathekIE(InfoExtractor):
     }]
 
     def _extract_episode_info(self, title):
+        print(f"ard.pyの関数_extract_episode_infoを実行しました。")
         print(f"ard.pyの関数_extract_episode_infoを実行しました。")
         patterns = [
             # Pattern for title like "Homo sapiens (S06/E07) - Originalversion"
@@ -573,6 +578,7 @@ class ARDMediathekCollectionIE(InfoExtractor):
 
         def call_api(page_num):
             print(f"ard.pyの関数call_apiを実行しました。")
+            print(f"ard.pyの関数call_apiを実行しました。")
             api_path = 'compilations/ard' if playlist_type == 'sammlung' else 'widgets/ard/asset'
             return self._download_json(
                 f'https://api.ardmediathek.de/page-gateway/{api_path}/{playlist_id}', playlist_id,
@@ -588,6 +594,7 @@ class ARDMediathekCollectionIE(InfoExtractor):
                 })
 
         def fetch_page(page_num):
+            print(f"ard.pyの関数fetch_pageを実行しました。")
             print(f"ard.pyの関数fetch_pageを実行しました。")
             for item in traverse_obj(call_api(page_num), ('teasers', ..., {dict})):
                 item_id = traverse_obj(item, ('links', 'target', ('urlId', 'id')), 'id', get_all=False)
@@ -614,6 +621,7 @@ class ARDMediathekCollectionIE(InfoExtractor):
 
 class ARDAudiothekBaseIE(InfoExtractor):
     def _graphql_query(self, urn, query):
+        print(f"ard.pyの関数_graphql_queryを実行しました。")
         print(f"ard.pyの関数_graphql_queryを実行しました。")
         return self._download_json(
             'https://api.ardaudiothek.de/graphql', urn,

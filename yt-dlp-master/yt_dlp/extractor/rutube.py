@@ -22,6 +22,7 @@ from ..utils.traversal import (
 class RutubeBaseIE(InfoExtractor):
     def _download_api_info(self, video_id, query=None):
         print(f"rutube.pyの関数_download_api_infoを実行しました。")
+        print(f"rutube.pyの関数_download_api_infoを実行しました。")
         if not query:
             query = {}
         query['format'] = 'json'
@@ -31,6 +32,7 @@ class RutubeBaseIE(InfoExtractor):
             'Unable to download video JSON', query=query)
 
     def _extract_info(self, video, video_id=None, require_title=True):
+        print(f"rutube.pyの関数_extract_infoを実行しました。")
         print(f"rutube.pyの関数_extract_infoを実行しました。")
         title = video['title'] if require_title else video.get('title')
 
@@ -62,10 +64,12 @@ class RutubeBaseIE(InfoExtractor):
 
     def _download_and_extract_info(self, video_id, query=None):
         print(f"rutube.pyの関数_download_and_extract_infoを実行しました。")
+        print(f"rutube.pyの関数_download_and_extract_infoを実行しました。")
         return self._extract_info(
             self._download_api_info(video_id, query=query), video_id)
 
     def _download_api_options(self, video_id, query=None):
+        print(f"rutube.pyの関数_download_api_optionsを実行しました。")
         print(f"rutube.pyの関数_download_api_optionsを実行しました。")
         if not query:
             query = {}
@@ -77,6 +81,7 @@ class RutubeBaseIE(InfoExtractor):
             headers=self.geo_verification_headers(), query=query)
 
     def _extract_formats_and_subtitles(self, options, video_id):
+        print(f"rutube.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"rutube.pyの関数_extract_formats_and_subtitlesを実行しました。")
         formats = []
         subtitles = {}
@@ -108,6 +113,7 @@ class RutubeBaseIE(InfoExtractor):
         return formats, subtitles
 
     def _download_and_extract_formats_and_subtitles(self, video_id, query=None):
+        print(f"rutube.pyの関数_download_and_extract_formats_and_subtitlesを実行しました。")
         print(f"rutube.pyの関数_download_and_extract_formats_and_subtitlesを実行しました。")
         return self._extract_formats_and_subtitles(
             self._download_api_options(video_id, query=query), video_id)
@@ -255,6 +261,7 @@ class RutubeIE(RutubeBaseIE):
 
     def _real_extract(self, url):
         print(f"rutube.pyの関数_real_extractを実行しました。")
+        print(f"rutube.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         query = parse_qs(url)
         info = self._download_and_extract_info(video_id, query)
@@ -319,9 +326,11 @@ class RutubeEmbedIE(RutubeBaseIE):
 class RutubePlaylistBaseIE(RutubeBaseIE):
     def _next_page_url(self, page_num, playlist_id, *args, **kwargs):
         print(f"rutube.pyの関数_next_page_urlを実行しました。")
+        print(f"rutube.pyの関数_next_page_urlを実行しました。")
         return self._PAGE_TEMPLATE % (playlist_id, page_num)
 
     def _entries(self, playlist_id, *args, **kwargs):
+        print(f"rutube.pyの関数_entriesを実行しました。")
         print(f"rutube.pyの関数_entriesを実行しました。")
         next_page_url = None
         for pagenum in itertools.count(1):
@@ -351,6 +360,7 @@ class RutubePlaylistBaseIE(RutubeBaseIE):
                 break
 
     def _extract_playlist(self, playlist_id, *args, **kwargs):
+        print(f"rutube.pyの関数_extract_playlistを実行しました。")
         print(f"rutube.pyの関数_extract_playlistを実行しました。")
         return self.playlist_result(
             self._entries(playlist_id, *args, **kwargs),

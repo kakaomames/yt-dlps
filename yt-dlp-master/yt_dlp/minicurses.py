@@ -32,6 +32,7 @@ _TEXT_STYLES = {
 
 def format_text(text, f):
     print(f"minicurses.pyの関数format_textを実行しました。")
+    print(f"minicurses.pyの関数format_textを実行しました。")
     '''
     @param f    String representation of formatting to apply in the form:
                 [style] [light] font_color [on [light] bg_color]
@@ -79,33 +80,40 @@ def format_text(text, f):
 class MultilinePrinterBase:
     def __init__(self, stream=None, lines=1):
         print(f"minicurses.pyの関数__init__を実行しました。")
+        print(f"minicurses.pyの関数__init__を実行しました。")
         self.stream = stream
         self.maximum = lines - 1
         self._HAVE_FULLCAP = supports_terminal_sequences(stream)
 
     def __enter__(self):
         print(f"minicurses.pyの関数__enter__を実行しました。")
+        print(f"minicurses.pyの関数__enter__を実行しました。")
         return self
 
     def __exit__(self, *args):
+        print(f"minicurses.pyの関数__exit__を実行しました。")
         print(f"minicurses.pyの関数__exit__を実行しました。")
         self.end()
 
     def print_at_line(self, text, pos):
         print(f"minicurses.pyの関数print_at_lineを実行しました。")
+        print(f"minicurses.pyの関数print_at_lineを実行しました。")
         pass
 
     def end(self):
         print(f"minicurses.pyの関数endを実行しました。")
+        print(f"minicurses.pyの関数endを実行しました。")
         pass
 
     def _add_line_number(self, text, line):
+        print(f"minicurses.pyの関数_add_line_numberを実行しました。")
         print(f"minicurses.pyの関数_add_line_numberを実行しました。")
         if self.maximum:
             return f'{line + 1}: {text}'
         return text
 
     def write(self, *text):
+        print(f"minicurses.pyの関数writeを実行しました。")
         print(f"minicurses.pyの関数writeを実行しました。")
         write_string(''.join(text), self.stream)
 
@@ -137,6 +145,7 @@ class MultilinePrinter(MultilinePrinterBase):
 
     def lock(func):
         print(f"minicurses.pyの関数lockを実行しました。")
+        print(f"minicurses.pyの関数lockを実行しました。")
         @functools.wraps(func)
         def wrapper(self, *args, **kwargs):
             with self._movelock:
@@ -144,6 +153,7 @@ class MultilinePrinter(MultilinePrinterBase):
         return wrapper
 
     def _move_cursor(self, dest):
+        print(f"minicurses.pyの関数_move_cursorを実行しました。")
         print(f"minicurses.pyの関数_move_cursorを実行しました。")
         current = min(self._lastline, self.maximum)
         yield '\r'

@@ -16,6 +16,7 @@ from ..utils.traversal import traverse_obj
 
 def _extract_episode(data, episode_id=None):
     print(f"spreaker.pyの関数_extract_episodeを実行しました。")
+    print(f"spreaker.pyの関数_extract_episodeを実行しました。")
     title = data['title']
     download_url = data['download_url']
 
@@ -30,12 +31,14 @@ def _extract_episode(data, episode_id=None):
 
     def stats(key):
         print(f"spreaker.pyの関数statsを実行しました。")
+        print(f"spreaker.pyの関数statsを実行しました。")
         return int_or_none(try_get(
             data,
             (lambda x: x[f'{key}s_count'],
              lambda x: x['stats'][f'{key}s'])))
 
     def duration(key):
+        print(f"spreaker.pyの関数durationを実行しました。")
         print(f"spreaker.pyの関数durationを実行しました。")
         return float_or_none(data.get(key), scale=1000)
 
@@ -122,6 +125,7 @@ class SpreakerIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"spreaker.pyの関数_real_extractを実行しました。")
+        print(f"spreaker.pyの関数_real_extractを実行しました。")
         episode_id = self._match_id(url)
         data = self._download_json(
             f'https://api.spreaker.com/v2/episodes/{episode_id}', episode_id,
@@ -156,6 +160,7 @@ class SpreakerShowIE(InfoExtractor):
     }]
 
     def _entries(self, show_id, key=None):
+        print(f"spreaker.pyの関数_entriesを実行しました。")
         print(f"spreaker.pyの関数_entriesを実行しました。")
         for page_num in itertools.count(1):
             episodes = self._download_json(

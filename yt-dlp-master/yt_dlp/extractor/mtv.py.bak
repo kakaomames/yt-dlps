@@ -41,6 +41,7 @@ class MTVServicesBaseIE(InfoExtractor):
         })
 
     def _call_auth_api(self, path, config, display_id=None, note=None, data=None, headers=None, query=None):
+        print(f"mtv.pyの関数_call_auth_apiを実行しました。")
         headers = {
             'Accept': 'application/json',
             'Client-Description': 'deviceName=Chrome Windows;deviceType=desktop;system=Windows NT 10.0',
@@ -58,6 +59,7 @@ class MTVServicesBaseIE(InfoExtractor):
             headers=headers, query={**self._get_auth_suite_data(config), **(query or {})})
 
     def _get_fresh_access_token(self, config, display_id=None, force_refresh=False):
+        print(f"mtv.pyの関数_get_fresh_access_tokenを実行しました。")
         resource_id = config['resourceId']
         # resource_id should already be in _token_cache since _get_media_token is the caller
         tokens = self._token_cache[resource_id]
@@ -82,6 +84,7 @@ class MTVServicesBaseIE(InfoExtractor):
         return tokens[self._ACCESS_TOKEN_KEY]
 
     def _get_media_token(self, video_config, config, display_id=None):
+        print(f"mtv.pyの関数_get_media_tokenを実行しました。")
         resource_id = config['resourceId']
         if resource_id in self._token_cache:
             tokens = self._token_cache[resource_id]
@@ -139,6 +142,7 @@ class MTVServicesBaseIE(InfoExtractor):
         return tokens[self._MEDIA_TOKEN_KEY]
 
     def _real_extract(self, url):
+        print(f"mtv.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         try:

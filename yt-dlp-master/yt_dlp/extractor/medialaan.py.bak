@@ -13,6 +13,7 @@ from ..utils.traversal import find_elements, traverse_obj
 
 class MedialaanBaseIE(InfoExtractor):
     def _extract_from_mychannels_api(self, mychannels_id):
+        print(f"medialaan.pyの関数_extract_from_mychannels_apiを実行しました。")
         webpage = self._download_webpage(
             f'https://mychannels.video/embed/{mychannels_id}', mychannels_id)
         brand_config = self._search_json(
@@ -219,6 +220,7 @@ class MedialaanIE(MedialaanBaseIE):
             {lambda x: f'https://mychannels.video/embed/{x}'}))
 
     def _real_extract(self, url):
+        print(f"medialaan.pyの関数_real_extractを実行しました。")
         mychannels_id = self._match_id(url)
 
         return self._extract_from_mychannels_api(mychannels_id)

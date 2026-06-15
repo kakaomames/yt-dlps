@@ -23,12 +23,14 @@ class PalcoMP3BaseIE(InfoExtractor):
       title'''
 
     def _call_api(self, artist_slug, artist_fields):
+        print(f"palcomp3.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://www.palcomp3.com.br/graphql/', artist_slug, query={
                 'query': self._GQL_QUERY_TMPL % (artist_slug, artist_fields),
             })['data']
 
     def _parse_music(self, music):
+        print(f"palcomp3.pyの関数_parse_musicを実行しました。")
         music_id = str(music['musicID'])
         title = music['title']
 
@@ -55,9 +57,11 @@ class PalcoMP3BaseIE(InfoExtractor):
         }
 
     def _real_initialize(self):
+        print(f"palcomp3.pyの関数_real_initializeを実行しました。")
         self._ARTIST_FIELDS_TMPL = self._ARTIST_FIELDS_TMPL % self._MUSIC_FIELDS
 
     def _real_extract(self, url):
+        print(f"palcomp3.pyの関数_real_extractを実行しました。")
         artist_slug, music_slug = self._match_valid_url(url).groups()
         artist_fields = self._ARTIST_FIELDS_TMPL % music_slug
         music = self._call_api(artist_slug, artist_fields)['artist']['music']
@@ -112,6 +116,7 @@ class PalcoMP3ArtistIE(PalcoMP3BaseIE):
         artist = self._call_api(artist_slug, self._ARTIST_FIELDS_TMPL)['artist']
 
         def entries():
+            print(f"palcomp3.pyの関数entriesを実行しました。")
             for music in (try_get(artist, lambda x: x['musics']['nodes'], list) or []):
                 yield self._parse_music(music)
 

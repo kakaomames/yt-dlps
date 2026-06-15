@@ -140,6 +140,7 @@ class MSNIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"msn.pyの関数_real_extractを実行しました。")
         locale, display_id, page_id = self._match_valid_url(url).group('locale', 'display_id', 'id')
 
         json_data = self._download_json(

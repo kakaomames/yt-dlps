@@ -18,6 +18,7 @@ from ..utils.progress import ProgressCalculator
 
 class HttpQuietDownloader(HttpFD):
     def to_screen(self, *args, **kargs):
+        print(f"fragment.pyの関数to_screenを実行しました。")
         pass
 
     to_console_title = to_screen
@@ -60,26 +61,32 @@ class FragmentFD(FileDownloader):
     """
 
     def report_retry_fragment(self, err, frag_index, count, retries):
+        print(f"fragment.pyの関数report_retry_fragmentを実行しました。")
         self.deprecation_warning('yt_dlp.downloader.FragmentFD.report_retry_fragment is deprecated. '
                                  'Use yt_dlp.downloader.FileDownloader.report_retry instead')
         return self.report_retry(err, count, retries, frag_index)
 
     def report_skip_fragment(self, frag_index, err=None):
+        print(f"fragment.pyの関数report_skip_fragmentを実行しました。")
         err = f' {err};' if err else ''
         self.to_screen(f'[download]{err} Skipping fragment {frag_index:d} ...')
 
     def _prepare_url(self, info_dict, url):
+        print(f"fragment.pyの関数_prepare_urlを実行しました。")
         headers = info_dict.get('http_headers')
         return Request(url, None, headers) if headers else url
 
     def _prepare_and_start_frag_download(self, ctx, info_dict):
+        print(f"fragment.pyの関数_prepare_and_start_frag_downloadを実行しました。")
         self._prepare_frag_download(ctx)
         self._start_frag_download(ctx, info_dict)
 
     def __do_ytdl_file(self, ctx):
+        print(f"fragment.pyの関数__do_ytdl_fileを実行しました。")
         return ctx['live'] is not True and ctx['tmpfilename'] != '-' and not self.params.get('_no_ytdl_file')
 
     def _read_ytdl_file(self, ctx):
+        print(f"fragment.pyの関数_read_ytdl_fileを実行しました。")
         assert 'ytdl_corrupt' not in ctx
         stream, _ = self.sanitize_open(self.ytdl_filename(ctx['filename']), 'r')
         try:
@@ -93,6 +100,7 @@ class FragmentFD(FileDownloader):
             stream.close()
 
     def _write_ytdl_file(self, ctx):
+        print(f"fragment.pyの関数_write_ytdl_fileを実行しました。")
         frag_index_stream, _ = self.sanitize_open(self.ytdl_filename(ctx['filename']), 'w')
         try:
             downloader = {
@@ -109,6 +117,7 @@ class FragmentFD(FileDownloader):
             frag_index_stream.close()
 
     def _download_fragment(self, ctx, frag_url, info_dict, headers=None, request_data=None):
+        print(f"fragment.pyの関数_download_fragmentを実行しました。")
         fragment_filename = '%s-Frag%d' % (ctx['tmpfilename'], ctx['fragment_index'])
         fragment_info_dict = {
             'url': frag_url,
@@ -130,6 +139,7 @@ class FragmentFD(FileDownloader):
         return True
 
     def _read_fragment(self, ctx):
+        print(f"fragment.pyの関数_read_fragmentを実行しました。")
         if not ctx.get('fragment_filename_sanitized'):
             return None
         try:
@@ -144,6 +154,7 @@ class FragmentFD(FileDownloader):
         return frag_content
 
     def _append_fragment(self, ctx, frag_content):
+        print(f"fragment.pyの関数_append_fragmentを実行しました。")
         try:
             ctx['dest_stream'].write(frag_content)
             ctx['dest_stream'].flush()
@@ -155,6 +166,7 @@ class FragmentFD(FileDownloader):
             del ctx['fragment_filename_sanitized']
 
     def _prepare_frag_download(self, ctx):
+        print(f"fragment.pyの関数_prepare_frag_downloadを実行しました。")
         if not ctx.setdefault('live', False):
             total_frags_str = '%d' % ctx['total_frags']
             ad_frags = ctx.get('ad_frags', 0)
@@ -223,6 +235,7 @@ class FragmentFD(FileDownloader):
         })
 
     def _start_frag_download(self, ctx, info_dict):
+        print(f"fragment.pyの関数_start_frag_downloadを実行しました。")
         resume_len = ctx['complete_frags_downloaded_bytes']
         total_frags = ctx['total_frags']
         ctx_id = ctx.get('ctx_id')
@@ -240,6 +253,7 @@ class FragmentFD(FileDownloader):
         progress = ProgressCalculator(resume_len)
 
         def frag_progress_hook(s):
+            print(f"fragment.pyの関数frag_progress_hookを実行しました。")
             if s['status'] not in ('downloading', 'finished'):
                 return
 
@@ -283,6 +297,7 @@ class FragmentFD(FileDownloader):
         return ctx['started']
 
     def _finish_frag_download(self, ctx, info_dict):
+        print(f"fragment.pyの関数_finish_frag_downloadを実行しました。")
         ctx['dest_stream'].close()
         if self.__do_ytdl_file(ctx):
             self.try_remove(self.ytdl_filename(ctx['filename']))
@@ -319,6 +334,7 @@ class FragmentFD(FileDownloader):
         return True
 
     def _prepare_external_frag_download(self, ctx):
+        print(f"fragment.pyの関数_prepare_external_frag_downloadを実行しました。")
         if 'live' not in ctx:
             ctx['live'] = False
         if not ctx['live']:
@@ -339,14 +355,17 @@ class FragmentFD(FileDownloader):
         })
 
     def decrypter(self, info_dict):
+        print(f"fragment.pyの関数decrypterを実行しました。")
         _key_cache = {}
 
         def _get_key(url):
+            print(f"fragment.pyの関数_get_keyを実行しました。")
             if url not in _key_cache:
                 _key_cache[url] = self.ydl.urlopen(self._prepare_url(info_dict, url)).read()
             return _key_cache[url]
 
         def decrypt_fragment(fragment, frag_content):
+            print(f"fragment.pyの関数decrypt_fragmentを実行しました。")
             if frag_content is None:
                 return
             decrypt_info = fragment.get('decrypt_info')
@@ -365,6 +384,7 @@ class FragmentFD(FileDownloader):
         return decrypt_fragment
 
     def download_and_append_fragments_multiple(self, *args, **kwargs):
+        print(f"fragment.pyの関数download_and_append_fragments_multipleを実行しました。")
         """
         @params (ctx1, fragments1, info_dict1), (ctx2, fragments2, info_dict2), ...
                 all args must be either tuple or list
@@ -379,6 +399,7 @@ class FragmentFD(FileDownloader):
         is_live = any(traverse_obj(args, (..., 2, 'is_live')))
 
         def thread_func(idx, ctx, fragments, info_dict, tpe):
+            print(f"fragment.pyの関数thread_funcを実行しました。")
             ctx['max_progress'] = max_progress
             ctx['progress_idx'] = idx
             return self.download_and_append_fragments(
@@ -387,10 +408,12 @@ class FragmentFD(FileDownloader):
         class FTPE(concurrent.futures.ThreadPoolExecutor):
             # has to stop this or it's going to wait on the worker thread itself
             def __exit__(self, exc_type, exc_val, exc_tb):
+                print(f"fragment.pyの関数__exit__を実行しました。")
                 pass
 
         if os.name == 'nt':
             def future_result(future):
+                print(f"fragment.pyの関数future_resultを実行しました。")
                 while True:
                     try:
                         return future.result(0.1)
@@ -403,6 +426,7 @@ class FragmentFD(FileDownloader):
                 return future.result()
 
         def interrupt_trigger_iter(fg):
+            print(f"fragment.pyの関数interrupt_trigger_iterを実行しました。")
             for f in fg:
                 if not interrupt_trigger[0]:
                     break
@@ -437,6 +461,7 @@ class FragmentFD(FileDownloader):
             is_fatal = lambda _: True
 
         def download_fragment(fragment, ctx):
+            print(f"fragment.pyの関数download_fragmentを実行しました。")
             if not interrupt_trigger[0]:
                 return
 
@@ -451,6 +476,7 @@ class FragmentFD(FileDownloader):
             fatal = is_fatal(fragment.get('index') or (frag_index - 1))
 
             def error_callback(err, count, retries):
+                print(f"fragment.pyの関数error_callbackを実行しました。")
                 if fatal and count > retries:
                     ctx['dest_stream'].close()
                 self.report_retry(err, count, retries, frag_index, fatal)
@@ -470,6 +496,7 @@ class FragmentFD(FileDownloader):
                         raise
 
         def append_fragment(frag_content, frag_index, ctx):
+            print(f"fragment.pyの関数append_fragmentを実行しました。")
             if frag_content:
                 self._append_fragment(ctx, pack_func(frag_content, frag_index))
             elif not is_fatal(frag_index - 1):
@@ -486,6 +513,7 @@ class FragmentFD(FileDownloader):
             self.params.get('concurrent_fragment_downloads', 1) / ctx.get('max_progress', 1))
         if max_workers > 1:
             def _download_fragment(fragment):
+                print(f"fragment.pyの関数_download_fragmentを実行しました。")
                 ctx_copy = ctx.copy()
                 download_fragment(fragment, ctx_copy)
                 return fragment, fragment['frag_index'], ctx_copy.get('fragment_filename_sanitized')

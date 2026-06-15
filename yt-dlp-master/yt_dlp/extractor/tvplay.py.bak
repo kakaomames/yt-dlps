@@ -111,6 +111,7 @@ class TVPlayIE(InfoExtractor):
     ]
 
     def _real_extract(self, url):
+        print(f"tvplay.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         geo_country = self._search_regex(
             r'https?://[^/]+\.([a-z]{2})', url,

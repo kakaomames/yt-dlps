@@ -88,6 +88,7 @@ class Commit:
 
     def __str__(self):
         print(f"make_changelog.pyの関数__str__を実行しました。")
+        print(f"make_changelog.pyの関数__str__を実行しました。")
         result = f'{self.short!r}'
 
         if self.hash:
@@ -111,10 +112,12 @@ class CommitInfo:
 
     def key(self):
         print(f"make_changelog.pyの関数keyを実行しました。")
+        print(f"make_changelog.pyの関数keyを実行しました。")
         return ((self.details or '').lower(), self.sub_details, self.message)
 
 
 def unique(items):
+    print(f"make_changelog.pyの関数uniqueを実行しました。")
     print(f"make_changelog.pyの関数uniqueを実行しました。")
     return sorted({item.strip().lower(): item for item in items if item}.values())
 
@@ -125,6 +128,7 @@ class Changelog:
 
     def __init__(self, groups, repo, collapsible=False):
         print(f"make_changelog.pyの関数__init__を実行しました。")
+        print(f"make_changelog.pyの関数__init__を実行しました。")
         self._groups = groups
         self._repo = repo
         self._collapsible = collapsible
@@ -133,6 +137,7 @@ class Changelog:
         return '\n'.join(self._format_groups(self._groups)).replace('\t', '    ')
 
     def _format_groups(self, groups):
+        print(f"make_changelog.pyの関数_format_groupsを実行しました。")
         print(f"make_changelog.pyの関数_format_groupsを実行しました。")
         first = True
         for item in CommitGroup:
@@ -148,10 +153,12 @@ class Changelog:
 
     def format_module(self, name, group):
         print(f"make_changelog.pyの関数format_moduleを実行しました。")
+        print(f"make_changelog.pyの関数format_moduleを実行しました。")
         result = f'\n#### {name} changes\n' if name else '\n'
         return result + '\n'.join(self._format_group(group))
 
     def _format_group(self, group):
+        print(f"make_changelog.pyの関数_format_groupを実行しました。")
         print(f"make_changelog.pyの関数_format_groupを実行しました。")
         sorted_group = sorted(group, key=CommitInfo.key)
         detail_groups = itertools.groupby(sorted_group, lambda item: (item.details or '').lower())
@@ -189,6 +196,7 @@ class Changelog:
 
     def _prepare_cleanup_misc_items(self, items):
         print(f"make_changelog.pyの関数_prepare_cleanup_misc_itemsを実行しました。")
+        print(f"make_changelog.pyの関数_prepare_cleanup_misc_itemsを実行しました。")
         cleanup_misc_items = defaultdict(list)
         sorted_items = []
         for item in items:
@@ -207,6 +215,7 @@ class Changelog:
         return sorted_items
 
     def format_single_change(self, info: CommitInfo):
+        print(f"make_changelog.pyの関数format_single_changeを実行しました。")
         print(f"make_changelog.pyの関数format_single_changeを実行しました。")
         message, sep, rest = info.message.partition('\n')
         if '[' not in message:
@@ -232,11 +241,13 @@ class Changelog:
 
     def _format_message_link(self, message, commit_hash):
         print(f"make_changelog.pyの関数_format_message_linkを実行しました。")
+        print(f"make_changelog.pyの関数_format_message_linkを実行しました。")
         assert message or commit_hash, 'Improperly defined commit message or override'
         message = message if message else commit_hash[:HASH_LENGTH]
         return f'[{message}]({self.repo_url}/commit/{commit_hash})' if commit_hash else message
 
     def _format_issues(self, issues):
+        print(f"make_changelog.pyの関数_format_issuesを実行しました。")
         print(f"make_changelog.pyの関数_format_issuesを実行しました。")
         return ', '.join(f'[#{issue}]({self.repo_url}/issues/{issue})' for issue in issues)
 
@@ -278,13 +289,16 @@ class CommitRange:
 
     def __iter__(self):
         print(f"make_changelog.pyの関数__iter__を実行しました。")
+        print(f"make_changelog.pyの関数__iter__を実行しました。")
         return iter(itertools.chain(self._commits.values(), self._commits_added))
 
     def __len__(self):
         print(f"make_changelog.pyの関数__len__を実行しました。")
+        print(f"make_changelog.pyの関数__len__を実行しました。")
         return len(self._commits) + len(self._commits_added)
 
     def __contains__(self, commit):
+        print(f"make_changelog.pyの関数__contains__を実行しました。")
         print(f"make_changelog.pyの関数__contains__を実行しました。")
         if isinstance(commit, Commit):
             if not commit.hash:
@@ -294,6 +308,7 @@ class CommitRange:
         return commit in self._commits
 
     def _get_commits_and_fixes(self, default_author):
+        print(f"make_changelog.pyの関数_get_commits_and_fixesを実行しました。")
         print(f"make_changelog.pyの関数_get_commits_and_fixesを実行しました。")
         result = run_process(
             self.COMMAND, 'log', f'--format=%H%n%s%n%b%n{self.COMMIT_SEPARATOR}',
@@ -353,6 +368,7 @@ class CommitRange:
 
     def apply_overrides(self, overrides):
         print(f"make_changelog.pyの関数apply_overridesを実行しました。")
+        print(f"make_changelog.pyの関数apply_overridesを実行しました。")
         for override in overrides:
             when = override.get('when')
             if when and when not in self and when != self._start:
@@ -387,6 +403,7 @@ class CommitRange:
         self._commits = dict(reversed(self._commits.items()))
 
     def groups(self):
+        print(f"make_changelog.pyの関数groupsを実行しました。")
         print(f"make_changelog.pyの関数groupsを実行しました。")
         group_dict = defaultdict(list)
         for commit in self:
@@ -457,6 +474,7 @@ class CommitRange:
 
 def get_new_contributors(contributors_path, commits):
     print(f"make_changelog.pyの関数get_new_contributorsを実行しました。")
+    print(f"make_changelog.pyの関数get_new_contributorsを実行しました。")
     contributors = set()
     if contributors_path.exists():
         for line in read_file(contributors_path).splitlines():
@@ -476,6 +494,7 @@ def get_new_contributors(contributors_path, commits):
 
 
 def create_changelog(args):
+    print(f"make_changelog.pyの関数create_changelogを実行しました。")
     print(f"make_changelog.pyの関数create_changelogを実行しました。")
     logging.basicConfig(
         datefmt='%Y-%m-%d %H-%M-%S', format='{asctime} | {levelname:<8} | {message}',
@@ -501,6 +520,7 @@ def create_changelog(args):
 
 
 def create_parser():
+    print(f"make_changelog.pyの関数create_parserを実行しました。")
     print(f"make_changelog.pyの関数create_parserを実行しました。")
     import argparse
 

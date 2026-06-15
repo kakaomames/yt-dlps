@@ -56,6 +56,7 @@ class ManyVidsIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"manyvids.pyの関数_real_extractを実行しました。")
+        print(f"manyvids.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_data = self._download_json(f'{self._API_BASE}/{video_id}/private', video_id)['data']
         formats, preview_only = [], True

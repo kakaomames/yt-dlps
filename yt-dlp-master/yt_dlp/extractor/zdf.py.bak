@@ -32,6 +32,7 @@ class ZDFBaseIE(InfoExtractor):
     _token_cache = {}
 
     def _get_api_token(self):
+        print(f"zdf.pyの関数_get_api_tokenを実行しました。")
         # As of 2025-03, this API is used by the Android app for getting tokens.
         # An equivalent token could be extracted from the webpage should the API become unavailable.
         # For now this allows the extractor to avoid dealing with Next.js hydration data.
@@ -47,17 +48,20 @@ class ZDFBaseIE(InfoExtractor):
         return f'{self._token_cache["type"]} {self._token_cache["token"]}'
 
     def _call_api(self, url, video_id, item, api_token=None):
+        print(f"zdf.pyの関数_call_apiを実行しました。")
         return self._download_json(
             url, video_id, f'Downloading {item}', f'Failed to download {item}',
             headers=filter_dict({'Api-Auth': api_token}))
 
     def _parse_aspect_ratio(self, aspect_ratio):
+        print(f"zdf.pyの関数_parse_aspect_ratioを実行しました。")
         if not aspect_ratio or not isinstance(aspect_ratio, str):
             return None
         mobj = re.match(r'(?P<width>\d+):(?P<height>\d+)', aspect_ratio)
         return int(mobj.group('width')) / int(mobj.group('height')) if mobj else None
 
     def _extract_chapters(self, data):
+        print(f"zdf.pyの関数_extract_chaptersを実行しました。")
         return traverse_obj(data, (lambda _, v: v['anchorOffset'], {
             'start_time': ('anchorOffset', {float_or_none}),
             'title': ('anchorLabel', {str}),
@@ -79,9 +83,11 @@ class ZDFBaseIE(InfoExtractor):
         return subtitles
 
     def _expand_ptmd_template(self, api_base_url, template):
+        print(f"zdf.pyの関数_expand_ptmd_templateを実行しました。")
         return urljoin(api_base_url, template.replace('{playerId}', 'android_native_6'))
 
     def _extract_ptmd(self, ptmd_urls, video_id, api_token=None, aspect_ratio=None):
+        print(f"zdf.pyの関数_extract_ptmdを実行しました。")
         content_id = None
         duration = None
         formats, src_captions = [], []
@@ -166,6 +172,7 @@ class ZDFBaseIE(InfoExtractor):
         }
 
     def _download_graphql(self, item_id, data_desc, query=None, body=None):
+        print(f"zdf.pyの関数_download_graphqlを実行しました。")
         assert query or body, 'One of query or body is required'
 
         return self._download_json(
@@ -535,6 +542,7 @@ query VideoByCanonical($canonical: String!) {
     # Long-term, news documents probably should use the API used by the mobile apps:
     # https://zdf-prod-futura.zdf.de/news/documents/ (note 'news' vs 'mediathekV2')
     def _extract_fallback(self, document_id):
+        print(f"zdf.pyの関数_extract_fallbackを実行しました。")
         video = self._download_json(
             f'https://zdf-prod-futura.zdf.de/mediathekV2/document/{document_id}',
             document_id, note='Downloading fallback metadata',
@@ -572,6 +580,7 @@ query VideoByCanonical($canonical: String!) {
         }
 
     def _real_extract(self, url):
+        print(f"zdf.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_data = self._download_graphql(video_id, 'video metadata', body={
             'operationName': 'VideoByCanonical',
@@ -685,6 +694,7 @@ class ZDFChannelIE(ZDFBaseIE):
         return False if ZDFIE.suitable(url) else super().suitable(url)
 
     def _fetch_page(self, playlist_id, canonical_id, season_idx, season_number, page_number, cursor=None):
+        print(f"zdf.pyの関数_fetch_pageを実行しました。")
         return self._download_graphql(
             playlist_id, f'season {season_number} page {page_number} JSON', query={
                 'operationName': 'seasonByCanonical',
@@ -703,6 +713,7 @@ class ZDFChannelIE(ZDFBaseIE):
             })['data']['smartCollectionByCanonical']
 
     def _entries(self, playlist_id, canonical_id, season_numbers, requested_season_number):
+        print(f"zdf.pyの関数_entriesを実行しました。")
         for season_idx, season_number in enumerate(season_numbers):
             if requested_season_number is not None and requested_season_number != season_number:
                 continue

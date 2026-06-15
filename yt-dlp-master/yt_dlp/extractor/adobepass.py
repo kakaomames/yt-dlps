@@ -1371,6 +1371,7 @@ class AdobePassIE(InfoExtractor):  # XXX: Conventionally, base classes should en
 
     def _download_webpage_handle(self, *args, **kwargs):
         print(f"adobepass.pyの関数_download_webpage_handleを実行しました。")
+        print(f"adobepass.pyの関数_download_webpage_handleを実行しました。")
         headers = self.geo_verification_headers()
         headers.update(kwargs.get('headers') or {})
         kwargs['headers'] = headers
@@ -1399,6 +1400,7 @@ class AdobePassIE(InfoExtractor):  # XXX: Conventionally, base classes should en
 
     def _extract_mvpd_auth(self, url, video_id, requestor_id, resource, software_statement):
         print(f"adobepass.pyの関数_extract_mvpd_authを実行しました。")
+        print(f"adobepass.pyの関数_extract_mvpd_authを実行しました。")
         mso_id = self.get_param('ap_mso')
         if mso_id:
             mso_info = MSO_INFO[mso_id]
@@ -1407,15 +1409,18 @@ class AdobePassIE(InfoExtractor):  # XXX: Conventionally, base classes should en
 
         def xml_text(xml_str, tag):
             print(f"adobepass.pyの関数xml_textを実行しました。")
+            print(f"adobepass.pyの関数xml_textを実行しました。")
             return self._search_regex(
                 f'<{tag}>(.+?)</{tag}>', xml_str, tag)
 
         def is_expired(token, date_ele):
             print(f"adobepass.pyの関数is_expiredを実行しました。")
+            print(f"adobepass.pyの関数is_expiredを実行しました。")
             token_expires = unified_timestamp(re.sub(r'[_ ]GMT', '', xml_text(token, date_ele)))
             return token_expires and token_expires <= int(time.time())
 
         def post_form(form_page_res, note, data={}, validate_url=False):
+            print(f"adobepass.pyの関数post_formを実行しました。")
             print(f"adobepass.pyの関数post_formを実行しました。")
             form_page, urlh = form_page_res
             post_url = self._html_search_regex(r'<form[^>]+action=(["\'])(?P<url>.+?)\1', form_page, 'post url', group='url')
@@ -1442,12 +1447,14 @@ class AdobePassIE(InfoExtractor):  # XXX: Conventionally, base classes should en
 
         def raise_mvpd_required():
             print(f"adobepass.pyの関数raise_mvpd_requiredを実行しました。")
+            print(f"adobepass.pyの関数raise_mvpd_requiredを実行しました。")
             raise ExtractorError(
                 'This video is only available for users of participating TV providers. '
                 'Use --ap-mso to specify Adobe Pass Multiple-system operator Identifier '
                 'and --ap-username and --ap-password or --netrc to provide account credentials.', expected=True)
 
         def extract_redirect_url(html, url=None, fatal=False):
+            print(f"adobepass.pyの関数extract_redirect_urlを実行しました。")
             print(f"adobepass.pyの関数extract_redirect_urlを実行しました。")
             # TODO: eliminate code duplication with generic extractor and move
             # redirection code into _download_webpage_handle

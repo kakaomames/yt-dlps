@@ -82,6 +82,7 @@ class JTBCIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"jtbc.pyの関数_real_extractを実行しました。")
+        print(f"jtbc.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         if display_id.startswith('vo'):

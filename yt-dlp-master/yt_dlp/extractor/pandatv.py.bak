@@ -32,6 +32,7 @@ class PandaTvIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"pandatv.pyの関数_real_extractを実行しました。")
         channel_id = self._match_id(url)
         video_meta = self._download_json(
             'https://api.pandalive.co.kr/v1/live/play', channel_id,

@@ -56,6 +56,7 @@ class FrancaisFacileIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"francaisfacile.pyの関数_real_extractを実行しました。")
+        print(f"francaisfacile.pyの関数_real_extractを実行しました。")
         display_id = urllib.parse.unquote(self._match_id(url))
         webpage = self._download_webpage(url, display_id)
 

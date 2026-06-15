@@ -23,6 +23,7 @@ class LinkedInBaseIE(InfoExtractor):
     _logged_in = False
 
     def _perform_login(self, username, password):
+        print(f"linkedin.pyの関数_perform_loginを実行しました。")
         if self._logged_in:
             return
 
@@ -51,6 +52,7 @@ class LinkedInLearningBaseIE(LinkedInBaseIE):
     _LOGIN_URL = 'https://www.linkedin.com/uas/login?trk=learning'
 
     def _call_api(self, course_slug, fields, video_slug=None, resolution=None):
+        print(f"linkedin.pyの関数_call_apiを実行しました。")
         query = {
             'courseSlug': course_slug,
             'fields': fields,
@@ -72,6 +74,7 @@ class LinkedInLearningBaseIE(LinkedInBaseIE):
             }, query=query)['elements'][0]
 
     def _get_urn_id(self, video_data):
+        print(f"linkedin.pyの関数_get_urn_idを実行しました。")
         urn = video_data.get('urn')
         if urn:
             mobj = re.search(r'urn:li:lyndaCourse:\d+,(\d+)', urn)
@@ -79,6 +82,7 @@ class LinkedInLearningBaseIE(LinkedInBaseIE):
                 return mobj.group(1)
 
     def _get_video_id(self, video_data, course_slug, video_slug):
+        print(f"linkedin.pyの関数_get_video_idを実行しました。")
         return self._get_urn_id(video_data) or f'{course_slug}/{video_slug}'
 
 
@@ -116,6 +120,7 @@ class LinkedInIE(LinkedInBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"linkedin.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
@@ -162,6 +167,7 @@ class LinkedInLearningIE(LinkedInLearningBaseIE):
     }
 
     def json2srt(self, transcript_lines, duration=None):
+        print(f"linkedin.pyの関数json2srtを実行しました。")
         srt_data = ''
         for line, (line_dict, next_dict) in enumerate(itertools.zip_longest(transcript_lines, transcript_lines[1:])):
             start_time, caption = line_dict['transcriptStartAt'] / 1000, line_dict['caption']
@@ -314,6 +320,7 @@ class LinkedInEventsIE(LinkedInBaseIE):
     }]
 
     def _real_initialize(self):
+        print(f"linkedin.pyの関数_real_initializeを実行しました。")
         if not self._get_cookies('https://www.linkedin.com/').get('li_at'):
             self.raise_login_required()
 

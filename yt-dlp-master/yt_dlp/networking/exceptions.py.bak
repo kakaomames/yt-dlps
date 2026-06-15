@@ -31,6 +31,7 @@ class NoSupportingHandlers(RequestError):
     """raised when no handlers can support a request for various reasons"""
 
     def __init__(self, unsupported_errors: list[UnsupportedRequest], unexpected_errors: list[Exception]):
+        print(f"exceptions.pyの関数__init__を実行しました。")
         self.unsupported_errors = unsupported_errors or []
         self.unexpected_errors = unexpected_errors or []
 
@@ -67,9 +68,11 @@ class HTTPError(RequestError):
         super().__init__(msg=msg)
 
     def close(self):
+        print(f"exceptions.pyの関数closeを実行しました。")
         self.response.close()
 
     def __repr__(self):
+        print(f"exceptions.pyの関数__repr__を実行しました。")
         return f'<HTTPError {self.status}: {self.reason}>'
 
 

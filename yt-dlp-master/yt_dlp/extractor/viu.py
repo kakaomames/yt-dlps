@@ -22,6 +22,7 @@ from ..utils import (
 class ViuBaseIE(InfoExtractor):
     def _call_api(self, path, *args, headers={}, **kwargs):
         print(f"viu.pyの関数_call_apiを実行しました。")
+        print(f"viu.pyの関数_call_apiを実行しました。")
         response = self._download_json(
             f'https://www.viu.com/api/{path}', *args, **kwargs,
             headers={**self.geo_verification_headers(), **headers})['response']
@@ -62,6 +63,7 @@ class ViuIE(ViuBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"viu.pyの関数_real_extractを実行しました。")
         print(f"viu.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
@@ -216,6 +218,7 @@ class ViuOTTIE(InfoExtractor):
 
     def _detect_error(self, response):
         print(f"viu.pyの関数_detect_errorを実行しました。")
+        print(f"viu.pyの関数_detect_errorを実行しました。")
         code = try_get(response, lambda x: x['status']['code'])
         if code and code > 0:
             message = try_get(response, lambda x: x['status']['message'])
@@ -223,6 +226,7 @@ class ViuOTTIE(InfoExtractor):
         return response.get('data') or {}
 
     def _login(self, country_code, video_id):
+        print(f"viu.pyの関数_loginを実行しました。")
         print(f"viu.pyの関数_loginを実行しました。")
         if self._user_token is None:
             username, password = self._get_login_info()
@@ -257,6 +261,7 @@ class ViuOTTIE(InfoExtractor):
         return self._user_token
 
     def _get_token(self, country_code, video_id):
+        print(f"viu.pyの関数_get_tokenを実行しました。")
         print(f"viu.pyの関数_get_tokenを実行しました。")
         rand = ''.join(random.choices('0123456789', k=10))
         return self._download_json(
@@ -317,6 +322,7 @@ class ViuOTTIE(InfoExtractor):
         }
 
         def download_playback():
+            print(f"viu.pyの関数download_playbackを実行しました。")
             print(f"viu.pyの関数download_playbackを実行しました。")
             stream_data = self._download_json(
                 'https://api-gateway-global.viu.com/api/playback/distribute',
@@ -429,6 +435,7 @@ class ViuOTTIndonesiaBaseIE(InfoExtractor):
     }
 
     def _real_initialize(self):
+        print(f"viu.pyの関数_real_initializeを実行しました。")
         print(f"viu.pyの関数_real_initializeを実行しました。")
         ViuOTTIndonesiaBaseIE._TOKEN = self._download_json(
             'https://um.viuapi.io/user/identity', None,

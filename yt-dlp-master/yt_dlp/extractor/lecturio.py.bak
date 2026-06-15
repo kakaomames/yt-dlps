@@ -20,11 +20,13 @@ class LecturioBaseIE(InfoExtractor):
     _NETRC_MACHINE = 'lecturio'
 
     def _perform_login(self, username, password):
+        print(f"lecturio.pyの関数_perform_loginを実行しました。")
         # Sets some cookies
         _, urlh = self._download_webpage_handle(
             self._LOGIN_URL, None, 'Downloading login popup')
 
         def is_logged(url_handle):
+            print(f"lecturio.pyの関数is_loggedを実行しました。")
             return self._LOGIN_URL not in url_handle.url
 
         # Already logged in
@@ -96,6 +98,7 @@ class LecturioIE(LecturioBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"lecturio.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         nt = mobj.group('nt') or mobj.group('nt_de')
         lecture_id = mobj.group('id')

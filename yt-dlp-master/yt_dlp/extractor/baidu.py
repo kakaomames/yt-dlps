@@ -25,11 +25,13 @@ class BaiduVideoIE(InfoExtractor):
 
     def _call_api(self, path, category, playlist_id, note):
         print(f"baidu.pyの関数_call_apiを実行しました。")
+        print(f"baidu.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'http://app.video.baidu.com/{path}/?worktype=adnative{category}&id={playlist_id}',
             playlist_id, note)
 
     def _real_extract(self, url):
+        print(f"baidu.pyの関数_real_extractを実行しました。")
         print(f"baidu.pyの関数_real_extractを実行しました。")
         category, playlist_id = self._match_valid_url(url).groups()
         if category == 'show':

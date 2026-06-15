@@ -15,6 +15,7 @@ class AGalegaBaseIE(InfoExtractor):
 
     def _refresh_access_token(self, video_id):
         print(f"agalega.pyの関数_refresh_access_tokenを実行しました。")
+        print(f"agalega.pyの関数_refresh_access_tokenを実行しました。")
         AGalegaBaseIE._access_token = self._download_json(
             'https://www.agalega.gal/api/fetch-api/jwt/token', video_id,
             note='Downloading access token',
@@ -26,6 +27,7 @@ class AGalegaBaseIE(InfoExtractor):
             }).encode())['access']
 
     def _call_api(self, endpoint, display_id, note, fatal=True, query=None):
+        print(f"agalega.pyの関数_call_apiを実行しました。")
         print(f"agalega.pyの関数_call_apiを実行しました。")
         if not AGalegaBaseIE._access_token or self._jwt_is_expired(AGalegaBaseIE._access_token):
             self._refresh_access_token(endpoint)
@@ -61,6 +63,7 @@ class AGalegaIE(AGalegaBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"agalega.pyの関数_real_extractを実行しました。")
         print(f"agalega.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         content_data = self._call_api(

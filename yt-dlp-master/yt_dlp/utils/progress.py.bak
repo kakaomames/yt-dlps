@@ -14,6 +14,7 @@ class ProgressCalculator:
     GRACE_PERIOD = 1
 
     def __init__(self, initial: int):
+        print(f"progress.pyの関数__init__を実行しました。")
         self._initial = initial or 0
         self.downloaded = self._initial
 
@@ -44,11 +45,13 @@ class ProgressCalculator:
             self._total = value
 
     def thread_reset(self):
+        print(f"progress.pyの関数thread_resetを実行しました。")
         current_thread = threading.get_ident()
         with self._lock:
             self._thread_sizes[current_thread] = 0
 
     def update(self, size: int | None):
+        print(f"progress.pyの関数updateを実行しました。")
         if not size:
             return
 
@@ -60,6 +63,7 @@ class ProgressCalculator:
             self._update(size - last_size)
 
     def _update(self, size: int):
+        print(f"progress.pyの関数_updateを実行しました。")
         current_time = time.monotonic()
 
         self.downloaded += size
@@ -99,6 +103,7 @@ class SmoothValue:
         self._smoothing = smoothing
 
     def set(self, value: float):
+        print(f"progress.pyの関数setを実行しました。")
         self.value = value
         if self.smooth is None:
             self.smooth = self.value
@@ -106,4 +111,5 @@ class SmoothValue:
             self.smooth = (1 - self._smoothing) * value + self._smoothing * self.smooth
 
     def reset(self):
+        print(f"progress.pyの関数resetを実行しました。")
         self.value = self.smooth = self._initial

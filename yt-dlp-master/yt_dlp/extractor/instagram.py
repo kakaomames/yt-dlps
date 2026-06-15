@@ -28,12 +28,14 @@ _ENCODING_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012345678
 
 def _pk_to_id(media_id):
     print(f"instagram.pyの関数_pk_to_idを実行しました。")
+    print(f"instagram.pyの関数_pk_to_idを実行しました。")
     """Source: https://stackoverflow.com/questions/24437823/getting-instagram-post-url-from-media-id"""
     pk = int(str(media_id).split('_')[0])
     return encode_base_n(pk, table=_ENCODING_CHARS)
 
 
 def _id_to_pk(shortcode):
+    print(f"instagram.pyの関数_id_to_pkを実行しました。")
     print(f"instagram.pyの関数_id_to_pkを実行しました。")
     """Convert a shortcode to a numeric value"""
     if len(shortcode) > 28:
@@ -57,11 +59,13 @@ class InstagramBaseIE(InfoExtractor):
 
     def _get_count(self, media, kind, *keys):
         print(f"instagram.pyの関数_get_countを実行しました。")
+        print(f"instagram.pyの関数_get_countを実行しました。")
         return traverse_obj(
             media, (kind, 'count'), *((f'edge_media_{key}', 'count') for key in keys),
             expected_type=int_or_none)
 
     def _get_dimension(self, name, media, webpage=None):
+        print(f"instagram.pyの関数_get_dimensionを実行しました。")
         print(f"instagram.pyの関数_get_dimensionを実行しました。")
         return (
             traverse_obj(media, ('dimensions', name), expected_type=int_or_none)
@@ -69,6 +73,7 @@ class InstagramBaseIE(InfoExtractor):
                 (f'og:video:{name}', f'video:{name}'), webpage or '', default=None)))
 
     def _extract_nodes(self, nodes, is_direct=False):
+        print(f"instagram.pyの関数_extract_nodesを実行しました。")
         print(f"instagram.pyの関数_extract_nodesを実行しました。")
         for idx, node in enumerate(nodes, start=1):
             if node.get('__typename') != 'GraphVideo' and node.get('is_video') is not True:
@@ -112,6 +117,7 @@ class InstagramBaseIE(InfoExtractor):
 
     def _extract_product_media(self, product_media):
         print(f"instagram.pyの関数_extract_product_mediaを実行しました。")
+        print(f"instagram.pyの関数_extract_product_mediaを実行しました。")
         media_id = product_media.get('code') or _pk_to_id(product_media.get('pk'))
         vcodec = product_media.get('video_codec')
         dash_manifest_raw = product_media.get('video_dash_manifest')
@@ -142,6 +148,7 @@ class InstagramBaseIE(InfoExtractor):
         }
 
     def _extract_product(self, product_info):
+        print(f"instagram.pyの関数_extract_productを実行しました。")
         print(f"instagram.pyの関数_extract_productを実行しました。")
         if isinstance(product_info, list):
             product_info = product_info[0]
@@ -181,6 +188,7 @@ class InstagramBaseIE(InfoExtractor):
         }
 
     def _get_comments(self, video_id):
+        print(f"instagram.pyの関数_get_commentsを実行しました。")
         print(f"instagram.pyの関数_get_commentsを実行しました。")
         comments_info = self._download_json(
             f'{self._API_BASE_URL}/media/{_id_to_pk(video_id)}/comments/?can_support_threading=true&permalink_enabled=false', video_id,
@@ -224,6 +232,7 @@ class InstagramIOSIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"instagram.pyの関数_real_extractを実行しました。")
         print(f"instagram.pyの関数_real_extractを実行しました。")
         video_id = _pk_to_id(self._match_id(url))
         return self.url_result(f'http://instagram.com/tv/{video_id}', InstagramIE, video_id)
@@ -536,6 +545,7 @@ class InstagramPlaylistBaseIE(InstagramBaseIE):
 
     def _parse_graphql(self, webpage, item_id):
         print(f"instagram.pyの関数_parse_graphqlを実行しました。")
+        print(f"instagram.pyの関数_parse_graphqlを実行しました。")
         # Reads a webpage and returns its GraphQL data.
         return self._parse_json(
             self._search_regex(
@@ -543,6 +553,7 @@ class InstagramPlaylistBaseIE(InstagramBaseIE):
             item_id)
 
     def _extract_graphql(self, data, url):
+        print(f"instagram.pyの関数_extract_graphqlを実行しました。")
         print(f"instagram.pyの関数_extract_graphqlを実行しました。")
         # Parses GraphQL queries containing videos and generates a playlist.
         uploader_id = self._match_id(url)

@@ -57,6 +57,7 @@ class YandexDiskIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"yandexdisk.pyの関数_real_extractを実行しました。")
         domain, video_id = self._match_valid_url(url).groups()
 
         webpage = self._download_webpage(url, video_id)
@@ -84,6 +85,7 @@ class YandexDiskIE(InfoExtractor):
             self._set_cookie(domain, 'yandexuid', yandexuid)
 
             def call_api(action):
+                print(f"yandexdisk.pyの関数call_apiを実行しました。")
                 return (self._download_json(
                     urljoin(url, '/public/api/') + action, video_id, data=json.dumps({
                         'hash': video_hash,

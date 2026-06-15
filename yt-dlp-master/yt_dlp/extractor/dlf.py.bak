@@ -15,6 +15,7 @@ class DLFBaseIE(InfoExtractor):
     _BUTTON_REGEX = r'(<button[^>]+alt="Anhören"[^>]+data-audio-diraid[^>]*>)'
 
     def _parse_button_attrs(self, button, audio_id=None):
+        print(f"dlf.pyの関数_parse_button_attrsを実行しました。")
         attrs = extract_attributes(button)
         audio_id = audio_id or attrs['data-audio-diraid']
 
@@ -78,6 +79,7 @@ class DLFIE(DLFBaseIE):
     ]
 
     def _real_extract(self, url):
+        print(f"dlf.pyの関数_real_extractを実行しました。")
         audio_id = self._match_id(url)
         webpage = self._download_webpage(url, audio_id)
 

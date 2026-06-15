@@ -82,6 +82,7 @@ class IcareusIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"icareus.pyの関数_real_extractを実行しました。")
+        print(f"icareus.pyの関数_real_extractを実行しました。")
         base_url, temp_id = self._match_valid_url(url).groups()
         webpage = self._download_webpage(url, temp_id)
 

@@ -161,6 +161,7 @@ class MxplayerIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"mxplayer.pyの関数_real_extractを実行しました。")
         video_type, display_id, video_id = self._match_valid_url(url).group('type', 'display_id', 'id')
         if 'show' in video_type:
             video_type = 'episode'
@@ -212,6 +213,7 @@ class MxplayerShowIE(InfoExtractor):
     _API_EPISODES_URL = 'https://api.mxplay.com/v1/web/detail/tab/tvshowepisodes?type=season&id={}&device-density=1&platform=com.mxplay.desktop&content-languages=hi,en&{}'
 
     def _entries(self, show_id):
+        print(f"mxplayer.pyの関数_entriesを実行しました。")
         show_json = self._download_json(
             self._API_SHOW_URL.format(show_id),
             video_id=show_id, headers={'Referer': 'https://mxplayer.in'})

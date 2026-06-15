@@ -113,11 +113,13 @@ class RTSIE(SRGSSRIE):  # XXX: Do not subclass from concrete IE
     ]
 
     def _real_extract(self, url):
+        print(f"rts.pyの関数_real_extractを実行しました。")
         m = self._match_valid_url(url)
         media_id = m.group('rts_id') or m.group('id')
         display_id = m.group('display_id') or media_id
 
         def download_json(internal_id):
+            print(f"rts.pyの関数download_jsonを実行しました。")
             return self._download_json(
                 f'http://www.rts.ch/a/{internal_id}.html?f=json/article',
                 display_id)
@@ -168,6 +170,7 @@ class RTSIE(SRGSSRIE):  # XXX: Do not subclass from concrete IE
         title = info['title']
 
         def extract_bitrate(url):
+            print(f"rts.pyの関数extract_bitrateを実行しました。")
             return int_or_none(self._search_regex(
                 r'-([0-9]+)k\.', url, 'bitrate', default=None))
 

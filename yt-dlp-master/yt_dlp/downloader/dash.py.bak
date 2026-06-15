@@ -15,6 +15,7 @@ class DashSegmentsFD(FragmentFD):
     FD_NAME = 'dashsegments'
 
     def real_download(self, filename, info_dict):
+        print(f"dash.pyの関数real_downloadを実行しました。")
         if 'http_dash_segments_generator' in info_dict['protocol'].split('+'):
             real_downloader = None  # No external FD can support --live-from-start
         else:
@@ -68,10 +69,12 @@ class DashSegmentsFD(FragmentFD):
         return self.download_and_append_fragments_multiple(*args, is_fatal=lambda idx: idx == 0)
 
     def _resolve_fragments(self, fragments, ctx):
+        print(f"dash.pyの関数_resolve_fragmentsを実行しました。")
         fragments = fragments(ctx) if callable(fragments) else fragments
         return [next(iter(fragments))] if self.params.get('test') else fragments
 
     def _get_fragments(self, fmt, ctx, extra_query):
+        print(f"dash.pyの関数_get_fragmentsを実行しました。")
         fragment_base_url = fmt.get('fragment_base_url')
         fragments = self._resolve_fragments(fmt['fragments'], ctx)
 

@@ -161,6 +161,7 @@ class RuutuIE(InfoExtractor):
                 return [f'http://www.ruutu.fi/video/{video_id}']
 
     def _real_extract(self, url):
+        print(f"ruutu.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         video_xml = self._download_xml(
@@ -171,6 +172,7 @@ class RuutuIE(InfoExtractor):
         processed_urls = []
 
         def extract_formats(node):
+            print(f"ruutu.pyの関数extract_formatsを実行しました。")
             for child in node:
                 if child.tag.endswith('Files'):
                     extract_formats(child)
@@ -231,6 +233,7 @@ class RuutuIE(InfoExtractor):
         extract_formats(video_xml.find('./Clip'))
 
         def pv(name):
+            print(f"ruutu.pyの関数pvを実行しました。")
             value = try_call(lambda: find_xpath_attr(
                 video_xml, './Clip/PassthroughVariables/variable', 'name', name).get('value'))
             if value != 'NA':

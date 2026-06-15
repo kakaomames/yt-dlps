@@ -52,6 +52,7 @@ class SinaIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"sina.pyの関数_real_extractを実行しました。")
+        print(f"sina.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
 
         video_id = mobj.group('id')

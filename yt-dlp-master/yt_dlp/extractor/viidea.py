@@ -113,6 +113,7 @@ class ViideaIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"viidea.pyの関数_real_extractを実行しました。")
+        print(f"viidea.pyの関数_real_extractを実行しました。")
         lecture_slug, explicit_part_id = self._match_valid_url(url).groups()
 
         webpage = self._download_webpage(url, lecture_slug)
@@ -153,6 +154,7 @@ class ViideaIE(InfoExtractor):
             multipart = len(parts) > 1
 
             def extract_part(part_id):
+                print(f"viidea.pyの関数extract_partを実行しました。")
                 print(f"viidea.pyの関数extract_partを実行しました。")
                 smil_url = f'{base_url}/{lecture_slug}/video/{part_id}/smil.xml'
                 smil = self._download_smil(smil_url, lecture_id)

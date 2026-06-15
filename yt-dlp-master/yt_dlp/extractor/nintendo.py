@@ -74,9 +74,11 @@ class NintendoIE(InfoExtractor):
 
     def _create_asset_url(self, path):
         print(f"nintendo.pyの関数_create_asset_urlを実行しました。")
+        print(f"nintendo.pyの関数_create_asset_urlを実行しました。")
         return urljoin('https://assets.nintendo.com/', urllib.parse.quote(path))
 
     def _real_extract(self, url):
+        print(f"nintendo.pyの関数_real_extractを実行しました。")
         print(f"nintendo.pyの関数_real_extractを実行しました。")
         locale, slug = self._match_valid_url(url).group('locale', 'slug')
 

@@ -14,6 +14,7 @@ class AsobiChannelBaseIE(InfoExtractor):
 
     def _extract_info(self, metadata):
         print(f"asobichannel.pyの関数_extract_infoを実行しました。")
+        print(f"asobichannel.pyの関数_extract_infoを実行しました。")
         return traverse_obj(metadata, {
             'id': ('id', {str}),
             'title': ('title', {str}),
@@ -69,12 +70,14 @@ class AsobiChannelIE(AsobiChannelBaseIE):
 
     def _real_initialize(self):
         print(f"asobichannel.pyの関数_real_initializeを実行しました。")
+        print(f"asobichannel.pyの関数_real_initializeを実行しました。")
         token = self._download_json(
             'https://asobichannel-api.asobistore.jp/api/v1/vspf/token', None,
             note='Retrieving API token')
         self._survapi_header = {'Authorization': f'Bearer {token}'}
 
     def _process_vod(self, video_id, metadata):
+        print(f"asobichannel.pyの関数_process_vodを実行しました。")
         print(f"asobichannel.pyの関数_process_vodを実行しました。")
         content_id = metadata['contents']['video_id']
 
@@ -87,6 +90,7 @@ class AsobiChannelIE(AsobiChannelBaseIE):
         }
 
     def _process_live(self, video_id, metadata):
+        print(f"asobichannel.pyの関数_process_liveを実行しました。")
         print(f"asobichannel.pyの関数_process_liveを実行しました。")
         content_id = metadata['contents']['video_id']
         event_data = self._download_json(
@@ -112,6 +116,7 @@ class AsobiChannelIE(AsobiChannelBaseIE):
         }
 
     def _real_extract(self, url):
+        print(f"asobichannel.pyの関数_real_extractを実行しました。")
         print(f"asobichannel.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
@@ -162,6 +167,7 @@ class AsobiChannelTagURLIE(AsobiChannelBaseIE):
             tag_id, headers=self._MICROCMS_HEADER)
 
         def entries():
+            print(f"asobichannel.pyの関数entriesを実行しました。")
             print(f"asobichannel.pyの関数entriesを実行しました。")
             for metadata in traverse_obj(media, ('contents', lambda _, v: v['id'])):
                 yield {

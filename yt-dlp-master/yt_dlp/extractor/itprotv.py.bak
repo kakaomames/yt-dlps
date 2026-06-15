@@ -16,15 +16,18 @@ class ITProTVBaseIE(InfoExtractor):
     }
 
     def _call_api(self, ep, item_id, webpage):
+        print(f"itprotv.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://api.itpro.tv/api/urza/v3/consumer-web/{self._ENDPOINTS[ep].format(item_id)}',
             item_id, note=f'Fetching {ep} data API',
             headers={'Authorization': f'Bearer {self._fetch_jwt(webpage)}'})[ep]
 
     def _fetch_jwt(self, webpage):
+        print(f"itprotv.pyの関数_fetch_jwtを実行しました。")
         return self._search_regex(r'{"passedToken":"([\w-]+\.[\w-]+\.[\w-]+)",', webpage, 'jwt')
 
     def _check_if_logged_in(self, webpage):
+        print(f"itprotv.pyの関数_check_if_logged_inを実行しました。")
         if re.match(r'{\s*member\s*:\s*null', webpage):
             self.raise_login_required()
 
@@ -69,6 +72,7 @@ class ITProTVIE(ITProTVBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"itprotv.pyの関数_real_extractを実行しました。")
         episode_id, course_name = self._match_valid_url(url).group('id', 'course')
         webpage = self._download_webpage(url, episode_id)
         self._check_if_logged_in(webpage)

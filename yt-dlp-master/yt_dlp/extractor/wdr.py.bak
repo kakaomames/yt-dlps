@@ -35,10 +35,12 @@ class WDRIE(InfoExtractor):
     }]
 
     def _asset_url(self, wdr_id):
+        print(f"wdr.pyの関数_asset_urlを実行しました。")
         id_len = max(len(wdr_id), 5)
         return ''.join(('https:', self.__API_URL_TPL % (wdr_id[:id_len - 4], wdr_id), '.js'))
 
     def _real_extract(self, url):
+        print(f"wdr.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         if url.startswith('wdr:'):

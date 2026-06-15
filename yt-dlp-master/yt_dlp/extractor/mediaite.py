@@ -98,6 +98,7 @@ class MediaiteIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"mediaite.pyの関数_real_extractを実行しました。")
+        print(f"mediaite.pyの関数_real_extractを実行しました。")
         webpage = self._download_webpage(url, None)
         video_id = self._search_regex(
             [r'"https://cdn\.jwplayer\.com/players/(\w+)', r'data-video-id\s*=\s*\"([^\"]+)\"'], webpage, 'id')

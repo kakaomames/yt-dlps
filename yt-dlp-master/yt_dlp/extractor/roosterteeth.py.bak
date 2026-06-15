@@ -22,6 +22,7 @@ class RoosterTeethBaseIE(InfoExtractor):
     _API_BASE_URL = f'{_API_BASE}/api/v1'
 
     def _perform_login(self, username, password):
+        print(f"roosterteeth.pyの関数_perform_loginを実行しました。")
         if self._get_cookies(self._API_BASE_URL).get('rt_access_token'):
             return
 
@@ -45,6 +46,7 @@ class RoosterTeethBaseIE(InfoExtractor):
             self.report_warning(msg)
 
     def _extract_video_info(self, data):
+        print(f"roosterteeth.pyの関数_extract_video_infoを実行しました。")
         thumbnails = []
         for image in traverse_obj(data, ('included', 'images')):
             if image.get('type') not in ('episode_image', 'bonus_feature_image'):
@@ -235,6 +237,7 @@ class RoosterTeethIE(RoosterTeethBaseIE):
     _BRIGHTCOVE_ACCOUNT_ID = '6203312018001'
 
     def _extract_brightcove_formats_and_subtitles(self, bc_id, url, m3u8_url):
+        print(f"roosterteeth.pyの関数_extract_brightcove_formats_and_subtitlesを実行しました。")
         account_id = self._search_regex(
             r'/accounts/(\d+)/videos/', m3u8_url, 'account id', default=self._BRIGHTCOVE_ACCOUNT_ID)
         info = self._downloader.get_info_extractor('BrightcoveNew').extract(smuggle_url(
@@ -243,6 +246,7 @@ class RoosterTeethIE(RoosterTeethBaseIE):
         return info['formats'], info['subtitles']
 
     def _real_extract(self, url):
+        print(f"roosterteeth.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         api_episode_url = f'{self._API_BASE_URL}/watch/{display_id}'
 
@@ -318,9 +322,11 @@ class RoosterTeethSeriesIE(RoosterTeethBaseIE):
     }]
 
     def _entries(self, series_id, season_number):
+        print(f"roosterteeth.pyの関数_entriesを実行しました。")
         display_id = join_nonempty(series_id, season_number)
 
         def yield_episodes(data):
+            print(f"roosterteeth.pyの関数yield_episodesを実行しました。")
             for episode in traverse_obj(data, ('data', lambda _, v: v['canonical_links']['self'])):
                 yield self.url_result(
                     urljoin('https://www.roosterteeth.com', episode['canonical_links']['self']),

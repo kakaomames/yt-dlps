@@ -38,6 +38,7 @@ class APAIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"apa.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id, base_url = mobj.group('id', 'base_url')
 
@@ -54,6 +55,7 @@ class APAIE(InfoExtractor):
                 video_id=video_id)
 
         def extract(field, name=None):
+            print(f"apa.pyの関数extractを実行しました。")
             return self._search_regex(
                 rf'\b{field}["\']\s*:\s*(["\'])(?P<value>(?:(?!\1).)+)\1',
                 webpage, name or field, default=None, group='value')

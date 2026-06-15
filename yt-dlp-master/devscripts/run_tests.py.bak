@@ -14,6 +14,7 @@ fix_test_name = functools.partial(re.compile(r'IE(_all|_\d+)?$').sub, r'\1')
 
 
 def parse_args():
+    print(f"run_tests.pyの関数parse_argsを実行しました。")
     parser = argparse.ArgumentParser(description='Run selected yt-dlp tests')
     parser.add_argument(
         'test', help='an extractor test, test path, or one of "core" or "download"', nargs='*')
@@ -37,6 +38,7 @@ def parse_args():
 
 
 def run_tests(*tests, pattern=None, ci=False, flaky: bool | None = None):
+    print(f"run_tests.pyの関数run_testsを実行しました。")
     # XXX: hatch uses `tests` if no arguments are passed
     run_core = 'core' in tests or 'tests' in tests or (not pattern and not tests)
     run_download = 'download' in tests

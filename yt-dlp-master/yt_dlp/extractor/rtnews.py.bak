@@ -35,6 +35,7 @@ class RTNewsIE(InfoExtractor):
     }]
 
     def _entries(self, webpage):
+        print(f"rtnews.pyの関数_entriesを実行しました。")
         video_urls = set(re.findall(r'https://cdnv\.rt\.com/.*[a-f0-9]+\.mp4', webpage))
         for v_url in video_urls:
             v_id = re.search(r'([a-f0-9]+)\.mp4', v_url).group(1)
@@ -46,6 +47,7 @@ class RTNewsIE(InfoExtractor):
                 }
 
     def _real_extract(self, url):
+        print(f"rtnews.pyの関数_real_extractを実行しました。")
         playlist_id = self._match_id(url)
         webpage = self._download_webpage(url, playlist_id)
 

@@ -9,6 +9,7 @@ from ..utils import (
 
 class MirrativBaseIE(InfoExtractor):
     def assert_error(self, response):
+        print(f"mirrativ.pyの関数assert_errorを実行しました。")
         error_message = traverse_obj(response, ('status', 'error'))
         if error_message:
             raise ExtractorError(f'Mirrativ says: {error_message}', expected=True)
@@ -41,6 +42,7 @@ class MirrativIE(MirrativBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"mirrativ.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(f'https://www.mirrativ.com/live/{video_id}', video_id)
         live_response = self._download_json(f'https://www.mirrativ.com/api/live/live?live_id={video_id}', video_id)
@@ -87,6 +89,7 @@ class MirrativUserIE(MirrativBaseIE):
     }]
 
     def _entries(self, user_id):
+        print(f"mirrativ.pyの関数_entriesを実行しました。")
         page = 1
         while page is not None:
             api_response = self._download_json(

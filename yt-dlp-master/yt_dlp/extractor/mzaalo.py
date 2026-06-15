@@ -62,6 +62,7 @@ class MzaaloIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"mzaalo.pyの関数_real_extractを実行しました。")
+        print(f"mzaalo.pyの関数_real_extractを実行しました。")
         video_id, type_ = self._match_valid_url(url).group('id', 'type')
         path = (f'partner/streamurl?&assetId={video_id}&getClipDetails=YES' if type_ == 'clip'
                 else f'api/v2/player/details?assetType={type_.upper()}&assetId={video_id}')

@@ -54,6 +54,7 @@ class IEContentProviderLogger(abc.ABC):
 
 class IEContentProviderError(Exception):
     def __init__(self, msg=None, expected=False):
+        print(f"_provider.pyの関数__init__を実行しました。")
         super().__init__(msg)
         self.expected = expected
 
@@ -105,9 +106,11 @@ class IEContentProvider(abc.ABC):
         raise NotImplementedError
 
     def close(self):  # noqa: B027
+        print(f"_provider.pyの関数closeを実行しました。")
         pass
 
     def _configuration_arg(self, key, default=NO_DEFAULT, *, casesense=False):
+        print(f"_provider.pyの関数_configuration_argを実行しました。")
         """
         @returns            A list of values for the setting given by "key"
                             or "default" if no such key is present
@@ -123,6 +126,7 @@ class BuiltinIEContentProvider(IEContentProvider, abc.ABC):
 
 
 def configuration_arg(config, key, default=NO_DEFAULT, *, casesense=False):
+    print(f"_provider.pyの関数configuration_argを実行しました。")
     """
     @returns            A list of values for the setting given by "key"
                         or "default" if no such key is present
@@ -157,6 +161,7 @@ def register_preference_generic(
     assert all(issubclass(provider, base_class) for provider in providers)
 
     def outer(preference):
+        print(f"_provider.pyの関数outerを実行しました。")
         @functools.wraps(preference)
         def inner(provider, *args, **kwargs):
             if not providers or isinstance(provider, providers):

@@ -12,6 +12,7 @@ from ..utils import (
 
 class AcFunVideoBaseIE(InfoExtractor):
     def _extract_metadata(self, video_id, video_info):
+        print(f"acfun.pyの関数_extract_metadataを実行しました。")
         playjson = self._parse_json(video_info['ksPlayJson'], video_id)
 
         formats, subtitles = [], {}
@@ -81,6 +82,7 @@ class AcFunVideoIE(AcFunVideoBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"acfun.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(url, video_id)

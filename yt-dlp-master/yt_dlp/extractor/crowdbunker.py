@@ -33,6 +33,7 @@ class CrowdBunkerIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"crowdbunker.pyの関数_real_extractを実行しました。")
+        print(f"crowdbunker.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data_json = self._download_json(
             f'https://api.divulg.org/post/{video_id}/details', video_id,
@@ -91,6 +92,7 @@ class CrowdBunkerChannelIE(InfoExtractor):
     }]
 
     def _entries(self, playlist_id):
+        print(f"crowdbunker.pyの関数_entriesを実行しました。")
         print(f"crowdbunker.pyの関数_entriesを実行しました。")
         last = None
 

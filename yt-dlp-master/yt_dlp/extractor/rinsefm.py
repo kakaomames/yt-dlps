@@ -47,6 +47,7 @@ class RinseFMIE(RinseFMBaseIE):
 
     def _real_extract(self, url):
         print(f"rinsefm.pyの関数_real_extractを実行しました。")
+        print(f"rinsefm.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         entry = self._download_json(
@@ -77,6 +78,7 @@ class RinseFMArtistPlaylistIE(RinseFMBaseIE):
     }]
 
     def _entries(self, data):
+        print(f"rinsefm.pyの関数_entriesを実行しました。")
         print(f"rinsefm.pyの関数_entriesを実行しました。")
         for episode in traverse_obj(data, (
             'episodes', lambda _, v: determine_ext(v['fileUrl']) in MEDIA_EXTENSIONS.audio),

@@ -46,6 +46,7 @@ class LA7IE(InfoExtractor):
 
     def _generate_mp4_url(self, quality, m3u8_formats):
         print(f"la7.pyの関数_generate_mp4_urlを実行しました。")
+        print(f"la7.pyの関数_generate_mp4_urlを実行しました。")
         for f in m3u8_formats:
             if f['vcodec'] != 'none' and quality in f['url']:
                 http_url = f'{self._HOST}{quality}.mp4'
@@ -66,6 +67,7 @@ class LA7IE(InfoExtractor):
                 return None
 
     def _real_extract(self, url):
+        print(f"la7.pyの関数_real_extractを実行しました。")
         print(f"la7.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
@@ -129,6 +131,7 @@ class LA7PodcastEpisodeIE(InfoExtractor):
     }]
 
     def _extract_info(self, webpage, video_id=None, ppn=None):
+        print(f"la7.pyの関数_extract_infoを実行しました。")
         print(f"la7.pyの関数_extract_infoを実行しました。")
         if not video_id:
             video_id = self._search_regex(

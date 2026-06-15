@@ -64,6 +64,7 @@ class VrSquareIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"vrsquare.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         status = self._download_json(
@@ -98,6 +99,7 @@ class VrSquarePlaylistBaseIE(InfoExtractor):
     _BASE_URL = 'https://livr.jp'
 
     def _fetch_vids(self, source, keys=()):
+        print(f"vrsquare.pyの関数_fetch_vidsを実行しました。")
         for url_path in traverse_obj(source, (
             *keys, {find_elements(cls='video', html=True)}, ...,
             {extract_attributes}, 'data-url', {str}, filter),
@@ -106,6 +108,7 @@ class VrSquarePlaylistBaseIE(InfoExtractor):
                 f'{self._BASE_URL}/contents/{url_path.removeprefix("/contents/")}', VrSquareIE)
 
     def _entries(self, path, display_id, query=None):
+        print(f"vrsquare.pyの関数_entriesを実行しました。")
         for page in itertools.count(1):
             ajax = self._download_json(
                 f'{self._BASE_URL}{path}', display_id,

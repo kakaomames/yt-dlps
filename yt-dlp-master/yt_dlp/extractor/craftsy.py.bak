@@ -39,6 +39,7 @@ class CraftsyIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"craftsy.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
@@ -65,6 +66,7 @@ class CraftsyIE(InfoExtractor):
         account_id = video_data.get('accountId') or video_js['data-account']
 
         def entries(lessons):
+            print(f"craftsy.pyの関数entriesを実行しました。")
             for lesson in lessons:
                 yield self.url_result(
                     f'http://players.brightcove.net/{account_id}/default_default/index.html?videoId={lesson["video_id"]}',

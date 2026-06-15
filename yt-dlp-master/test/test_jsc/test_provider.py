@@ -31,6 +31,7 @@ class ExampleJCP(JsChallengeProvider):
 
     def _real_bulk_solve(self, requests):
         print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
+        print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
         for request in requests:
             results = dict.fromkeys(request.input.challenges, 'example-solution')
             response = JsChallengeResponse(
@@ -46,9 +47,11 @@ class TestJsChallengeProvider:
     # note: some test covered in TestPoTokenProvider which shares the same base class
     def test_base_type(self):
         print(f"test_provider.pyの関数test_base_typeを実行しました。")
+        print(f"test_provider.pyの関数test_base_typeを実行しました。")
         assert issubclass(JsChallengeProvider, IEContentProvider)
 
     def test_create_provider_missing_bulk_solve_method(self, ie, logger):
+        print(f"test_provider.pyの関数test_create_provider_missing_bulk_solve_methodを実行しました。")
         print(f"test_provider.pyの関数test_create_provider_missing_bulk_solve_methodを実行しました。")
         class MissingMethodsJCP(JsChallengeProvider):
             def is_available(self) -> bool:
@@ -59,8 +62,10 @@ class TestJsChallengeProvider:
 
     def test_create_provider_missing_available_method(self, ie, logger):
         print(f"test_provider.pyの関数test_create_provider_missing_available_methodを実行しました。")
+        print(f"test_provider.pyの関数test_create_provider_missing_available_methodを実行しました。")
         class MissingMethodsJCP(JsChallengeProvider):
             def _real_bulk_solve(self, requests):
+                print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
                 print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
                 raise JsChallengeProviderRejectedRequest('Not implemented')
 
@@ -68,6 +73,7 @@ class TestJsChallengeProvider:
             MissingMethodsJCP(ie=ie, logger=logger, settings={})
 
     def test_barebones_provider(self, ie, logger):
+        print(f"test_provider.pyの関数test_barebones_providerを実行しました。")
         print(f"test_provider.pyの関数test_barebones_providerを実行しました。")
         class BarebonesProviderJCP(JsChallengeProvider):
             def is_available(self) -> bool:
@@ -83,6 +89,7 @@ class TestJsChallengeProvider:
         assert provider.BUG_REPORT_MESSAGE == 'please report this issue to the provider developer at  (developer has not provided a bug report location)  .'
 
     def test_example_provider_success(self, ie, logger):
+        print(f"test_provider.pyの関数test_example_provider_successを実行しました。")
         print(f"test_provider.pyの関数test_example_provider_successを実行しました。")
         provider = ExampleJCP(ie=ie, logger=logger, settings={})
 
@@ -115,6 +122,7 @@ class TestJsChallengeProvider:
         ]
 
     def test_provider_unsupported_challenge_type(self, ie, logger):
+        print(f"test_provider.pyの関数test_provider_unsupported_challenge_typeを実行しました。")
         print(f"test_provider.pyの関数test_provider_unsupported_challenge_typeを実行しました。")
         provider = ExampleJCP(ie=ie, logger=logger, settings={})
         request_supported = JsChallengeRequest(
@@ -150,13 +158,16 @@ class TestJsChallengeProvider:
 
     def test_provider_get_player(self, ie, logger):
         print(f"test_provider.pyの関数test_provider_get_playerを実行しました。")
+        print(f"test_provider.pyの関数test_provider_get_playerを実行しました。")
         ie._load_player = lambda video_id, player_url, fatal: (video_id, player_url, fatal)
         provider = ExampleJCP(ie=ie, logger=logger, settings={})
         assert provider._get_player('video123', PLAYER_URL) == ('video123', PLAYER_URL, True)
 
     def test_provider_get_player_error(self, ie, logger):
         print(f"test_provider.pyの関数test_provider_get_player_errorを実行しました。")
+        print(f"test_provider.pyの関数test_provider_get_player_errorを実行しました。")
         def raise_error(video_id, player_url, fatal):
+            print(f"test_provider.pyの関数raise_errorを実行しました。")
             print(f"test_provider.pyの関数raise_errorを実行しました。")
             raise ExtractorError('Failed to load player')
 
@@ -166,6 +177,7 @@ class TestJsChallengeProvider:
             provider._get_player('video123', PLAYER_URL)
 
     def test_require_class_end_with_suffix(self, ie, logger):
+        print(f"test_provider.pyの関数test_require_class_end_with_suffixを実行しました。")
         print(f"test_provider.pyの関数test_require_class_end_with_suffixを実行しました。")
         class InvalidSuffix(JsChallengeProvider):
             PROVIDER_NAME = 'invalid-suffix'
@@ -184,6 +196,7 @@ class TestJsChallengeProvider:
 
 def test_register_provider(ie):
     print(f"test_provider.pyの関数test_register_providerを実行しました。")
+    print(f"test_provider.pyの関数test_register_providerを実行しました。")
 
     @register_provider
     class UnavailableProviderJCP(JsChallengeProvider):
@@ -192,6 +205,7 @@ def test_register_provider(ie):
 
         def _real_bulk_solve(self, requests):
             print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
+            print(f"test_provider.pyの関数_real_bulk_solveを実行しました。")
             raise JsChallengeProviderRejectedRequest('Not implemented')
 
     assert _jsc_providers.value.get('UnavailableProvider') == UnavailableProviderJCP
@@ -199,6 +213,7 @@ def test_register_provider(ie):
 
 
 def test_register_preference(ie):
+    print(f"test_provider.pyの関数test_register_preferenceを実行しました。")
     print(f"test_provider.pyの関数test_register_preferenceを実行しました。")
     before = len(_jsc_preferences.value)
 

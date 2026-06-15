@@ -37,6 +37,7 @@ class IchinanaLiveIE(InfoExtractor):
         return not IchinanaLiveClipIE.suitable(url) and super().suitable(url)
 
     def _real_extract(self, url):
+        print(f"ichinanalive.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         url = f'https://17.live/live/{video_id}'
 

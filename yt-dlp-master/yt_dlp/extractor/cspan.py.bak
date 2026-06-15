@@ -83,6 +83,7 @@ class CSpanIE(InfoExtractor):
     BRIGHTCOVE_URL_TEMPLATE = 'http://players.brightcove.net/%s/%s_%s/index.html?videoId=%s'
 
     def _real_extract(self, url):
+        print(f"cspan.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_type = None
         webpage = self._download_webpage(url, video_id)
@@ -105,6 +106,7 @@ class CSpanIE(InfoExtractor):
                 return self.url_result(smuggle_url(bc_url, {'source_url': url}))
 
         def add_referer(formats):
+            print(f"cspan.pyの関数add_refererを実行しました。")
             for f in formats:
                 f.setdefault('http_headers', {})['Referer'] = url
 
@@ -180,6 +182,7 @@ class CSpanIE(InfoExtractor):
             raise ExtractorError('unable to find video id and type')
 
         def get_text_attr(d, attr):
+            print(f"cspan.pyの関数get_text_attrを実行しました。")
             return d.get(attr, {}).get('#text')
 
         data = self._download_json(

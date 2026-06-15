@@ -28,6 +28,7 @@ class ClipchampIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"clipchamp.pyの関数_real_extractを実行しました。")
+        print(f"clipchamp.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         data = self._search_nextjs_data(webpage, video_id)['props']['pageProps']['video']

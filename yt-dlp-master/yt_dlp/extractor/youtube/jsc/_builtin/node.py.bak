@@ -56,6 +56,7 @@ class NodeJCP(EJSBaseJCP, BuiltinIEContentProvider):
         return stdout
 
     def _clean_stderr(self, stderr):
+        print(f"node.pyの関数_clean_stderrを実行しました。")
         return '\n'.join(
             line for line in stderr.splitlines()
             if not (

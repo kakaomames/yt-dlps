@@ -88,6 +88,7 @@ class CCMAIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"ccma.pyの関数_real_extractを実行しました。")
         media_type, media_id = self._match_valid_url(url).group('type', 'id')
 
         media = self._download_json(

@@ -31,6 +31,7 @@ class IvideonIE(InfoExtractor):
     _QUALITIES = ('low', 'mid', 'hi')
 
     def _real_extract(self, url):
+        print(f"ivideon.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         server_id, camera_id = mobj.group('id'), mobj.group('camera_id')
         camera_name, description = None, None

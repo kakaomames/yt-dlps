@@ -20,7 +20,9 @@ class VidioBaseIE(InfoExtractor):
     _NETRC_MACHINE = 'vidio'
 
     def _perform_login(self, username, password):
+        print(f"vidio.pyの関数_perform_loginを実行しました。")
         def is_logged_in():
+            print(f"vidio.pyの関数is_logged_inを実行しました。")
             res = self._download_json(
                 'https://www.vidio.com/interactions.json', None, 'Checking if logged in', fatal=False) or {}
             return bool(res.get('current_user'))
@@ -56,10 +58,12 @@ class VidioBaseIE(InfoExtractor):
             raise ExtractorError('Unable to log in')
 
     def _initialize_pre_login(self):
+        print(f"vidio.pyの関数_initialize_pre_loginを実行しました。")
         self._api_key = self._download_json(
             'https://www.vidio.com/auth', None, data=b'')['api_key']
 
     def _call_api(self, url, video_id, note=None):
+        print(f"vidio.pyの関数_call_apiを実行しました。")
         return self._download_json(url, video_id, note=note, headers={
             'Content-Type': 'application/vnd.api+json',
             'X-API-KEY': self._api_key,
@@ -126,6 +130,7 @@ class VidioIE(VidioBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"vidio.pyの関数_real_extractを実行しました。")
         match = self._match_valid_url(url).groupdict()
         video_id, display_id = match.get('id'), match.get('display_id')
         data = self._call_api('https://api.vidio.com/videos/' + video_id, display_id)
@@ -197,6 +202,7 @@ class VidioPremierIE(VidioBaseIE):
     }]
 
     def _playlist_entries(self, playlist_url, display_id):
+        print(f"vidio.pyの関数_playlist_entriesを実行しました。")
         index = 1
         while playlist_url:
             playlist_json = self._call_api(playlist_url, display_id, f'Downloading API JSON page {index}')

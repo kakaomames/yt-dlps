@@ -164,6 +164,7 @@ class RumbleEmbedIE(InfoExtractor):
             r'<script>[^<]*\bRumble\(\s*"play"\s*,\s*{[^}]*[\'"]?video[\'"]?\s*:\s*[\'"](?P<id>[0-9a-z]+)[\'"]', webpage)]
 
     def _real_extract(self, url):
+        print(f"rumble.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video = self._download_json(
             'https://rumble.com/embedJS/u3/', video_id,
@@ -395,6 +396,7 @@ class RumbleChannelIE(InfoExtractor):
     }]
 
     def entries(self, url, playlist_id):
+        print(f"rumble.pyの関数entriesを実行しました。")
         for page in itertools.count(1):
             try:
                 webpage = self._download_webpage(f'{url}?page={page}', playlist_id, note=f'Downloading page {page}')

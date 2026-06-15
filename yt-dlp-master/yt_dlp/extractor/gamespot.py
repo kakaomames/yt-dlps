@@ -37,6 +37,7 @@ class GameSpotIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"gamespot.pyの関数_real_extractを実行しました。")
+        print(f"gamespot.pyの関数_real_extractを実行しました。")
         page_id = self._match_id(url)
         webpage = self._download_webpage(url, page_id)
         data_video = self._parse_json(self._html_search_regex(

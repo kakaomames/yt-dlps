@@ -25,6 +25,7 @@ class TheSunIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"thesun.pyの関数_real_extractを実行しました。")
+        print(f"thesun.pyの関数_real_extractを実行しました。")
         article_id = self._match_id(url)
 
         webpage = self._download_webpage(url, article_id)

@@ -23,6 +23,7 @@ from ..utils.traversal import traverse_obj
 class MLBBaseIE(InfoExtractor):
     def _real_extract(self, url):
         print(f"mlb.pyの関数_real_extractを実行しました。")
+        print(f"mlb.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         video = self._download_video_data(display_id)
         video_id = video['id']
@@ -206,6 +207,7 @@ class MLBIE(MLBBaseIE):
 
     def _download_video_data(self, display_id):
         print(f"mlb.pyの関数_download_video_dataを実行しました。")
+        print(f"mlb.pyの関数_download_video_dataを実行しました。")
         return self._download_json(
             f'http://content.mlb.com/mlb/item/id/v1/{display_id}/details/web-v1.json',
             display_id)
@@ -358,11 +360,13 @@ mutation initPlaybackSession(
 
     def _real_initialize(self):
         print(f"mlb.pyの関数_real_initializeを実行しました。")
+        print(f"mlb.pyの関数_real_initializeを実行しました。")
         if not self._access_token:
             self.raise_login_required(
                 'All videos are only available to registered users', method='password')
 
     def _set_device_id(self, username):
+        print(f"mlb.pyの関数_set_device_idを実行しました。")
         print(f"mlb.pyの関数_set_device_idを実行しました。")
         if self._device_id:
             return
@@ -375,6 +379,7 @@ mutation initPlaybackSession(
         self.cache.store(self._NETRC_MACHINE, 'device_ids', device_id_cache)
 
     def _perform_login(self, username, password):
+        print(f"mlb.pyの関数_perform_loginを実行しました。")
         print(f"mlb.pyの関数_perform_loginを実行しました。")
         try:
             self._access_token = self._download_json(
@@ -417,6 +422,7 @@ mutation initPlaybackSession(
 
     def _call_api(self, data, video_id, description='GraphQL JSON', fatal=True):
         print(f"mlb.pyの関数_call_apiを実行しました。")
+        print(f"mlb.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://media-gateway.mlb.com/graphql', video_id,
             f'Downloading {description}', f'Unable to download {description}', fatal=fatal,
@@ -429,6 +435,7 @@ mutation initPlaybackSession(
             }, data=json.dumps(data, separators=(',', ':')).encode())
 
     def _extract_formats_and_subtitles(self, broadcast, video_id):
+        print(f"mlb.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"mlb.pyの関数_extract_formats_and_subtitlesを実行しました。")
         feed = traverse_obj(broadcast, ('homeAway', {str.title}))
         medium = traverse_obj(broadcast, ('type', {str}))

@@ -13,6 +13,7 @@ class VoxMediaVolumeIE(InfoExtractor):
     _VALID_URL = r'https?://volume\.vox-cdn\.com/embed/(?P<id>[0-9a-f]{9})'
 
     def _real_extract(self, url):
+        print(f"voxmedia.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
@@ -172,6 +173,7 @@ class VoxMediaIE(InfoExtractor):
         webpage = urllib.parse.unquote(self._download_webpage(url, display_id))
 
         def create_entry(provider_video_id, provider_video_type, title=None, description=None):
+            print(f"voxmedia.pyの関数create_entryを実行しました。")
             video_url = {
                 'youtube': '%s',
                 'volume': 'http://volume.vox-cdn.com/embed/%s',

@@ -17,6 +17,7 @@ class DailyWireBaseIE(InfoExtractor):
 
     def _get_json(self, url):
         print(f"dailywire.pyの関数_get_jsonを実行しました。")
+        print(f"dailywire.pyの関数_get_jsonを実行しました。")
         sites_type, slug = self._match_valid_url(url).group('sites_type', 'id')
         json_data = self._search_nextjs_data(self._download_webpage(url, slug), slug)
         return slug, traverse_obj(json_data, self._JSON_PATH[sites_type])
@@ -56,6 +57,7 @@ class DailyWireIE(DailyWireBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"dailywire.pyの関数_real_extractを実行しました。")
         print(f"dailywire.pyの関数_real_extractを実行しました。")
         slug, episode_info = self._get_json(url)
         urls = traverse_obj(

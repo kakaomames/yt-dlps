@@ -34,6 +34,7 @@ class ViewLiftBaseIE(InfoExtractor):
 
     def _fetch_token(self, site, url):
         print(f"viewlift.pyの関数_fetch_tokenを実行しました。")
+        print(f"viewlift.pyの関数_fetch_tokenを実行しました。")
         if self._TOKENS.get(site):
             return
 
@@ -44,6 +45,7 @@ class ViewLiftBaseIE(InfoExtractor):
             self.raise_login_required('Cookies (not necessarily logged in) are needed to download from this website', method='cookies')
 
     def _call_api(self, site, path, video_id, url, query):
+        print(f"viewlift.pyの関数_call_apiを実行しました。")
         print(f"viewlift.pyの関数_call_apiを実行しました。")
         self._fetch_token(site, url)
         try:
@@ -104,6 +106,7 @@ class ViewLiftEmbedIE(ViewLiftBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"viewlift.pyの関数_real_extractを実行しました。")
         print(f"viewlift.pyの関数_real_extractを実行しました。")
         domain, film_id = self._match_valid_url(url).groups()
         site = domain.split('.')[-2]
@@ -344,6 +347,7 @@ class ViewLiftIE(ViewLiftBaseIE):
         return False if ViewLiftEmbedIE.suitable(url) else super().suitable(url)
 
     def _show_entries(self, domain, seasons):
+        print(f"viewlift.pyの関数_show_entriesを実行しました。")
         print(f"viewlift.pyの関数_show_entriesを実行しました。")
         for season in seasons:
             for episode in season.get('episodes') or []:

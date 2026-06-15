@@ -18,6 +18,7 @@ class WhoWatchIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"whowatch.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         self._download_webpage(url, video_id)
         metadata = self._download_json(f'https://api.whowatch.tv/lives/{video_id}', video_id)

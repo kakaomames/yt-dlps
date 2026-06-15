@@ -43,15 +43,18 @@ from curl_cffi.const import CurlECode, CurlOpt
 
 class CurlCFFIResponseReader(io.IOBase):
     def __init__(self, response: curl_cffi.requests.Response):
+        print(f"_curlcffi.pyの関数__init__を実行しました。")
         self._response = response
         self._iterator = response.iter_content()
         self._buffer = b''
         self.bytes_read = 0
 
     def readable(self):
+        print(f"_curlcffi.pyの関数readableを実行しました。")
         return True
 
     def read(self, size=None):
+        print(f"_curlcffi.pyの関数readを実行しました。")
         exception_raised = True
         try:
             while self._iterator and (size is None or len(self._buffer) < size):
@@ -78,6 +81,7 @@ class CurlCFFIResponseReader(io.IOBase):
                 self.close()
 
     def close(self):
+        print(f"_curlcffi.pyの関数closeを実行しました。")
         if not self.closed:
             self._response.close()
             self._buffer = b''
@@ -226,9 +230,11 @@ class CurlCFFIRH(ImpersonateRequestHandler, InstanceStoreMixin):
     }
 
     def _create_instance(self, cookiejar=None):
+        print(f"_curlcffi.pyの関数_create_instanceを実行しました。")
         return curl_cffi.requests.Session(cookies=cookiejar)
 
     def _check_extensions(self, extensions):
+        print(f"_curlcffi.pyの関数_check_extensionsを実行しました。")
         super()._check_extensions(extensions)
         extensions.pop('impersonate', None)
         extensions.pop('cookiejar', None)
@@ -248,6 +254,7 @@ class CurlCFFIRH(ImpersonateRequestHandler, InstanceStoreMixin):
         return response
 
     def _send(self, request: Request):
+        print(f"_curlcffi.pyの関数_sendを実行しました。")
         max_redirects_exceeded = False
         session: curl_cffi.requests.Session = self._get_instance(
             cookiejar=self._get_cookiejar(request) if 'cookie' not in request.headers else None)

@@ -136,6 +136,7 @@ class TenPlayIE(InfoExtractor):
 
     def _refresh_access_token(self):
         print(f"tenplay.pyの関数_refresh_access_tokenを実行しました。")
+        print(f"tenplay.pyの関数_refresh_access_tokenを実行しました。")
         try:
             refresh_data = self._download_json(
                 'https://10.com.au/api/token/refresh', None, 'Refreshing access token',
@@ -158,6 +159,7 @@ class TenPlayIE(InfoExtractor):
         self.cache.store(self._NETRC_MACHINE, self._TOKEN_CACHE_KEY, [self._refresh_token, self._access_token])
 
     def _perform_login(self, username, password):
+        print(f"tenplay.pyの関数_perform_loginを実行しました。")
         print(f"tenplay.pyの関数_perform_loginを実行しました。")
         if not self._refresh_token:
             self._refresh_token, self._access_token = self.cache.load(
@@ -188,6 +190,7 @@ class TenPlayIE(InfoExtractor):
 
     def _call_playback_api(self, content_id):
         print(f"tenplay.pyの関数_call_playback_apiを実行しました。")
+        print(f"tenplay.pyの関数_call_playback_apiを実行しました。")
         if self._access_token and self._is_jwt_expired(self._access_token):
             self._refresh_access_token()
         for is_retry in (False, True):
@@ -210,6 +213,7 @@ class TenPlayIE(InfoExtractor):
                 raise
 
     def _real_extract(self, url):
+        print(f"tenplay.pyの関数_real_extractを実行しました。")
         print(f"tenplay.pyの関数_real_extractを実行しました。")
         content_id = self._match_id(url)
         try:
@@ -307,6 +311,7 @@ class TenPlaySeasonIE(InfoExtractor):
     }]
 
     def _entries(self, load_more_url, display_id=None):
+        print(f"tenplay.pyの関数_entriesを実行しました。")
         print(f"tenplay.pyの関数_entriesを実行しました。")
         skip_ids = []
         for page in itertools.count(1):

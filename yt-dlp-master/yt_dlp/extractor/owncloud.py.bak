@@ -40,6 +40,7 @@ class OwnCloudIE(InfoExtractor):
     ]
 
     def _real_extract(self, url):
+        print(f"owncloud.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage, urlh = self._download_webpage_handle(url, video_id)
 
@@ -59,6 +60,7 @@ class OwnCloudIE(InfoExtractor):
         }
 
     def _verify_video_password(self, webpage, url, video_id):
+        print(f"owncloud.pyの関数_verify_video_passwordを実行しました。")
         password = self.get_param('videopassword')
         if password is None:
             raise ExtractorError(

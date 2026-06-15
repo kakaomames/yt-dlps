@@ -51,6 +51,7 @@ class DWIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"dw.pyの関数_real_extractを実行しました。")
+        print(f"dw.pyの関数_real_extractを実行しました。")
         media_id = self._match_id(url)
         webpage = self._download_webpage(url, media_id)
         hidden_inputs = self._hidden_inputs(webpage)

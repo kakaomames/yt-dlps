@@ -130,6 +130,7 @@ class ORFRadioIE(InfoExtractor):
     }]
 
     def _entries(self, data, station):
+        print(f"orf.pyの関数_entriesを実行しました。")
         _, loop_station, old_ie = self.STATION_INFO[station]
         for info in data['streams']:
             item_id = info.get('loopStreamId')
@@ -149,6 +150,7 @@ class ORFRadioIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"orf.pyの関数_real_extractを実行しました。")
         station, station2, show_date, show_id = self._match_valid_url(url).group('station', 'station2', 'date', 'show')
         api_station, _, _ = self.STATION_INFO[station or station2]
         data = self._download_json(
@@ -504,6 +506,7 @@ class ORFONIE(InfoExtractor):
         }, get_all=False)
 
     def _extract_video_info(self, video_id, api_json):
+        print(f"orf.pyの関数_extract_video_infoを実行しました。")
         formats, subtitles = [], {}
         for manifest_type in traverse_obj(api_json, ('sources', {dict.keys}, ...)):
             for manifest_url in traverse_obj(api_json, ('sources', manifest_type, ..., 'src', {url_or_none})):

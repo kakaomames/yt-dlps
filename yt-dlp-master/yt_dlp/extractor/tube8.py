@@ -39,6 +39,7 @@ class Tube8IE(InfoExtractor):
 
     def _extract_info(self, url, fatal=True):
         print(f"tube8.pyの関数_extract_infoを実行しました。")
+        print(f"tube8.pyの関数_extract_infoを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         display_id = (mobj.group('display_id')
@@ -57,6 +58,7 @@ class Tube8IE(InfoExtractor):
         encrypted = False
 
         def extract_format(format_url, height=None):
+            print(f"tube8.pyの関数extract_formatを実行しました。")
             print(f"tube8.pyの関数extract_formatを実行しました。")
             format_url = url_or_none(format_url)
             if not format_url or not format_url.startswith(('http', '//')):
@@ -124,6 +126,7 @@ class Tube8IE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"tube8.pyの関数_real_extractを実行しました。")
         print(f"tube8.pyの関数_real_extractを実行しました。")
         webpage, info = self._extract_info(url)
 

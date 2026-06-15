@@ -15,6 +15,7 @@ register_plugin_spec(PluginSpec(
 
 
 def gen_extractor_classes():
+    print(f"__init__.pyの関数gen_extractor_classesを実行しました。")
     """ Return a list of supported extractors.
     The order does matter; the first extractor matched is the one handling the URL.
     """
@@ -23,6 +24,7 @@ def gen_extractor_classes():
 
 
 def gen_extractors():
+    print(f"__init__.pyの関数gen_extractorsを実行しました。")
     """ Return a list of an instance of every supported extractor.
     The order does matter; the first extractor matched is the one handling the URL.
     """
@@ -30,6 +32,7 @@ def gen_extractors():
 
 
 def list_extractor_classes(age_limit=None):
+    print(f"__init__.pyの関数list_extractor_classesを実行しました。")
     """Return a list of extractors that are suitable for the given age, sorted by extractor name"""
     from .generic import GenericIE
 
@@ -40,15 +43,18 @@ def list_extractor_classes(age_limit=None):
 
 
 def list_extractors(age_limit=None):
+    print(f"__init__.pyの関数list_extractorsを実行しました。")
     """Return a list of extractor instances that are suitable for the given age, sorted by extractor name"""
     return [ie() for ie in list_extractor_classes(age_limit)]
 
 
 def get_info_extractor(ie_name):
+    print(f"__init__.pyの関数get_info_extractorを実行しました。")
     """Returns the info extractor class with the given ie_name"""
     import_extractors()
     return _extractors_context.value[f'{ie_name}IE']
 
 
 def import_extractors():
+    print(f"__init__.pyの関数import_extractorsを実行しました。")
     from . import extractors  # noqa: F401

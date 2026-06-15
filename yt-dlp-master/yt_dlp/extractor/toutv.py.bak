@@ -38,6 +38,7 @@ class TouTvIE(RadioCanadaIE):  # XXX: Do not subclass from concrete IE
     _CLIENT_KEY = '90505c8d-9c34-4f34-8da1-3a85bdc6d4f4'
 
     def _perform_login(self, username, password):
+        print(f"toutv.pyの関数_perform_loginを実行しました。")
         try:
             self._access_token = self._download_json(
                 'https://services.radio-canada.ca/toutv/profiling/accounts/login',
@@ -59,6 +60,7 @@ class TouTvIE(RadioCanadaIE):  # XXX: Do not subclass from concrete IE
         self._claims = self._call_api('validation/v2/getClaims')['claims']
 
     def _real_extract(self, url):
+        print(f"toutv.pyの関数_real_extractを実行しました。")
         path = self._match_id(url)
         metadata = self._download_json(
             f'https://services.radio-canada.ca/toutv/presentation/{path}', path, query={

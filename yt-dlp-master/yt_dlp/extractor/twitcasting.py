@@ -88,6 +88,7 @@ class TwitCastingIE(InfoExtractor):
 
     def _parse_data_movie_playlist(self, dmp, video_id):
         print(f"twitcasting.pyの関数_parse_data_movie_playlistを実行しました。")
+        print(f"twitcasting.pyの関数_parse_data_movie_playlistを実行しました。")
         # attempt 1: parse as JSON directly
         try:
             return self._parse_json(dmp, video_id)
@@ -98,6 +99,7 @@ class TwitCastingIE(InfoExtractor):
         return self._parse_json(decoded, video_id)
 
     def _real_extract(self, url):
+        print(f"twitcasting.pyの関数_real_extractを実行しました。")
         print(f"twitcasting.pyの関数_real_extractを実行しました。")
         uploader_id, video_id = self._match_valid_url(url).groups()
 
@@ -157,6 +159,7 @@ class TwitCastingIE(InfoExtractor):
         }
 
         def find_dmu(x):
+            print(f"twitcasting.pyの関数find_dmuを実行しました。")
             print(f"twitcasting.pyの関数find_dmuを実行しました。")
             data_movie_url = self._search_regex(
                 r'data-movie-url=(["\'])(?P<url>(?:(?!\1).)+)\1',
@@ -302,6 +305,7 @@ class TwitCastingUserIE(InfoExtractor):
     }]
 
     def _entries(self, uploader_id):
+        print(f"twitcasting.pyの関数_entriesを実行しました。")
         print(f"twitcasting.pyの関数_entriesを実行しました。")
         base_url = next_url = f'https://twitcasting.tv/{uploader_id}/show'
         for page_num in itertools.count(1):

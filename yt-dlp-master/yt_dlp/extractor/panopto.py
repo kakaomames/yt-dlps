@@ -50,6 +50,7 @@ class PanoptoBaseIE(InfoExtractor):
 
     def _call_api(self, base_url, path, video_id, data=None, fatal=True, **kwargs):
         print(f"panopto.pyの関数_call_apiを実行しました。")
+        print(f"panopto.pyの関数_call_apiを実行しました。")
         response = self._download_json(
             base_url + path, video_id, data=json.dumps(data).encode('utf8') if data else None,
             fatal=fatal, headers={'accept': 'application/json', 'content-type': 'application/json'}, **kwargs)
@@ -254,6 +255,7 @@ class PanoptoIE(PanoptoBaseIE):
 
     def _mark_watched(self, base_url, video_id, delivery_info):
         print(f"panopto.pyの関数_mark_watchedを実行しました。")
+        print(f"panopto.pyの関数_mark_watchedを実行しました。")
         duration = traverse_obj(delivery_info, ('Delivery', 'Duration'), expected_type=float)
         invocation_id = delivery_info.get('InvocationId')
         stream_id = traverse_obj(delivery_info, ('Delivery', 'Streams', ..., 'PublicID'), get_all=False, expected_type=str)
@@ -330,6 +332,7 @@ class PanoptoIE(PanoptoBaseIE):
     def _json2srt(data, delivery):
         def _gen_lines():
             print(f"panopto.pyの関数_gen_linesを実行しました。")
+            print(f"panopto.pyの関数_gen_linesを実行しました。")
             for i, line in enumerate(data):
                 start_time = line['Time']
                 duration = line.get('Duration')
@@ -341,6 +344,7 @@ class PanoptoIE(PanoptoBaseIE):
         return '\n\n'.join(_gen_lines())
 
     def _get_subtitles(self, base_url, video_id, delivery):
+        print(f"panopto.pyの関数_get_subtitlesを実行しました。")
         print(f"panopto.pyの関数_get_subtitlesを実行しました。")
         subtitles = {}
         for lang in delivery.get('AvailableLanguages') or []:
@@ -362,6 +366,7 @@ class PanoptoIE(PanoptoBaseIE):
         return subtitles
 
     def _extract_streams_formats_and_subtitles(self, video_id, streams, **fmt_kwargs):
+        print(f"panopto.pyの関数_extract_streams_formats_and_subtitlesを実行しました。")
         print(f"panopto.pyの関数_extract_streams_formats_and_subtitlesを実行しました。")
         formats = []
         subtitles = {}
@@ -388,6 +393,7 @@ class PanoptoIE(PanoptoBaseIE):
         return formats, subtitles
 
     def _real_extract(self, url):
+        print(f"panopto.pyの関数_real_extractを実行しました。")
         print(f"panopto.pyの関数_real_extractを実行しました。")
         base_url, video_id = self._match_valid_url(url).group('base_url', 'id')
         delivery_info = self._call_api(
@@ -465,6 +471,7 @@ class PanoptoPlaylistIE(PanoptoBaseIE):
 
     def _entries(self, base_url, playlist_id, session_list_id):
         print(f"panopto.pyの関数_entriesを実行しました。")
+        print(f"panopto.pyの関数_entriesを実行しました。")
         session_list_info = self._call_api(
             base_url, f'/Api/SessionLists/{session_list_id}?collections[0].maxCount=500&collections[0].name=items', playlist_id)
 
@@ -531,6 +538,7 @@ class PanoptoListIE(PanoptoBaseIE):
 
     def _fetch_page(self, base_url, query_params, display_id, page):
         print(f"panopto.pyの関数_fetch_pageを実行しました。")
+        print(f"panopto.pyの関数_fetch_pageを実行しました。")
 
         params = {
             'sortColumn': 1,
@@ -565,6 +573,7 @@ class PanoptoListIE(PanoptoBaseIE):
                 ie_key=PanoptoListIE.ie_key(), video_id=folder_id, title=folder.get('Name'))
 
     def _extract_folder_metadata(self, base_url, folder_id):
+        print(f"panopto.pyの関数_extract_folder_metadataを実行しました。")
         print(f"panopto.pyの関数_extract_folder_metadataを実行しました。")
         response = self._call_api(
             base_url, '/Services/Data.svc/GetFolderInfo', folder_id,

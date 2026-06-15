@@ -70,6 +70,7 @@ class LeIE(InfoExtractor):
 
     # ror() and calc_time_key() are reversed from a embedded swf file in LetvPlayer.swf
     def ror(self, param1, param2):
+        print(f"leeco.pyの関数rorを実行しました。")
         _loc3_ = 0
         while _loc3_ < param2:
             param1 = urshift(param1, 1) + ((param1 & 1) << 31)
@@ -77,6 +78,7 @@ class LeIE(InfoExtractor):
         return param1
 
     def calc_time_key(self, param1):
+        print(f"leeco.pyの関数calc_time_keyを実行しました。")
         _loc2_ = 185025305
         return self.ror(param1, _loc2_ % 17) ^ _loc2_
 
@@ -101,6 +103,7 @@ class LeIE(InfoExtractor):
         return bytes(_loc7_)
 
     def _check_errors(self, play_json):
+        print(f"leeco.pyの関数_check_errorsを実行しました。")
         # Check for errors
         playstatus = play_json['msgs']['playstatus']
         if playstatus['status'] == 0:
@@ -111,6 +114,7 @@ class LeIE(InfoExtractor):
                 raise ExtractorError('Generic error. flag = %d' % flag, expected=True)
 
     def _real_extract(self, url):
+        print(f"leeco.pyの関数_real_extractを実行しました。")
         media_id = self._match_id(url)
         page = self._download_webpage(url, media_id)
 
@@ -130,6 +134,7 @@ class LeIE(InfoExtractor):
         self._check_errors(play_json_flash)
 
         def get_flash_urls(media_url, format_id):
+            print(f"leeco.pyの関数get_flash_urlsを実行しました。")
             nodes_data = self._download_json(
                 media_url, media_id,
                 f'Download JSON metadata for format {format_id}',

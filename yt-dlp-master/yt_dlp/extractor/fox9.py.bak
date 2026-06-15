@@ -5,6 +5,7 @@ class FOX9IE(InfoExtractor):
     _VALID_URL = r'https?://(?:www\.)?fox9\.com/video/(?P<id>\d+)'
 
     def _real_extract(self, url):
+        print(f"fox9.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         return self.url_result(
             'anvato:anvato_epfox_app_web_prod_b3373168e12f423f41504f207000188daf88251b:' + video_id,

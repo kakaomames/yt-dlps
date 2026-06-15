@@ -48,6 +48,7 @@ class YappyIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"yappy.pyの関数_real_extractを実行しました。")
+        print(f"yappy.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         json_ld = self._search_json_ld(webpage, video_id)
@@ -116,6 +117,7 @@ class YappyProfileIE(InfoExtractor):
         profile_id = self._match_id(url)
 
         def fetch_page(page_num):
+            print(f"yappy.pyの関数fetch_pageを実行しました。")
             print(f"yappy.pyの関数fetch_pageを実行しました。")
             page_num += 1
             videos = self._download_json(

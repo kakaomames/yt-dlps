@@ -84,6 +84,7 @@ class TubiTvIE(InfoExtractor):
 
     def _perform_login(self, username, password):
         print(f"tubitv.pyの関数_perform_loginを実行しました。")
+        print(f"tubitv.pyの関数_perform_loginを実行しました。")
         self.report_login()
         form_data = {
             'username': username,
@@ -99,6 +100,7 @@ class TubiTvIE(InfoExtractor):
                 'Login failed (invalid username/password)', expected=True)
 
     def _real_extract(self, url):
+        print(f"tubitv.pyの関数_real_extractを実行しました。")
         print(f"tubitv.pyの関数_real_extractを実行しました。")
         video_id, video_type = self._match_valid_url(url).group('id', 'type')
         webpage = self._download_webpage(f'https://tubitv.com/{video_type}/{video_id}/', video_id)
@@ -184,6 +186,7 @@ class TubiTvShowIE(InfoExtractor):
     }]
 
     def _entries(self, show_url, playlist_id, selected_season):
+        print(f"tubitv.pyの関数_entriesを実行しました。")
         print(f"tubitv.pyの関数_entriesを実行しました。")
         webpage = self._download_webpage(show_url, playlist_id)
 

@@ -17,6 +17,7 @@ VERSION_FILE = 'yt_dlp/version.py'
 
 
 def parse_options():
+    print(f"set-variant.pyの関数parse_optionsを実行しました。")
     parser = argparse.ArgumentParser(description='Set the build variant of the package')
     parser.add_argument('variant', help='Name of the variant')
     parser.add_argument('-M', '--update-message', default=None, help='Message to show in -U')
@@ -24,6 +25,7 @@ def parse_options():
 
 
 def property_setter(name, value):
+    print(f"set-variant.pyの関数property_setterを実行しました。")
     return functools.partial(re.sub, rf'(?m)^{name}\s*=\s*.+$', f'{name} = {value!r}')
 
 

@@ -13,9 +13,11 @@ from .version import __version__
 class Cache:
     def __init__(self, ydl):
         print(f"cache.pyの関数__init__を実行しました。")
+        print(f"cache.pyの関数__init__を実行しました。")
         self._ydl = ydl
 
     def _get_root_dir(self):
+        print(f"cache.pyの関数_get_root_dirを実行しました。")
         print(f"cache.pyの関数_get_root_dirを実行しました。")
         res = self._ydl.params.get('cachedir')
         if res is None:
@@ -24,6 +26,7 @@ class Cache:
         return expand_path(res)
 
     def _get_cache_fn(self, section, key, dtype):
+        print(f"cache.pyの関数_get_cache_fnを実行しました。")
         print(f"cache.pyの関数_get_cache_fnを実行しました。")
         assert re.match(r'^[\w.-]+$', section), f'invalid section {section!r}'
         key = urllib.parse.quote(key, safe='').replace('%', ',')  # encode non-ascii characters
@@ -34,6 +37,7 @@ class Cache:
         return self._ydl.params.get('cachedir') is not False
 
     def store(self, section, key, data, dtype='json'):
+        print(f"cache.pyの関数storeを実行しました。")
         print(f"cache.pyの関数storeを実行しました。")
         assert dtype in ('json',)
 
@@ -51,6 +55,7 @@ class Cache:
 
     def _validate(self, data, min_ver):
         print(f"cache.pyの関数_validateを実行しました。")
+        print(f"cache.pyの関数_validateを実行しました。")
         version = traverse_obj(data, 'yt-dlp_version')
         if not version:  # Backward compatibility
             data, version = {'data': data}, '2022.08.19'
@@ -59,6 +64,7 @@ class Cache:
         self._ydl.write_debug(f'Discarding old cache from version {version} (needs {min_ver})')
 
     def load(self, section, key, dtype='json', default=None, *, min_ver=None):
+        print(f"cache.pyの関数loadを実行しました。")
         print(f"cache.pyの関数loadを実行しました。")
         assert dtype in ('json',)
 
@@ -81,6 +87,7 @@ class Cache:
         return default
 
     def remove(self):
+        print(f"cache.pyの関数removeを実行しました。")
         print(f"cache.pyの関数removeを実行しました。")
         if not self.enabled:
             self._ydl.to_screen('Cache is disabled (Did you combine --no-cache-dir and --rm-cache-dir?)')

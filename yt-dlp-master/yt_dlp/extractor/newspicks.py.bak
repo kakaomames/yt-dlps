@@ -45,6 +45,7 @@ class NewsPicksIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"newspicks.pyの関数_real_extractを実行しました。")
         series_id = self._match_id(url)
         video_id = traverse_obj(parse_qs(url), ('movieId', -1, {str}, {require('movie ID')}))
         webpage = self._download_webpage(url, video_id)

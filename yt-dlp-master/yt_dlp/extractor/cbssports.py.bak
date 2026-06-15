@@ -27,6 +27,7 @@ class CBSSportsEmbedIE(InfoExtractor):
     #     return self._extract_feed_info('dJ5BDC', 'VxxJg8Ymh8sE', filter_query, video_id)
 
     def _real_extract(self, url):
+        print(f"cbssports.pyの関数_real_extractを実行しました。")
         uuid, pcid = self._match_valid_url(url).groups()
         query = {'id': uuid} if uuid else {'pcid': pcid}
         video = self._download_json(

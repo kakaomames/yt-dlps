@@ -40,6 +40,7 @@ class ParlviewIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"parlview.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_details = self._download_json(
             f'https://vodapi.aph.gov.au/api/search/parlview/{video_id}', video_id)['videoDetails']

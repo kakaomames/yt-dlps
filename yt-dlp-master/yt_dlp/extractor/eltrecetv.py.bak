@@ -38,6 +38,7 @@ class ElTreceTVIE(InfoExtractor):
     ]
 
     def _real_extract(self, url):
+        print(f"eltrecetv.pyの関数_real_extractを実行しました。")
         slug = self._match_id(url)
         webpage = self._download_webpage(url, slug)
         config = self._search_json(

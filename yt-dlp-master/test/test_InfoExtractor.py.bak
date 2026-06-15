@@ -28,9 +28,11 @@ TEAPOT_RESPONSE_BODY = "<h1>418 I'm a teapot</h1>"
 
 class InfoExtractorTestRequestHandler(http.server.BaseHTTPRequestHandler):
     def log_message(self, format, *args):
+        print(f"test_InfoExtractor.pyの関数log_messageを実行しました。")
         pass
 
     def do_GET(self):
+        print(f"test_InfoExtractor.pyの関数do_GETを実行しました。")
         if self.path == '/teapot':
             self.send_response(TEAPOT_RESPONSE_STATUS)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
@@ -54,18 +56,22 @@ class InfoExtractorTestRequestHandler(http.server.BaseHTTPRequestHandler):
 
 class DummyIE(InfoExtractor):
     def _sort_formats(self, formats, field_preference=[]):
+        print(f"test_InfoExtractor.pyの関数_sort_formatsを実行しました。")
         self._downloader.sort_formats(
             {'formats': formats, '_format_sort_fields': field_preference})
 
 
 class TestInfoExtractor(unittest.TestCase):
     def setUp(self):
+        print(f"test_InfoExtractor.pyの関数setUpを実行しました。")
         self.ie = DummyIE(FakeYDL())
 
     def test_ie_key(self):
+        print(f"test_InfoExtractor.pyの関数test_ie_keyを実行しました。")
         self.assertEqual(get_info_extractor(YoutubeIE.ie_key()), YoutubeIE)
 
     def test_get_netrc_login_info(self):
+        print(f"test_InfoExtractor.pyの関数test_get_netrc_login_infoを実行しました。")
         for params in [
             {'usenetrc': True, 'netrc_location': './test/testdata/netrc/netrc'},
             {'netrc_cmd': f'{sys.executable} ./test/testdata/netrc/print_netrc.py'},
@@ -80,11 +86,13 @@ class TestInfoExtractor(unittest.TestCase):
                 ie._get_netrc_login_info(netrc_machine=';echo rce')
 
     def test_html_search_regex(self):
+        print(f"test_InfoExtractor.pyの関数test_html_search_regexを実行しました。")
         html = '<p id="foo">Watch this <a href="http://www.youtube.com/watch?v=BaW_jenozKc">video</a></p>'
         search = lambda re, *args: self.ie._html_search_regex(re, html, *args)
         self.assertEqual(search(r'<p id="foo">(.+?)</p>', 'foo'), 'Watch this video')
 
     def test_opengraph(self):
+        print(f"test_InfoExtractor.pyの関数test_opengraphを実行しました。")
         ie = self.ie
         html = '''
             <meta name="og:title" content='Foo'/>
@@ -111,6 +119,7 @@ class TestInfoExtractor(unittest.TestCase):
         self.assertEqual(ie._og_search_property('test4', html), 'unquoted-value')
 
     def test_html_search_meta(self):
+        print(f"test_InfoExtractor.pyの関数test_html_search_metaを実行しました。")
         ie = self.ie
         html = '''
             <meta name="a" content="1" />
@@ -134,6 +143,7 @@ class TestInfoExtractor(unittest.TestCase):
         self.assertRaises(RegexNotFoundError, ie._html_search_meta, ('z', 'x'), html, None, fatal=True)
 
     def test_search_json_ld_realworld(self):
+        print(f"test_InfoExtractor.pyの関数test_search_json_ld_realworldを実行しました。")
         _TESTS = [
             # https://github.com/ytdl-org/youtube-dl/issues/23306
             (
@@ -351,6 +361,7 @@ class TestInfoExtractor(unittest.TestCase):
             )
 
     def test_download_json(self):
+        print(f"test_InfoExtractor.pyの関数test_download_jsonを実行しました。")
         uri = encode_data_uri(b'{"foo": "blah"}', 'application/json')
         self.assertEqual(self.ie._download_json(uri, None), {'foo': 'blah'})
         uri = encode_data_uri(b'callback({"foo": "blah"})', 'application/javascript')
@@ -360,6 +371,7 @@ class TestInfoExtractor(unittest.TestCase):
         self.assertEqual(self.ie._download_json(uri, None, fatal=False), None)
 
     def test_parse_html5_media_entries(self):
+        print(f"test_InfoExtractor.pyの関数test_parse_html5_media_entriesを実行しました。")
         # inline video tag
         expect_dict(
             self,
@@ -568,6 +580,7 @@ class TestInfoExtractor(unittest.TestCase):
             })
 
     def test_extract_jwplayer_data_realworld(self):
+        print(f"test_InfoExtractor.pyの関数test_extract_jwplayer_data_realworldを実行しました。")
         # from http://www.suffolk.edu/sjc/
         expect_dict(
             self,
@@ -659,6 +672,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
             })
 
     def test_parse_m3u8_formats(self):
+        print(f"test_InfoExtractor.pyの関数test_parse_m3u8_formatsを実行しました。")
         _TEST_CASES = [
             (
                 # https://github.com/ytdl-org/youtube-dl/issues/11995
@@ -1082,6 +1096,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
                 expect_value(self, subs, expected_subs, None)
 
     def test_parse_mpd_formats(self):
+        print(f"test_InfoExtractor.pyの関数test_parse_mpd_formatsを実行しました。")
         _TEST_CASES = [
             (
                 # https://github.com/ytdl-org/youtube-dl/issues/13919
@@ -1473,6 +1488,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
                 expect_value(self, subtitles, expected_subtitles, None)
 
     def test_parse_ism_formats(self):
+        print(f"test_InfoExtractor.pyの関数test_parse_ism_formatsを実行しました。")
         _TEST_CASES = [
             (
                 'sintel',
@@ -1905,6 +1921,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
                 expect_value(self, subtitles, expected_subtitles, None)
 
     def test_parse_f4m_formats(self):
+        print(f"test_InfoExtractor.pyの関数test_parse_f4m_formatsを実行しました。")
         _TEST_CASES = [
             (
                 # https://github.com/ytdl-org/youtube-dl/issues/14660
@@ -1931,6 +1948,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
                 expect_value(self, formats, expected_formats, None)
 
     def test_parse_xspf(self):
+        print(f"test_InfoExtractor.pyの関数test_parse_xspfを実行しました。")
         _TEST_CASES = [
             (
                 'foo_xspf',
@@ -1979,6 +1997,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
                     expect_dict(self, entries[i], expected_entries[i])
 
     def test_response_with_expected_status_returns_content(self):
+        print(f"test_InfoExtractor.pyの関数test_response_with_expected_status_returns_contentを実行しました。")
         # Checks for mitigations against the effects of
         # <https://bugs.python.org/issue15002> that affect Python 3.4.1+, which
         # manifest as `_download_webpage`, `_download_xml`, `_download_json`,
@@ -1998,6 +2017,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
         self.assertEqual(content, TEAPOT_RESPONSE_BODY)
 
     def test_search_nextjs_data(self):
+        print(f"test_InfoExtractor.pyの関数test_search_nextjs_dataを実行しました。")
         data = '<script id="__NEXT_DATA__" type="application/json">{"props":{}}</script>'
         self.assertEqual(self.ie._search_nextjs_data(data, None), {'props': {}})
         self.assertEqual(self.ie._search_nextjs_data('', None, fatal=False), {})
@@ -2007,6 +2027,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
             self.assertEqual(self.ie._search_nextjs_data('', None, default='{}'), {})
 
     def test_search_nextjs_v13_data(self):
+        print(f"test_InfoExtractor.pyの関数test_search_nextjs_v13_dataを実行しました。")
         HTML = R'''
             <script>(self.__next_f=self.__next_f||[]).push([0])</script>
             <script>self.__next_f.push([2,"0:[\"$\",\"$L0\",null,{\"do_not_add_this\":\"fail\"}]\n"])</script>
@@ -2038,6 +2059,7 @@ jwplayer("mediaplayer").setup({"abouttext":"Visit Indie DB","aboutlink":"http:\/
         self.assertEqual(self.ie._search_nextjs_v13_data(None, None, fatal=False), {})
 
     def test_search_nuxt_json(self):
+        print(f"test_InfoExtractor.pyの関数test_search_nuxt_jsonを実行しました。")
         HTML_TMPL = '<script data-ssr="true" id="__NUXT_DATA__" type="application/json">[{}]</script>'
         VALID_DATA = '''
             ["ShallowReactive",1],
@@ -2182,6 +2204,7 @@ class TestInfoExtractorNetwork(unittest.TestCase):
         self.called = False
 
         def require_warning(*args, **kwargs):
+            print(f"test_InfoExtractor.pyの関数require_warningを実行しました。")
             self.called = True
 
         self.ydl = FakeYDL()
@@ -2189,12 +2212,14 @@ class TestInfoExtractorNetwork(unittest.TestCase):
         self.ie = DummyIE(self.ydl)
 
     def tearDown(self, /):
+        print(f"test_InfoExtractor.pyの関数tearDownを実行しました。")
         self.ydl.close()
         self.httpd.shutdown()
         self.httpd.server_close()
         self.server_thread.join(1)
 
     def test_extract_m3u8_formats(self):
+        print(f"test_InfoExtractor.pyの関数test_extract_m3u8_formatsを実行しました。")
         formats, subtitles = self.ie._extract_m3u8_formats_and_subtitles(
             f'http://127.0.0.1:{self.port}/bipbop.m3u8', None, fatal=False)
         self.assertFalse(self.called)
@@ -2202,6 +2227,7 @@ class TestInfoExtractorNetwork(unittest.TestCase):
         self.assertTrue(subtitles)
 
     def test_extract_m3u8_formats_warning(self):
+        print(f"test_InfoExtractor.pyの関数test_extract_m3u8_formats_warningを実行しました。")
         formats, subtitles = self.ie._extract_m3u8_formats_and_subtitles(
             f'http://127.0.0.1:{self.port}/fake.m3u8', None, fatal=False)
         self.assertTrue(self.called, 'Warning was not issued for binary m3u8 file')

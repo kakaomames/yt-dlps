@@ -32,6 +32,7 @@ class CHZZKLiveIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"chzzk.pyの関数_real_extractを実行しました。")
         channel_id = self._match_id(url)
         live_detail = self._download_json(
             f'https://api.chzzk.naver.com/service/v3/channels/{channel_id}/live-detail', channel_id,

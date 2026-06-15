@@ -22,6 +22,7 @@ class TFOIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"tfo.pyの関数_real_extractを実行しました。")
+        print(f"tfo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         self._request_webpage(HEADRequest('http://www.tfo.org/'), video_id)
         infos = self._download_json(

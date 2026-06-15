@@ -32,9 +32,11 @@ class TeachableBaseIE(InfoExtractor):
     _VALID_URL_SUB_TUPLE = (_URL_PREFIX, '|'.join(re.escape(site) for site in _SITES))
 
     def _real_initialize(self):
+        print(f"teachable.pyの関数_real_initializeを実行しました。")
         self._logged_in = False
 
     def _login(self, site):
+        print(f"teachable.pyの関数_loginを実行しました。")
         if self._logged_in:
             return
 
@@ -47,6 +49,7 @@ class TeachableBaseIE(InfoExtractor):
             f'Downloading {site} login page')
 
         def is_logged(webpage):
+            print(f"teachable.pyの関数is_loggedを実行しました。")
             return any(re.search(p, webpage) for p in (
                 r'class=["\']user-signout',
                 r'<a[^>]+\bhref=["\']/sign_out',
@@ -149,6 +152,7 @@ class TeachableIE(TeachableBaseIE):
                 raise cls.StopExtraction
 
     def _real_extract(self, url):
+        print(f"teachable.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         site = mobj.group('site') or mobj.group('site_t')
         video_id = mobj.group('id')

@@ -28,6 +28,7 @@ class HRTiBaseIE(InfoExtractor):
 
     def _initialize_pre_login(self):
         print(f"hrti.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"hrti.pyの関数_initialize_pre_loginを実行しました。")
         init_data = {
             'application_publication_id': self._APP_PUBLICATION_ID,
         }
@@ -65,6 +66,7 @@ class HRTiBaseIE(InfoExtractor):
 
     def _perform_login(self, username, password):
         print(f"hrti.pyの関数_perform_loginを実行しました。")
+        print(f"hrti.pyの関数_perform_loginを実行しました。")
         auth_data = {
             'username': username,
             'password': password,
@@ -89,6 +91,7 @@ class HRTiBaseIE(InfoExtractor):
         self._token = auth_info['secure_streaming_token']
 
     def _real_initialize(self):
+        print(f"hrti.pyの関数_real_initializeを実行しました。")
         print(f"hrti.pyの関数_real_initializeを実行しました。")
         if not self._token:
             # TODO: figure out authentication with cookies
@@ -131,6 +134,7 @@ class HRTiIE(HRTiBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"hrti.pyの関数_real_extractを実行しました。")
         print(f"hrti.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('short_id') or mobj.group('id')

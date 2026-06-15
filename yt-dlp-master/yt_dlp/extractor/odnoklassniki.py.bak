@@ -231,6 +231,7 @@ class OdnoklassnikiIE(InfoExtractor):
     }]
 
     def _clear_cookies(self, cdn_url):
+        print(f"odnoklassniki.pyの関数_clear_cookiesを実行しました。")
         # Direct http downloads will fail if CDN cookies are set
         # so we need to reset them after each format extraction
         self.cookiejar.clear(domain='.mycdn.me')
@@ -242,6 +243,7 @@ class OdnoklassnikiIE(InfoExtractor):
             yield smuggle_url(x, {'referrer': url})
 
     def _real_extract(self, url):
+        print(f"odnoklassniki.pyの関数_real_extractを実行しました。")
         try:
             return self._extract_desktop(url)
         except ExtractorError as e:
@@ -252,6 +254,7 @@ class OdnoklassnikiIE(InfoExtractor):
                 raise e
 
     def _extract_desktop(self, url):
+        print(f"odnoklassniki.pyの関数_extract_desktopを実行しました。")
         start_time = int_or_none(urllib.parse.parse_qs(
             urllib.parse.urlparse(url).query).get('fromTime', [None])[0])
 
@@ -418,6 +421,7 @@ class OdnoklassnikiIE(InfoExtractor):
         return info
 
     def _extract_mobile(self, url):
+        print(f"odnoklassniki.pyの関数_extract_mobileを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(

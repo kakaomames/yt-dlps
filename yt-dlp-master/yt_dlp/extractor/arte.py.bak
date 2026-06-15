@@ -140,6 +140,7 @@ class ArteTVIE(ArteTVBaseIE):
         return updated_subs
 
     def _real_extract(self, url):
+        print(f"arte.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         lang = mobj.group('lang') or mobj.group('lang_2')

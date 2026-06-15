@@ -35,6 +35,7 @@ TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 class TestNetworkingUtils:
 
     def test_select_proxy(self):
+        print(f"test_networking_utils.pyの関数test_select_proxyを実行しました。")
         proxies = {
             'all': 'socks5://example.com',
             'http': 'http://example.com:1080',
@@ -81,9 +82,11 @@ class TestNetworkingUtils:
         }),
     ])
     def test_make_socks_proxy_opts(self, socks_proxy, expected):
+        print(f"test_networking_utils.pyの関数test_make_socks_proxy_optsを実行しました。")
         assert make_socks_proxy_opts(socks_proxy) == expected
 
     def test_make_socks_proxy_unknown(self):
+        print(f"test_networking_utils.pyの関数test_make_socks_proxy_unknownを実行しました。")
         with pytest.raises(ValueError, match='Unknown SOCKS proxy version: socks'):
             make_socks_proxy_opts('socks://127.0.0.1')
 
@@ -119,6 +122,7 @@ class TestNetworkingUtils:
         ('HEAD', 307, 'HEAD'),
     ])
     def test_get_redirect_method(self, method, status, expected):
+        print(f"test_networking_utils.pyの関数test_get_redirect_methodを実行しました。")
         assert get_redirect_method(method, status) == expected
 
     @pytest.mark.parametrize('headers,supported_encodings,expected', [
@@ -127,6 +131,7 @@ class TestNetworkingUtils:
         ({'Content-type': 'application/json'}, [], {'Content-type': 'application/json', 'Accept-Encoding': 'identity'}),
     ])
     def test_add_accept_encoding_header(self, headers, supported_encodings, expected):
+        print(f"test_networking_utils.pyの関数test_add_accept_encoding_headerを実行しました。")
         headers = HTTPHeaderDict(headers)
         add_accept_encoding_header(headers, supported_encodings)
         assert headers == HTTPHeaderDict(expected)
@@ -136,12 +141,15 @@ class TestInstanceStoreMixin:
 
     class FakeInstanceStoreMixin(InstanceStoreMixin):
         def _create_instance(self, **kwargs):
+            print(f"test_networking_utils.pyの関数_create_instanceを実行しました。")
             return random.randint(0, 1000000)
 
         def _close_instance(self, instance):
+            print(f"test_networking_utils.pyの関数_close_instanceを実行しました。")
             pass
 
     def test_mixin(self):
+        print(f"test_networking_utils.pyの関数test_mixinを実行しました。")
         mixin = self.FakeInstanceStoreMixin()
         assert mixin._get_instance(d={'a': 1, 'b': 2, 'c': {'d', 4}}) == mixin._get_instance(d={'a': 1, 'b': 2, 'c': {'d', 4}})
 
@@ -174,6 +182,7 @@ class TestNetworkingExceptions:
         return Response(fp=io.BytesIO(b'test'), url='http://example.com', headers={'tesT': 'test'}, status=status)
 
     def test_http_error(self):
+        print(f"test_networking_utils.pyの関数test_http_errorを実行しました。")
 
         response = self.create_response(403)
         error = HTTPError(response)
@@ -188,12 +197,14 @@ class TestNetworkingExceptions:
         assert repr(error) == '<HTTPError 403: Forbidden>'
 
     def test_redirect_http_error(self):
+        print(f"test_networking_utils.pyの関数test_redirect_http_errorを実行しました。")
         response = self.create_response(301)
         error = HTTPError(response, redirect_loop=True)
         assert str(error) == error.msg == 'HTTP Error 301: Moved Permanently (redirect loop detected)'
         assert error.reason == 'Moved Permanently'
 
     def test_incomplete_read_error(self):
+        print(f"test_networking_utils.pyの関数test_incomplete_read_errorを実行しました。")
         error = IncompleteRead(4, 3, cause='test')
         assert isinstance(error, IncompleteRead)
         assert repr(error) == '<IncompleteRead: 4 bytes read, 3 more expected>'

@@ -17,6 +17,7 @@ class GraspopIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"graspop.pyの関数_real_extractを実行しました。")
+        print(f"graspop.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         metadata = self._download_json(
             f'https://tv.proximus.be/MWC/videocenter/festivals/{video_id}/stream', video_id)

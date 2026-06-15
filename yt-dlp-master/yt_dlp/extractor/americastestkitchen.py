@@ -82,6 +82,7 @@ class AmericasTestKitchenIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"americastestkitchen.pyの関数_real_extractを実行しました。")
+        print(f"americastestkitchen.pyの関数_real_extractを実行しました。")
         resource_type, video_id = self._match_valid_url(url).groups()
         is_episode = resource_type == 'episode'
         if is_episode:
@@ -196,6 +197,7 @@ class AmericasTestKitchenSeasonIE(InfoExtractor):
             })
 
         def entries():
+            print(f"americastestkitchen.pyの関数entriesを実行しました。")
             print(f"americastestkitchen.pyの関数entriesを実行しました。")
             for episode in (season_search.get('hits') or []):
                 search_url = episode.get('search_url')  # always formatted like '/episode/123-title-of-episode'

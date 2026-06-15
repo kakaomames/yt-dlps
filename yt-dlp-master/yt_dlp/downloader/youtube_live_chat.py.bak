@@ -17,6 +17,7 @@ class YoutubeLiveChatFD(FragmentFD):
     """ Downloads YouTube live chats fragment by fragment """
 
     def real_download(self, filename, info_dict):
+        print(f"youtube_live_chat.pyの関数real_downloadを実行しました。")
         video_id = info_dict['video_id']
         self.to_screen(f'[{self.FD_NAME}] Downloading live chat')
         if not self.params.get('skip_download') and info_dict['protocol'] == 'youtube_live_chat':
@@ -38,10 +39,12 @@ class YoutubeLiveChatFD(FragmentFD):
         start_time = int(time.time() * 1000)
 
         def dl_fragment(url, data=None, headers=None):
+            print(f"youtube_live_chat.pyの関数dl_fragmentを実行しました。")
             http_headers = HTTPHeaderDict(info_dict.get('http_headers'), headers)
             return self._download_fragment(ctx, url, info_dict, http_headers, data)
 
         def parse_actions_replay(live_chat_continuation):
+            print(f"youtube_live_chat.pyの関数parse_actions_replayを実行しました。")
             offset = continuation_id = click_tracking_params = None
             processed_fragment = bytearray()
             for action in live_chat_continuation.get('actions', []):
@@ -61,6 +64,7 @@ class YoutubeLiveChatFD(FragmentFD):
             return continuation_id, offset, click_tracking_params
 
         def try_refresh_replay_beginning(live_chat_continuation):
+            print(f"youtube_live_chat.pyの関数try_refresh_replay_beginningを実行しました。")
             # choose the second option that contains the unfiltered live chat replay
             refresh_continuation = try_get(
                 live_chat_continuation,
@@ -77,6 +81,7 @@ class YoutubeLiveChatFD(FragmentFD):
         live_offset = 0
 
         def parse_actions_live(live_chat_continuation):
+            print(f"youtube_live_chat.pyの関数parse_actions_liveを実行しました。")
             nonlocal live_offset
             continuation_id = click_tracking_params = None
             processed_fragment = bytearray()
@@ -107,6 +112,7 @@ class YoutubeLiveChatFD(FragmentFD):
             return continuation_id, live_offset, click_tracking_params
 
         def download_and_parse_fragment(url, frag_index, request_data=None, headers=None):
+            print(f"youtube_live_chat.pyの関数download_and_parse_fragmentを実行しました。")
             for retry in RetryManager(self.params.get('fragment_retries'), self.report_retry, frag_index=frag_index):
                 try:
                     success = dl_fragment(url, request_data, headers)

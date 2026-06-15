@@ -49,9 +49,11 @@ class ListenNotesIE(InfoExtractor):
     }]
 
     def _clean_description(self, description):
+        print(f"listennotes.pyの関数_clean_descriptionを実行しました。")
         return clean_html(re.sub(r'(</?(div|p)>\s*)+', '<br/><br/>', description or ''))
 
     def _real_extract(self, url):
+        print(f"listennotes.pyの関数_real_extractを実行しました。")
         audio_id = self._match_id(url)
         webpage = self._download_webpage(url, audio_id)
         data = self._search_json(

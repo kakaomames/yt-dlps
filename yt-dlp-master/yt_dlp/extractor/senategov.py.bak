@@ -108,6 +108,7 @@ class SenateISVPIE(InfoExtractor):
     }
 
     def _real_extract(self, url):
+        print(f"senategov.pyの関数_real_extractを実行しました。")
         qs = urllib.parse.parse_qs(self._match_valid_url(url).group('qs'))
         if not qs.get('filename') or not qs.get('comm'):
             raise ExtractorError('Invalid URL', expected=True)

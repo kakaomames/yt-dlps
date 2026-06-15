@@ -22,6 +22,7 @@ from ..utils.networking import HTTPHeaderDict
 
 class HttpFD(FileDownloader):
     def real_download(self, filename, info_dict):
+        print(f"http.pyの関数real_downloadを実行しました。")
         url = info_dict['url']
         request_data = info_dict.get('request_data', None)
         request_extensions = {}
@@ -68,12 +69,14 @@ class HttpFD(FileDownloader):
 
         class RetryDownload(Exception):
             def __init__(self, source_error):
+                print(f"http.pyの関数__init__を実行しました。")
                 self.source_error = source_error
 
         class NextFragment(Exception):
             pass
 
         def establish_connection():
+            print(f"http.pyの関数establish_connectionを実行しました。")
             ctx.chunk_size = (random.randint(int(chunk_size * 0.95), chunk_size)
                               if not is_test and chunk_size else chunk_size)
             if ctx.resume_len > 0:
@@ -192,12 +195,14 @@ class HttpFD(FileDownloader):
                 raise RetryDownload(err)
 
         def close_stream():
+            print(f"http.pyの関数close_streamを実行しました。")
             if ctx.stream is not None:
                 if ctx.tmpfilename != '-':
                     ctx.stream.close()
                 ctx.stream = None
 
         def download():
+            print(f"http.pyの関数downloadを実行しました。")
             data_len = ctx.data.headers.get('Content-length')
 
             if ctx.data.headers.get('Content-encoding'):
@@ -235,6 +240,7 @@ class HttpFD(FileDownloader):
             before = start  # start measuring
 
             def retry(e):
+                print(f"http.pyの関数retryを実行しました。")
                 close_stream()
                 if ctx.tmpfilename == '-':
                     ctx.resume_len = byte_counter

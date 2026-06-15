@@ -62,6 +62,7 @@ class TeleQuebecIE(TeleQuebecBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"telequebec.pyの関数_real_extractを実行しました。")
         media_id = self._match_id(url)
         media = self._download_json(
             'https://mnmedias.api.telequebec.tv/api/v3/media/' + media_id,
@@ -213,6 +214,7 @@ class TeleQuebecVideoIE(TeleQuebecBaseIE):
     }]
 
     def _call_api(self, path, video_id):
+        print(f"telequebec.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'http://beacon.playback.api.brightcove.com/telequebec/api/assets/' + path,
             video_id, query={'device_layout': 'web', 'device_type': 'web'})['data']

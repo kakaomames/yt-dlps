@@ -64,15 +64,18 @@ class GoPlayIE(InfoExtractor):
     _id_token = None
 
     def _perform_login(self, username, password):
+        print(f"goplay.pyの関数_perform_loginを実行しました。")
         self.report_login()
         aws = AwsIdp(ie=self, pool_id='eu-west-1_dViSsKM5Y', client_id='6s1h851s8uplco5h6mqh1jac8m')
         self._id_token, _ = aws.authenticate(username=username, password=password)
 
     def _real_initialize(self):
+        print(f"goplay.pyの関数_real_initializeを実行しました。")
         if not self._id_token:
             raise self.raise_login_required(method='password')
 
     def _real_extract(self, url):
+        print(f"goplay.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
 
@@ -155,6 +158,7 @@ class AwsIdp:
     """ AWS Identity Provider """
 
     def __init__(self, ie, pool_id, client_id):
+        print(f"goplay.pyの関数__init__を実行しました。")
         """
         :param InfoExtrator ie: The extractor that instantiated this class.
         :param str pool_id:     The AWS user pool to connect to (format: <region>_<poolid>).
@@ -203,6 +207,7 @@ class AwsIdp:
         self.large_a_value = self.__calculate_a()
 
     def authenticate(self, username, password):
+        print(f"goplay.pyの関数authenticateを実行しました。")
         """ Authenticate with a username and password. """
         # Step 1: First initiate an authentication request
         auth_data_dict = self.__get_authentication_request(username)
@@ -239,6 +244,7 @@ class AwsIdp:
         )
 
     def __get_authentication_request(self, username):
+        print(f"goplay.pyの関数__get_authentication_requestを実行しました。")
         """
 
         :param str username:    The username to use
@@ -256,6 +262,7 @@ class AwsIdp:
         }
 
     def __get_challenge_response_request(self, challenge_parameters, password):
+        print(f"goplay.pyの関数__get_challenge_response_requestを実行しました。")
         """ Create a Challenge Response Request object.
 
         :param dict[str,str|imt] challenge_parameters:  The parameters for the challenge.
@@ -301,6 +308,7 @@ class AwsIdp:
         }
 
     def __get_hkdf_key_for_password(self, username, password, server_b_value, salt):
+        print(f"goplay.pyの関数__get_hkdf_key_for_passwordを実行しました。")
         """ Calculates the final hkdf based on computed S value, and computed U value and the key.
 
         :param str username:        Username.
@@ -328,6 +336,7 @@ class AwsIdp:
         )
 
     def __compute_hkdf(self, ikm, salt):
+        print(f"goplay.pyの関数__compute_hkdfを実行しました。")
         """ Standard hkdf algorithm
 
         :param {Buffer} ikm Input key material.
@@ -341,6 +350,7 @@ class AwsIdp:
         return hmac_hash[:16]
 
     def __calculate_u(self, big_a, big_b):
+        print(f"goplay.pyの関数__calculate_uを実行しました。")
         """ Calculate the client's value U which is the hash of A and B
 
         :param int big_a:   Large A value.
@@ -354,6 +364,7 @@ class AwsIdp:
         return self.__hex_to_long(u_hex_hash)
 
     def __generate_random_small_a(self):
+        print(f"goplay.pyの関数__generate_random_small_aを実行しました。")
         """ Helper function to generate a random big integer
 
         :return a random value.
@@ -363,6 +374,7 @@ class AwsIdp:
         return random_long_int % self.big_n
 
     def __calculate_a(self):
+        print(f"goplay.pyの関数__calculate_aを実行しました。")
         """ Calculate the client's public value A = g^a%N with the generated random number a
 
         :return Computed large A.
@@ -436,6 +448,7 @@ class AwsIdp:
         return time_now.strftime(format_string)
 
     def __str__(self):
+        print(f"goplay.pyの関数__str__を実行しました。")
         return 'AWS IDP Client for:\nRegion: {}\nPoolId: {}\nAppId:  {}'.format(
             self.region, self.pool_id.split('_')[1], self.client_id,
         )

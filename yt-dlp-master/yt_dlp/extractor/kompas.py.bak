@@ -20,6 +20,7 @@ class KompasVideoIE(JixieBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"kompas.pyの関数_real_extractを実行しました。")
         video_id, display_id = self._match_valid_url(url).group('id', 'slug')
         webpage = self._download_webpage(url, display_id)
 

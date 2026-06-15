@@ -53,6 +53,7 @@ class PuhuTVIE(InfoExtractor):
     }
 
     def _real_extract(self, url):
+        print(f"puhutv.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         info = self._download_json(
@@ -188,6 +189,7 @@ class PuhuTVSerieIE(InfoExtractor):
     }]
 
     def _extract_entries(self, seasons):
+        print(f"puhutv.pyの関数_extract_entriesを実行しました。")
         for season in seasons:
             season_id = season.get('id')
             if not season_id:

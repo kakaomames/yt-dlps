@@ -39,6 +39,7 @@ class TwitterBaseIE(InfoExtractor):
     _LEGACY_AUTH = 'AAAAAAAAAAAAAAAAAAAAAIK1zgAAAAAA2tUWuhGZ2JceoId5GwYWU5GspY4%3DUq7gzFoCZs1QfwGoVdvSac3IniczZEYXIcDyumCauIXpcAPorE'
 
     def _extract_variant_formats(self, variant, video_id):
+        print(f"twitter.pyの関数_extract_variant_formatsを実行しました。")
         variant_url = variant.get('url')
         if not variant_url:
             return [], {}
@@ -61,6 +62,7 @@ class TwitterBaseIE(InfoExtractor):
             return [f], {}
 
     def _extract_formats_from_vmap_url(self, vmap_url, video_id):
+        print(f"twitter.pyの関数_extract_formats_from_vmap_urlを実行しました。")
         vmap_url = url_or_none(vmap_url)
         if not vmap_url:
             return [], {}
@@ -101,6 +103,7 @@ class TwitterBaseIE(InfoExtractor):
         return self._configuration_arg('api', ['graphql'], ie_key='Twitter')[0]
 
     def _fetch_guest_token(self, display_id):
+        print(f"twitter.pyの関数_fetch_guest_tokenを実行しました。")
         guest_token = traverse_obj(self._download_json(
             f'{self._API_BASE}guest/activate.json', display_id, 'Downloading guest token', data=b'',
             headers=self._set_base_headers(legacy=display_id and self._selected_api == 'legacy')),
@@ -110,6 +113,7 @@ class TwitterBaseIE(InfoExtractor):
         return guest_token
 
     def _set_base_headers(self, legacy=False):
+        print(f"twitter.pyの関数_set_base_headersを実行しました。")
         bearer_token = self._LEGACY_AUTH if legacy and not self.is_logged_in else self._AUTH
         return filter_dict({
             'Authorization': f'Bearer {bearer_token}',
@@ -117,6 +121,7 @@ class TwitterBaseIE(InfoExtractor):
         })
 
     def _call_api(self, path, video_id, query={}, graphql=False):
+        print(f"twitter.pyの関数_call_apiを実行しました。")
         headers = self._set_base_headers(legacy=not graphql and self._selected_api == 'legacy')
         headers.update({
             'x-twitter-auth-type': 'OAuth2Session',
@@ -144,9 +149,11 @@ class TwitterBaseIE(InfoExtractor):
         return result
 
     def _build_graphql_query(self, media_id):
+        print(f"twitter.pyの関数_build_graphql_queryを実行しました。")
         raise NotImplementedError('Method must be implemented to support GraphQL')
 
     def _call_graphql_api(self, endpoint, media_id):
+        print(f"twitter.pyの関数_call_graphql_apiを実行しました。")
         data = self._build_graphql_query(media_id)
         query = {key: json.dumps(value, separators=(',', ':')) for key, value in data.items()}
         return traverse_obj(self._call_api(endpoint, media_id, query=query, graphql=True), 'data')
@@ -259,6 +266,7 @@ class TwitterCardIE(InfoExtractor):
     ]
 
     def _real_extract(self, url):
+        print(f"twitter.pyの関数_real_extractを実行しました。")
         status_id = self._match_id(url)
         return self.url_result(
             'https://twitter.com/statuses/' + status_id,
@@ -1074,6 +1082,7 @@ class TwitterIE(TwitterBaseIE):
     _GRAPHQL_ENDPOINT = '2ICDjqPd81tulZcYrtpTuQ/TweetResultByRestId'
 
     def _graphql_to_legacy(self, data, twid):
+        print(f"twitter.pyの関数_graphql_to_legacyを実行しました。")
         result = traverse_obj(data, ('tweetResult', 'result', {dict})) or {}
 
         typename = result.get('__typename')
@@ -1153,11 +1162,13 @@ class TwitterIE(TwitterBaseIE):
         }
 
     def _generate_syndication_token(self, twid):
+        print(f"twitter.pyの関数_generate_syndication_tokenを実行しました。")
         # ((Number(twid) / 1e15) * Math.PI).toString(36).replace(/(0+|\.)/g, '')
         translation = str.maketrans(dict.fromkeys('0.'))
         return js_number_to_string((int(twid) / 1e15) * math.pi, 36).translate(translation)
 
     def _call_syndication_api(self, twid):
+        print(f"twitter.pyの関数_call_syndication_apiを実行しました。")
         self.report_warning(
             'Not all metadata or media is available via syndication endpoint', twid, only_once=True)
         status = self._download_json(
@@ -1179,6 +1190,7 @@ class TwitterIE(TwitterBaseIE):
         return status
 
     def _extract_status(self, twid):
+        print(f"twitter.pyの関数_extract_statusを実行しました。")
         if self._selected_api not in ('graphql', 'legacy', 'syndication'):
             raise ExtractorError(f'{self._selected_api!r} is not a valid API selection', expected=True)
 
@@ -1236,6 +1248,7 @@ class TwitterIE(TwitterBaseIE):
         }
 
         def extract_from_video_info(media):
+            print(f"twitter.pyの関数extract_from_video_infoを実行しました。")
             media_id = traverse_obj(media, 'id_str', 'id', expected_type=str_or_none)
             self.write_debug(f'Extracting from video info: {media_id}')
 
@@ -1250,6 +1263,7 @@ class TwitterIE(TwitterBaseIE):
             media_url = media.get('media_url_https') or media.get('media_url')
             if media_url:
                 def add_thumbnail(name, size):
+                    print(f"twitter.pyの関数add_thumbnailを実行しました。")
                     thumbnails.append({
                         'id': name,
                         'url': update_url_query(media_url, {'name': name}),
@@ -1271,6 +1285,7 @@ class TwitterIE(TwitterBaseIE):
             }
 
         def extract_from_card_info(card):
+            print(f"twitter.pyの関数extract_from_card_infoを実行しました。")
             if not card:
                 return
 
@@ -1279,6 +1294,7 @@ class TwitterIE(TwitterBaseIE):
             binding_values = card['binding_values']
 
             def get_binding_value(k):
+                print(f"twitter.pyの関数get_binding_valueを実行しました。")
                 o = binding_values.get(k) or {}
                 return try_get(o, lambda x: x[x['type'].lower() + '_value'])
 
@@ -1418,6 +1434,7 @@ class TwitterAmplifyIE(TwitterBaseIE):
             'twitter:image:src', webpage, 'thumbnail', fatal=False)
 
         def _find_dimension(target):
+            print(f"twitter.pyの関数_find_dimensionを実行しました。")
             w = int_or_none(self._html_search_meta(
                 f'twitter:{target}:width', webpage, fatal=False))
             h = int_or_none(self._html_search_meta(

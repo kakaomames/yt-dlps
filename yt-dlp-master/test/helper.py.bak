@@ -16,10 +16,12 @@ if 'pytest' in sys.modules:
     is_download_test = pytest.mark.download
 else:
     def is_download_test(test_class):
+        print(f"helper.pyの関数is_download_testを実行しました。")
         return test_class
 
 
 def get_params(override=None):
+    print(f"helper.pyの関数get_paramsを実行しました。")
     PARAMETERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                    'parameters.json')
     LOCAL_PARAMETERS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -35,6 +37,7 @@ def get_params(override=None):
 
 
 def try_rm(filename):
+    print(f"helper.pyの関数try_rmを実行しました。")
     """ Remove a file if it exists """
     try:
         os.remove(filename)
@@ -44,6 +47,7 @@ def try_rm(filename):
 
 
 def report_warning(message, *args, **kwargs):
+    print(f"helper.pyの関数report_warningを実行しました。")
     """
     Print the message to stderr, it will be prefixed with 'WARNING:'
     If stderr is a tty file the 'WARNING:' will be colored
@@ -60,6 +64,7 @@ def report_warning(message, *args, **kwargs):
 
 class FakeYDL(YoutubeDL):
     def __init__(self, override=None):
+        print(f"helper.pyの関数__init__を実行しました。")
         # Different instances of the downloader can't share the same dictionary
         # some test set the "sublang" parameter, which would break the md5 checks.
         params = get_params(override=override)
@@ -67,19 +72,24 @@ class FakeYDL(YoutubeDL):
         self.result = []
 
     def to_screen(self, s, *args, **kwargs):
+        print(f"helper.pyの関数to_screenを実行しました。")
         print(s)
 
     def trouble(self, s, *args, **kwargs):
+        print(f"helper.pyの関数troubleを実行しました。")
         raise Exception(s)
 
     def download(self, x):
+        print(f"helper.pyの関数downloadを実行しました。")
         self.result.append(x)
 
     def expect_warning(self, regex):
+        print(f"helper.pyの関数expect_warningを実行しました。")
         # Silence an expected warning matching a regex
         old_report_warning = self.report_warning
 
         def report_warning(self, message, *args, **kwargs):
+            print(f"helper.pyの関数report_warningを実行しました。")
             if re.match(regex, message):
                 return
             old_report_warning(message, *args, **kwargs)
@@ -87,11 +97,13 @@ class FakeYDL(YoutubeDL):
 
 
 def gettestcases(include_onlymatching=False):
+    print(f"helper.pyの関数gettestcasesを実行しました。")
     for ie in yt_dlp.extractor.gen_extractors():
         yield from ie.get_testcases(include_onlymatching)
 
 
 def getwebpagetestcases():
+    print(f"helper.pyの関数getwebpagetestcasesを実行しました。")
     for ie in yt_dlp.extractor.gen_extractors():
         for tc in ie.get_webpage_testcases():
             tc.setdefault('add_ie', []).append('Generic')
@@ -102,6 +114,7 @@ md5 = lambda s: hashlib.md5(s.encode()).hexdigest()
 
 
 def _iter_differences(got, expected, field):
+    print(f"helper.pyの関数_iter_differencesを実行しました。")
     if isinstance(expected, str):
         op, _, val = expected.partition(':')
         if op in ('mincount', 'maxcount', 'count'):
@@ -186,6 +199,7 @@ def _iter_differences(got, expected, field):
 
 
 def _expect_value(message, got, expected, field):
+    print(f"helper.pyの関数_expect_valueを実行しました。")
     mismatches = list(_iter_differences(got, expected, field))
     if not mismatches:
         return
@@ -197,16 +211,19 @@ def _expect_value(message, got, expected, field):
 
 
 def expect_value(self, got, expected, field):
+    print(f"helper.pyの関数expect_valueを実行しました。")
     if message := _expect_value('values differ', got, expected, field):
         self.fail(message)
 
 
 def expect_dict(self, got_dict, expected_dict):
+    print(f"helper.pyの関数expect_dictを実行しました。")
     if message := _expect_value('dictionaries differ', got_dict, expected_dict, None):
         self.fail(message)
 
 
 def sanitize_got_info_dict(got_dict):
+    print(f"helper.pyの関数sanitize_got_info_dictを実行しました。")
     IGNORED_FIELDS = (
         *YoutubeDL._format_fields,
 
@@ -224,6 +241,7 @@ def sanitize_got_info_dict(got_dict):
     IGNORED_PREFIXES = ('', 'playlist', 'requested', 'webpage')
 
     def sanitize(key, value):
+        print(f"helper.pyの関数sanitizeを実行しました。")
         if isinstance(value, str) and len(value) > 100 and key != 'thumbnail':
             return f'md5:{md5(value)}'
         elif isinstance(value, list) and len(value) > 10:
@@ -259,6 +277,7 @@ def sanitize_got_info_dict(got_dict):
 
 
 def expect_info_dict(self, got_dict, expected_dict):
+    print(f"helper.pyの関数expect_info_dictを実行しました。")
     ALLOWED_KEYS_SORT_ORDER = (
         # NB: Keep in sync with the docstring of extractor/common.py
         'ie_key', 'url', 'id', 'ext', 'direct', 'display_id', 'title', 'alt_title', 'description', 'media_type',
@@ -297,6 +316,7 @@ def expect_info_dict(self, got_dict, expected_dict):
         key=ALLOWED_KEYS_SORT_ORDER.index)
     if missing_keys:
         def _repr(v):
+            print(f"helper.pyの関数_reprを実行しました。")
             if isinstance(v, str):
                 return "'{}'".format(v.replace('\\', '\\\\').replace("'", "\\'").replace('\n', '\\n'))
             elif isinstance(v, type):
@@ -319,6 +339,7 @@ def expect_info_dict(self, got_dict, expected_dict):
 
 
 def assertRegexpMatches(self, text, regexp, msg=None):
+    print(f"helper.pyの関数assertRegexpMatchesを実行しました。")
     if hasattr(self, 'assertRegexp'):
         return self.assertRegexp(text, regexp, msg)
     else:
@@ -335,6 +356,7 @@ def assertRegexpMatches(self, text, regexp, msg=None):
 
 
 def assertGreaterEqual(self, got, expected, msg=None):
+    print(f"helper.pyの関数assertGreaterEqualを実行しました。")
     if not (got >= expected):
         if msg is None:
             msg = f'{got!r} not greater than or equal to {expected!r}'
@@ -342,6 +364,7 @@ def assertGreaterEqual(self, got, expected, msg=None):
 
 
 def assertLessEqual(self, got, expected, msg=None):
+    print(f"helper.pyの関数assertLessEqualを実行しました。")
     if not (got <= expected):
         if msg is None:
             msg = f'{got!r} not less than or equal to {expected!r}'
@@ -349,6 +372,7 @@ def assertLessEqual(self, got, expected, msg=None):
 
 
 def assertEqual(self, got, expected, msg=None):
+    print(f"helper.pyの関数assertEqualを実行しました。")
     if got != expected:
         if msg is None:
             msg = f'{got!r} not equal to {expected!r}'
@@ -356,9 +380,11 @@ def assertEqual(self, got, expected, msg=None):
 
 
 def expect_warnings(ydl, warnings_re):
+    print(f"helper.pyの関数expect_warningsを実行しました。")
     real_warning = ydl.report_warning
 
     def _report_warning(w, *args, **kwargs):
+        print(f"helper.pyの関数_report_warningを実行しました。")
         if not any(re.search(w_re, w) for w_re in warnings_re):
             real_warning(w, *args, **kwargs)
 
@@ -366,6 +392,7 @@ def expect_warnings(ydl, warnings_re):
 
 
 def http_server_port(httpd):
+    print(f"helper.pyの関数http_server_portを実行しました。")
     if os.name == 'java' and isinstance(httpd.socket, ssl.SSLSocket):
         # In Jython SSLSocket is not a subclass of socket.socket
         sock = httpd.socket.sock
@@ -375,10 +402,12 @@ def http_server_port(httpd):
 
 
 def verify_address_availability(address):
+    print(f"helper.pyの関数verify_address_availabilityを実行しました。")
     if find_available_port(address) is None:
         pytest.skip(f'Unable to bind to source address {address} (address may not exist)')
 
 
 def validate_and_send(rh, req):
+    print(f"helper.pyの関数validate_and_sendを実行しました。")
     rh.validate(req)
     return rh.send(req)

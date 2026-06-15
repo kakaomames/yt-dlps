@@ -21,6 +21,7 @@ class PinterestBaseIE(InfoExtractor):
             co\.in|co\.nz|id|com\.ec|com\.py|tw|be|uk|com\.bo|com\.pe)'''
 
     def _call_api(self, resource, video_id, options):
+        print(f"pinterest.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://www.pinterest.com/resource/{resource}Resource/get/',
             video_id, f'Download {resource} JSON metadata',
@@ -28,6 +29,7 @@ class PinterestBaseIE(InfoExtractor):
             headers={'X-Pinterest-PWS-Handler': 'www/[username].js'})['resource_response']
 
     def _extract_video(self, data, extract_formats=True):
+        print(f"pinterest.pyの関数_extract_videoを実行しました。")
         video_id = data['id']
         thumbnails = []
         images = data.get('images')
@@ -196,6 +198,7 @@ class PinterestIE(PinterestBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"pinterest.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data = self._call_api(
             'Pin', video_id, {

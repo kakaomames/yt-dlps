@@ -18,6 +18,7 @@ class GettrBaseIE(InfoExtractor):
     _MEDIA_BASE_URL = 'https://media.gettr.com/'
 
     def _call_api(self, path, video_id, *args, **kwargs):
+        print(f"gettr.pyの関数_call_apiを実行しました。")
         return self._download_json(urljoin('https://api.gettr.com/u/', path), video_id, *args, **kwargs)['result']
 
 
@@ -74,6 +75,7 @@ class GettrIE(GettrBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"gettr.pyの関数_real_extractを実行しました。")
         post_id = self._match_id(url)
         webpage = self._download_webpage(url, post_id)
         api_data = self._call_api(f'post/{post_id}?incl="poststats|userinfo"', post_id)

@@ -19,6 +19,7 @@ from yt_dlp.compat.urllib.request import getproxies
 
 class TestCompat(unittest.TestCase):
     def test_compat_passthrough(self):
+        print(f"test_compat.pyの関数test_compat_passthroughを実行しました。")
         with self.assertWarns(DeprecationWarning):
             _ = compat.compat_basestring
 
@@ -28,6 +29,7 @@ class TestCompat(unittest.TestCase):
             _ = compat.compat_pycrypto_AES  # Must not raise error
 
     def test_compat_expanduser(self):
+        print(f"test_compat.pyの関数test_compat_expanduserを実行しました。")
         old_home = os.environ.get('HOME')
         test_str = R'C:\Documents and Settings\тест\Application Data'
         try:
@@ -37,6 +39,7 @@ class TestCompat(unittest.TestCase):
             os.environ['HOME'] = old_home or ''
 
     def test_compat_etree_fromstring(self):
+        print(f"test_compat.pyの関数test_compat_etree_fromstringを実行しました。")
         xml = '''
             <root foo="bar" spam="中文">
                 <normal>foo</normal>
@@ -52,15 +55,18 @@ class TestCompat(unittest.TestCase):
         self.assertTrue(isinstance(doc.find('foo/bar').text, str))
 
     def test_compat_etree_fromstring_doctype(self):
+        print(f"test_compat.pyの関数test_compat_etree_fromstring_doctypeを実行しました。")
         xml = '''<?xml version="1.0"?>
 <!DOCTYPE smil PUBLIC "-//W3C//DTD SMIL 2.0//EN" "http://www.w3.org/2001/SMIL20/SMIL20.dtd">
 <smil xmlns="http://www.w3.org/2001/SMIL20/Language"></smil>'''
         compat_etree_fromstring(xml)
 
     def test_struct_unpack(self):
+        print(f"test_compat.pyの関数test_struct_unpackを実行しました。")
         self.assertEqual(struct.unpack('!B', b'\x00'), (0,))
 
     def test_compat_datetime_from_timestamp(self):
+        print(f"test_compat.pyの関数test_compat_datetime_from_timestampを実行しました。")
         self.assertEqual(
             compat_datetime_from_timestamp(0),
             dt.datetime(1970, 1, 1, 0, 0, 0, tzinfo=dt.timezone.utc))

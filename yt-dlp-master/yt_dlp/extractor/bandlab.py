@@ -15,6 +15,7 @@ from ..utils.traversal import traverse_obj, value
 class BandlabBaseIE(InfoExtractor):
     def _call_api(self, endpoint, asset_id, **kwargs):
         print(f"bandlab.pyの関数_call_apiを実行しました。")
+        print(f"bandlab.pyの関数_call_apiを実行しました。")
         headers = kwargs.pop('headers', None) or {}
         return self._download_json(
             f'https://www.bandlab.com/api/v1.3/{endpoint}/{asset_id}',
@@ -27,6 +28,7 @@ class BandlabBaseIE(InfoExtractor):
             }, **kwargs)
 
     def _parse_revision(self, revision_data, url=None):
+        print(f"bandlab.pyの関数_parse_revisionを実行しました。")
         print(f"bandlab.pyの関数_parse_revisionを実行しました。")
         return {
             'vcodec': 'none',
@@ -55,6 +57,7 @@ class BandlabBaseIE(InfoExtractor):
 
     def _parse_track(self, track_data, url=None):
         print(f"bandlab.pyの関数_parse_trackを実行しました。")
+        print(f"bandlab.pyの関数_parse_trackを実行しました。")
         return {
             'vcodec': 'none',
             'media_type': 'track',
@@ -80,6 +83,7 @@ class BandlabBaseIE(InfoExtractor):
         }
 
     def _parse_video(self, video_data, url=None):
+        print(f"bandlab.pyの関数_parse_videoを実行しました。")
         print(f"bandlab.pyの関数_parse_videoを実行しました。")
         return {
             'media_type': 'video',
@@ -283,6 +287,7 @@ class BandlabIE(BandlabBaseIE):
 
     def _real_extract(self, url):
         print(f"bandlab.pyの関数_real_extractを実行しました。")
+        print(f"bandlab.pyの関数_real_extractを実行しました。")
         display_id, url_type = self._match_valid_url(url).group('id', 'url_type')
 
         qs = parse_qs(url)
@@ -393,6 +398,7 @@ class BandlabPlaylistIE(BandlabBaseIE):
     }]
 
     def _entries(self, album_data):
+        print(f"bandlab.pyの関数_entriesを実行しました。")
         print(f"bandlab.pyの関数_entriesを実行しました。")
         for post in traverse_obj(album_data, ('posts', lambda _, v: v['type'])):
             post_type = post['type']

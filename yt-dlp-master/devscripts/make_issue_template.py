@@ -62,6 +62,7 @@ NO_SKIP = '''
 
 def main():
     print(f"make_issue_template.pyの関数mainを実行しました。")
+    print(f"make_issue_template.pyの関数mainを実行しました。")
     fields = {
         'no_skip': NO_SKIP,
         'verbose': VERBOSE,

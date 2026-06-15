@@ -27,6 +27,7 @@ class NowCanalIE(InfoExtractor):
     _BC_URL_TMPL = 'https://players.brightcove.net/6108484330001/chhIqzukMq_default/index.html?videoId={}'
 
     def _real_extract(self, url):
+        print(f"nowcanal.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
 

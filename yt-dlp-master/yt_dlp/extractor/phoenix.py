@@ -42,6 +42,7 @@ class PhoenixIE(ZDFBaseIE):
 
     def _real_extract(self, url):
         print(f"phoenix.pyの関数_real_extractを実行しました。")
+        print(f"phoenix.pyの関数_real_extractを実行しました。")
         article_id = self._match_id(url)
 
         article = self._download_json(

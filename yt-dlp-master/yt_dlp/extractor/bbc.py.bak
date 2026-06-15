@@ -246,6 +246,7 @@ class BBCCoUkIE(InfoExtractor):
         }]
 
     def _perform_login(self, username, password):
+        print(f"bbc.pyの関数_perform_loginを実行しました。")
         login_page = self._download_webpage(
             self._LOGIN_URL, None, 'Downloading signin page')
 
@@ -273,25 +274,31 @@ class BBCCoUkIE(InfoExtractor):
 
     class MediaSelectionError(Exception):
         def __init__(self, error_id):
+            print(f"bbc.pyの関数__init__を実行しました。")
             self.id = error_id
 
     def _extract_asx_playlist(self, connection, programme_id):
+        print(f"bbc.pyの関数_extract_asx_playlistを実行しました。")
         asx = self._download_xml(connection.get('href'), programme_id, 'Downloading ASX playlist')
         return [ref.get('href') for ref in asx.findall('./Entry/ref')]
 
     def _extract_items(self, playlist):
+        print(f"bbc.pyの関数_extract_itemsを実行しました。")
         return playlist.findall(f'./{{{self._EMP_PLAYLIST_NS}}}item')
 
     def _extract_medias(self, media_selection):
+        print(f"bbc.pyの関数_extract_mediasを実行しました。")
         error = media_selection.get('result')
         if error:
             raise BBCCoUkIE.MediaSelectionError(error)
         return media_selection.get('media') or []
 
     def _extract_connections(self, media):
+        print(f"bbc.pyの関数_extract_connectionsを実行しました。")
         return media.get('connection') or []
 
     def _get_subtitles(self, media, programme_id):
+        print(f"bbc.pyの関数_get_subtitlesを実行しました。")
         subtitles = {}
         for connection in self._extract_connections(media):
             cc_url = url_or_none(connection.get('href'))
@@ -311,11 +318,13 @@ class BBCCoUkIE(InfoExtractor):
         return subtitles
 
     def _raise_extractor_error(self, media_selection_error):
+        print(f"bbc.pyの関数_raise_extractor_errorを実行しました。")
         raise ExtractorError(
             f'{self.IE_NAME} returned error: {media_selection_error.id}',
             expected=True)
 
     def _download_media_selector(self, programme_id):
+        print(f"bbc.pyの関数_download_media_selectorを実行しました。")
         last_exception = None
         formats, subtitles = [], {}
         for media_set in self._MEDIA_SETS:
@@ -338,12 +347,14 @@ class BBCCoUkIE(InfoExtractor):
         return formats, subtitles
 
     def _download_media_selector_url(self, url, programme_id=None):
+        print(f"bbc.pyの関数_download_media_selector_urlを実行しました。")
         media_selection = self._download_json(
             url, programme_id, 'Downloading media selection JSON',
             expected_status=(403, 404))
         return self._process_media_selector(media_selection, programme_id)
 
     def _process_media_selector(self, media_selection, programme_id):
+        print(f"bbc.pyの関数_process_media_selectorを実行しました。")
         formats = []
         subtitles = None
         urls = []
@@ -439,6 +450,7 @@ class BBCCoUkIE(InfoExtractor):
         return formats, subtitles
 
     def _download_playlist(self, playlist_id):
+        print(f"bbc.pyの関数_download_playlistを実行しました。")
         try:
             playlist = self._download_json(
                 f'http://www.bbc.co.uk/programmes/{playlist_id}/playlist.json',
@@ -475,18 +487,22 @@ class BBCCoUkIE(InfoExtractor):
         return self._process_legacy_playlist(playlist_id)
 
     def _process_legacy_playlist_url(self, url, display_id):
+        print(f"bbc.pyの関数_process_legacy_playlist_urlを実行しました。")
         playlist = self._download_legacy_playlist_url(url, display_id)
         return self._extract_from_legacy_playlist(playlist, display_id)
 
     def _process_legacy_playlist(self, playlist_id):
+        print(f"bbc.pyの関数_process_legacy_playlistを実行しました。")
         return self._process_legacy_playlist_url(
             f'http://www.bbc.co.uk/iplayer/playlist/{playlist_id}', playlist_id)
 
     def _download_legacy_playlist_url(self, url, playlist_id=None):
+        print(f"bbc.pyの関数_download_legacy_playlist_urlを実行しました。")
         return self._download_xml(
             url, playlist_id, 'Downloading legacy playlist XML')
 
     def _extract_from_legacy_playlist(self, playlist, playlist_id):
+        print(f"bbc.pyの関数_extract_from_legacy_playlistを実行しました。")
         no_items = playlist.find(f'./{{{self._EMP_PLAYLIST_NS}}}noItems')
         if no_items is not None:
             reason = no_items.get('reason')
@@ -509,7 +525,9 @@ class BBCCoUkIE(InfoExtractor):
             description = description_el.text if description_el is not None else None
 
             def get_programme_id(item):
+                print(f"bbc.pyの関数get_programme_idを実行しました。")
                 def get_from_attributes(item):
+                    print(f"bbc.pyの関数get_from_attributesを実行しました。")
                     for p in ('identifier', 'group'):
                         value = item.get(p)
                         if value and re.match(r'^[pb][\da-z]{7}$', value):
@@ -531,6 +549,7 @@ class BBCCoUkIE(InfoExtractor):
         return programme_id, title, description, duration, formats, subtitles
 
     def _real_extract(self, url):
+        print(f"bbc.pyの関数_real_extractを実行しました。")
         group_id = self._match_id(url)
 
         webpage = self._download_webpage(url, group_id, 'Downloading video page')
@@ -900,6 +919,7 @@ class BBCIE(BBCCoUkIE):  # XXX: Do not subclass from concrete IE
                 else super().suitable(url))
 
     def _extract_from_media_meta(self, media_meta, video_id):
+        print(f"bbc.pyの関数_extract_from_media_metaを実行しました。")
         # Direct links to media in media metadata (e.g.
         # http://www.bbc.com/turkce/haberler/2015/06/150615_telabyad_kentin_cogu)
         # TODO: there are also f4m and m3u8 streams incorporated in playlist.sxml
@@ -927,6 +947,7 @@ class BBCIE(BBCCoUkIE):  # XXX: Do not subclass from concrete IE
         return [], []
 
     def _extract_from_playlist_sxml(self, url, playlist_id, timestamp):
+        print(f"bbc.pyの関数_extract_from_playlist_sxmlを実行しました。")
         programme_id, title, description, duration, formats, subtitles = \
             self._process_legacy_playlist_url(url, playlist_id)
         return {
@@ -1204,6 +1225,7 @@ class BBCIE(BBCCoUkIE):  # XXX: Do not subclass from concrete IE
                     'entities', 'articles', lambda _, v: v['assetVideo'][0] == asset_id, any))
 
                 def image_url(image_id):
+                    print(f"bbc.pyの関数image_urlを実行しました。")
                     return traverse_obj(preload_state, (
                         'entities', 'images', image_id, 'url',
                         {lambda u: url_or_none(u.replace('$recipe', 'raw'))}))
@@ -1272,6 +1294,7 @@ class BBCIE(BBCCoUkIE):  # XXX: Do not subclass from concrete IE
                     entries, playlist_id, playlist_title, playlist_description)
 
         def parse_model(model):
+            print(f"bbc.pyの関数parse_modelを実行しました。")
             """Extract single video from model structure"""
             item_id = traverse_obj(model, ('versions', 0, 'versionId', {str}))
             if not item_id:
@@ -1291,6 +1314,7 @@ class BBCIE(BBCCoUkIE):  # XXX: Do not subclass from concrete IE
             }
 
         def is_type(*types):
+            print(f"bbc.pyの関数is_typeを実行しました。")
             return lambda _, v: v['type'] in types
 
         initial_data = self._search_regex(
@@ -1318,6 +1342,7 @@ class BBCIE(BBCCoUkIE):  # XXX: Do not subclass from concrete IE
                     entries, playlist_id, playlist_title, playlist_description)
 
             def parse_media(media):
+                print(f"bbc.pyの関数parse_mediaを実行しました。")
                 if not media:
                     return
                 for item in (try_get(media, lambda x: x['media']['items'], list) or []):
@@ -1411,6 +1436,7 @@ class BBCIE(BBCCoUkIE):  # XXX: Do not subclass from concrete IE
                     entries, playlist_id, playlist_title, playlist_description)
 
         def extract_all(pattern):
+            print(f"bbc.pyの関数extract_allを実行しました。")
             return list(filter(None, (
                 self._parse_json(s, playlist_id, fatal=False)
                 for s in re.findall(pattern, webpage))))
@@ -1557,6 +1583,7 @@ class BBCCoUkArticleIE(InfoExtractor):
 
 class BBCCoUkPlaylistBaseIE(InfoExtractor):
     def _entries(self, webpage, url, playlist_id):
+        print(f"bbc.pyの関数_entriesを実行しました。")
         single_page = 'page' in urllib.parse.parse_qs(
             urllib.parse.urlparse(url).query)
         for page_num in itertools.count(2):
@@ -1595,10 +1622,12 @@ class BBCCoUkIPlayerPlaylistBaseIE(InfoExtractor):
         return try_get(episode, lambda x: x[key][default_key])
 
     def _get_description(self, data):
+        print(f"bbc.pyの関数_get_descriptionを実行しました。")
         synopsis = data.get(self._DESCRIPTION_KEY) or {}
         return dict_get(synopsis, ('large', 'medium', 'small'))
 
     def _fetch_page(self, programme_id, per_page, series_id, page):
+        print(f"bbc.pyの関数_fetch_pageを実行しました。")
         elements = self._get_elements(self._call_api(
             programme_id, per_page, page + 1, series_id))
         for element in elements:
@@ -1689,9 +1718,11 @@ class BBCCoUkIPlayerEpisodesIE(BBCCoUkIPlayerPlaylistBaseIE):
     _DESCRIPTION_KEY = 'synopsis'
 
     def _get_episode_image(self, episode):
+        print(f"bbc.pyの関数_get_episode_imageを実行しました。")
         return self._get_default(episode, 'image')
 
     def _get_episode_field(self, episode, field):
+        print(f"bbc.pyの関数_get_episode_fieldを実行しました。")
         return self._get_default(episode, field)
 
     @staticmethod
@@ -1703,6 +1734,7 @@ class BBCCoUkIPlayerEpisodesIE(BBCCoUkIPlayerPlaylistBaseIE):
         return element.get('episode') or {}
 
     def _call_api(self, pid, per_page, page=1, series_id=None):
+        print(f"bbc.pyの関数_call_apiを実行しました。")
         variables = {
             'id': pid,
             'page': page,
@@ -1723,6 +1755,7 @@ class BBCCoUkIPlayerEpisodesIE(BBCCoUkIPlayerPlaylistBaseIE):
         return data
 
     def _get_playlist_title(self, data):
+        print(f"bbc.pyの関数_get_playlist_titleを実行しました。")
         return self._get_default(data, 'title')
 
 
@@ -1833,6 +1866,7 @@ class BBCCoUkPlaylistIE(BBCCoUkPlaylistBaseIE):
     }]
 
     def _extract_title_and_description(self, webpage):
+        print(f"bbc.pyの関数_extract_title_and_descriptionを実行しました。")
         title = self._og_search_title(webpage, fatal=False)
         description = self._og_search_description(webpage)
         return title, description

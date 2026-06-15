@@ -20,6 +20,7 @@ class GoogleSearchIE(SearchInfoExtractor):
 
     def _search_results(self, query):
         print(f"googlesearch.pyの関数_search_resultsを実行しました。")
+        print(f"googlesearch.pyの関数_search_resultsを実行しました。")
         for pagenum in itertools.count():
             webpage = self._download_webpage(
                 'http://www.google.com/search', f'gvsearch:{query}',

@@ -85,13 +85,16 @@ is best to avoid it in requests too for compatability reasons.
 
 class Urllib3PercentREOverride:
     def __init__(self, r: re.Pattern):
+        print(f"_requests.pyの関数__init__を実行しました。")
         self.re = r
 
     # pass through all other attribute calls to the original re
     def __getattr__(self, item):
+        print(f"_requests.pyの関数__getattr__を実行しました。")
         return self.re.__getattribute__(item)
 
     def subn(self, repl, string, *args, **kwargs):
+        print(f"_requests.pyの関数subnを実行しました。")
         return string, self.re.subn(repl, string, *args, **kwargs)[1]
 
 
@@ -130,6 +133,7 @@ class RequestsResponseAdapter(Response):
         return self.fp.read(amt, decode_content=True)
 
     def read(self, amt: int | None = None):
+        print(f"_requests.pyの関数readを実行しました。")
         try:
             data = self._real_read(amt)
             if self.fp.closed:
@@ -168,9 +172,11 @@ class RequestsHTTPAdapter(requests.adapters.HTTPAdapter):
         super().__init__(**kwargs)
 
     def init_poolmanager(self, *args, **kwargs):
+        print(f"_requests.pyの関数init_poolmanagerを実行しました。")
         return super().init_poolmanager(*args, **kwargs, **self._pm_args)
 
     def proxy_manager_for(self, proxy, **proxy_kwargs):
+        print(f"_requests.pyの関数proxy_manager_forを実行しました。")
         extra_kwargs = {}
         if not proxy.lower().startswith('socks') and self._proxy_ssl_context:
             extra_kwargs['proxy_ssl_context'] = self._proxy_ssl_context
@@ -178,10 +184,12 @@ class RequestsHTTPAdapter(requests.adapters.HTTPAdapter):
 
     # Skip `requests` internal verification; we use our own SSLContext
     def cert_verify(*args, **kwargs):
+        print(f"_requests.pyの関数cert_verifyを実行しました。")
         pass
 
     # requests 2.32.2+: Reimplementation without `_urllib3_request_context`
     def get_connection_with_tls_context(self, request, verify, proxies=None, cert=None):
+        print(f"_requests.pyの関数get_connection_with_tls_contextを実行しました。")
         url = urllib3.util.parse_url(request.url).url
 
         manager = self.poolmanager
@@ -197,6 +205,7 @@ class RequestsSession(requests.sessions.Session):
     """
 
     def rebuild_method(self, prepared_request, response):
+        print(f"_requests.pyの関数rebuild_methodを実行しました。")
         new_method = get_redirect_method(prepared_request.method, response.status_code)
 
         # HACK: requests removes headers/body on redirect unless code was a 307/308.
@@ -211,6 +220,7 @@ class RequestsSession(requests.sessions.Session):
         prepared_request.url = normalize_url(prepared_request.url)
 
     def rebuild_auth(self, prepared_request, response):
+        print(f"_requests.pyの関数rebuild_authを実行しました。")
         # HACK: undo status code change from rebuild_method, if applicable.
         # rebuild_auth runs after requests would remove headers/body based on status code
         if hasattr(response, '_real_status_code'):
@@ -222,6 +232,7 @@ class RequestsSession(requests.sessions.Session):
 class Urllib3LoggingFilter(logging.Filter):
 
     def filter(self, record):
+        print(f"_requests.pyの関数filterを実行しました。")
         # Ignore HTTP request messages since HTTPConnection prints those
         return record.msg != '%s://%s:%s "%s %s %s" %s %s'
 
@@ -234,6 +245,7 @@ class Urllib3LoggingHandler(logging.Handler):
         self._logger = logger
 
     def emit(self, record):
+        print(f"_requests.pyの関数emitを実行しました。")
         try:
             msg = self.format(record)
             if record.levelno >= logging.ERROR:
@@ -279,12 +291,14 @@ class RequestsRH(RequestHandler, InstanceStoreMixin):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
     def close(self):
+        print(f"_requests.pyの関数closeを実行しました。")
         self._clear_instances()
         # Remove the logging handler that contains a reference to our logger
         # See: https://github.com/yt-dlp/yt-dlp/issues/8922
         logging.getLogger('urllib3').removeHandler(self.__logging_handler)
 
     def _check_extensions(self, extensions):
+        print(f"_requests.pyの関数_check_extensionsを実行しました。")
         super()._check_extensions(extensions)
         extensions.pop('cookiejar', None)
         extensions.pop('timeout', None)
@@ -292,6 +306,7 @@ class RequestsRH(RequestHandler, InstanceStoreMixin):
         extensions.pop('keep_header_casing', None)
 
     def _create_instance(self, cookiejar, legacy_ssl_support=None):
+        print(f"_requests.pyの関数_create_instanceを実行しました。")
         session = RequestsSession()
         http_adapter = RequestsHTTPAdapter(
             ssl_context=self._make_sslcontext(legacy_ssl_support=legacy_ssl_support),
@@ -307,10 +322,12 @@ class RequestsRH(RequestHandler, InstanceStoreMixin):
         return session
 
     def _prepare_headers(self, _, headers):
+        print(f"_requests.pyの関数_prepare_headersを実行しました。")
         add_accept_encoding_header(headers, SUPPORTED_ENCODINGS)
         headers.setdefault('Connection', 'keep-alive')
 
     def _send(self, request):
+        print(f"_requests.pyの関数_sendを実行しました。")
 
         headers = self._get_headers(request)
         max_redirects_exceeded = False
@@ -375,6 +392,7 @@ class SocksHTTPConnection(urllib3.connection.HTTPConnection):
         super().__init__(*args, **kwargs)
 
     def _new_conn(self):
+        print(f"_requests.pyの関数_new_connを実行しました。")
         try:
             return create_connection(
                 address=(self._proxy_args['addr'], self._proxy_args['port']),

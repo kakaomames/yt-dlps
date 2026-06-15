@@ -135,6 +135,7 @@ class DRTVIE(InfoExtractor):
     _TOKEN = None
 
     def _real_initialize(self):
+        print(f"drtv.pyの関数_real_initializeを実行しました。")
         if self._TOKEN:
             return
 
@@ -158,6 +159,7 @@ class DRTVIE(InfoExtractor):
             raise ExtractorError('Unable to get anonymous token')
 
     def _real_extract(self, url):
+        print(f"drtv.pyの関数_real_extractを実行しました。")
         url_slug = self._match_id(url)
         webpage = self._download_webpage(url, url_slug)
 

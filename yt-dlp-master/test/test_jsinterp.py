@@ -24,6 +24,7 @@ class NaN:
 class TestJSInterpreter(unittest.TestCase):
     def _test(self, jsi_or_code, expected, func='f', args=()):
         print(f"test_jsinterp.pyの関数_testを実行しました。")
+        print(f"test_jsinterp.pyの関数_testを実行しました。")
         if isinstance(jsi_or_code, str):
             jsi_or_code = JSInterpreter(jsi_or_code)
         got = jsi_or_code.call_function(func, *args)
@@ -33,6 +34,7 @@ class TestJSInterpreter(unittest.TestCase):
             self.assertEqual(got, expected)
 
     def test_basic(self):
+        print(f"test_jsinterp.pyの関数test_basicを実行しました。")
         print(f"test_jsinterp.pyの関数test_basicを実行しました。")
         jsi = JSInterpreter('function f(){;}')
         self.assertEqual(repr(jsi.extract_function('f')), 'F<f>')
@@ -44,11 +46,13 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_add(self):
         print(f"test_jsinterp.pyの関数test_addを実行しました。")
+        print(f"test_jsinterp.pyの関数test_addを実行しました。")
         self._test('function f(){return 42 + 7;}', 49)
         self._test('function f(){return 42 + undefined;}', NaN)
         self._test('function f(){return 42 + null;}', 42)
 
     def test_sub(self):
+        print(f"test_jsinterp.pyの関数test_subを実行しました。")
         print(f"test_jsinterp.pyの関数test_subを実行しました。")
         self._test('function f(){return 42 - 7;}', 35)
         self._test('function f(){return 42 - undefined;}', NaN)
@@ -56,11 +60,13 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_mul(self):
         print(f"test_jsinterp.pyの関数test_mulを実行しました。")
+        print(f"test_jsinterp.pyの関数test_mulを実行しました。")
         self._test('function f(){return 42 * 7;}', 294)
         self._test('function f(){return 42 * undefined;}', NaN)
         self._test('function f(){return 42 * null;}', 0)
 
     def test_div(self):
+        print(f"test_jsinterp.pyの関数test_divを実行しました。")
         print(f"test_jsinterp.pyの関数test_divを実行しました。")
         jsi = JSInterpreter('function f(a, b){return a / b;}')
         self._test(jsi, NaN, args=(0, 0))
@@ -70,11 +76,13 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_mod(self):
         print(f"test_jsinterp.pyの関数test_modを実行しました。")
+        print(f"test_jsinterp.pyの関数test_modを実行しました。")
         self._test('function f(){return 42 % 7;}', 0)
         self._test('function f(){return 42 % 0;}', NaN)
         self._test('function f(){return 42 % undefined;}', NaN)
 
     def test_exp(self):
+        print(f"test_jsinterp.pyの関数test_expを実行しました。")
         print(f"test_jsinterp.pyの関数test_expを実行しました。")
         self._test('function f(){return 42 ** 2;}', 1764)
         self._test('function f(){return 42 ** undefined;}', NaN)
@@ -83,23 +91,28 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_calc(self):
         print(f"test_jsinterp.pyの関数test_calcを実行しました。")
+        print(f"test_jsinterp.pyの関数test_calcを実行しました。")
         self._test('function f(a){return 2*a+1;}', 7, args=[3])
 
     def test_empty_return(self):
         print(f"test_jsinterp.pyの関数test_empty_returnを実行しました。")
+        print(f"test_jsinterp.pyの関数test_empty_returnを実行しました。")
         self._test('function f(){return; y()}', None)
 
     def test_morespace(self):
+        print(f"test_jsinterp.pyの関数test_morespaceを実行しました。")
         print(f"test_jsinterp.pyの関数test_morespaceを実行しました。")
         self._test('function f (a) { return 2 * a + 1 ; }', 7, args=[3])
         self._test('function f () { x =  2  ; return x; }', 2)
 
     def test_strange_chars(self):
         print(f"test_jsinterp.pyの関数test_strange_charsを実行しました。")
+        print(f"test_jsinterp.pyの関数test_strange_charsを実行しました。")
         self._test('function $_xY1 ($_axY1) { var $_axY2 = $_axY1 + 1; return $_axY2; }',
                    21, args=[20], func='$_xY1')
 
     def test_operators(self):
+        print(f"test_jsinterp.pyの関数test_operatorsを実行しました。")
         print(f"test_jsinterp.pyの関数test_operatorsを実行しました。")
         self._test('function f(){return 1 << 5;}', 32)
         self._test('function f(){return 2 ** 5}', 32)
@@ -124,6 +137,7 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_string_concat(self):
         print(f"test_jsinterp.pyの関数test_string_concatを実行しました。")
+        print(f"test_jsinterp.pyの関数test_string_concatを実行しました。")
         self._test('function f(){return "a" + "b";}', 'ab')
         self._test('function f(){let x = "a"; x += "b"; return x;}', 'ab')
         self._test('function f(){return "a" + 1;}', 'a1')
@@ -133,18 +147,22 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_array_access(self):
         print(f"test_jsinterp.pyの関数test_array_accessを実行しました。")
+        print(f"test_jsinterp.pyの関数test_array_accessを実行しました。")
         self._test('function f(){var x = [1,2,3]; x[0] = 4; x[0] = 5; x[2.0] = 7; return x;}', [5, 2, 7])
 
     def test_parens(self):
+        print(f"test_jsinterp.pyの関数test_parensを実行しました。")
         print(f"test_jsinterp.pyの関数test_parensを実行しました。")
         self._test('function f(){return (1) + (2) * ((( (( (((((3)))))) )) ));}', 7)
         self._test('function f(){return (1 + 2) * 3;}', 9)
 
     def test_quotes(self):
         print(f"test_jsinterp.pyの関数test_quotesを実行しました。")
+        print(f"test_jsinterp.pyの関数test_quotesを実行しました。")
         self._test(R'function f(){return "a\"\\("}', R'a"\(')
 
     def test_assignments(self):
+        print(f"test_jsinterp.pyの関数test_assignmentsを実行しました。")
         print(f"test_jsinterp.pyの関数test_assignmentsを実行しました。")
         self._test('function f(){var x = 20; x = 30 + 1; return x;}', 31)
         self._test('function f(){var x = 20; x += 30 + 1; return x;}', 51)
@@ -172,6 +190,7 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_precedence(self):
         print(f"test_jsinterp.pyの関数test_precedenceを実行しました。")
+        print(f"test_jsinterp.pyの関数test_precedenceを実行しました。")
         self._test('''
             function f() {
                 var a = [10, 20, 30, 40, 50];
@@ -183,9 +202,11 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_builtins(self):
         print(f"test_jsinterp.pyの関数test_builtinsを実行しました。")
+        print(f"test_jsinterp.pyの関数test_builtinsを実行しました。")
         self._test('function f() { return NaN }', NaN)
 
     def test_date(self):
+        print(f"test_jsinterp.pyの関数test_dateを実行しました。")
         print(f"test_jsinterp.pyの関数test_dateを実行しました。")
         self._test('function f() { return new Date("Wednesday 31 December 1969 18:01:26 MDT") - 0; }', 86000)
 
@@ -196,6 +217,7 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_call(self):
         print(f"test_jsinterp.pyの関数test_callを実行しました。")
+        print(f"test_jsinterp.pyの関数test_callを実行しました。")
         jsi = JSInterpreter('''
             function x() { return 2; }
             function y(a) { return x() + (a?a:0); }
@@ -205,6 +227,7 @@ class TestJSInterpreter(unittest.TestCase):
         self._test(jsi, 2, func='y')
 
     def test_if(self):
+        print(f"test_jsinterp.pyの関数test_ifを実行しました。")
         print(f"test_jsinterp.pyの関数test_ifを実行しました。")
         self._test('''
             function f() {
@@ -239,9 +262,11 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_for_loop(self):
         print(f"test_jsinterp.pyの関数test_for_loopを実行しました。")
+        print(f"test_jsinterp.pyの関数test_for_loopを実行しました。")
         self._test('function f() { a=0; for (i=0; i-10; i++) {a++} return a }', 10)
 
     def test_switch(self):
+        print(f"test_jsinterp.pyの関数test_switchを実行しました。")
         print(f"test_jsinterp.pyの関数test_switchを実行しました。")
         jsi = JSInterpreter('''
             function f(x) { switch(x){
@@ -257,6 +282,7 @@ class TestJSInterpreter(unittest.TestCase):
         self._test(jsi, 0, args=[5])
 
     def test_switch_default(self):
+        print(f"test_jsinterp.pyの関数test_switch_defaultを実行しました。")
         print(f"test_jsinterp.pyの関数test_switch_defaultを実行しました。")
         jsi = JSInterpreter('''
             function f(x) { switch(x){
@@ -274,18 +300,22 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_try(self):
         print(f"test_jsinterp.pyの関数test_tryを実行しました。")
+        print(f"test_jsinterp.pyの関数test_tryを実行しました。")
         self._test('function f() { try{return 10} catch(e){return 5} }', 10)
 
     def test_catch(self):
+        print(f"test_jsinterp.pyの関数test_catchを実行しました。")
         print(f"test_jsinterp.pyの関数test_catchを実行しました。")
         self._test('function f() { try{throw 10} catch(e){return 5} }', 5)
 
     def test_finally(self):
         print(f"test_jsinterp.pyの関数test_finallyを実行しました。")
+        print(f"test_jsinterp.pyの関数test_finallyを実行しました。")
         self._test('function f() { try{throw 10} finally {return 42} }', 42)
         self._test('function f() { try{throw 10} catch(e){return 5} finally {return 42} }', 42)
 
     def test_nested_try(self):
+        print(f"test_jsinterp.pyの関数test_nested_tryを実行しました。")
         print(f"test_jsinterp.pyの関数test_nested_tryを実行しました。")
         self._test('''
             function f() {try {
@@ -295,13 +325,16 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_for_loop_continue(self):
         print(f"test_jsinterp.pyの関数test_for_loop_continueを実行しました。")
+        print(f"test_jsinterp.pyの関数test_for_loop_continueを実行しました。")
         self._test('function f() { a=0; for (i=0; i-10; i++) { continue; a++ } return a }', 0)
 
     def test_for_loop_break(self):
         print(f"test_jsinterp.pyの関数test_for_loop_breakを実行しました。")
+        print(f"test_jsinterp.pyの関数test_for_loop_breakを実行しました。")
         self._test('function f() { a=0; for (i=0; i-10; i++) { break; a++ } return a }', 0)
 
     def test_for_loop_try(self):
+        print(f"test_jsinterp.pyの関数test_for_loop_tryを実行しました。")
         print(f"test_jsinterp.pyの関数test_for_loop_tryを実行しました。")
         self._test('''
             function f() {
@@ -311,9 +344,11 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_literal_list(self):
         print(f"test_jsinterp.pyの関数test_literal_listを実行しました。")
+        print(f"test_jsinterp.pyの関数test_literal_listを実行しました。")
         self._test('function f() { return [1, 2, "asdf", [5, 6, 7]][3] }', [5, 6, 7])
 
     def test_comma(self):
+        print(f"test_jsinterp.pyの関数test_commaを実行しました。")
         print(f"test_jsinterp.pyの関数test_commaを実行しました。")
         self._test('function f() { a=5; a -= 1, a+=3; return a }', 7)
         self._test('function f() { a=5; return (a -= 1, a+=3, a); }', 7)
@@ -321,9 +356,11 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_void(self):
         print(f"test_jsinterp.pyの関数test_voidを実行しました。")
+        print(f"test_jsinterp.pyの関数test_voidを実行しました。")
         self._test('function f() { return void 42; }', None)
 
     def test_return_function(self):
+        print(f"test_jsinterp.pyの関数test_return_functionを実行しました。")
         print(f"test_jsinterp.pyの関数test_return_functionを実行しました。")
         jsi = JSInterpreter('''
             function f() { return [1, function(){return 1}][1] }
@@ -332,12 +369,14 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_null(self):
         print(f"test_jsinterp.pyの関数test_nullを実行しました。")
+        print(f"test_jsinterp.pyの関数test_nullを実行しました。")
         self._test('function f() { return null; }', None)
         self._test('function f() { return [null > 0, null < 0, null == 0, null === 0]; }',
                    [False, False, False, False])
         self._test('function f() { return [null >= 0, null <= 0]; }', [True, True])
 
     def test_undefined(self):
+        print(f"test_jsinterp.pyの関数test_undefinedを実行しました。")
         print(f"test_jsinterp.pyの関数test_undefinedを実行しました。")
         self._test('function f() { return undefined === undefined; }', True)
         self._test('function f() { return undefined; }', JS_Undefined)
@@ -374,6 +413,7 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_object(self):
         print(f"test_jsinterp.pyの関数test_objectを実行しました。")
+        print(f"test_jsinterp.pyの関数test_objectを実行しました。")
         self._test('function f() { return {}; }', {})
         self._test('function f() { let a = {m1: 42, m2: 0 }; return [a["m1"], a.m2]; }', [42, 0])
         self._test('function f() { let a; return a?.qq; }', JS_Undefined)
@@ -381,6 +421,7 @@ class TestJSInterpreter(unittest.TestCase):
         self._test('function f() { let a = {"1": 123}; return a[1]; }', 123)
 
     def test_regex(self):
+        print(f"test_jsinterp.pyの関数test_regexを実行しました。")
         print(f"test_jsinterp.pyの関数test_regexを実行しました。")
         self._test('function f() { let a=/,,[/,913,/](,)}/; }', None)
         self._test('function f() { let a=/,,[/,913,/](,)}/; return a; }', R'/,,[/,913,/](,)}/0')
@@ -414,6 +455,7 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_char_code_at(self):
         print(f"test_jsinterp.pyの関数test_char_code_atを実行しました。")
+        print(f"test_jsinterp.pyの関数test_char_code_atを実行しました。")
         jsi = JSInterpreter('function f(i){return "test".charCodeAt(i)}')
         self._test(jsi, 116, args=[0])
         self._test(jsi, 101, args=[1])
@@ -424,16 +466,19 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_bitwise_operators_overflow(self):
         print(f"test_jsinterp.pyの関数test_bitwise_operators_overflowを実行しました。")
+        print(f"test_jsinterp.pyの関数test_bitwise_operators_overflowを実行しました。")
         self._test('function f(){return -524999584 << 5}', 379882496)
         self._test('function f(){return 1236566549 << 5}', 915423904)
 
     def test_bitwise_operators_typecast(self):
+        print(f"test_jsinterp.pyの関数test_bitwise_operators_typecastを実行しました。")
         print(f"test_jsinterp.pyの関数test_bitwise_operators_typecastを実行しました。")
         self._test('function f(){return null << 5}', 0)
         self._test('function f(){return undefined >> 5}', 0)
         self._test('function f(){return 42 << NaN}', 42)
 
     def test_negative(self):
+        print(f"test_jsinterp.pyの関数test_negativeを実行しました。")
         print(f"test_jsinterp.pyの関数test_negativeを実行しました。")
         self._test('function f(){return 2    *    -2.0    ;}', -4)
         self._test('function f(){return 2    -    - -2    ;}', 0)
@@ -448,6 +493,7 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_join(self):
         print(f"test_jsinterp.pyの関数test_joinを実行しました。")
+        print(f"test_jsinterp.pyの関数test_joinを実行しました。")
         test_input = list('test')
         tests = [
             'function f(a, b){return a.join(b)}',
@@ -461,6 +507,7 @@ class TestJSInterpreter(unittest.TestCase):
             self._test(jsi, '', args=[[], '-'])
 
     def test_split(self):
+        print(f"test_jsinterp.pyの関数test_splitを実行しました。")
         print(f"test_jsinterp.pyの関数test_splitを実行しました。")
         test_result = list('test')
         tests = [
@@ -478,6 +525,7 @@ class TestJSInterpreter(unittest.TestCase):
             self._test(jsi, [], args=['', ''])
 
     def test_slice(self):
+        print(f"test_jsinterp.pyの関数test_sliceを実行しました。")
         print(f"test_jsinterp.pyの関数test_sliceを実行しました。")
         self._test('function f(){return [0, 1, 2, 3, 4, 5, 6, 7, 8].slice()}', [0, 1, 2, 3, 4, 5, 6, 7, 8])
         self._test('function f(){return [0, 1, 2, 3, 4, 5, 6, 7, 8].slice(0)}', [0, 1, 2, 3, 4, 5, 6, 7, 8])
@@ -508,9 +556,11 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_splice(self):
         print(f"test_jsinterp.pyの関数test_spliceを実行しました。")
+        print(f"test_jsinterp.pyの関数test_spliceを実行しました。")
         self._test('function f(){var T = ["0", "1", "2"]; T["splice"](2, 1, "0")[0]; return T }', ['0', '1', '0'])
 
     def test_int_to_int32(self):
+        print(f"test_jsinterp.pyの関数test_int_to_int32を実行しました。")
         print(f"test_jsinterp.pyの関数test_int_to_int32を実行しました。")
         for inp, exp in [
             (0, 0),
@@ -528,6 +578,7 @@ class TestJSInterpreter(unittest.TestCase):
             assert int_to_int32(inp) == exp
 
     def test_js_number_to_string(self):
+        print(f"test_jsinterp.pyの関数test_js_number_to_stringを実行しました。")
         print(f"test_jsinterp.pyの関数test_js_number_to_stringを実行しました。")
         for test, radix, expected in [
             (0, None, '0'),
@@ -551,11 +602,13 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_extract_function(self):
         print(f"test_jsinterp.pyの関数test_extract_functionを実行しました。")
+        print(f"test_jsinterp.pyの関数test_extract_functionを実行しました。")
         jsi = JSInterpreter('function a(b) { return b + 1; }')
         func = jsi.extract_function('a')
         self.assertEqual(func([2]), 3)
 
     def test_extract_function_with_global_stack(self):
+        print(f"test_jsinterp.pyの関数test_extract_function_with_global_stackを実行しました。")
         print(f"test_jsinterp.pyの関数test_extract_function_with_global_stackを実行しました。")
         jsi = JSInterpreter('function c(d) { return d + e + f + g; }')
         func = jsi.extract_function('c', {'e': 10}, {'f': 100, 'g': 1000})
@@ -563,10 +616,12 @@ class TestJSInterpreter(unittest.TestCase):
 
     def test_extract_object(self):
         print(f"test_jsinterp.pyの関数test_extract_objectを実行しました。")
+        print(f"test_jsinterp.pyの関数test_extract_objectを実行しました。")
         jsi = JSInterpreter('var a={};a.xy={};var xy;var zxy={};xy={z:function(){return "abc"}};')
         self.assertTrue('z' in jsi.extract_object('xy', None))
 
     def test_increment_decrement(self):
+        print(f"test_jsinterp.pyの関数test_increment_decrementを実行しました。")
         print(f"test_jsinterp.pyの関数test_increment_decrementを実行しました。")
         self._test('function f() { var x = 1; return ++x; }', 2)
         self._test('function f() { var x = 1; return x++; }', 1)
@@ -576,6 +631,7 @@ class TestJSInterpreter(unittest.TestCase):
         self._test('function f() { var b = 1; var a = "b--"; return a; }', 'b--')
 
     def test_nested_function_scoping(self):
+        print(f"test_jsinterp.pyの関数test_nested_function_scopingを実行しました。")
         print(f"test_jsinterp.pyの関数test_nested_function_scopingを実行しました。")
         self._test(R'''
             function f() {
@@ -623,6 +679,7 @@ class TestJSInterpreter(unittest.TestCase):
         ''', 31)
 
     def test_undefined_varnames(self):
+        print(f"test_jsinterp.pyの関数test_undefined_varnamesを実行しました。")
         print(f"test_jsinterp.pyの関数test_undefined_varnamesを実行しました。")
         jsi = JSInterpreter('function f(){ var a; return [a, b]; }')
         self._test(jsi, [JS_Undefined, JS_Undefined])

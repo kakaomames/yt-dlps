@@ -52,6 +52,7 @@ class TVAIE(InfoExtractor):
     _BC_URL_TMPL = 'https://players.brightcove.net/5481942443001/default_default/index.html?videoId={}'
 
     def _real_extract(self, url):
+        print(f"tva.pyの関数_real_extractを実行しました。")
         entity_id = self._match_id(url)
         webpage = self._download_webpage(url, entity_id)
         entity = self._search_nextjs_data(webpage, entity_id)['props']['pageProps']['staticEntity']

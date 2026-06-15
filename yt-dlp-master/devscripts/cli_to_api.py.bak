@@ -13,6 +13,7 @@ create_parser = yt_dlp.options.create_parser
 
 
 def parse_patched_options(opts):
+    print(f"cli_to_api.pyの関数parse_patched_optionsを実行しました。")
     patched_parser = create_parser()
     patched_parser.defaults.update({
         'ignoreerrors': False,
@@ -33,6 +34,7 @@ default_opts = parse_patched_options([]).ydl_opts
 
 
 def cli_to_api(opts, cli_defaults=False):
+    print(f"cli_to_api.pyの関数cli_to_apiを実行しました。")
     opts = (yt_dlp.parse_options if cli_defaults else parse_patched_options)(opts).ydl_opts
 
     diff = {k: v for k, v in opts.items() if default_opts[k] != v}

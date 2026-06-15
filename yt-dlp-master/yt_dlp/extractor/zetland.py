@@ -29,6 +29,7 @@ class ZetlandDKArticleIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"zetland.pyの関数_real_extractを実行しました。")
+        print(f"zetland.pyの関数_real_extractを実行しました。")
         display_id, uploader_id = self._match_valid_url(url).group('id', 'uploader_id')
         webpage = self._download_webpage(url, display_id)
 

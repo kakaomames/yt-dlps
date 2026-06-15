@@ -12,6 +12,7 @@ class CamModelsIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"cammodels.pyの関数_real_extractを実行しました。")
+        print(f"cammodels.pyの関数_real_extractを実行しました。")
         user_id = self._match_id(url)
 
         manifest = self._download_json(

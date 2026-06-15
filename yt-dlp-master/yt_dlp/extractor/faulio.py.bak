@@ -17,6 +17,7 @@ class FaulioBaseIE(InfoExtractor):
     _BASE_URL_RE = fr'https?://(?:{"|".join(map(re.escape, _DOMAINS))})/(?:(?:{"|".join(_LANGUAGES)})/)?'
 
     def _get_headers(self, url):
+        print(f"faulio.pyの関数_get_headersを実行しました。")
         parsed_url = urllib.parse.urlparse(url)
         return {
             'Referer': url,
@@ -24,6 +25,7 @@ class FaulioBaseIE(InfoExtractor):
         }
 
     def _get_api_base(self, url, video_id):
+        print(f"faulio.pyの関数_get_api_baseを実行しました。")
         webpage = self._download_webpage(url, video_id)
         config_data = self._search_json(
             r'window\.__NUXT__\.config=', webpage, 'config', video_id, transform_source=js_to_json)
@@ -106,6 +108,7 @@ class FaulioIE(FaulioBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"faulio.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         api_base = self._get_api_base(url, video_id)
         video_info = self._download_json(f'{api_base}/video/{video_id}', video_id, fatal=False)

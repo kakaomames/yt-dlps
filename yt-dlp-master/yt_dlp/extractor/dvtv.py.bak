@@ -111,6 +111,7 @@ class DVTVIE(InfoExtractor):
     }]
 
     def _parse_video_metadata(self, js, video_id, timestamp):
+        print(f"dvtv.pyの関数_parse_video_metadataを実行しました。")
         data = self._parse_json(js, video_id, transform_source=js_to_json)
         title = unescapeHTML(data['title'])
 
@@ -154,6 +155,7 @@ class DVTVIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"dvtv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         timestamp = parse_iso8601(self._html_search_meta(

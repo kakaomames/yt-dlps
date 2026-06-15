@@ -43,14 +43,17 @@ class CBSNewsBaseIE(InfoExtractor):
     _ANVACK = '5VD6Eyd6djewbCmNwBFnsJj17YAvGRwl'
 
     def _get_item(self, webpage, display_id):
+        print(f"cbsnews.pyの関数_get_itemを実行しました。")
         return traverse_obj(self._search_json(
             r'CBSNEWS\.defaultPayload\s*=', webpage, 'payload', display_id,
             default={}), ('items', 0, {dict})) or {}
 
     def _get_video_url(self, item):
+        print(f"cbsnews.pyの関数_get_video_urlを実行しました。")
         return traverse_obj(item, 'video', 'video2', expected_type=url_or_none)
 
     def _extract_playlist(self, webpage, playlist_id):
+        print(f"cbsnews.pyの関数_extract_playlistを実行しました。")
         entries = [self.url_result(embed_url, CBSNewsEmbedIE) for embed_url in re.findall(
             r'<iframe[^>]+data-src="(https?://(?:www\.)?cbsnews\.com/embed/video/[^#]*#[^"]+)"', webpage)]
         if entries:
@@ -59,6 +62,7 @@ class CBSNewsBaseIE(InfoExtractor):
                 self._html_search_meta(['og:description', 'twitter:description', 'description'], webpage))
 
     def _extract_video(self, item, video_url, video_id):
+        print(f"cbsnews.pyの関数_extract_videoを実行しました。")
         if mimetype2ext(item.get('format'), default=determine_ext(video_url)) == 'mp4':
             formats = [{'url': video_url, 'ext': 'mp4'}]
 
@@ -76,6 +80,7 @@ class CBSNewsBaseIE(InfoExtractor):
                 manifest, video_url, 'mp4', m3u8_id='hls', video_id=video_id)
 
         def get_subtitles(subs_url):
+            print(f"cbsnews.pyの関数get_subtitlesを実行しました。")
             return {
                 'en': [{
                     'url': subs_url,
@@ -123,6 +128,7 @@ class CBSNewsEmbedIE(CBSNewsBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"cbsnews.pyの関数_real_extractを実行しました。")
         item = traverse_obj(self._parse_json(zlib.decompress(base64.b64decode(
             urllib.parse.unquote(self._match_id(url))),
             -zlib.MAX_WBITS).decode(), None), ('video', 'items', 0, {dict})) or {}
@@ -323,6 +329,7 @@ class CBSLocalArticleIE(CBSLocalBaseIE):
 
 class CBSNewsLiveBaseIE(CBSNewsBaseIE):
     def _get_id(self, url):
+        print(f"cbsnews.pyの関数_get_idを実行しました。")
         raise NotImplementedError('This method must be implemented by subclasses')
 
     def _real_extract(self, url):

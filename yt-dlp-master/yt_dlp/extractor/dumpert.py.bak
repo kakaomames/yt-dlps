@@ -62,6 +62,7 @@ class DumpertIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"dumpert.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url).replace('_', '/')
         item = self._download_json(
             'http://api-live.dumpert.nl/mobile_api/json/info/' + video_id.replace('/', '_'),

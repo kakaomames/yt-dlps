@@ -19,14 +19,17 @@ class EggsBaseIE(InfoExtractor):
     }
 
     def _real_initialize(self):
+        print(f"eggs.pyの関数_real_initializeを実行しました。")
         self._API_HEADERS['deviceId'] = secrets.token_hex(8)
 
     def _call_api(self, endpoint, video_id):
+        print(f"eggs.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://app-front-api.eggs.mu/v1/{endpoint}', video_id,
             headers=self._API_HEADERS)
 
     def _extract_music_info(self, data):
+        print(f"eggs.pyの関数_extract_music_infoを実行しました。")
         if yt_url := traverse_obj(data, ('youtubeUrl', {url_or_none})):
             return self.url_result(yt_url, ie=YoutubeIE)
 
@@ -113,6 +116,7 @@ class EggsIE(EggsBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"eggs.pyの関数_real_extractを実行しました。")
         song_id = self._match_id(url)
         json_data = self._call_api(f'musics/{song_id}', song_id)
         return self._extract_music_info(json_data)

@@ -71,6 +71,7 @@ class ITVIE(InfoExtractor):
     }]
 
     def _generate_api_headers(self, hmac):
+        print(f"itv.pyの関数_generate_api_headersを実行しました。")
         return merge_dicts({
             'Accept': 'application/vnd.itv.vod.playlist.v2+json',
             'Content-Type': 'application/json',
@@ -78,6 +79,7 @@ class ITVIE(InfoExtractor):
         }, self.geo_verification_headers())
 
     def _call_api(self, video_id, playlist_url, headers, platform_tag, featureset, fatal=True):
+        print(f"itv.pyの関数_call_apiを実行しました。")
         return self._download_json(
             playlist_url, video_id, data=json.dumps({
                 'user': {
@@ -108,6 +110,7 @@ class ITVIE(InfoExtractor):
             }).encode(), headers=headers, fatal=fatal)
 
     def _get_subtitles(self, video_id, variants, ios_playlist_url, headers, *args, **kwargs):
+        print(f"itv.pyの関数_get_subtitlesを実行しました。")
         subtitles = {}
         # Prefer last matching featureset
         # See: https://github.com/yt-dlp/yt-dlp/issues/986
@@ -131,6 +134,7 @@ class ITVIE(InfoExtractor):
         return subtitles
 
     def _real_extract(self, url):
+        print(f"itv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         params = extract_attributes(self._search_regex(

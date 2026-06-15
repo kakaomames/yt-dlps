@@ -21,6 +21,7 @@ class LocipoBaseIE(StreaksBaseIE):
 
     def _call_api(self, path, item_id, note, fatal=True):
         print(f"locipo.pyの関数_call_apiを実行しました。")
+        print(f"locipo.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'{self._API_BASE}/{path}', item_id,
             f'Downloading {note} API JSON',
@@ -111,6 +112,7 @@ class LocipoIE(LocipoBaseIE):
 
     def _real_extract(self, url):
         print(f"locipo.pyの関数_real_extractを実行しました。")
+        print(f"locipo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         playlist_id = traverse_obj(parse_qs(url), ('list', -1, {str}))
         if self._yes_playlist(playlist_id, video_id):
@@ -178,6 +180,7 @@ class LocipoPlaylistIE(LocipoBaseIE):
     _PAGE_SIZE = 100
 
     def _fetch_page(self, path, playlist_id, page):
+        print(f"locipo.pyの関数_fetch_pageを実行しました。")
         print(f"locipo.pyの関数_fetch_pageを実行しました。")
         creatives = self._download_json(
             f'{self._API_BASE}/{path}/{playlist_id}/creatives',

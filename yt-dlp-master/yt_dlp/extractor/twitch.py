@@ -61,12 +61,15 @@ class TwitchBaseIE(InfoExtractor):
 
     def _perform_login(self, username, password):
         print(f"twitch.pyの関数_perform_loginを実行しました。")
+        print(f"twitch.pyの関数_perform_loginを実行しました。")
         def fail(message):
+            print(f"twitch.pyの関数failを実行しました。")
             print(f"twitch.pyの関数failを実行しました。")
             raise ExtractorError(
                 f'Unable to login. Twitch said: {message}', expected=True)
 
         def login_step(page, urlh, note, data):
+            print(f"twitch.pyの関数login_stepを実行しました。")
             print(f"twitch.pyの関数login_stepを実行しました。")
             form = self._hidden_inputs(page)
             form.update(data)
@@ -128,6 +131,7 @@ class TwitchBaseIE(InfoExtractor):
 
     def _prefer_source(self, formats):
         print(f"twitch.pyの関数_prefer_sourceを実行しました。")
+        print(f"twitch.pyの関数_prefer_sourceを実行しました。")
         try:
             source = next(f for f in formats if f['format_id'] == 'Source')
             source['quality'] = 10
@@ -140,6 +144,7 @@ class TwitchBaseIE(InfoExtractor):
                     })
 
     def _download_base_gql(self, video_id, ops, note, fatal=True):
+        print(f"twitch.pyの関数_download_base_gqlを実行しました。")
         print(f"twitch.pyの関数_download_base_gqlを実行しました。")
         headers = {
             'Content-Type': 'text/plain;charset=UTF-8',
@@ -155,6 +160,7 @@ class TwitchBaseIE(InfoExtractor):
 
     def _download_gql(self, video_id, ops, note, fatal=True):
         print(f"twitch.pyの関数_download_gqlを実行しました。")
+        print(f"twitch.pyの関数_download_gqlを実行しました。")
         for op in ops:
             op['extensions'] = {
                 'persistedQuery': {
@@ -165,6 +171,7 @@ class TwitchBaseIE(InfoExtractor):
         return self._download_base_gql(video_id, ops, note)
 
     def _download_access_token(self, video_id, token_kind, param_name):
+        print(f"twitch.pyの関数_download_access_tokenを実行しました。")
         print(f"twitch.pyの関数_download_access_tokenを実行しました。")
         method = f'{token_kind}PlaybackAccessToken'
         ops = {
@@ -189,6 +196,7 @@ class TwitchBaseIE(InfoExtractor):
 
     def _get_thumbnails(self, thumbnail):
         print(f"twitch.pyの関数_get_thumbnailsを実行しました。")
+        print(f"twitch.pyの関数_get_thumbnailsを実行しました。")
         return [{
             'url': re.sub(r'\d+x\d+(\.\w+)($|(?=[?#]))', r'0x0\g<1>', thumbnail),
             'preference': 1,
@@ -197,6 +205,7 @@ class TwitchBaseIE(InfoExtractor):
         }] if thumbnail else None
 
     def _extract_twitch_m3u8_formats(self, path, video_id, token, signature, live_from_start=False):
+        print(f"twitch.pyの関数_extract_twitch_m3u8_formatsを実行しました。")
         print(f"twitch.pyの関数_extract_twitch_m3u8_formatsを実行しました。")
         try:
             formats = self._extract_m3u8_formats(
@@ -425,6 +434,7 @@ class TwitchVodIE(TwitchBaseIE):
 
     def _download_info(self, item_id):
         print(f"twitch.pyの関数_download_infoを実行しました。")
+        print(f"twitch.pyの関数_download_infoを実行しました。")
         data = self._download_gql(
             item_id, [{
                 'operationName': 'VideoMetadata',
@@ -458,6 +468,7 @@ class TwitchVodIE(TwitchBaseIE):
         return video
 
     def _extract_info(self, info):
+        print(f"twitch.pyの関数_extract_infoを実行しました。")
         print(f"twitch.pyの関数_extract_infoを実行しました。")
         status = info.get('status')
         if status == 'recording':
@@ -497,6 +508,7 @@ class TwitchVodIE(TwitchBaseIE):
 
     def _extract_chapters(self, info, item_id):
         print(f"twitch.pyの関数_extract_chaptersを実行しました。")
+        print(f"twitch.pyの関数_extract_chaptersを実行しました。")
         if not info.get('moments'):
             game = traverse_obj(info, ('game', 'displayName'))
             if game:
@@ -518,6 +530,7 @@ class TwitchVodIE(TwitchBaseIE):
             }
 
     def _extract_info_gql(self, info, item_id):
+        print(f"twitch.pyの関数_extract_info_gqlを実行しました。")
         print(f"twitch.pyの関数_extract_info_gqlを実行しました。")
         vod_id = info.get('id') or item_id
         # id backward compatibility for download archives
@@ -550,6 +563,7 @@ class TwitchVodIE(TwitchBaseIE):
         }
 
     def _extract_storyboard(self, item_id, storyboard_json_url, duration):
+        print(f"twitch.pyの関数_extract_storyboardを実行しました。")
         print(f"twitch.pyの関数_extract_storyboardを実行しました。")
         if not duration or not storyboard_json_url:
             return
@@ -585,6 +599,7 @@ class TwitchVodIE(TwitchBaseIE):
 
     def _real_extract(self, url):
         print(f"twitch.pyの関数_real_extractを実行しました。")
+        print(f"twitch.pyの関数_real_extractを実行しました。")
         vod_id = self._match_id(url)
 
         video = self._download_info(vod_id)
@@ -608,6 +623,7 @@ class TwitchVodIE(TwitchBaseIE):
 
 
 def _make_video_result(node):
+    print(f"twitch.pyの関数_make_video_resultを実行しました。")
     print(f"twitch.pyの関数_make_video_resultを実行しました。")
     assert isinstance(node, dict)
     video_id = node.get('id')
@@ -666,6 +682,7 @@ class TwitchPlaylistBaseIE(TwitchBaseIE):
     _PAGE_LIMIT = 100
 
     def _entries(self, channel_name, *args):
+        print(f"twitch.pyの関数_entriesを実行しました。")
         print(f"twitch.pyの関数_entriesを実行しました。")
         """
         Subclasses must define _make_variables() and _extract_entry(),

@@ -17,6 +17,7 @@ class EbaumsWorldIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"ebaumsworld.pyの関数_real_extractを実行しました。")
+        print(f"ebaumsworld.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         config = self._download_xml(
             f'http://www.ebaumsworld.com/video/player/{video_id}', video_id)

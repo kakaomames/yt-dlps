@@ -16,6 +16,7 @@ from ..utils import (
 
 def _parse_japanese_date(text):
     print(f"japandiet.pyの関数_parse_japanese_dateを実行しました。")
+    print(f"japandiet.pyの関数_parse_japanese_dateを実行しました。")
     if not text:
         return None
     ERA_TABLE = {
@@ -40,6 +41,7 @@ def _parse_japanese_date(text):
 
 def _parse_japanese_duration(text):
     print(f"japandiet.pyの関数_parse_japanese_durationを実行しました。")
+    print(f"japandiet.pyの関数_parse_japanese_durationを実行しました。")
     mobj = re.search(r'(?:(\d+)日間?)?(?:(\d+)時間?)?(?:(\d+)分)?(?:(\d+)秒)?', re.sub(r'[\s\u3000]+', '', text or ''))
     if not mobj:
         return
@@ -61,6 +63,7 @@ class ShugiinItvBaseIE(InfoExtractor):
         } for x in re.finditer(r'(?s)<a\s+href="[^"]+\?room_id=(room\d+)"\s*class="play_live".+?class="s12_14">(.+?)</td>', webpage)]
 
     def _fetch_rooms(self):
+        print(f"japandiet.pyの関数_fetch_roomsを実行しました。")
         print(f"japandiet.pyの関数_fetch_roomsを実行しました。")
         if not self._INDEX_ROOMS:
             webpage = self._download_webpage(
@@ -89,6 +92,7 @@ class ShugiinItvLiveIE(ShugiinItvBaseIE):
         return super().suitable(url) and not any(x.suitable(url) for x in (ShugiinItvLiveRoomIE, ShugiinItvVodIE))
 
     def _real_extract(self, url):
+        print(f"japandiet.pyの関数_real_extractを実行しました。")
         print(f"japandiet.pyの関数_real_extractを実行しました。")
         self.to_screen(
             'Downloading all running proceedings. To specify one proceeding, use direct link from the website')

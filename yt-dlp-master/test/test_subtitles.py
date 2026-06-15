@@ -34,6 +34,7 @@ class BaseTestSubtitles(unittest.TestCase):
 
     def setUp(self):
         print(f"test_subtitles.pyの関数setUpを実行しました。")
+        print(f"test_subtitles.pyの関数setUpを実行しました。")
         self.DL = FakeYDL()
         self.ie = self.IE()
         self.DL.add_info_extractor(self.ie)
@@ -43,9 +44,11 @@ class BaseTestSubtitles(unittest.TestCase):
 
     def getInfoDict(self):
         print(f"test_subtitles.pyの関数getInfoDictを実行しました。")
+        print(f"test_subtitles.pyの関数getInfoDictを実行しました。")
         return self.DL.extract_info(self.url, download=False)
 
     def getSubtitles(self):
+        print(f"test_subtitles.pyの関数getSubtitlesを実行しました。")
         print(f"test_subtitles.pyの関数getSubtitlesを実行しました。")
         info_dict = self.getInfoDict()
         subtitles = info_dict['requested_subtitles']
@@ -80,6 +83,7 @@ class TestYoutubeSubtitles(BaseTestSubtitles):
 
     def test_youtube_allsubtitles(self):
         print(f"test_subtitles.pyの関数test_youtube_allsubtitlesを実行しました。")
+        print(f"test_subtitles.pyの関数test_youtube_allsubtitlesを実行しました。")
         self.DL.params['writesubtitles'] = True
         self.DL.params['allsubtitles'] = True
         subtitles = self.getSubtitles()
@@ -91,6 +95,7 @@ class TestYoutubeSubtitles(BaseTestSubtitles):
 
     def _test_subtitles_format(self, fmt, md5_hash, lang='en'):
         print(f"test_subtitles.pyの関数_test_subtitles_formatを実行しました。")
+        print(f"test_subtitles.pyの関数_test_subtitles_formatを実行しました。")
         self.DL.params['writesubtitles'] = True
         self.DL.params['subtitlesformat'] = fmt
         subtitles = self.getSubtitles()
@@ -98,17 +103,21 @@ class TestYoutubeSubtitles(BaseTestSubtitles):
 
     def test_youtube_subtitles_ttml_format(self):
         print(f"test_subtitles.pyの関数test_youtube_subtitles_ttml_formatを実行しました。")
+        print(f"test_subtitles.pyの関数test_youtube_subtitles_ttml_formatを実行しました。")
         self._test_subtitles_format('ttml', 'c97ddf1217390906fa9fbd34901f3da2')
 
     def test_youtube_subtitles_vtt_format(self):
+        print(f"test_subtitles.pyの関数test_youtube_subtitles_vtt_formatを実行しました。")
         print(f"test_subtitles.pyの関数test_youtube_subtitles_vtt_formatを実行しました。")
         self._test_subtitles_format('vtt', 'ae1bd34126571a77aabd4d276b28044d')
 
     def test_youtube_subtitles_json3_format(self):
         print(f"test_subtitles.pyの関数test_youtube_subtitles_json3_formatを実行しました。")
+        print(f"test_subtitles.pyの関数test_youtube_subtitles_json3_formatを実行しました。")
         self._test_subtitles_format('json3', '688dd1ce0981683867e7fe6fde2a224b')
 
     def _test_automatic_captions(self, url, lang):
+        print(f"test_subtitles.pyの関数_test_automatic_captionsを実行しました。")
         print(f"test_subtitles.pyの関数_test_automatic_captionsを実行しました。")
         self.url = url
         self.DL.params['writeautomaticsub'] = True
@@ -117,6 +126,7 @@ class TestYoutubeSubtitles(BaseTestSubtitles):
         self.assertTrue(subtitles[lang] is not None)
 
     def test_youtube_automatic_captions(self):
+        print(f"test_subtitles.pyの関数test_youtube_automatic_captionsを実行しました。")
         print(f"test_subtitles.pyの関数test_youtube_automatic_captionsを実行しました。")
         # Available automatic captions for 8YoUxe5ncPo:
         # Language formats (all in vtt, ttml, srv3, srv2, srv1, json3)
@@ -140,6 +150,7 @@ class TestYoutubeSubtitles(BaseTestSubtitles):
 
     def test_youtube_nosubtitles(self):
         print(f"test_subtitles.pyの関数test_youtube_nosubtitlesを実行しました。")
+        print(f"test_subtitles.pyの関数test_youtube_nosubtitlesを実行しました。")
         self.DL.expect_warning('video doesn\'t have subtitles')
         # Available automatic captions for 8YoUxe5ncPo:
         # ...
@@ -158,6 +169,7 @@ class TestDailymotionSubtitles(BaseTestSubtitles):
 
     def test_allsubtitles(self):
         print(f"test_subtitles.pyの関数test_allsubtitlesを実行しました。")
+        print(f"test_subtitles.pyの関数test_allsubtitlesを実行しました。")
         self.DL.params['writesubtitles'] = True
         self.DL.params['allsubtitles'] = True
         subtitles = self.getSubtitles()
@@ -168,6 +180,7 @@ class TestDailymotionSubtitles(BaseTestSubtitles):
             self.assertTrue(subtitles.get(lang) is not None, f'Subtitles for \'{lang}\' not extracted')
 
     def test_nosubtitles(self):
+        print(f"test_subtitles.pyの関数test_nosubtitlesを実行しました。")
         print(f"test_subtitles.pyの関数test_nosubtitlesを実行しました。")
         self.DL.expect_warning('video doesn\'t have subtitles')
         self.url = 'http://www.dailymotion.com/video/x12u166_le-zapping-tele-star-du-08-aout-2013_tv'
@@ -295,6 +308,7 @@ class TestRaiPlaySubtitles(BaseTestSubtitles):
 
     def test_subtitles_key(self):
         print(f"test_subtitles.pyの関数test_subtitles_keyを実行しました。")
+        print(f"test_subtitles.pyの関数test_subtitles_keyを実行しました。")
         self.url = 'http://www.raiplay.it/video/2014/04/Report-del-07042014-cb27157f-9dd0-4aee-b788-b1f67643a391.html'
         self.DL.params['writesubtitles'] = True
         self.DL.params['allsubtitles'] = True
@@ -303,6 +317,7 @@ class TestRaiPlaySubtitles(BaseTestSubtitles):
         self.assertEqual(md5(subtitles['it']), 'b1d90a98755126b61e667567a1f6680a')
 
     def test_subtitles_array_key(self):
+        print(f"test_subtitles.pyの関数test_subtitles_array_keyを実行しました。")
         print(f"test_subtitles.pyの関数test_subtitles_array_keyを実行しました。")
         self.url = 'https://www.raiplay.it/video/2020/12/Report---04-01-2021-2e90f1de-8eee-4de4-ac0e-78d21db5b600.html'
         self.DL.params['writesubtitles'] = True
@@ -370,6 +385,7 @@ class TestDemocracynowSubtitles(BaseTestSubtitles):
 
     def test_subtitles_in_page(self):
         print(f"test_subtitles.pyの関数test_subtitles_in_pageを実行しました。")
+        print(f"test_subtitles.pyの関数test_subtitles_in_pageを実行しました。")
         self.url = 'http://www.democracynow.org/2015/7/3/this_flag_comes_down_today_bree'
         self.DL.params['writesubtitles'] = True
         self.DL.params['allsubtitles'] = True
@@ -391,12 +407,14 @@ class TestPBSSubtitles(BaseTestSubtitles):
 
     def test_subtitles_dfxp_format(self):
         print(f"test_subtitles.pyの関数test_subtitles_dfxp_formatを実行しました。")
+        print(f"test_subtitles.pyの関数test_subtitles_dfxp_formatを実行しました。")
         self.DL.params['writesubtitles'] = True
         self.DL.params['subtitlesformat'] = 'dfxp'
         subtitles = self.getSubtitles()
         self.assertIn(md5(subtitles['en']), ['643b034254cdc3768ff1e750b6b5873b'])
 
     def test_subtitles_vtt_format(self):
+        print(f"test_subtitles.pyの関数test_subtitles_vtt_formatを実行しました。")
         print(f"test_subtitles.pyの関数test_subtitles_vtt_formatを実行しました。")
         self.DL.params['writesubtitles'] = True
         self.DL.params['subtitlesformat'] = 'vtt'
@@ -406,12 +424,14 @@ class TestPBSSubtitles(BaseTestSubtitles):
 
     def test_subtitles_srt_format(self):
         print(f"test_subtitles.pyの関数test_subtitles_srt_formatを実行しました。")
+        print(f"test_subtitles.pyの関数test_subtitles_srt_formatを実行しました。")
         self.DL.params['writesubtitles'] = True
         self.DL.params['subtitlesformat'] = 'srt'
         subtitles = self.getSubtitles()
         self.assertIn(md5(subtitles['en']), ['2082c21b43759d9bf172931b2f2ca371'])
 
     def test_subtitles_sami_format(self):
+        print(f"test_subtitles.pyの関数test_subtitles_sami_formatを実行しました。")
         print(f"test_subtitles.pyの関数test_subtitles_sami_formatを実行しました。")
         self.DL.params['writesubtitles'] = True
         self.DL.params['subtitlesformat'] = 'sami'

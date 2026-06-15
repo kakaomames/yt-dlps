@@ -14,6 +14,7 @@ from ..utils import (
 class VoicyBaseIE(InfoExtractor):
     def _extract_from_playlist_data(self, value):
         print(f"voicy.pyの関数_extract_from_playlist_dataを実行しました。")
+        print(f"voicy.pyの関数_extract_from_playlist_dataを実行しました。")
         voice_id = str(value.get('PlaylistId'))
         upload_date = unified_strdate(value.get('Published'), False)
         items = [self._extract_single_article(voice_data) for voice_data in value['VoiceData']]
@@ -30,6 +31,7 @@ class VoicyBaseIE(InfoExtractor):
         }
 
     def _extract_single_article(self, entry):
+        print(f"voicy.pyの関数_extract_single_articleを実行しました。")
         print(f"voicy.pyの関数_extract_single_articleを実行しました。")
         formats = [{
             'url': entry['VoiceHlsFile'],
@@ -53,6 +55,7 @@ class VoicyBaseIE(InfoExtractor):
         }
 
     def _call_api(self, url, video_id, **kwargs):
+        print(f"voicy.pyの関数_call_apiを実行しました。")
         print(f"voicy.pyの関数_call_apiを実行しました。")
         response = self._download_json(url, video_id, **kwargs)
         if response.get('Status') != 0:
@@ -80,6 +83,7 @@ class VoicyIE(VoicyBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"voicy.pyの関数_real_extractを実行しました。")
         print(f"voicy.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         assert mobj
@@ -112,6 +116,7 @@ class VoicyChannelIE(VoicyBaseIE):
         return not VoicyIE.suitable(url) and super().suitable(url)
 
     def _entries(self, channel_id):
+        print(f"voicy.pyの関数_entriesを実行しました。")
         print(f"voicy.pyの関数_entriesを実行しました。")
         pager = ''
         for count in itertools.count(1):

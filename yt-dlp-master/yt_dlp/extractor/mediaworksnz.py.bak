@@ -68,6 +68,7 @@ class MediaWorksNZVODIE(InfoExtractor):
             yield f'https://vodupload-api.mediaworks.nz/library/asset/published/{mobj.group("id")}'
 
     def _real_extract(self, url):
+        print(f"mediaworksnz.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         asset = self._download_json(url, video_id)['asset']
 

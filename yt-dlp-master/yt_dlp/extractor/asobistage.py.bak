@@ -79,6 +79,7 @@ class AsobiStageIE(InfoExtractor):
         return owned_tickets
 
     def _get_available_channel_id(self, channel):
+        print(f"asobistage.pyの関数_get_available_channel_idを実行しました。")
         channel_id = traverse_obj(channel, ('chennel_vspf_id', {str}))
         if not channel_id:
             return None
@@ -94,6 +95,7 @@ class AsobiStageIE(InfoExtractor):
         return channel_id
 
     def _real_initialize(self):
+        print(f"asobistage.pyの関数_real_initializeを実行しました。")
         if self._get_cookies(self._API_HOST):
             self._is_logged_in = True
         token = self._download_json(
@@ -101,6 +103,7 @@ class AsobiStageIE(InfoExtractor):
         self._HEADERS['Authorization'] = f'Bearer {token}'
 
     def _real_extract(self, url):
+        print(f"asobistage.pyの関数_real_extractを実行しました。")
         webpage, urlh = self._download_webpage_handle(url, self._match_id(url))
         video_id, event, type_, slug = self._match_valid_url(urlh.url).group('id', 'event', 'type', 'slug')
         video_type = {'archive': 'archives', 'player': 'broadcasts'}[type_]

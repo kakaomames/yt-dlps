@@ -6,10 +6,12 @@ from .dependencies import Cryptodome
 
 if Cryptodome.AES:
     def aes_cbc_decrypt_bytes(data, key, iv):
+        print(f"aes.pyの関数aes_cbc_decrypt_bytesを実行しました。")
         """ Decrypt bytes with AES-CBC using pycryptodome """
         return Cryptodome.AES.new(key, Cryptodome.AES.MODE_CBC, iv).decrypt(data)
 
     def aes_gcm_decrypt_and_verify_bytes(data, key, tag, nonce):
+        print(f"aes.pyの関数aes_gcm_decrypt_and_verify_bytesを実行しました。")
         """ Decrypt bytes with AES-GCM using pycryptodome """
         return Cryptodome.AES.new(key, Cryptodome.AES.MODE_GCM, nonce).decrypt_and_verify(data, tag)
 
@@ -24,6 +26,7 @@ else:
 
 
 def aes_cbc_encrypt_bytes(data, key, iv, **kwargs):
+    print(f"aes.pyの関数aes_cbc_encrypt_bytesを実行しました。")
     return bytes(aes_cbc_encrypt(*map(list, (data, key, iv)), **kwargs))
 
 
@@ -31,10 +34,12 @@ BLOCK_SIZE_BYTES = 16
 
 
 def unpad_pkcs7(data):
+    print(f"aes.pyの関数unpad_pkcs7を実行しました。")
     return data[:-compat_ord(data[-1])]
 
 
 def pkcs7_padding(data):
+    print(f"aes.pyの関数pkcs7_paddingを実行しました。")
     """
     PKCS#7 padding
 
@@ -47,6 +52,7 @@ def pkcs7_padding(data):
 
 
 def pad_block(block, padding_mode):
+    print(f"aes.pyの関数pad_blockを実行しました。")
     """
     Pad a block with the given padding mode
     @param {int[]} block        block to pad
@@ -74,6 +80,7 @@ def pad_block(block, padding_mode):
 
 
 def aes_ecb_encrypt(data, key, iv=None):
+    print(f"aes.pyの関数aes_ecb_encryptを実行しました。")
     """
     Encrypt with aes in ECB mode. Using PKCS#7 padding
 
@@ -94,6 +101,7 @@ def aes_ecb_encrypt(data, key, iv=None):
 
 
 def aes_ecb_decrypt(data, key, iv=None):
+    print(f"aes.pyの関数aes_ecb_decryptを実行しました。")
     """
     Decrypt with aes in ECB mode
 
@@ -113,6 +121,7 @@ def aes_ecb_decrypt(data, key, iv=None):
 
 
 def aes_ctr_decrypt(data, key, iv):
+    print(f"aes.pyの関数aes_ctr_decryptを実行しました。")
     """
     Decrypt with aes in counter mode
 
@@ -125,6 +134,7 @@ def aes_ctr_decrypt(data, key, iv):
 
 
 def aes_ctr_encrypt(data, key, iv):
+    print(f"aes.pyの関数aes_ctr_encryptを実行しました。")
     """
     Encrypt with aes in counter mode
 
@@ -149,6 +159,7 @@ def aes_ctr_encrypt(data, key, iv):
 
 
 def aes_cbc_decrypt(data, key, iv):
+    print(f"aes.pyの関数aes_cbc_decryptを実行しました。")
     """
     Decrypt with aes in CBC mode
 
@@ -173,6 +184,7 @@ def aes_cbc_decrypt(data, key, iv):
 
 
 def aes_cbc_encrypt(data, key, iv, *, padding_mode='pkcs7'):
+    print(f"aes.pyの関数aes_cbc_encryptを実行しました。")
     """
     Encrypt with aes in CBC mode
 
@@ -202,6 +214,7 @@ def aes_cbc_encrypt(data, key, iv, *, padding_mode='pkcs7'):
 
 
 def aes_gcm_decrypt_and_verify(data, key, tag, nonce):
+    print(f"aes.pyの関数aes_gcm_decrypt_and_verifyを実行しました。")
     """
     Decrypt with aes in GBM mode and checks authenticity using tag
 
@@ -245,6 +258,7 @@ def aes_gcm_decrypt_and_verify(data, key, tag, nonce):
 
 
 def aes_encrypt(data, expanded_key):
+    print(f"aes.pyの関数aes_encryptを実行しました。")
     """
     Encrypt one block with aes
 
@@ -266,6 +280,7 @@ def aes_encrypt(data, expanded_key):
 
 
 def aes_decrypt(data, expanded_key):
+    print(f"aes.pyの関数aes_decryptを実行しました。")
     """
     Decrypt one block with aes
 
@@ -285,6 +300,7 @@ def aes_decrypt(data, expanded_key):
 
 
 def aes_decrypt_text(data, password, key_size_bytes):
+    print(f"aes.pyの関数aes_decrypt_textを実行しました。")
     """
     Decrypt text
     - The first 8 Bytes of decoded 'data' are the 8 high Bytes of the counter
@@ -388,6 +404,7 @@ RIJNDAEL_LOG_TABLE = (0x00, 0x00, 0x19, 0x01, 0x32, 0x02, 0x1a, 0xc6, 0x4b, 0xc7
 
 
 def key_expansion(data):
+    print(f"aes.pyの関数key_expansionを実行しました。")
     """
     Generate key schedule
 
@@ -421,24 +438,29 @@ def key_expansion(data):
 
 
 def iter_vector(iv):
+    print(f"aes.pyの関数iter_vectorを実行しました。")
     while True:
         yield iv
         iv = inc(iv)
 
 
 def sub_bytes(data):
+    print(f"aes.pyの関数sub_bytesを実行しました。")
     return [SBOX[x] for x in data]
 
 
 def sub_bytes_inv(data):
+    print(f"aes.pyの関数sub_bytes_invを実行しました。")
     return [SBOX_INV[x] for x in data]
 
 
 def rotate(data):
+    print(f"aes.pyの関数rotateを実行しました。")
     return [*data[1:], data[0]]
 
 
 def key_schedule_core(data, rcon_iteration):
+    print(f"aes.pyの関数key_schedule_coreを実行しました。")
     data = rotate(data)
     data = sub_bytes(data)
     data[0] = data[0] ^ RCON[rcon_iteration]
@@ -447,10 +469,12 @@ def key_schedule_core(data, rcon_iteration):
 
 
 def xor(data1, data2):
+    print(f"aes.pyの関数xorを実行しました。")
     return [x ^ y for x, y in zip(data1, data2, strict=False)]
 
 
 def iter_mix_columns(data, matrix):
+    print(f"aes.pyの関数iter_mix_columnsを実行しました。")
     for i in (0, 4, 8, 12):
         for row in matrix:
             mixed = 0
@@ -462,14 +486,17 @@ def iter_mix_columns(data, matrix):
 
 
 def shift_rows(data):
+    print(f"aes.pyの関数shift_rowsを実行しました。")
     return [data[((column + row) & 0b11) * 4 + row] for column in range(4) for row in range(4)]
 
 
 def shift_rows_inv(data):
+    print(f"aes.pyの関数shift_rows_invを実行しました。")
     return [data[((column - row) & 0b11) * 4 + row] for column in range(4) for row in range(4)]
 
 
 def shift_block(data):
+    print(f"aes.pyの関数shift_blockを実行しました。")
     data_shifted = []
 
     bit = 0
@@ -484,6 +511,7 @@ def shift_block(data):
 
 
 def inc(data):
+    print(f"aes.pyの関数incを実行しました。")
     data = data[:]  # copy
     for i in range(len(data) - 1, -1, -1):
         if data[i] == 255:
@@ -495,6 +523,7 @@ def inc(data):
 
 
 def block_product(block_x, block_y):
+    print(f"aes.pyの関数block_productを実行しました。")
     # NIST SP 800-38D, Algorithm 1
 
     if len(block_x) != BLOCK_SIZE_BYTES or len(block_y) != BLOCK_SIZE_BYTES:
@@ -518,6 +547,7 @@ def block_product(block_x, block_y):
 
 
 def ghash(subkey, data):
+    print(f"aes.pyの関数ghashを実行しました。")
     # NIST SP 800-38D, Algorithm 2
 
     if len(data) % BLOCK_SIZE_BYTES:

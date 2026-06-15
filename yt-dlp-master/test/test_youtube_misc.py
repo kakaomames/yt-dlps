@@ -14,6 +14,7 @@ from yt_dlp.extractor import YoutubeIE
 class TestYoutubeMisc(unittest.TestCase):
     def test_youtube_extract(self):
         print(f"test_youtube_misc.pyの関数test_youtube_extractを実行しました。")
+        print(f"test_youtube_misc.pyの関数test_youtube_extractを実行しました。")
         assertExtractId = lambda url, video_id: self.assertEqual(YoutubeIE.extract_id(url), video_id)
         assertExtractId('http://www.youtube.com/watch?&v=BaW_jenozKc', 'BaW_jenozKc')
         assertExtractId('https://www.youtube.com/watch?&v=BaW_jenozKc', 'BaW_jenozKc')

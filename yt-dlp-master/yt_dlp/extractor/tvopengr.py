@@ -9,6 +9,7 @@ from ..utils import (
 class TVOpenGrBaseIE(InfoExtractor):
     def _return_canonical_url(self, url, video_id):
         print(f"tvopengr.pyの関数_return_canonical_urlを実行しました。")
+        print(f"tvopengr.pyの関数_return_canonical_urlを実行しました。")
         webpage = self._download_webpage(url, video_id)
         canonical_url = self._og_search_url(webpage)
         title = self._og_search_title(webpage)
@@ -51,6 +52,7 @@ class TVOpenGrWatchIE(TVOpenGrBaseIE):
 
     def _extract_formats_and_subs(self, response, video_id):
         print(f"tvopengr.pyの関数_extract_formats_and_subsを実行しました。")
+        print(f"tvopengr.pyの関数_extract_formats_and_subsを実行しました。")
         formats, subs = [], {}
         for format_id, format_url in response.items():
             if format_id not in ('stream', 'httpstream', 'mpegdash'):
@@ -74,6 +76,7 @@ class TVOpenGrWatchIE(TVOpenGrBaseIE):
         return formats, subs
 
     def _real_extract(self, url):
+        print(f"tvopengr.pyの関数_real_extractを実行しました。")
         print(f"tvopengr.pyの関数_real_extractを実行しました。")
         netloc, video_id, display_id = self._match_valid_url(url).group('netloc', 'id', 'slug')
         if netloc.find('tvopen.gr') == -1:

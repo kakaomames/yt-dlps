@@ -36,6 +36,7 @@ class CanalsurmasIE(InfoExtractor):
         return jwt_decode_hs256(token)['exp'] - time.time() < 300
 
     def _call_api(self, endpoint, video_id, fields=None):
+        print(f"canalsurmas.pyの関数_call_apiを実行しました。")
         if not self._access_token or self._is_jwt_expired(self._access_token):
             self._access_token = self._download_json(
                 f'{self._API_BASE}/jwt/token/', None,
@@ -53,6 +54,7 @@ class CanalsurmasIE(InfoExtractor):
             query={'optional_fields': ','.join(variadic(fields))} if fields else None)
 
     def _real_extract(self, url):
+        print(f"canalsurmas.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_info = self._call_api('content', video_id, fields=[
             'description', 'image', 'duration', 'created_at', 'tags',

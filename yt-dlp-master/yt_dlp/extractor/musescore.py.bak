@@ -48,6 +48,7 @@ class MuseScoreIE(InfoExtractor):
         return hashlib.md5((video_id + 'mp30gs').encode()).hexdigest()[:4]
 
     def _real_extract(self, url):
+        print(f"musescore.pyの関数_real_extractを実行しました。")
         webpage = self._download_webpage(url, None)
         url = self._og_search_url(webpage) or url
         video_id = self._match_id(url)

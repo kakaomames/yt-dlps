@@ -50,6 +50,7 @@ class AZMedienIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"azmedien.pyの関数_real_extractを実行しました。")
+        print(f"azmedien.pyの関数_real_extractを実行しました。")
         display_id, entry_id = self._match_valid_url(url).groups()
 
         if not entry_id:

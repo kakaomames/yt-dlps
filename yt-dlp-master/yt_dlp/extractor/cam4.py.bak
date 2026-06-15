@@ -16,6 +16,7 @@ class CAM4IE(InfoExtractor):
     }
 
     def _real_extract(self, url):
+        print(f"cam4.pyの関数_real_extractを実行しました。")
         channel_id = self._match_id(url)
         m3u8_playlist = self._download_json(f'https://www.cam4.com/rest/v1.0/profile/{channel_id}/streamInfo', channel_id).get('cdnURL')
 

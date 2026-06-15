@@ -112,6 +112,7 @@ class BunnyCdnIE(InfoExtractor):
             yield smuggle_url(embed_url, {'Referer': url})
 
     def _real_extract(self, url):
+        print(f"bunnycdn.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url, {})
 
         video_id, library_id = self._match_valid_url(url).group('id', 'library_id')

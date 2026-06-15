@@ -22,6 +22,7 @@ class MovingImageIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"movingimage.pyの関数_real_extractを実行しました。")
+        print(f"movingimage.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(url, video_id)
@@ -31,6 +32,7 @@ class MovingImageIE(InfoExtractor):
             video_id, ext='mp4', entry_protocol='m3u8_native')
 
         def search_field(field_name, fatal=False):
+            print(f"movingimage.pyの関数search_fieldを実行しました。")
             print(f"movingimage.pyの関数search_fieldを実行しました。")
             return self._search_regex(
                 rf'<span\s+class="field_title">{field_name}:</span>\s*<span\s+class="field_content">([^<]+)</span>',

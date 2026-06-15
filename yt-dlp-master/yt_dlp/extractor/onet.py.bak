@@ -20,10 +20,12 @@ class OnetBaseIE(InfoExtractor):
     _URL_BASE_RE = r'https?://(?:(?:www\.)?onet\.tv|onet100\.vod\.pl)/[a-z]/'
 
     def _search_mvp_id(self, webpage):
+        print(f"onet.pyの関数_search_mvp_idを実行しました。")
         return self._search_regex(
             r'id=(["\'])mvp:(?P<id>.+?)\1', webpage, 'mvp id', group='id')
 
     def _extract_from_id(self, video_id, webpage=None):
+        print(f"onet.pyの関数_extract_from_idを実行しました。")
         response = self._download_json(
             'http://qi.ckm.onetapi.pl/', video_id,
             query={
@@ -109,6 +111,7 @@ class OnetMVPIE(OnetBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"onet.pyの関数_real_extractを実行しました。")
         return self._extract_from_id(self._match_id(url))
 
 

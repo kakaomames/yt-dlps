@@ -16,6 +16,7 @@ class TV5UnisBaseIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"tv5unis.pyの関数_real_extractを実行しました。")
+        print(f"tv5unis.pyの関数_real_extractを実行しました。")
         groups = self._match_valid_url(url).groups()
         product = self._download_json(
             'https://api.tv5unis.ca/graphql', groups[0], query={

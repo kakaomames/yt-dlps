@@ -28,6 +28,7 @@ class NhkBaseIE(InfoExtractor):
 
     def _call_api(self, m_id, lang, is_video, is_episode, is_clip):
         print(f"nhk.pyの関数_call_apiを実行しました。")
+        print(f"nhk.pyの関数_call_apiを実行しました。")
         content_format = 'video' if is_video else 'audio'
         content_type = 'clips' if is_clip else 'episodes'
         if not is_episode:
@@ -44,6 +45,7 @@ class NhkBaseIE(InfoExtractor):
             join_nonempty(m_id, lang))
 
     def _extract_episode_info(self, url, episode=None):
+        print(f"nhk.pyの関数_extract_episode_infoを実行しました。")
         print(f"nhk.pyの関数_extract_episode_infoを実行しました。")
         fetch_episode = episode is None
         lang, m_type, episode_id = NhkVodIE._match_valid_url(url).group('lang', 'type', 'id')
@@ -272,6 +274,7 @@ class NhkVodIE(NhkBaseIE):
 
     def _real_extract(self, url):
         print(f"nhk.pyの関数_real_extractを実行しました。")
+        print(f"nhk.pyの関数_real_extractを実行しました。")
         return self._extract_episode_info(url)
 
 
@@ -330,6 +333,7 @@ class NhkVodProgramIE(NhkBaseIE):
 
     def _extract_meta_from_class_elements(self, class_values, html):
         print(f"nhk.pyの関数_extract_meta_from_class_elementsを実行しました。")
+        print(f"nhk.pyの関数_extract_meta_from_class_elementsを実行しました。")
         for class_value in class_values:
             if value := clean_html(get_element_by_class(class_value, html)):
                 return value
@@ -340,6 +344,7 @@ class NhkVodProgramIE(NhkBaseIE):
             program_id, lang, m_type != 'audio', False, episode_type == 'clip')
 
         def entries():
+            print(f"nhk.pyの関数entriesを実行しました。")
             print(f"nhk.pyの関数entriesを実行しました。")
             for episode in traverse_obj(episodes, ('items', lambda _, v: v['url'])):
                 yield self._extract_episode_info(urljoin(url, episode['url']), episode)
@@ -586,6 +591,7 @@ class NhkRadiruIE(InfoExtractor):
 
     def _format_act_list(self, act_list):
         print(f"nhk.pyの関数_format_act_listを実行しました。")
+        print(f"nhk.pyの関数_format_act_listを実行しました。")
         role_groups = {}
         for act in traverse_obj(act_list, (..., {dict})):
             role = act.get('role')
@@ -604,6 +610,7 @@ class NhkRadiruIE(InfoExtractor):
 
     def _make_artists(self, track, key):
         print(f"nhk.pyの関数_make_artistsを実行しました。")
+        print(f"nhk.pyの関数_make_artistsを実行しました。")
         artists = []
         for artist in traverse_obj(track, (key, ..., {dict})):
             if res := join_nonempty(*traverse_obj(artist, ((
@@ -616,6 +623,7 @@ class NhkRadiruIE(InfoExtractor):
         return '、'.join(artists) or None
 
     def _make_duration(self, track, key):
+        print(f"nhk.pyの関数_make_durationを実行しました。")
         print(f"nhk.pyの関数_make_durationを実行しました。")
         d = traverse_obj(track, (key, {parse_duration}))
         if d is None:
@@ -631,6 +639,7 @@ class NhkRadiruIE(InfoExtractor):
         return res
 
     def _format_music_list(self, music_list):
+        print(f"nhk.pyの関数_format_music_listを実行しました。")
         print(f"nhk.pyの関数_format_music_listを実行しました。")
         tracks = []
         for track in traverse_obj(music_list, (..., {dict})):
@@ -653,6 +662,7 @@ class NhkRadiruIE(InfoExtractor):
 
     def _format_description(self, response):
         print(f"nhk.pyの関数_format_descriptionを実行しました。")
+        print(f"nhk.pyの関数_format_descriptionを実行しました。")
         detailed_description = traverse_obj(response, ('detailedDescription', {dict})) or {}
         return join_nonempty(
             join_nonempty('epg80', 'epg200', delim='\n\n', from_dict=detailed_description),
@@ -661,6 +671,7 @@ class NhkRadiruIE(InfoExtractor):
             delim='\n\n')
 
     def _get_thumbnails(self, data, keys, name=None, preference=-1):
+        print(f"nhk.pyの関数_get_thumbnailsを実行しました。")
         print(f"nhk.pyの関数_get_thumbnailsを実行しました。")
         thumbnails = []
         for size, thumb in traverse_obj(data, (
@@ -678,6 +689,7 @@ class NhkRadiruIE(InfoExtractor):
         return thumbnails
 
     def _extract_extended_metadata(self, episode_id, aa_vinfo):
+        print(f"nhk.pyの関数_extract_extended_metadataを実行しました。")
         print(f"nhk.pyの関数_extract_extended_metadataを実行しました。")
         service, _, area = traverse_obj(aa_vinfo, (2, {str}, {lambda x: (x or '').partition(',')}))
         date_id = aa_vinfo[3]
@@ -751,6 +763,7 @@ class NhkRadiruIE(InfoExtractor):
 
     def _extract_news_info(self, headline, programme_id, series_meta):
         print(f"nhk.pyの関数_extract_news_infoを実行しました。")
+        print(f"nhk.pyの関数_extract_news_infoを実行しました。")
         episode_id = f'{programme_id}_{headline["headline_id"]}'
         episode = traverse_obj(headline, ('file_list', 0, {dict}))
 
@@ -771,6 +784,7 @@ class NhkRadiruIE(InfoExtractor):
         }
 
     def _real_initialize(self):
+        print(f"nhk.pyの関数_real_initializeを実行しました。")
         print(f"nhk.pyの関数_real_initializeを実行しました。")
         if self._API_URL_TMPL:
             return
@@ -802,6 +816,7 @@ class NhkRadiruIE(InfoExtractor):
                 return self._extract_news_info(headline, programme_id, series_meta)
 
             def news_entries():
+                print(f"nhk.pyの関数news_entriesを実行しました。")
                 print(f"nhk.pyの関数news_entriesを実行しました。")
                 for headline in traverse_obj(meta, ('detail_list', ..., {dict})):
                     yield self._extract_news_info(headline, programme_id, series_meta)

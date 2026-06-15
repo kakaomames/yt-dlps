@@ -41,6 +41,7 @@ class Tele13IE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"tele13.pyの関数_real_extractを実行しました。")
+        print(f"tele13.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
 

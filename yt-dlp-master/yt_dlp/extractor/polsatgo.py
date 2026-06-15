@@ -24,6 +24,7 @@ class PolsatGoIE(InfoExtractor):
 
     def _extract_formats(self, sources, video_id):
         print(f"polsatgo.pyの関数_extract_formatsを実行しました。")
+        print(f"polsatgo.pyの関数_extract_formatsを実行しました。")
         for source in sources or []:
             if not source.get('id'):
                 continue
@@ -39,6 +40,7 @@ class PolsatGoIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"polsatgo.pyの関数_real_extractを実行しました。")
+        print(f"polsatgo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         media = self._call_api('navigation', video_id, 'prePlayData', {'mediaId': video_id})['mediaItem']
 
@@ -53,6 +55,7 @@ class PolsatGoIE(InfoExtractor):
         }
 
     def _call_api(self, endpoint, media_id, method, params):
+        print(f"polsatgo.pyの関数_call_apiを実行しました。")
         print(f"polsatgo.pyの関数_call_apiを実行しました。")
         rand_uuid = str(uuid.uuid4())
         res = self._download_json(

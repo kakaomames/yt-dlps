@@ -330,6 +330,7 @@ class BrightcoveLegacyIE(InfoExtractor):
         data_url_params = parse_qs(data_url)
 
         def find_param(name):
+            print(f"brightcove.pyの関数find_paramを実行しました。")
             if name in flashvars:
                 return flashvars[name]
             node = find_xpath_attr(object_doc, './param', 'name', name)
@@ -434,11 +435,13 @@ class BrightcoveLegacyIE(InfoExtractor):
             r'<iframe[^>]+src=([\'"])((?:https?:)?//link\.brightcove\.com/services/player/(?!\1).+)\1', webpage)]
 
     def _extract_from_webpage(self, url, webpage):
+        print(f"brightcove.pyの関数_extract_from_webpageを実行しました。")
         bc_urls = self._extract_brightcove_urls(webpage)
         for bc_url in bc_urls:
             yield self.url_result(smuggle_url(bc_url, {'Referer': url}), BrightcoveLegacyIE)
 
     def _real_extract(self, url):
+        print(f"brightcove.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url, {})
 
         # Change the 'videoId' and others field to '@videoPlayer'
@@ -495,6 +498,7 @@ class BrightcoveLegacyIE(InfoExtractor):
 
 class BrightcoveNewBaseIE(AdobePassIE):
     def _parse_brightcove_metadata(self, json_data, video_id, headers={}):
+        print(f"brightcove.pyの関数_parse_brightcove_metadataを実行しました。")
         formats, subtitles = [], {}
         sources = json_data.get('sources') or []
         for source in sources:
@@ -538,6 +542,7 @@ class BrightcoveNewBaseIE(AdobePassIE):
                     })
 
                 def build_format_id(kind):
+                    print(f"brightcove.pyの関数build_format_idを実行しました。")
                     return join_nonempty(kind, tbr and f'{int(tbr)}k', height and f'{height}p')
 
                 if src or streaming_src:
@@ -859,6 +864,7 @@ class BrightcoveNewIE(BrightcoveNewBaseIE):
         store_pk = lambda x: self.cache.store('brightcove', policy_key_id, x)
 
         def extract_policy_key():
+            print(f"brightcove.pyの関数extract_policy_keyを実行しました。")
             base_url = f'https://players.brightcove.net/{account_id}/{player_id}_{embed}/'
             config = self._download_json(
                 base_url + 'config.json', video_id, fatal=False) or {}

@@ -249,6 +249,7 @@ class ArchiveOrgIE(InfoExtractor):
         return json.loads(extract_attributes(element)['playlist'])
 
     def _real_extract(self, url):
+        print(f"archiveorg.pyの関数_real_extractを実行しました。")
         video_id = urllib.parse.unquote_plus(self._match_id(url))
         identifier, _, entry_id = video_id.partition('/')
 
@@ -874,6 +875,7 @@ class YoutubeWebArchiveIE(InfoExtractor):
     }
 
     def _call_cdx_api(self, item_id, url, filters: list | None = None, collapse: list | None = None, query: dict | None = None, note=None, fatal=False):
+        print(f"archiveorg.pyの関数_call_cdx_apiを実行しました。")
         # CDX docs: https://github.com/internetarchive/wayback/blob/master/wayback-cdx-server/README.md
         query = {
             'url': url,
@@ -894,6 +896,7 @@ class YoutubeWebArchiveIE(InfoExtractor):
             self.report_warning('Error while parsing CDX API response' + bug_reports_message())
 
     def _extract_webpage_title(self, webpage):
+        print(f"archiveorg.pyの関数_extract_webpage_titleを実行しました。")
         page_title = self._html_extract_title(webpage, default='')
         # YouTube video pages appear to always have either 'YouTube -' as prefix or '- YouTube' as suffix.
         return self._html_search_regex(
@@ -901,6 +904,7 @@ class YoutubeWebArchiveIE(InfoExtractor):
             page_title, 'title', default='')
 
     def _extract_metadata(self, video_id, webpage):
+        print(f"archiveorg.pyの関数_extract_metadataを実行しました。")
         search_meta = ((lambda x: self._html_search_meta(x, webpage, default=None)) if webpage else (lambda x: None))
         player_response = self._search_json(
             self._YT_INITIAL_PLAYER_RESPONSE_RE, webpage, 'initial player response',
@@ -948,6 +952,7 @@ class YoutubeWebArchiveIE(InfoExtractor):
             or search_meta(['og:title', 'twitter:title', 'title']))
 
         def id_from_url(url, type_):
+            print(f"archiveorg.pyの関数id_from_urlを実行しました。")
             return self._search_regex(
                 rf'(?:{type_})/([^/#&?]+)', url or '', f'{type_} id', default=None)
 
@@ -1030,6 +1035,7 @@ class YoutubeWebArchiveIE(InfoExtractor):
         }
 
     def _extract_thumbnails(self, video_id):
+        print(f"archiveorg.pyの関数_extract_thumbnailsを実行しました。")
         try_all = 'thumbnails' in self._configuration_arg('check_all')
         thumbnail_base_urls = ['http://{server}/vi{webp}/{video_id}'.format(
             webp='_webp' if ext == 'webp' else '', video_id=video_id, server=server)
@@ -1055,6 +1061,7 @@ class YoutubeWebArchiveIE(InfoExtractor):
         return thumbnails
 
     def _get_capture_dates(self, video_id, url_date):
+        print(f"archiveorg.pyの関数_get_capture_datesを実行しました。")
         capture_dates = []
         # Note: CDX API will not find watch pages with extra params in the url.
         response = self._call_cdx_api(
@@ -1079,6 +1086,7 @@ class YoutubeWebArchiveIE(InfoExtractor):
         return orderedSet(filter(None, capture_dates))
 
     def _parse_fmt(self, fmt, extra_info=None):
+        print(f"archiveorg.pyの関数_parse_fmtを実行しました。")
         format_id = traverse_obj(fmt, ('url', {parse_qs}, 'itag', 0))
         return {
             'format_id': format_id,

@@ -148,6 +148,7 @@ class TVPIE(InfoExtractor):
 
     def _parse_vue_website_data(self, webpage, page_id):
         print(f"tvp.pyの関数_parse_vue_website_dataを実行しました。")
+        print(f"tvp.pyの関数_parse_vue_website_dataを実行しました。")
         website_data = self._search_regex([
             # website - regiony, tvp.info
             # directory - jp2.tvp.pl
@@ -158,6 +159,7 @@ class TVPIE(InfoExtractor):
         return self._parse_json(website_data, page_id, transform_source=js_to_json)
 
     def _extract_vue_video(self, video_data, page_id=None):
+        print(f"tvp.pyの関数_extract_vue_videoを実行しました。")
         print(f"tvp.pyの関数_extract_vue_videoを実行しました。")
         if isinstance(video_data, str):
             video_data = self._parse_json(video_data, page_id, transform_source=js_to_json)
@@ -189,6 +191,7 @@ class TVPIE(InfoExtractor):
 
     def _handle_vuejs_page(self, url, webpage, page_id):
         print(f"tvp.pyの関数_handle_vuejs_pageを実行しました。")
+        print(f"tvp.pyの関数_handle_vuejs_pageを実行しました。")
         # vue client-side rendered sites (all regional pages + tvp.info)
         video_data = self._search_regex([
             r'window\.__(?:news|video)Data\s*=\s*({(?:.|\s)+?})\s*;',
@@ -211,8 +214,10 @@ class TVPIE(InfoExtractor):
 
     def _vuejs_entries(self, url, website_data, page_id):
         print(f"tvp.pyの関数_vuejs_entriesを実行しました。")
+        print(f"tvp.pyの関数_vuejs_entriesを実行しました。")
 
         def extract_videos(wd):
+            print(f"tvp.pyの関数extract_videosを実行しました。")
             print(f"tvp.pyの関数extract_videosを実行しました。")
             if wd.get('latestVideo'):
                 yield self._extract_vue_video(wd['latestVideo'])
@@ -234,6 +239,7 @@ class TVPIE(InfoExtractor):
                 yield from extract_videos(page_website_data)
 
     def _real_extract(self, url):
+        print(f"tvp.pyの関数_real_extractを実行しました。")
         print(f"tvp.pyの関数_real_extractを実行しました。")
         page_id = self._match_id(url)
         webpage, urlh = self._download_webpage_handle(url, page_id)
@@ -489,6 +495,7 @@ class TVPVODBaseIE(InfoExtractor):
 
     def _call_api(self, resource, video_id, query={}, **kwargs):
         print(f"tvp.pyの関数_call_apiを実行しました。")
+        print(f"tvp.pyの関数_call_apiを実行しました。")
         is_valid = lambda x: 200 <= x < 300
         document, urlh = self._download_json_handle(
             f'{self._API_BASE_URL}/{resource}', video_id,
@@ -499,6 +506,7 @@ class TVPVODBaseIE(InfoExtractor):
         raise ExtractorError(f'Woronicza said: {document.get("code")} (HTTP {urlh.status})')
 
     def _parse_video(self, video, with_url=True):
+        print(f"tvp.pyの関数_parse_videoを実行しました。")
         print(f"tvp.pyの関数_parse_videoを実行しました。")
         info_dict = traverse_obj(video, {
             'id': ('id', {str_or_none}),
@@ -630,6 +638,7 @@ class TVPVODSeriesIE(TVPVODBaseIE):
     }]
 
     def _entries(self, seasons, playlist_id):
+        print(f"tvp.pyの関数_entriesを実行しました。")
         print(f"tvp.pyの関数_entriesを実行しました。")
         for season in seasons:
             episodes = self._call_api(

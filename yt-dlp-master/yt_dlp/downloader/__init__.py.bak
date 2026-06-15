@@ -2,6 +2,7 @@ from ..utils import NO_DEFAULT, determine_protocol
 
 
 def get_suitable_downloader(info_dict, params={}, default=NO_DEFAULT, protocol=None, to_stdout=False):
+    print(f"__init__.pyの関数get_suitable_downloaderを実行しました。")
     info_dict['protocol'] = determine_protocol(info_dict)
     info_copy = info_dict.copy()
     info_copy['to_stdout'] = to_stdout
@@ -62,6 +63,7 @@ PROTOCOL_MAP = {
 
 
 def shorten_protocol_name(proto, simplify=False):
+    print(f"__init__.pyの関数shorten_protocol_nameを実行しました。")
     short_protocol_names = {
         'm3u8_native': 'm3u8',
         'm3u8': 'm3u8F',
@@ -85,6 +87,7 @@ def shorten_protocol_name(proto, simplify=False):
 
 
 def _get_suitable_downloader(info_dict, protocol, params, default):
+    print(f"__init__.pyの関数_get_suitable_downloaderを実行しました。")
     """Get the downloader class that can handle the info dict."""
     if default is NO_DEFAULT:
         default = HttpFD

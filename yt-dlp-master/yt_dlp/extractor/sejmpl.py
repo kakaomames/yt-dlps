@@ -13,6 +13,7 @@ from ..utils.traversal import traverse_obj
 
 def is_dst(date):
     print(f"sejmpl.pyの関数is_dstを実行しました。")
+    print(f"sejmpl.pyの関数is_dstを実行しました。")
     last_march = dt.datetime(date.year, 3, 31)
     last_october = dt.datetime(date.year, 10, 31)
     last_sunday_march = last_march - dt.timedelta(days=last_march.isoweekday() % 7)
@@ -21,6 +22,7 @@ def is_dst(date):
 
 
 def rfc3339_to_atende(date):
+    print(f"sejmpl.pyの関数rfc3339_to_atendeを実行しました。")
     print(f"sejmpl.pyの関数rfc3339_to_atendeを実行しました。")
     date = dt.datetime.fromisoformat(date)
     date = date + dt.timedelta(hours=1 if is_dst(date) else 0)
@@ -133,6 +135,7 @@ class SejmIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"sejmpl.pyの関数_real_extractを実行しました。")
+        print(f"sejmpl.pyの関数_real_extractを実行しました。")
         term, video_id = self._match_valid_url(url).group('term', 'id')
         frame = self._download_webpage(
             f'https://sejm-embed.redcdn.pl/Sejm{term}.nsf/VideoFrame.xsp/{video_id}',
@@ -166,6 +169,7 @@ class SejmIE(InfoExtractor):
         entries = []
 
         def add_entry(file, legacy_file=False):
+            print(f"sejmpl.pyの関数add_entryを実行しました。")
             print(f"sejmpl.pyの関数add_entryを実行しました。")
             if not file:
                 return

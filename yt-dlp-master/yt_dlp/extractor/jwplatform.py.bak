@@ -93,6 +93,7 @@ class JWPlatformIE(InfoExtractor):
             return [f'jwplatform:{mobj.group(1)}']
 
     def _real_extract(self, url):
+        print(f"jwplatform.pyの関数_real_extractを実行しました。")
         url, smuggled_data = unsmuggle_url(url, {})
         self._initialize_geo_bypass({
             'countries': smuggled_data.get('geo_countries'),

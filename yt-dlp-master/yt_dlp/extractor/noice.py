@@ -65,6 +65,7 @@ class NoicePodcastIE(InfoExtractor):
 
     def _get_formats_and_subtitles(self, media_url, video_id):
         print(f"noice.pyの関数_get_formats_and_subtitlesを実行しました。")
+        print(f"noice.pyの関数_get_formats_and_subtitlesを実行しました。")
         formats, subtitles = [], {}
         for url in variadic(media_url):
             ext = determine_ext(url)
@@ -82,6 +83,7 @@ class NoicePodcastIE(InfoExtractor):
         return formats, subtitles
 
     def _real_extract(self, url):
+        print(f"noice.pyの関数_real_extractを実行しました。")
         print(f"noice.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)

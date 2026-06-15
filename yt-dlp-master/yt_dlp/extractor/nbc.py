@@ -42,6 +42,7 @@ class NBCUniversalBaseIE(ThePlatformBaseIE):
 
     def _download_nbcu_smil_and_extract_m3u8_url(self, tp_path, video_id, query):
         print(f"nbc.pyの関数_download_nbcu_smil_and_extract_m3u8_urlを実行しました。")
+        print(f"nbc.pyの関数_download_nbcu_smil_and_extract_m3u8_urlを実行しました。")
         smil = self._download_xml(
             f'https://link.theplatform.com/s/{tp_path}', video_id,
             'Downloading SMIL manifest', 'Failed to download SMIL manifest', query={
@@ -61,6 +62,7 @@ class NBCUniversalBaseIE(ThePlatformBaseIE):
         raise ExtractorError(traverse_obj(smil, (f'{ns}ref/@abstract', ..., any)), expected=exc == 'Expired')
 
     def _extract_nbcu_formats_and_subtitles(self, tp_path, video_id, query):
+        print(f"nbc.pyの関数_extract_nbcu_formats_and_subtitlesを実行しました。")
         print(f"nbc.pyの関数_extract_nbcu_formats_and_subtitlesを実行しました。")
         # formats='mpeg4' will return either a working m3u8 URL or an m3u8 template for non-DRM HLS
         # formats='m3u+none,mpeg4' may return DRM HLS but w/the "folders" needed for non-DRM template
@@ -91,6 +93,7 @@ class NBCUniversalBaseIE(ThePlatformBaseIE):
         return formats, subtitles
 
     def _extract_nbcu_video(self, url, display_id, old_ie_key=None):
+        print(f"nbc.pyの関数_extract_nbcu_videoを実行しました。")
         print(f"nbc.pyの関数_extract_nbcu_videoを実行しました。")
         webpage = self._download_webpage(url, display_id)
         settings = self._search_json(
@@ -236,6 +239,7 @@ class NBCIE(NBCUniversalBaseIE):
     _SOFTWARE_STATEMENT = 'eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1Yzg2YjdkYy04NDI3LTRjNDUtOGQwZi1iNDkzYmE3MmQwYjQiLCJuYmYiOjE1Nzg3MDM2MzEsImlzcyI6ImF1dGguYWRvYmUuY29tIiwiaWF0IjoxNTc4NzAzNjMxfQ.QQKIsBhAjGQTMdAqRTqhcz2Cddr4Y2hEjnSiOeKKki4nLrkDOsjQMmqeTR0hSRarraxH54wBgLvsxI7LHwKMvr7G8QpynNAxylHlQD3yhN9tFhxt4KR5wW3as02B-W2TznK9bhNWPKIyHND95Uo2Mi6rEQoq8tM9O09WPWaanE5BX_-r6Llr6dPq5F0Lpx2QOn2xYRb1T4nFxdFTNoss8GBds8OvChTiKpXMLHegLTc1OS4H_1a8tO_37jDwSdJuZ8iTyRLV4kZ2cpL6OL5JPMObD4-HQiec_dfcYgMKPiIfP9ZqdXpec2SVaCLsWEk86ZYvD97hLIQrK5rrKd1y-A'
 
     def _real_extract(self, url):
+        print(f"nbc.pyの関数_real_extractを実行しました。")
         print(f"nbc.pyの関数_real_extractを実行しました。")
         permalink, video_id = self._match_valid_url(url).groups()
         permalink = 'http' + urllib.parse.unquote(permalink)

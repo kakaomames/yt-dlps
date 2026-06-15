@@ -132,6 +132,7 @@ class GediDigitalIE(InfoExtractor):
         formats[:] = clean_formats
 
     def _real_extract(self, url):
+        print(f"gedidigital.pyの関数_real_extractを実行しました。")
         video_id, url = self._match_valid_url(url).group('id', 'base_url')
         webpage = self._download_webpage(url, video_id)
         title = self._html_search_meta(

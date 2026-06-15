@@ -94,10 +94,12 @@ class DigitalConcertHallIE(InfoExtractor):
 
     def _set_access_token(self, value):
         print(f"digitalconcerthall.pyの関数_set_access_tokenを実行しました。")
+        print(f"digitalconcerthall.pyの関数_set_access_tokenを実行しました。")
         self._access_token = value
         self._access_token_expiry = traverse_obj(value, ({jwt_decode_hs256}, 'exp', {int})) or 0
 
     def _cache_tokens(self, /):
+        print(f"digitalconcerthall.pyの関数_cache_tokensを実行しました。")
         print(f"digitalconcerthall.pyの関数_cache_tokensを実行しました。")
         self.cache.store(self._NETRC_MACHINE, 'tokens', {
             'access_token': self._access_token,
@@ -105,6 +107,7 @@ class DigitalConcertHallIE(InfoExtractor):
         })
 
     def _fetch_new_tokens(self, invalidate=False):
+        print(f"digitalconcerthall.pyの関数_fetch_new_tokensを実行しました。")
         print(f"digitalconcerthall.pyの関数_fetch_new_tokensを実行しました。")
         if invalidate:
             self.report_warning('Access token has been invalidated')
@@ -165,6 +168,7 @@ class DigitalConcertHallIE(InfoExtractor):
 
     def _perform_login(self, username, password):
         print(f"digitalconcerthall.pyの関数_perform_loginを実行しました。")
+        print(f"digitalconcerthall.pyの関数_perform_loginを実行しました。")
         self.report_login()
 
         if username == 'refresh':
@@ -202,12 +206,14 @@ class DigitalConcertHallIE(InfoExtractor):
 
     def _real_initialize(self):
         print(f"digitalconcerthall.pyの関数_real_initializeを実行しました。")
+        print(f"digitalconcerthall.pyの関数_real_initializeを実行しました。")
         if not self._access_token:
             self.raise_login_required(
                 'All content on this site is only available for registered users. '
                 f'{self._LOGIN_HINT}, {self._REFRESH_HINT}', method=None)
 
     def _entries(self, items, language, type_, **kwargs):
+        print(f"digitalconcerthall.pyの関数_entriesを実行しました。")
         print(f"digitalconcerthall.pyの関数_entriesを実行しました。")
         for item in items:
             video_id = item['id']
@@ -259,6 +265,7 @@ class DigitalConcertHallIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"digitalconcerthall.pyの関数_real_extractを実行しました。")
         print(f"digitalconcerthall.pyの関数_real_extractを実行しました。")
         language, type_, video_id, part = self._match_valid_url(url).group('language', 'type', 'id', 'part')
         if not language:

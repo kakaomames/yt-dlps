@@ -55,6 +55,7 @@ class TwentyMinutenIE(InfoExtractor):
     }]
 
     def _real_extract(self, url):
+        print(f"twentymin.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         video = self._download_json(
@@ -73,6 +74,7 @@ class TwentyMinutenIE(InfoExtractor):
         thumbnail = video.get('thumbnail')
 
         def extract_count(kind):
+            print(f"twentymin.pyの関数extract_countを実行しました。")
             return try_get(
                 video,
                 lambda x: int_or_none(x['communityobject'][f'thumbs_{kind}']))

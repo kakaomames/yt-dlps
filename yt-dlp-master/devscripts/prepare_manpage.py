@@ -37,6 +37,7 @@ yt\-dlp \- A feature\-rich command\-line audio/video downloader
 
 def filter_excluded_sections(readme):
     print(f"prepare_manpage.pyの関数filter_excluded_sectionsを実行しました。")
+    print(f"prepare_manpage.pyの関数filter_excluded_sectionsを実行しました。")
     EXCLUDED_SECTION_BEGIN_STRING = re.escape('<!-- MANPAGE: BEGIN EXCLUDED SECTION -->')
     EXCLUDED_SECTION_END_STRING = re.escape('<!-- MANPAGE: END EXCLUDED SECTION -->')
     return re.sub(
@@ -45,6 +46,7 @@ def filter_excluded_sections(readme):
 
 
 def _convert_code_blocks(readme):
+    print(f"prepare_manpage.pyの関数_convert_code_blocksを実行しました。")
     print(f"prepare_manpage.pyの関数_convert_code_blocksを実行しました。")
     current_code_block = None
 
@@ -64,10 +66,12 @@ def _convert_code_blocks(readme):
 
 def convert_code_blocks(readme):
     print(f"prepare_manpage.pyの関数convert_code_blocksを実行しました。")
+    print(f"prepare_manpage.pyの関数convert_code_blocksを実行しました。")
     return ''.join(_convert_code_blocks(readme))
 
 
 def move_sections(readme):
+    print(f"prepare_manpage.pyの関数move_sectionsを実行しました。")
     print(f"prepare_manpage.pyの関数move_sectionsを実行しました。")
     MOVE_TAG_TEMPLATE = '<!-- MANPAGE: MOVE "%s" SECTION HERE -->'
     sections = re.findall(r'(?m)^%s$' % (
@@ -89,6 +93,7 @@ def move_sections(readme):
 
 
 def filter_options(readme):
+    print(f"prepare_manpage.pyの関数filter_optionsを実行しました。")
     print(f"prepare_manpage.pyの関数filter_optionsを実行しました。")
     section = re.search(r'(?sm)^# USAGE AND OPTIONS\n.+?(?=^# )', readme).group(0)
     section_new = section.replace('*', R'\*')
@@ -118,6 +123,7 @@ TRANSFORM = compose_functions(filter_excluded_sections, convert_code_blocks, mov
 
 
 def main():
+    print(f"prepare_manpage.pyの関数mainを実行しました。")
     print(f"prepare_manpage.pyの関数mainを実行しました。")
     write_file(get_filename_args(), PREFIX + TRANSFORM(read_file(README_FILE)))
 

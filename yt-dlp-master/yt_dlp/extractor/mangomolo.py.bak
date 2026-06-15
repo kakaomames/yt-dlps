@@ -18,6 +18,7 @@ class MangomoloBaseIE(InfoExtractor):
         return [rf'<iframe[^>]+src=(["\'])(?P<url>{cls._VALID_URL}.+?)\1']
 
     def _extract_from_webpage(self, url, webpage):
+        print(f"mangomolo.pyの関数_extract_from_webpageを実行しました。")
         for res in super()._extract_from_webpage(url, webpage):
             yield {
                 **res,
@@ -27,9 +28,11 @@ class MangomoloBaseIE(InfoExtractor):
             }
 
     def _get_real_id(self, page_id):
+        print(f"mangomolo.pyの関数_get_real_idを実行しました。")
         return page_id
 
     def _real_extract(self, url):
+        print(f"mangomolo.pyの関数_real_extractを実行しました。")
         page_id = self._get_real_id(self._match_id(url))
         webpage = self._download_webpage(
             'https://player.mangomolo.com/v1/{}?{}'.format(self._TYPE, url.split('?')[1]), page_id)

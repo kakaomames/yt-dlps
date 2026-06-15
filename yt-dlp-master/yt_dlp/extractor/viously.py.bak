@@ -29,11 +29,13 @@ class ViouslyIE(InfoExtractor):
     }]
 
     def _extract_from_webpage(self, url, webpage):
+        print(f"viously.pyの関数_extract_from_webpageを実行しました。")
         viously_players = re.findall(r'<div[^>]*class="(?:[^"]*\s)?v(?:iou)?sly-player(?:\s[^"]*)?"[^>]*>', webpage)
         if not viously_players:
             return
 
         def custom_decode(text):
+            print(f"viously.pyの関数custom_decodeを実行しました。")
             STANDARD_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
             CUSTOM_ALPHABET = 'VIOUSLYABCDEFGHJKMNPQRTWXZviouslyabcdefghjkmnpqrtwxz9876543210+/='
             data = base64.b64decode(text.translate(str.maketrans(CUSTOM_ALPHABET, STANDARD_ALPHABET)))

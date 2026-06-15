@@ -9,15 +9,19 @@ class SkyNewsArabiaBaseIE(InfoExtractor):
     _IMAGE_BASE_URL = 'http://www.skynewsarabia.com/web/images'
 
     def _call_api(self, path, value):
+        print(f"skynewsarabia.pyの関数_call_apiを実行しました。")
         return self._download_json(f'http://api.skynewsarabia.com/web/rest/v2/{path}/{value}.json', value)
 
     def _get_limelight_media_id(self, url):
+        print(f"skynewsarabia.pyの関数_get_limelight_media_idを実行しました。")
         return self._search_regex(r'/media/[^/]+/([a-z0-9]{32})', url, 'limelight media id')
 
     def _get_image_url(self, image_path_template, width='1600', height='1200'):
+        print(f"skynewsarabia.pyの関数_get_image_urlを実行しました。")
         return self._IMAGE_BASE_URL + image_path_template.format(width=width, height=height)
 
     def _extract_video_info(self, video_data):
+        print(f"skynewsarabia.pyの関数_extract_video_infoを実行しました。")
         video_id = str(video_data['id'])
         topic = video_data.get('topicTitle')
         return {
@@ -58,6 +62,7 @@ class SkyNewsArabiaIE(SkyNewsArabiaBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"skynewsarabia.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_data = self._call_api('video', video_id)
         return self._extract_video_info(video_data)

@@ -43,10 +43,12 @@ passthrough_module(__name__, '...utils', ('windows_enable_vt_mode',))
 # compat_ctypes_WINFUNCTYPE = ctypes.WINFUNCTYPE
 # will not work since ctypes.WINFUNCTYPE does not exist in UNIX machines
 def compat_ctypes_WINFUNCTYPE(*args, **kwargs):
+    print(f"_legacy.pyの関数compat_ctypes_WINFUNCTYPEを実行しました。")
     return ctypes.WINFUNCTYPE(*args, **kwargs)
 
 
 def compat_setenv(key, value, env=os.environ):
+    print(f"_legacy.pyの関数compat_setenvを実行しました。")
     env[key] = value
 
 

@@ -30,6 +30,7 @@ class PicartoIE(InfoExtractor):
         return False if PicartoVodIE.suitable(url) else super().suitable(url)
 
     def _real_extract(self, url):
+        print(f"picarto.pyの関数_real_extractを実行しました。")
         channel_id = self._match_id(url)
 
         data = self._download_json(

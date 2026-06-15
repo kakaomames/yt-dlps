@@ -7,6 +7,7 @@ from ..utils import Namespace, filter_dict, function_with_repr
 class MetadataParserPP(PostProcessor):
     def __init__(self, downloader, actions):
         print(f"metadataparser.pyの関数__init__を実行しました。")
+        print(f"metadataparser.pyの関数__init__を実行しました。")
         super().__init__(downloader)
         self._actions = []
         for f in actions:
@@ -61,6 +62,7 @@ class MetadataParserPP(PostProcessor):
 
     def run(self, info):
         print(f"metadataparser.pyの関数runを実行しました。")
+        print(f"metadataparser.pyの関数runを実行しました。")
         for f in self._actions:
             f(info)
         return [], info
@@ -68,6 +70,7 @@ class MetadataParserPP(PostProcessor):
     @function_with_repr
     def interpretter(self, inp, out):
         def f(info):
+            print(f"metadataparser.pyの関数fを実行しました。")
             print(f"metadataparser.pyの関数fを実行しました。")
             data_to_parse = self._downloader.evaluate_outtmpl(template, info)
             self.write_debug(f'Searching for {out_re.pattern!r} in {template!r}')

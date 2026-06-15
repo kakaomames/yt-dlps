@@ -29,6 +29,7 @@ class KelbyOneIE(InfoExtractor):
 
     def _entries(self, playlist):
         print(f"kelbyone.pyの関数_entriesを実行しました。")
+        print(f"kelbyone.pyの関数_entriesを実行しました。")
         for item in playlist:
             video_id = item['mediaid']
             thumbnails = [{
@@ -74,6 +75,7 @@ class KelbyOneIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"kelbyone.pyの関数_real_extractを実行しました。")
         print(f"kelbyone.pyの関数_real_extractを実行しました。")
         item_id = self._match_id(url)
         webpage = self._download_webpage(url, item_id)

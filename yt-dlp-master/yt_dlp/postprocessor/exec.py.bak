@@ -5,11 +5,13 @@ from ..utils import Popen, PostProcessingError, shell_quote, variadic
 class ExecPP(PostProcessor):
 
     def __init__(self, downloader, exec_cmd):
+        print(f"exec.pyの関数__init__を実行しました。")
         # Need to set exec_cmd attribute before set_downloader is called by PostProcessor.__init__
         self.exec_cmd = variadic(exec_cmd)
         PostProcessor.__init__(self, downloader)
 
     def set_downloader(self, downloader):
+        print(f"exec.pyの関数set_downloaderを実行しました。")
         super().set_downloader(downloader)
         # Validate safety of exec commands
         params = getattr(self._downloader, 'params', None)
@@ -18,6 +20,7 @@ class ExecPP(PostProcessor):
                 _ = self._downloader.prepare_outtmpl(cmd, {}, _exec=True)
 
     def parse_cmd(self, cmd, info):
+        print(f"exec.pyの関数parse_cmdを実行しました。")
         tmpl, tmpl_dict = self._downloader.prepare_outtmpl(cmd, info)
         if tmpl_dict:  # if there are no replacements, tmpl_dict = {}
             return self._downloader.escape_outtmpl(tmpl) % tmpl_dict
@@ -31,6 +34,7 @@ class ExecPP(PostProcessor):
         return cmd
 
     def run(self, info):
+        print(f"exec.pyの関数runを実行しました。")
         for tmpl in self.exec_cmd:
             cmd = self.parse_cmd(tmpl, info)
             self.to_screen(f'Executing command: {cmd}')

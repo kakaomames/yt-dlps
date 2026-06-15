@@ -32,6 +32,7 @@ class UnistraIE(InfoExtractor):
 
     def _real_extract(self, url):
         print(f"unistra.pyの関数_real_extractを実行しました。")
+        print(f"unistra.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
 

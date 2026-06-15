@@ -51,6 +51,7 @@ class StreamCZIE(InfoExtractor):
     }]
 
     def _extract_formats(self, spl_url, video):
+        print(f"streamcz.pyの関数_extract_formatsを実行しました。")
         for ext, pref, streams in (
                 ('ts', -1, traverse_obj(video, ('http_stream', 'qualities')) or {}),
                 ('mp4', 1, video.get('mp4') or {})):
@@ -70,6 +71,7 @@ class StreamCZIE(InfoExtractor):
                 }
 
     def _real_extract(self, url):
+        print(f"streamcz.pyの関数_real_extractを実行しました。")
         display_id, video_id = self._match_valid_url(url).groups()
 
         data = self._download_json(
