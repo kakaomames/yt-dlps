@@ -26,8 +26,8 @@ jobs:
           python -m pip install requests curl_cffi
           
           # 環境変数としてプロキシを定義（これが一番確実！）
-          export http_proxy="http://dave-sixth-knives-gas.trycloudflare.com"
-          export https_proxy="https://dave-sixth-knives-gas.trycloudflare.com"
+          # export http_proxy="http://dave-sixth-knives-gas.trycloudflare.com"
+          # export https_proxy="https://dave-sixth-knives-gas.trycloudflare.com"
           
           YT_URL=$(cat url.txt)
           
