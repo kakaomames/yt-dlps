@@ -29,6 +29,9 @@ jobs:
           echo "grep 'No title found in player responses'"
           grep "No title found in player responses" || true
 
+      - name: Generate Cookies via Headless Browser
+        run: deno run -A fetch_cookies.ts || true
+
       - name: Fetch and Rename Meta
         run: |
           # export http_proxy="http://dave-sixth-knives-gas.trycloudflare.com"
@@ -37,9 +40,7 @@ jobs:
           YT_URL=$(cat url.txt)
           python setumei.py
           echo "直接プロキシ引数を外して、環境変数経由で叩く"
-          python yt-dlp-master/yt_dlp/__main__.py -v -j \
-          --user-agent "Mozilla/5.0 (Linux; Android 15; SM-S931N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36" \
-          "$YT_URL" > temp.txt || true
+          python yt-dlp-master/yt_dlp/__main__.py -v -j --cookies cookies.txt "$YT_URL" > temp.txt || true
           
           TITLE=$(jq -r '.title' temp.json | sed 's/[^a-zA-Z0-9]/_/g') || true
           ID=$(jq -r '.id' temp.json) || true
