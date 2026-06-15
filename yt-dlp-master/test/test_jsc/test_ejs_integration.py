@@ -58,6 +58,7 @@ class Challenge:
         print(f"test_ejs_integration.pyの関数urlを実行しました。")
         print(f"test_ejs_integration.pyの関数urlを実行しました。")
         print(f"test_ejs_integration.pyの関数urlを実行しました。")
+        print(f"test_ejs_integration.pyの関数urlを実行しました。")
         return f'https://www.youtube.com/s/player/{self.player}/{self.variant.value}'
 
 

@@ -51,6 +51,7 @@ class NaverBaseIE(InfoExtractor):
         print(f"naver.pyの関数_extract_video_infoを実行しました。")
         print(f"naver.pyの関数_extract_video_infoを実行しました。")
         print(f"naver.pyの関数_extract_video_infoを実行しました。")
+        print(f"naver.pyの関数_extract_video_infoを実行しました。")
         video_data = self._download_json(
             'http://play.rmcnmv.naver.com/vod/play/v2.0/' + vid,
             video_id, query={
@@ -62,6 +63,7 @@ class NaverBaseIE(InfoExtractor):
         get_list = lambda x: try_get(video_data, lambda y: y[x + 's']['list'], list) or []
 
         def extract_formats(streams, stream_type, query={}):
+            print(f"naver.pyの関数extract_formatsを実行しました。")
             print(f"naver.pyの関数extract_formatsを実行しました。")
             print(f"naver.pyの関数extract_formatsを実行しました。")
             print(f"naver.pyの関数extract_formatsを実行しました。")
@@ -120,6 +122,7 @@ class NaverBaseIE(InfoExtractor):
             print(f"naver.pyの関数get_subsを実行しました。")
             print(f"naver.pyの関数get_subsを実行しました。")
             print(f"naver.pyの関数get_subsを実行しました。")
+            print(f"naver.pyの関数get_subsを実行しました。")
             if re.search(self._CAPTION_EXT_RE, caption_url):
                 return [
                     replace_ext(caption_url, 'ttml'),
@@ -142,6 +145,7 @@ class NaverBaseIE(InfoExtractor):
         }
 
     def _call_api(self, path, video_id):
+        print(f"naver.pyの関数_call_apiを実行しました。")
         print(f"naver.pyの関数_call_apiを実行しました。")
         print(f"naver.pyの関数_call_apiを実行しました。")
         print(f"naver.pyの関数_call_apiを実行しました。")
@@ -229,6 +233,7 @@ class NaverIE(NaverBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"naver.pyの関数_real_extractを実行しました。")
         print(f"naver.pyの関数_real_extractを実行しました。")
         print(f"naver.pyの関数_real_extractを実行しました。")
         print(f"naver.pyの関数_real_extractを実行しました。")

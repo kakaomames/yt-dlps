@@ -25,6 +25,7 @@ class ZaikoBaseIE(InfoExtractor):
         print(f"zaiko.pyの関数_download_real_webpageを実行しました。")
         print(f"zaiko.pyの関数_download_real_webpageを実行しました。")
         print(f"zaiko.pyの関数_download_real_webpageを実行しました。")
+        print(f"zaiko.pyの関数_download_real_webpageを実行しました。")
         webpage, urlh = self._download_webpage_handle(url, video_id)
         final_url = urlh.url
         if 'zaiko.io/login' in final_url:
@@ -34,6 +35,7 @@ class ZaikoBaseIE(InfoExtractor):
         return webpage
 
     def _parse_vue_element_attr(self, name, string, video_id):
+        print(f"zaiko.pyの関数_parse_vue_element_attrを実行しました。")
         print(f"zaiko.pyの関数_parse_vue_element_attrを実行しました。")
         print(f"zaiko.pyの関数_parse_vue_element_attrを実行しました。")
         print(f"zaiko.pyの関数_parse_vue_element_attrを実行しました。")
@@ -75,6 +77,7 @@ class ZaikoIE(ZaikoBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"zaiko.pyの関数_real_extractを実行しました。")
         print(f"zaiko.pyの関数_real_extractを実行しました。")
         print(f"zaiko.pyの関数_real_extractを実行しました。")
         print(f"zaiko.pyの関数_real_extractを実行しました。")

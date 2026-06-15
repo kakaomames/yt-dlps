@@ -42,6 +42,7 @@ class Mx3BaseIE(InfoExtractor):
         print(f"mx3.pyの関数_extract_formatsを実行しました。")
         print(f"mx3.pyの関数_extract_formatsを実行しました。")
         print(f"mx3.pyの関数_extract_formatsを実行しました。")
+        print(f"mx3.pyの関数_extract_formatsを実行しました。")
         formats = []
         for fmt in self._FORMATS:
             format_url = f'https://{self._DOMAIN}/tracks/{track_id}/{fmt["url"]}'
@@ -67,12 +68,14 @@ class Mx3BaseIE(InfoExtractor):
         print(f"mx3.pyの関数_real_extractを実行しました。")
         print(f"mx3.pyの関数_real_extractを実行しました。")
         print(f"mx3.pyの関数_real_extractを実行しました。")
+        print(f"mx3.pyの関数_real_extractを実行しました。")
         track_id = self._match_id(url)
         webpage = self._download_webpage(url, track_id)
         more_info = get_element_by_class('single-more-info', webpage)
         data = self._download_json(f'https://{self._DOMAIN}/t/{track_id}.json', track_id, fatal=False)
 
         def get_info_field(name):
+            print(f"mx3.pyの関数get_info_fieldを実行しました。")
             print(f"mx3.pyの関数get_info_fieldを実行しました。")
             print(f"mx3.pyの関数get_info_fieldを実行しました。")
             print(f"mx3.pyの関数get_info_fieldを実行しました。")

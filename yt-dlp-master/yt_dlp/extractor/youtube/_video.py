@@ -1933,12 +1933,14 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数__init__を実行しました。")
         print(f"_video.pyの関数__init__を実行しました。")
         print(f"_video.pyの関数__init__を実行しました。")
+        print(f"_video.pyの関数__init__を実行しました。")
         super().__init__(*args, **kwargs)
         self._code_cache = {}
         self._player_cache = {}
         self._pot_director = None
 
     def _real_initialize(self):
+        print(f"_video.pyの関数_real_initializeを実行しました。")
         print(f"_video.pyの関数_real_initializeを実行しました。")
         print(f"_video.pyの関数_real_initializeを実行しました。")
         print(f"_video.pyの関数_real_initializeを実行しました。")
@@ -1962,11 +1964,13 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_prepare_live_from_start_formatsを実行しました。")
         print(f"_video.pyの関数_prepare_live_from_start_formatsを実行しました。")
         print(f"_video.pyの関数_prepare_live_from_start_formatsを実行しました。")
+        print(f"_video.pyの関数_prepare_live_from_start_formatsを実行しました。")
         lock = threading.Lock()
         start_time = time.time()
         formats = [f for f in formats if f.get('is_from_start')]
 
         def refetch_manifest(itag, client_name, delay):
+            print(f"_video.pyの関数refetch_manifestを実行しました。")
             print(f"_video.pyの関数refetch_manifestを実行しました。")
             print(f"_video.pyの関数refetch_manifestを実行しました。")
             print(f"_video.pyの関数refetch_manifestを実行しました。")
@@ -1991,6 +1995,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             start_time = time.time()
 
         def mpd_feed(itag, client_name, delay):
+            print(f"_video.pyの関数mpd_feedを実行しました。")
             print(f"_video.pyの関数mpd_feedを実行しました。")
             print(f"_video.pyの関数mpd_feedを実行しました。")
             print(f"_video.pyの関数mpd_feedを実行しました。")
@@ -2044,6 +2049,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_live_dash_fragmentsを実行しました。")
         print(f"_video.pyの関数_live_dash_fragmentsを実行しました。")
         print(f"_video.pyの関数_live_dash_fragmentsを実行しました。")
+        print(f"_video.pyの関数_live_dash_fragmentsを実行しました。")
         FETCH_SPAN, MAX_DURATION = 5, 432000
 
         mpd_url, stream_number, is_live = None, None, True
@@ -2062,6 +2068,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         fragments, fragment_base_url = None, None
 
         def _extract_sequence_from_mpd(refresh_sequence, immediate):
+            print(f"_video.pyの関数_extract_sequence_from_mpdを実行しました。")
             print(f"_video.pyの関数_extract_sequence_from_mpdを実行しました。")
             print(f"_video.pyの関数_extract_sequence_from_mpdを実行しました。")
             print(f"_video.pyの関数_extract_sequence_from_mpdを実行しました。")
@@ -2173,6 +2180,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_get_player_js_versionを実行しました。")
         print(f"_video.pyの関数_get_player_js_versionを実行しました。")
         print(f"_video.pyの関数_get_player_js_versionを実行しました。")
+        print(f"_video.pyの関数_get_player_js_versionを実行しました。")
         if self._player_js_version == 'actual':
             return None, None
         if not re.fullmatch(r'[0-9]{5,}@[0-9a-f]{8,}', self._player_js_version):
@@ -2183,6 +2191,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         return self._player_js_version.split('@')
 
     def _construct_player_url(self, *, player_id=None, player_url=None):
+        print(f"_video.pyの関数_construct_player_urlを実行しました。")
         print(f"_video.pyの関数_construct_player_urlを実行しました。")
         print(f"_video.pyの関数_construct_player_urlを実行しました。")
         print(f"_video.pyの関数_construct_player_urlを実行しました。")
@@ -2246,6 +2255,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_extract_player_urlを実行しました。")
         print(f"_video.pyの関数_extract_player_urlを実行しました。")
         print(f"_video.pyの関数_extract_player_urlを実行しました。")
+        print(f"_video.pyの関数_extract_player_urlを実行しました。")
         player_url = traverse_obj(
             ytcfgs, (..., 'PLAYER_JS_URL'), (..., 'WEB_PLAYER_CONTEXT_CONFIGS', ..., 'jsUrl'),
             get_all=False, expected_type=str)
@@ -2254,6 +2264,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         return self._construct_player_url(player_url=player_url)
 
     def _download_player_url(self, video_id, fatal=False):
+        print(f"_video.pyの関数_download_player_urlを実行しました。")
         print(f"_video.pyの関数_download_player_urlを実行しました。")
         print(f"_video.pyの関数_download_player_urlを実行しました。")
         print(f"_video.pyの関数_download_player_urlを実行しました。")
@@ -2288,6 +2299,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_get_player_id_variant_and_pathを実行しました。")
         print(f"_video.pyの関数_get_player_id_variant_and_pathを実行しました。")
         print(f"_video.pyの関数_get_player_id_variant_and_pathを実行しました。")
+        print(f"_video.pyの関数_get_player_id_variant_and_pathを実行しました。")
         player_id = self._extract_player_info(player_url)
         player_path = remove_start(urllib.parse.urlparse(player_url).path, f'/s/player/{player_id}/')
         variant = self._INVERSE_PLAYER_JS_VARIANT_MAP.get(player_path) or next((
@@ -2300,6 +2312,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         return player_id, variant, player_path
 
     def _player_js_cache_key(self, player_url):
+        print(f"_video.pyの関数_player_js_cache_keyを実行しました。")
         print(f"_video.pyの関数_player_js_cache_keyを実行しました。")
         print(f"_video.pyの関数_player_js_cache_keyを実行しました。")
         print(f"_video.pyの関数_player_js_cache_keyを実行しました。")
@@ -2330,6 +2343,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_load_playerを実行しました。")
         print(f"_video.pyの関数_load_playerを実行しました。")
         print(f"_video.pyの関数_load_playerを実行しました。")
+        print(f"_video.pyの関数_load_playerを実行しました。")
         player_js_key = self._player_js_cache_key(player_url)
         if player_js_key not in self._code_cache:
             code = self._download_webpage(
@@ -2341,6 +2355,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         return self._code_cache.get(player_js_key)
 
     def _load_player_data_from_cache(self, name, player_url, *cache_keys, use_disk_cache=False):
+        print(f"_video.pyの関数_load_player_data_from_cacheを実行しました。")
         print(f"_video.pyの関数_load_player_data_from_cacheを実行しました。")
         print(f"_video.pyの関数_load_player_data_from_cacheを実行しました。")
         print(f"_video.pyの関数_load_player_data_from_cacheを実行しました。")
@@ -2373,6 +2388,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_store_player_data_to_cacheを実行しました。")
         print(f"_video.pyの関数_store_player_data_to_cacheを実行しました。")
         print(f"_video.pyの関数_store_player_data_to_cacheを実行しました。")
+        print(f"_video.pyの関数_store_player_data_to_cacheを実行しました。")
         cache_id = (f'youtube-{name}', self._player_js_cache_key(player_url), *map(str_or_none, cache_keys))
         if cache_id not in self._player_cache:
             self._player_cache[cache_id] = data
@@ -2380,6 +2396,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
                 self.cache.store(cache_id[0], join_nonempty(*cache_id[1:]), data)
 
     def _extract_signature_timestamp(self, video_id, player_url, ytcfg=None, fatal=False):
+        print(f"_video.pyの関数_extract_signature_timestampを実行しました。")
         print(f"_video.pyの関数_extract_signature_timestampを実行しました。")
         print(f"_video.pyの関数_extract_signature_timestampを実行しました。")
         print(f"_video.pyの関数_extract_signature_timestampを実行しました。")
@@ -2424,6 +2441,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         return sts
 
     def _mark_watched(self, video_id, player_responses):
+        print(f"_video.pyの関数_mark_watchedを実行しました。")
         print(f"_video.pyの関数_mark_watchedを実行しました。")
         print(f"_video.pyの関数_mark_watchedを実行しました。")
         print(f"_video.pyの関数_mark_watchedを実行しました。")
@@ -2514,6 +2532,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_extract_chapters_from_jsonを実行しました。")
         print(f"_video.pyの関数_extract_chapters_from_jsonを実行しました。")
         print(f"_video.pyの関数_extract_chapters_from_jsonを実行しました。")
+        print(f"_video.pyの関数_extract_chapters_from_jsonを実行しました。")
         chapter_list = traverse_obj(
             data, (
                 'playerOverlays', 'playerOverlayRenderer', 'decoratedPlayerBarRenderer',
@@ -2529,6 +2548,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             duration=duration)
 
     def _extract_chapters_from_engagement_panel(self, data, duration):
+        print(f"_video.pyの関数_extract_chapters_from_engagement_panelを実行しました。")
         print(f"_video.pyの関数_extract_chapters_from_engagement_panelを実行しました。")
         print(f"_video.pyの関数_extract_chapters_from_engagement_panelを実行しました。")
         print(f"_video.pyの関数_extract_chapters_from_engagement_panelを実行しました。")
@@ -2560,6 +2580,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_extract_heatmapを実行しました。")
         print(f"_video.pyの関数_extract_heatmapを実行しました。")
         print(f"_video.pyの関数_extract_heatmapを実行しました。")
+        print(f"_video.pyの関数_extract_heatmapを実行しました。")
         return traverse_obj(data, (
             'frameworkUpdates', 'entityBatchUpdate', 'mutations',
             lambda _, v: v['payload']['macroMarkersListEntity']['markersList']['markerType'] == 'MARKER_TYPE_HEATMAP',
@@ -2570,6 +2591,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             })) or None
 
     def _extract_comment(self, entities, parent=None):
+        print(f"_video.pyの関数_extract_commentを実行しました。")
         print(f"_video.pyの関数_extract_commentを実行しました。")
         print(f"_video.pyの関数_extract_commentを実行しました。")
         print(f"_video.pyの関数_extract_commentを実行しました。")
@@ -2608,6 +2630,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         }
 
     def _extract_comment_old(self, comment_renderer, parent=None):
+        print(f"_video.pyの関数_extract_comment_oldを実行しました。")
         print(f"_video.pyの関数_extract_comment_oldを実行しました。")
         print(f"_video.pyの関数_extract_comment_oldを実行しました。")
         print(f"_video.pyの関数_extract_comment_oldを実行しました。")
@@ -2675,10 +2698,12 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_comment_entriesを実行しました。")
         print(f"_video.pyの関数_comment_entriesを実行しました。")
         print(f"_video.pyの関数_comment_entriesを実行しました。")
+        print(f"_video.pyの関数_comment_entriesを実行しました。")
 
         get_single_config_arg = lambda c: self._configuration_arg(c, [''])[0]
 
         def extract_header(contents):
+            print(f"_video.pyの関数extract_headerを実行しました。")
             print(f"_video.pyの関数extract_headerを実行しました。")
             print(f"_video.pyの関数extract_headerを実行しました。")
             print(f"_video.pyの関数extract_headerを実行しました。")
@@ -2716,6 +2741,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             return _continuation
 
         def extract_thread(contents, entity_payloads, thread_parent, thread_depth):
+            print(f"_video.pyの関数extract_threadを実行しました。")
             print(f"_video.pyの関数extract_threadを実行しました。")
             print(f"_video.pyの関数extract_threadを実行しました。")
             print(f"_video.pyの関数extract_threadを実行しました。")
@@ -2926,8 +2952,10 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_get_commentsを実行しました。")
         print(f"_video.pyの関数_get_commentsを実行しました。")
         print(f"_video.pyの関数_get_commentsを実行しました。")
+        print(f"_video.pyの関数_get_commentsを実行しました。")
         """Entry for comment extraction"""
         def _real_comment_extract(contents):
+            print(f"_video.pyの関数_real_comment_extractを実行しました。")
             print(f"_video.pyの関数_real_comment_extractを実行しました。")
             print(f"_video.pyの関数_real_comment_extractを実行しました。")
             print(f"_video.pyの関数_real_comment_extractを実行しました。")
@@ -2973,6 +3001,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         }
 
     def _get_config_po_token(self, client: str, context: _PoTokenContext):
+        print(f"_video.pyの関数_get_config_po_tokenを実行しました。")
         print(f"_video.pyの関数_get_config_po_tokenを実行しました。")
         print(f"_video.pyの関数_get_config_po_tokenを実行しました。")
         print(f"_video.pyの関数_get_config_po_tokenを実行しました。")
@@ -3117,6 +3146,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_fetch_po_tokenを実行しました。")
         print(f"_video.pyの関数_fetch_po_tokenを実行しました。")
         print(f"_video.pyの関数_fetch_po_tokenを実行しました。")
+        print(f"_video.pyの関数_fetch_po_tokenを実行しました。")
         context = kwargs.get('context')
 
         # Avoid fetching PO Tokens when not required
@@ -3196,6 +3226,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_extract_player_responseを実行しました。")
         print(f"_video.pyの関数_extract_player_responseを実行しました。")
         print(f"_video.pyの関数_extract_player_responseを実行しました。")
+        print(f"_video.pyの関数_extract_player_responseを実行しました。")
         headers = self.generate_api_headers(
             ytcfg=player_ytcfg,
             default_client=client,
@@ -3251,6 +3282,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         ) or None
 
     def _get_requested_clients(self, url, smuggled_data, is_premium_subscriber):
+        print(f"_video.pyの関数_get_requested_clientsを実行しました。")
         print(f"_video.pyの関数_get_requested_clientsを実行しました。")
         print(f"_video.pyの関数_get_requested_clientsを実行しました。")
         print(f"_video.pyの関数_get_requested_clientsを実行しました。")
@@ -3322,12 +3354,14 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_invalid_player_responseを実行しました。")
         print(f"_video.pyの関数_invalid_player_responseを実行しました。")
         print(f"_video.pyの関数_invalid_player_responseを実行しました。")
+        print(f"_video.pyの関数_invalid_player_responseを実行しました。")
         # YouTube may return a different video player response than expected.
         # See: https://github.com/TeamNewPipe/NewPipe/issues/8713
         if (pr_id := traverse_obj(pr, ('videoDetails', 'videoId'))) != video_id:
             return pr_id
 
     def _extract_player_responses(self, clients, video_id, webpage, webpage_client, webpage_ytcfg, is_premium_subscriber):
+        print(f"_video.pyの関数_extract_player_responsesを実行しました。")
         print(f"_video.pyの関数_extract_player_responsesを実行しました。")
         print(f"_video.pyの関数_extract_player_responsesを実行しました。")
         print(f"_video.pyの関数_extract_player_responsesを実行しました。")
@@ -3357,6 +3391,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         clients = clients[::-1]
 
         def append_client(*client_names):
+            print(f"_video.pyの関数append_clientを実行しました。")
             print(f"_video.pyの関数append_clientを実行しました。")
             print(f"_video.pyの関数append_clientを実行しました。")
             print(f"_video.pyの関数append_clientを実行しました。")
@@ -3517,11 +3552,13 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_needs_live_processingを実行しました。")
         print(f"_video.pyの関数_needs_live_processingを実行しました。")
         print(f"_video.pyの関数_needs_live_processingを実行しました。")
+        print(f"_video.pyの関数_needs_live_processingを実行しました。")
         if ((live_status == 'is_live' and self.get_param('live_from_start'))
                 or (live_status == 'post_live' and (duration or 0) > 2 * 3600)):
             return live_status
 
     def _report_pot_format_skipped(self, video_id, client_name, proto):
+        print(f"_video.pyの関数_report_pot_format_skippedを実行しました。")
         print(f"_video.pyの関数_report_pot_format_skippedを実行しました。")
         print(f"_video.pyの関数_report_pot_format_skippedを実行しました。")
         print(f"_video.pyの関数_report_pot_format_skippedを実行しました。")
@@ -3553,6 +3590,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_report_pot_subtitles_skippedを実行しました。")
         print(f"_video.pyの関数_report_pot_subtitles_skippedを実行しました。")
         print(f"_video.pyの関数_report_pot_subtitles_skippedを実行しました。")
+        print(f"_video.pyの関数_report_pot_subtitles_skippedを実行しました。")
         msg = msg or (
             f'{video_id}: Some {client_name} client subtitles require a PO Token which was not provided. '
             'They will be discarded since they are not downloadable as-is. '
@@ -3572,6 +3610,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             self.report_warning(msg, only_once=True)
 
     def _extract_formats_and_subtitles(self, video_id, player_responses, player_url, live_status, duration):
+        print(f"_video.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"_video.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"_video.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"_video.pyの関数_extract_formats_and_subtitlesを実行しました。")
@@ -3617,6 +3656,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             print(f"_video.pyの関数is_super_resolutionを実行しました。")
             print(f"_video.pyの関数is_super_resolutionを実行しました。")
             print(f"_video.pyの関数is_super_resolutionを実行しました。")
+            print(f"_video.pyの関数is_super_resolutionを実行しました。")
             return '1' in traverse_obj(f_url, ({parse_qs}, 'xtags', ..., {urllib.parse.parse_qs}, 'sr', ...))
 
         def solve_sig(s, spec):
@@ -3629,9 +3669,11 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             print(f"_video.pyの関数solve_sigを実行しました。")
             print(f"_video.pyの関数solve_sigを実行しました。")
             print(f"_video.pyの関数solve_sigを実行しました。")
+            print(f"_video.pyの関数solve_sigを実行しました。")
             return ''.join(s[i] for i in spec)
 
         def build_fragments(f):
+            print(f"_video.pyの関数build_fragmentsを実行しました。")
             print(f"_video.pyの関数build_fragmentsを実行しました。")
             print(f"_video.pyの関数build_fragmentsを実行しました。")
             print(f"_video.pyの関数build_fragmentsを実行しました。")
@@ -3657,6 +3699,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             print(f"_video.pyの関数gvs_pot_requiredを実行しました。")
             print(f"_video.pyの関数gvs_pot_requiredを実行しました。")
             print(f"_video.pyの関数gvs_pot_requiredを実行しました。")
+            print(f"_video.pyの関数gvs_pot_requiredを実行しました。")
             return (
                 policy.required
                 and not (policy.not_required_with_player_token and has_player_token)
@@ -3666,6 +3709,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         gvs_pots = {}
 
         def get_language_code_and_preference(fmt_stream):
+            print(f"_video.pyの関数get_language_code_and_preferenceを実行しました。")
             print(f"_video.pyの関数get_language_code_and_preferenceを実行しました。")
             print(f"_video.pyの関数get_language_code_and_preferenceを実行しました。")
             print(f"_video.pyの関数get_language_code_and_preferenceを実行しました。")
@@ -3700,6 +3744,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             print(f"_video.pyの関数get_manifest_n_challengeを実行しました。")
             print(f"_video.pyの関数get_manifest_n_challengeを実行しました。")
             print(f"_video.pyの関数get_manifest_n_challengeを実行しました。")
+            print(f"_video.pyの関数get_manifest_n_challengeを実行しました。")
             if not url_or_none(manifest_url):
                 return None
             # Same pattern that the player JS uses to read/replace the n challenge value
@@ -3711,6 +3756,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         s_challenges = set()
 
         def solve_js_challenges():
+            print(f"_video.pyの関数solve_js_challengesを実行しました。")
             print(f"_video.pyの関数solve_js_challengesを実行しました。")
             print(f"_video.pyの関数solve_js_challengesを実行しました。")
             print(f"_video.pyの関数solve_js_challengesを実行しました。")
@@ -3821,9 +3867,11 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
                 print(f"_video.pyの関数get_stream_idを実行しました。")
                 print(f"_video.pyの関数get_stream_idを実行しました。")
                 print(f"_video.pyの関数get_stream_idを実行しました。")
+                print(f"_video.pyの関数get_stream_idを実行しました。")
                 return str_or_none(fmt_stream.get('itag')), traverse_obj(fmt_stream, 'audioTrack', 'id'), fmt_stream.get('isDrc')
 
             def process_format_stream(fmt_stream, proto, missing_pot, super_resolution=False):
+                print(f"_video.pyの関数process_format_streamを実行しました。")
                 print(f"_video.pyの関数process_format_streamを実行しました。")
                 print(f"_video.pyの関数process_format_streamを実行しました。")
                 print(f"_video.pyの関数process_format_streamを実行しました。")
@@ -3923,6 +3971,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
                 return dct
 
             def process_https_formats():
+                print(f"_video.pyの関数process_https_formatsを実行しました。")
                 print(f"_video.pyの関数process_https_formatsを実行しました。")
                 print(f"_video.pyの関数process_https_formatsを実行しました。")
                 print(f"_video.pyの関数process_https_formatsを実行しました。")
@@ -4059,6 +4108,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
                 skip_manifests.add('dash')
 
             def process_manifest_format(f, proto, client_name, itag, missing_pot):
+                print(f"_video.pyの関数process_manifest_formatを実行しました。")
                 print(f"_video.pyの関数process_manifest_formatを実行しました。")
                 print(f"_video.pyの関数process_manifest_formatを実行しました。")
                 print(f"_video.pyの関数process_manifest_formatを実行しました。")
@@ -4219,6 +4269,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_extract_storyboardを実行しました。")
         print(f"_video.pyの関数_extract_storyboardを実行しました。")
         print(f"_video.pyの関数_extract_storyboardを実行しました。")
+        print(f"_video.pyの関数_extract_storyboardを実行しました。")
         spec = get_first(
             player_responses, ('storyboards', 'playerStoryboardSpecRenderer', 'spec'), default='').split('|')[::-1]
         base_url = url_or_none(urljoin('https://i.ytimg.com/', spec.pop() or None))
@@ -4266,6 +4317,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_download_initial_webpageを実行しました。")
         print(f"_video.pyの関数_download_initial_webpageを実行しました。")
         print(f"_video.pyの関数_download_initial_webpageを実行しました。")
+        print(f"_video.pyの関数_download_initial_webpageを実行しました。")
         webpage = None
         if webpage_url and 'webpage' not in self._configuration_arg('player_skip'):
             query = {'bpctr': '9999999999', 'has_verified': '1'}
@@ -4283,6 +4335,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         return webpage
 
     def _get_available_at_timestamp(self, player_response, video_id, client):
+        print(f"_video.pyの関数_get_available_at_timestampを実行しました。")
         print(f"_video.pyの関数_get_available_at_timestampを実行しました。")
         print(f"_video.pyの関数_get_available_at_timestampを実行しました。")
         print(f"_video.pyの関数_get_available_at_timestampを実行しました。")
@@ -4331,6 +4384,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_list_formatsを実行しました。")
         print(f"_video.pyの関数_list_formatsを実行しました。")
         print(f"_video.pyの関数_list_formatsを実行しました。")
+        print(f"_video.pyの関数_list_formatsを実行しました。")
         live_broadcast_details = traverse_obj(microformats, (..., 'liveBroadcastDetails'))
         is_live = get_first(video_details, 'isLive')
         if is_live is None:
@@ -4353,6 +4407,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         return live_broadcast_details, live_status, formats, subtitles
 
     def _download_initial_data(self, video_id, webpage, webpage_client, webpage_ytcfg):
+        print(f"_video.pyの関数_download_initial_dataを実行しました。")
         print(f"_video.pyの関数_download_initial_dataを実行しました。")
         print(f"_video.pyの関数_download_initial_dataを実行しました。")
         print(f"_video.pyの関数_download_initial_dataを実行しました。")
@@ -4387,6 +4442,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         print(f"_video.pyの関数_is_premium_subscriberを実行しました。")
         print(f"_video.pyの関数_is_premium_subscriberを実行しました。")
         print(f"_video.pyの関数_is_premium_subscriberを実行しました。")
+        print(f"_video.pyの関数_is_premium_subscriberを実行しました。")
         if not self.is_authenticated or not initial_data:
             return False
 
@@ -4398,6 +4454,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         )
 
     def _initial_extract(self, url, smuggled_data, webpage_url, webpage_client, video_id):
+        print(f"_video.pyの関数_initial_extractを実行しました。")
         print(f"_video.pyの関数_initial_extractを実行しました。")
         print(f"_video.pyの関数_initial_extractを実行しました。")
         print(f"_video.pyの関数_initial_extractを実行しました。")
@@ -4424,6 +4481,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
         return webpage, webpage_ytcfg, initial_data, is_premium_subscriber, player_responses, player_url
 
     def _real_extract(self, url):
+        print(f"_video.pyの関数_real_extractを実行しました。")
         print(f"_video.pyの関数_real_extractを実行しました。")
         print(f"_video.pyの関数_real_extractを実行しました。")
         print(f"_video.pyの関数_real_extractを実行しました。")
@@ -4516,6 +4574,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
                         urllib.parse.unquote_plus(feed))
 
                     def feed_entry(name):
+                        print(f"_video.pyの関数feed_entryを実行しました。")
                         print(f"_video.pyの関数feed_entryを実行しました。")
                         print(f"_video.pyの関数feed_entryを実行しました。")
                         print(f"_video.pyの関数feed_entryを実行しました。")
@@ -4661,6 +4720,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             print(f"_video.pyの関数adjust_incomplete_formatを実行しました。")
             print(f"_video.pyの関数adjust_incomplete_formatを実行しました。")
             print(f"_video.pyの関数adjust_incomplete_formatを実行しました。")
+            print(f"_video.pyの関数adjust_incomplete_formatを実行しました。")
             fmt['preference'] = (fmt.get('preference') or -1) + pref_adjustment
             fmt['format_note'] = join_nonempty(fmt.get('format_note'), note_suffix, delim=' ')
 
@@ -4742,10 +4802,12 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
             print(f"_video.pyの関数get_lang_codeを実行しました。")
             print(f"_video.pyの関数get_lang_codeを実行しました。")
             print(f"_video.pyの関数get_lang_codeを実行しました。")
+            print(f"_video.pyの関数get_lang_codeを実行しました。")
             return (remove_start(track.get('vssId') or '', '.').replace('.', '-')
                     or track.get('languageCode'))
 
         def process_language(container, base_url, lang_code, sub_name, client_name, query):
+            print(f"_video.pyの関数process_languageを実行しました。")
             print(f"_video.pyの関数process_languageを実行しました。")
             print(f"_video.pyの関数process_languageを実行しました。")
             print(f"_video.pyの関数process_languageを実行しました。")
@@ -4769,6 +4831,7 @@ class YoutubeIE(YoutubeBaseInfoExtractor):
                 })
 
         def set_audio_lang_from_orig_subs_lang(lang_code):
+            print(f"_video.pyの関数set_audio_lang_from_orig_subs_langを実行しました。")
             print(f"_video.pyの関数set_audio_lang_from_orig_subs_langを実行しました。")
             print(f"_video.pyの関数set_audio_lang_from_orig_subs_langを実行しました。")
             print(f"_video.pyの関数set_audio_lang_from_orig_subs_langを実行しました。")

@@ -41,6 +41,7 @@ class TVCIE(InfoExtractor):
         print(f"tvc.pyの関数_real_extractを実行しました。")
         print(f"tvc.pyの関数_real_extractを実行しました。")
         print(f"tvc.pyの関数_real_extractを実行しました。")
+        print(f"tvc.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         video = self._download_json(

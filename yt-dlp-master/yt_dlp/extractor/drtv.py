@@ -144,6 +144,7 @@ class DRTVIE(InfoExtractor):
         print(f"drtv.pyの関数_real_initializeを実行しました。")
         print(f"drtv.pyの関数_real_initializeを実行しました。")
         print(f"drtv.pyの関数_real_initializeを実行しました。")
+        print(f"drtv.pyの関数_real_initializeを実行しました。")
         if self._TOKEN:
             return
 
@@ -167,6 +168,7 @@ class DRTVIE(InfoExtractor):
             raise ExtractorError('Unable to get anonymous token')
 
     def _real_extract(self, url):
+        print(f"drtv.pyの関数_real_extractを実行しました。")
         print(f"drtv.pyの関数_real_extractを実行しました。")
         print(f"drtv.pyの関数_real_extractを実行しました。")
         print(f"drtv.pyの関数_real_extractを実行しました。")

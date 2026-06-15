@@ -26,6 +26,7 @@ class KhanAcademyBaseIE(InfoExtractor):
         print(f"khanacademy.pyの関数_parse_videoを実行しました。")
         print(f"khanacademy.pyの関数_parse_videoを実行しました。")
         print(f"khanacademy.pyの関数_parse_videoを実行しました。")
+        print(f"khanacademy.pyの関数_parse_videoを実行しました。")
         return {
             '_type': 'url_transparent',
             'url': video['youtubeId'],
@@ -41,6 +42,7 @@ class KhanAcademyBaseIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"khanacademy.pyの関数_real_extractを実行しました。")
         print(f"khanacademy.pyの関数_real_extractを実行しました。")
         print(f"khanacademy.pyの関数_real_extractを実行しました。")
         print(f"khanacademy.pyの関数_real_extractを実行しました。")
@@ -116,6 +118,7 @@ class KhanAcademyIE(KhanAcademyBaseIE):
         print(f"khanacademy.pyの関数_parse_component_propsを実行しました。")
         print(f"khanacademy.pyの関数_parse_component_propsを実行しました。")
         print(f"khanacademy.pyの関数_parse_component_propsを実行しました。")
+        print(f"khanacademy.pyの関数_parse_component_propsを実行しました。")
         video = component_props['content']
         return {
             **self._parse_video(video),
@@ -158,6 +161,7 @@ class KhanAcademyUnitIE(KhanAcademyBaseIE):
             'unitChildren', lambda _, v: v['relativeUrl'] == f'/{display_id}', any)) or course
 
         def build_entry(entry):
+            print(f"khanacademy.pyの関数build_entryを実行しました。")
             print(f"khanacademy.pyの関数build_entryを実行しました。")
             print(f"khanacademy.pyの関数build_entryを実行しました。")
             print(f"khanacademy.pyの関数build_entryを実行しました。")

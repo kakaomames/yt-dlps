@@ -65,6 +65,7 @@ def _determine_runtime_path(path, basename):
     print(f"_jsruntime.pyの関数_determine_runtime_pathを実行しました。")
     print(f"_jsruntime.pyの関数_determine_runtime_pathを実行しました。")
     print(f"_jsruntime.pyの関数_determine_runtime_pathを実行しました。")
+    print(f"_jsruntime.pyの関数_determine_runtime_pathを実行しました。")
     if not path:
         return _find_exe(basename)
     if os.path.isdir(path):
@@ -91,6 +92,7 @@ class JsRuntime(abc.ABC):
         print(f"_jsruntime.pyの関数__init__を実行しました。")
         print(f"_jsruntime.pyの関数__init__を実行しました。")
         print(f"_jsruntime.pyの関数__init__を実行しました。")
+        print(f"_jsruntime.pyの関数__init__を実行しました。")
         self._path = path
 
     @functools.cached_property
@@ -106,6 +108,7 @@ class DenoJsRuntime(JsRuntime):
     MIN_SUPPORTED_VERSION = (2, 3, 0)
 
     def _info(self):
+        print(f"_jsruntime.pyの関数_infoを実行しました。")
         print(f"_jsruntime.pyの関数_infoを実行しました。")
         print(f"_jsruntime.pyの関数_infoを実行しました。")
         print(f"_jsruntime.pyの関数_infoを実行しました。")

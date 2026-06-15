@@ -31,6 +31,7 @@ class GoToStageIE(InfoExtractor):
         print(f"gotostage.pyの関数_real_extractを実行しました。")
         print(f"gotostage.pyの関数_real_extractを実行しました。")
         print(f"gotostage.pyの関数_real_extractを実行しました。")
+        print(f"gotostage.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         metadata = self._download_json(
             f'https://api.gotostage.com/contents?ids={video_id}',

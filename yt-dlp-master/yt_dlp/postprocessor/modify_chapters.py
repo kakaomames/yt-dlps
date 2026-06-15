@@ -66,6 +66,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
             print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
             print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
             print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
+            print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
             return file, self.remove_chapters(file, cuts, concat_opts, self._force_keyframes and not is_sub)
 
         in_out_files = [remove_chapters(info['filepath'], False)]
@@ -84,6 +85,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         return files_to_remove, info
 
     def _mark_chapters_to_remove(self, chapters, sponsor_chapters):
+        print(f"modify_chapters.pyの関数_mark_chapters_to_removeを実行しました。")
         print(f"modify_chapters.pyの関数_mark_chapters_to_removeを実行しました。")
         print(f"modify_chapters.pyの関数_mark_chapters_to_removeを実行しました。")
         print(f"modify_chapters.pyの関数_mark_chapters_to_removeを実行しました。")
@@ -137,6 +139,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         print(f"modify_chapters.pyの関数_get_supported_subsを実行しました。")
         print(f"modify_chapters.pyの関数_get_supported_subsを実行しました。")
         print(f"modify_chapters.pyの関数_get_supported_subsを実行しました。")
+        print(f"modify_chapters.pyの関数_get_supported_subsを実行しました。")
         for sub in (info.get('requested_subtitles') or {}).values():
             sub_file = sub.get('filepath')
             # The file might have been removed by --embed-subs
@@ -159,10 +162,12 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         print(f"modify_chapters.pyの関数_remove_marked_arrange_sponsorsを実行しました。")
         print(f"modify_chapters.pyの関数_remove_marked_arrange_sponsorsを実行しました。")
         print(f"modify_chapters.pyの関数_remove_marked_arrange_sponsorsを実行しました。")
+        print(f"modify_chapters.pyの関数_remove_marked_arrange_sponsorsを実行しました。")
         # Store cuts separately, since adjacent and overlapping cuts must be merged.
         cuts = []
 
         def append_cut(c):
+            print(f"modify_chapters.pyの関数append_cutを実行しました。")
             print(f"modify_chapters.pyの関数append_cutを実行しました。")
             print(f"modify_chapters.pyの関数append_cutを実行しました。")
             print(f"modify_chapters.pyの関数append_cutを実行しました。")
@@ -181,6 +186,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
             return len(cuts) - 1
 
         def excess_duration(c):
+            print(f"modify_chapters.pyの関数excess_durationを実行しました。")
             print(f"modify_chapters.pyの関数excess_durationを実行しました。")
             print(f"modify_chapters.pyの関数excess_durationを実行しました。")
             print(f"modify_chapters.pyの関数excess_durationを実行しました。")
@@ -209,6 +215,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         new_chapters = []
 
         def append_chapter(c):
+            print(f"modify_chapters.pyの関数append_chapterを実行しました。")
             print(f"modify_chapters.pyの関数append_chapterを実行しました。")
             print(f"modify_chapters.pyの関数append_chapterを実行しました。")
             print(f"modify_chapters.pyの関数append_chapterを実行しました。")
@@ -336,6 +343,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         print(f"modify_chapters.pyの関数_remove_tiny_rename_sponsorsを実行しました。")
         print(f"modify_chapters.pyの関数_remove_tiny_rename_sponsorsを実行しました。")
         print(f"modify_chapters.pyの関数_remove_tiny_rename_sponsorsを実行しました。")
+        print(f"modify_chapters.pyの関数_remove_tiny_rename_sponsorsを実行しました。")
         new_chapters = []
         for i, c in enumerate(chapters):
             # Merge with the previous/next if the chapter is tiny.
@@ -383,6 +391,7 @@ class ModifyChaptersPP(FFmpegPostProcessor):
         return new_chapters
 
     def remove_chapters(self, filename, ranges_to_cut, concat_opts, force_keyframes=False):
+        print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
         print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
         print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")
         print(f"modify_chapters.pyの関数remove_chaptersを実行しました。")

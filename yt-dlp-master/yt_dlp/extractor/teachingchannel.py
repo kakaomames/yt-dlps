@@ -32,6 +32,7 @@ class TeachingChannelIE(InfoExtractor):
         print(f"teachingchannel.pyの関数_real_extractを実行しました。")
         print(f"teachingchannel.pyの関数_real_extractを実行しました。")
         print(f"teachingchannel.pyの関数_real_extractを実行しました。")
+        print(f"teachingchannel.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         mid = self._search_regex(

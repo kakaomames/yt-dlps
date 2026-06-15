@@ -112,6 +112,7 @@ class BpbIE(InfoExtractor):
         print(f"bpb.pyの関数_parse_vue_attributesを実行しました。")
         print(f"bpb.pyの関数_parse_vue_attributesを実行しました。")
         print(f"bpb.pyの関数_parse_vue_attributesを実行しました。")
+        print(f"bpb.pyの関数_parse_vue_attributesを実行しました。")
         attributes = extract_attributes(self._search_regex(rf'(<{name}(?:"[^"]*?"|[^>])*>)', string, name))
 
         for key, value in attributes.items():
@@ -121,6 +122,7 @@ class BpbIE(InfoExtractor):
         return attributes
 
     def _process_source(self, source):
+        print(f"bpb.pyの関数_process_sourceを実行しました。")
         print(f"bpb.pyの関数_process_sourceを実行しました。")
         print(f"bpb.pyの関数_process_sourceを実行しました。")
         print(f"bpb.pyの関数_process_sourceを実行しました。")
@@ -149,6 +151,7 @@ class BpbIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"bpb.pyの関数_real_extractを実行しました。")
         print(f"bpb.pyの関数_real_extractを実行しました。")
         print(f"bpb.pyの関数_real_extractを実行しました。")
         print(f"bpb.pyの関数_real_extractを実行しました。")

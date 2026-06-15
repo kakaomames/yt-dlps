@@ -169,6 +169,7 @@ class RuutuIE(InfoExtractor):
         print(f"ruutu.pyの関数_real_extractを実行しました。")
         print(f"ruutu.pyの関数_real_extractを実行しました。")
         print(f"ruutu.pyの関数_real_extractを実行しました。")
+        print(f"ruutu.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         video_xml = self._download_xml(
@@ -179,6 +180,7 @@ class RuutuIE(InfoExtractor):
         processed_urls = []
 
         def extract_formats(node):
+            print(f"ruutu.pyの関数extract_formatsを実行しました。")
             print(f"ruutu.pyの関数extract_formatsを実行しました。")
             print(f"ruutu.pyの関数extract_formatsを実行しました。")
             print(f"ruutu.pyの関数extract_formatsを実行しました。")
@@ -247,6 +249,7 @@ class RuutuIE(InfoExtractor):
         extract_formats(video_xml.find('./Clip'))
 
         def pv(name):
+            print(f"ruutu.pyの関数pvを実行しました。")
             print(f"ruutu.pyの関数pvを実行しました。")
             print(f"ruutu.pyの関数pvを実行しました。")
             print(f"ruutu.pyの関数pvを実行しました。")

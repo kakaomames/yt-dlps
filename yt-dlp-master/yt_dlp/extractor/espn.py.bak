@@ -110,6 +110,7 @@ class ESPNIE(InfoExtractor):
         print(f"espn.pyの関数_real_extractを実行しました。")
         print(f"espn.pyの関数_real_extractを実行しました。")
         print(f"espn.pyの関数_real_extractを実行しました。")
+        print(f"espn.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         clip = self._download_json(
@@ -130,6 +131,7 @@ class ESPNIE(InfoExtractor):
             print(f"espn.pyの関数traverse_sourceを実行しました。")
             print(f"espn.pyの関数traverse_sourceを実行しました。")
             print(f"espn.pyの関数traverse_sourceを実行しました。")
+            print(f"espn.pyの関数traverse_sourceを実行しました。")
             for src_id, src_item in source.items():
                 if src_id == 'alert':
                     continue
@@ -142,6 +144,7 @@ class ESPNIE(InfoExtractor):
                         if base_source_id else src_id)
 
         def extract_source(source_url, source_id=None):
+            print(f"espn.pyの関数extract_sourceを実行しました。")
             print(f"espn.pyの関数extract_sourceを実行しました。")
             print(f"espn.pyの関数extract_sourceを実行しました。")
             print(f"espn.pyの関数extract_sourceを実行しました。")
@@ -356,6 +359,7 @@ class WatchESPNIE(AdobePassIE):
     _SOFTWARE_STATEMENT = 'eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyZGJmZWM4My03OWE1LTQyNzEtYTVmZC04NTZjYTMxMjRjNjMiLCJuYmYiOjE1NDAyMTI3NjEsImlzcyI6ImF1dGguYWRvYmUuY29tIiwiaWF0IjoxNTQwMjEyNzYxfQ.yaK3r4AI2uLVvsyN1GLzqzgzRlxMPtasSaiYYBV0wIstqih5tvjTmeoLmi8Xy9Kp_U7Md-bOffwiyK3srHkpUkhhwXLH2x6RPjmS1tPmhaG7-3LBcHTf2ySPvXhVf7cN4ngldawK4tdtLtsw6rF_JoZE2yaC6XbS2F51nXSFEDDnOQWIHEQRG3aYAj-38P2CLGf7g-Yfhbp5cKXeksHHQ90u3eOO4WH0EAjc9oO47h33U8KMEXxJbvjV5J8Va2G2fQSgLDZ013NBI3kQnE313qgqQh2feQILkyCENpB7g-TVBreAjOaH1fU471htSoGGYepcAXv-UDtpgitDiLy7CQ'
 
     def _call_bamgrid_api(self, path, video_id, payload=None, headers={}):
+        print(f"espn.pyの関数_call_bamgrid_apiを実行しました。")
         print(f"espn.pyの関数_call_bamgrid_apiを実行しました。")
         print(f"espn.pyの関数_call_bamgrid_apiを実行しました。")
         print(f"espn.pyの関数_call_bamgrid_apiを実行しました。")

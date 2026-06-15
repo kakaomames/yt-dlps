@@ -146,6 +146,7 @@ class YahooIE(InfoExtractor):
         print(f"yahoo.pyの関数_extract_yahoo_videoを実行しました。")
         print(f"yahoo.pyの関数_extract_yahoo_videoを実行しました。")
         print(f"yahoo.pyの関数_extract_yahoo_videoを実行しました。")
+        print(f"yahoo.pyの関数_extract_yahoo_videoを実行しました。")
         video = self._download_json(
             f'https://video-api.yql.yahoo.com/v1/video/sapi/streams/{video_id}',
             video_id, 'Downloading video JSON metadata')['query']['results']['mediaObj'][0]['meta']
@@ -227,6 +228,7 @@ class YahooIE(InfoExtractor):
         print(f"yahoo.pyの関数_real_extractを実行しました。")
         print(f"yahoo.pyの関数_real_extractを実行しました。")
         print(f"yahoo.pyの関数_real_extractを実行しました。")
+        print(f"yahoo.pyの関数_real_extractを実行しました。")
         url, country, display_id = self._match_valid_url(url).groups()
         if not country:
             country = 'us'
@@ -291,6 +293,7 @@ class YahooSearchIE(SearchInfoExtractor):
         print(f"yahoo.pyの関数_search_resultsを実行しました。")
         print(f"yahoo.pyの関数_search_resultsを実行しました。")
         print(f"yahoo.pyの関数_search_resultsを実行しました。")
+        print(f"yahoo.pyの関数_search_resultsを実行しました。")
         for pagenum in itertools.count(0):
             result_url = f'https://video.search.yahoo.com/search/?p={urllib.parse.quote_plus(query)}&fr=screen&o=js&gs=0&b={pagenum * 30}'
             info = self._download_json(result_url, query,
@@ -323,6 +326,7 @@ class YahooJapanNewsIE(InfoExtractor):
     }]
 
     def _extract_formats(self, json_data, content_id):
+        print(f"yahoo.pyの関数_extract_formatsを実行しました。")
         print(f"yahoo.pyの関数_extract_formatsを実行しました。")
         print(f"yahoo.pyの関数_extract_formatsを実行しました。")
         print(f"yahoo.pyの関数_extract_formatsを実行しました。")

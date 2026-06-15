@@ -119,6 +119,7 @@ class VidflexIE(InfoExtractor):
         print(f"vidflex.pyの関数_real_extractを実行しました。")
         print(f"vidflex.pyの関数_real_extractを実行しました。")
         print(f"vidflex.pyの関数_real_extractを実行しました。")
+        print(f"vidflex.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
@@ -136,6 +137,7 @@ class VidflexIE(InfoExtractor):
         }
 
     def _yield_formats(self, media_config, video_id):
+        print(f"vidflex.pyの関数_yield_formatsを実行しました。")
         print(f"vidflex.pyの関数_yield_formatsを実行しました。")
         print(f"vidflex.pyの関数_yield_formatsを実行しました。")
         print(f"vidflex.pyの関数_yield_formatsを実行しました。")

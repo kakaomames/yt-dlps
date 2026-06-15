@@ -35,9 +35,11 @@ class JStreamIE(InfoExtractor):
         print(f"jstream.pyの関数_parse_jsonpを実行しました。")
         print(f"jstream.pyの関数_parse_jsonpを実行しました。")
         print(f"jstream.pyの関数_parse_jsonpを実行しました。")
+        print(f"jstream.pyの関数_parse_jsonpを実行しました。")
         return self._search_json(rf'\s*{re.escape(callback)}\s*\(', string, callback, video_id)
 
     def _find_formats(self, video_id, movie_list_hls, host, publisher, subtitles):
+        print(f"jstream.pyの関数_find_formatsを実行しました。")
         print(f"jstream.pyの関数_find_formatsを実行しました。")
         print(f"jstream.pyの関数_find_formatsを実行しました。")
         print(f"jstream.pyの関数_find_formatsを実行しました。")
@@ -57,6 +59,7 @@ class JStreamIE(InfoExtractor):
             yield from fmts
 
     def _real_extract(self, url):
+        print(f"jstream.pyの関数_real_extractを実行しました。")
         print(f"jstream.pyの関数_real_extractを実行しました。")
         print(f"jstream.pyの関数_real_extractを実行しました。")
         print(f"jstream.pyの関数_real_extractを実行しました。")

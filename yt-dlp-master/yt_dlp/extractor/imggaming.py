@@ -28,12 +28,14 @@ class ImgGamingBaseIE(InfoExtractor):
         print(f"imggaming.pyの関数_initialize_pre_loginを実行しました。")
         print(f"imggaming.pyの関数_initialize_pre_loginを実行しました。")
         print(f"imggaming.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"imggaming.pyの関数_initialize_pre_loginを実行しました。")
         self._HEADERS = {
             'Realm': 'dce.' + self._REALM,
             'x-api-key': self._API_KEY,
         }
 
     def _perform_login(self, username, password):
+        print(f"imggaming.pyの関数_perform_loginを実行しました。")
         print(f"imggaming.pyの関数_perform_loginを実行しました。")
         print(f"imggaming.pyの関数_perform_loginを実行しました。")
         print(f"imggaming.pyの関数_perform_loginを実行しました。")
@@ -62,6 +64,7 @@ class ImgGamingBaseIE(InfoExtractor):
         print(f"imggaming.pyの関数_real_initializeを実行しました。")
         print(f"imggaming.pyの関数_real_initializeを実行しました。")
         print(f"imggaming.pyの関数_real_initializeを実行しました。")
+        print(f"imggaming.pyの関数_real_initializeを実行しました。")
         if not self._HEADERS.get('Authorization'):
             self.raise_login_required(method='password')
 
@@ -75,10 +78,12 @@ class ImgGamingBaseIE(InfoExtractor):
         print(f"imggaming.pyの関数_call_apiを実行しました。")
         print(f"imggaming.pyの関数_call_apiを実行しました。")
         print(f"imggaming.pyの関数_call_apiを実行しました。")
+        print(f"imggaming.pyの関数_call_apiを実行しました。")
         return self._download_json(
             self._API_BASE + path + media_id, media_id, headers=self._HEADERS)
 
     def _extract_dve_api_url(self, media_id, media_type):
+        print(f"imggaming.pyの関数_extract_dve_api_urlを実行しました。")
         print(f"imggaming.pyの関数_extract_dve_api_urlを実行しました。")
         print(f"imggaming.pyの関数_extract_dve_api_urlを実行しました。")
         print(f"imggaming.pyの関数_extract_dve_api_urlを実行しました。")
@@ -104,6 +109,7 @@ class ImgGamingBaseIE(InfoExtractor):
             raise
 
     def _real_extract(self, url):
+        print(f"imggaming.pyの関数_real_extractを実行しました。")
         print(f"imggaming.pyの関数_real_extractを実行しました。")
         print(f"imggaming.pyの関数_real_extractを実行しました。")
         print(f"imggaming.pyの関数_real_extractを実行しました。")

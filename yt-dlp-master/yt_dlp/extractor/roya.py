@@ -35,6 +35,7 @@ class RoyaLiveIE(InfoExtractor):
         print(f"roya.pyの関数_real_extractを実行しました。")
         print(f"roya.pyの関数_real_extractを実行しました。")
         print(f"roya.pyの関数_real_extractを実行しました。")
+        print(f"roya.pyの関数_real_extractを実行しました。")
         media_id = self._match_id(url)
 
         stream_url = self._download_json(

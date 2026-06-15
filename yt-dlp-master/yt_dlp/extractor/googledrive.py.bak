@@ -121,6 +121,7 @@ class GoogleDriveIE(InfoExtractor):
         print(f"googledrive.pyの関数_get_subtitlesを実行しました。")
         print(f"googledrive.pyの関数_get_subtitlesを実行しました。")
         print(f"googledrive.pyの関数_get_subtitlesを実行しました。")
+        print(f"googledrive.pyの関数_get_subtitlesを実行しました。")
         subtitles = {}
         timed_text_base_url = traverse_obj(video_info, ('timedTextDetails', 'timedTextBaseUrl', {url_or_none}))
         if not timed_text_base_url:
@@ -145,6 +146,7 @@ class GoogleDriveIE(InfoExtractor):
         return subtitles
 
     def _real_extract(self, url):
+        print(f"googledrive.pyの関数_real_extractを実行しました。")
         print(f"googledrive.pyの関数_real_extractを実行しました。")
         print(f"googledrive.pyの関数_real_extractを実行しました。")
         print(f"googledrive.pyの関数_real_extractを実行しました。")
@@ -200,12 +202,14 @@ class GoogleDriveIE(InfoExtractor):
             print(f"googledrive.pyの関数request_source_fileを実行しました。")
             print(f"googledrive.pyの関数request_source_fileを実行しました。")
             print(f"googledrive.pyの関数request_source_fileを実行しました。")
+            print(f"googledrive.pyの関数request_source_fileを実行しました。")
             return self._request_webpage(
                 source_url, video_id, note=f'Requesting {kind} file',
                 errnote=f'Unable to request {kind} file', fatal=False, data=data)
         urlh = request_source_file(source_url, 'source')
         if urlh:
             def add_source_format(urlh):
+                print(f"googledrive.pyの関数add_source_formatを実行しました。")
                 print(f"googledrive.pyの関数add_source_formatを実行しました。")
                 print(f"googledrive.pyの関数add_source_formatを実行しました。")
                 print(f"googledrive.pyの関数add_source_formatを実行しました。")
@@ -297,6 +301,7 @@ GET %s
         print(f"googledrive.pyの関数_call_apiを実行しました。")
         print(f"googledrive.pyの関数_call_apiを実行しました。")
         print(f"googledrive.pyの関数_call_apiを実行しました。")
+        print(f"googledrive.pyの関数_call_apiを実行しました。")
         response = self._download_webpage(
             'https://clients6.google.com/batch/drive/v2beta',
             folder_id, data=data.encode(),
@@ -310,6 +315,7 @@ GET %s
         return self._search_json('', response, 'api response', folder_id, **kwargs) or {}
 
     def _get_folder_items(self, folder_id, key):
+        print(f"googledrive.pyの関数_get_folder_itemsを実行しました。")
         print(f"googledrive.pyの関数_get_folder_itemsを実行しました。")
         print(f"googledrive.pyの関数_get_folder_itemsを実行しました。")
         print(f"googledrive.pyの関数_get_folder_itemsを実行しました。")

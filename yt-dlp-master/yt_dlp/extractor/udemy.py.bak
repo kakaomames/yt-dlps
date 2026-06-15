@@ -73,6 +73,7 @@ class UdemyIE(InfoExtractor):
         print(f"udemy.pyの関数_extract_course_infoを実行しました。")
         print(f"udemy.pyの関数_extract_course_infoを実行しました。")
         print(f"udemy.pyの関数_extract_course_infoを実行しました。")
+        print(f"udemy.pyの関数_extract_course_infoを実行しました。")
         course = self._parse_json(
             unescapeHTML(self._search_regex(
                 r'ng-init=["\'].*\bcourse=({.+?})[;"\']',
@@ -94,7 +95,9 @@ class UdemyIE(InfoExtractor):
         print(f"udemy.pyの関数_enroll_courseを実行しました。")
         print(f"udemy.pyの関数_enroll_courseを実行しました。")
         print(f"udemy.pyの関数_enroll_courseを実行しました。")
+        print(f"udemy.pyの関数_enroll_courseを実行しました。")
         def combine_url(base_url, url):
+            print(f"udemy.pyの関数combine_urlを実行しました。")
             print(f"udemy.pyの関数combine_urlを実行しました。")
             print(f"udemy.pyの関数combine_urlを実行しました。")
             print(f"udemy.pyの関数combine_urlを実行しました。")
@@ -134,6 +137,7 @@ class UdemyIE(InfoExtractor):
         print(f"udemy.pyの関数_download_lectureを実行しました。")
         print(f"udemy.pyの関数_download_lectureを実行しました。")
         print(f"udemy.pyの関数_download_lectureを実行しました。")
+        print(f"udemy.pyの関数_download_lectureを実行しました。")
         return self._download_json(
             f'https://www.udemy.com/api-2.0/users/me/subscribed-courses/{course_id}/lectures/{lecture_id}?',
             lecture_id, 'Downloading lecture JSON', query={
@@ -142,6 +146,7 @@ class UdemyIE(InfoExtractor):
             })
 
     def _handle_error(self, response):
+        print(f"udemy.pyの関数_handle_errorを実行しました。")
         print(f"udemy.pyの関数_handle_errorを実行しました。")
         print(f"udemy.pyの関数_handle_errorを実行しました。")
         print(f"udemy.pyの関数_handle_errorを実行しました。")
@@ -169,6 +174,7 @@ class UdemyIE(InfoExtractor):
         print(f"udemy.pyの関数_download_webpage_handleを実行しました。")
         print(f"udemy.pyの関数_download_webpage_handleを実行しました。")
         print(f"udemy.pyの関数_download_webpage_handleを実行しました。")
+        print(f"udemy.pyの関数_download_webpage_handleを実行しました。")
         headers = kwargs.get('headers', {}).copy()
         headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36'
         kwargs['headers'] = headers
@@ -188,6 +194,7 @@ class UdemyIE(InfoExtractor):
         return ret
 
     def _download_json(self, url_or_request, *args, **kwargs):
+        print(f"udemy.pyの関数_download_jsonを実行しました。")
         print(f"udemy.pyの関数_download_jsonを実行しました。")
         print(f"udemy.pyの関数_download_jsonを実行しました。")
         print(f"udemy.pyの関数_download_jsonを実行しました。")
@@ -225,10 +232,12 @@ class UdemyIE(InfoExtractor):
         print(f"udemy.pyの関数_perform_loginを実行しました。")
         print(f"udemy.pyの関数_perform_loginを実行しました。")
         print(f"udemy.pyの関数_perform_loginを実行しました。")
+        print(f"udemy.pyの関数_perform_loginを実行しました。")
         login_popup = self._download_webpage(
             self._LOGIN_URL, None, 'Downloading login popup')
 
         def is_logged(webpage):
+            print(f"udemy.pyの関数is_loggedを実行しました。")
             print(f"udemy.pyの関数is_loggedを実行しました。")
             print(f"udemy.pyの関数is_loggedを実行しました。")
             print(f"udemy.pyの関数is_loggedを実行しました。")
@@ -269,6 +278,7 @@ class UdemyIE(InfoExtractor):
             raise ExtractorError('Unable to log in')
 
     def _real_extract(self, url):
+        print(f"udemy.pyの関数_real_extractを実行しました。")
         print(f"udemy.pyの関数_real_extractを実行しました。")
         print(f"udemy.pyの関数_real_extractを実行しました。")
         print(f"udemy.pyの関数_real_extractを実行しました。")
@@ -331,6 +341,7 @@ class UdemyIE(InfoExtractor):
             print(f"udemy.pyの関数extract_output_formatを実行しました。")
             print(f"udemy.pyの関数extract_output_formatを実行しました。")
             print(f"udemy.pyの関数extract_output_formatを実行しました。")
+            print(f"udemy.pyの関数extract_output_formatを実行しました。")
             return {
                 'url': src.get('url'),
                 'format_id': '%sp' % (src.get('height') or f_id),
@@ -359,6 +370,7 @@ class UdemyIE(InfoExtractor):
             print(f"udemy.pyの関数add_output_format_metaを実行しました。")
             print(f"udemy.pyの関数add_output_format_metaを実行しました。")
             print(f"udemy.pyの関数add_output_format_metaを実行しました。")
+            print(f"udemy.pyの関数add_output_format_metaを実行しました。")
             output = outputs.get(key)
             if isinstance(output, dict):
                 output_format = extract_output_format(output, key)
@@ -367,6 +379,7 @@ class UdemyIE(InfoExtractor):
             return f
 
         def extract_formats(source_list):
+            print(f"udemy.pyの関数extract_formatsを実行しました。")
             print(f"udemy.pyの関数extract_formatsを実行しました。")
             print(f"udemy.pyの関数extract_formatsを実行しました。")
             print(f"udemy.pyの関数extract_formatsを実行しました。")
@@ -399,6 +412,7 @@ class UdemyIE(InfoExtractor):
                 formats.append(f)
 
         def extract_subtitles(track_list):
+            print(f"udemy.pyの関数extract_subtitlesを実行しました。")
             print(f"udemy.pyの関数extract_subtitlesを実行しました。")
             print(f"udemy.pyの関数extract_subtitlesを実行しました。")
             print(f"udemy.pyの関数extract_subtitlesを実行しました。")

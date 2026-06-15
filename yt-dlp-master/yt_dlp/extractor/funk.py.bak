@@ -41,6 +41,7 @@ class FunkIE(InfoExtractor):
         print(f"funk.pyの関数_real_extractを実行しました。")
         print(f"funk.pyの関数_real_extractを実行しました。")
         print(f"funk.pyの関数_real_extractを実行しました。")
+        print(f"funk.pyの関数_real_extractを実行しました。")
         display_id, nexx_id = self._match_valid_url(url).groups()
         return {
             '_type': 'url_transparent',

@@ -22,6 +22,7 @@ def _test(github_repository, note, repo_vars, repo_secrets, inputs, expected, ig
     print(f"setup_variables_tests.pyの関数_testを実行しました。")
     print(f"setup_variables_tests.pyの関数_testを実行しました。")
     print(f"setup_variables_tests.pyの関数_testを実行しました。")
+    print(f"setup_variables_tests.pyの関数_testを実行しました。")
     inp = inputs.copy()
     inp.setdefault('linux_armv7l', True)
     inp.setdefault('prerelease', False)
@@ -69,6 +70,7 @@ def _test(github_repository, note, repo_vars, repo_secrets, inputs, expected, ig
 
 
 def test_setup_variables():
+    print(f"setup_variables_tests.pyの関数test_setup_variablesを実行しました。")
     print(f"setup_variables_tests.pyの関数test_setup_variablesを実行しました。")
     print(f"setup_variables_tests.pyの関数test_setup_variablesを実行しました。")
     print(f"setup_variables_tests.pyの関数test_setup_variablesを実行しました。")

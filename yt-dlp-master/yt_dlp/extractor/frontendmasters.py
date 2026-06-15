@@ -32,6 +32,7 @@ class FrontendMastersBaseIE(InfoExtractor):
         print(f"frontendmasters.pyの関数_perform_loginを実行しました。")
         print(f"frontendmasters.pyの関数_perform_loginを実行しました。")
         print(f"frontendmasters.pyの関数_perform_loginを実行しました。")
+        print(f"frontendmasters.pyの関数_perform_loginを実行しました。")
         login_page = self._download_webpage(
             self._LOGIN_URL, None, 'Downloading login page')
 
@@ -68,6 +69,7 @@ class FrontendMastersBaseIE(InfoExtractor):
 
 class FrontendMastersPageBaseIE(FrontendMastersBaseIE):
     def _download_course(self, course_name, url):
+        print(f"frontendmasters.pyの関数_download_courseを実行しました。")
         print(f"frontendmasters.pyの関数_download_courseを実行しました。")
         print(f"frontendmasters.pyの関数_download_courseを実行しました。")
         print(f"frontendmasters.pyの関数_download_courseを実行しました。")
@@ -147,6 +149,7 @@ class FrontendMastersIE(FrontendMastersBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"frontendmasters.pyの関数_real_extractを実行しました。")
         print(f"frontendmasters.pyの関数_real_extractを実行しました。")
         print(f"frontendmasters.pyの関数_real_extractを実行しました。")
         print(f"frontendmasters.pyの関数_real_extractを実行しました。")

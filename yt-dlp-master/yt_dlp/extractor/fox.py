@@ -68,6 +68,7 @@ class FOXIE(InfoExtractor):
         print(f"fox.pyの関数_call_apiを実行しました。")
         print(f"fox.pyの関数_call_apiを実行しました。")
         print(f"fox.pyの関数_call_apiを実行しました。")
+        print(f"fox.pyの関数_call_apiを実行しました。")
         headers = {
             'X-Api-Key': self._API_KEY,
         }
@@ -100,6 +101,7 @@ class FOXIE(InfoExtractor):
         print(f"fox.pyの関数_real_initializeを実行しました。")
         print(f"fox.pyの関数_real_initializeを実行しました。")
         print(f"fox.pyの関数_real_initializeを実行しました。")
+        print(f"fox.pyの関数_real_initializeを実行しました。")
         if not self._access_token:
             mvpd_auth = self._get_cookies(self._HOME_PAGE_URL).get('mvpd-auth')
             if mvpd_auth:
@@ -112,6 +114,7 @@ class FOXIE(InfoExtractor):
                     }).encode())['accessToken']
 
     def _real_extract(self, url):
+        print(f"fox.pyの関数_real_extractを実行しました。")
         print(f"fox.pyの関数_real_extractを実行しました。")
         print(f"fox.pyの関数_real_extractを実行しました。")
         print(f"fox.pyの関数_real_extractを実行しました。")

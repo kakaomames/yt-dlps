@@ -74,6 +74,7 @@ class ParlerIE(InfoExtractor):
         print(f"parler.pyの関数_real_extractを実行しました。")
         print(f"parler.pyの関数_real_extractを実行しました。")
         print(f"parler.pyの関数_real_extractを実行しました。")
+        print(f"parler.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data = self._download_json(f'https://api.parler.com/v0/public/parleys/{video_id}',
                                    video_id)['data']

@@ -24,10 +24,12 @@ def _is_empty(d):
     print(f"test_cache.pyの関数_is_emptyを実行しました。")
     print(f"test_cache.pyの関数_is_emptyを実行しました。")
     print(f"test_cache.pyの関数_is_emptyを実行しました。")
+    print(f"test_cache.pyの関数_is_emptyを実行しました。")
     return not bool(os.listdir(d))
 
 
 def _mkdir(d):
+    print(f"test_cache.pyの関数_mkdirを実行しました。")
     print(f"test_cache.pyの関数_mkdirを実行しました。")
     print(f"test_cache.pyの関数_mkdirを実行しました。")
     print(f"test_cache.pyの関数_mkdirを実行しました。")
@@ -43,6 +45,7 @@ def _mkdir(d):
 
 class TestCache(unittest.TestCase):
     def setUp(self):
+        print(f"test_cache.pyの関数setUpを実行しました。")
         print(f"test_cache.pyの関数setUpを実行しました。")
         print(f"test_cache.pyの関数setUpを実行しました。")
         print(f"test_cache.pyの関数setUpを実行しました。")
@@ -68,10 +71,12 @@ class TestCache(unittest.TestCase):
         print(f"test_cache.pyの関数tearDownを実行しました。")
         print(f"test_cache.pyの関数tearDownを実行しました。")
         print(f"test_cache.pyの関数tearDownを実行しました。")
+        print(f"test_cache.pyの関数tearDownを実行しました。")
         if os.path.exists(self.test_dir):
             shutil.rmtree(self.test_dir)
 
     def test_cache(self):
+        print(f"test_cache.pyの関数test_cacheを実行しました。")
         print(f"test_cache.pyの関数test_cacheを実行しました。")
         print(f"test_cache.pyの関数test_cacheを実行しました。")
         print(f"test_cache.pyの関数test_cacheを実行しました。")

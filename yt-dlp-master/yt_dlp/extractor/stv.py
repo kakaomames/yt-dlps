@@ -46,6 +46,7 @@ class STVPlayerIE(InfoExtractor):
         print(f"stv.pyの関数_real_extractを実行しました。")
         print(f"stv.pyの関数_real_extractを実行しました。")
         print(f"stv.pyの関数_real_extractを実行しました。")
+        print(f"stv.pyの関数_real_extractを実行しました。")
         ptype, video_id = self._match_valid_url(url).groups()
 
         webpage = self._download_webpage(url, video_id, fatal=False) or ''

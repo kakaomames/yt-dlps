@@ -51,6 +51,7 @@ class VocarooIE(InfoExtractor):
         print(f"vocaroo.pyの関数_real_extractを実行しました。")
         print(f"vocaroo.pyの関数_real_extractを実行しました。")
         print(f"vocaroo.pyの関数_real_extractを実行しました。")
+        print(f"vocaroo.pyの関数_real_extractを実行しました。")
         audio_id = self._match_id(url)
         if len(audio_id) == 10 or (len(audio_id) == 12 and audio_id[0] == '1'):
             media_subdomain = 'media1'

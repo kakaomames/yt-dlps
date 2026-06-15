@@ -40,6 +40,7 @@ class CPACIE(InfoExtractor):
         print(f"cpac.pyの関数_real_extractを実行しました。")
         print(f"cpac.pyの関数_real_extractを実行しました。")
         print(f"cpac.pyの関数_real_extractを実行しました。")
+        print(f"cpac.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         url_lang = 'fr' if '/l-episode?' in url else 'en'
 
@@ -65,6 +66,7 @@ class CPACIE(InfoExtractor):
         category = str_or_none(content['details'][f'category_{url_lang}_t'])
 
         def is_live(v_type):
+            print(f"cpac.pyの関数is_liveを実行しました。")
             print(f"cpac.pyの関数is_liveを実行しました。")
             print(f"cpac.pyの関数is_liveを実行しました。")
             print(f"cpac.pyの関数is_liveを実行しました。")

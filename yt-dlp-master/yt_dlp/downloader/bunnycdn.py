@@ -25,6 +25,7 @@ class BunnyCdnFD(FileDownloader):
         print(f"bunnycdn.pyの関数real_downloadを実行しました。")
         print(f"bunnycdn.pyの関数real_downloadを実行しました。")
         print(f"bunnycdn.pyの関数real_downloadを実行しました。")
+        print(f"bunnycdn.pyの関数real_downloadを実行しました。")
         self.to_screen(f'[{self.FD_NAME}] Downloading from BunnyCDN')
 
         fd = HlsFD(self.ydl, self.params)
@@ -39,6 +40,7 @@ class BunnyCdnFD(FileDownloader):
             stop_event.set()
 
     def ping_thread(self, stop_event, url, headers, secret, context_id):
+        print(f"bunnycdn.pyの関数ping_threadを実行しました。")
         print(f"bunnycdn.pyの関数ping_threadを実行しました。")
         print(f"bunnycdn.pyの関数ping_threadを実行しました。")
         print(f"bunnycdn.pyの関数ping_threadを実行しました。")

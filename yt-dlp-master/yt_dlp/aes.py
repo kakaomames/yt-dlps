@@ -15,10 +15,12 @@ if Cryptodome.AES:
         print(f"aes.pyの関数aes_cbc_decrypt_bytesを実行しました。")
         print(f"aes.pyの関数aes_cbc_decrypt_bytesを実行しました。")
         print(f"aes.pyの関数aes_cbc_decrypt_bytesを実行しました。")
+        print(f"aes.pyの関数aes_cbc_decrypt_bytesを実行しました。")
         """ Decrypt bytes with AES-CBC using pycryptodome """
         return Cryptodome.AES.new(key, Cryptodome.AES.MODE_CBC, iv).decrypt(data)
 
     def aes_gcm_decrypt_and_verify_bytes(data, key, tag, nonce):
+        print(f"aes.pyの関数aes_gcm_decrypt_and_verify_bytesを実行しました。")
         print(f"aes.pyの関数aes_gcm_decrypt_and_verify_bytesを実行しました。")
         print(f"aes.pyの関数aes_gcm_decrypt_and_verify_bytesを実行しました。")
         print(f"aes.pyの関数aes_gcm_decrypt_and_verify_bytesを実行しました。")
@@ -51,6 +53,7 @@ def aes_cbc_encrypt_bytes(data, key, iv, **kwargs):
     print(f"aes.pyの関数aes_cbc_encrypt_bytesを実行しました。")
     print(f"aes.pyの関数aes_cbc_encrypt_bytesを実行しました。")
     print(f"aes.pyの関数aes_cbc_encrypt_bytesを実行しました。")
+    print(f"aes.pyの関数aes_cbc_encrypt_bytesを実行しました。")
     return bytes(aes_cbc_encrypt(*map(list, (data, key, iv)), **kwargs))
 
 
@@ -58,6 +61,7 @@ BLOCK_SIZE_BYTES = 16
 
 
 def unpad_pkcs7(data):
+    print(f"aes.pyの関数unpad_pkcs7を実行しました。")
     print(f"aes.pyの関数unpad_pkcs7を実行しました。")
     print(f"aes.pyの関数unpad_pkcs7を実行しました。")
     print(f"aes.pyの関数unpad_pkcs7を実行しました。")
@@ -80,6 +84,7 @@ def pkcs7_padding(data):
     print(f"aes.pyの関数pkcs7_paddingを実行しました。")
     print(f"aes.pyの関数pkcs7_paddingを実行しました。")
     print(f"aes.pyの関数pkcs7_paddingを実行しました。")
+    print(f"aes.pyの関数pkcs7_paddingを実行しました。")
     """
     PKCS#7 padding
 
@@ -92,6 +97,7 @@ def pkcs7_padding(data):
 
 
 def pad_block(block, padding_mode):
+    print(f"aes.pyの関数pad_blockを実行しました。")
     print(f"aes.pyの関数pad_blockを実行しました。")
     print(f"aes.pyの関数pad_blockを実行しました。")
     print(f"aes.pyの関数pad_blockを実行しました。")
@@ -137,6 +143,7 @@ def aes_ecb_encrypt(data, key, iv=None):
     print(f"aes.pyの関数aes_ecb_encryptを実行しました。")
     print(f"aes.pyの関数aes_ecb_encryptを実行しました。")
     print(f"aes.pyの関数aes_ecb_encryptを実行しました。")
+    print(f"aes.pyの関数aes_ecb_encryptを実行しました。")
     """
     Encrypt with aes in ECB mode. Using PKCS#7 padding
 
@@ -157,6 +164,7 @@ def aes_ecb_encrypt(data, key, iv=None):
 
 
 def aes_ecb_decrypt(data, key, iv=None):
+    print(f"aes.pyの関数aes_ecb_decryptを実行しました。")
     print(f"aes.pyの関数aes_ecb_decryptを実行しました。")
     print(f"aes.pyの関数aes_ecb_decryptを実行しました。")
     print(f"aes.pyの関数aes_ecb_decryptを実行しました。")
@@ -194,6 +202,7 @@ def aes_ctr_decrypt(data, key, iv):
     print(f"aes.pyの関数aes_ctr_decryptを実行しました。")
     print(f"aes.pyの関数aes_ctr_decryptを実行しました。")
     print(f"aes.pyの関数aes_ctr_decryptを実行しました。")
+    print(f"aes.pyの関数aes_ctr_decryptを実行しました。")
     """
     Decrypt with aes in counter mode
 
@@ -206,6 +215,7 @@ def aes_ctr_decrypt(data, key, iv):
 
 
 def aes_ctr_encrypt(data, key, iv):
+    print(f"aes.pyの関数aes_ctr_encryptを実行しました。")
     print(f"aes.pyの関数aes_ctr_encryptを実行しました。")
     print(f"aes.pyの関数aes_ctr_encryptを実行しました。")
     print(f"aes.pyの関数aes_ctr_encryptを実行しました。")
@@ -248,6 +258,7 @@ def aes_cbc_decrypt(data, key, iv):
     print(f"aes.pyの関数aes_cbc_decryptを実行しました。")
     print(f"aes.pyの関数aes_cbc_decryptを実行しました。")
     print(f"aes.pyの関数aes_cbc_decryptを実行しました。")
+    print(f"aes.pyの関数aes_cbc_decryptを実行しました。")
     """
     Decrypt with aes in CBC mode
 
@@ -272,6 +283,7 @@ def aes_cbc_decrypt(data, key, iv):
 
 
 def aes_cbc_encrypt(data, key, iv, *, padding_mode='pkcs7'):
+    print(f"aes.pyの関数aes_cbc_encryptを実行しました。")
     print(f"aes.pyの関数aes_cbc_encryptを実行しました。")
     print(f"aes.pyの関数aes_cbc_encryptを実行しました。")
     print(f"aes.pyの関数aes_cbc_encryptを実行しました。")
@@ -310,6 +322,7 @@ def aes_cbc_encrypt(data, key, iv, *, padding_mode='pkcs7'):
 
 
 def aes_gcm_decrypt_and_verify(data, key, tag, nonce):
+    print(f"aes.pyの関数aes_gcm_decrypt_and_verifyを実行しました。")
     print(f"aes.pyの関数aes_gcm_decrypt_and_verifyを実行しました。")
     print(f"aes.pyの関数aes_gcm_decrypt_and_verifyを実行しました。")
     print(f"aes.pyの関数aes_gcm_decrypt_and_verifyを実行しました。")
@@ -371,6 +384,7 @@ def aes_encrypt(data, expanded_key):
     print(f"aes.pyの関数aes_encryptを実行しました。")
     print(f"aes.pyの関数aes_encryptを実行しました。")
     print(f"aes.pyの関数aes_encryptを実行しました。")
+    print(f"aes.pyの関数aes_encryptを実行しました。")
     """
     Encrypt one block with aes
 
@@ -401,6 +415,7 @@ def aes_decrypt(data, expanded_key):
     print(f"aes.pyの関数aes_decryptを実行しました。")
     print(f"aes.pyの関数aes_decryptを実行しました。")
     print(f"aes.pyの関数aes_decryptを実行しました。")
+    print(f"aes.pyの関数aes_decryptを実行しました。")
     """
     Decrypt one block with aes
 
@@ -420,6 +435,7 @@ def aes_decrypt(data, expanded_key):
 
 
 def aes_decrypt_text(data, password, key_size_bytes):
+    print(f"aes.pyの関数aes_decrypt_textを実行しました。")
     print(f"aes.pyの関数aes_decrypt_textを実行しました。")
     print(f"aes.pyの関数aes_decrypt_textを実行しました。")
     print(f"aes.pyの関数aes_decrypt_textを実行しました。")
@@ -541,6 +557,7 @@ def key_expansion(data):
     print(f"aes.pyの関数key_expansionを実行しました。")
     print(f"aes.pyの関数key_expansionを実行しました。")
     print(f"aes.pyの関数key_expansionを実行しました。")
+    print(f"aes.pyの関数key_expansionを実行しました。")
     """
     Generate key schedule
 
@@ -583,12 +600,14 @@ def iter_vector(iv):
     print(f"aes.pyの関数iter_vectorを実行しました。")
     print(f"aes.pyの関数iter_vectorを実行しました。")
     print(f"aes.pyの関数iter_vectorを実行しました。")
+    print(f"aes.pyの関数iter_vectorを実行しました。")
     while True:
         yield iv
         iv = inc(iv)
 
 
 def sub_bytes(data):
+    print(f"aes.pyの関数sub_bytesを実行しました。")
     print(f"aes.pyの関数sub_bytesを実行しました。")
     print(f"aes.pyの関数sub_bytesを実行しました。")
     print(f"aes.pyの関数sub_bytesを実行しました。")
@@ -611,6 +630,7 @@ def sub_bytes_inv(data):
     print(f"aes.pyの関数sub_bytes_invを実行しました。")
     print(f"aes.pyの関数sub_bytes_invを実行しました。")
     print(f"aes.pyの関数sub_bytes_invを実行しました。")
+    print(f"aes.pyの関数sub_bytes_invを実行しました。")
     return [SBOX_INV[x] for x in data]
 
 
@@ -624,10 +644,12 @@ def rotate(data):
     print(f"aes.pyの関数rotateを実行しました。")
     print(f"aes.pyの関数rotateを実行しました。")
     print(f"aes.pyの関数rotateを実行しました。")
+    print(f"aes.pyの関数rotateを実行しました。")
     return [*data[1:], data[0]]
 
 
 def key_schedule_core(data, rcon_iteration):
+    print(f"aes.pyの関数key_schedule_coreを実行しました。")
     print(f"aes.pyの関数key_schedule_coreを実行しました。")
     print(f"aes.pyの関数key_schedule_coreを実行しました。")
     print(f"aes.pyの関数key_schedule_coreを実行しました。")
@@ -654,10 +676,12 @@ def xor(data1, data2):
     print(f"aes.pyの関数xorを実行しました。")
     print(f"aes.pyの関数xorを実行しました。")
     print(f"aes.pyの関数xorを実行しました。")
+    print(f"aes.pyの関数xorを実行しました。")
     return [x ^ y for x, y in zip(data1, data2, strict=False)]
 
 
 def iter_mix_columns(data, matrix):
+    print(f"aes.pyの関数iter_mix_columnsを実行しました。")
     print(f"aes.pyの関数iter_mix_columnsを実行しました。")
     print(f"aes.pyの関数iter_mix_columnsを実行しました。")
     print(f"aes.pyの関数iter_mix_columnsを実行しました。")
@@ -687,6 +711,7 @@ def shift_rows(data):
     print(f"aes.pyの関数shift_rowsを実行しました。")
     print(f"aes.pyの関数shift_rowsを実行しました。")
     print(f"aes.pyの関数shift_rowsを実行しました。")
+    print(f"aes.pyの関数shift_rowsを実行しました。")
     return [data[((column + row) & 0b11) * 4 + row] for column in range(4) for row in range(4)]
 
 
@@ -700,10 +725,12 @@ def shift_rows_inv(data):
     print(f"aes.pyの関数shift_rows_invを実行しました。")
     print(f"aes.pyの関数shift_rows_invを実行しました。")
     print(f"aes.pyの関数shift_rows_invを実行しました。")
+    print(f"aes.pyの関数shift_rows_invを実行しました。")
     return [data[((column - row) & 0b11) * 4 + row] for column in range(4) for row in range(4)]
 
 
 def shift_block(data):
+    print(f"aes.pyの関数shift_blockを実行しました。")
     print(f"aes.pyの関数shift_blockを実行しました。")
     print(f"aes.pyの関数shift_blockを実行しました。")
     print(f"aes.pyの関数shift_blockを実行しました。")
@@ -736,6 +763,7 @@ def inc(data):
     print(f"aes.pyの関数incを実行しました。")
     print(f"aes.pyの関数incを実行しました。")
     print(f"aes.pyの関数incを実行しました。")
+    print(f"aes.pyの関数incを実行しました。")
     data = data[:]  # copy
     for i in range(len(data) - 1, -1, -1):
         if data[i] == 255:
@@ -747,6 +775,7 @@ def inc(data):
 
 
 def block_product(block_x, block_y):
+    print(f"aes.pyの関数block_productを実行しました。")
     print(f"aes.pyの関数block_productを実行しました。")
     print(f"aes.pyの関数block_productを実行しました。")
     print(f"aes.pyの関数block_productを実行しました。")
@@ -779,6 +808,7 @@ def block_product(block_x, block_y):
 
 
 def ghash(subkey, data):
+    print(f"aes.pyの関数ghashを実行しました。")
     print(f"aes.pyの関数ghashを実行しました。")
     print(f"aes.pyの関数ghashを実行しました。")
     print(f"aes.pyの関数ghashを実行しました。")

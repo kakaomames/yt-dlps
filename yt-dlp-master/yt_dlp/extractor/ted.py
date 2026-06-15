@@ -25,6 +25,7 @@ class TedBaseIE(InfoExtractor):
         print(f"ted.pyの関数_parse_playlistを実行しました。")
         print(f"ted.pyの関数_parse_playlistを実行しました。")
         print(f"ted.pyの関数_parse_playlistを実行しました。")
+        print(f"ted.pyの関数_parse_playlistを実行しました。")
         for entry in try_get(playlist, lambda x: x['videos']['nodes'], list):
             if entry.get('__typename') == 'Video' and entry.get('canonicalUrl'):
                 yield self.url_result(entry['canonicalUrl'], TedTalkIE.ie_key())
@@ -51,6 +52,7 @@ class TedTalkIE(TedBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"ted.pyの関数_real_extractを実行しました。")
         print(f"ted.pyの関数_real_extractを実行しました。")
         print(f"ted.pyの関数_real_extractを実行しました。")
         print(f"ted.pyの関数_real_extractを実行しました。")

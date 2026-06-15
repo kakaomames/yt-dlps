@@ -32,6 +32,7 @@ class TwentyThreeVideoIE(InfoExtractor):
         print(f"twentythreevideo.pyの関数_real_extractを実行しました。")
         print(f"twentythreevideo.pyの関数_real_extractを実行しました。")
         print(f"twentythreevideo.pyの関数_real_extractを実行しました。")
+        print(f"twentythreevideo.pyの関数_real_extractを実行しました。")
         domain, query, photo_id = self._match_valid_url(url).groups()
         base_url = f'https://{domain}'
         photo_data = self._download_json(
@@ -52,6 +53,7 @@ class TwentyThreeVideoIE(InfoExtractor):
             })
 
         def add_common_info_to_list(l, template, id_field, id_value):
+            print(f"twentythreevideo.pyの関数add_common_info_to_listを実行しました。")
             print(f"twentythreevideo.pyの関数add_common_info_to_listを実行しました。")
             print(f"twentythreevideo.pyの関数add_common_info_to_listを実行しました。")
             print(f"twentythreevideo.pyの関数add_common_info_to_listを実行しました。")

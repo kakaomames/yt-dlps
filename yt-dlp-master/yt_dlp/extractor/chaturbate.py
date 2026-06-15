@@ -59,6 +59,7 @@ class ChaturbateIE(InfoExtractor):
         print(f"chaturbate.pyの関数_extract_from_apiを実行しました。")
         print(f"chaturbate.pyの関数_extract_from_apiを実行しました。")
         print(f"chaturbate.pyの関数_extract_from_apiを実行しました。")
+        print(f"chaturbate.pyの関数_extract_from_apiを実行しました。")
         response = self._download_json(
             f'https://chaturbate.{tld}/get_edge_hls_url_ajax/', video_id,
             data=urlencode_postdata({'room_slug': video_id}),
@@ -88,6 +89,7 @@ class ChaturbateIE(InfoExtractor):
         }
 
     def _extract_from_html(self, video_id, tld):
+        print(f"chaturbate.pyの関数_extract_from_htmlを実行しました。")
         print(f"chaturbate.pyの関数_extract_from_htmlを実行しました。")
         print(f"chaturbate.pyの関数_extract_from_htmlを実行しました。")
         print(f"chaturbate.pyの関数_extract_from_htmlを実行しました。")
@@ -167,6 +169,7 @@ class ChaturbateIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"chaturbate.pyの関数_real_extractを実行しました。")
         print(f"chaturbate.pyの関数_real_extractを実行しました。")
         print(f"chaturbate.pyの関数_real_extractを実行しました。")
         print(f"chaturbate.pyの関数_real_extractを実行しました。")

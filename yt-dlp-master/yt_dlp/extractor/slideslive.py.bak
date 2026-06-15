@@ -334,6 +334,7 @@ class SlidesLiveIE(InfoExtractor):
         print(f"slideslive.pyの関数_download_embed_webpage_handleを実行しました。")
         print(f"slideslive.pyの関数_download_embed_webpage_handleを実行しました。")
         print(f"slideslive.pyの関数_download_embed_webpage_handleを実行しました。")
+        print(f"slideslive.pyの関数_download_embed_webpage_handleを実行しました。")
         return self._download_webpage_handle(
             f'https://slideslive.com/embed/presentation/{video_id}', video_id,
             headers=headers, query=traverse_obj(headers, {
@@ -342,6 +343,7 @@ class SlidesLiveIE(InfoExtractor):
             }))
 
     def _extract_custom_m3u8_info(self, m3u8_data):
+        print(f"slideslive.pyの関数_extract_custom_m3u8_infoを実行しました。")
         print(f"slideslive.pyの関数_extract_custom_m3u8_infoを実行しました。")
         print(f"slideslive.pyの関数_extract_custom_m3u8_infoを実行しました。")
         print(f"slideslive.pyの関数_extract_custom_m3u8_infoを実行しました。")
@@ -390,6 +392,7 @@ class SlidesLiveIE(InfoExtractor):
         print(f"slideslive.pyの関数_extract_formats_and_durationを実行しました。")
         print(f"slideslive.pyの関数_extract_formats_and_durationを実行しました。")
         print(f"slideslive.pyの関数_extract_formats_and_durationを実行しました。")
+        print(f"slideslive.pyの関数_extract_formats_and_durationを実行しました。")
         formats, duration = [], None
 
         hls_formats = self._extract_m3u8_formats(
@@ -413,6 +416,7 @@ class SlidesLiveIE(InfoExtractor):
         return formats, duration
 
     def _real_extract(self, url):
+        print(f"slideslive.pyの関数_real_extractを実行しました。")
         print(f"slideslive.pyの関数_real_extractを実行しました。")
         print(f"slideslive.pyの関数_real_extractを実行しました。")
         print(f"slideslive.pyの関数_real_extractを実行しました。")
@@ -536,6 +540,7 @@ class SlidesLiveIE(InfoExtractor):
             return info
 
         def entries():
+            print(f"slideslive.pyの関数entriesを実行しました。")
             print(f"slideslive.pyの関数entriesを実行しました。")
             print(f"slideslive.pyの関数entriesを実行しました。")
             print(f"slideslive.pyの関数entriesを実行しました。")

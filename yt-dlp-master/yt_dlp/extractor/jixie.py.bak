@@ -18,6 +18,7 @@ class JixieBaseIE(InfoExtractor):
         print(f"jixie.pyの関数_extract_data_from_jixie_idを実行しました。")
         print(f"jixie.pyの関数_extract_data_from_jixie_idを実行しました。")
         print(f"jixie.pyの関数_extract_data_from_jixie_idを実行しました。")
+        print(f"jixie.pyの関数_extract_data_from_jixie_idを実行しました。")
         json_data = self._download_json(
             'https://apidam.jixie.io/api/public/stream', display_id,
             query={'metadata': 'full', 'video_id': video_id})['data']

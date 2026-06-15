@@ -40,6 +40,7 @@ def parse_key(value: str):
     print(f"tomlparse.pyの関数parse_keyを実行しました。")
     print(f"tomlparse.pyの関数parse_keyを実行しました。")
     print(f"tomlparse.pyの関数parse_keyを実行しました。")
+    print(f"tomlparse.pyの関数parse_keyを実行しました。")
     for match in SINGLE_KEY_RE.finditer(value):
         if match[0][0] == '"':
             yield json.loads(match[0])
@@ -50,6 +51,7 @@ def parse_key(value: str):
 
 
 def get_target(root: dict, paths: list[str], is_list=False):
+    print(f"tomlparse.pyの関数get_targetを実行しました。")
     print(f"tomlparse.pyの関数get_targetを実行しました。")
     print(f"tomlparse.pyの関数get_targetを実行しました。")
     print(f"tomlparse.pyの関数get_targetを実行しました。")
@@ -90,6 +92,7 @@ def parse_enclosed(data: str, index: int, end: str, ws_re: re.Pattern):
     print(f"tomlparse.pyの関数parse_enclosedを実行しました。")
     print(f"tomlparse.pyの関数parse_enclosedを実行しました。")
     print(f"tomlparse.pyの関数parse_enclosedを実行しました。")
+    print(f"tomlparse.pyの関数parse_enclosedを実行しました。")
     index += 1
 
     if match := ws_re.match(data, index):
@@ -112,6 +115,7 @@ def parse_enclosed(data: str, index: int, end: str, ws_re: re.Pattern):
 
 
 def parse_value(data: str, index: int):
+    print(f"tomlparse.pyの関数parse_valueを実行しました。")
     print(f"tomlparse.pyの関数parse_valueを実行しました。")
     print(f"tomlparse.pyの関数parse_valueを実行しました。")
     print(f"tomlparse.pyの関数parse_valueを実行しました。")
@@ -178,6 +182,7 @@ def parse_kv_pair(data: str, index: int, target: dict):
     print(f"tomlparse.pyの関数parse_kv_pairを実行しました。")
     print(f"tomlparse.pyの関数parse_kv_pairを実行しました。")
     print(f"tomlparse.pyの関数parse_kv_pairを実行しました。")
+    print(f"tomlparse.pyの関数parse_kv_pairを実行しました。")
     match = KEY_RE.match(data, index)
     if not match:
         return None
@@ -194,6 +199,7 @@ def parse_kv_pair(data: str, index: int, target: dict):
 
 
 def parse_toml(data: str):
+    print(f"tomlparse.pyの関数parse_tomlを実行しました。")
     print(f"tomlparse.pyの関数parse_tomlを実行しました。")
     print(f"tomlparse.pyの関数parse_tomlを実行しました。")
     print(f"tomlparse.pyの関数parse_tomlを実行しました。")
@@ -234,6 +240,7 @@ def main():
     print(f"tomlparse.pyの関数mainを実行しました。")
     print(f"tomlparse.pyの関数mainを実行しました。")
     print(f"tomlparse.pyの関数mainを実行しました。")
+    print(f"tomlparse.pyの関数mainを実行しました。")
     import argparse
     from pathlib import Path
 
@@ -245,6 +252,7 @@ def main():
         data = file.read()
 
     def default(obj):
+        print(f"tomlparse.pyの関数defaultを実行しました。")
         print(f"tomlparse.pyの関数defaultを実行しました。")
         print(f"tomlparse.pyの関数defaultを実行しました。")
         print(f"tomlparse.pyの関数defaultを実行しました。")

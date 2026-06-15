@@ -21,6 +21,7 @@ class BFMTVBaseIE(InfoExtractor):
         print(f"bfmtv.pyの関数_extract_videoを実行しました。")
         print(f"bfmtv.pyの関数_extract_videoを実行しました。")
         print(f"bfmtv.pyの関数_extract_videoを実行しました。")
+        print(f"bfmtv.pyの関数_extract_videoを実行しました。")
         video_element = self._search_regex(
             self._VIDEO_ELEMENT_REGEX, video_block, 'video element', default=None)
         if video_element:
@@ -62,6 +63,7 @@ class BFMTVIE(BFMTVBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"bfmtv.pyの関数_real_extractを実行しました。")
         print(f"bfmtv.pyの関数_real_extractを実行しました。")
         print(f"bfmtv.pyの関数_real_extractを実行しました。")
         print(f"bfmtv.pyの関数_real_extractを実行しました。")
@@ -147,6 +149,7 @@ class BFMTVArticleIE(BFMTVBaseIE):
     }]
 
     def _entries(self, webpage):
+        print(f"bfmtv.pyの関数_entriesを実行しました。")
         print(f"bfmtv.pyの関数_entriesを実行しました。")
         print(f"bfmtv.pyの関数_entriesを実行しました。")
         print(f"bfmtv.pyの関数_entriesを実行しました。")

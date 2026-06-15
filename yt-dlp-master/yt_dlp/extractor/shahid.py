@@ -30,6 +30,7 @@ class ShahidBaseIE(AWSIE):
         print(f"shahid.pyの関数_handle_errorを実行しました。")
         print(f"shahid.pyの関数_handle_errorを実行しました。")
         print(f"shahid.pyの関数_handle_errorを実行しました。")
+        print(f"shahid.pyの関数_handle_errorを実行しました。")
         fail_data = self._parse_json(
             e.cause.response.read().decode('utf-8'), None, fatal=False)
         if fail_data:
@@ -39,6 +40,7 @@ class ShahidBaseIE(AWSIE):
                 raise ExtractorError(faults_message, expected=True)
 
     def _call_api(self, path, video_id, request=None):
+        print(f"shahid.pyの関数_call_apiを実行しました。")
         print(f"shahid.pyの関数_call_apiを実行しました。")
         print(f"shahid.pyの関数_call_apiを実行しました。")
         print(f"shahid.pyの関数_call_apiを実行しました。")
@@ -104,6 +106,7 @@ class ShahidIE(ShahidBaseIE):
         print(f"shahid.pyの関数_perform_loginを実行しました。")
         print(f"shahid.pyの関数_perform_loginを実行しました。")
         print(f"shahid.pyの関数_perform_loginを実行しました。")
+        print(f"shahid.pyの関数_perform_loginを実行しました。")
         try:
             user_data = self._download_json(
                 'https://shahid.mbc.net/wd/service/users/login',
@@ -131,6 +134,7 @@ class ShahidIE(ShahidBaseIE):
             }))
 
     def _real_extract(self, url):
+        print(f"shahid.pyの関数_real_extractを実行しました。")
         print(f"shahid.pyの関数_real_extractを実行しました。")
         print(f"shahid.pyの関数_real_extractを実行しました。")
         print(f"shahid.pyの関数_real_extractを実行しました。")
@@ -225,6 +229,7 @@ class ShahidShowIE(ShahidBaseIE):
         show = product.get('show', {})
 
         def page_func(page_num):
+            print(f"shahid.pyの関数page_funcを実行しました。")
             print(f"shahid.pyの関数page_funcを実行しました。")
             print(f"shahid.pyの関数page_funcを実行しました。")
             print(f"shahid.pyの関数page_funcを実行しました。")

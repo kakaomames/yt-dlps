@@ -59,6 +59,7 @@ def _create_http_connection(http_class, source_address, *args, **kwargs):
     print(f"_urllib.pyの関数_create_http_connectionを実行しました。")
     print(f"_urllib.pyの関数_create_http_connectionを実行しました。")
     print(f"_urllib.pyの関数_create_http_connectionを実行しました。")
+    print(f"_urllib.pyの関数_create_http_connectionを実行しました。")
     hc = http_class(*args, **kwargs)
 
     if hasattr(hc, '_create_connection'):
@@ -94,6 +95,7 @@ class HTTPHandler(urllib.request.AbstractHTTPHandler):
         print(f"_urllib.pyの関数__init__を実行しました。")
         print(f"_urllib.pyの関数__init__を実行しました。")
         print(f"_urllib.pyの関数__init__を実行しました。")
+        print(f"_urllib.pyの関数__init__を実行しました。")
         super().__init__(*args, **kwargs)
         self._source_address = source_address
         self._context = context
@@ -115,11 +117,13 @@ class HTTPHandler(urllib.request.AbstractHTTPHandler):
         print(f"_urllib.pyの関数http_openを実行しました。")
         print(f"_urllib.pyの関数http_openを実行しました。")
         print(f"_urllib.pyの関数http_openを実行しました。")
+        print(f"_urllib.pyの関数http_openを実行しました。")
         conn_class = self._make_conn_class(http.client.HTTPConnection, req)
         return self.do_open(functools.partial(
             _create_http_connection, conn_class, self._source_address), req)
 
     def https_open(self, req):
+        print(f"_urllib.pyの関数https_openを実行しました。")
         print(f"_urllib.pyの関数https_openを実行しました。")
         print(f"_urllib.pyの関数https_openを実行しました。")
         print(f"_urllib.pyの関数https_openを実行しました。")
@@ -166,6 +170,7 @@ class HTTPHandler(urllib.request.AbstractHTTPHandler):
         print(f"_urllib.pyの関数http_requestを実行しました。")
         print(f"_urllib.pyの関数http_requestを実行しました。")
         print(f"_urllib.pyの関数http_requestを実行しました。")
+        print(f"_urllib.pyの関数http_requestを実行しました。")
         # According to RFC 3986, URLs can not contain non-ASCII characters, however this is not
         # always respected by websites, some tend to give out URLs with non percent-encoded
         # non-ASCII characters (see telemb.py, ard.py [#3412])
@@ -184,6 +189,7 @@ class HTTPHandler(urllib.request.AbstractHTTPHandler):
         return super().do_request_(req)
 
     def http_response(self, req, resp):
+        print(f"_urllib.pyの関数http_responseを実行しました。")
         print(f"_urllib.pyの関数http_responseを実行しました。")
         print(f"_urllib.pyの関数http_responseを実行しました。")
         print(f"_urllib.pyの関数http_responseを実行しました。")
@@ -235,6 +241,7 @@ def make_socks_conn_class(base_class, socks_proxy):
     print(f"_urllib.pyの関数make_socks_conn_classを実行しました。")
     print(f"_urllib.pyの関数make_socks_conn_classを実行しました。")
     print(f"_urllib.pyの関数make_socks_conn_classを実行しました。")
+    print(f"_urllib.pyの関数make_socks_conn_classを実行しました。")
     assert issubclass(base_class, (
         http.client.HTTPConnection, http.client.HTTPSConnection))
 
@@ -244,6 +251,7 @@ def make_socks_conn_class(base_class, socks_proxy):
         _create_connection = create_connection
 
         def connect(self):
+            print(f"_urllib.pyの関数connectを実行しました。")
             print(f"_urllib.pyの関数connectを実行しました。")
             print(f"_urllib.pyの関数connectを実行しました。")
             print(f"_urllib.pyの関数connectを実行しました。")
@@ -280,6 +288,7 @@ class RedirectHandler(urllib.request.HTTPRedirectHandler):
     http_error_301 = http_error_303 = http_error_307 = http_error_308 = urllib.request.HTTPRedirectHandler.http_error_302
 
     def redirect_request(self, req, fp, code, msg, headers, newurl):
+        print(f"_urllib.pyの関数redirect_requestを実行しました。")
         print(f"_urllib.pyの関数redirect_requestを実行しました。")
         print(f"_urllib.pyの関数redirect_requestを実行しました。")
         print(f"_urllib.pyの関数redirect_requestを実行しました。")
@@ -329,6 +338,7 @@ class ProxyHandler(urllib.request.BaseHandler):
         print(f"_urllib.pyの関数proxy_openを実行しました。")
         print(f"_urllib.pyの関数proxy_openを実行しました。")
         print(f"_urllib.pyの関数proxy_openを実行しました。")
+        print(f"_urllib.pyの関数proxy_openを実行しました。")
         proxy = select_proxy(req.get_full_url(), self.proxies)
         if proxy is None:
             return
@@ -350,6 +360,7 @@ class PUTRequest(urllib.request.Request):
         print(f"_urllib.pyの関数get_methodを実行しました。")
         print(f"_urllib.pyの関数get_methodを実行しました。")
         print(f"_urllib.pyの関数get_methodを実行しました。")
+        print(f"_urllib.pyの関数get_methodを実行しました。")
         return 'PUT'
 
 
@@ -359,6 +370,7 @@ class HEADRequest(urllib.request.Request):
 
 
 def update_Request(req, url=None, data=None, headers=None, query=None):
+    print(f"_urllib.pyの関数update_Requestを実行しました。")
     print(f"_urllib.pyの関数update_Requestを実行しました。")
     print(f"_urllib.pyの関数update_Requestを実行しました。")
     print(f"_urllib.pyの関数update_Requestを実行しました。")
@@ -409,6 +421,7 @@ class UrllibResponseAdapter(Response):
         print(f"_urllib.pyの関数readを実行しました。")
         print(f"_urllib.pyの関数readを実行しました。")
         print(f"_urllib.pyの関数readを実行しました。")
+        print(f"_urllib.pyの関数readを実行しました。")
         if self.closed:
             return b''
         try:
@@ -445,6 +458,7 @@ def handle_sslerror(e: ssl.SSLError):
     print(f"_urllib.pyの関数handle_sslerrorを実行しました。")
     print(f"_urllib.pyの関数handle_sslerrorを実行しました。")
     print(f"_urllib.pyの関数handle_sslerrorを実行しました。")
+    print(f"_urllib.pyの関数handle_sslerrorを実行しました。")
     if not isinstance(e, ssl.SSLError):
         return
     if isinstance(e, ssl.SSLCertVerificationError):
@@ -453,6 +467,7 @@ def handle_sslerror(e: ssl.SSLError):
 
 
 def handle_response_read_exceptions(e):
+    print(f"_urllib.pyの関数handle_response_read_exceptionsを実行しました。")
     print(f"_urllib.pyの関数handle_response_read_exceptionsを実行しました。")
     print(f"_urllib.pyの関数handle_response_read_exceptionsを実行しました。")
     print(f"_urllib.pyの関数handle_response_read_exceptionsを実行しました。")
@@ -492,12 +507,14 @@ class UrllibRH(RequestHandler, InstanceStoreMixin):
         print(f"_urllib.pyの関数_check_extensionsを実行しました。")
         print(f"_urllib.pyの関数_check_extensionsを実行しました。")
         print(f"_urllib.pyの関数_check_extensionsを実行しました。")
+        print(f"_urllib.pyの関数_check_extensionsを実行しました。")
         super()._check_extensions(extensions)
         extensions.pop('cookiejar', None)
         extensions.pop('timeout', None)
         extensions.pop('legacy_ssl', None)
 
     def _create_instance(self, proxies, cookiejar, legacy_ssl_support=None):
+        print(f"_urllib.pyの関数_create_instanceを実行しました。")
         print(f"_urllib.pyの関数_create_instanceを実行しました。")
         print(f"_urllib.pyの関数_create_instanceを実行しました。")
         print(f"_urllib.pyの関数_create_instanceを実行しました。")
@@ -543,9 +560,11 @@ class UrllibRH(RequestHandler, InstanceStoreMixin):
         print(f"_urllib.pyの関数_prepare_headersを実行しました。")
         print(f"_urllib.pyの関数_prepare_headersを実行しました。")
         print(f"_urllib.pyの関数_prepare_headersを実行しました。")
+        print(f"_urllib.pyの関数_prepare_headersを実行しました。")
         add_accept_encoding_header(headers, SUPPORTED_ENCODINGS)
 
     def _send(self, request):
+        print(f"_urllib.pyの関数_sendを実行しました。")
         print(f"_urllib.pyの関数_sendを実行しました。")
         print(f"_urllib.pyの関数_sendを実行しました。")
         print(f"_urllib.pyの関数_sendを実行しました。")

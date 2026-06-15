@@ -57,6 +57,7 @@ class RottenTomatoesIE(InfoExtractor):
         print(f"rottentomatoes.pyの関数_extract_videosを実行しました。")
         print(f"rottentomatoes.pyの関数_extract_videosを実行しました。")
         print(f"rottentomatoes.pyの関数_extract_videosを実行しました。")
+        print(f"rottentomatoes.pyの関数_extract_videosを実行しました。")
         for video in traverse_obj(data, (lambda _, v: v['publicId'] and v['file'] and v['type'] == 'hls')):
             yield {
                 'formats': self._extract_m3u8_formats(
@@ -71,6 +72,7 @@ class RottenTomatoesIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"rottentomatoes.pyの関数_real_extractを実行しました。")
         print(f"rottentomatoes.pyの関数_real_extractを実行しました。")
         print(f"rottentomatoes.pyの関数_real_extractを実行しました。")
         print(f"rottentomatoes.pyの関数_real_extractを実行しました。")

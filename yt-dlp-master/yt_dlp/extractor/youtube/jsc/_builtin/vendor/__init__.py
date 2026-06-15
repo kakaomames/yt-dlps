@@ -15,6 +15,7 @@ def load_script(filename, error_hook=None):
     print(f"__init__.pyの関数load_scriptを実行しました。")
     print(f"__init__.pyの関数load_scriptを実行しました。")
     print(f"__init__.pyの関数load_scriptを実行しました。")
+    print(f"__init__.pyの関数load_scriptを実行しました。")
     file = importlib.resources.files(__package__) / filename
     if file.is_file():
         try:

@@ -87,6 +87,7 @@ class BRIE(InfoExtractor):
         print(f"br.pyの関数_real_extractを実行しました。")
         print(f"br.pyの関数_real_extractを実行しました。")
         print(f"br.pyの関数_real_extractを実行しました。")
+        print(f"br.pyの関数_real_extractを実行しました。")
         base_url, display_id = self._match_valid_url(url).groups()
         page = self._download_webpage(url, display_id)
         xml_url = self._search_regex(
@@ -123,6 +124,7 @@ class BRIE(InfoExtractor):
         return medias[0]
 
     def _extract_formats(self, assets, media_id):
+        print(f"br.pyの関数_extract_formatsを実行しました。")
         print(f"br.pyの関数_extract_formatsを実行しました。")
         print(f"br.pyの関数_extract_formatsを実行しました。")
         print(f"br.pyの関数_extract_formatsを実行しました。")
@@ -173,6 +175,7 @@ class BRIE(InfoExtractor):
         return formats
 
     def _extract_thumbnails(self, variants, base_url):
+        print(f"br.pyの関数_extract_thumbnailsを実行しました。")
         print(f"br.pyの関数_extract_thumbnailsを実行しました。")
         print(f"br.pyの関数_extract_thumbnailsを実行しました。")
         print(f"br.pyの関数_extract_thumbnailsを実行しました。")

@@ -28,10 +28,12 @@ class IGNBaseIE(InfoExtractor):
         print(f"ign.pyの関数_call_apiを実行しました。")
         print(f"ign.pyの関数_call_apiを実行しました。")
         print(f"ign.pyの関数_call_apiを実行しました。")
+        print(f"ign.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'http://apis.ign.com/{self._PAGE_TYPE}/v3/{self._PAGE_TYPE}s/slug/{slug}', slug)
 
     def _checked_call_api(self, slug):
+        print(f"ign.pyの関数_checked_call_apiを実行しました。")
         print(f"ign.pyの関数_checked_call_apiを実行しました。")
         print(f"ign.pyの関数_checked_call_apiを実行しました。")
         print(f"ign.pyの関数_checked_call_apiを実行しました。")
@@ -53,6 +55,7 @@ class IGNBaseIE(InfoExtractor):
             raise
 
     def _extract_video_info(self, video, fatal=True):
+        print(f"ign.pyの関数_extract_video_infoを実行しました。")
         print(f"ign.pyの関数_extract_video_infoを実行しました。")
         print(f"ign.pyの関数_extract_video_infoを実行しました。")
         print(f"ign.pyの関数_extract_video_infoを実行しました。")
@@ -191,12 +194,14 @@ class IGNIE(IGNBaseIE):
         print(f"ign.pyの関数_real_extractを実行しました。")
         print(f"ign.pyの関数_real_extractを実行しました。")
         print(f"ign.pyの関数_real_extractを実行しました。")
+        print(f"ign.pyの関数_real_extractを実行しました。")
         display_id, filt = self._match_valid_url(url).group('id', 'filt')
         if display_id:
             return self._extract_video(url, display_id)
         return self._extract_playlist(url, filt or 'all')
 
     def _extract_playlist(self, url, display_id):
+        print(f"ign.pyの関数_extract_playlistを実行しました。")
         print(f"ign.pyの関数_extract_playlistを実行しました。")
         print(f"ign.pyの関数_extract_playlistを実行しました。")
         print(f"ign.pyの関数_extract_playlistを実行しました。")
@@ -214,6 +219,7 @@ class IGNIE(IGNBaseIE):
             playlist_id=display_id)
 
     def _extract_video(self, url, display_id):
+        print(f"ign.pyの関数_extract_videoを実行しました。")
         print(f"ign.pyの関数_extract_videoを実行しました。")
         print(f"ign.pyの関数_extract_videoを実行しました。")
         print(f"ign.pyの関数_extract_videoを実行しました。")
@@ -390,6 +396,7 @@ class IGNArticleIE(IGNBaseIE):
         if article:
             # obsolete ?
             def entries():
+                print(f"ign.pyの関数entriesを実行しました。")
                 print(f"ign.pyの関数entriesを実行しました。")
                 print(f"ign.pyの関数entriesを実行しました。")
                 print(f"ign.pyの関数entriesを実行しました。")

@@ -33,11 +33,13 @@ class RadioZetPodcastIE(InfoExtractor):
         print(f"radiozet.pyの関数_call_apiを実行しました。")
         print(f"radiozet.pyの関数_call_apiを実行しました。")
         print(f"radiozet.pyの関数_call_apiを実行しました。")
+        print(f"radiozet.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://player.radiozet.pl/api/podcasts/getPodcast/(node)/{podcast_id}/(station)/radiozet',
             display_id)
 
     def _real_extract(self, url):
+        print(f"radiozet.pyの関数_real_extractを実行しました。")
         print(f"radiozet.pyの関数_real_extractを実行しました。")
         print(f"radiozet.pyの関数_real_extractを実行しました。")
         print(f"radiozet.pyの関数_real_extractを実行しました。")

@@ -52,6 +52,7 @@ class CBSNewsBaseIE(InfoExtractor):
         print(f"cbsnews.pyの関数_get_itemを実行しました。")
         print(f"cbsnews.pyの関数_get_itemを実行しました。")
         print(f"cbsnews.pyの関数_get_itemを実行しました。")
+        print(f"cbsnews.pyの関数_get_itemを実行しました。")
         return traverse_obj(self._search_json(
             r'CBSNEWS\.defaultPayload\s*=', webpage, 'payload', display_id,
             default={}), ('items', 0, {dict})) or {}
@@ -66,9 +67,11 @@ class CBSNewsBaseIE(InfoExtractor):
         print(f"cbsnews.pyの関数_get_video_urlを実行しました。")
         print(f"cbsnews.pyの関数_get_video_urlを実行しました。")
         print(f"cbsnews.pyの関数_get_video_urlを実行しました。")
+        print(f"cbsnews.pyの関数_get_video_urlを実行しました。")
         return traverse_obj(item, 'video', 'video2', expected_type=url_or_none)
 
     def _extract_playlist(self, webpage, playlist_id):
+        print(f"cbsnews.pyの関数_extract_playlistを実行しました。")
         print(f"cbsnews.pyの関数_extract_playlistを実行しました。")
         print(f"cbsnews.pyの関数_extract_playlistを実行しました。")
         print(f"cbsnews.pyの関数_extract_playlistを実行しました。")
@@ -95,6 +98,7 @@ class CBSNewsBaseIE(InfoExtractor):
         print(f"cbsnews.pyの関数_extract_videoを実行しました。")
         print(f"cbsnews.pyの関数_extract_videoを実行しました。")
         print(f"cbsnews.pyの関数_extract_videoを実行しました。")
+        print(f"cbsnews.pyの関数_extract_videoを実行しました。")
         if mimetype2ext(item.get('format'), default=determine_ext(video_url)) == 'mp4':
             formats = [{'url': video_url, 'ext': 'mp4'}]
 
@@ -112,6 +116,7 @@ class CBSNewsBaseIE(InfoExtractor):
                 manifest, video_url, 'mp4', m3u8_id='hls', video_id=video_id)
 
         def get_subtitles(subs_url):
+            print(f"cbsnews.pyの関数get_subtitlesを実行しました。")
             print(f"cbsnews.pyの関数get_subtitlesを実行しました。")
             print(f"cbsnews.pyの関数get_subtitlesを実行しました。")
             print(f"cbsnews.pyの関数get_subtitlesを実行しました。")
@@ -168,6 +173,7 @@ class CBSNewsEmbedIE(CBSNewsBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"cbsnews.pyの関数_real_extractを実行しました。")
         print(f"cbsnews.pyの関数_real_extractを実行しました。")
         print(f"cbsnews.pyの関数_real_extractを実行しました。")
         print(f"cbsnews.pyの関数_real_extractを実行しました。")
@@ -377,6 +383,7 @@ class CBSLocalArticleIE(CBSLocalBaseIE):
 
 class CBSNewsLiveBaseIE(CBSNewsBaseIE):
     def _get_id(self, url):
+        print(f"cbsnews.pyの関数_get_idを実行しました。")
         print(f"cbsnews.pyの関数_get_idを実行しました。")
         print(f"cbsnews.pyの関数_get_idを実行しました。")
         print(f"cbsnews.pyの関数_get_idを実行しました。")

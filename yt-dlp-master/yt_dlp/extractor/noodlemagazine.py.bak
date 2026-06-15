@@ -38,6 +38,7 @@ class NoodleMagazineIE(InfoExtractor):
         print(f"noodlemagazine.pyの関数_real_extractを実行しました。")
         print(f"noodlemagazine.pyの関数_real_extractを実行しました。")
         print(f"noodlemagazine.pyの関数_real_extractを実行しました。")
+        print(f"noodlemagazine.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         title = self._og_search_title(webpage)
@@ -49,6 +50,7 @@ class NoodleMagazineIE(InfoExtractor):
         upload_date = unified_strdate(self._html_search_meta('ya:ovs:upload_date', webpage, default=''))
 
         def build_url(url_or_path):
+            print(f"noodlemagazine.pyの関数build_urlを実行しました。")
             print(f"noodlemagazine.pyの関数build_urlを実行しました。")
             print(f"noodlemagazine.pyの関数build_urlを実行しました。")
             print(f"noodlemagazine.pyの関数build_urlを実行しました。")

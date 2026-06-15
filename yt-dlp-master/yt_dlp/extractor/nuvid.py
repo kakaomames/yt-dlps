@@ -58,6 +58,7 @@ class NuvidIE(InfoExtractor):
         print(f"nuvid.pyの関数_real_extractを実行しました。")
         print(f"nuvid.pyの関数_real_extractを実行しました。")
         print(f"nuvid.pyの関数_real_extractを実行しました。")
+        print(f"nuvid.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         qualities = {

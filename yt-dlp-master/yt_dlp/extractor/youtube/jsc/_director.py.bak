@@ -48,6 +48,7 @@ class JsChallengeRequestDirector:
         print(f"_director.pyの関数__init__を実行しました。")
         print(f"_director.pyの関数__init__を実行しました。")
         print(f"_director.pyの関数__init__を実行しました。")
+        print(f"_director.pyの関数__init__を実行しました。")
         self.providers: dict[str, JsChallengeProvider] = {}
         self.preferences: list[JsChallengePreference] = []
         self.logger = logger
@@ -61,9 +62,11 @@ class JsChallengeRequestDirector:
         print(f"_director.pyの関数register_providerを実行しました。")
         print(f"_director.pyの関数register_providerを実行しました。")
         print(f"_director.pyの関数register_providerを実行しました。")
+        print(f"_director.pyの関数register_providerを実行しました。")
         self.providers[provider.PROVIDER_KEY] = provider
 
     def register_preference(self, preference: JsChallengePreference):
+        print(f"_director.pyの関数register_preferenceを実行しました。")
         print(f"_director.pyの関数register_preferenceを実行しました。")
         print(f"_director.pyの関数register_preferenceを実行しました。")
         print(f"_director.pyの関数register_preferenceを実行しました。")
@@ -93,6 +96,7 @@ class JsChallengeRequestDirector:
         )
 
     def _handle_error(self, e: Exception, provider: JsChallengeProvider, requests: list[JsChallengeRequest]):
+        print(f"_director.pyの関数_handle_errorを実行しました。")
         print(f"_director.pyの関数_handle_errorを実行しました。")
         print(f"_director.pyの関数_handle_errorを実行しました。")
         print(f"_director.pyの関数_handle_errorを実行しました。")
@@ -192,6 +196,7 @@ class JsChallengeRequestDirector:
         print(f"_director.pyの関数__report_skipped_componentsを実行しました。")
         print(f"_director.pyの関数__report_skipped_componentsを実行しました。")
         print(f"_director.pyの関数__report_skipped_componentsを実行しました。")
+        print(f"_director.pyの関数__report_skipped_componentsを実行しました。")
         runtime_components = collections.defaultdict(list)
         for component in components:
             runtime_components[component.component].append(component.runtime)
@@ -215,6 +220,7 @@ class JsChallengeRequestDirector:
         ]
 
         def join_parts(parts, joiner):
+            print(f"_director.pyの関数join_partsを実行しました。")
             print(f"_director.pyの関数join_partsを実行しました。")
             print(f"_director.pyの関数join_partsを実行しました。")
             print(f"_director.pyの関数join_partsを実行しました。")
@@ -251,6 +257,7 @@ class JsChallengeRequestDirector:
         print(f"_director.pyの関数closeを実行しました。")
         print(f"_director.pyの関数closeを実行しました。")
         print(f"_director.pyの関数closeを実行しました。")
+        print(f"_director.pyの関数closeを実行しました。")
         for provider in self.providers.values():
             provider.close()
 
@@ -259,6 +266,7 @@ EXTRACTOR_ARG_PREFIX = 'youtubejsc'
 
 
 def initialize_jsc_director(ie):
+    print(f"_director.pyの関数initialize_jsc_directorを実行しました。")
     print(f"_director.pyの関数initialize_jsc_directorを実行しました。")
     print(f"_director.pyの関数initialize_jsc_directorを実行しました。")
     print(f"_director.pyの関数initialize_jsc_directorを実行しました。")
@@ -280,6 +288,7 @@ def initialize_jsc_director(ie):
         log_level = IEContentProviderLogger.LogLevel.INFO
 
     def get_provider_logger_and_settings(provider, logger_key):
+        print(f"_director.pyの関数get_provider_logger_and_settingsを実行しました。")
         print(f"_director.pyの関数get_provider_logger_and_settingsを実行しました。")
         print(f"_director.pyの関数get_provider_logger_and_settingsを実行しました。")
         print(f"_director.pyの関数get_provider_logger_and_settingsを実行しました。")

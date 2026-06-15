@@ -51,6 +51,7 @@ class PacktPubIE(PacktPubBaseIE):
         print(f"packtpub.pyの関数_perform_loginを実行しました。")
         print(f"packtpub.pyの関数_perform_loginを実行しました。")
         print(f"packtpub.pyの関数_perform_loginを実行しました。")
+        print(f"packtpub.pyの関数_perform_loginを実行しました。")
         try:
             self._TOKEN = self._download_json(
                 'https://services.packtpub.com/auth-v1/users/tokens', None,
@@ -65,6 +66,7 @@ class PacktPubIE(PacktPubBaseIE):
             raise
 
     def _real_extract(self, url):
+        print(f"packtpub.pyの関数_real_extractを実行しました。")
         print(f"packtpub.pyの関数_real_extractを実行しました。")
         print(f"packtpub.pyの関数_real_extractを実行しました。")
         print(f"packtpub.pyの関数_real_extractを実行しました。")

@@ -27,6 +27,7 @@ class DFBIE(InfoExtractor):
         print(f"dfb.pyの関数_real_extractを実行しました。")
         print(f"dfb.pyの関数_real_extractを実行しました。")
         print(f"dfb.pyの関数_real_extractを実行しました。")
+        print(f"dfb.pyの関数_real_extractを実行しました。")
         display_id, video_id = self._match_valid_url(url).groups()
 
         player_info = self._download_xml(

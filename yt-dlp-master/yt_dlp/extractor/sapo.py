@@ -69,6 +69,7 @@ class SapoIE(InfoExtractor):
         print(f"sapo.pyの関数_real_extractを実行しました。")
         print(f"sapo.pyの関数_real_extractを実行しました。")
         print(f"sapo.pyの関数_real_extractを実行しました。")
+        print(f"sapo.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
 

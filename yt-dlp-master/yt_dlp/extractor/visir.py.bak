@@ -84,6 +84,7 @@ class VisirIE(InfoExtractor):
         print(f"visir.pyの関数_real_extractを実行しました。")
         print(f"visir.pyの関数_real_extractを実行しました。")
         print(f"visir.pyの関数_real_extractを実行しました。")
+        print(f"visir.pyの関数_real_extractを実行しました。")
         video_type, video_id, display_id = self._match_valid_url(url).group('type', 'id', 'slug')
         webpage = self._download_webpage(url, video_id)
         if video_type == 'player':

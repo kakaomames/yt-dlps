@@ -45,6 +45,7 @@ class IchinanaLiveIE(InfoExtractor):
         print(f"ichinanalive.pyの関数_real_extractを実行しました。")
         print(f"ichinanalive.pyの関数_real_extractを実行しました。")
         print(f"ichinanalive.pyの関数_real_extractを実行しました。")
+        print(f"ichinanalive.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         url = f'https://17.live/live/{video_id}'
 

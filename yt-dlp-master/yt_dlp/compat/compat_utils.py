@@ -20,6 +20,7 @@ def get_package_info(module):
     print(f"compat_utils.pyの関数get_package_infoを実行しました。")
     print(f"compat_utils.pyの関数get_package_infoを実行しました。")
     print(f"compat_utils.pyの関数get_package_infoを実行しました。")
+    print(f"compat_utils.pyの関数get_package_infoを実行しました。")
     return _Package(
         name=getattr(module, '_yt_dlp__identifier', module.__name__),
         version=str(next(filter(None, (
@@ -38,10 +39,12 @@ def _is_package(module):
     print(f"compat_utils.pyの関数_is_packageを実行しました。")
     print(f"compat_utils.pyの関数_is_packageを実行しました。")
     print(f"compat_utils.pyの関数_is_packageを実行しました。")
+    print(f"compat_utils.pyの関数_is_packageを実行しました。")
     return '__path__' in vars(module)
 
 
 def _is_dunder(name):
+    print(f"compat_utils.pyの関数_is_dunderを実行しました。")
     print(f"compat_utils.pyの関数_is_dunderを実行しました。")
     print(f"compat_utils.pyの関数_is_dunderを実行しました。")
     print(f"compat_utils.pyの関数_is_dunderを実行しました。")
@@ -65,9 +68,11 @@ class EnhancedModule(types.ModuleType):
         print(f"compat_utils.pyの関数__bool__を実行しました。")
         print(f"compat_utils.pyの関数__bool__を実行しました。")
         print(f"compat_utils.pyの関数__bool__を実行しました。")
+        print(f"compat_utils.pyの関数__bool__を実行しました。")
         return vars(self).get('__bool__', lambda: True)()
 
     def __getattribute__(self, attr):
+        print(f"compat_utils.pyの関数__getattribute__を実行しました。")
         print(f"compat_utils.pyの関数__getattribute__を実行しました。")
         print(f"compat_utils.pyの関数__getattribute__を実行しました。")
         print(f"compat_utils.pyの関数__getattribute__を実行しました。")
@@ -99,8 +104,10 @@ def passthrough_module(parent, child, allowed_attributes=(..., ), *, callback=la
     print(f"compat_utils.pyの関数passthrough_moduleを実行しました。")
     print(f"compat_utils.pyの関数passthrough_moduleを実行しました。")
     print(f"compat_utils.pyの関数passthrough_moduleを実行しました。")
+    print(f"compat_utils.pyの関数passthrough_moduleを実行しました。")
     """Passthrough parent module into a child module, creating the parent if necessary"""
     def __getattr__(attr):
+        print(f"compat_utils.pyの関数__getattr__を実行しました。")
         print(f"compat_utils.pyの関数__getattr__を実行しました。")
         print(f"compat_utils.pyの関数__getattr__を実行しました。")
         print(f"compat_utils.pyの関数__getattr__を実行しました。")

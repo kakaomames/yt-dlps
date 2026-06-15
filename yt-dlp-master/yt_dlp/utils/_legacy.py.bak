@@ -41,6 +41,7 @@ def load_plugins(name, suffix, namespace):
     print(f"_legacy.pyの関数load_pluginsを実行しました。")
     print(f"_legacy.pyの関数load_pluginsを実行しました。")
     print(f"_legacy.pyの関数load_pluginsを実行しました。")
+    print(f"_legacy.pyの関数load_pluginsを実行しました。")
     from ..plugins import load_plugins
     ret = load_plugins(name, suffix)
     namespace.update(ret)
@@ -48,6 +49,7 @@ def load_plugins(name, suffix, namespace):
 
 
 def traverse_dict(dictn, keys, casesense=True):
+    print(f"_legacy.pyの関数traverse_dictを実行しました。")
     print(f"_legacy.pyの関数traverse_dictを実行しました。")
     print(f"_legacy.pyの関数traverse_dictを実行しました。")
     print(f"_legacy.pyの関数traverse_dictを実行しました。")
@@ -68,10 +70,12 @@ def decode_base(value, digits):
     print(f"_legacy.pyの関数decode_baseを実行しました。")
     print(f"_legacy.pyの関数decode_baseを実行しました。")
     print(f"_legacy.pyの関数decode_baseを実行しました。")
+    print(f"_legacy.pyの関数decode_baseを実行しました。")
     return decode_base_n(value, table=digits)
 
 
 def platform_name():
+    print(f"_legacy.pyの関数platform_nameを実行しました。")
     print(f"_legacy.pyの関数platform_nameを実行しました。")
     print(f"_legacy.pyの関数platform_nameを実行しました。")
     print(f"_legacy.pyの関数platform_nameを実行しました。")
@@ -85,6 +89,7 @@ def platform_name():
 
 
 def get_subprocess_encoding():
+    print(f"_legacy.pyの関数get_subprocess_encodingを実行しました。")
     print(f"_legacy.pyの関数get_subprocess_encodingを実行しました。")
     print(f"_legacy.pyの関数get_subprocess_encodingを実行しました。")
     print(f"_legacy.pyの関数get_subprocess_encodingを実行しました。")
@@ -108,6 +113,7 @@ def get_subprocess_encoding():
 # Based on png2str() written by @gdkchan and improved by @yokrysty
 # Originally posted at https://github.com/ytdl-org/youtube-dl/issues/9706
 def decode_png(png_data):
+    print(f"_legacy.pyの関数decode_pngを実行しました。")
     print(f"_legacy.pyの関数decode_pngを実行しました。")
     print(f"_legacy.pyの関数decode_pngを実行しました。")
     print(f"_legacy.pyの関数decode_pngを実行しました。")
@@ -165,6 +171,7 @@ def decode_png(png_data):
     pixels = []
 
     def _get_pixel(idx):
+        print(f"_legacy.pyの関数_get_pixelを実行しました。")
         print(f"_legacy.pyの関数_get_pixelを実行しました。")
         print(f"_legacy.pyの関数_get_pixelを実行しました。")
         print(f"_legacy.pyの関数_get_pixelを実行しました。")
@@ -237,6 +244,7 @@ def register_socks_protocols():
     print(f"_legacy.pyの関数register_socks_protocolsを実行しました。")
     print(f"_legacy.pyの関数register_socks_protocolsを実行しました。")
     print(f"_legacy.pyの関数register_socks_protocolsを実行しました。")
+    print(f"_legacy.pyの関数register_socks_protocolsを実行しました。")
     # "Register" SOCKS protocols
     # In Python < 2.6.5, urlsplit() suffers from bug https://bugs.python.org/issue7904
     # URLs with protocols not in urlparse.uses_netloc are not handled correctly
@@ -246,6 +254,7 @@ def register_socks_protocols():
 
 
 def handle_youtubedl_headers(headers):
+    print(f"_legacy.pyの関数handle_youtubedl_headersを実行しました。")
     print(f"_legacy.pyの関数handle_youtubedl_headersを実行しました。")
     print(f"_legacy.pyの関数handle_youtubedl_headersを実行しました。")
     print(f"_legacy.pyの関数handle_youtubedl_headersを実行しました。")
@@ -272,6 +281,7 @@ def request_to_url(req):
     print(f"_legacy.pyの関数request_to_urlを実行しました。")
     print(f"_legacy.pyの関数request_to_urlを実行しました。")
     print(f"_legacy.pyの関数request_to_urlを実行しました。")
+    print(f"_legacy.pyの関数request_to_urlを実行しました。")
     if isinstance(req, urllib.request.Request):
         return req.get_full_url()
     else:
@@ -279,6 +289,7 @@ def request_to_url(req):
 
 
 def sanitized_Request(url, *args, **kwargs):
+    print(f"_legacy.pyの関数sanitized_Requestを実行しました。")
     print(f"_legacy.pyの関数sanitized_Requestを実行しました。")
     print(f"_legacy.pyの関数sanitized_Requestを実行しました。")
     print(f"_legacy.pyの関数sanitized_Requestを実行しました。")
@@ -297,6 +308,7 @@ def sanitized_Request(url, *args, **kwargs):
 
 class YoutubeDLHandler(HTTPHandler):
     def __init__(self, params, *args, **kwargs):
+        print(f"_legacy.pyの関数__init__を実行しました。")
         print(f"_legacy.pyの関数__init__を実行しました。")
         print(f"_legacy.pyの関数__init__を実行しました。")
         print(f"_legacy.pyの関数__init__を実行しました。")
@@ -325,6 +337,7 @@ class YoutubeDLCookieProcessor(urllib.request.HTTPCookieProcessor):
         print(f"_legacy.pyの関数http_responseを実行しました。")
         print(f"_legacy.pyの関数http_responseを実行しました。")
         print(f"_legacy.pyの関数http_responseを実行しました。")
+        print(f"_legacy.pyの関数http_responseを実行しました。")
         return urllib.request.HTTPCookieProcessor.http_response(self, request, response)
 
     https_request = urllib.request.HTTPCookieProcessor.http_request
@@ -332,6 +345,7 @@ class YoutubeDLCookieProcessor(urllib.request.HTTPCookieProcessor):
 
 
 def make_HTTPS_handler(params, **kwargs):
+    print(f"_legacy.pyの関数make_HTTPS_handlerを実行しました。")
     print(f"_legacy.pyの関数make_HTTPS_handlerを実行しました。")
     print(f"_legacy.pyの関数make_HTTPS_handlerを実行しました。")
     print(f"_legacy.pyの関数make_HTTPS_handlerを実行しました。")
@@ -359,10 +373,12 @@ def process_communicate_or_kill(p, *args, **kwargs):
     print(f"_legacy.pyの関数process_communicate_or_killを実行しました。")
     print(f"_legacy.pyの関数process_communicate_or_killを実行しました。")
     print(f"_legacy.pyの関数process_communicate_or_killを実行しました。")
+    print(f"_legacy.pyの関数process_communicate_or_killを実行しました。")
     return Popen.communicate_or_kill(p, *args, **kwargs)
 
 
 def encodeFilename(s, for_subprocess=False):
+    print(f"_legacy.pyの関数encodeFilenameを実行しました。")
     print(f"_legacy.pyの関数encodeFilenameを実行しました。")
     print(f"_legacy.pyの関数encodeFilenameを実行しました。")
     print(f"_legacy.pyの関数encodeFilenameを実行しました。")
@@ -384,10 +400,12 @@ def decodeFilename(b, for_subprocess=False):
     print(f"_legacy.pyの関数decodeFilenameを実行しました。")
     print(f"_legacy.pyの関数decodeFilenameを実行しました。")
     print(f"_legacy.pyの関数decodeFilenameを実行しました。")
+    print(f"_legacy.pyの関数decodeFilenameを実行しました。")
     return b
 
 
 def decodeArgument(b):
+    print(f"_legacy.pyの関数decodeArgumentを実行しました。")
     print(f"_legacy.pyの関数decodeArgumentを実行しました。")
     print(f"_legacy.pyの関数decodeArgumentを実行しました。")
     print(f"_legacy.pyの関数decodeArgumentを実行しました。")
@@ -408,6 +426,7 @@ def decodeOption(optval):
     print(f"_legacy.pyの関数decodeOptionを実行しました。")
     print(f"_legacy.pyの関数decodeOptionを実行しました。")
     print(f"_legacy.pyの関数decodeOptionを実行しました。")
+    print(f"_legacy.pyの関数decodeOptionを実行しました。")
     if optval is None:
         return optval
     if isinstance(optval, bytes):
@@ -418,6 +437,7 @@ def decodeOption(optval):
 
 
 def error_to_compat_str(err):
+    print(f"_legacy.pyの関数error_to_compat_strを実行しました。")
     print(f"_legacy.pyの関数error_to_compat_strを実行しました。")
     print(f"_legacy.pyの関数error_to_compat_strを実行しました。")
     print(f"_legacy.pyの関数error_to_compat_strを実行しました。")

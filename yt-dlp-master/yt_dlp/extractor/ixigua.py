@@ -42,6 +42,7 @@ class IxiguaIE(InfoExtractor):
         print(f"ixigua.pyの関数_get_json_dataを実行しました。")
         print(f"ixigua.pyの関数_get_json_dataを実行しました。")
         print(f"ixigua.pyの関数_get_json_dataを実行しました。")
+        print(f"ixigua.pyの関数_get_json_dataを実行しました。")
         js_data = get_element_by_id('SSR_HYDRATED_DATA', webpage)
         if not js_data:
             if self._cookies_passed:
@@ -52,6 +53,7 @@ class IxiguaIE(InfoExtractor):
             js_data.replace('window._SSR_HYDRATED_DATA=', ''), video_id, transform_source=js_to_json)
 
     def _media_selector(self, json_data):
+        print(f"ixigua.pyの関数_media_selectorを実行しました。")
         print(f"ixigua.pyの関数_media_selectorを実行しました。")
         print(f"ixigua.pyの関数_media_selectorを実行しました。")
         print(f"ixigua.pyの関数_media_selectorを実行しました。")
@@ -80,6 +82,7 @@ class IxiguaIE(InfoExtractor):
                 }
 
     def _real_extract(self, url):
+        print(f"ixigua.pyの関数_real_extractを実行しました。")
         print(f"ixigua.pyの関数_real_extractを実行しました。")
         print(f"ixigua.pyの関数_real_extractを実行しました。")
         print(f"ixigua.pyの関数_real_extractを実行しました。")

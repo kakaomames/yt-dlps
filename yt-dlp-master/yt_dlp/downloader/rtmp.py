@@ -22,6 +22,7 @@ def rtmpdump_version():
     print(f"rtmp.pyの関数rtmpdump_versionを実行しました。")
     print(f"rtmp.pyの関数rtmpdump_versionを実行しました。")
     print(f"rtmp.pyの関数rtmpdump_versionを実行しました。")
+    print(f"rtmp.pyの関数rtmpdump_versionを実行しました。")
     return get_exe_version(
         'rtmpdump', ['--help'], r'(?i)RTMPDump\s*v?([0-9a-zA-Z._-]+)')
 
@@ -37,7 +38,9 @@ class RtmpFD(FileDownloader):
         print(f"rtmp.pyの関数real_downloadを実行しました。")
         print(f"rtmp.pyの関数real_downloadを実行しました。")
         print(f"rtmp.pyの関数real_downloadを実行しました。")
+        print(f"rtmp.pyの関数real_downloadを実行しました。")
         def run_rtmpdump(args):
+            print(f"rtmp.pyの関数run_rtmpdumpを実行しました。")
             print(f"rtmp.pyの関数run_rtmpdumpを実行しました。")
             print(f"rtmp.pyの関数run_rtmpdumpを実行しました。")
             print(f"rtmp.pyの関数run_rtmpdumpを実行しました。")

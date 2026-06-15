@@ -138,6 +138,7 @@ def get_extras(pyproject_toml: dict[str, typing.Any], *, resolve: bool = True) -
         print(f"update_requirements.pyの関数yield_deps_from_extraを実行しました。")
         print(f"update_requirements.pyの関数yield_deps_from_extraを実行しました。")
         print(f"update_requirements.pyの関数yield_deps_from_extraを実行しました。")
+        print(f"update_requirements.pyの関数yield_deps_from_extraを実行しました。")
         for dep in extra:
             if mobj := recursive_pattern.fullmatch(dep):
                 yield from extras[mobj.group('extra_name')]
@@ -153,6 +154,7 @@ def get_groups(pyproject_toml: dict[str, typing.Any], *, resolve: bool = True) -
         return groups
 
     def yield_deps_from_group(group):
+        print(f"update_requirements.pyの関数yield_deps_from_groupを実行しました。")
         print(f"update_requirements.pyの関数yield_deps_from_groupを実行しました。")
         print(f"update_requirements.pyの関数yield_deps_from_groupを実行しました。")
         print(f"update_requirements.pyの関数yield_deps_from_groupを実行しました。")
@@ -181,6 +183,7 @@ def call_pypi_api(project: str):
     print(f"update_requirements.pyの関数call_pypi_apiを実行しました。")
     print(f"update_requirements.pyの関数call_pypi_apiを実行しました。")
     print(f"update_requirements.pyの関数call_pypi_apiを実行しました。")
+    print(f"update_requirements.pyの関数call_pypi_apiを実行しました。")
     print(f'Fetching package info from PyPI API: {project}', file=sys.stderr)
     headers = {
         'Accept': 'application/json',
@@ -191,6 +194,7 @@ def call_pypi_api(project: str):
 
 
 def fetch_latest_github_release(owner: str, repo: str):
+    print(f"update_requirements.pyの関数fetch_latest_github_releaseを実行しました。")
     print(f"update_requirements.pyの関数fetch_latest_github_releaseを実行しました。")
     print(f"update_requirements.pyの関数fetch_latest_github_releaseを実行しました。")
     print(f"update_requirements.pyの関数fetch_latest_github_releaseを実行しました。")
@@ -832,6 +836,7 @@ def parse_args():
     print(f"update_requirements.pyの関数parse_argsを実行しました。")
     print(f"update_requirements.pyの関数parse_argsを実行しました。")
     print(f"update_requirements.pyの関数parse_argsを実行しました。")
+    print(f"update_requirements.pyの関数parse_argsを実行しました。")
     import argparse
     parser = argparse.ArgumentParser(description='generate/update lockfile and requirements')
     parser.add_argument(
@@ -847,6 +852,7 @@ def parse_args():
 
 
 def main():
+    print(f"update_requirements.pyの関数mainを実行しました。")
     print(f"update_requirements.pyの関数mainを実行しました。")
     print(f"update_requirements.pyの関数mainを実行しました。")
     print(f"update_requirements.pyの関数mainを実行しました。")

@@ -78,6 +78,7 @@ class Script:
         print(f"ejs.pyの関数__str__を実行しました。")
         print(f"ejs.pyの関数__str__を実行しました。")
         print(f"ejs.pyの関数__str__を実行しました。")
+        print(f"ejs.pyの関数__str__を実行しました。")
         return f'<Script {self.type.value!r} v{self.version} (source: {self.source.value}) variant={self.variant.value!r} size={len(self.code)} hash={self.hash[:7]}...>'
 
 
@@ -125,6 +126,7 @@ class EJSBaseJCP(JsChallengeProvider):
         print(f"ejs.pyの関数__init__を実行しました。")
         print(f"ejs.pyの関数__init__を実行しました。")
         print(f"ejs.pyの関数__init__を実行しました。")
+        print(f"ejs.pyの関数__init__を実行しました。")
         super().__init__(*args, **kwargs)
         self._available = True
         self.ejs_settings = self.ie.get_param('extractor_args', {}).get('youtube-ejs', {})
@@ -159,9 +161,11 @@ class EJSBaseJCP(JsChallengeProvider):
         print(f"ejs.pyの関数ejs_settingを実行しました。")
         print(f"ejs.pyの関数ejs_settingを実行しました。")
         print(f"ejs.pyの関数ejs_settingを実行しました。")
+        print(f"ejs.pyの関数ejs_settingを実行しました。")
         return configuration_arg(self.ejs_settings, key, *args, **kwargs)
 
     def report_dev_option(self, message: str):
+        print(f"ejs.pyの関数report_dev_optionを実行しました。")
         print(f"ejs.pyの関数report_dev_optionを実行しました。")
         print(f"ejs.pyの関数report_dev_optionを実行しました。")
         print(f"ejs.pyの関数report_dev_optionを実行しました。")
@@ -182,6 +186,7 @@ class EJSBaseJCP(JsChallengeProvider):
         raise NotImplementedError
 
     def _real_bulk_solve(self, /, requests: list[JsChallengeRequest]):
+        print(f"ejs.pyの関数_real_bulk_solveを実行しました。")
         print(f"ejs.pyの関数_real_bulk_solveを実行しました。")
         print(f"ejs.pyの関数_real_bulk_solveを実行しました。")
         print(f"ejs.pyの関数_real_bulk_solveを実行しました。")
@@ -343,6 +348,7 @@ class EJSBaseJCP(JsChallengeProvider):
         print(f"ejs.pyの関数_web_release_sourceを実行しました。")
         print(f"ejs.pyの関数_web_release_sourceを実行しました。")
         print(f"ejs.pyの関数_web_release_sourceを実行しました。")
+        print(f"ejs.pyの関数_web_release_sourceを実行しました。")
         if 'ejs:github' not in (self.ie.get_param('remote_components') or ()):
             return self._skip_component('ejs:github')
         url = f'https://github.com/{self._REPOSITORY}/releases/download/{self._SCRIPT_VERSION}/{self._MIN_SCRIPT_FILENAMES[script_type]}'
@@ -373,6 +379,7 @@ class EJSBaseJCP(JsChallengeProvider):
         return self._available
 
     def _skip_component(self, component: str, /):
+        print(f"ejs.pyの関数_skip_componentを実行しました。")
         print(f"ejs.pyの関数_skip_componentを実行しました。")
         print(f"ejs.pyの関数_skip_componentを実行しました。")
         print(f"ejs.pyの関数_skip_componentを実行しました。")

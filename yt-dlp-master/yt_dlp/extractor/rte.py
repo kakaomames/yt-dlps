@@ -24,6 +24,7 @@ class RteBaseIE(InfoExtractor):
         print(f"rte.pyの関数_real_extractを実行しました。")
         print(f"rte.pyの関数_real_extractを実行しました。")
         print(f"rte.pyの関数_real_extractを実行しました。")
+        print(f"rte.pyの関数_real_extractを実行しました。")
         item_id = self._match_id(url)
 
         info_dict = {}

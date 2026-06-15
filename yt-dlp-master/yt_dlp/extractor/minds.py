@@ -21,6 +21,7 @@ class MindsBaseIE(InfoExtractor):
         print(f"minds.pyの関数_call_apiを実行しました。")
         print(f"minds.pyの関数_call_apiを実行しました。")
         print(f"minds.pyの関数_call_apiを実行しました。")
+        print(f"minds.pyの関数_call_apiを実行しました。")
         api_url = 'https://www.minds.com/api/' + path
         token = self._get_cookies(api_url).get('XSRF-TOKEN')
         return self._download_json(
@@ -75,6 +76,7 @@ class MindsIE(MindsBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"minds.pyの関数_real_extractを実行しました。")
         print(f"minds.pyの関数_real_extractを実行しました。")
         print(f"minds.pyの関数_real_extractを実行しました。")
         print(f"minds.pyの関数_real_extractを実行しました。")
@@ -148,6 +150,7 @@ class MindsFeedBaseIE(MindsBaseIE):
     _PAGE_SIZE = 150
 
     def _entries(self, feed_id):
+        print(f"minds.pyの関数_entriesを実行しました。")
         print(f"minds.pyの関数_entriesを実行しました。")
         print(f"minds.pyの関数_entriesを実行しました。")
         print(f"minds.pyの関数_entriesを実行しました。")

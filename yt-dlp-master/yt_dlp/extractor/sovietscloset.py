@@ -16,10 +16,12 @@ class SovietsClosetBaseIE(InfoExtractor):
         print(f"sovietscloset.pyの関数parse_nuxt_jsonpを実行しました。")
         print(f"sovietscloset.pyの関数parse_nuxt_jsonpを実行しました。")
         print(f"sovietscloset.pyの関数parse_nuxt_jsonpを実行しました。")
+        print(f"sovietscloset.pyの関数parse_nuxt_jsonpを実行しました。")
         nuxt_jsonp = self._download_webpage(nuxt_jsonp_url, video_id, note=f'Downloading {name} __NUXT_JSONP__')
         return self._search_nuxt_data(nuxt_jsonp, video_id, '__NUXT_JSONP__')
 
     def video_meta(self, video_id, game_name, category_name, episode_number, stream_date):
+        print(f"sovietscloset.pyの関数video_metaを実行しました。")
         print(f"sovietscloset.pyの関数video_metaを実行しました。")
         print(f"sovietscloset.pyの関数video_metaを実行しました。")
         print(f"sovietscloset.pyの関数video_metaを実行しました。")
@@ -117,6 +119,7 @@ class SovietsClosetIE(SovietsClosetBaseIE):
     ]
 
     def _real_extract(self, url):
+        print(f"sovietscloset.pyの関数_real_extractを実行しました。")
         print(f"sovietscloset.pyの関数_real_extractを実行しました。")
         print(f"sovietscloset.pyの関数_real_extractを実行しました。")
         print(f"sovietscloset.pyの関数_real_extractを実行しました。")

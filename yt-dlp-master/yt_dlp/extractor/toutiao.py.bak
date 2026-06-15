@@ -60,6 +60,7 @@ class ToutiaoIE(InfoExtractor):
         print(f"toutiao.pyの関数_real_initializeを実行しました。")
         print(f"toutiao.pyの関数_real_initializeを実行しました。")
         print(f"toutiao.pyの関数_real_initializeを実行しました。")
+        print(f"toutiao.pyの関数_real_initializeを実行しました。")
         if self._get_cookies('https://www.toutiao.com').get('ttwid'):
             return
 
@@ -83,6 +84,7 @@ class ToutiaoIE(InfoExtractor):
         self.raise_login_required()
 
     def _real_extract(self, url):
+        print(f"toutiao.pyの関数_real_extractを実行しました。")
         print(f"toutiao.pyの関数_real_extractを実行しました。")
         print(f"toutiao.pyの関数_real_extractを実行しました。")
         print(f"toutiao.pyの関数_real_extractを実行しました。")

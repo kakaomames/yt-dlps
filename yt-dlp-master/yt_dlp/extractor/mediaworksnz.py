@@ -77,6 +77,7 @@ class MediaWorksNZVODIE(InfoExtractor):
         print(f"mediaworksnz.pyの関数_real_extractを実行しました。")
         print(f"mediaworksnz.pyの関数_real_extractを実行しました。")
         print(f"mediaworksnz.pyの関数_real_extractを実行しました。")
+        print(f"mediaworksnz.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         asset = self._download_json(url, video_id)['asset']
 

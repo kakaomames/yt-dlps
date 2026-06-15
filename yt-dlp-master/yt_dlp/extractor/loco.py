@@ -100,9 +100,11 @@ class LocoIE(InfoExtractor):
         print(f"loco.pyの関数_is_jwt_expiredを実行しました。")
         print(f"loco.pyの関数_is_jwt_expiredを実行しました。")
         print(f"loco.pyの関数_is_jwt_expiredを実行しました。")
+        print(f"loco.pyの関数_is_jwt_expiredを実行しました。")
         return jwt_decode_hs256(token)['exp'] - time.time() < 300
 
     def _get_access_token(self, video_id):
+        print(f"loco.pyの関数_get_access_tokenを実行しました。")
         print(f"loco.pyの関数_get_access_tokenを実行しました。")
         print(f"loco.pyの関数_get_access_tokenを実行しました。")
         print(f"loco.pyの関数_get_access_tokenを実行しました。")
@@ -139,6 +141,7 @@ class LocoIE(InfoExtractor):
             return access_token
 
     def _real_extract(self, url):
+        print(f"loco.pyの関数_real_extractを実行しました。")
         print(f"loco.pyの関数_real_extractを実行しました。")
         print(f"loco.pyの関数_real_extractを実行しました。")
         print(f"loco.pyの関数_real_extractを実行しました。")

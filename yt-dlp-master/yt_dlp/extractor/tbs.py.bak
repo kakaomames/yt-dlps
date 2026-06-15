@@ -111,6 +111,7 @@ class TBSIE(TurnerBaseIE):
         print(f"tbs.pyの関数_real_extractを実行しました。")
         print(f"tbs.pyの関数_real_extractを実行しました。")
         print(f"tbs.pyの関数_real_extractを実行しました。")
+        print(f"tbs.pyの関数_real_extractを実行しました。")
         site, path, display_id, watch = self._match_valid_url(url).group('site', 'path', 'id', 'watch')
         is_live = bool(watch)
         webpage = self._download_webpage(url, display_id)

@@ -53,6 +53,7 @@ class PhilharmonieDeParisIE(InfoExtractor):
         print(f"philharmoniedeparis.pyの関数_real_extractを実行しました。")
         print(f"philharmoniedeparis.pyの関数_real_extractを実行しました。")
         print(f"philharmoniedeparis.pyの関数_real_extractを実行しました。")
+        print(f"philharmoniedeparis.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         config = self._download_json(
@@ -62,6 +63,7 @@ class PhilharmonieDeParisIE(InfoExtractor):
             })
 
         def extract_entry(source):
+            print(f"philharmoniedeparis.pyの関数extract_entryを実行しました。")
             print(f"philharmoniedeparis.pyの関数extract_entryを実行しました。")
             print(f"philharmoniedeparis.pyの関数extract_entryを実行しました。")
             print(f"philharmoniedeparis.pyの関数extract_entryを実行しました。")

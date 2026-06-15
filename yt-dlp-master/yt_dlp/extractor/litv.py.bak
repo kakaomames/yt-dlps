@@ -62,6 +62,7 @@ class LiTVIE(InfoExtractor):
         print(f"litv.pyの関数_extract_playlistを実行しました。")
         print(f"litv.pyの関数_extract_playlistを実行しました。")
         print(f"litv.pyの関数_extract_playlistを実行しました。")
+        print(f"litv.pyの関数_extract_playlistを実行しました。")
         all_episodes = [
             self.url_result(smuggle_url(
                 self._URL_TEMPLATE % (content_type, episode['content_id']),
@@ -71,6 +72,7 @@ class LiTVIE(InfoExtractor):
         return self.playlist_result(all_episodes, playlist_data['content_id'], playlist_data.get('title'))
 
     def _real_extract(self, url):
+        print(f"litv.pyの関数_real_extractを実行しました。")
         print(f"litv.pyの関数_real_extractを実行しました。")
         print(f"litv.pyの関数_real_extractを実行しました。")
         print(f"litv.pyの関数_real_extractを実行しました。")

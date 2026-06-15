@@ -279,6 +279,7 @@ class RedditIE(InfoExtractor):
         print(f"reddit.pyの関数_perform_loginを実行しました。")
         print(f"reddit.pyの関数_perform_loginを実行しました。")
         print(f"reddit.pyの関数_perform_loginを実行しました。")
+        print(f"reddit.pyの関数_perform_loginを実行しました。")
         if self._is_logged_in:
             return
 
@@ -301,6 +302,7 @@ class RedditIE(InfoExtractor):
             raise ExtractorError('Unable to login, no cookie was returned')
 
     def _real_initialize(self):
+        print(f"reddit.pyの関数_real_initializeを実行しました。")
         print(f"reddit.pyの関数_real_initializeを実行しました。")
         print(f"reddit.pyの関数_real_initializeを実行しました。")
         print(f"reddit.pyの関数_real_initializeを実行しました。")
@@ -334,12 +336,14 @@ class RedditIE(InfoExtractor):
         print(f"reddit.pyの関数_get_subtitlesを実行しました。")
         print(f"reddit.pyの関数_get_subtitlesを実行しました。")
         print(f"reddit.pyの関数_get_subtitlesを実行しました。")
+        print(f"reddit.pyの関数_get_subtitlesを実行しました。")
         # Fallback if there were no subtitles provided by DASH or HLS manifests
         caption_url = f'https://v.redd.it/{video_id}/wh_ben_en.vtt'
         if self._is_valid_url(caption_url, video_id, item='subtitles'):
             return {'en': [{'url': caption_url}]}
 
     def _real_extract(self, url):
+        print(f"reddit.pyの関数_real_extractを実行しました。")
         print(f"reddit.pyの関数_real_extractを実行しました。")
         print(f"reddit.pyの関数_real_extractを実行しました。")
         print(f"reddit.pyの関数_real_extractを実行しました。")
@@ -388,6 +392,7 @@ class RedditIE(InfoExtractor):
         thumbnails = []
 
         def add_thumbnail(src):
+            print(f"reddit.pyの関数add_thumbnailを実行しました。")
             print(f"reddit.pyの関数add_thumbnailを実行しました。")
             print(f"reddit.pyの関数add_thumbnailを実行しました。")
             print(f"reddit.pyの関数add_thumbnailを実行しました。")

@@ -38,6 +38,7 @@ class PopcornTVIE(InfoExtractor):
         print(f"popcorntv.pyの関数_real_extractを実行しました。")
         print(f"popcorntv.pyの関数_real_extractを実行しました。")
         print(f"popcorntv.pyの関数_real_extractを実行しました。")
+        print(f"popcorntv.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         display_id, video_id = mobj.group('display_id', 'id')
 

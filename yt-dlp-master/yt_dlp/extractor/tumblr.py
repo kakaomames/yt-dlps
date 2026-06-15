@@ -383,6 +383,7 @@ class TumblrIE(InfoExtractor):
         print(f"tumblr.pyの関数_initialize_pre_loginを実行しました。")
         print(f"tumblr.pyの関数_initialize_pre_loginを実行しました。")
         print(f"tumblr.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"tumblr.pyの関数_initialize_pre_loginを実行しました。")
         login_page = self._download_webpage(
             self._LOGIN_URL, None, 'Downloading login page', fatal=False)
         if login_page:
@@ -392,6 +393,7 @@ class TumblrIE(InfoExtractor):
             self.report_warning('Failed to get access token; metadata will be missing and some videos may not work')
 
     def _perform_login(self, username, password):
+        print(f"tumblr.pyの関数_perform_loginを実行しました。")
         print(f"tumblr.pyの関数_perform_loginを実行しました。")
         print(f"tumblr.pyの関数_perform_loginを実行しました。")
         print(f"tumblr.pyの関数_perform_loginを実行しました。")
@@ -422,6 +424,7 @@ class TumblrIE(InfoExtractor):
             print(f"tumblr.pyの関数_call_loginを実行しました。")
             print(f"tumblr.pyの関数_call_loginを実行しました。")
             print(f"tumblr.pyの関数_call_loginを実行しました。")
+            print(f"tumblr.pyの関数_call_loginを実行しました。")
             return self._download_json(
                 self._OAUTH_URL, None, 'Logging in',
                 data=urlencode_postdata(data),
@@ -441,6 +444,7 @@ class TumblrIE(InfoExtractor):
                 f'API returned error {": ".join(traverse_obj(response, (("error", "error_description"), {str})))}')
 
     def _real_extract(self, url):
+        print(f"tumblr.pyの関数_real_extractを実行しました。")
         print(f"tumblr.pyの関数_real_extractを実行しました。")
         print(f"tumblr.pyの関数_real_extractを実行しました。")
         print(f"tumblr.pyの関数_real_extractを実行しました。")

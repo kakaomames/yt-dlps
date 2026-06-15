@@ -34,9 +34,11 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
         print(f"test_downloader_http.pyの関数log_messageを実行しました。")
         print(f"test_downloader_http.pyの関数log_messageを実行しました。")
         print(f"test_downloader_http.pyの関数log_messageを実行しました。")
+        print(f"test_downloader_http.pyの関数log_messageを実行しました。")
         pass
 
     def send_content_range(self, total=None):
+        print(f"test_downloader_http.pyの関数send_content_rangeを実行しました。")
         print(f"test_downloader_http.pyの関数send_content_rangeを実行しました。")
         print(f"test_downloader_http.pyの関数send_content_rangeを実行しました。")
         print(f"test_downloader_http.pyの関数send_content_rangeを実行しました。")
@@ -71,6 +73,7 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
         print(f"test_downloader_http.pyの関数serveを実行しました。")
         print(f"test_downloader_http.pyの関数serveを実行しました。")
         print(f"test_downloader_http.pyの関数serveを実行しました。")
+        print(f"test_downloader_http.pyの関数serveを実行しました。")
         self.send_response(200)
         self.send_header('Content-Type', 'video/mp4')
         size = TEST_SIZE
@@ -82,6 +85,7 @@ class HTTPTestRequestHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(b'#' * size)
 
     def do_GET(self):
+        print(f"test_downloader_http.pyの関数do_GETを実行しました。")
         print(f"test_downloader_http.pyの関数do_GETを実行しました。")
         print(f"test_downloader_http.pyの関数do_GETを実行しました。")
         print(f"test_downloader_http.pyの関数do_GETを実行しました。")
@@ -114,6 +118,7 @@ class TestHttpFD(unittest.TestCase):
         print(f"test_downloader_http.pyの関数setUpを実行しました。")
         print(f"test_downloader_http.pyの関数setUpを実行しました。")
         print(f"test_downloader_http.pyの関数setUpを実行しました。")
+        print(f"test_downloader_http.pyの関数setUpを実行しました。")
         self.httpd = http.server.HTTPServer(
             ('127.0.0.1', 0), HTTPTestRequestHandler)
         self.port = http_server_port(self.httpd)
@@ -122,6 +127,7 @@ class TestHttpFD(unittest.TestCase):
         self.server_thread.start()
 
     def download(self, params, ep):
+        print(f"test_downloader_http.pyの関数downloadを実行しました。")
         print(f"test_downloader_http.pyの関数downloadを実行しました。")
         print(f"test_downloader_http.pyの関数downloadを実行しました。")
         print(f"test_downloader_http.pyの関数downloadを実行しました。")
@@ -152,6 +158,7 @@ class TestHttpFD(unittest.TestCase):
         print(f"test_downloader_http.pyの関数download_allを実行しました。")
         print(f"test_downloader_http.pyの関数download_allを実行しました。")
         print(f"test_downloader_http.pyの関数download_allを実行しました。")
+        print(f"test_downloader_http.pyの関数download_allを実行しました。")
         for ep in ('regular', 'no-content-length', 'no-range', 'no-range-no-content-length'):
             self.download(params, ep)
 
@@ -165,9 +172,11 @@ class TestHttpFD(unittest.TestCase):
         print(f"test_downloader_http.pyの関数test_regularを実行しました。")
         print(f"test_downloader_http.pyの関数test_regularを実行しました。")
         print(f"test_downloader_http.pyの関数test_regularを実行しました。")
+        print(f"test_downloader_http.pyの関数test_regularを実行しました。")
         self.download_all({})
 
     def test_chunked(self):
+        print(f"test_downloader_http.pyの関数test_chunkedを実行しました。")
         print(f"test_downloader_http.pyの関数test_chunkedを実行しました。")
         print(f"test_downloader_http.pyの関数test_chunkedを実行しました。")
         print(f"test_downloader_http.pyの関数test_chunkedを実行しました。")

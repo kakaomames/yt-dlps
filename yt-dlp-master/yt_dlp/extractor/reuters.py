@@ -31,6 +31,7 @@ class ReutersIE(InfoExtractor):
         print(f"reuters.pyの関数_real_extractを実行しました。")
         print(f"reuters.pyの関数_real_extractを実行しました。")
         print(f"reuters.pyの関数_real_extractを実行しました。")
+        print(f"reuters.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(
             f'http://www.reuters.com/assets/iframe/yovideo?videoId={video_id}', video_id)
@@ -39,6 +40,7 @@ class ReutersIE(InfoExtractor):
             webpage, 'video data'))
 
         def get_json_value(key, fatal=False):
+            print(f"reuters.pyの関数get_json_valueを実行しました。")
             print(f"reuters.pyの関数get_json_valueを実行しました。")
             print(f"reuters.pyの関数get_json_valueを実行しました。")
             print(f"reuters.pyの関数get_json_valueを実行しました。")

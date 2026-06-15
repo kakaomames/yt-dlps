@@ -23,6 +23,7 @@ class TestVerboseOutput(unittest.TestCase):
         print(f"test_verbose_output.pyの関数test_private_info_argを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_argを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_argを実行しました。")
+        print(f"test_verbose_output.pyの関数test_private_info_argを実行しました。")
         outp = subprocess.Popen(
             [
                 sys.executable, 'yt_dlp/__main__.py',
@@ -37,6 +38,7 @@ class TestVerboseOutput(unittest.TestCase):
         self.assertTrue(b'my_secret_password' not in serr)
 
     def test_private_info_shortarg(self):
+        print(f"test_verbose_output.pyの関数test_private_info_shortargを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_shortargを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_shortargを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_shortargを実行しました。")
@@ -67,6 +69,7 @@ class TestVerboseOutput(unittest.TestCase):
         print(f"test_verbose_output.pyの関数test_private_info_eqを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_eqを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_eqを実行しました。")
+        print(f"test_verbose_output.pyの関数test_private_info_eqを実行しました。")
         outp = subprocess.Popen(
             [
                 sys.executable, 'yt_dlp/__main__.py',
@@ -81,6 +84,7 @@ class TestVerboseOutput(unittest.TestCase):
         self.assertTrue(b'my_secret_password' not in serr)
 
     def test_private_info_shortarg_eq(self):
+        print(f"test_verbose_output.pyの関数test_private_info_shortarg_eqを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_shortarg_eqを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_shortarg_eqを実行しました。")
         print(f"test_verbose_output.pyの関数test_private_info_shortarg_eqを実行しました。")

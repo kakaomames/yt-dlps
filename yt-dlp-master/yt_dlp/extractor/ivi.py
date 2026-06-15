@@ -84,6 +84,7 @@ class IviIE(InfoExtractor):
         print(f"ivi.pyの関数_real_extractを実行しました。")
         print(f"ivi.pyの関数_real_extractを実行しました。")
         print(f"ivi.pyの関数_real_extractを実行しました。")
+        print(f"ivi.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         data = json.dumps({
@@ -226,6 +227,7 @@ class IviCompilationIE(InfoExtractor):
     }]
 
     def _extract_entries(self, html, compilation_id):
+        print(f"ivi.pyの関数_extract_entriesを実行しました。")
         print(f"ivi.pyの関数_extract_entriesを実行しました。")
         print(f"ivi.pyの関数_extract_entriesを実行しました。")
         print(f"ivi.pyの関数_extract_entriesを実行しました。")

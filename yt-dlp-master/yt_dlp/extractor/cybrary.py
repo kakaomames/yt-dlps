@@ -30,12 +30,14 @@ class CybraryBaseIE(InfoExtractor):
         print(f"cybrary.pyの関数_perform_loginを実行しました。")
         print(f"cybrary.pyの関数_perform_loginを実行しました。")
         print(f"cybrary.pyの関数_perform_loginを実行しました。")
+        print(f"cybrary.pyの関数_perform_loginを実行しました。")
         CybraryBaseIE._TOKEN = self._download_json(
             f'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={self._API_KEY}',
             None, data=urlencode_postdata({'email': username, 'password': password, 'returnSecureToken': True}),
             note='Logging in')['idToken']
 
     def _real_initialize(self):
+        print(f"cybrary.pyの関数_real_initializeを実行しました。")
         print(f"cybrary.pyの関数_real_initializeを実行しました。")
         print(f"cybrary.pyの関数_real_initializeを実行しました。")
         print(f"cybrary.pyの関数_real_initializeを実行しました。")
@@ -58,12 +60,14 @@ class CybraryBaseIE(InfoExtractor):
         print(f"cybrary.pyの関数_call_apiを実行しました。")
         print(f"cybrary.pyの関数_call_apiを実行しました。")
         print(f"cybrary.pyの関数_call_apiを実行しました。")
+        print(f"cybrary.pyの関数_call_apiを実行しました。")
         return self._download_json(
             self._ENDPOINTS[endpoint].format(item_id), item_id,
             note=f'Downloading {endpoint} JSON metadata',
             headers={'Authorization': f'Bearer {self._TOKEN}'})
 
     def _get_vimeo_id(self, activity_id):
+        print(f"cybrary.pyの関数_get_vimeo_idを実行しました。")
         print(f"cybrary.pyの関数_get_vimeo_idを実行しました。")
         print(f"cybrary.pyの関数_get_vimeo_idを実行しました。")
         print(f"cybrary.pyの関数_get_vimeo_idを実行しました。")
@@ -121,6 +125,7 @@ class CybraryIE(CybraryBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"cybrary.pyの関数_real_extractを実行しました。")
         print(f"cybrary.pyの関数_real_extractを実行しました。")
         print(f"cybrary.pyの関数_real_extractを実行しました。")
         print(f"cybrary.pyの関数_real_extractを実行しました。")

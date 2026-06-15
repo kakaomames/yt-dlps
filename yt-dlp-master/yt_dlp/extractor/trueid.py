@@ -88,6 +88,7 @@ class TrueIDIE(InfoExtractor):
         print(f"trueid.pyの関数_real_extractを実行しました。")
         print(f"trueid.pyの関数_real_extractを実行しました。")
         print(f"trueid.pyの関数_real_extractを実行しました。")
+        print(f"trueid.pyの関数_real_extractを実行しました。")
         domain, video_id = self._match_valid_url(url).group('domain', 'id')
         webpage = self._download_webpage(url, video_id)
         initial_data = traverse_obj(

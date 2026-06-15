@@ -70,6 +70,7 @@ class BoxCastVideoIE(InfoExtractor):
         print(f"boxcast.pyの関数_real_extractを実行しました。")
         print(f"boxcast.pyの関数_real_extractを実行しました。")
         print(f"boxcast.pyの関数_real_extractを実行しました。")
+        print(f"boxcast.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         webpage_json_data = self._search_json(

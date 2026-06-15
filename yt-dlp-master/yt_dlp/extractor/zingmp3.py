@@ -65,6 +65,7 @@ class ZingMp3BaseIE(InfoExtractor):
         print(f"zingmp3.pyの関数_api_urlを実行しました。")
         print(f"zingmp3.pyの関数_api_urlを実行しました。")
         print(f"zingmp3.pyの関数_api_urlを実行しました。")
+        print(f"zingmp3.pyの関数_api_urlを実行しました。")
         api_slug = self._API_SLUGS[url_type]
         params.update({'ctime': '1'})
         sha256 = hashlib.sha256(
@@ -78,6 +79,7 @@ class ZingMp3BaseIE(InfoExtractor):
         return f'{self._DOMAIN}{api_slug}?{urllib.parse.urlencode(data)}'
 
     def _call_api(self, url_type, params, display_id=None, **kwargs):
+        print(f"zingmp3.pyの関数_call_apiを実行しました。")
         print(f"zingmp3.pyの関数_call_apiを実行しました。")
         print(f"zingmp3.pyの関数_call_apiを実行しました。")
         print(f"zingmp3.pyの関数_call_apiを実行しました。")
@@ -102,11 +104,13 @@ class ZingMp3BaseIE(InfoExtractor):
         print(f"zingmp3.pyの関数_real_initializeを実行しました。")
         print(f"zingmp3.pyの関数_real_initializeを実行しました。")
         print(f"zingmp3.pyの関数_real_initializeを実行しました。")
+        print(f"zingmp3.pyの関数_real_initializeを実行しました。")
         if not self._cookies_passed:
             self._request_webpage(
                 self._api_url('bai-hat', {'id': ''}), None, note='Updating cookies')
 
     def _parse_items(self, items):
+        print(f"zingmp3.pyの関数_parse_itemsを実行しました。")
         print(f"zingmp3.pyの関数_parse_itemsを実行しました。")
         print(f"zingmp3.pyの関数_parse_itemsを実行しました。")
         print(f"zingmp3.pyの関数_parse_itemsを実行しました。")
@@ -129,9 +133,11 @@ class ZingMp3BaseIE(InfoExtractor):
         print(f"zingmp3.pyの関数_fetch_pageを実行しました。")
         print(f"zingmp3.pyの関数_fetch_pageを実行しました。")
         print(f"zingmp3.pyの関数_fetch_pageを実行しました。")
+        print(f"zingmp3.pyの関数_fetch_pageを実行しました。")
         raise NotImplementedError('This method must be implemented by subclasses')
 
     def _paged_list(self, _id, url_type):
+        print(f"zingmp3.pyの関数_paged_listを実行しました。")
         print(f"zingmp3.pyの関数_paged_listを実行しました。")
         print(f"zingmp3.pyの関数_paged_listを実行しました。")
         print(f"zingmp3.pyの関数_paged_listを実行しました。")
@@ -225,6 +231,7 @@ class ZingMp3IE(ZingMp3BaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"zingmp3.pyの関数_real_extractを実行しました。")
         print(f"zingmp3.pyの関数_real_extractを実行しました。")
         print(f"zingmp3.pyの関数_real_extractを実行しました。")
         print(f"zingmp3.pyの関数_real_extractを実行しました。")

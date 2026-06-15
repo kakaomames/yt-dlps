@@ -35,6 +35,7 @@ class DeuxMIE(InfoExtractor):
         print(f"deuxm.pyの関数_real_extractを実行しました。")
         print(f"deuxm.pyの関数_real_extractを実行しました。")
         print(f"deuxm.pyの関数_real_extractを実行しました。")
+        print(f"deuxm.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video = self._download_json(
             f'https://2m.ma/api/watchDetail/{video_id}', video_id)['response']['News']

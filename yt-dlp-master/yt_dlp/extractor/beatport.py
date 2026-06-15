@@ -45,6 +45,7 @@ class BeatportIE(InfoExtractor):
         print(f"beatport.pyの関数_real_extractを実行しました。")
         print(f"beatport.pyの関数_real_extractを実行しました。")
         print(f"beatport.pyの関数_real_extractを実行しました。")
+        print(f"beatport.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         track_id = mobj.group('id')
         display_id = mobj.group('display_id')

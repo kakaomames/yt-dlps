@@ -60,11 +60,13 @@ class ExpressenIE(InfoExtractor):
         print(f"expressen.pyの関数_real_extractを実行しました。")
         print(f"expressen.pyの関数_real_extractを実行しました。")
         print(f"expressen.pyの関数_real_extractを実行しました。")
+        print(f"expressen.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         webpage = self._download_webpage(url, display_id)
 
         def extract_data(name):
+            print(f"expressen.pyの関数extract_dataを実行しました。")
             print(f"expressen.pyの関数extract_dataを実行しました。")
             print(f"expressen.pyの関数extract_dataを実行しました。")
             print(f"expressen.pyの関数extract_dataを実行しました。")

@@ -121,6 +121,7 @@ class ViideaIE(InfoExtractor):
         print(f"viidea.pyの関数_real_extractを実行しました。")
         print(f"viidea.pyの関数_real_extractを実行しました。")
         print(f"viidea.pyの関数_real_extractを実行しました。")
+        print(f"viidea.pyの関数_real_extractを実行しました。")
         lecture_slug, explicit_part_id = self._match_valid_url(url).groups()
 
         webpage = self._download_webpage(url, lecture_slug)
@@ -161,6 +162,7 @@ class ViideaIE(InfoExtractor):
             multipart = len(parts) > 1
 
             def extract_part(part_id):
+                print(f"viidea.pyの関数extract_partを実行しました。")
                 print(f"viidea.pyの関数extract_partを実行しました。")
                 print(f"viidea.pyの関数extract_partを実行しました。")
                 print(f"viidea.pyの関数extract_partを実行しました。")

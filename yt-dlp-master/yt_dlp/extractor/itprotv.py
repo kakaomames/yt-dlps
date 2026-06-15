@@ -25,6 +25,7 @@ class ITProTVBaseIE(InfoExtractor):
         print(f"itprotv.pyの関数_call_apiを実行しました。")
         print(f"itprotv.pyの関数_call_apiを実行しました。")
         print(f"itprotv.pyの関数_call_apiを実行しました。")
+        print(f"itprotv.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://api.itpro.tv/api/urza/v3/consumer-web/{self._ENDPOINTS[ep].format(item_id)}',
             item_id, note=f'Fetching {ep} data API',
@@ -40,9 +41,11 @@ class ITProTVBaseIE(InfoExtractor):
         print(f"itprotv.pyの関数_fetch_jwtを実行しました。")
         print(f"itprotv.pyの関数_fetch_jwtを実行しました。")
         print(f"itprotv.pyの関数_fetch_jwtを実行しました。")
+        print(f"itprotv.pyの関数_fetch_jwtを実行しました。")
         return self._search_regex(r'{"passedToken":"([\w-]+\.[\w-]+\.[\w-]+)",', webpage, 'jwt')
 
     def _check_if_logged_in(self, webpage):
+        print(f"itprotv.pyの関数_check_if_logged_inを実行しました。")
         print(f"itprotv.pyの関数_check_if_logged_inを実行しました。")
         print(f"itprotv.pyの関数_check_if_logged_inを実行しました。")
         print(f"itprotv.pyの関数_check_if_logged_inを実行しました。")
@@ -96,6 +99,7 @@ class ITProTVIE(ITProTVBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"itprotv.pyの関数_real_extractを実行しました。")
         print(f"itprotv.pyの関数_real_extractを実行しました。")
         print(f"itprotv.pyの関数_real_extractを実行しました。")
         print(f"itprotv.pyの関数_real_extractを実行しました。")

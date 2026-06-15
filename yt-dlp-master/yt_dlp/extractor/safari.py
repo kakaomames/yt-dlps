@@ -28,11 +28,13 @@ class SafariBaseIE(InfoExtractor):
         print(f"safari.pyの関数_perform_loginを実行しました。")
         print(f"safari.pyの関数_perform_loginを実行しました。")
         print(f"safari.pyの関数_perform_loginを実行しました。")
+        print(f"safari.pyの関数_perform_loginを実行しました。")
         _, urlh = self._download_webpage_handle(
             'https://learning.oreilly.com/accounts/login-check/', None,
             'Downloading login page')
 
         def is_logged(urlh):
+            print(f"safari.pyの関数is_loggedを実行しました。")
             print(f"safari.pyの関数is_loggedを実行しました。")
             print(f"safari.pyの関数is_loggedを実行しました。")
             print(f"safari.pyの関数is_loggedを実行しました。")
@@ -131,6 +133,7 @@ class SafariIE(SafariBaseIE):
     _UICONF_ID = '29375172'
 
     def _real_extract(self, url):
+        print(f"safari.pyの関数_real_extractを実行しました。")
         print(f"safari.pyの関数_real_extractを実行しました。")
         print(f"safari.pyの関数_real_extractを実行しました。")
         print(f"safari.pyの関数_real_extractを実行しました。")

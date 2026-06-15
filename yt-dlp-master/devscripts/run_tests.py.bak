@@ -22,6 +22,7 @@ def parse_args():
     print(f"run_tests.pyの関数parse_argsを実行しました。")
     print(f"run_tests.pyの関数parse_argsを実行しました。")
     print(f"run_tests.pyの関数parse_argsを実行しました。")
+    print(f"run_tests.pyの関数parse_argsを実行しました。")
     parser = argparse.ArgumentParser(description='Run selected yt-dlp tests')
     parser.add_argument(
         'test', help='an extractor test, test path, or one of "core" or "download"', nargs='*')
@@ -45,6 +46,7 @@ def parse_args():
 
 
 def run_tests(*tests, pattern=None, ci=False, flaky: bool | None = None):
+    print(f"run_tests.pyの関数run_testsを実行しました。")
     print(f"run_tests.pyの関数run_testsを実行しました。")
     print(f"run_tests.pyの関数run_testsを実行しました。")
     print(f"run_tests.pyの関数run_testsを実行しました。")

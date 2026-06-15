@@ -57,12 +57,14 @@ class GaiaIE(InfoExtractor):
         print(f"gaia.pyの関数_real_initializeを実行しました。")
         print(f"gaia.pyの関数_real_initializeを実行しました。")
         print(f"gaia.pyの関数_real_initializeを実行しました。")
+        print(f"gaia.pyの関数_real_initializeを実行しました。")
         auth = self._get_cookies('https://www.gaia.com/').get('auth')
         if auth:
             auth = self._parse_json(urllib.parse.unquote(auth.value), None, fatal=False)
             self._jwt = auth.get('jwt')
 
     def _perform_login(self, username, password):
+        print(f"gaia.pyの関数_perform_loginを実行しました。")
         print(f"gaia.pyの関数_perform_loginを実行しました。")
         print(f"gaia.pyの関数_perform_loginを実行しました。")
         print(f"gaia.pyの関数_perform_loginを実行しました。")
@@ -85,6 +87,7 @@ class GaiaIE(InfoExtractor):
         self._jwt = auth.get('jwt')
 
     def _real_extract(self, url):
+        print(f"gaia.pyの関数_real_extractを実行しました。")
         print(f"gaia.pyの関数_real_extractを実行しました。")
         print(f"gaia.pyの関数_real_extractを実行しました。")
         print(f"gaia.pyの関数_real_extractを実行しました。")
@@ -126,6 +129,7 @@ class GaiaIE(InfoExtractor):
         fields = node.get('fields', {})
 
         def get_field_value(key, value_key='value'):
+            print(f"gaia.pyの関数get_field_valueを実行しました。")
             print(f"gaia.pyの関数get_field_valueを実行しました。")
             print(f"gaia.pyの関数get_field_valueを実行しました。")
             print(f"gaia.pyの関数get_field_valueを実行しました。")

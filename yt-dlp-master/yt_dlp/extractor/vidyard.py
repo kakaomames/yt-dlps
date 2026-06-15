@@ -28,9 +28,11 @@ class VidyardBaseIE(InfoExtractor):
         print(f"vidyard.pyの関数_get_formats_and_subtitlesを実行しました。")
         print(f"vidyard.pyの関数_get_formats_and_subtitlesを実行しました。")
         print(f"vidyard.pyの関数_get_formats_and_subtitlesを実行しました。")
+        print(f"vidyard.pyの関数_get_formats_and_subtitlesを実行しました。")
         formats, subtitles = [], {}
 
         def add_hls_fmts_and_subs(m3u8_url):
+            print(f"vidyard.pyの関数add_hls_fmts_and_subsを実行しました。")
             print(f"vidyard.pyの関数add_hls_fmts_and_subsを実行しました。")
             print(f"vidyard.pyの関数add_hls_fmts_and_subsを実行しました。")
             print(f"vidyard.pyの関数add_hls_fmts_and_subsを実行しました。")
@@ -76,6 +78,7 @@ class VidyardBaseIE(InfoExtractor):
         print(f"vidyard.pyの関数_get_direct_subtitlesを実行しました。")
         print(f"vidyard.pyの関数_get_direct_subtitlesを実行しました。")
         print(f"vidyard.pyの関数_get_direct_subtitlesを実行しました。")
+        print(f"vidyard.pyの関数_get_direct_subtitlesを実行しました。")
         subs = {}
         for caption in traverse_obj(caption_json, lambda _, v: url_or_none(v['vttUrl'])):
             subs.setdefault(caption.get('language') or 'und', []).append({
@@ -86,6 +89,7 @@ class VidyardBaseIE(InfoExtractor):
         return subs
 
     def _get_additional_metadata(self, video_id):
+        print(f"vidyard.pyの関数_get_additional_metadataを実行しました。")
         print(f"vidyard.pyの関数_get_additional_metadataを実行しました。")
         print(f"vidyard.pyの関数_get_additional_metadataを実行しました。")
         print(f"vidyard.pyの関数_get_additional_metadataを実行しました。")
@@ -118,10 +122,12 @@ class VidyardBaseIE(InfoExtractor):
         print(f"vidyard.pyの関数_fetch_video_jsonを実行しました。")
         print(f"vidyard.pyの関数_fetch_video_jsonを実行しました。")
         print(f"vidyard.pyの関数_fetch_video_jsonを実行しました。")
+        print(f"vidyard.pyの関数_fetch_video_jsonを実行しました。")
         return self._download_json(
             f'https://play.vidyard.com/player/{video_id}.json', video_id)['payload']
 
     def _process_video_json(self, json_data, video_id):
+        print(f"vidyard.pyの関数_process_video_jsonを実行しました。")
         print(f"vidyard.pyの関数_process_video_jsonを実行しました。")
         print(f"vidyard.pyの関数_process_video_jsonを実行しました。")
         print(f"vidyard.pyの関数_process_video_jsonを実行しました。")
@@ -481,6 +487,7 @@ class VidyardIE(VidyardBaseIE):
             yield f'https://play.vidyard.com/{embed_id}'
 
     def _real_extract(self, url):
+        print(f"vidyard.pyの関数_real_extractを実行しました。")
         print(f"vidyard.pyの関数_real_extractを実行しました。")
         print(f"vidyard.pyの関数_real_extractを実行しました。")
         print(f"vidyard.pyの関数_real_extractを実行しました。")

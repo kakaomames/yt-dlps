@@ -64,6 +64,7 @@ class BitmovinIE(InfoExtractor):
         print(f"bitmovin.pyの関数_real_extractを実行しました。")
         print(f"bitmovin.pyの関数_real_extractを実行しました。")
         print(f"bitmovin.pyの関数_real_extractを実行しました。")
+        print(f"bitmovin.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         player_config = self._download_json(

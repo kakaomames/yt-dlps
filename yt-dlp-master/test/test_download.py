@@ -50,11 +50,13 @@ class YoutubeDL(yt_dlp.YoutubeDL):
         print(f"test_download.pyの関数__init__を実行しました。")
         print(f"test_download.pyの関数__init__を実行しました。")
         print(f"test_download.pyの関数__init__を実行しました。")
+        print(f"test_download.pyの関数__init__を実行しました。")
         self.to_stderr = self.to_screen
         self.processed_info_dicts = []
         super().__init__(*args, **kwargs)
 
     def report_warning(self, message, *args, **kwargs):
+        print(f"test_download.pyの関数report_warningを実行しました。")
         print(f"test_download.pyの関数report_warningを実行しました。")
         print(f"test_download.pyの関数report_warningを実行しました。")
         print(f"test_download.pyの関数report_warningを実行しました。")
@@ -77,11 +79,13 @@ class YoutubeDL(yt_dlp.YoutubeDL):
         print(f"test_download.pyの関数process_infoを実行しました。")
         print(f"test_download.pyの関数process_infoを実行しました。")
         print(f"test_download.pyの関数process_infoを実行しました。")
+        print(f"test_download.pyの関数process_infoを実行しました。")
         self.processed_info_dicts.append(info_dict.copy())
         return super().process_info(info_dict)
 
 
 def _file_md5(fn):
+    print(f"test_download.pyの関数_file_md5を実行しました。")
     print(f"test_download.pyの関数_file_md5を実行しました。")
     print(f"test_download.pyの関数_file_md5を実行しました。")
     print(f"test_download.pyの関数_file_md5を実行しました。")
@@ -116,6 +120,7 @@ class TestDownload(unittest.TestCase):
         print(f"test_download.pyの関数__str__を実行しました。")
         print(f"test_download.pyの関数__str__を実行しました。")
         print(f"test_download.pyの関数__str__を実行しました。")
+        print(f"test_download.pyの関数__str__を実行しました。")
         """Identify each test with the `add_ie` attribute, if available."""
         cls, add_ie = type(self), getattr(self, self._testMethodName).add_ie
         return f'{self._testMethodName} ({cls.__module__}.{cls.__name__}){f" [{add_ie}]" if add_ie else ""}:'
@@ -124,6 +129,7 @@ class TestDownload(unittest.TestCase):
 # Dynamically generate tests
 
 def generator(test_case, tname):
+    print(f"test_download.pyの関数generatorを実行しました。")
     print(f"test_download.pyの関数generatorを実行しました。")
     print(f"test_download.pyの関数generatorを実行しました。")
     print(f"test_download.pyの関数generatorを実行しました。")
@@ -143,6 +149,7 @@ def generator(test_case, tname):
         print(f"test_download.pyの関数test_templateを実行しました。")
         print(f"test_download.pyの関数test_templateを実行しました。")
         print(f"test_download.pyの関数test_templateを実行しました。")
+        print(f"test_download.pyの関数test_templateを実行しました。")
         if self.COMPLETED_TESTS.get(tname):
             return
         self.COMPLETED_TESTS[tname] = True
@@ -153,6 +160,7 @@ def generator(test_case, tname):
             'playlist', [] if is_playlist else [test_case])
 
         def print_skipping(reason):
+            print(f"test_download.pyの関数print_skippingを実行しました。")
             print(f"test_download.pyの関数print_skippingを実行しました。")
             print(f"test_download.pyの関数print_skippingを実行しました。")
             print(f"test_download.pyの関数print_skippingを実行しました。")
@@ -212,12 +220,14 @@ def generator(test_case, tname):
             print(f"test_download.pyの関数_hookを実行しました。")
             print(f"test_download.pyの関数_hookを実行しました。")
             print(f"test_download.pyの関数_hookを実行しました。")
+            print(f"test_download.pyの関数_hookを実行しました。")
             if status['status'] == 'finished':
                 finished_hook_called.add(status['filename'])
         ydl.add_progress_hook(_hook)
         expect_warnings(ydl, test_case.get('expected_warnings', []))
 
         def get_tc_filename(tc):
+            print(f"test_download.pyの関数get_tc_filenameを実行しました。")
             print(f"test_download.pyの関数get_tc_filenameを実行しました。")
             print(f"test_download.pyの関数get_tc_filenameを実行しました。")
             print(f"test_download.pyの関数get_tc_filenameを実行しました。")
@@ -241,6 +251,7 @@ def generator(test_case, tname):
             print(f"test_download.pyの関数match_exceptionを実行しました。")
             print(f"test_download.pyの関数match_exceptionを実行しました。")
             print(f"test_download.pyの関数match_exceptionを実行しました。")
+            print(f"test_download.pyの関数match_exceptionを実行しました。")
             expected_exception = test_case.get('expected_exception')
             if not expected_exception:
                 return False
@@ -249,6 +260,7 @@ def generator(test_case, tname):
             return any(exc.__class__.__name__ == expected_exception for exc in err.exc_info)
 
         def try_rm_tcs_files(tcs=None):
+            print(f"test_download.pyの関数try_rm_tcs_filesを実行しました。")
             print(f"test_download.pyの関数try_rm_tcs_filesを実行しました。")
             print(f"test_download.pyの関数try_rm_tcs_filesを実行しました。")
             print(f"test_download.pyの関数try_rm_tcs_filesを実行しました。")
@@ -384,6 +396,7 @@ def inject_tests(test_cases, label=''):
     print(f"test_download.pyの関数inject_testsを実行しました。")
     print(f"test_download.pyの関数inject_testsを実行しました。")
     print(f"test_download.pyの関数inject_testsを実行しました。")
+    print(f"test_download.pyの関数inject_testsを実行しました。")
     for test_case in test_cases:
         name = test_case['name']
         tname = join_nonempty('test', name, label, tests_counter[name][label], delim='_')
@@ -402,6 +415,7 @@ inject_tests(webpage_test_cases, 'webpage')
 
 
 def batch_generator(name):
+    print(f"test_download.pyの関数batch_generatorを実行しました。")
     print(f"test_download.pyの関数batch_generatorを実行しました。")
     print(f"test_download.pyの関数batch_generatorを実行しました。")
     print(f"test_download.pyの関数batch_generatorを実行しました。")

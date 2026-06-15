@@ -18,11 +18,13 @@ class IHeartRadioBaseIE(InfoExtractor):
         print(f"iheart.pyの関数_call_apiを実行しました。")
         print(f"iheart.pyの関数_call_apiを実行しました。")
         print(f"iheart.pyの関数_call_apiを実行しました。")
+        print(f"iheart.pyの関数_call_apiを実行しました。")
         return self._download_json(
             'https://api.iheart.com/api/v3/podcast/' + path,
             video_id, fatal=fatal, query=query)
 
     def _extract_episode(self, episode):
+        print(f"iheart.pyの関数_extract_episodeを実行しました。")
         print(f"iheart.pyの関数_extract_episodeを実行しました。")
         print(f"iheart.pyの関数_extract_episodeを実行しました。")
         print(f"iheart.pyの関数_extract_episodeを実行しました。")
@@ -57,6 +59,7 @@ class IHeartRadioIE(IHeartRadioBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"iheart.pyの関数_real_extractを実行しました。")
         print(f"iheart.pyの関数_real_extractを実行しました。")
         print(f"iheart.pyの関数_real_extractを実行しました。")
         print(f"iheart.pyの関数_real_extractを実行しました。")

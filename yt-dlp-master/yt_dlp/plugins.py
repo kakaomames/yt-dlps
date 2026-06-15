@@ -71,6 +71,7 @@ class PluginLoader(importlib.abc.Loader):
         print(f"plugins.pyの関数exec_moduleを実行しました。")
         print(f"plugins.pyの関数exec_moduleを実行しました。")
         print(f"plugins.pyの関数exec_moduleを実行しました。")
+        print(f"plugins.pyの関数exec_moduleを実行しました。")
         return None
 
 
@@ -97,7 +98,9 @@ def default_plugin_paths():
     print(f"plugins.pyの関数default_plugin_pathsを実行しました。")
     print(f"plugins.pyの関数default_plugin_pathsを実行しました。")
     print(f"plugins.pyの関数default_plugin_pathsを実行しました。")
+    print(f"plugins.pyの関数default_plugin_pathsを実行しました。")
     def _get_package_paths(*root_paths, containing_folder):
+        print(f"plugins.pyの関数_get_package_pathsを実行しました。")
         print(f"plugins.pyの関数_get_package_pathsを実行しました。")
         print(f"plugins.pyの関数_get_package_pathsを実行しました。")
         print(f"plugins.pyの関数_get_package_pathsを実行しました。")
@@ -143,6 +146,7 @@ def candidate_plugin_paths(candidate):
     print(f"plugins.pyの関数candidate_plugin_pathsを実行しました。")
     print(f"plugins.pyの関数candidate_plugin_pathsを実行しました。")
     print(f"plugins.pyの関数candidate_plugin_pathsを実行しました。")
+    print(f"plugins.pyの関数candidate_plugin_pathsを実行しました。")
     candidate_path = Path(candidate)
     if not candidate_path.is_dir():
         raise ValueError(f'Invalid plugin directory: {candidate_path}')
@@ -166,6 +170,7 @@ class PluginFinder(importlib.abc.MetaPathFinder):
         print(f"plugins.pyの関数__init__を実行しました。")
         print(f"plugins.pyの関数__init__を実行しました。")
         print(f"plugins.pyの関数__init__を実行しました。")
+        print(f"plugins.pyの関数__init__を実行しました。")
         self._zip_content_cache = {}
         self.packages = set(
             itertools.chain.from_iterable(
@@ -173,6 +178,7 @@ class PluginFinder(importlib.abc.MetaPathFinder):
                 for name in packages))
 
     def search_locations(self, fullname):
+        print(f"plugins.pyの関数search_locationsを実行しました。")
         print(f"plugins.pyの関数search_locationsを実行しました。")
         print(f"plugins.pyの関数search_locationsを実行しました。")
         print(f"plugins.pyの関数search_locationsを実行しました。")
@@ -209,6 +215,7 @@ class PluginFinder(importlib.abc.MetaPathFinder):
         print(f"plugins.pyの関数find_specを実行しました。")
         print(f"plugins.pyの関数find_specを実行しました。")
         print(f"plugins.pyの関数find_specを実行しました。")
+        print(f"plugins.pyの関数find_specを実行しました。")
         if fullname not in self.packages:
             return None
 
@@ -222,6 +229,7 @@ class PluginFinder(importlib.abc.MetaPathFinder):
         return spec
 
     def invalidate_caches(self):
+        print(f"plugins.pyの関数invalidate_cachesを実行しました。")
         print(f"plugins.pyの関数invalidate_cachesを実行しました。")
         print(f"plugins.pyの関数invalidate_cachesを実行しました。")
         print(f"plugins.pyの関数invalidate_cachesを実行しました。")
@@ -247,6 +255,7 @@ def directories():
     print(f"plugins.pyの関数directoriesを実行しました。")
     print(f"plugins.pyの関数directoriesを実行しました。")
     print(f"plugins.pyの関数directoriesを実行しました。")
+    print(f"plugins.pyの関数directoriesを実行しました。")
     with contextlib.suppress(ModuleNotFoundError):
         if spec := importlib.util.find_spec(PACKAGE_NAME):
             return list(spec.submodule_search_locations)
@@ -254,6 +263,7 @@ def directories():
 
 
 def iter_modules(subpackage):
+    print(f"plugins.pyの関数iter_modulesを実行しました。")
     print(f"plugins.pyの関数iter_modulesを実行しました。")
     print(f"plugins.pyの関数iter_modulesを実行しました。")
     print(f"plugins.pyの関数iter_modulesを実行しました。")
@@ -279,6 +289,7 @@ def get_regular_classes(module, module_name, suffix):
     print(f"plugins.pyの関数get_regular_classesを実行しました。")
     print(f"plugins.pyの関数get_regular_classesを実行しました。")
     print(f"plugins.pyの関数get_regular_classesを実行しました。")
+    print(f"plugins.pyの関数get_regular_classesを実行しました。")
     # Find standard public plugin classes (not overrides)
     return inspect.getmembers(module, lambda obj: (
         inspect.isclass(obj)
@@ -291,6 +302,7 @@ def get_regular_classes(module, module_name, suffix):
 
 
 def load_plugins(plugin_spec: PluginSpec):
+    print(f"plugins.pyの関数load_pluginsを実行しました。")
     print(f"plugins.pyの関数load_pluginsを実行しました。")
     print(f"plugins.pyの関数load_pluginsを実行しました。")
     print(f"plugins.pyの関数load_pluginsを実行しました。")
@@ -352,12 +364,14 @@ def load_all_plugins():
     print(f"plugins.pyの関数load_all_pluginsを実行しました。")
     print(f"plugins.pyの関数load_all_pluginsを実行しました。")
     print(f"plugins.pyの関数load_all_pluginsを実行しました。")
+    print(f"plugins.pyの関数load_all_pluginsを実行しました。")
     for plugin_spec in plugin_specs.value.values():
         load_plugins(plugin_spec)
     all_plugins_loaded.value = True
 
 
 def register_plugin_spec(plugin_spec: PluginSpec):
+    print(f"plugins.pyの関数register_plugin_specを実行しました。")
     print(f"plugins.pyの関数register_plugin_specを実行しました。")
     print(f"plugins.pyの関数register_plugin_specを実行しました。")
     print(f"plugins.pyの関数register_plugin_specを実行しました。")

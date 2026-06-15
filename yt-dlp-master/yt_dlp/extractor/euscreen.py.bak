@@ -36,6 +36,7 @@ class EUScreenIE(InfoExtractor):
         print(f"euscreen.pyの関数_real_extractを実行しました。")
         print(f"euscreen.pyの関数_real_extractを実行しました。")
         print(f"euscreen.pyの関数_real_extractを実行しました。")
+        print(f"euscreen.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         args_for_js_request = self._download_webpage(
             'https://euscreen.eu/lou/LouServlet/domain/euscreenxl/html5application/euscreenxlitem',

@@ -95,6 +95,7 @@ class OnsenIE(InfoExtractor):
         print(f"onsen.pyの関数_perform_loginを実行しました。")
         print(f"onsen.pyの関数_perform_loginを実行しました。")
         print(f"onsen.pyの関数_perform_loginを実行しました。")
+        print(f"onsen.pyの関数_perform_loginを実行しました。")
         sign_in = self._download_json(
             f'{self._BASE_URL}/web_api/signin', None, 'Logging in', headers={
                 'Accept': 'application/json',
@@ -111,6 +112,7 @@ class OnsenIE(InfoExtractor):
             raise ExtractorError('Invalid username or password', expected=True)
 
     def _real_extract(self, url):
+        print(f"onsen.pyの関数_real_extractを実行しました。")
         print(f"onsen.pyの関数_real_extractを実行しました。")
         print(f"onsen.pyの関数_real_extractを実行しました。")
         print(f"onsen.pyの関数_real_extractを実行しました。")

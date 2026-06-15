@@ -36,6 +36,7 @@ class SkyNewsAUIE(InfoExtractor):
         print(f"skynewsau.pyの関数_real_extractを実行しました。")
         print(f"skynewsau.pyの関数_real_extractを実行しました。")
         print(f"skynewsau.pyの関数_real_extractを実行しました。")
+        print(f"skynewsau.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         embedcode = self._search_regex(r'embedcode\s?=\s?\"([^\"]+)\"', webpage, 'embedcode')

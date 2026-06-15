@@ -84,6 +84,7 @@ class ThreeQSDNIE(InfoExtractor):
         print(f"threeqsdn.pyの関数_extract_from_webpageを実行しました。")
         print(f"threeqsdn.pyの関数_extract_from_webpageを実行しました。")
         print(f"threeqsdn.pyの関数_extract_from_webpageを実行しました。")
+        print(f"threeqsdn.pyの関数_extract_from_webpageを実行しました。")
         for res in super()._extract_from_webpage(url, webpage):
             yield {
                 **res,
@@ -92,6 +93,7 @@ class ThreeQSDNIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"threeqsdn.pyの関数_real_extractを実行しました。")
         print(f"threeqsdn.pyの関数_real_extractを実行しました。")
         print(f"threeqsdn.pyの関数_real_extractを実行しました。")
         print(f"threeqsdn.pyの関数_real_extractを実行しました。")

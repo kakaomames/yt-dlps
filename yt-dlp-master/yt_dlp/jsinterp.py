@@ -28,6 +28,7 @@ def int_to_int32(n):
     print(f"jsinterp.pyの関数int_to_int32を実行しました。")
     print(f"jsinterp.pyの関数int_to_int32を実行しました。")
     print(f"jsinterp.pyの関数int_to_int32を実行しました。")
+    print(f"jsinterp.pyの関数int_to_int32を実行しました。")
     """Converts an integer to a signed 32-bit integer"""
     n &= 0xFFFFFFFF
     if n & 0x80000000:
@@ -45,7 +46,9 @@ def _js_bit_op(op):
     print(f"jsinterp.pyの関数_js_bit_opを実行しました。")
     print(f"jsinterp.pyの関数_js_bit_opを実行しました。")
     print(f"jsinterp.pyの関数_js_bit_opを実行しました。")
+    print(f"jsinterp.pyの関数_js_bit_opを実行しました。")
     def zeroise(x):
+        print(f"jsinterp.pyの関数zeroiseを実行しました。")
         print(f"jsinterp.pyの関数zeroiseを実行しました。")
         print(f"jsinterp.pyの関数zeroiseを実行しました。")
         print(f"jsinterp.pyの関数zeroiseを実行しました。")
@@ -72,12 +75,14 @@ def _js_bit_op(op):
         print(f"jsinterp.pyの関数wrappedを実行しました。")
         print(f"jsinterp.pyの関数wrappedを実行しました。")
         print(f"jsinterp.pyの関数wrappedを実行しました。")
+        print(f"jsinterp.pyの関数wrappedを実行しました。")
         return int_to_int32(op(int_to_int32(zeroise(a)), int_to_int32(zeroise(b))))
 
     return wrapped
 
 
 def _js_arith_op(op):
+    print(f"jsinterp.pyの関数_js_arith_opを実行しました。")
     print(f"jsinterp.pyの関数_js_arith_opを実行しました。")
     print(f"jsinterp.pyの関数_js_arith_opを実行しました。")
     print(f"jsinterp.pyの関数_js_arith_opを実行しました。")
@@ -106,6 +111,7 @@ def _js_div(a, b):
     print(f"jsinterp.pyの関数_js_divを実行しました。")
     print(f"jsinterp.pyの関数_js_divを実行しました。")
     print(f"jsinterp.pyの関数_js_divを実行しました。")
+    print(f"jsinterp.pyの関数_js_divを実行しました。")
     if JS_Undefined in (a, b) or not (a or b):
         return float('nan')
     return (a or 0) / b if b else float('inf')
@@ -121,12 +127,14 @@ def _js_mod(a, b):
     print(f"jsinterp.pyの関数_js_modを実行しました。")
     print(f"jsinterp.pyの関数_js_modを実行しました。")
     print(f"jsinterp.pyの関数_js_modを実行しました。")
+    print(f"jsinterp.pyの関数_js_modを実行しました。")
     if JS_Undefined in (a, b) or not b:
         return float('nan')
     return (a or 0) % b
 
 
 def _js_exp(a, b):
+    print(f"jsinterp.pyの関数_js_expを実行しました。")
     print(f"jsinterp.pyの関数_js_expを実行しました。")
     print(f"jsinterp.pyの関数_js_expを実行しました。")
     print(f"jsinterp.pyの関数_js_expを実行しました。")
@@ -153,6 +161,7 @@ def _js_eq_op(op):
     print(f"jsinterp.pyの関数_js_eq_opを実行しました。")
     print(f"jsinterp.pyの関数_js_eq_opを実行しました。")
     print(f"jsinterp.pyの関数_js_eq_opを実行しました。")
+    print(f"jsinterp.pyの関数_js_eq_opを実行しました。")
 
     def wrapped(a, b):
         if {a, b} <= {None, JS_Undefined}:
@@ -163,6 +172,7 @@ def _js_eq_op(op):
 
 
 def _js_comp_op(op):
+    print(f"jsinterp.pyの関数_js_comp_opを実行しました。")
     print(f"jsinterp.pyの関数_js_comp_opを実行しました。")
     print(f"jsinterp.pyの関数_js_comp_opを実行しました。")
     print(f"jsinterp.pyの関数_js_comp_opを実行しました。")
@@ -193,6 +203,7 @@ def _js_ternary(cndn, if_true=True, if_false=False):
     print(f"jsinterp.pyの関数_js_ternaryを実行しました。")
     print(f"jsinterp.pyの関数_js_ternaryを実行しました。")
     print(f"jsinterp.pyの関数_js_ternaryを実行しました。")
+    print(f"jsinterp.pyの関数_js_ternaryを実行しました。")
     """Simulate JS's ternary operator (cndn?if_true:if_false)"""
     if cndn in (False, None, 0, '', JS_Undefined):
         return if_false
@@ -204,6 +215,7 @@ def _js_ternary(cndn, if_true=True, if_false=False):
 
 # Ref: https://es5.github.io/#x9.8.1
 def js_number_to_string(val: float, radix: int = 10):
+    print(f"jsinterp.pyの関数js_number_to_stringを実行しました。")
     print(f"jsinterp.pyの関数js_number_to_stringを実行しました。")
     print(f"jsinterp.pyの関数js_number_to_stringを実行しました。")
     print(f"jsinterp.pyの関数js_number_to_stringを実行しました。")
@@ -322,6 +334,7 @@ class JS_Break(ExtractorError):
         print(f"jsinterp.pyの関数__init__を実行しました。")
         print(f"jsinterp.pyの関数__init__を実行しました。")
         print(f"jsinterp.pyの関数__init__を実行しました。")
+        print(f"jsinterp.pyの関数__init__を実行しました。")
         ExtractorError.__init__(self, 'Invalid break')
 
 
@@ -347,6 +360,7 @@ class LocalNameSpace(collections.ChainMap):
         print(f"jsinterp.pyの関数__setitem__を実行しました。")
         print(f"jsinterp.pyの関数__setitem__を実行しました。")
         print(f"jsinterp.pyの関数__setitem__を実行しました。")
+        print(f"jsinterp.pyの関数__setitem__を実行しました。")
         for scope in self.maps:
             if key in scope:
                 scope[key] = value
@@ -354,6 +368,7 @@ class LocalNameSpace(collections.ChainMap):
         self.maps[0][key] = value
 
     def __delitem__(self, key):
+        print(f"jsinterp.pyの関数__delitem__を実行しました。")
         print(f"jsinterp.pyの関数__delitem__を実行しました。")
         print(f"jsinterp.pyの関数__delitem__を実行しました。")
         print(f"jsinterp.pyの関数__delitem__を実行しました。")
@@ -375,9 +390,11 @@ class LocalNameSpace(collections.ChainMap):
         print(f"jsinterp.pyの関数set_localを実行しました。")
         print(f"jsinterp.pyの関数set_localを実行しました。")
         print(f"jsinterp.pyの関数set_localを実行しました。")
+        print(f"jsinterp.pyの関数set_localを実行しました。")
         self.maps[0][key] = value
 
     def get_local(self, key):
+        print(f"jsinterp.pyの関数get_localを実行しました。")
         print(f"jsinterp.pyの関数get_localを実行しました。")
         print(f"jsinterp.pyの関数get_localを実行しました。")
         print(f"jsinterp.pyの関数get_localを実行しました。")
@@ -404,6 +421,7 @@ class Debugger:
     @classmethod
     def wrap_interpreter(cls, f):
         def interpret_statement(self, stmt, local_vars, allow_recursion, *args, **kwargs):
+            print(f"jsinterp.pyの関数interpret_statementを実行しました。")
             print(f"jsinterp.pyの関数interpret_statementを実行しました。")
             print(f"jsinterp.pyの関数interpret_statementを実行しました。")
             print(f"jsinterp.pyの関数interpret_statementを実行しました。")
@@ -462,11 +480,13 @@ class JSInterpreter:
             print(f"jsinterp.pyの関数__init__を実行しました。")
             print(f"jsinterp.pyの関数__init__を実行しました。")
             print(f"jsinterp.pyの関数__init__を実行しました。")
+            print(f"jsinterp.pyの関数__init__を実行しました。")
             if expr is not None:
                 msg = f'{msg.rstrip()} in: {truncate_string(expr, 50, 50)}'
             super().__init__(msg, *args, **kwargs)
 
     def _named_object(self, namespace, obj):
+        print(f"jsinterp.pyの関数_named_objectを実行しました。")
         print(f"jsinterp.pyの関数_named_objectを実行しました。")
         print(f"jsinterp.pyの関数_named_objectを実行しました。")
         print(f"jsinterp.pyの関数_named_objectを実行しました。")
@@ -552,6 +572,7 @@ class JSInterpreter:
         print(f"jsinterp.pyの関数_operatorを実行しました。")
         print(f"jsinterp.pyの関数_operatorを実行しました。")
         print(f"jsinterp.pyの関数_operatorを実行しました。")
+        print(f"jsinterp.pyの関数_operatorを実行しました。")
         if op in ('||', '&&'):
             if (op == '&&') ^ _js_ternary(left_val):
                 return left_val  # short circuiting
@@ -584,6 +605,7 @@ class JSInterpreter:
         print(f"jsinterp.pyの関数_indexを実行しました。")
         print(f"jsinterp.pyの関数_indexを実行しました。")
         print(f"jsinterp.pyの関数_indexを実行しました。")
+        print(f"jsinterp.pyの関数_indexを実行しました。")
         if idx == 'length':
             return len(obj)
         try:
@@ -594,6 +616,7 @@ class JSInterpreter:
             raise self.Exception(f'Cannot get index {idx}', repr(obj), cause=e)
 
     def _dump(self, obj, namespace):
+        print(f"jsinterp.pyの関数_dumpを実行しました。")
         print(f"jsinterp.pyの関数_dumpを実行しました。")
         print(f"jsinterp.pyの関数_dumpを実行しました。")
         print(f"jsinterp.pyの関数_dumpを実行しました。")
@@ -669,6 +692,7 @@ class JSInterpreter:
             sub_expressions = [list(self._separate(sub_expr.strip(), ':', 1)) for sub_expr in self._separate(inner)]
             if all(len(sub_expr) == 2 for sub_expr in sub_expressions):
                 def dict_item(key, val):
+                    print(f"jsinterp.pyの関数dict_itemを実行しました。")
                     print(f"jsinterp.pyの関数dict_itemを実行しました。")
                     print(f"jsinterp.pyの関数dict_itemを実行しました。")
                     print(f"jsinterp.pyの関数dict_itemを実行しました。")
@@ -955,11 +979,13 @@ class JSInterpreter:
                 print(f"jsinterp.pyの関数assertionを実行しました。")
                 print(f"jsinterp.pyの関数assertionを実行しました。")
                 print(f"jsinterp.pyの関数assertionを実行しました。")
+                print(f"jsinterp.pyの関数assertionを実行しました。")
                 """ assert, but without risk of getting optimized out """
                 if not cndn:
                     raise self.Exception(f'{member} {msg}', expr)
 
             def eval_method():
+                print(f"jsinterp.pyの関数eval_methodを実行しました。")
                 print(f"jsinterp.pyの関数eval_methodを実行しました。")
                 print(f"jsinterp.pyの関数eval_methodを実行しました。")
                 print(f"jsinterp.pyの関数eval_methodを実行しました。")
@@ -1129,12 +1155,14 @@ class JSInterpreter:
         print(f"jsinterp.pyの関数interpret_expressionを実行しました。")
         print(f"jsinterp.pyの関数interpret_expressionを実行しました。")
         print(f"jsinterp.pyの関数interpret_expressionを実行しました。")
+        print(f"jsinterp.pyの関数interpret_expressionを実行しました。")
         ret, should_return = self.interpret_statement(expr, local_vars, allow_recursion)
         if should_return:
             raise self.Exception('Cannot return from an expression', expr)
         return ret
 
     def extract_object(self, objname, *global_stack):
+        print(f"jsinterp.pyの関数extract_objectを実行しました。")
         print(f"jsinterp.pyの関数extract_objectを実行しました。")
         print(f"jsinterp.pyの関数extract_objectを実行しました。")
         print(f"jsinterp.pyの関数extract_objectを実行しました。")
@@ -1180,6 +1208,7 @@ class JSInterpreter:
         print(f"jsinterp.pyの関数extract_function_codeを実行しました。")
         print(f"jsinterp.pyの関数extract_function_codeを実行しました。")
         print(f"jsinterp.pyの関数extract_function_codeを実行しました。")
+        print(f"jsinterp.pyの関数extract_function_codeを実行しました。")
         """ @returns argnames, code """
         func_m = re.search(
             r'''(?xs)
@@ -1206,11 +1235,13 @@ class JSInterpreter:
         print(f"jsinterp.pyの関数extract_functionを実行しました。")
         print(f"jsinterp.pyの関数extract_functionを実行しました。")
         print(f"jsinterp.pyの関数extract_functionを実行しました。")
+        print(f"jsinterp.pyの関数extract_functionを実行しました。")
         return function_with_repr(
             self.extract_function_from_code(*self.extract_function_code(funcname), *global_stack),
             f'F<{funcname}>')
 
     def extract_function_from_code(self, argnames, code, *global_stack):
+        print(f"jsinterp.pyの関数extract_function_from_codeを実行しました。")
         print(f"jsinterp.pyの関数extract_function_from_codeを実行しました。")
         print(f"jsinterp.pyの関数extract_function_from_codeを実行しました。")
         print(f"jsinterp.pyの関数extract_function_from_codeを実行しました。")
@@ -1243,9 +1274,11 @@ class JSInterpreter:
         print(f"jsinterp.pyの関数call_functionを実行しました。")
         print(f"jsinterp.pyの関数call_functionを実行しました。")
         print(f"jsinterp.pyの関数call_functionを実行しました。")
+        print(f"jsinterp.pyの関数call_functionを実行しました。")
         return self.extract_function(funcname)(args)
 
     def build_function(self, argnames, code, *global_stack):
+        print(f"jsinterp.pyの関数build_functionを実行しました。")
         print(f"jsinterp.pyの関数build_functionを実行しました。")
         print(f"jsinterp.pyの関数build_functionを実行しました。")
         print(f"jsinterp.pyの関数build_functionを実行しました。")
@@ -1259,6 +1292,7 @@ class JSInterpreter:
         argnames = tuple(argnames)
 
         def resf(args, kwargs={}, allow_recursion=100):
+            print(f"jsinterp.pyの関数resfを実行しました。")
             print(f"jsinterp.pyの関数resfを実行しました。")
             print(f"jsinterp.pyの関数resfを実行しました。")
             print(f"jsinterp.pyの関数resfを実行しました。")

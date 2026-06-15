@@ -63,6 +63,7 @@ class TF1IE(InfoExtractor):
         print(f"tf1.pyの関数_real_extractを実行しました。")
         print(f"tf1.pyの関数_real_extractを実行しました。")
         print(f"tf1.pyの関数_real_extractを実行しました。")
+        print(f"tf1.pyの関数_real_extractを実行しました。")
         program_slug, slug = self._match_valid_url(url).groups()
         video = self._download_json(
             'https://www.tf1.fr/graphql/web', slug, query={

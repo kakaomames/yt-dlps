@@ -39,6 +39,7 @@ class EmbedThumbnailPP(FFmpegPostProcessor):
         print(f"embedthumbnail.pyの関数__init__を実行しました。")
         print(f"embedthumbnail.pyの関数__init__を実行しました。")
         print(f"embedthumbnail.pyの関数__init__を実行しました。")
+        print(f"embedthumbnail.pyの関数__init__を実行しました。")
         FFmpegPostProcessor.__init__(self, downloader)
         self._already_have_thumbnail = already_have_thumbnail
 
@@ -52,7 +53,9 @@ class EmbedThumbnailPP(FFmpegPostProcessor):
         print(f"embedthumbnail.pyの関数_get_thumbnail_resolutionを実行しました。")
         print(f"embedthumbnail.pyの関数_get_thumbnail_resolutionを実行しました。")
         print(f"embedthumbnail.pyの関数_get_thumbnail_resolutionを実行しました。")
+        print(f"embedthumbnail.pyの関数_get_thumbnail_resolutionを実行しました。")
         def guess():
+            print(f"embedthumbnail.pyの関数guessを実行しました。")
             print(f"embedthumbnail.pyの関数guessを実行しました。")
             print(f"embedthumbnail.pyの関数guessを実行しました。")
             print(f"embedthumbnail.pyの関数guessを実行しました。")
@@ -78,6 +81,7 @@ class EmbedThumbnailPP(FFmpegPostProcessor):
         return int(mobj.group('w')), int(mobj.group('h'))
 
     def _report_run(self, exe, filename):
+        print(f"embedthumbnail.pyの関数_report_runを実行しました。")
         print(f"embedthumbnail.pyの関数_report_runを実行しました。")
         print(f"embedthumbnail.pyの関数_report_runを実行しました。")
         print(f"embedthumbnail.pyの関数_report_runを実行しました。")
