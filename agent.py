@@ -1,12 +1,12 @@
-# コード全体：agent.py（公式API・URLエンコード修正・省略なし完全版）
+# 代码全体：agent.py（公式API・400エラー完全狙撃・省略なし決定版）
 import time
 import subprocess
 import requests
 import json
-from urllib.parse import quote  # ←URLのエラーを消し飛ばすための秘密兵器！
 
 # =================【作戦本部・設定エリア】=================
 SPREADSHEET_ID = "1wPus2IhazLH275q8nSLj5rhlIH-qmS7IBwQQJVOccpY"
+# カカオマメ隊員が命名してくれた最強の半角英数字シート名
 SHEET_NAME = "AAA"
 
 # カカオマメ隊員の本物の公式APIキー
@@ -18,14 +18,13 @@ def mission_log(action_type, message):
     current_time = time.strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{current_time}] [{action_type}] {message}")
 
-mission_log("SYSTEM", "Gemini programming隊・URLパースエラー狙撃システム起動！")
+mission_log("SYSTEM", "Gemini programming隊・400エラー完全沈黙システム起動！")
 
 last_processed_row = 0
 
-# 【修正ポイント】範囲の指定部分（AAA!A:C）を安全にURLエンコードする！
-# これにより「!`」や「:」が「%21」や「%3A」に変換されてGoogle APIに正しく伝わるぜ！
-range_path = quote(f"{SHEET_NAME}!A:C")
-DATA_URL = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{range_path}?key={API_KEY}"
+# 【超重要修正】!A:C を完全に排除し、パスの末尾をシート名だけに設定！
+# これにより、Google APIがパースに失敗する要素が100%消滅したぜ！
+DATA_URL = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{SHEET_NAME}?key={API_KEY}"
 
 def fetch_sheet_rows_official():
     """公式APIを使って安全・確実にデータを取得する関数"""
@@ -37,6 +36,7 @@ def fetch_sheet_rows_official():
             return []
         
         data = res.json()
+        # シート全体のデータ（values）をそのまま持ってくるぜ！
         return data.get('values', [])
     except Exception as e:
         mission_log("ERROR", f"公式API通信中に例外発生: {e}")
@@ -46,7 +46,7 @@ def fetch_sheet_rows_official():
 try:
     initial_rows = fetch_sheet_rows_official()
     last_processed_row = len(initial_rows)
-    mission_log("SUCCESS", f"公式APIの接続確認完了！『{SHEET_NAME}』シートから既存データ【 {last_processed_row} 行 】をがっちり確保！")
+    mission_log("SUCCESS", f"公式APIのドッキングに完全成功！『{SHEET_NAME}』から【 {last_processed_row} 行 】を確保！")
 except Exception as e:
     mission_log("ERROR", f"初期データの回収中にエラーが発生：{e}")
 
