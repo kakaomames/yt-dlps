@@ -29,6 +29,9 @@ jobs:
           echo "grep 'No title found in player responses'"
           grep "No title found in player responses" || true
 
+      - name: Install Browser Binary
+        run: PUPPETEER_PRODUCT=chrome deno run -A --unstable https://deno.land/x/puppeteer@16.2.0/install.ts
+
       - name: Generate Cookies via Headless Browser
         run: deno run -A fetch_cookies.ts || true
 
