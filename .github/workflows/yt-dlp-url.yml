@@ -24,6 +24,9 @@ jobs:
       - name: python -m pip install requests curl_cffi
         run: |
           python -m pip install requests curl_cffi
+      - name: grep
+        run: |
+          echo "grep 'No title found in player responses'"
           grep "No title found in player responses" 
 
       - name: Fetch and Rename Meta
