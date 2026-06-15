@@ -24,12 +24,14 @@ class LaracastsBaseIE(InfoExtractor):
         print(f"laracasts.pyの関数_get_prop_dataを実行しました。")
         print(f"laracasts.pyの関数_get_prop_dataを実行しました。")
         print(f"laracasts.pyの関数_get_prop_dataを実行しました。")
+        print(f"laracasts.pyの関数_get_prop_dataを実行しました。")
         webpage = self._download_webpage(url, display_id)
         return traverse_obj(
             get_element_html_by_id('app', webpage),
             ({extract_attributes}, 'data-page', {json.loads}, 'props'))
 
     def _parse_episode(self, episode):
+        print(f"laracasts.pyの関数_parse_episodeを実行しました。")
         print(f"laracasts.pyの関数_parse_episodeを実行しました。")
         print(f"laracasts.pyの関数_parse_episodeを実行しました。")
         print(f"laracasts.pyの関数_parse_episodeを実行しました。")
@@ -81,6 +83,7 @@ class LaracastsIE(LaracastsBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"laracasts.pyの関数_real_extractを実行しました。")
         print(f"laracasts.pyの関数_real_extractを実行しました。")
         print(f"laracasts.pyの関数_real_extractを実行しました。")
         print(f"laracasts.pyの関数_real_extractを実行しました。")

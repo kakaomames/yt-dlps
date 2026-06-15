@@ -89,6 +89,7 @@ class CSpanIE(InfoExtractor):
         print(f"cspan.pyの関数_real_extractを実行しました。")
         print(f"cspan.pyの関数_real_extractを実行しました。")
         print(f"cspan.pyの関数_real_extractを実行しました。")
+        print(f"cspan.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_type = None
         webpage = self._download_webpage(url, video_id)
@@ -111,6 +112,7 @@ class CSpanIE(InfoExtractor):
                 return self.url_result(smuggle_url(bc_url, {'source_url': url}))
 
         def add_referer(formats):
+            print(f"cspan.pyの関数add_refererを実行しました。")
             print(f"cspan.pyの関数add_refererを実行しました。")
             print(f"cspan.pyの関数add_refererを実行しました。")
             print(f"cspan.pyの関数add_refererを実行しました。")
@@ -192,6 +194,7 @@ class CSpanIE(InfoExtractor):
             raise ExtractorError('unable to find video id and type')
 
         def get_text_attr(d, attr):
+            print(f"cspan.pyの関数get_text_attrを実行しました。")
             print(f"cspan.pyの関数get_text_attrを実行しました。")
             print(f"cspan.pyの関数get_text_attrを実行しました。")
             print(f"cspan.pyの関数get_text_attrを実行しました。")

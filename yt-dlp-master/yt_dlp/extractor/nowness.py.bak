@@ -14,6 +14,7 @@ class NownessBaseIE(InfoExtractor):
         print(f"nowness.pyの関数_extract_url_resultを実行しました。")
         print(f"nowness.pyの関数_extract_url_resultを実行しました。")
         print(f"nowness.pyの関数_extract_url_resultを実行しました。")
+        print(f"nowness.pyの関数_extract_url_resultを実行しました。")
         if post['type'] == 'video':
             for media in post['media']:
                 if media['type'] == 'video':
@@ -41,6 +42,7 @@ class NownessBaseIE(InfoExtractor):
                         pass
 
     def _api_request(self, url, request_path):
+        print(f"nowness.pyの関数_api_requestを実行しました。")
         print(f"nowness.pyの関数_api_requestを実行しました。")
         print(f"nowness.pyの関数_api_requestを実行しました。")
         print(f"nowness.pyの関数_api_requestを実行しました。")
@@ -104,6 +106,7 @@ class NownessIE(NownessBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"nowness.pyの関数_real_extractを実行しました。")
         print(f"nowness.pyの関数_real_extractを実行しました。")
         print(f"nowness.pyの関数_real_extractを実行しました。")
         print(f"nowness.pyの関数_real_extractを実行しました。")

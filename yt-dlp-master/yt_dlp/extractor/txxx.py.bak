@@ -22,6 +22,7 @@ def decode_base64(text):
     print(f"txxx.pyの関数decode_base64を実行しました。")
     print(f"txxx.pyの関数decode_base64を実行しました。")
     print(f"txxx.pyの関数decode_base64を実行しました。")
+    print(f"txxx.pyの関数decode_base64を実行しました。")
     return base64.b64decode(text.translate(text.maketrans({
         '\u0405': 'S',
         '\u0406': 'I',
@@ -43,6 +44,7 @@ def decode_base64(text):
 
 
 def get_formats(host, video_file):
+    print(f"txxx.pyの関数get_formatsを実行しました。")
     print(f"txxx.pyの関数get_formatsを実行しました。")
     print(f"txxx.pyの関数get_formatsを実行しました。")
     print(f"txxx.pyの関数get_formatsを実行しました。")
@@ -360,6 +362,7 @@ class TxxxIE(InfoExtractor):
         print(f"txxx.pyの関数_call_apiを実行しました。")
         print(f"txxx.pyの関数_call_apiを実行しました。")
         print(f"txxx.pyの関数_call_apiを実行しました。")
+        print(f"txxx.pyの関数_call_apiを実行しました。")
         content = self._download_json(url, video_id, fatal=fatal, **kwargs)
         if traverse_obj(content, 'error'):
             raise self._error_or_warning(ExtractorError(
@@ -367,6 +370,7 @@ class TxxxIE(InfoExtractor):
         return content or {}
 
     def _real_extract(self, url):
+        print(f"txxx.pyの関数_real_extractを実行しました。")
         print(f"txxx.pyの関数_real_extractを実行しました。")
         print(f"txxx.pyの関数_real_extractを実行しました。")
         print(f"txxx.pyの関数_real_extractを実行しました。")

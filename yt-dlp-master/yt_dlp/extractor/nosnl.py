@@ -74,6 +74,7 @@ class NOSNLArticleIE(InfoExtractor):
         print(f"nosnl.pyの関数_entriesを実行しました。")
         print(f"nosnl.pyの関数_entriesを実行しました。")
         print(f"nosnl.pyの関数_entriesを実行しました。")
+        print(f"nosnl.pyの関数_entriesを実行しました。")
         for item in nextjs_json:
             if item.get('type') == 'video':
                 formats, subtitle = self._extract_m3u8_formats_and_subtitles(
@@ -101,6 +102,7 @@ class NOSNLArticleIE(InfoExtractor):
                 }
 
     def _real_extract(self, url):
+        print(f"nosnl.pyの関数_real_extractを実行しました。")
         print(f"nosnl.pyの関数_real_extractを実行しました。")
         print(f"nosnl.pyの関数_real_extractを実行しました。")
         print(f"nosnl.pyの関数_real_extractを実行しました。")

@@ -58,6 +58,7 @@ class ShemarooMeIE(InfoExtractor):
         print(f"shemaroome.pyの関数_real_extractを実行しました。")
         print(f"shemaroome.pyの関数_real_extractを実行しました。")
         print(f"shemaroome.pyの関数_real_extractを実行しました。")
+        print(f"shemaroome.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url).replace('/', '_')
         webpage = self._download_webpage(url, video_id)
         title = self._search_regex(r'id=\"ma_title\" value=\"([^\"]+)', webpage, 'title')

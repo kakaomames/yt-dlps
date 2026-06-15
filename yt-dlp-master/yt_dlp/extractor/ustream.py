@@ -76,7 +76,9 @@ class UstreamIE(InfoExtractor):
         print(f"ustream.pyの関数_get_stream_infoを実行しました。")
         print(f"ustream.pyの関数_get_stream_infoを実行しました。")
         print(f"ustream.pyの関数_get_stream_infoを実行しました。")
+        print(f"ustream.pyの関数_get_stream_infoを実行しました。")
         def num_to_hex(n):
+            print(f"ustream.pyの関数num_to_hexを実行しました。")
             print(f"ustream.pyの関数num_to_hexを実行しました。")
             print(f"ustream.pyの関数num_to_hexを実行しました。")
             print(f"ustream.pyの関数num_to_hexを実行しました。")
@@ -117,6 +119,7 @@ class UstreamIE(InfoExtractor):
         print(f"ustream.pyの関数_get_streamsを実行しました。")
         print(f"ustream.pyの関数_get_streamsを実行しました。")
         print(f"ustream.pyの関数_get_streamsを実行しました。")
+        print(f"ustream.pyの関数_get_streamsを実行しました。")
         # Sometimes the return dict does not have 'stream'
         for trial_count in range(3):
             stream_info = self._get_stream_info(
@@ -133,7 +136,9 @@ class UstreamIE(InfoExtractor):
         print(f"ustream.pyの関数_parse_segmented_mp4を実行しました。")
         print(f"ustream.pyの関数_parse_segmented_mp4を実行しました。")
         print(f"ustream.pyの関数_parse_segmented_mp4を実行しました。")
+        print(f"ustream.pyの関数_parse_segmented_mp4を実行しました。")
         def resolve_dash_template(template, idx, chunk_hash):
+            print(f"ustream.pyの関数resolve_dash_templateを実行しました。")
             print(f"ustream.pyの関数resolve_dash_templateを実行しました。")
             print(f"ustream.pyの関数resolve_dash_templateを実行しました。")
             print(f"ustream.pyの関数resolve_dash_templateを実行しました。")
@@ -185,6 +190,7 @@ class UstreamIE(InfoExtractor):
         return formats
 
     def _real_extract(self, url):
+        print(f"ustream.pyの関数_real_extractを実行しました。")
         print(f"ustream.pyの関数_real_extractを実行しました。")
         print(f"ustream.pyの関数_real_extractを実行しました。")
         print(f"ustream.pyの関数_real_extractを実行しました。")

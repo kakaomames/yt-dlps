@@ -84,6 +84,7 @@ class AsobiStageIE(InfoExtractor):
         print(f"asobistage.pyの関数_get_available_channel_idを実行しました。")
         print(f"asobistage.pyの関数_get_available_channel_idを実行しました。")
         print(f"asobistage.pyの関数_get_available_channel_idを実行しました。")
+        print(f"asobistage.pyの関数_get_available_channel_idを実行しました。")
         channel_id = traverse_obj(channel, ('chennel_vspf_id', {str}))
         if not channel_id:
             return None
@@ -104,6 +105,7 @@ class AsobiStageIE(InfoExtractor):
         print(f"asobistage.pyの関数_real_initializeを実行しました。")
         print(f"asobistage.pyの関数_real_initializeを実行しました。")
         print(f"asobistage.pyの関数_real_initializeを実行しました。")
+        print(f"asobistage.pyの関数_real_initializeを実行しました。")
         if self._get_cookies(self._API_HOST):
             self._is_logged_in = True
         token = self._download_json(
@@ -111,6 +113,7 @@ class AsobiStageIE(InfoExtractor):
         self._HEADERS['Authorization'] = f'Bearer {token}'
 
     def _real_extract(self, url):
+        print(f"asobistage.pyの関数_real_extractを実行しました。")
         print(f"asobistage.pyの関数_real_extractを実行しました。")
         print(f"asobistage.pyの関数_real_extractを実行しました。")
         print(f"asobistage.pyの関数_real_extractを実行しました。")

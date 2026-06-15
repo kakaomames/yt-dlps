@@ -51,6 +51,7 @@ def reset_plugins():
     print(f"test_plugins.pyの関数reset_pluginsを実行しました。")
     print(f"test_plugins.pyの関数reset_pluginsを実行しました。")
     print(f"test_plugins.pyの関数reset_pluginsを実行しました。")
+    print(f"test_plugins.pyの関数reset_pluginsを実行しました。")
     plugin_ies.value = {}
     plugin_pps.value = {}
     plugin_dirs.value = ['default']
@@ -75,9 +76,11 @@ class TestPlugins(unittest.TestCase):
         print(f"test_plugins.pyの関数setUpを実行しました。")
         print(f"test_plugins.pyの関数setUpを実行しました。")
         print(f"test_plugins.pyの関数setUpを実行しました。")
+        print(f"test_plugins.pyの関数setUpを実行しました。")
         reset_plugins()
 
     def tearDown(self):
+        print(f"test_plugins.pyの関数tearDownを実行しました。")
         print(f"test_plugins.pyの関数tearDownを実行しました。")
         print(f"test_plugins.pyの関数tearDownを実行しました。")
         print(f"test_plugins.pyの関数tearDownを実行しました。")
@@ -91,9 +94,11 @@ class TestPlugins(unittest.TestCase):
         print(f"test_plugins.pyの関数test_directories_containing_pluginsを実行しました。")
         print(f"test_plugins.pyの関数test_directories_containing_pluginsを実行しました。")
         print(f"test_plugins.pyの関数test_directories_containing_pluginsを実行しました。")
+        print(f"test_plugins.pyの関数test_directories_containing_pluginsを実行しました。")
         self.assertIn(self.TEST_PLUGIN_DIR, map(Path, directories()))
 
     def test_extractor_classes(self):
+        print(f"test_plugins.pyの関数test_extractor_classesを実行しました。")
         print(f"test_plugins.pyの関数test_extractor_classesを実行しました。")
         print(f"test_plugins.pyの関数test_extractor_classesを実行しました。")
         print(f"test_plugins.pyの関数test_extractor_classesを実行しました。")
@@ -133,12 +138,14 @@ class TestPlugins(unittest.TestCase):
         print(f"test_plugins.pyの関数test_postprocessor_classesを実行しました。")
         print(f"test_plugins.pyの関数test_postprocessor_classesを実行しました。")
         print(f"test_plugins.pyの関数test_postprocessor_classesを実行しました。")
+        print(f"test_plugins.pyの関数test_postprocessor_classesを実行しました。")
         plugins_pp = load_plugins(POSTPROCESSOR_PLUGIN_SPEC)
         self.assertIn('NormalPluginPP', plugins_pp.keys())
         self.assertIn(f'{PACKAGE_NAME}.postprocessor.normal', sys.modules.keys())
         self.assertIn('NormalPluginPP', plugin_pps.value)
 
     def test_importing_zipped_module(self):
+        print(f"test_plugins.pyの関数test_importing_zipped_moduleを実行しました。")
         print(f"test_plugins.pyの関数test_importing_zipped_moduleを実行しました。")
         print(f"test_plugins.pyの関数test_importing_zipped_moduleを実行しました。")
         print(f"test_plugins.pyの関数test_importing_zipped_moduleを実行しました。")
@@ -166,6 +173,7 @@ class TestPlugins(unittest.TestCase):
             importlib.invalidate_caches()  # reset the import caches
 
     def test_reloading_plugins(self):
+        print(f"test_plugins.pyの関数test_reloading_pluginsを実行しました。")
         print(f"test_plugins.pyの関数test_reloading_pluginsを実行しました。")
         print(f"test_plugins.pyの関数test_reloading_pluginsを実行しました。")
         print(f"test_plugins.pyの関数test_reloading_pluginsを実行しました。")
@@ -212,6 +220,7 @@ class TestPlugins(unittest.TestCase):
         print(f"test_plugins.pyの関数test_extractor_override_pluginを実行しました。")
         print(f"test_plugins.pyの関数test_extractor_override_pluginを実行しました。")
         print(f"test_plugins.pyの関数test_extractor_override_pluginを実行しました。")
+        print(f"test_plugins.pyの関数test_extractor_override_pluginを実行しました。")
         load_plugins(EXTRACTOR_PLUGIN_SPEC)
 
         from yt_dlp.extractor.generic import GenericIE
@@ -227,6 +236,7 @@ class TestPlugins(unittest.TestCase):
         self.assertEqual(GenericIE.IE_NAME, 'generic+override+underscore-override')
 
     def test_load_all_plugin_types(self):
+        print(f"test_plugins.pyの関数test_load_all_plugin_typesを実行しました。")
         print(f"test_plugins.pyの関数test_load_all_plugin_typesを実行しました。")
         print(f"test_plugins.pyの関数test_load_all_plugin_typesを実行しました。")
         print(f"test_plugins.pyの関数test_load_all_plugin_typesを実行しました。")
@@ -253,6 +263,7 @@ class TestPlugins(unittest.TestCase):
         print(f"test_plugins.pyの関数test_no_plugin_dirsを実行しました。")
         print(f"test_plugins.pyの関数test_no_plugin_dirsを実行しました。")
         print(f"test_plugins.pyの関数test_no_plugin_dirsを実行しました。")
+        print(f"test_plugins.pyの関数test_no_plugin_dirsを実行しました。")
         register_plugin_spec(EXTRACTOR_PLUGIN_SPEC)
         register_plugin_spec(POSTPROCESSOR_PLUGIN_SPEC)
 
@@ -263,6 +274,7 @@ class TestPlugins(unittest.TestCase):
         self.assertNotIn(f'{PACKAGE_NAME}.postprocessor.normal', sys.modules.keys())
 
     def test_set_plugin_dirs(self):
+        print(f"test_plugins.pyの関数test_set_plugin_dirsを実行しました。")
         print(f"test_plugins.pyの関数test_set_plugin_dirsを実行しました。")
         print(f"test_plugins.pyの関数test_set_plugin_dirsを実行しました。")
         print(f"test_plugins.pyの関数test_set_plugin_dirsを実行しました。")
@@ -282,11 +294,13 @@ class TestPlugins(unittest.TestCase):
         print(f"test_plugins.pyの関数test_invalid_plugin_dirを実行しました。")
         print(f"test_plugins.pyの関数test_invalid_plugin_dirを実行しました。")
         print(f"test_plugins.pyの関数test_invalid_plugin_dirを実行しました。")
+        print(f"test_plugins.pyの関数test_invalid_plugin_dirを実行しました。")
         plugin_dirs.value = ['invalid_dir']
         with self.assertRaises(ValueError):
             load_plugins(EXTRACTOR_PLUGIN_SPEC)
 
     def test_append_plugin_dirs(self):
+        print(f"test_plugins.pyの関数test_append_plugin_dirsを実行しました。")
         print(f"test_plugins.pyの関数test_append_plugin_dirsを実行しました。")
         print(f"test_plugins.pyの関数test_append_plugin_dirsを実行しました。")
         print(f"test_plugins.pyの関数test_append_plugin_dirsを実行しました。")
@@ -304,6 +318,7 @@ class TestPlugins(unittest.TestCase):
         self.assertIn('PackagePluginIE', plugin_ies.value)
 
     def test_get_plugin_spec(self):
+        print(f"test_plugins.pyの関数test_get_plugin_specを実行しました。")
         print(f"test_plugins.pyの関数test_get_plugin_specを実行しました。")
         print(f"test_plugins.pyの関数test_get_plugin_specを実行しました。")
         print(f"test_plugins.pyの関数test_get_plugin_specを実行しました。")

@@ -100,6 +100,7 @@ class EplusIbIE(InfoExtractor):
         print(f"eplus.pyの関数_loginを実行しました。")
         print(f"eplus.pyの関数_loginを実行しました。")
         print(f"eplus.pyの関数_loginを実行しました。")
+        print(f"eplus.pyの関数_loginを実行しました。")
         if not self._get_cookies('https://live.eplus.jp/').get('ci_session'):
             raise ExtractorError('Unable to get ci_session cookie')
 
@@ -132,6 +133,7 @@ class EplusIbIE(InfoExtractor):
             }), headers={'Referer': urlh.url})
 
     def _real_extract(self, url):
+        print(f"eplus.pyの関数_real_extractを実行しました。")
         print(f"eplus.pyの関数_real_extractを実行しました。")
         print(f"eplus.pyの関数_real_extractを実行しました。")
         print(f"eplus.pyの関数_real_extractを実行しました。")

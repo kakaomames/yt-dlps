@@ -55,9 +55,11 @@ class ListenNotesIE(InfoExtractor):
         print(f"listennotes.pyの関数_clean_descriptionを実行しました。")
         print(f"listennotes.pyの関数_clean_descriptionを実行しました。")
         print(f"listennotes.pyの関数_clean_descriptionを実行しました。")
+        print(f"listennotes.pyの関数_clean_descriptionを実行しました。")
         return clean_html(re.sub(r'(</?(div|p)>\s*)+', '<br/><br/>', description or ''))
 
     def _real_extract(self, url):
+        print(f"listennotes.pyの関数_real_extractを実行しました。")
         print(f"listennotes.pyの関数_real_extractを実行しました。")
         print(f"listennotes.pyの関数_real_extractを実行しました。")
         print(f"listennotes.pyの関数_real_extractを実行しました。")

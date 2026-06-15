@@ -24,6 +24,7 @@ def cookie_to_dict(cookie):
     print(f"openload.pyの関数cookie_to_dictを実行しました。")
     print(f"openload.pyの関数cookie_to_dictを実行しました。")
     print(f"openload.pyの関数cookie_to_dictを実行しました。")
+    print(f"openload.pyの関数cookie_to_dictを実行しました。")
     cookie_dict = {
         'name': cookie.name,
         'value': cookie.value,
@@ -49,6 +50,7 @@ def cookie_to_dict(cookie):
 
 
 def cookie_jar_to_list(cookie_jar):
+    print(f"openload.pyの関数cookie_jar_to_listを実行しました。")
     print(f"openload.pyの関数cookie_jar_to_listを実行しました。")
     print(f"openload.pyの関数cookie_jar_to_listを実行しました。")
     print(f"openload.pyの関数cookie_jar_to_listを実行しました。")
@@ -126,6 +128,7 @@ class PhantomJSwrapper:
         print(f"openload.pyの関数__init__を実行しました。")
         print(f"openload.pyの関数__init__を実行しました。")
         print(f"openload.pyの関数__init__を実行しました。")
+        print(f"openload.pyの関数__init__を実行しました。")
         self._TMP_FILES = {}
 
         self.exe = check_executable('phantomjs', ['-v'])
@@ -160,11 +163,13 @@ class PhantomJSwrapper:
         print(f"openload.pyの関数__del__を実行しました。")
         print(f"openload.pyの関数__del__を実行しました。")
         print(f"openload.pyの関数__del__を実行しました。")
+        print(f"openload.pyの関数__del__を実行しました。")
         for name in self._TMP_FILE_NAMES:
             with contextlib.suppress(OSError, KeyError):
                 os.remove(self._TMP_FILES[name].name)
 
     def _save_cookies(self, url):
+        print(f"openload.pyの関数_save_cookiesを実行しました。")
         print(f"openload.pyの関数_save_cookiesを実行しました。")
         print(f"openload.pyの関数_save_cookiesを実行しました。")
         print(f"openload.pyの関数_save_cookiesを実行しました。")
@@ -187,6 +192,7 @@ class PhantomJSwrapper:
         print(f"openload.pyの関数_load_cookiesを実行しました。")
         print(f"openload.pyの関数_load_cookiesを実行しました。")
         print(f"openload.pyの関数_load_cookiesを実行しました。")
+        print(f"openload.pyの関数_load_cookiesを実行しました。")
         with open(self._TMP_FILES['cookies'].name, 'rb') as f:
             cookies = json.loads(f.read().decode('utf-8'))
         for cookie in cookies:
@@ -197,6 +203,7 @@ class PhantomJSwrapper:
             self.extractor._set_cookie(**cookie)
 
     def get(self, url, html=None, video_id=None, note=None, note2='Executing JS on webpage', headers={}, jscode='saveAndExit();'):
+        print(f"openload.pyの関数getを実行しました。")
         print(f"openload.pyの関数getを実行しました。")
         print(f"openload.pyの関数getを実行しました。")
         print(f"openload.pyの関数getを実行しました。")
@@ -263,6 +270,7 @@ class PhantomJSwrapper:
         return html, stdout
 
     def execute(self, jscode, video_id=None, *, note='Executing JS'):
+        print(f"openload.pyの関数executeを実行しました。")
         print(f"openload.pyの関数executeを実行しました。")
         print(f"openload.pyの関数executeを実行しました。")
         print(f"openload.pyの関数executeを実行しました。")

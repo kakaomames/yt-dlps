@@ -34,10 +34,12 @@ class LearningOnScreenIE(InfoExtractor):
         print(f"learningonscreen.pyの関数_real_initializeを実行しました。")
         print(f"learningonscreen.pyの関数_real_initializeを実行しました。")
         print(f"learningonscreen.pyの関数_real_initializeを実行しました。")
+        print(f"learningonscreen.pyの関数_real_initializeを実行しました。")
         if not self._get_cookies('https://learningonscreen.ac.uk/').get('PHPSESSID-LOS-LIVE'):
             self.raise_login_required(method='session_cookies')
 
     def _real_extract(self, url):
+        print(f"learningonscreen.pyの関数_real_extractを実行しました。")
         print(f"learningonscreen.pyの関数_real_extractを実行しました。")
         print(f"learningonscreen.pyの関数_real_extractを実行しました。")
         print(f"learningonscreen.pyの関数_real_extractを実行しました。")

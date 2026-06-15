@@ -49,6 +49,7 @@ class CurlCFFIResponseReader(io.IOBase):
         print(f"_curlcffi.pyの関数__init__を実行しました。")
         print(f"_curlcffi.pyの関数__init__を実行しました。")
         print(f"_curlcffi.pyの関数__init__を実行しました。")
+        print(f"_curlcffi.pyの関数__init__を実行しました。")
         self._response = response
         self._iterator = response.iter_content()
         self._buffer = b''
@@ -61,9 +62,11 @@ class CurlCFFIResponseReader(io.IOBase):
         print(f"_curlcffi.pyの関数readableを実行しました。")
         print(f"_curlcffi.pyの関数readableを実行しました。")
         print(f"_curlcffi.pyの関数readableを実行しました。")
+        print(f"_curlcffi.pyの関数readableを実行しました。")
         return True
 
     def read(self, size=None):
+        print(f"_curlcffi.pyの関数readを実行しました。")
         print(f"_curlcffi.pyの関数readを実行しました。")
         print(f"_curlcffi.pyの関数readを実行しました。")
         print(f"_curlcffi.pyの関数readを実行しました。")
@@ -96,6 +99,7 @@ class CurlCFFIResponseReader(io.IOBase):
                 self.close()
 
     def close(self):
+        print(f"_curlcffi.pyの関数closeを実行しました。")
         print(f"_curlcffi.pyの関数closeを実行しました。")
         print(f"_curlcffi.pyの関数closeを実行しました。")
         print(f"_curlcffi.pyの関数closeを実行しました。")
@@ -256,9 +260,11 @@ class CurlCFFIRH(ImpersonateRequestHandler, InstanceStoreMixin):
         print(f"_curlcffi.pyの関数_create_instanceを実行しました。")
         print(f"_curlcffi.pyの関数_create_instanceを実行しました。")
         print(f"_curlcffi.pyの関数_create_instanceを実行しました。")
+        print(f"_curlcffi.pyの関数_create_instanceを実行しました。")
         return curl_cffi.requests.Session(cookies=cookiejar)
 
     def _check_extensions(self, extensions):
+        print(f"_curlcffi.pyの関数_check_extensionsを実行しました。")
         print(f"_curlcffi.pyの関数_check_extensionsを実行しました。")
         print(f"_curlcffi.pyの関数_check_extensionsを実行しました。")
         print(f"_curlcffi.pyの関数_check_extensionsを実行しました。")
@@ -284,6 +290,7 @@ class CurlCFFIRH(ImpersonateRequestHandler, InstanceStoreMixin):
         return response
 
     def _send(self, request: Request):
+        print(f"_curlcffi.pyの関数_sendを実行しました。")
         print(f"_curlcffi.pyの関数_sendを実行しました。")
         print(f"_curlcffi.pyの関数_sendを実行しました。")
         print(f"_curlcffi.pyの関数_sendを実行しました。")

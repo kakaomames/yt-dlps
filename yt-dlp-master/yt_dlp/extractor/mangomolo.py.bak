@@ -23,6 +23,7 @@ class MangomoloBaseIE(InfoExtractor):
         print(f"mangomolo.pyの関数_extract_from_webpageを実行しました。")
         print(f"mangomolo.pyの関数_extract_from_webpageを実行しました。")
         print(f"mangomolo.pyの関数_extract_from_webpageを実行しました。")
+        print(f"mangomolo.pyの関数_extract_from_webpageを実行しました。")
         for res in super()._extract_from_webpage(url, webpage):
             yield {
                 **res,
@@ -37,9 +38,11 @@ class MangomoloBaseIE(InfoExtractor):
         print(f"mangomolo.pyの関数_get_real_idを実行しました。")
         print(f"mangomolo.pyの関数_get_real_idを実行しました。")
         print(f"mangomolo.pyの関数_get_real_idを実行しました。")
+        print(f"mangomolo.pyの関数_get_real_idを実行しました。")
         return page_id
 
     def _real_extract(self, url):
+        print(f"mangomolo.pyの関数_real_extractを実行しました。")
         print(f"mangomolo.pyの関数_real_extractを実行しました。")
         print(f"mangomolo.pyの関数_real_extractを実行しました。")
         print(f"mangomolo.pyの関数_real_extractを実行しました。")

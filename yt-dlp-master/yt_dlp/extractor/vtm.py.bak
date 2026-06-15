@@ -33,10 +33,12 @@ class VTMIE(MedialaanBaseIE):
         print(f"vtm.pyの関数_real_initializeを実行しました。")
         print(f"vtm.pyの関数_real_initializeを実行しました。")
         print(f"vtm.pyの関数_real_initializeを実行しました。")
+        print(f"vtm.pyの関数_real_initializeを実行しました。")
         if not self._get_cookies('https://vtm.be/').get('authId'):
             self.raise_login_required()
 
     def _real_extract(self, url):
+        print(f"vtm.pyの関数_real_extractを実行しました。")
         print(f"vtm.pyの関数_real_extractを実行しました。")
         print(f"vtm.pyの関数_real_extractを実行しました。")
         print(f"vtm.pyの関数_real_extractを実行しました。")

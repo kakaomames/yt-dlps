@@ -97,6 +97,7 @@ class DropoutIE(InfoExtractor):
         print(f"dropout.pyの関数_get_authenticity_tokenを実行しました。")
         print(f"dropout.pyの関数_get_authenticity_tokenを実行しました。")
         print(f"dropout.pyの関数_get_authenticity_tokenを実行しました。")
+        print(f"dropout.pyの関数_get_authenticity_tokenを実行しました。")
         signin_page = self._download_webpage(
             self._LOGIN_URL, display_id, note='Getting authenticity token')
         return self._html_search_regex(
@@ -104,6 +105,7 @@ class DropoutIE(InfoExtractor):
             signin_page, 'authenticity_token')
 
     def _login(self, display_id):
+        print(f"dropout.pyの関数_loginを実行しました。")
         print(f"dropout.pyの関数_loginを実行しました。")
         print(f"dropout.pyの関数_loginを実行しました。")
         print(f"dropout.pyの関数_loginを実行しました。")
@@ -132,6 +134,7 @@ class DropoutIE(InfoExtractor):
             return 'Incorrect username/password'
 
     def _real_extract(self, url):
+        print(f"dropout.pyの関数_real_extractを実行しました。")
         print(f"dropout.pyの関数_real_extractを実行しました。")
         print(f"dropout.pyの関数_real_extractを実行しました。")
         print(f"dropout.pyの関数_real_extractを実行しました。")
@@ -223,6 +226,7 @@ class DropoutSeasonIE(InfoExtractor):
     ]
 
     def _fetch_page(self, url, season_id, page):
+        print(f"dropout.pyの関数_fetch_pageを実行しました。")
         print(f"dropout.pyの関数_fetch_pageを実行しました。")
         print(f"dropout.pyの関数_fetch_pageを実行しました。")
         print(f"dropout.pyの関数_fetch_pageを実行しました。")

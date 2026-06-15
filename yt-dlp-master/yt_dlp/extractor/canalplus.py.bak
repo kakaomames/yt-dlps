@@ -50,6 +50,7 @@ class CanalplusIE(InfoExtractor):
         print(f"canalplus.pyの関数_real_extractを実行しました。")
         print(f"canalplus.pyの関数_real_extractを実行しました。")
         print(f"canalplus.pyの関数_real_extractを実行しました。")
+        print(f"canalplus.pyの関数_real_extractを実行しました。")
         site, display_id, video_id = self._match_valid_url(url).groups()
 
         site_id = self._SITE_ID_MAP[site]

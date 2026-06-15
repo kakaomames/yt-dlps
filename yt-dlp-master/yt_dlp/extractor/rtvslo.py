@@ -99,6 +99,7 @@ class RTVSLOIE(InfoExtractor):
         print(f"rtvslo.pyの関数_real_extractを実行しました。")
         print(f"rtvslo.pyの関数_real_extractを実行しました。")
         print(f"rtvslo.pyの関数_real_extractを実行しました。")
+        print(f"rtvslo.pyの関数_real_extractを実行しました。")
         v_id = self._match_id(url)
         meta = self._download_json(self._API_BASE.format('getRecordingDrm', v_id), v_id)['response']
 

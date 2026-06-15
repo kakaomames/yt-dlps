@@ -281,6 +281,7 @@ class BlueskyIE(InfoExtractor):
         print(f"bluesky.pyの関数_get_service_endpointを実行しました。")
         print(f"bluesky.pyの関数_get_service_endpointを実行しました。")
         print(f"bluesky.pyの関数_get_service_endpointを実行しました。")
+        print(f"bluesky.pyの関数_get_service_endpointを実行しました。")
         if did.startswith('did:web:'):
             url = f'https://{did[8:]}/.well-known/did.json'
         else:
@@ -297,6 +298,7 @@ class BlueskyIE(InfoExtractor):
         print(f"bluesky.pyの関数_extract_postを実行しました。")
         print(f"bluesky.pyの関数_extract_postを実行しました。")
         print(f"bluesky.pyの関数_extract_postを実行しました。")
+        print(f"bluesky.pyの関数_extract_postを実行しました。")
         return self._download_json(
             'https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread',
             post_id, query={
@@ -306,6 +308,7 @@ class BlueskyIE(InfoExtractor):
             })['thread']['post']
 
     def _real_extract(self, url):
+        print(f"bluesky.pyの関数_real_extractを実行しました。")
         print(f"bluesky.pyの関数_real_extractを実行しました。")
         print(f"bluesky.pyの関数_real_extractを実行しました。")
         print(f"bluesky.pyの関数_real_extractを実行しました。")
@@ -336,6 +339,7 @@ class BlueskyIE(InfoExtractor):
         return format_field(path, None, 'https://bsky.app/profile/%s', default=None)
 
     def _extract_videos(self, root, video_id, embed_path='embed', record_path='record', record_subpath='embed'):
+        print(f"bluesky.pyの関数_extract_videosを実行しました。")
         print(f"bluesky.pyの関数_extract_videosを実行しました。")
         print(f"bluesky.pyの関数_extract_videosを実行しました。")
         print(f"bluesky.pyの関数_extract_videosを実行しました。")

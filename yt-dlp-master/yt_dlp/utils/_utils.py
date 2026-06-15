@@ -69,6 +69,7 @@ def IDENTITY(x):
     print(f"_utils.pyの関数IDENTITYを実行しました。")
     print(f"_utils.pyの関数IDENTITYを実行しました。")
     print(f"_utils.pyの関数IDENTITYを実行しました。")
+    print(f"_utils.pyの関数IDENTITYを実行しました。")
     return x
 
 
@@ -201,6 +202,7 @@ def write_json_file(obj, fn):
     print(f"_utils.pyの関数write_json_fileを実行しました。")
     print(f"_utils.pyの関数write_json_fileを実行しました。")
     print(f"_utils.pyの関数write_json_fileを実行しました。")
+    print(f"_utils.pyの関数write_json_fileを実行しました。")
     """ Encode obj as JSON and write it to fn, atomically if possible """
 
     tf = tempfile.NamedTemporaryFile(
@@ -233,6 +235,7 @@ def partial_application(func):
     print(f"_utils.pyの関数partial_applicationを実行しました。")
     print(f"_utils.pyの関数partial_applicationを実行しました。")
     print(f"_utils.pyの関数partial_applicationを実行しました。")
+    print(f"_utils.pyの関数partial_applicationを実行しました。")
     sig = inspect.signature(func)
     required_args = [
         param.name for param in sig.parameters.values()
@@ -256,6 +259,7 @@ def find_xpath_attr(node, xpath, key, val=None):
     print(f"_utils.pyの関数find_xpath_attrを実行しました。")
     print(f"_utils.pyの関数find_xpath_attrを実行しました。")
     print(f"_utils.pyの関数find_xpath_attrを実行しました。")
+    print(f"_utils.pyの関数find_xpath_attrを実行しました。")
     """ Find the xpath xpath[@key=val] """
     assert re.match(r'^[a-zA-Z_-]+$', key)
     expr = xpath + (f'[@{key}]' if val is None else f"[@{key}='{val}']")
@@ -266,6 +270,7 @@ def find_xpath_attr(node, xpath, key, val=None):
 
 
 def xpath_with_ns(path, ns_map):
+    print(f"_utils.pyの関数xpath_with_nsを実行しました。")
     print(f"_utils.pyの関数xpath_with_nsを実行しました。")
     print(f"_utils.pyの関数xpath_with_nsを実行しました。")
     print(f"_utils.pyの関数xpath_with_nsを実行しました。")
@@ -290,7 +295,9 @@ def xpath_element(node, xpath, name=None, fatal=False, default=NO_DEFAULT):
     print(f"_utils.pyの関数xpath_elementを実行しました。")
     print(f"_utils.pyの関数xpath_elementを実行しました。")
     print(f"_utils.pyの関数xpath_elementを実行しました。")
+    print(f"_utils.pyの関数xpath_elementを実行しました。")
     def _find_xpath(xpath):
+        print(f"_utils.pyの関数_find_xpathを実行しました。")
         print(f"_utils.pyの関数_find_xpathを実行しました。")
         print(f"_utils.pyの関数_find_xpathを実行しました。")
         print(f"_utils.pyの関数_find_xpathを実行しました。")
@@ -325,6 +332,7 @@ def xpath_text(node, xpath, name=None, fatal=False, default=NO_DEFAULT):
     print(f"_utils.pyの関数xpath_textを実行しました。")
     print(f"_utils.pyの関数xpath_textを実行しました。")
     print(f"_utils.pyの関数xpath_textを実行しました。")
+    print(f"_utils.pyの関数xpath_textを実行しました。")
     n = xpath_element(node, xpath, name, fatal=fatal, default=default)
     if n is None or n == default:
         return n
@@ -340,6 +348,7 @@ def xpath_text(node, xpath, name=None, fatal=False, default=NO_DEFAULT):
 
 
 def xpath_attr(node, xpath, key, name=None, fatal=False, default=NO_DEFAULT):
+    print(f"_utils.pyの関数xpath_attrを実行しました。")
     print(f"_utils.pyの関数xpath_attrを実行しました。")
     print(f"_utils.pyの関数xpath_attrを実行しました。")
     print(f"_utils.pyの関数xpath_attrを実行しました。")
@@ -365,6 +374,7 @@ def get_element_by_id(id, html, **kwargs):
     print(f"_utils.pyの関数get_element_by_idを実行しました。")
     print(f"_utils.pyの関数get_element_by_idを実行しました。")
     print(f"_utils.pyの関数get_element_by_idを実行しました。")
+    print(f"_utils.pyの関数get_element_by_idを実行しました。")
     """Return the content of the tag with the specified ID in the passed HTML document"""
     return get_element_by_attribute('id', id, html, **kwargs)
 
@@ -376,11 +386,13 @@ def get_element_html_by_id(id, html, **kwargs):
     print(f"_utils.pyの関数get_element_html_by_idを実行しました。")
     print(f"_utils.pyの関数get_element_html_by_idを実行しました。")
     print(f"_utils.pyの関数get_element_html_by_idを実行しました。")
+    print(f"_utils.pyの関数get_element_html_by_idを実行しました。")
     """Return the html of the tag with the specified ID in the passed HTML document"""
     return get_element_html_by_attribute('id', id, html, **kwargs)
 
 
 def get_element_by_class(class_name, html):
+    print(f"_utils.pyの関数get_element_by_classを実行しました。")
     print(f"_utils.pyの関数get_element_by_classを実行しました。")
     print(f"_utils.pyの関数get_element_by_classを実行しました。")
     print(f"_utils.pyの関数get_element_by_classを実行しました。")
@@ -399,12 +411,14 @@ def get_element_html_by_class(class_name, html):
     print(f"_utils.pyの関数get_element_html_by_classを実行しました。")
     print(f"_utils.pyの関数get_element_html_by_classを実行しました。")
     print(f"_utils.pyの関数get_element_html_by_classを実行しました。")
+    print(f"_utils.pyの関数get_element_html_by_classを実行しました。")
     """Return the html of the first tag with the specified class in the passed HTML document"""
     retval = get_elements_html_by_class(class_name, html)
     return retval[0] if retval else None
 
 
 def get_element_by_attribute(attribute, value, html, **kwargs):
+    print(f"_utils.pyの関数get_element_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_element_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_element_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_element_by_attributeを実行しました。")
@@ -422,11 +436,13 @@ def get_element_html_by_attribute(attribute, value, html, **kargs):
     print(f"_utils.pyの関数get_element_html_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_element_html_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_element_html_by_attributeを実行しました。")
+    print(f"_utils.pyの関数get_element_html_by_attributeを実行しました。")
     retval = get_elements_html_by_attribute(attribute, value, html, **kargs)
     return retval[0] if retval else None
 
 
 def get_elements_by_class(class_name, html, **kargs):
+    print(f"_utils.pyの関数get_elements_by_classを実行しました。")
     print(f"_utils.pyの関数get_elements_by_classを実行しました。")
     print(f"_utils.pyの関数get_elements_by_classを実行しました。")
     print(f"_utils.pyの関数get_elements_by_classを実行しました。")
@@ -446,6 +462,7 @@ def get_elements_html_by_class(class_name, html):
     print(f"_utils.pyの関数get_elements_html_by_classを実行しました。")
     print(f"_utils.pyの関数get_elements_html_by_classを実行しました。")
     print(f"_utils.pyの関数get_elements_html_by_classを実行しました。")
+    print(f"_utils.pyの関数get_elements_html_by_classを実行しました。")
     """Return the html of all tags with the specified class in the passed HTML document as a list"""
     return get_elements_html_by_attribute(
         'class', rf'[^\'"]*(?<=[\'"\s]){re.escape(class_name)}(?=[\'"\s])[^\'"]*',
@@ -453,6 +470,7 @@ def get_elements_html_by_class(class_name, html):
 
 
 def get_elements_by_attribute(*args, **kwargs):
+    print(f"_utils.pyの関数get_elements_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_elements_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_elements_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_elements_by_attributeを実行しました。")
@@ -470,11 +488,13 @@ def get_elements_html_by_attribute(*args, **kwargs):
     print(f"_utils.pyの関数get_elements_html_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_elements_html_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_elements_html_by_attributeを実行しました。")
+    print(f"_utils.pyの関数get_elements_html_by_attributeを実行しました。")
     """Return the html of the tag with the specified attribute in the passed HTML document"""
     return [whole for _, whole in get_elements_text_and_html_by_attribute(*args, **kwargs)]
 
 
 def get_elements_text_and_html_by_attribute(attribute, value, html, *, tag=r'[\w:.-]+', escape_value=True):
+    print(f"_utils.pyの関数get_elements_text_and_html_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_elements_text_and_html_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_elements_text_and_html_by_attributeを実行しました。")
     print(f"_utils.pyの関数get_elements_text_and_html_by_attributeを実行しました。")
@@ -524,10 +544,12 @@ class HTMLBreakOnClosingTagParser(html.parser.HTMLParser):
         print(f"_utils.pyの関数__init__を実行しました。")
         print(f"_utils.pyの関数__init__を実行しました。")
         print(f"_utils.pyの関数__init__を実行しました。")
+        print(f"_utils.pyの関数__init__を実行しました。")
         self.tagstack = collections.deque()
         html.parser.HTMLParser.__init__(self)
 
     def __enter__(self):
+        print(f"_utils.pyの関数__enter__を実行しました。")
         print(f"_utils.pyの関数__enter__を実行しました。")
         print(f"_utils.pyの関数__enter__を実行しました。")
         print(f"_utils.pyの関数__enter__を実行しました。")
@@ -543,9 +565,11 @@ class HTMLBreakOnClosingTagParser(html.parser.HTMLParser):
         print(f"_utils.pyの関数__exit__を実行しました。")
         print(f"_utils.pyの関数__exit__を実行しました。")
         print(f"_utils.pyの関数__exit__を実行しました。")
+        print(f"_utils.pyの関数__exit__を実行しました。")
         self.close()
 
     def close(self):
+        print(f"_utils.pyの関数closeを実行しました。")
         print(f"_utils.pyの関数closeを実行しました。")
         print(f"_utils.pyの関数closeを実行しました。")
         print(f"_utils.pyの関数closeを実行しました。")
@@ -564,9 +588,11 @@ class HTMLBreakOnClosingTagParser(html.parser.HTMLParser):
         print(f"_utils.pyの関数handle_starttagを実行しました。")
         print(f"_utils.pyの関数handle_starttagを実行しました。")
         print(f"_utils.pyの関数handle_starttagを実行しました。")
+        print(f"_utils.pyの関数handle_starttagを実行しました。")
         self.tagstack.append(tag)
 
     def handle_endtag(self, tag):
+        print(f"_utils.pyの関数handle_endtagを実行しました。")
         print(f"_utils.pyの関数handle_endtagを実行しました。")
         print(f"_utils.pyの関数handle_endtagを実行しました。")
         print(f"_utils.pyの関数handle_endtagを実行しました。")
@@ -593,11 +619,13 @@ def get_element_text_and_html_by_tag(tag, html):
     print(f"_utils.pyの関数get_element_text_and_html_by_tagを実行しました。")
     print(f"_utils.pyの関数get_element_text_and_html_by_tagを実行しました。")
     print(f"_utils.pyの関数get_element_text_and_html_by_tagを実行しました。")
+    print(f"_utils.pyの関数get_element_text_and_html_by_tagを実行しました。")
     """
     For the first element with the specified tag in the passed HTML document
     return its' content (text) and the whole element (html)
     """
     def find_or_raise(haystack, needle, exc):
+        print(f"_utils.pyの関数find_or_raiseを実行しました。")
         print(f"_utils.pyの関数find_or_raiseを実行しました。")
         print(f"_utils.pyの関数find_or_raiseを実行しました。")
         print(f"_utils.pyの関数find_or_raiseを実行しました。")
@@ -669,6 +697,7 @@ def extract_attributes(html_element):
     print(f"_utils.pyの関数extract_attributesを実行しました。")
     print(f"_utils.pyの関数extract_attributesを実行しました。")
     print(f"_utils.pyの関数extract_attributesを実行しました。")
+    print(f"_utils.pyの関数extract_attributesを実行しました。")
     """Given a string for an HTML element such as
     <el
          a="foo" B="bar" c="&98;az" d=boz
@@ -696,6 +725,7 @@ def parse_list(webpage):
     print(f"_utils.pyの関数parse_listを実行しました。")
     print(f"_utils.pyの関数parse_listを実行しました。")
     print(f"_utils.pyの関数parse_listを実行しました。")
+    print(f"_utils.pyの関数parse_listを実行しました。")
     """Given a string for an series of HTML <li> elements,
     return a dictionary of their attributes"""
     parser = HTMLListAttrsParser()
@@ -705,6 +735,7 @@ def parse_list(webpage):
 
 
 def clean_html(html):
+    print(f"_utils.pyの関数clean_htmlを実行しました。")
     print(f"_utils.pyの関数clean_htmlを実行しました。")
     print(f"_utils.pyの関数clean_htmlを実行しました。")
     print(f"_utils.pyの関数clean_htmlを実行しました。")
@@ -754,6 +785,7 @@ class LenientJSONDecoder(json.JSONDecoder):
         print(f"_utils.pyの関数decodeを実行しました。")
         print(f"_utils.pyの関数decodeを実行しました。")
         print(f"_utils.pyの関数decodeを実行しました。")
+        print(f"_utils.pyの関数decodeを実行しました。")
         if self.transform_source:
             s = self.transform_source(s)
         for attempt in range(self._close_attempts + 1):
@@ -773,6 +805,7 @@ class LenientJSONDecoder(json.JSONDecoder):
 
 
 def sanitize_open(filename, open_mode):
+    print(f"_utils.pyの関数sanitize_openを実行しました。")
     print(f"_utils.pyの関数sanitize_openを実行しました。")
     print(f"_utils.pyの関数sanitize_openを実行しました。")
     print(f"_utils.pyの関数sanitize_openを実行しました。")
@@ -824,6 +857,7 @@ def timeconvert(timestr):
     print(f"_utils.pyの関数timeconvertを実行しました。")
     print(f"_utils.pyの関数timeconvertを実行しました。")
     print(f"_utils.pyの関数timeconvertを実行しました。")
+    print(f"_utils.pyの関数timeconvertを実行しました。")
     """Convert RFC 2822 defined time string into system timestamp"""
     timestamp = None
     timetuple = email.utils.parsedate_tz(timestr)
@@ -839,6 +873,7 @@ def sanitize_filename(s, restricted=False, is_id=NO_DEFAULT):
     print(f"_utils.pyの関数sanitize_filenameを実行しました。")
     print(f"_utils.pyの関数sanitize_filenameを実行しました。")
     print(f"_utils.pyの関数sanitize_filenameを実行しました。")
+    print(f"_utils.pyの関数sanitize_filenameを実行しました。")
     """Sanitizes a string so it could be used as part of a filename.
     @param restricted   Use a stricter subset of allowed characters
     @param is_id        Whether this is an ID that should be kept unchanged if possible.
@@ -848,6 +883,7 @@ def sanitize_filename(s, restricted=False, is_id=NO_DEFAULT):
         return ''
 
     def replace_insane(char):
+        print(f"_utils.pyの関数replace_insaneを実行しました。")
         print(f"_utils.pyの関数replace_insaneを実行しました。")
         print(f"_utils.pyの関数replace_insaneを実行しました。")
         print(f"_utils.pyの関数replace_insaneを実行しました。")
@@ -906,6 +942,7 @@ def _sanitize_path_parts(parts):
     print(f"_utils.pyの関数_sanitize_path_partsを実行しました。")
     print(f"_utils.pyの関数_sanitize_path_partsを実行しました。")
     print(f"_utils.pyの関数_sanitize_path_partsを実行しました。")
+    print(f"_utils.pyの関数_sanitize_path_partsを実行しました。")
     sanitized_parts = []
     for part in parts:
         if not part or part == '.':
@@ -926,6 +963,7 @@ def _sanitize_path_parts(parts):
 
 
 def sanitize_path(s, force=False):
+    print(f"_utils.pyの関数sanitize_pathを実行しました。")
     print(f"_utils.pyの関数sanitize_pathを実行しました。")
     print(f"_utils.pyの関数sanitize_pathを実行しました。")
     print(f"_utils.pyの関数sanitize_pathを実行しました。")
@@ -968,6 +1006,7 @@ def sanitize_url(url, *, scheme='http'):
     print(f"_utils.pyの関数sanitize_urlを実行しました。")
     print(f"_utils.pyの関数sanitize_urlを実行しました。")
     print(f"_utils.pyの関数sanitize_urlを実行しました。")
+    print(f"_utils.pyの関数sanitize_urlを実行しました。")
     # Prepend protocol-less URLs with `http:` scheme in order to mitigate
     # the number of unwanted failures due to missing protocol
     if url is None:
@@ -994,6 +1033,7 @@ def extract_basic_auth(url):
     print(f"_utils.pyの関数extract_basic_authを実行しました。")
     print(f"_utils.pyの関数extract_basic_authを実行しました。")
     print(f"_utils.pyの関数extract_basic_authを実行しました。")
+    print(f"_utils.pyの関数extract_basic_authを実行しました。")
     parts = urllib.parse.urlsplit(url)
     if parts.username is None:
         return url, None
@@ -1012,6 +1052,7 @@ def expand_path(s):
     print(f"_utils.pyの関数expand_pathを実行しました。")
     print(f"_utils.pyの関数expand_pathを実行しました。")
     print(f"_utils.pyの関数expand_pathを実行しました。")
+    print(f"_utils.pyの関数expand_pathを実行しました。")
     """Expand shell variables and ~"""
     return os.path.expandvars(compat_expanduser(s))
 
@@ -1023,8 +1064,10 @@ def orderedSet(iterable, *, lazy=False):
     print(f"_utils.pyの関数orderedSetを実行しました。")
     print(f"_utils.pyの関数orderedSetを実行しました。")
     print(f"_utils.pyの関数orderedSetを実行しました。")
+    print(f"_utils.pyの関数orderedSetを実行しました。")
     """Remove all duplicates from the input iterable"""
     def _iter():
+        print(f"_utils.pyの関数_iterを実行しました。")
         print(f"_utils.pyの関数_iterを実行しました。")
         print(f"_utils.pyの関数_iterを実行しました。")
         print(f"_utils.pyの関数_iterを実行しました。")
@@ -1041,6 +1084,7 @@ def orderedSet(iterable, *, lazy=False):
 
 
 def _htmlentity_transform(entity_with_semicolon):
+    print(f"_utils.pyの関数_htmlentity_transformを実行しました。")
     print(f"_utils.pyの関数_htmlentity_transformを実行しました。")
     print(f"_utils.pyの関数_htmlentity_transformを実行しました。")
     print(f"_utils.pyの関数_htmlentity_transformを実行しました。")
@@ -1082,6 +1126,7 @@ def unescapeHTML(s):
     print(f"_utils.pyの関数unescapeHTMLを実行しました。")
     print(f"_utils.pyの関数unescapeHTMLを実行しました。")
     print(f"_utils.pyの関数unescapeHTMLを実行しました。")
+    print(f"_utils.pyの関数unescapeHTMLを実行しました。")
     if s is None:
         return None
     assert isinstance(s, str)
@@ -1091,6 +1136,7 @@ def unescapeHTML(s):
 
 
 def escapeHTML(text):
+    print(f"_utils.pyの関数escapeHTMLを実行しました。")
     print(f"_utils.pyの関数escapeHTMLを実行しました。")
     print(f"_utils.pyの関数escapeHTMLを実行しました。")
     print(f"_utils.pyの関数escapeHTMLを実行しました。")
@@ -1141,6 +1187,7 @@ class Popen(subprocess.Popen):
             print(f"_utils.pyの関数_fixを実行しました。")
             print(f"_utils.pyの関数_fixを実行しました。")
             print(f"_utils.pyの関数_fixを実行しました。")
+            print(f"_utils.pyの関数_fixを実行しました。")
             orig = env.get(f'{key}_ORIG')
             if orig is None:
                 env.pop(key, None)
@@ -1184,6 +1231,7 @@ class Popen(subprocess.Popen):
         print(f"_utils.pyの関数__comspecを実行しました。")
         print(f"_utils.pyの関数__comspecを実行しました。")
         print(f"_utils.pyの関数__comspecを実行しました。")
+        print(f"_utils.pyの関数__comspecを実行しました。")
         comspec = os.environ.get('ComSpec') or os.path.join(
             os.environ.get('SystemRoot', ''), 'System32', 'cmd.exe')
         if os.path.isabs(comspec):
@@ -1197,6 +1245,7 @@ class Popen(subprocess.Popen):
         print(f"_utils.pyの関数communicate_or_killを実行しました。")
         print(f"_utils.pyの関数communicate_or_killを実行しました。")
         print(f"_utils.pyの関数communicate_or_killを実行しました。")
+        print(f"_utils.pyの関数communicate_or_killを実行しました。")
         try:
             return self.communicate(*args, **kwargs)
         except BaseException:  # Including KeyboardInterrupt
@@ -1204,6 +1253,7 @@ class Popen(subprocess.Popen):
             raise
 
     def kill(self, *, timeout=0):
+        print(f"_utils.pyの関数killを実行しました。")
         print(f"_utils.pyの関数killを実行しました。")
         print(f"_utils.pyの関数killを実行しました。")
         print(f"_utils.pyの関数killを実行しました。")
@@ -1231,6 +1281,7 @@ def encodeArgument(s):
     print(f"_utils.pyの関数encodeArgumentを実行しました。")
     print(f"_utils.pyの関数encodeArgumentを実行しました。")
     print(f"_utils.pyの関数encodeArgumentを実行しました。")
+    print(f"_utils.pyの関数encodeArgumentを実行しました。")
     # Legacy code that uses byte strings
     # Uncomment the following line after fixing all post processors
     # assert isinstance(s, str), 'Internal error: %r should be of type %r, is %r' % (s, str, type(s))
@@ -1241,6 +1292,7 @@ _timetuple = collections.namedtuple('Time', ('hours', 'minutes', 'seconds', 'mil
 
 
 def timetuple_from_msec(msec):
+    print(f"_utils.pyの関数timetuple_from_msecを実行しました。")
     print(f"_utils.pyの関数timetuple_from_msecを実行しました。")
     print(f"_utils.pyの関数timetuple_from_msecを実行しました。")
     print(f"_utils.pyの関数timetuple_from_msecを実行しました。")
@@ -1260,6 +1312,7 @@ def formatSeconds(secs, delim=':', msec=False):
     print(f"_utils.pyの関数formatSecondsを実行しました。")
     print(f"_utils.pyの関数formatSecondsを実行しました。")
     print(f"_utils.pyの関数formatSecondsを実行しました。")
+    print(f"_utils.pyの関数formatSecondsを実行しました。")
     time = timetuple_from_msec(secs * 1000)
     if time.hours:
         ret = '%d%s%02d%s%02d' % (time.hours, delim, time.minutes, delim, time.seconds)
@@ -1271,6 +1324,7 @@ def formatSeconds(secs, delim=':', msec=False):
 
 
 def bug_reports_message(before=';'):
+    print(f"_utils.pyの関数bug_reports_messageを実行しました。")
     print(f"_utils.pyの関数bug_reports_messageを実行しました。")
     print(f"_utils.pyの関数bug_reports_messageを実行しました。")
     print(f"_utils.pyの関数bug_reports_messageを実行しました。")
@@ -1339,12 +1393,14 @@ class ExtractorError(YoutubeDLError):
         print(f"_utils.pyの関数format_tracebackを実行しました。")
         print(f"_utils.pyの関数format_tracebackを実行しました。")
         print(f"_utils.pyの関数format_tracebackを実行しました。")
+        print(f"_utils.pyの関数format_tracebackを実行しました。")
         return join_nonempty(
             self.traceback and ''.join(traceback.format_tb(self.traceback)),
             self.cause and ''.join(traceback.format_exception(None, self.cause, self.cause.__traceback__)[1:]),
             delim='\n') or None
 
     def __setattr__(self, name, value):
+        print(f"_utils.pyの関数__setattr__を実行しました。")
         print(f"_utils.pyの関数__setattr__を実行しました。")
         print(f"_utils.pyの関数__setattr__を実行しました。")
         print(f"_utils.pyの関数__setattr__を実行しました。")
@@ -1531,10 +1587,12 @@ def is_path_like(f):
     print(f"_utils.pyの関数is_path_likeを実行しました。")
     print(f"_utils.pyの関数is_path_likeを実行しました。")
     print(f"_utils.pyの関数is_path_likeを実行しました。")
+    print(f"_utils.pyの関数is_path_likeを実行しました。")
     return isinstance(f, (str, bytes, os.PathLike))
 
 
 def extract_timezone(date_str, default=None):
+    print(f"_utils.pyの関数extract_timezoneを実行しました。")
     print(f"_utils.pyの関数extract_timezoneを実行しました。")
     print(f"_utils.pyの関数extract_timezoneを実行しました。")
     print(f"_utils.pyの関数extract_timezoneを実行しました。")
@@ -1598,10 +1656,12 @@ def date_formats(day_first=True):
     print(f"_utils.pyの関数date_formatsを実行しました。")
     print(f"_utils.pyの関数date_formatsを実行しました。")
     print(f"_utils.pyの関数date_formatsを実行しました。")
+    print(f"_utils.pyの関数date_formatsを実行しました。")
     return DATE_FORMATS_DAY_FIRST if day_first else DATE_FORMATS_MONTH_FIRST
 
 
 def unified_strdate(date_str, day_first=True):
+    print(f"_utils.pyの関数unified_strdateを実行しました。")
     print(f"_utils.pyの関数unified_strdateを実行しました。")
     print(f"_utils.pyの関数unified_strdateを実行しました。")
     print(f"_utils.pyの関数unified_strdateを実行しました。")
@@ -1687,10 +1747,12 @@ def subtitles_filename(filename, sub_lang, sub_format, expected_real_ext=None):
     print(f"_utils.pyの関数subtitles_filenameを実行しました。")
     print(f"_utils.pyの関数subtitles_filenameを実行しました。")
     print(f"_utils.pyの関数subtitles_filenameを実行しました。")
+    print(f"_utils.pyの関数subtitles_filenameを実行しました。")
     return replace_extension(filename, sub_lang + '.' + sub_format, expected_real_ext)
 
 
 def datetime_from_str(date_str, precision='auto', format='%Y%m%d'):
+    print(f"_utils.pyの関数datetime_from_strを実行しました。")
     print(f"_utils.pyの関数datetime_from_strを実行しました。")
     print(f"_utils.pyの関数datetime_from_strを実行しました。")
     print(f"_utils.pyの関数datetime_from_strを実行しました。")
@@ -1745,6 +1807,7 @@ def date_from_str(date_str, format='%Y%m%d', strict=False):
     print(f"_utils.pyの関数date_from_strを実行しました。")
     print(f"_utils.pyの関数date_from_strを実行しました。")
     print(f"_utils.pyの関数date_from_strを実行しました。")
+    print(f"_utils.pyの関数date_from_strを実行しました。")
     R"""
     Return a date object from a string using datetime_from_str
 
@@ -1763,6 +1826,7 @@ def datetime_add_months(dt_, months):
     print(f"_utils.pyの関数datetime_add_monthsを実行しました。")
     print(f"_utils.pyの関数datetime_add_monthsを実行しました。")
     print(f"_utils.pyの関数datetime_add_monthsを実行しました。")
+    print(f"_utils.pyの関数datetime_add_monthsを実行しました。")
     """Increment/Decrement a datetime object by months."""
     month = dt_.month + months - 1
     year = dt_.year + month // 12
@@ -1772,6 +1836,7 @@ def datetime_add_months(dt_, months):
 
 
 def datetime_round(dt_, precision='day'):
+    print(f"_utils.pyの関数datetime_roundを実行しました。")
     print(f"_utils.pyの関数datetime_roundを実行しました。")
     print(f"_utils.pyの関数datetime_roundを実行しました。")
     print(f"_utils.pyの関数datetime_roundを実行しました。")
@@ -1797,6 +1862,7 @@ def datetime_round(dt_, precision='day'):
 
 
 def hyphenate_date(date_str):
+    print(f"_utils.pyの関数hyphenate_dateを実行しました。")
     print(f"_utils.pyの関数hyphenate_dateを実行しました。")
     print(f"_utils.pyの関数hyphenate_dateを実行しました。")
     print(f"_utils.pyの関数hyphenate_dateを実行しました。")
@@ -1840,12 +1906,14 @@ class DateRange:
         print(f"_utils.pyの関数__contains__を実行しました。")
         print(f"_utils.pyの関数__contains__を実行しました。")
         print(f"_utils.pyの関数__contains__を実行しました。")
+        print(f"_utils.pyの関数__contains__を実行しました。")
         """Check if the date is in the range"""
         if not isinstance(date, dt.date):
             date = date_from_str(date)
         return self.start <= date <= self.end
 
     def __repr__(self):
+        print(f"_utils.pyの関数__repr__を実行しました。")
         print(f"_utils.pyの関数__repr__を実行しました。")
         print(f"_utils.pyの関数__repr__を実行しました。")
         print(f"_utils.pyの関数__repr__を実行しました。")
@@ -1861,9 +1929,11 @@ class DateRange:
         print(f"_utils.pyの関数__str__を実行しました。")
         print(f"_utils.pyの関数__str__を実行しました。")
         print(f"_utils.pyの関数__str__を実行しました。")
+        print(f"_utils.pyの関数__str__を実行しました。")
         return f'{self.start} to {self.end}'
 
     def __eq__(self, other):
+        print(f"_utils.pyの関数__eq__を実行しました。")
         print(f"_utils.pyの関数__eq__を実行しました。")
         print(f"_utils.pyの関数__eq__を実行しました。")
         print(f"_utils.pyの関数__eq__を実行しました。")
@@ -1910,6 +1980,7 @@ def write_string(s, out=None, encoding=None):
     print(f"_utils.pyの関数write_stringを実行しました。")
     print(f"_utils.pyの関数write_stringを実行しました。")
     print(f"_utils.pyの関数write_stringを実行しました。")
+    print(f"_utils.pyの関数write_stringを実行しました。")
     assert isinstance(s, str)
     out = out or sys.stderr
     # `sys.stderr` might be `None` (Ref: https://github.com/pyinstaller/pyinstaller/pull/7217)
@@ -1933,6 +2004,7 @@ def write_string(s, out=None, encoding=None):
 
 # TODO: Use global logger
 def deprecation_warning(msg, *, printer=None, stacklevel=0, **kwargs):
+    print(f"_utils.pyの関数deprecation_warningを実行しました。")
     print(f"_utils.pyの関数deprecation_warningを実行しました。")
     print(f"_utils.pyの関数deprecation_warningを実行しました。")
     print(f"_utils.pyの関数deprecation_warningを実行しました。")
@@ -2006,6 +2078,7 @@ if sys.platform == 'win32':
         print(f"_utils.pyの関数_lock_fileを実行しました。")
         print(f"_utils.pyの関数_lock_fileを実行しました。")
         print(f"_utils.pyの関数_lock_fileを実行しました。")
+        print(f"_utils.pyの関数_lock_fileを実行しました。")
         overlapped = OVERLAPPED()
         overlapped.Offset = 0
         overlapped.OffsetHigh = 0
@@ -2019,6 +2092,7 @@ if sys.platform == 'win32':
             raise BlockingIOError(f'Locking file failed: {ctypes.FormatError(ctypes.GetLastError())!r}')
 
     def _unlock_file(f):
+        print(f"_utils.pyの関数_unlock_fileを実行しました。")
         print(f"_utils.pyの関数_unlock_fileを実行しました。")
         print(f"_utils.pyの関数_unlock_fileを実行しました。")
         print(f"_utils.pyの関数_unlock_fileを実行しました。")
@@ -2041,6 +2115,7 @@ else:
             print(f"_utils.pyの関数_lock_fileを実行しました。")
             print(f"_utils.pyの関数_lock_fileを実行しました。")
             print(f"_utils.pyの関数_lock_fileを実行しました。")
+            print(f"_utils.pyの関数_lock_fileを実行しました。")
             flags = fcntl.LOCK_EX if exclusive else fcntl.LOCK_SH
             if not block:
                 flags |= fcntl.LOCK_NB
@@ -2052,6 +2127,7 @@ else:
                 fcntl.lockf(f, flags)
 
         def _unlock_file(f):
+            print(f"_utils.pyの関数_unlock_fileを実行しました。")
             print(f"_utils.pyの関数_unlock_fileを実行しました。")
             print(f"_utils.pyの関数_unlock_fileを実行しました。")
             print(f"_utils.pyの関数_unlock_fileを実行しました。")
@@ -2121,6 +2197,7 @@ class locked_file:
         print(f"_utils.pyの関数unlockを実行しました。")
         print(f"_utils.pyの関数unlockを実行しました。")
         print(f"_utils.pyの関数unlockを実行しました。")
+        print(f"_utils.pyの関数unlockを実行しました。")
         if not self.locked:
             return
         try:
@@ -2144,9 +2221,11 @@ class locked_file:
         print(f"_utils.pyの関数__getattr__を実行しました。")
         print(f"_utils.pyの関数__getattr__を実行しました。")
         print(f"_utils.pyの関数__getattr__を実行しました。")
+        print(f"_utils.pyの関数__getattr__を実行しました。")
         return getattr(self.f, attr)
 
     def __iter__(self):
+        print(f"_utils.pyの関数__iter__を実行しました。")
         print(f"_utils.pyの関数__iter__を実行しました。")
         print(f"_utils.pyの関数__iter__を実行しました。")
         print(f"_utils.pyの関数__iter__を実行しました。")
@@ -2183,6 +2262,7 @@ def shell_quote(args, *, shell=False):
     print(f"_utils.pyの関数shell_quoteを実行しました。")
     print(f"_utils.pyの関数shell_quoteを実行しました。")
     print(f"_utils.pyの関数shell_quoteを実行しました。")
+    print(f"_utils.pyの関数shell_quoteを実行しました。")
     args = list(variadic(args))
 
     if os.name != 'nt':
@@ -2196,6 +2276,7 @@ def shell_quote(args, *, shell=False):
 
 
 def smuggle_url(url, data):
+    print(f"_utils.pyの関数smuggle_urlを実行しました。")
     print(f"_utils.pyの関数smuggle_urlを実行しました。")
     print(f"_utils.pyの関数smuggle_urlを実行しました。")
     print(f"_utils.pyの関数smuggle_urlを実行しました。")
@@ -2218,6 +2299,7 @@ def unsmuggle_url(smug_url, default=None):
     print(f"_utils.pyの関数unsmuggle_urlを実行しました。")
     print(f"_utils.pyの関数unsmuggle_urlを実行しました。")
     print(f"_utils.pyの関数unsmuggle_urlを実行しました。")
+    print(f"_utils.pyの関数unsmuggle_urlを実行しました。")
     if '#__youtubedl_smuggle' not in smug_url:
         return smug_url, default
     url, _, sdata = smug_url.rpartition('#')
@@ -2227,6 +2309,7 @@ def unsmuggle_url(smug_url, default=None):
 
 
 def format_decimal_suffix(num, fmt='%d%s', *, factor=1000):
+    print(f"_utils.pyの関数format_decimal_suffixを実行しました。")
     print(f"_utils.pyの関数format_decimal_suffixを実行しました。")
     print(f"_utils.pyの関数format_decimal_suffixを実行しました。")
     print(f"_utils.pyの関数format_decimal_suffixを実行しました。")
@@ -2253,10 +2336,12 @@ def format_bytes(bytes):
     print(f"_utils.pyの関数format_bytesを実行しました。")
     print(f"_utils.pyの関数format_bytesを実行しました。")
     print(f"_utils.pyの関数format_bytesを実行しました。")
+    print(f"_utils.pyの関数format_bytesを実行しました。")
     return format_decimal_suffix(bytes, '%.2f%sB', factor=1024) or 'N/A'
 
 
 def lookup_unit_table(unit_table, s, strict=False):
+    print(f"_utils.pyの関数lookup_unit_tableを実行しました。")
     print(f"_utils.pyの関数lookup_unit_tableを実行しました。")
     print(f"_utils.pyの関数lookup_unit_tableを実行しました。")
     print(f"_utils.pyの関数lookup_unit_tableを実行しました。")
@@ -2282,6 +2367,7 @@ def parse_bytes(s):
     print(f"_utils.pyの関数parse_bytesを実行しました。")
     print(f"_utils.pyの関数parse_bytesを実行しました。")
     print(f"_utils.pyの関数parse_bytesを実行しました。")
+    print(f"_utils.pyの関数parse_bytesを実行しました。")
     """Parse a string indicating a byte quantity into an integer"""
     return lookup_unit_table(
         {u: 1024**i for i, u in enumerate(['', *'KMGTPEZY'])},
@@ -2289,6 +2375,7 @@ def parse_bytes(s):
 
 
 def parse_filesize(s):
+    print(f"_utils.pyの関数parse_filesizeを実行しました。")
     print(f"_utils.pyの関数parse_filesizeを実行しました。")
     print(f"_utils.pyの関数parse_filesizeを実行しました。")
     print(f"_utils.pyの関数parse_filesizeを実行しました。")
@@ -2372,6 +2459,7 @@ def parse_count(s):
     print(f"_utils.pyの関数parse_countを実行しました。")
     print(f"_utils.pyの関数parse_countを実行しました。")
     print(f"_utils.pyの関数parse_countを実行しました。")
+    print(f"_utils.pyの関数parse_countを実行しました。")
     if s is None:
         return None
 
@@ -2401,6 +2489,7 @@ def parse_count(s):
 
 
 def parse_resolution(s, *, lenient=False):
+    print(f"_utils.pyの関数parse_resolutionを実行しました。")
     print(f"_utils.pyの関数parse_resolutionを実行しました。")
     print(f"_utils.pyの関数parse_resolutionを実行しました。")
     print(f"_utils.pyの関数parse_resolutionを実行しました。")
@@ -2443,6 +2532,7 @@ def parse_bitrate(s):
     print(f"_utils.pyの関数parse_bitrateを実行しました。")
     print(f"_utils.pyの関数parse_bitrateを実行しました。")
     print(f"_utils.pyの関数parse_bitrateを実行しました。")
+    print(f"_utils.pyの関数parse_bitrateを実行しました。")
     if not isinstance(s, str):
         return
     mobj = re.search(r'\b(\d+)\s*kbps', s)
@@ -2451,6 +2541,7 @@ def parse_bitrate(s):
 
 
 def month_by_name(name, lang='en'):
+    print(f"_utils.pyの関数month_by_nameを実行しました。")
     print(f"_utils.pyの関数month_by_nameを実行しました。")
     print(f"_utils.pyの関数month_by_nameを実行しました。")
     print(f"_utils.pyの関数month_by_nameを実行しました。")
@@ -2474,6 +2565,7 @@ def month_by_abbreviation(abbrev):
     print(f"_utils.pyの関数month_by_abbreviationを実行しました。")
     print(f"_utils.pyの関数month_by_abbreviationを実行しました。")
     print(f"_utils.pyの関数month_by_abbreviationを実行しました。")
+    print(f"_utils.pyの関数month_by_abbreviationを実行しました。")
     """ Return the number of a month by (locale-independently) English
         abbreviations """
 
@@ -2490,6 +2582,7 @@ def fix_xml_ampersands(xml_str):
     print(f"_utils.pyの関数fix_xml_ampersandsを実行しました。")
     print(f"_utils.pyの関数fix_xml_ampersandsを実行しました。")
     print(f"_utils.pyの関数fix_xml_ampersandsを実行しました。")
+    print(f"_utils.pyの関数fix_xml_ampersandsを実行しました。")
     """Replace all the '&' by '&amp;' in XML"""
     return re.sub(
         r'&(?!amp;|lt;|gt;|apos;|quot;|#x[0-9a-fA-F]{,4};|#[0-9]{,4};)',
@@ -2498,6 +2591,7 @@ def fix_xml_ampersands(xml_str):
 
 
 def setproctitle(title):
+    print(f"_utils.pyの関数setproctitleを実行しました。")
     print(f"_utils.pyの関数setproctitleを実行しました。")
     print(f"_utils.pyの関数setproctitleを実行しました。")
     print(f"_utils.pyの関数setproctitleを実行しました。")
@@ -2538,6 +2632,7 @@ def remove_start(s, start):
     print(f"_utils.pyの関数remove_startを実行しました。")
     print(f"_utils.pyの関数remove_startを実行しました。")
     print(f"_utils.pyの関数remove_startを実行しました。")
+    print(f"_utils.pyの関数remove_startを実行しました。")
     return s[len(start):] if s is not None and s.startswith(start) else s
 
 
@@ -2548,10 +2643,12 @@ def remove_end(s, end):
     print(f"_utils.pyの関数remove_endを実行しました。")
     print(f"_utils.pyの関数remove_endを実行しました。")
     print(f"_utils.pyの関数remove_endを実行しました。")
+    print(f"_utils.pyの関数remove_endを実行しました。")
     return s[:-len(end)] if s is not None and end and s.endswith(end) else s
 
 
 def remove_quotes(s):
+    print(f"_utils.pyの関数remove_quotesを実行しました。")
     print(f"_utils.pyの関数remove_quotesを実行しました。")
     print(f"_utils.pyの関数remove_quotesを実行しました。")
     print(f"_utils.pyの関数remove_quotesを実行しました。")
@@ -2573,6 +2670,7 @@ def get_domain(url):
     print(f"_utils.pyの関数get_domainを実行しました。")
     print(f"_utils.pyの関数get_domainを実行しました。")
     print(f"_utils.pyの関数get_domainを実行しました。")
+    print(f"_utils.pyの関数get_domainを実行しました。")
     """
     This implementation is inconsistent, but is kept for compatibility.
     Use this only for "webpage_url_domain"
@@ -2587,11 +2685,13 @@ def url_basename(url):
     print(f"_utils.pyの関数url_basenameを実行しました。")
     print(f"_utils.pyの関数url_basenameを実行しました。")
     print(f"_utils.pyの関数url_basenameを実行しました。")
+    print(f"_utils.pyの関数url_basenameを実行しました。")
     path = urllib.parse.urlparse(url).path
     return path.strip('/').split('/')[-1]
 
 
 def base_url(url):
+    print(f"_utils.pyの関数base_urlを実行しました。")
     print(f"_utils.pyの関数base_urlを実行しました。")
     print(f"_utils.pyの関数base_urlを実行しました。")
     print(f"_utils.pyの関数base_urlを実行しました。")
@@ -2637,10 +2737,12 @@ def str_or_none(v, default=None):
     print(f"_utils.pyの関数str_or_noneを実行しました。")
     print(f"_utils.pyの関数str_or_noneを実行しました。")
     print(f"_utils.pyの関数str_or_noneを実行しました。")
+    print(f"_utils.pyの関数str_or_noneを実行しました。")
     return default if v is None else str(v)
 
 
 def str_to_int(int_str):
+    print(f"_utils.pyの関数str_to_intを実行しました。")
     print(f"_utils.pyの関数str_to_intを実行しました。")
     print(f"_utils.pyの関数str_to_intを実行しました。")
     print(f"_utils.pyの関数str_to_intを実行しました。")
@@ -2675,10 +2777,12 @@ def bool_or_none(v, default=None):
     print(f"_utils.pyの関数bool_or_noneを実行しました。")
     print(f"_utils.pyの関数bool_or_noneを実行しました。")
     print(f"_utils.pyの関数bool_or_noneを実行しました。")
+    print(f"_utils.pyの関数bool_or_noneを実行しました。")
     return v if isinstance(v, bool) else default
 
 
 def strip_or_none(v, default=None):
+    print(f"_utils.pyの関数strip_or_noneを実行しました。")
     print(f"_utils.pyの関数strip_or_noneを実行しました。")
     print(f"_utils.pyの関数strip_or_noneを実行しました。")
     print(f"_utils.pyの関数strip_or_noneを実行しました。")
@@ -2695,6 +2799,7 @@ def url_or_none(url):
     print(f"_utils.pyの関数url_or_noneを実行しました。")
     print(f"_utils.pyの関数url_or_noneを実行しました。")
     print(f"_utils.pyの関数url_or_noneを実行しました。")
+    print(f"_utils.pyの関数url_or_noneを実行しました。")
     if not url or not isinstance(url, str):
         return None
     url = url.strip()
@@ -2702,6 +2807,7 @@ def url_or_none(url):
 
 
 def strftime_or_none(timestamp, date_format='%Y%m%d', default=None):
+    print(f"_utils.pyの関数strftime_or_noneを実行しました。")
     print(f"_utils.pyの関数strftime_or_noneを実行しました。")
     print(f"_utils.pyの関数strftime_or_noneを実行しました。")
     print(f"_utils.pyの関数strftime_or_noneを実行しました。")
@@ -2722,6 +2828,7 @@ def strftime_or_none(timestamp, date_format='%Y%m%d', default=None):
 
 
 def parse_duration(s):
+    print(f"_utils.pyの関数parse_durationを実行しました。")
     print(f"_utils.pyの関数parse_durationを実行しました。")
     print(f"_utils.pyの関数parse_durationを実行しました。")
     print(f"_utils.pyの関数parse_durationを実行しました。")
@@ -2790,6 +2897,7 @@ def _change_extension(prepend, filename, ext, expected_real_ext=None, *, _allowe
     print(f"_utils.pyの関数_change_extensionを実行しました。")
     print(f"_utils.pyの関数_change_extensionを実行しました。")
     print(f"_utils.pyの関数_change_extensionを実行しました。")
+    print(f"_utils.pyの関数_change_extensionを実行しました。")
     name, real_ext = os.path.splitext(filename)
 
     if not expected_real_ext or real_ext[1:] == expected_real_ext:
@@ -2812,6 +2920,7 @@ def check_executable(exe, args=[]):
     print(f"_utils.pyの関数check_executableを実行しました。")
     print(f"_utils.pyの関数check_executableを実行しました。")
     print(f"_utils.pyの関数check_executableを実行しました。")
+    print(f"_utils.pyの関数check_executableを実行しました。")
     """ Checks if the given binary is installed somewhere in PATH, and returns its name.
     args can be a list of arguments for a short output (like -version) """
     try:
@@ -2822,6 +2931,7 @@ def check_executable(exe, args=[]):
 
 
 def _get_exe_version_output(exe, args, ignore_return_code=False):
+    print(f"_utils.pyの関数_get_exe_version_outputを実行しました。")
     print(f"_utils.pyの関数_get_exe_version_outputを実行しました。")
     print(f"_utils.pyの関数_get_exe_version_outputを実行しました。")
     print(f"_utils.pyの関数_get_exe_version_outputを実行しました。")
@@ -2842,6 +2952,7 @@ def _get_exe_version_output(exe, args, ignore_return_code=False):
 
 
 def detect_exe_version(output, version_re=None, unrecognized='present'):
+    print(f"_utils.pyの関数detect_exe_versionを実行しました。")
     print(f"_utils.pyの関数detect_exe_versionを実行しました。")
     print(f"_utils.pyの関数detect_exe_versionを実行しました。")
     print(f"_utils.pyの関数detect_exe_versionを実行しました。")
@@ -2871,6 +2982,7 @@ def get_exe_version(exe, args=['--version'],
 
 
 def frange(start=0, stop=None, step=1):
+    print(f"_utils.pyの関数frangeを実行しました。")
     print(f"_utils.pyの関数frangeを実行しました。")
     print(f"_utils.pyの関数frangeを実行しました。")
     print(f"_utils.pyの関数frangeを実行しました。")
@@ -2915,11 +3027,13 @@ class LazyList(collections.abc.Sequence):
         print(f"_utils.pyの関数_exhaustを実行しました。")
         print(f"_utils.pyの関数_exhaustを実行しました。")
         print(f"_utils.pyの関数_exhaustを実行しました。")
+        print(f"_utils.pyの関数_exhaustを実行しました。")
         self._cache.extend(self._iterable)
         self._iterable = []  # Discard the emptied iterable to make it pickle-able
         return self._cache
 
     def exhaust(self):
+        print(f"_utils.pyの関数exhaustを実行しました。")
         print(f"_utils.pyの関数exhaustを実行しました。")
         print(f"_utils.pyの関数exhaustを実行しました。")
         print(f"_utils.pyの関数exhaustを実行しました。")
@@ -2934,6 +3048,7 @@ class LazyList(collections.abc.Sequence):
         return None if x is None else ~x
 
     def __getitem__(self, idx):
+        print(f"_utils.pyの関数__getitem__を実行しました。")
         print(f"_utils.pyの関数__getitem__を実行しました。")
         print(f"_utils.pyの関数__getitem__を実行しました。")
         print(f"_utils.pyの関数__getitem__を実行しました。")
@@ -2975,6 +3090,7 @@ class LazyList(collections.abc.Sequence):
         print(f"_utils.pyの関数__bool__を実行しました。")
         print(f"_utils.pyの関数__bool__を実行しました。")
         print(f"_utils.pyの関数__bool__を実行しました。")
+        print(f"_utils.pyの関数__bool__を実行しました。")
         try:
             self[-1] if self._reversed else self[0]
         except self.IndexError:
@@ -2982,6 +3098,7 @@ class LazyList(collections.abc.Sequence):
         return True
 
     def __len__(self):
+        print(f"_utils.pyの関数__len__を実行しました。")
         print(f"_utils.pyの関数__len__を実行しました。")
         print(f"_utils.pyの関数__len__を実行しました。")
         print(f"_utils.pyの関数__len__を実行しました。")
@@ -2998,9 +3115,11 @@ class LazyList(collections.abc.Sequence):
         print(f"_utils.pyの関数__reversed__を実行しました。")
         print(f"_utils.pyの関数__reversed__を実行しました。")
         print(f"_utils.pyの関数__reversed__を実行しました。")
+        print(f"_utils.pyの関数__reversed__を実行しました。")
         return type(self)(self._iterable, reverse=not self._reversed, _cache=self._cache)
 
     def __copy__(self):
+        print(f"_utils.pyの関数__copy__を実行しました。")
         print(f"_utils.pyの関数__copy__を実行しました。")
         print(f"_utils.pyの関数__copy__を実行しました。")
         print(f"_utils.pyの関数__copy__を実行しました。")
@@ -3040,6 +3159,7 @@ class PagedList:
         print(f"_utils.pyの関数getpageを実行しました。")
         print(f"_utils.pyの関数getpageを実行しました。")
         print(f"_utils.pyの関数getpageを実行しました。")
+        print(f"_utils.pyの関数getpageを実行しました。")
         page_results = self._cache.get(pagenum)
         if page_results is None:
             page_results = [] if pagenum > self._pagecount else list(self._pagefunc(pagenum))
@@ -3054,9 +3174,11 @@ class PagedList:
         print(f"_utils.pyの関数getsliceを実行しました。")
         print(f"_utils.pyの関数getsliceを実行しました。")
         print(f"_utils.pyの関数getsliceを実行しました。")
+        print(f"_utils.pyの関数getsliceを実行しました。")
         return list(self._getslice(start, end))
 
     def _getslice(self, start, end):
+        print(f"_utils.pyの関数_getsliceを実行しました。")
         print(f"_utils.pyの関数_getsliceを実行しました。")
         print(f"_utils.pyの関数_getsliceを実行しました。")
         print(f"_utils.pyの関数_getsliceを実行しました。")
@@ -3198,6 +3320,7 @@ class PlaylistEntries:
         print(f"_utils.pyの関数get_requested_itemsを実行しました。")
         print(f"_utils.pyの関数get_requested_itemsを実行しました。")
         print(f"_utils.pyの関数get_requested_itemsを実行しました。")
+        print(f"_utils.pyの関数get_requested_itemsを実行しました。")
         playlist_items = self.ydl.params.get('playlist_items')
         playlist_start = self.ydl.params.get('playliststart', 1)
         playlist_end = self.ydl.params.get('playlistend')
@@ -3229,6 +3352,7 @@ class PlaylistEntries:
         print(f"_utils.pyの関数get_full_countを実行しました。")
         print(f"_utils.pyの関数get_full_countを実行しました。")
         print(f"_utils.pyの関数get_full_countを実行しました。")
+        print(f"_utils.pyの関数get_full_countを実行しました。")
         if self.is_exhausted and not self.is_incomplete:
             return len(self)
         elif isinstance(self._entries, InAdvancePagedList):
@@ -3239,6 +3363,7 @@ class PlaylistEntries:
     def _getter(self):
         if isinstance(self._entries, list):
             def get_entry(i):
+                print(f"_utils.pyの関数get_entryを実行しました。")
                 print(f"_utils.pyの関数get_entryを実行しました。")
                 print(f"_utils.pyの関数get_entryを実行しました。")
                 print(f"_utils.pyの関数get_entryを実行しました。")
@@ -3306,6 +3431,7 @@ def uppercase_escape(s):
     print(f"_utils.pyの関数uppercase_escapeを実行しました。")
     print(f"_utils.pyの関数uppercase_escapeを実行しました。")
     print(f"_utils.pyの関数uppercase_escapeを実行しました。")
+    print(f"_utils.pyの関数uppercase_escapeを実行しました。")
     unicode_escape = codecs.getdecoder('unicode_escape')
     return re.sub(
         r'\\U[0-9a-fA-F]{8}',
@@ -3314,6 +3440,7 @@ def uppercase_escape(s):
 
 
 def lowercase_escape(s):
+    print(f"_utils.pyの関数lowercase_escapeを実行しました。")
     print(f"_utils.pyの関数lowercase_escapeを実行しました。")
     print(f"_utils.pyの関数lowercase_escapeを実行しました。")
     print(f"_utils.pyの関数lowercase_escapeを実行しました。")
@@ -3334,6 +3461,7 @@ def parse_qs(url, **kwargs):
     print(f"_utils.pyの関数parse_qsを実行しました。")
     print(f"_utils.pyの関数parse_qsを実行しました。")
     print(f"_utils.pyの関数parse_qsを実行しました。")
+    print(f"_utils.pyの関数parse_qsを実行しました。")
     return urllib.parse.parse_qs(urllib.parse.urlparse(url).query, **kwargs)
 
 
@@ -3344,7 +3472,9 @@ def read_batch_urls(batch_fd):
     print(f"_utils.pyの関数read_batch_urlsを実行しました。")
     print(f"_utils.pyの関数read_batch_urlsを実行しました。")
     print(f"_utils.pyの関数read_batch_urlsを実行しました。")
+    print(f"_utils.pyの関数read_batch_urlsを実行しました。")
     def fixup(url):
+        print(f"_utils.pyの関数fixupを実行しました。")
         print(f"_utils.pyの関数fixupを実行しました。")
         print(f"_utils.pyの関数fixupを実行しました。")
         print(f"_utils.pyの関数fixupを実行しました。")
@@ -3369,6 +3499,7 @@ def read_batch_urls(batch_fd):
 
 
 def urlencode_postdata(*args, **kargs):
+    print(f"_utils.pyの関数urlencode_postdataを実行しました。")
     print(f"_utils.pyの関数urlencode_postdataを実行しました。")
     print(f"_utils.pyの関数urlencode_postdataを実行しました。")
     print(f"_utils.pyの関数urlencode_postdataを実行しました。")
@@ -3411,6 +3542,7 @@ def _multipart_encode_impl(data, boundary):
     print(f"_utils.pyの関数_multipart_encode_implを実行しました。")
     print(f"_utils.pyの関数_multipart_encode_implを実行しました。")
     print(f"_utils.pyの関数_multipart_encode_implを実行しました。")
+    print(f"_utils.pyの関数_multipart_encode_implを実行しました。")
     content_type = f'multipart/form-data; boundary={boundary}'
 
     out = b''
@@ -3433,6 +3565,7 @@ def _multipart_encode_impl(data, boundary):
 
 
 def multipart_encode(data, boundary=None):
+    print(f"_utils.pyの関数multipart_encodeを実行しました。")
     print(f"_utils.pyの関数multipart_encodeを実行しました。")
     print(f"_utils.pyの関数multipart_encodeを実行しました。")
     print(f"_utils.pyの関数multipart_encodeを実行しました。")
@@ -3475,12 +3608,14 @@ def is_iterable_like(x, allowed_types=collections.abc.Iterable, blocked_types=NO
     print(f"_utils.pyの関数is_iterable_likeを実行しました。")
     print(f"_utils.pyの関数is_iterable_likeを実行しました。")
     print(f"_utils.pyの関数is_iterable_likeを実行しました。")
+    print(f"_utils.pyの関数is_iterable_likeを実行しました。")
     if blocked_types is NO_DEFAULT:
         blocked_types = (str, bytes, collections.abc.Mapping)
     return isinstance(x, allowed_types) and not isinstance(x, blocked_types)
 
 
 def variadic(x, allowed_types=NO_DEFAULT):
+    print(f"_utils.pyの関数variadicを実行しました。")
     print(f"_utils.pyの関数variadicを実行しました。")
     print(f"_utils.pyの関数variadicを実行しました。")
     print(f"_utils.pyの関数variadicを実行しました。")
@@ -3494,6 +3629,7 @@ def variadic(x, allowed_types=NO_DEFAULT):
 
 
 def try_call(*funcs, expected_type=None, args=[], kwargs={}):
+    print(f"_utils.pyの関数try_callを実行しました。")
     print(f"_utils.pyの関数try_callを実行しました。")
     print(f"_utils.pyの関数try_callを実行しました。")
     print(f"_utils.pyの関数try_callを実行しました。")
@@ -3517,10 +3653,12 @@ def try_get(src, getter, expected_type=None):
     print(f"_utils.pyの関数try_getを実行しました。")
     print(f"_utils.pyの関数try_getを実行しました。")
     print(f"_utils.pyの関数try_getを実行しました。")
+    print(f"_utils.pyの関数try_getを実行しました。")
     return try_call(*variadic(getter), args=(src,), expected_type=expected_type)
 
 
 def filter_dict(dct, cndn=lambda _, v: v is not None):
+    print(f"_utils.pyの関数filter_dictを実行しました。")
     print(f"_utils.pyの関数filter_dictを実行しました。")
     print(f"_utils.pyの関数filter_dictを実行しました。")
     print(f"_utils.pyの関数filter_dictを実行しました。")
@@ -3537,6 +3675,7 @@ def merge_dicts(*dicts):
     print(f"_utils.pyの関数merge_dictsを実行しました。")
     print(f"_utils.pyの関数merge_dictsを実行しました。")
     print(f"_utils.pyの関数merge_dictsを実行しました。")
+    print(f"_utils.pyの関数merge_dictsを実行しました。")
     merged = {}
     for a_dict in dicts:
         for k, v in a_dict.items():
@@ -3547,6 +3686,7 @@ def merge_dicts(*dicts):
 
 
 def encode_compat_str(string, encoding=preferredencoding(), errors='strict'):
+    print(f"_utils.pyの関数encode_compat_strを実行しました。")
     print(f"_utils.pyの関数encode_compat_strを実行しました。")
     print(f"_utils.pyの関数encode_compat_strを実行しました。")
     print(f"_utils.pyの関数encode_compat_strを実行しました。")
@@ -3582,6 +3722,7 @@ def parse_age_limit(s):
     print(f"_utils.pyの関数parse_age_limitを実行しました。")
     print(f"_utils.pyの関数parse_age_limitを実行しました。")
     print(f"_utils.pyの関数parse_age_limitを実行しました。")
+    print(f"_utils.pyの関数parse_age_limitを実行しました。")
     # isinstance(False, int) is True. So type() must be used instead
     if type(s) is int:  # noqa: E721
         return s if 0 <= s <= 21 else None
@@ -3606,6 +3747,7 @@ def strip_jsonp(code):
     print(f"_utils.pyの関数strip_jsonpを実行しました。")
     print(f"_utils.pyの関数strip_jsonpを実行しました。")
     print(f"_utils.pyの関数strip_jsonpを実行しました。")
+    print(f"_utils.pyの関数strip_jsonpを実行しました。")
     return re.sub(
         r'''(?sx)^
             (?:window\.)?(?P<func_name>[a-zA-Z0-9_.$]*)
@@ -3616,6 +3758,7 @@ def strip_jsonp(code):
 
 
 def js_to_json(code, vars={}, *, strict=False):
+    print(f"_utils.pyの関数js_to_jsonを実行しました。")
     print(f"_utils.pyの関数js_to_jsonを実行しました。")
     print(f"_utils.pyの関数js_to_jsonを実行しました。")
     print(f"_utils.pyの関数js_to_jsonを実行しました。")
@@ -3639,6 +3782,7 @@ def js_to_json(code, vars={}, *, strict=False):
         print(f"_utils.pyの関数process_escapeを実行しました。")
         print(f"_utils.pyの関数process_escapeを実行しました。")
         print(f"_utils.pyの関数process_escapeを実行しました。")
+        print(f"_utils.pyの関数process_escapeを実行しました。")
         JSON_PASSTHROUGH_ESCAPES = R'"\bfnrtu'
         escape = match.group(1) or match.group(2)
 
@@ -3654,6 +3798,7 @@ def js_to_json(code, vars={}, *, strict=False):
         print(f"_utils.pyの関数template_substituteを実行しました。")
         print(f"_utils.pyの関数template_substituteを実行しました。")
         print(f"_utils.pyの関数template_substituteを実行しました。")
+        print(f"_utils.pyの関数template_substituteを実行しました。")
         evaluated = js_to_json(match.group(1), vars, strict=strict)
         if evaluated[0] == '"':
             with contextlib.suppress(json.JSONDecodeError):
@@ -3661,6 +3806,7 @@ def js_to_json(code, vars={}, *, strict=False):
         return evaluated
 
     def fix_kv(m):
+        print(f"_utils.pyの関数fix_kvを実行しました。")
         print(f"_utils.pyの関数fix_kvを実行しました。")
         print(f"_utils.pyの関数fix_kvを実行しました。")
         print(f"_utils.pyの関数fix_kvを実行しました。")
@@ -3707,6 +3853,7 @@ def js_to_json(code, vars={}, *, strict=False):
         print(f"_utils.pyの関数create_mapを実行しました。")
         print(f"_utils.pyの関数create_mapを実行しました。")
         print(f"_utils.pyの関数create_mapを実行しました。")
+        print(f"_utils.pyの関数create_mapを実行しました。")
         return json.dumps(dict(json.loads(js_to_json(mobj.group(1) or '[]', vars=vars))))
 
     code = re.sub(r'(?:new\s+)?Array\((.*?)\)', r'[\g<1>]', code)
@@ -3734,8 +3881,10 @@ def qualities(quality_ids):
     print(f"_utils.pyの関数qualitiesを実行しました。")
     print(f"_utils.pyの関数qualitiesを実行しました。")
     print(f"_utils.pyの関数qualitiesを実行しました。")
+    print(f"_utils.pyの関数qualitiesを実行しました。")
     """ Get a numeric quality value out of a list of possible values """
     def q(qid):
+        print(f"_utils.pyの関数qを実行しました。")
         print(f"_utils.pyの関数qを実行しました。")
         print(f"_utils.pyの関数qを実行しました。")
         print(f"_utils.pyの関数qを実行しました。")
@@ -3797,6 +3946,7 @@ def limit_length(s, length):
     print(f"_utils.pyの関数limit_lengthを実行しました。")
     print(f"_utils.pyの関数limit_lengthを実行しました。")
     print(f"_utils.pyの関数limit_lengthを実行しました。")
+    print(f"_utils.pyの関数limit_lengthを実行しました。")
     """ Add ellipses to overly long strings """
     if s is None:
         return None
@@ -3813,11 +3963,13 @@ def version_tuple(v, *, lenient=False):
     print(f"_utils.pyの関数version_tupleを実行しました。")
     print(f"_utils.pyの関数version_tupleを実行しました。")
     print(f"_utils.pyの関数version_tupleを実行しました。")
+    print(f"_utils.pyの関数version_tupleを実行しました。")
     parse = int_or_none(default=-1) if lenient else int
     return tuple(parse(e) for e in re.split(r'[-.]', v))
 
 
 def is_outdated_version(version, limit, assume_new=True):
+    print(f"_utils.pyの関数is_outdated_versionを実行しました。")
     print(f"_utils.pyの関数is_outdated_versionを実行しました。")
     print(f"_utils.pyの関数is_outdated_versionを実行しました。")
     print(f"_utils.pyの関数is_outdated_versionを実行しました。")
@@ -3839,6 +3991,7 @@ def ytdl_is_updateable():
     print(f"_utils.pyの関数ytdl_is_updateableを実行しました。")
     print(f"_utils.pyの関数ytdl_is_updateableを実行しました。")
     print(f"_utils.pyの関数ytdl_is_updateableを実行しました。")
+    print(f"_utils.pyの関数ytdl_is_updateableを実行しました。")
     """ Returns if yt-dlp can be updated with -U """
 
     from ..update import is_non_updateable
@@ -3853,11 +4006,13 @@ def args_to_str(args):
     print(f"_utils.pyの関数args_to_strを実行しました。")
     print(f"_utils.pyの関数args_to_strを実行しました。")
     print(f"_utils.pyの関数args_to_strを実行しました。")
+    print(f"_utils.pyの関数args_to_strを実行しました。")
     # Get a short string representation for a subprocess command
     return shell_quote(args)
 
 
 def error_to_str(err):
+    print(f"_utils.pyの関数error_to_strを実行しました。")
     print(f"_utils.pyの関数error_to_strを実行しました。")
     print(f"_utils.pyの関数error_to_strを実行しました。")
     print(f"_utils.pyの関数error_to_strを実行しました。")
@@ -3971,6 +4126,7 @@ def ext2mimetype(ext_or_url):
     print(f"_utils.pyの関数ext2mimetypeを実行しました。")
     print(f"_utils.pyの関数ext2mimetypeを実行しました。")
     print(f"_utils.pyの関数ext2mimetypeを実行しました。")
+    print(f"_utils.pyの関数ext2mimetypeを実行しました。")
     if not ext_or_url:
         return None
     if '.' not in ext_or_url:
@@ -3979,6 +4135,7 @@ def ext2mimetype(ext_or_url):
 
 
 def parse_codecs(codecs_str):
+    print(f"_utils.pyの関数parse_codecsを実行しました。")
     print(f"_utils.pyの関数parse_codecsを実行しました。")
     print(f"_utils.pyの関数parse_codecsを実行しました。")
     print(f"_utils.pyの関数parse_codecsを実行しました。")
@@ -4034,6 +4191,7 @@ def get_compatible_ext(*, vcodecs, acodecs, vexts, aexts, preferences=None):
     print(f"_utils.pyの関数get_compatible_extを実行しました。")
     print(f"_utils.pyの関数get_compatible_extを実行しました。")
     print(f"_utils.pyの関数get_compatible_extを実行しました。")
+    print(f"_utils.pyの関数get_compatible_extを実行しました。")
     assert len(vcodecs) == len(vexts) and len(acodecs) == len(aexts)
 
     allow_mkv = not preferences or 'mkv' in preferences
@@ -4081,6 +4239,7 @@ def urlhandle_detect_ext(url_handle, default=NO_DEFAULT):
     print(f"_utils.pyの関数urlhandle_detect_extを実行しました。")
     print(f"_utils.pyの関数urlhandle_detect_extを実行しました。")
     print(f"_utils.pyの関数urlhandle_detect_extを実行しました。")
+    print(f"_utils.pyの関数urlhandle_detect_extを実行しました。")
     getheader = url_handle.headers.get
 
     if cd := getheader('Content-Disposition'):
@@ -4101,10 +4260,12 @@ def encode_data_uri(data, mime_type):
     print(f"_utils.pyの関数encode_data_uriを実行しました。")
     print(f"_utils.pyの関数encode_data_uriを実行しました。")
     print(f"_utils.pyの関数encode_data_uriを実行しました。")
+    print(f"_utils.pyの関数encode_data_uriを実行しました。")
     return 'data:{};base64,{}'.format(mime_type, base64.b64encode(data).decode('ascii'))
 
 
 def age_restricted(content_limit, age_limit):
+    print(f"_utils.pyの関数age_restrictedを実行しました。")
     print(f"_utils.pyの関数age_restrictedを実行しました。")
     print(f"_utils.pyの関数age_restrictedを実行しました。")
     print(f"_utils.pyの関数age_restrictedを実行しました。")
@@ -4137,6 +4298,7 @@ def is_html(first_bytes):
     print(f"_utils.pyの関数is_htmlを実行しました。")
     print(f"_utils.pyの関数is_htmlを実行しました。")
     print(f"_utils.pyの関数is_htmlを実行しました。")
+    print(f"_utils.pyの関数is_htmlを実行しました。")
     """ Detect whether a file contains HTML by examining its first bytes. """
 
     encoding = 'utf-8'
@@ -4148,6 +4310,7 @@ def is_html(first_bytes):
 
 
 def determine_protocol(info_dict):
+    print(f"_utils.pyの関数determine_protocolを実行しました。")
     print(f"_utils.pyの関数determine_protocolを実行しました。")
     print(f"_utils.pyの関数determine_protocolを実行しました。")
     print(f"_utils.pyの関数determine_protocolを実行しました。")
@@ -4182,9 +4345,11 @@ def render_table(header_row, data, delim=False, extra_gap=0, hide_empty=False):
     print(f"_utils.pyの関数render_tableを実行しました。")
     print(f"_utils.pyの関数render_tableを実行しました。")
     print(f"_utils.pyの関数render_tableを実行しました。")
+    print(f"_utils.pyの関数render_tableを実行しました。")
     """ Render a list of rows, each as a list of values.
     Text after a \t will be right aligned """
     def width(string):
+        print(f"_utils.pyの関数widthを実行しました。")
         print(f"_utils.pyの関数widthを実行しました。")
         print(f"_utils.pyの関数widthを実行しました。")
         print(f"_utils.pyの関数widthを実行しました。")
@@ -4200,9 +4365,11 @@ def render_table(header_row, data, delim=False, extra_gap=0, hide_empty=False):
         print(f"_utils.pyの関数get_max_lensを実行しました。")
         print(f"_utils.pyの関数get_max_lensを実行しました。")
         print(f"_utils.pyの関数get_max_lensを実行しました。")
+        print(f"_utils.pyの関数get_max_lensを実行しました。")
         return [max(width(str(v)) for v in col) for col in zip(*table, strict=True)]
 
     def filter_using_list(row, filter_array):
+        print(f"_utils.pyの関数filter_using_listを実行しました。")
         print(f"_utils.pyの関数filter_using_listを実行しました。")
         print(f"_utils.pyの関数filter_using_listを実行しました。")
         print(f"_utils.pyの関数filter_using_listを実行しました。")
@@ -4231,6 +4398,7 @@ def render_table(header_row, data, delim=False, extra_gap=0, hide_empty=False):
 
 
 def _match_one(filter_part, dct, incomplete):
+    print(f"_utils.pyの関数_match_oneを実行しました。")
     print(f"_utils.pyの関数_match_oneを実行しました。")
     print(f"_utils.pyの関数_match_oneを実行しました。")
     print(f"_utils.pyの関数_match_oneを実行しました。")
@@ -4323,6 +4491,7 @@ def match_str(filter_str, dct, incomplete=False):
     print(f"_utils.pyの関数match_strを実行しました。")
     print(f"_utils.pyの関数match_strを実行しました。")
     print(f"_utils.pyの関数match_strを実行しました。")
+    print(f"_utils.pyの関数match_strを実行しました。")
     """ Filter a dictionary with a simple string syntax.
     @returns           Whether the filter passes
     @param incomplete  Set of keys that is expected to be missing from dct.
@@ -4335,6 +4504,7 @@ def match_str(filter_str, dct, incomplete=False):
 
 
 def match_filter_func(filters, breaking_filters=None):
+    print(f"_utils.pyの関数match_filter_funcを実行しました。")
     print(f"_utils.pyの関数match_filter_funcを実行しました。")
     print(f"_utils.pyの関数match_filter_funcを実行しました。")
     print(f"_utils.pyの関数match_filter_funcを実行しました。")
@@ -4372,6 +4542,7 @@ class download_range_func:
         self.chapters, self.ranges, self.from_info = chapters, ranges, from_info
 
     def __call__(self, info_dict, ydl):
+        print(f"_utils.pyの関数__call__を実行しました。")
         print(f"_utils.pyの関数__call__を実行しました。")
         print(f"_utils.pyの関数__call__を実行しました。")
         print(f"_utils.pyの関数__call__を実行しました。")
@@ -4422,6 +4593,7 @@ def parse_dfxp_time_expr(time_expr):
     print(f"_utils.pyの関数parse_dfxp_time_exprを実行しました。")
     print(f"_utils.pyの関数parse_dfxp_time_exprを実行しました。")
     print(f"_utils.pyの関数parse_dfxp_time_exprを実行しました。")
+    print(f"_utils.pyの関数parse_dfxp_time_exprを実行しました。")
     if not time_expr:
         return
 
@@ -4441,10 +4613,12 @@ def srt_subtitles_timecode(seconds):
     print(f"_utils.pyの関数srt_subtitles_timecodeを実行しました。")
     print(f"_utils.pyの関数srt_subtitles_timecodeを実行しました。")
     print(f"_utils.pyの関数srt_subtitles_timecodeを実行しました。")
+    print(f"_utils.pyの関数srt_subtitles_timecodeを実行しました。")
     return '%02d:%02d:%02d,%03d' % timetuple_from_msec(seconds * 1000)
 
 
 def ass_subtitles_timecode(seconds):
+    print(f"_utils.pyの関数ass_subtitles_timecodeを実行しました。")
     print(f"_utils.pyの関数ass_subtitles_timecodeを実行しました。")
     print(f"_utils.pyの関数ass_subtitles_timecodeを実行しました。")
     print(f"_utils.pyの関数ass_subtitles_timecodeを実行しました。")
@@ -4456,6 +4630,7 @@ def ass_subtitles_timecode(seconds):
 
 
 def dfxp2srt(dfxp_data):
+    print(f"_utils.pyの関数dfxp2srtを実行しました。")
     print(f"_utils.pyの関数dfxp2srtを実行しました。")
     print(f"_utils.pyの関数dfxp2srtを実行しました。")
     print(f"_utils.pyの関数dfxp2srtを実行しました。")
@@ -4501,6 +4676,7 @@ def dfxp2srt(dfxp_data):
         _applied_styles = []
 
         def start(self, tag, attrib):
+            print(f"_utils.pyの関数startを実行しました。")
             print(f"_utils.pyの関数startを実行しました。")
             print(f"_utils.pyの関数startを実行しました。")
             print(f"_utils.pyの関数startを実行しました。")
@@ -4558,6 +4734,7 @@ def dfxp2srt(dfxp_data):
             print(f"_utils.pyの関数endを実行しました。")
             print(f"_utils.pyの関数endを実行しました。")
             print(f"_utils.pyの関数endを実行しました。")
+            print(f"_utils.pyの関数endを実行しました。")
             if tag not in (_x('ttml:br'), 'br'):
                 unclosed_elements = self._unclosed_elements.pop()
                 for element in reversed(unclosed_elements):
@@ -4566,6 +4743,7 @@ def dfxp2srt(dfxp_data):
                     self._applied_styles.pop()
 
         def data(self, data):
+            print(f"_utils.pyの関数dataを実行しました。")
             print(f"_utils.pyの関数dataを実行しました。")
             print(f"_utils.pyの関数dataを実行しました。")
             print(f"_utils.pyの関数dataを実行しました。")
@@ -4581,6 +4759,7 @@ def dfxp2srt(dfxp_data):
             print(f"_utils.pyの関数closeを実行しました。")
             print(f"_utils.pyの関数closeを実行しました。")
             print(f"_utils.pyの関数closeを実行しました。")
+            print(f"_utils.pyの関数closeを実行しました。")
             return self._out.strip()
 
     # Fix UTF-8 encoded file wrongly marked as UTF-16. See https://github.com/yt-dlp/yt-dlp/issues/6543#issuecomment-1477169870
@@ -4588,6 +4767,7 @@ def dfxp2srt(dfxp_data):
     dfxp_data = dfxp_data.replace(b'encoding=\'UTF-16\'', b'encoding=\'UTF-8\'')
 
     def parse_node(node):
+        print(f"_utils.pyの関数parse_nodeを実行しました。")
         print(f"_utils.pyの関数parse_nodeを実行しました。")
         print(f"_utils.pyの関数parse_nodeを実行しました。")
         print(f"_utils.pyの関数parse_nodeを実行しました。")
@@ -4666,6 +4846,7 @@ def cli_option(params, command_option, param, separator=None):
     print(f"_utils.pyの関数cli_optionを実行しました。")
     print(f"_utils.pyの関数cli_optionを実行しました。")
     print(f"_utils.pyの関数cli_optionを実行しました。")
+    print(f"_utils.pyの関数cli_optionを実行しました。")
     param = params.get(param)
     return ([] if param is None
             else [command_option, str(param)] if separator is None
@@ -4673,6 +4854,7 @@ def cli_option(params, command_option, param, separator=None):
 
 
 def cli_bool_option(params, command_option, param, true_value='true', false_value='false', separator=None):
+    print(f"_utils.pyの関数cli_bool_optionを実行しました。")
     print(f"_utils.pyの関数cli_bool_optionを実行しました。")
     print(f"_utils.pyの関数cli_bool_optionを実行しました。")
     print(f"_utils.pyの関数cli_bool_optionを実行しました。")
@@ -4691,10 +4873,12 @@ def cli_valueless_option(params, command_option, param, expected_value=True):
     print(f"_utils.pyの関数cli_valueless_optionを実行しました。")
     print(f"_utils.pyの関数cli_valueless_optionを実行しました。")
     print(f"_utils.pyの関数cli_valueless_optionを実行しました。")
+    print(f"_utils.pyの関数cli_valueless_optionを実行しました。")
     return [command_option] if params.get(param) == expected_value else []
 
 
 def cli_configuration_args(argdict, keys, default=[], use_compat=True):
+    print(f"_utils.pyの関数cli_configuration_argsを実行しました。")
     print(f"_utils.pyの関数cli_configuration_argsを実行しました。")
     print(f"_utils.pyの関数cli_configuration_argsを実行しました。")
     print(f"_utils.pyの関数cli_configuration_argsを実行しました。")
@@ -4721,6 +4905,7 @@ def cli_configuration_args(argdict, keys, default=[], use_compat=True):
 
 
 def _configuration_args(main_key, argdict, exe, keys=None, default=[], use_compat=True):
+    print(f"_utils.pyの関数_configuration_argsを実行しました。")
     print(f"_utils.pyの関数_configuration_argsを実行しました。")
     print(f"_utils.pyの関数_configuration_argsを実行しました。")
     print(f"_utils.pyの関数_configuration_argsを実行しました。")
@@ -5479,6 +5664,7 @@ def long_to_bytes(n, blocksize=0):
     print(f"_utils.pyの関数long_to_bytesを実行しました。")
     print(f"_utils.pyの関数long_to_bytesを実行しました。")
     print(f"_utils.pyの関数long_to_bytesを実行しました。")
+    print(f"_utils.pyの関数long_to_bytesを実行しました。")
     """long_to_bytes(n:long, blocksize:int) : string
     Convert a long integer to a byte string.
 
@@ -5515,6 +5701,7 @@ def bytes_to_long(s):
     print(f"_utils.pyの関数bytes_to_longを実行しました。")
     print(f"_utils.pyの関数bytes_to_longを実行しました。")
     print(f"_utils.pyの関数bytes_to_longを実行しました。")
+    print(f"_utils.pyの関数bytes_to_longを実行しました。")
     """bytes_to_long(string) : long
     Convert a byte string to a long integer.
 
@@ -5532,6 +5719,7 @@ def bytes_to_long(s):
 
 
 def ohdave_rsa_encrypt(data, exponent, modulus):
+    print(f"_utils.pyの関数ohdave_rsa_encryptを実行しました。")
     print(f"_utils.pyの関数ohdave_rsa_encryptを実行しました。")
     print(f"_utils.pyの関数ohdave_rsa_encryptを実行しました。")
     print(f"_utils.pyの関数ohdave_rsa_encryptを実行しました。")
@@ -5561,6 +5749,7 @@ def pkcs1pad(data, length):
     print(f"_utils.pyの関数pkcs1padを実行しました。")
     print(f"_utils.pyの関数pkcs1padを実行しました。")
     print(f"_utils.pyの関数pkcs1padを実行しました。")
+    print(f"_utils.pyの関数pkcs1padを実行しました。")
     """
     Padding input data with PKCS#1 scheme
 
@@ -5582,6 +5771,7 @@ def _base_n_table(n, table):
     print(f"_utils.pyの関数_base_n_tableを実行しました。")
     print(f"_utils.pyの関数_base_n_tableを実行しました。")
     print(f"_utils.pyの関数_base_n_tableを実行しました。")
+    print(f"_utils.pyの関数_base_n_tableを実行しました。")
     if not table and not n:
         raise ValueError('Either table or n must be specified')
     table = (table or '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')[:n]
@@ -5592,6 +5782,7 @@ def _base_n_table(n, table):
 
 
 def encode_base_n(num, n=None, table=None):
+    print(f"_utils.pyの関数encode_base_nを実行しました。")
     print(f"_utils.pyの関数encode_base_nを実行しました。")
     print(f"_utils.pyの関数encode_base_nを実行しました。")
     print(f"_utils.pyの関数encode_base_nを実行しました。")
@@ -5617,6 +5808,7 @@ def decode_base_n(string, n=None, table=None):
     print(f"_utils.pyの関数decode_base_nを実行しました。")
     print(f"_utils.pyの関数decode_base_nを実行しました。")
     print(f"_utils.pyの関数decode_base_nを実行しました。")
+    print(f"_utils.pyの関数decode_base_nを実行しました。")
     """Convert given base-n string to int"""
     table = {char: index for index, char in enumerate(_base_n_table(n, table))}
     result, base = 0, len(table)
@@ -5626,6 +5818,7 @@ def decode_base_n(string, n=None, table=None):
 
 
 def decode_packed_codes(code):
+    print(f"_utils.pyの関数decode_packed_codesを実行しました。")
     print(f"_utils.pyの関数decode_packed_codesを実行しました。")
     print(f"_utils.pyの関数decode_packed_codesを実行しました。")
     print(f"_utils.pyの関数decode_packed_codesを実行しました。")
@@ -5656,6 +5849,7 @@ def caesar(s, alphabet, shift):
     print(f"_utils.pyの関数caesarを実行しました。")
     print(f"_utils.pyの関数caesarを実行しました。")
     print(f"_utils.pyの関数caesarを実行しました。")
+    print(f"_utils.pyの関数caesarを実行しました。")
     if shift == 0:
         return s
     l = len(alphabet)
@@ -5671,10 +5865,12 @@ def rot47(s):
     print(f"_utils.pyの関数rot47を実行しました。")
     print(f"_utils.pyの関数rot47を実行しました。")
     print(f"_utils.pyの関数rot47を実行しました。")
+    print(f"_utils.pyの関数rot47を実行しました。")
     return caesar(s, r'''!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~''', 47)
 
 
 def parse_m3u8_attributes(attrib):
+    print(f"_utils.pyの関数parse_m3u8_attributesを実行しました。")
     print(f"_utils.pyの関数parse_m3u8_attributesを実行しました。")
     print(f"_utils.pyの関数parse_m3u8_attributesを実行しました。")
     print(f"_utils.pyの関数parse_m3u8_attributesを実行しました。")
@@ -5696,10 +5892,12 @@ def urshift(val, n):
     print(f"_utils.pyの関数urshiftを実行しました。")
     print(f"_utils.pyの関数urshiftを実行しました。")
     print(f"_utils.pyの関数urshiftを実行しました。")
+    print(f"_utils.pyの関数urshiftを実行しました。")
     return val >> n if val >= 0 else (val + 0x100000000) >> n
 
 
 def write_xattr(path, key, value):
+    print(f"_utils.pyの関数write_xattrを実行しました。")
     print(f"_utils.pyの関数write_xattrを実行しました。")
     print(f"_utils.pyの関数write_xattrを実行しました。")
     print(f"_utils.pyの関数write_xattrを実行しました。")
@@ -5765,6 +5963,7 @@ def random_birthday(year_field, month_field, day_field):
     print(f"_utils.pyの関数random_birthdayを実行しました。")
     print(f"_utils.pyの関数random_birthdayを実行しました。")
     print(f"_utils.pyの関数random_birthdayを実行しました。")
+    print(f"_utils.pyの関数random_birthdayを実行しました。")
     start_date = dt.date(1950, 1, 1)
     end_date = dt.date(1995, 12, 31)
     offset = random.randint(0, (end_date - start_date).days)
@@ -5777,6 +5976,7 @@ def random_birthday(year_field, month_field, day_field):
 
 
 def find_available_port(interface=''):
+    print(f"_utils.pyの関数find_available_portを実行しました。")
     print(f"_utils.pyの関数find_available_portを実行しました。")
     print(f"_utils.pyの関数find_available_portを実行しました。")
     print(f"_utils.pyの関数find_available_portを実行しました。")
@@ -5825,6 +6025,7 @@ LINK_TEMPLATES = {
 
 
 def iri_to_uri(iri):
+    print(f"_utils.pyの関数iri_to_uriを実行しました。")
     print(f"_utils.pyの関数iri_to_uriを実行しました。")
     print(f"_utils.pyの関数iri_to_uriを実行しました。")
     print(f"_utils.pyの関数iri_to_uriを実行しました。")
@@ -5881,6 +6082,7 @@ def to_high_limit_path(path):
     print(f"_utils.pyの関数to_high_limit_pathを実行しました。")
     print(f"_utils.pyの関数to_high_limit_pathを実行しました。")
     print(f"_utils.pyの関数to_high_limit_pathを実行しました。")
+    print(f"_utils.pyの関数to_high_limit_pathを実行しました。")
     if sys.platform in ['win32', 'cygwin']:
         # Work around MAX_PATH limitation on Windows. The maximum allowed length for the individual path segments may still be quite limited.
         return '\\\\?\\' + os.path.abspath(path)
@@ -5897,6 +6099,7 @@ def format_field(obj, field=None, template='%s', ignore=NO_DEFAULT, default='', 
 
 
 def clean_podcast_url(url):
+    print(f"_utils.pyの関数clean_podcast_urlを実行しました。")
     print(f"_utils.pyの関数clean_podcast_urlを実行しました。")
     print(f"_utils.pyの関数clean_podcast_urlを実行しました。")
     print(f"_utils.pyの関数clean_podcast_urlを実行しました。")
@@ -5934,10 +6137,12 @@ def random_uuidv4():
     print(f"_utils.pyの関数random_uuidv4を実行しました。")
     print(f"_utils.pyの関数random_uuidv4を実行しました。")
     print(f"_utils.pyの関数random_uuidv4を実行しました。")
+    print(f"_utils.pyの関数random_uuidv4を実行しました。")
     return re.sub(r'[xy]', lambda x: _HEX_TABLE[random.randint(0, 15)], 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx')
 
 
 def make_parent_dirs(path):
+    print(f"_utils.pyの関数make_parent_dirsを実行しました。")
     print(f"_utils.pyの関数make_parent_dirsを実行しました。")
     print(f"_utils.pyの関数make_parent_dirsを実行しました。")
     print(f"_utils.pyの関数make_parent_dirsを実行しました。")
@@ -5955,12 +6160,14 @@ def get_executable_path():
     print(f"_utils.pyの関数get_executable_pathを実行しました。")
     print(f"_utils.pyの関数get_executable_pathを実行しました。")
     print(f"_utils.pyの関数get_executable_pathを実行しました。")
+    print(f"_utils.pyの関数get_executable_pathを実行しました。")
     from ..update import _get_variant_and_executable_path
 
     return os.path.dirname(os.path.abspath(_get_variant_and_executable_path()[1]))
 
 
 def get_user_config_dirs(package_name):
+    print(f"_utils.pyの関数get_user_config_dirsを実行しました。")
     print(f"_utils.pyの関数get_user_config_dirsを実行しました。")
     print(f"_utils.pyの関数get_user_config_dirsを実行しました。")
     print(f"_utils.pyの関数get_user_config_dirsを実行しました。")
@@ -5987,11 +6194,13 @@ def get_system_config_dirs(package_name):
     print(f"_utils.pyの関数get_system_config_dirsを実行しました。")
     print(f"_utils.pyの関数get_system_config_dirsを実行しました。")
     print(f"_utils.pyの関数get_system_config_dirsを実行しました。")
+    print(f"_utils.pyの関数get_system_config_dirsを実行しました。")
     # /etc/package_name
     yield os.path.join('/etc', package_name)
 
 
 def time_seconds(**kwargs):
+    print(f"_utils.pyの関数time_secondsを実行しました。")
     print(f"_utils.pyの関数time_secondsを実行しました。")
     print(f"_utils.pyの関数time_secondsを実行しました。")
     print(f"_utils.pyの関数time_secondsを実行しました。")
@@ -6013,6 +6222,7 @@ def jwt_encode(payload_data, key, *, alg='HS256', headers=None):
     print(f"_utils.pyの関数jwt_encodeを実行しました。")
     print(f"_utils.pyの関数jwt_encodeを実行しました。")
     print(f"_utils.pyの関数jwt_encodeを実行しました。")
+    print(f"_utils.pyの関数jwt_encodeを実行しました。")
     assert alg in ('HS256',), f'Unsupported algorithm "{alg}"'
 
     def jwt_json_bytes(obj):
@@ -6022,9 +6232,11 @@ def jwt_encode(payload_data, key, *, alg='HS256', headers=None):
         print(f"_utils.pyの関数jwt_json_bytesを実行しました。")
         print(f"_utils.pyの関数jwt_json_bytesを実行しました。")
         print(f"_utils.pyの関数jwt_json_bytesを実行しました。")
+        print(f"_utils.pyの関数jwt_json_bytesを実行しました。")
         return json.dumps(obj, separators=(',', ':')).encode()
 
     def jwt_b64encode(bytestring):
+        print(f"_utils.pyの関数jwt_b64encodeを実行しました。")
         print(f"_utils.pyの関数jwt_b64encodeを実行しました。")
         print(f"_utils.pyの関数jwt_b64encodeを実行しました。")
         print(f"_utils.pyの関数jwt_b64encodeを実行しました。")
@@ -6062,6 +6274,7 @@ def jwt_decode_hs256(jwt):
     print(f"_utils.pyの関数jwt_decode_hs256を実行しました。")
     print(f"_utils.pyの関数jwt_decode_hs256を実行しました。")
     print(f"_utils.pyの関数jwt_decode_hs256を実行しました。")
+    print(f"_utils.pyの関数jwt_decode_hs256を実行しました。")
     _header_b64, payload_b64, _signature_b64 = jwt.split('.')
     # add trailing ='s that may have been stripped, superfluous ='s are ignored
     return json.loads(base64.urlsafe_b64decode(f'{payload_b64}==='))
@@ -6081,6 +6294,7 @@ def supports_terminal_sequences(stream):
 
 
 def windows_enable_vt_mode():
+    print(f"_utils.pyの関数windows_enable_vt_modeを実行しました。")
     print(f"_utils.pyの関数windows_enable_vt_modeを実行しました。")
     print(f"_utils.pyの関数windows_enable_vt_modeを実行しました。")
     print(f"_utils.pyの関数windows_enable_vt_modeを実行しました。")
@@ -6127,10 +6341,12 @@ def remove_terminal_sequences(string):
     print(f"_utils.pyの関数remove_terminal_sequencesを実行しました。")
     print(f"_utils.pyの関数remove_terminal_sequencesを実行しました。")
     print(f"_utils.pyの関数remove_terminal_sequencesを実行しました。")
+    print(f"_utils.pyの関数remove_terminal_sequencesを実行しました。")
     return _terminal_sequences_re.sub('', string)
 
 
 def number_of_digits(number):
+    print(f"_utils.pyの関数number_of_digitsを実行しました。")
     print(f"_utils.pyの関数number_of_digitsを実行しました。")
     print(f"_utils.pyの関数number_of_digitsを実行しました。")
     print(f"_utils.pyの関数number_of_digitsを実行しました。")
@@ -6147,12 +6363,14 @@ def join_nonempty(*values, delim='-', from_dict=None):
     print(f"_utils.pyの関数join_nonemptyを実行しました。")
     print(f"_utils.pyの関数join_nonemptyを実行しました。")
     print(f"_utils.pyの関数join_nonemptyを実行しました。")
+    print(f"_utils.pyの関数join_nonemptyを実行しました。")
     if from_dict is not None:
         values = (traversal.traverse_obj(from_dict, variadic(v)) for v in values)
     return delim.join(map(str, filter(None, values)))
 
 
 def scale_thumbnails_to_max_format_width(formats, thumbnails, url_width_re):
+    print(f"_utils.pyの関数scale_thumbnails_to_max_format_widthを実行しました。")
     print(f"_utils.pyの関数scale_thumbnails_to_max_format_widthを実行しました。")
     print(f"_utils.pyの関数scale_thumbnails_to_max_format_widthを実行しました。")
     print(f"_utils.pyの関数scale_thumbnails_to_max_format_widthを実行しました。")
@@ -6187,6 +6405,7 @@ def parse_http_range(range):
     print(f"_utils.pyの関数parse_http_rangeを実行しました。")
     print(f"_utils.pyの関数parse_http_rangeを実行しました。")
     print(f"_utils.pyの関数parse_http_rangeを実行しました。")
+    print(f"_utils.pyの関数parse_http_rangeを実行しました。")
     """ Parse value of "Range" or "Content-Range" HTTP header into tuple. """
     if not range:
         return None, None, None
@@ -6203,6 +6422,7 @@ def read_stdin(what):
     print(f"_utils.pyの関数read_stdinを実行しました。")
     print(f"_utils.pyの関数read_stdinを実行しました。")
     print(f"_utils.pyの関数read_stdinを実行しました。")
+    print(f"_utils.pyの関数read_stdinを実行しました。")
     if what:
         eof = 'Ctrl+Z' if os.name == 'nt' else 'Ctrl+D'
         write_string(f'Reading {what} from STDIN - EOF ({eof}) to end:\n')
@@ -6210,6 +6430,7 @@ def read_stdin(what):
 
 
 def determine_file_encoding(data):
+    print(f"_utils.pyの関数determine_file_encodingを実行しました。")
     print(f"_utils.pyの関数determine_file_encodingを実行しました。")
     print(f"_utils.pyの関数determine_file_encodingを実行しました。")
     print(f"_utils.pyの関数determine_file_encodingを実行しました。")
@@ -6250,11 +6471,13 @@ class Config:
         print(f"_utils.pyの関数initを実行しました。")
         print(f"_utils.pyの関数initを実行しました。")
         print(f"_utils.pyの関数initを実行しました。")
+        print(f"_utils.pyの関数initを実行しました。")
         assert not self.__initialized
         self.own_args, self.filename = args, filename
         return self.load_configs()
 
     def load_configs(self):
+        print(f"_utils.pyの関数load_configsを実行しました。")
         print(f"_utils.pyの関数load_configsを実行しました。")
         print(f"_utils.pyの関数load_configsを実行しました。")
         print(f"_utils.pyの関数load_configsを実行しました。")
@@ -6329,6 +6552,7 @@ class Config:
             print(f"_utils.pyの関数_scrub_eqを実行しました。")
             print(f"_utils.pyの関数_scrub_eqを実行しました。")
             print(f"_utils.pyの関数_scrub_eqを実行しました。")
+            print(f"_utils.pyの関数_scrub_eqを実行しました。")
             m = eqre.match(o)
             if m:
                 return m.group('key') + '=PRIVATE'
@@ -6342,6 +6566,7 @@ class Config:
         return opts
 
     def append_config(self, *args, label=None):
+        print(f"_utils.pyの関数append_configを実行しました。")
         print(f"_utils.pyの関数append_configを実行しました。")
         print(f"_utils.pyの関数append_configを実行しました。")
         print(f"_utils.pyの関数append_configを実行しました。")
@@ -6366,9 +6591,11 @@ class Config:
         print(f"_utils.pyの関数parse_known_argsを実行しました。")
         print(f"_utils.pyの関数parse_known_argsを実行しました。")
         print(f"_utils.pyの関数parse_known_argsを実行しました。")
+        print(f"_utils.pyの関数parse_known_argsを実行しました。")
         return self.parser.parse_known_args(self.all_args, **kwargs)
 
     def parse_args(self):
+        print(f"_utils.pyの関数parse_argsを実行しました。")
         print(f"_utils.pyの関数parse_argsを実行しました。")
         print(f"_utils.pyの関数parse_argsを実行しました。")
         print(f"_utils.pyの関数parse_argsを実行しました。")
@@ -6385,11 +6612,13 @@ def merge_headers(*dicts):
     print(f"_utils.pyの関数merge_headersを実行しました。")
     print(f"_utils.pyの関数merge_headersを実行しました。")
     print(f"_utils.pyの関数merge_headersを実行しました。")
+    print(f"_utils.pyの関数merge_headersを実行しました。")
     """Merge dicts of http headers case insensitively, prioritizing the latter ones"""
     return {k.title(): v for k, v in itertools.chain.from_iterable(map(dict.items, dicts))}
 
 
 def cached_method(f):
+    print(f"_utils.pyの関数cached_methodを実行しました。")
     print(f"_utils.pyの関数cached_methodを実行しました。")
     print(f"_utils.pyの関数cached_methodを実行しました。")
     print(f"_utils.pyの関数cached_methodを実行しました。")
@@ -6421,6 +6650,7 @@ class classproperty:
         print(f"_utils.pyの関数__new__を実行しました。")
         print(f"_utils.pyの関数__new__を実行しました。")
         print(f"_utils.pyの関数__new__を実行しました。")
+        print(f"_utils.pyの関数__new__を実行しました。")
         if not func:
             return functools.partial(cls, *args, **kwargs)
         return super().__new__(cls)
@@ -6431,6 +6661,7 @@ class classproperty:
         self._cache = {} if cache else None
 
     def __get__(self, _, cls):
+        print(f"_utils.pyの関数__get__を実行しました。")
         print(f"_utils.pyの関数__get__を実行しました。")
         print(f"_utils.pyの関数__get__を実行しました。")
         print(f"_utils.pyの関数__get__を実行しました。")
@@ -6647,6 +6878,7 @@ class RetryManager:
         print(f"_utils.pyの関数_should_retryを実行しました。")
         print(f"_utils.pyの関数_should_retryを実行しました。")
         print(f"_utils.pyの関数_should_retryを実行しました。")
+        print(f"_utils.pyの関数_should_retryを実行しました。")
         return self._error is not NO_DEFAULT and self.attempt <= self.retries
 
     @property
@@ -6702,6 +6934,7 @@ def truncate_string(s, left, right=0):
 
 
 def orderedSet_from_options(options, alias_dict, *, use_regex=False, start=None):
+    print(f"_utils.pyの関数orderedSet_from_optionsを実行しました。")
     print(f"_utils.pyの関数orderedSet_from_optionsを実行しました。")
     print(f"_utils.pyの関数orderedSet_from_optionsを実行しました。")
     print(f"_utils.pyの関数orderedSet_from_optionsを実行しました。")
@@ -6843,6 +7076,7 @@ class FormatSorter:
         print(f"_utils.pyの関数_get_field_settingを実行しました。")
         print(f"_utils.pyの関数_get_field_settingを実行しました。")
         print(f"_utils.pyの関数_get_field_settingを実行しました。")
+        print(f"_utils.pyの関数_get_field_settingを実行しました。")
         if field not in self.settings:
             if key in ('forced', 'priority'):
                 return False
@@ -6862,6 +7096,7 @@ class FormatSorter:
         return prop_obj[key]
 
     def _resolve_field_value(self, field, value, convert_none=False):
+        print(f"_utils.pyの関数_resolve_field_valueを実行しました。")
         print(f"_utils.pyの関数_resolve_field_valueを実行しました。")
         print(f"_utils.pyの関数_resolve_field_valueを実行しました。")
         print(f"_utils.pyの関数_resolve_field_valueを実行しました。")
@@ -6908,11 +7143,13 @@ class FormatSorter:
         print(f"_utils.pyの関数evaluate_paramsを実行しました。")
         print(f"_utils.pyの関数evaluate_paramsを実行しました。")
         print(f"_utils.pyの関数evaluate_paramsを実行しました。")
+        print(f"_utils.pyの関数evaluate_paramsを実行しました。")
         self._use_free_order = params.get('prefer_free_formats', False)
         self._sort_user = params.get('format_sort', [])
         self._sort_extractor = sort_extractor
 
         def add_item(field, reverse, closest, limit_text):
+            print(f"_utils.pyの関数add_itemを実行しました。")
             print(f"_utils.pyの関数add_itemを実行しました。")
             print(f"_utils.pyの関数add_itemを実行しました。")
             print(f"_utils.pyの関数add_itemを実行しました。")
@@ -6976,6 +7213,7 @@ class FormatSorter:
         print(f"_utils.pyの関数print_verbose_infoを実行しました。")
         print(f"_utils.pyの関数print_verbose_infoを実行しました。")
         print(f"_utils.pyの関数print_verbose_infoを実行しました。")
+        print(f"_utils.pyの関数print_verbose_infoを実行しました。")
         if self._sort_user:
             write_debug('Sort order given by user: {}'.format(', '.join(self._sort_user)))
         if self._sort_extractor:
@@ -6989,6 +7227,7 @@ class FormatSorter:
             for field in self._order if self._get_field_setting(field, 'visible')])))
 
     def _calculate_field_preference_from_value(self, format_, field, type_, value):
+        print(f"_utils.pyの関数_calculate_field_preference_from_valueを実行しました。")
         print(f"_utils.pyの関数_calculate_field_preference_from_valueを実行しました。")
         print(f"_utils.pyの関数_calculate_field_preference_from_valueを実行しました。")
         print(f"_utils.pyの関数_calculate_field_preference_from_valueを実行しました。")
@@ -7024,6 +7263,7 @@ class FormatSorter:
                 else (-1, value, 0))
 
     def _calculate_field_preference(self, format_, field):
+        print(f"_utils.pyの関数_calculate_field_preferenceを実行しました。")
         print(f"_utils.pyの関数_calculate_field_preferenceを実行しました。")
         print(f"_utils.pyの関数_calculate_field_preferenceを実行しました。")
         print(f"_utils.pyの関数_calculate_field_preferenceを実行しました。")
@@ -7084,11 +7324,13 @@ class FormatSorter:
         print(f"_utils.pyの関数calculate_preferenceを実行しました。")
         print(f"_utils.pyの関数calculate_preferenceを実行しました。")
         print(f"_utils.pyの関数calculate_preferenceを実行しました。")
+        print(f"_utils.pyの関数calculate_preferenceを実行しました。")
         self._fill_sorting_fields(format)
         return tuple(self._calculate_field_preference(format, field) for field in self._order)
 
 
 def filesize_from_tbr(tbr, duration):
+    print(f"_utils.pyの関数filesize_from_tbrを実行しました。")
     print(f"_utils.pyの関数filesize_from_tbrを実行しました。")
     print(f"_utils.pyの関数filesize_from_tbrを実行しました。")
     print(f"_utils.pyの関数filesize_from_tbrを実行しました。")
@@ -7106,6 +7348,7 @@ def filesize_from_tbr(tbr, duration):
 
 
 def _request_dump_filename(url, video_id, data=None, trim_length=None):
+    print(f"_utils.pyの関数_request_dump_filenameを実行しました。")
     print(f"_utils.pyの関数_request_dump_filenameを実行しました。")
     print(f"_utils.pyの関数_request_dump_filenameを実行しました。")
     print(f"_utils.pyの関数_request_dump_filenameを実行しました。")
@@ -7141,10 +7384,12 @@ class _YDLLogger:
         print(f"_utils.pyの関数debugを実行しました。")
         print(f"_utils.pyの関数debugを実行しました。")
         print(f"_utils.pyの関数debugを実行しました。")
+        print(f"_utils.pyの関数debugを実行しました。")
         if self._ydl:
             self._ydl.write_debug(message)
 
     def info(self, message):
+        print(f"_utils.pyの関数infoを実行しました。")
         print(f"_utils.pyの関数infoを実行しました。")
         print(f"_utils.pyの関数infoを実行しました。")
         print(f"_utils.pyの関数infoを実行しました。")
@@ -7161,10 +7406,12 @@ class _YDLLogger:
         print(f"_utils.pyの関数warningを実行しました。")
         print(f"_utils.pyの関数warningを実行しました。")
         print(f"_utils.pyの関数warningを実行しました。")
+        print(f"_utils.pyの関数warningを実行しました。")
         if self._ydl:
             self._ydl.report_warning(message, once)
 
     def error(self, message, *, is_error=True):
+        print(f"_utils.pyの関数errorを実行しました。")
         print(f"_utils.pyの関数errorを実行しました。")
         print(f"_utils.pyの関数errorを実行しました。")
         print(f"_utils.pyの関数errorを実行しました。")
@@ -7181,10 +7428,12 @@ class _YDLLogger:
         print(f"_utils.pyの関数stdoutを実行しました。")
         print(f"_utils.pyの関数stdoutを実行しました。")
         print(f"_utils.pyの関数stdoutを実行しました。")
+        print(f"_utils.pyの関数stdoutを実行しました。")
         if self._ydl:
             self._ydl.to_stdout(message)
 
     def stderr(self, message):
+        print(f"_utils.pyの関数stderrを実行しました。")
         print(f"_utils.pyの関数stderrを実行しました。")
         print(f"_utils.pyの関数stderrを実行しました。")
         print(f"_utils.pyの関数stderrを実行しました。")
@@ -7220,6 +7469,7 @@ class _ProgressState(enum.Enum):
         return cls.INDETERMINATE if s.get('_percent') is None else cls.VISIBLE
 
     def get_ansi_escape(self, /, percent=None):
+        print(f"_utils.pyの関数get_ansi_escapeを実行しました。")
         print(f"_utils.pyの関数get_ansi_escapeを実行しました。")
         print(f"_utils.pyの関数get_ansi_escapeを実行しました。")
         print(f"_utils.pyの関数get_ansi_escapeを実行しました。")

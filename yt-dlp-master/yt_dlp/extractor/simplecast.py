@@ -20,10 +20,12 @@ class SimplecastBaseIE(InfoExtractor):
         print(f"simplecast.pyの関数_call_apiを実行しました。")
         print(f"simplecast.pyの関数_call_apiを実行しました。")
         print(f"simplecast.pyの関数_call_apiを実行しました。")
+        print(f"simplecast.pyの関数_call_apiを実行しました。")
         return self._download_json(
             self._API_BASE + path_tmpl % video_id, video_id)
 
     def _call_search_api(self, resource, resource_id, resource_url):
+        print(f"simplecast.pyの関数_call_search_apiを実行しました。")
         print(f"simplecast.pyの関数_call_search_apiを実行しました。")
         print(f"simplecast.pyの関数_call_search_apiを実行しました。")
         print(f"simplecast.pyの関数_call_search_apiを実行しました。")
@@ -35,6 +37,7 @@ class SimplecastBaseIE(InfoExtractor):
             data=urlencode_postdata({'url': resource_url}))
 
     def _parse_episode(self, episode):
+        print(f"simplecast.pyの関数_parse_episodeを実行しました。")
         print(f"simplecast.pyの関数_parse_episodeを実行しました。")
         print(f"simplecast.pyの関数_parse_episodeを実行しました。")
         print(f"simplecast.pyの関数_parse_episodeを実行しました。")
@@ -146,6 +149,7 @@ class SimplecastIE(SimplecastBaseIE):
         print(f"simplecast.pyの関数_real_extractを実行しました。")
         print(f"simplecast.pyの関数_real_extractを実行しました。")
         print(f"simplecast.pyの関数_real_extractを実行しました。")
+        print(f"simplecast.pyの関数_real_extractを実行しました。")
         episode_id = self._match_id(url)
         episode = self._call_api('episodes/%s', episode_id)
         return self._parse_episode(episode)
@@ -190,6 +194,7 @@ class SimplecastPodcastIE(SimplecastBaseIE):
         podcast_title = podcast.get('title')
 
         def entries():
+            print(f"simplecast.pyの関数entriesを実行しました。")
             print(f"simplecast.pyの関数entriesを実行しました。")
             print(f"simplecast.pyの関数entriesを実行しました。")
             print(f"simplecast.pyの関数entriesを実行しました。")

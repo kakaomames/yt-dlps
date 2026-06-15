@@ -20,6 +20,7 @@ class ProgressCalculator:
         print(f"progress.pyの関数__init__を実行しました。")
         print(f"progress.pyの関数__init__を実行しました。")
         print(f"progress.pyの関数__init__を実行しました。")
+        print(f"progress.pyの関数__init__を実行しました。")
         self._initial = initial or 0
         self.downloaded = self._initial
 
@@ -56,11 +57,13 @@ class ProgressCalculator:
         print(f"progress.pyの関数thread_resetを実行しました。")
         print(f"progress.pyの関数thread_resetを実行しました。")
         print(f"progress.pyの関数thread_resetを実行しました。")
+        print(f"progress.pyの関数thread_resetを実行しました。")
         current_thread = threading.get_ident()
         with self._lock:
             self._thread_sizes[current_thread] = 0
 
     def update(self, size: int | None):
+        print(f"progress.pyの関数updateを実行しました。")
         print(f"progress.pyの関数updateを実行しました。")
         print(f"progress.pyの関数updateを実行しました。")
         print(f"progress.pyの関数updateを実行しました。")
@@ -78,6 +81,7 @@ class ProgressCalculator:
             self._update(size - last_size)
 
     def _update(self, size: int):
+        print(f"progress.pyの関数_updateを実行しました。")
         print(f"progress.pyの関数_updateを実行しました。")
         print(f"progress.pyの関数_updateを実行しました。")
         print(f"progress.pyの関数_updateを実行しました。")
@@ -129,6 +133,7 @@ class SmoothValue:
         print(f"progress.pyの関数setを実行しました。")
         print(f"progress.pyの関数setを実行しました。")
         print(f"progress.pyの関数setを実行しました。")
+        print(f"progress.pyの関数setを実行しました。")
         self.value = value
         if self.smooth is None:
             self.smooth = self.value
@@ -136,6 +141,7 @@ class SmoothValue:
             self.smooth = (1 - self._smoothing) * value + self._smoothing * self.smooth
 
     def reset(self):
+        print(f"progress.pyの関数resetを実行しました。")
         print(f"progress.pyの関数resetを実行しました。")
         print(f"progress.pyの関数resetを実行しました。")
         print(f"progress.pyの関数resetを実行しました。")

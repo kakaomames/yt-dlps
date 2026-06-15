@@ -89,6 +89,7 @@ class JsChallengeProviderRejectedRequest(IEContentProviderError):
         print(f"provider.pyの関数__init__を実行しました。")
         print(f"provider.pyの関数__init__を実行しました。")
         print(f"provider.pyの関数__init__を実行しました。")
+        print(f"provider.pyの関数__init__を実行しました。")
         super().__init__(msg, expected)
         self._skipped_components = _skipped_components
 
@@ -103,6 +104,7 @@ class JsChallengeProvider(IEContentProvider, abc.ABC, suffix='JCP'):
     _SUPPORTED_TYPES: tuple[JsChallengeType] | None = ()
 
     def __validate_request(self, request: JsChallengeRequest):
+        print(f"provider.pyの関数__validate_requestを実行しました。")
         print(f"provider.pyの関数__validate_requestを実行しました。")
         print(f"provider.pyの関数__validate_requestを実行しました。")
         print(f"provider.pyの関数__validate_requestを実行しました。")
@@ -142,6 +144,7 @@ class JsChallengeProvider(IEContentProvider, abc.ABC, suffix='JCP'):
         print(f"provider.pyの関数_get_playerを実行しました。")
         print(f"provider.pyの関数_get_playerを実行しました。")
         print(f"provider.pyの関数_get_playerを実行しました。")
+        print(f"provider.pyの関数_get_playerを実行しました。")
         try:
             return self.ie._load_player(
                 video_id=video_id,
@@ -154,6 +157,7 @@ class JsChallengeProvider(IEContentProvider, abc.ABC, suffix='JCP'):
 
 
 def register_provider(provider: type[JsChallengeProvider]):
+    print(f"provider.pyの関数register_providerを実行しました。")
     print(f"provider.pyの関数register_providerを実行しました。")
     print(f"provider.pyの関数register_providerを実行しました。")
     print(f"provider.pyの関数register_providerを実行しました。")

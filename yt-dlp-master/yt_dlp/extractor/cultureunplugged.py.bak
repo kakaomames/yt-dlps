@@ -42,6 +42,7 @@ class CultureUnpluggedIE(InfoExtractor):
         print(f"cultureunplugged.pyの関数_real_extractを実行しました。")
         print(f"cultureunplugged.pyの関数_real_extractを実行しました。")
         print(f"cultureunplugged.pyの関数_real_extractを実行しました。")
+        print(f"cultureunplugged.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         display_id = mobj.group('display_id') or video_id

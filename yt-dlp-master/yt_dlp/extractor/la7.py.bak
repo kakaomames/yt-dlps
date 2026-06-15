@@ -50,6 +50,7 @@ class LA7IE(InfoExtractor):
         print(f"la7.pyの関数_generate_mp4_urlを実行しました。")
         print(f"la7.pyの関数_generate_mp4_urlを実行しました。")
         print(f"la7.pyの関数_generate_mp4_urlを実行しました。")
+        print(f"la7.pyの関数_generate_mp4_urlを実行しました。")
         for f in m3u8_formats:
             if f['vcodec'] != 'none' and quality in f['url']:
                 http_url = f'{self._HOST}{quality}.mp4'
@@ -70,6 +71,7 @@ class LA7IE(InfoExtractor):
                 return None
 
     def _real_extract(self, url):
+        print(f"la7.pyの関数_real_extractを実行しました。")
         print(f"la7.pyの関数_real_extractを実行しました。")
         print(f"la7.pyの関数_real_extractを実行しました。")
         print(f"la7.pyの関数_real_extractを実行しました。")
@@ -137,6 +139,7 @@ class LA7PodcastEpisodeIE(InfoExtractor):
     }]
 
     def _extract_info(self, webpage, video_id=None, ppn=None):
+        print(f"la7.pyの関数_extract_infoを実行しました。")
         print(f"la7.pyの関数_extract_infoを実行しました。")
         print(f"la7.pyの関数_extract_infoを実行しました。")
         print(f"la7.pyの関数_extract_infoを実行しました。")

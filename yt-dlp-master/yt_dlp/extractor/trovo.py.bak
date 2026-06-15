@@ -24,6 +24,7 @@ class TrovoBaseIE(InfoExtractor):
         print(f"trovo.pyの関数_call_apiを実行しました。")
         print(f"trovo.pyの関数_call_apiを実行しました。")
         print(f"trovo.pyの関数_call_apiを実行しました。")
+        print(f"trovo.pyの関数_call_apiを実行しました。")
         if 'persistedQuery' in data.get('extensions', {}):
             url = 'https://gql.trovo.live'
         else:
@@ -39,6 +40,7 @@ class TrovoBaseIE(InfoExtractor):
         return resp['data'][data['operationName']]
 
     def _extract_streamer_info(self, data):
+        print(f"trovo.pyの関数_extract_streamer_infoを実行しました。")
         print(f"trovo.pyの関数_extract_streamer_infoを実行しました。")
         print(f"trovo.pyの関数_extract_streamer_infoを実行しました。")
         print(f"trovo.pyの関数_extract_streamer_infoを実行しました。")
@@ -77,6 +79,7 @@ class TrovoIE(TrovoBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"trovo.pyの関数_real_extractを実行しました。")
         print(f"trovo.pyの関数_real_extractを実行しました。")
         print(f"trovo.pyの関数_real_extractを実行しました。")
         print(f"trovo.pyの関数_real_extractを実行しました。")
@@ -262,6 +265,7 @@ class TrovoVodIE(TrovoBaseIE):
         print(f"trovo.pyの関数_get_commentsを実行しました。")
         print(f"trovo.pyの関数_get_commentsを実行しました。")
         print(f"trovo.pyの関数_get_commentsを実行しました。")
+        print(f"trovo.pyの関数_get_commentsを実行しました。")
         for page in itertools.count(1):
             comments_json = self._call_api(vid, data={
                 'operationName': 'public_CommentProxyService_GetCommentList',
@@ -300,6 +304,7 @@ class TrovoVodIE(TrovoBaseIE):
 
 class TrovoChannelBaseIE(TrovoBaseIE):
     def _entries(self, spacename):
+        print(f"trovo.pyの関数_entriesを実行しました。")
         print(f"trovo.pyの関数_entriesを実行しました。")
         print(f"trovo.pyの関数_entriesを実行しました。")
         print(f"trovo.pyの関数_entriesを実行しました。")

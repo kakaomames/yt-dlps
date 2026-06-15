@@ -53,6 +53,7 @@ class JamendoIE(InfoExtractor):
         print(f"jamendo.pyの関数_call_apiを実行しました。")
         print(f"jamendo.pyの関数_call_apiを実行しました。")
         print(f"jamendo.pyの関数_call_apiを実行しました。")
+        print(f"jamendo.pyの関数_call_apiを実行しました。")
         path = f'/api/{resource}s'
         rand = str(random.random())
         return self._download_json(
@@ -63,6 +64,7 @@ class JamendoIE(InfoExtractor):
             })[0]
 
     def _real_extract(self, url):
+        print(f"jamendo.pyの関数_real_extractを実行しました。")
         print(f"jamendo.pyの関数_real_extractを実行しました。")
         print(f"jamendo.pyの関数_real_extractを実行しました。")
         print(f"jamendo.pyの関数_real_extractを実行しました。")

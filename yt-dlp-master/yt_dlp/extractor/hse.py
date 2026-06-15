@@ -16,12 +16,14 @@ class HSEShowBaseIE(InfoExtractor):
         print(f"hse.pyの関数_extract_redux_dataを実行しました。")
         print(f"hse.pyの関数_extract_redux_dataを実行しました。")
         print(f"hse.pyの関数_extract_redux_dataを実行しました。")
+        print(f"hse.pyの関数_extract_redux_dataを実行しました。")
         webpage = self._download_webpage(url, video_id)
         redux = self._html_search_regex(
             r'window\.__REDUX_DATA__\s*=\s*({.*});?', webpage, 'redux data')
         return self._parse_json(redux.replace('\n', ''), video_id)
 
     def _extract_formats_and_subtitles(self, sources, video_id):
+        print(f"hse.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"hse.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"hse.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"hse.pyの関数_extract_formats_and_subtitlesを実行しました。")
@@ -57,6 +59,7 @@ class HSEShowIE(HSEShowBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"hse.pyの関数_real_extractを実行しました。")
         print(f"hse.pyの関数_real_extractを実行しました。")
         print(f"hse.pyの関数_real_extractを実行しました。")
         print(f"hse.pyの関数_real_extractを実行しました。")

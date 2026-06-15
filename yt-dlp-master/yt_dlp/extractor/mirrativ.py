@@ -15,6 +15,7 @@ class MirrativBaseIE(InfoExtractor):
         print(f"mirrativ.pyの関数assert_errorを実行しました。")
         print(f"mirrativ.pyの関数assert_errorを実行しました。")
         print(f"mirrativ.pyの関数assert_errorを実行しました。")
+        print(f"mirrativ.pyの関数assert_errorを実行しました。")
         error_message = traverse_obj(response, ('status', 'error'))
         if error_message:
             raise ExtractorError(f'Mirrativ says: {error_message}', expected=True)
@@ -47,6 +48,7 @@ class MirrativIE(MirrativBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"mirrativ.pyの関数_real_extractを実行しました。")
         print(f"mirrativ.pyの関数_real_extractを実行しました。")
         print(f"mirrativ.pyの関数_real_extractを実行しました。")
         print(f"mirrativ.pyの関数_real_extractを実行しました。")
@@ -99,6 +101,7 @@ class MirrativUserIE(MirrativBaseIE):
     }]
 
     def _entries(self, user_id):
+        print(f"mirrativ.pyの関数_entriesを実行しました。")
         print(f"mirrativ.pyの関数_entriesを実行しました。")
         print(f"mirrativ.pyの関数_entriesを実行しました。")
         print(f"mirrativ.pyの関数_entriesを実行しました。")

@@ -10,6 +10,7 @@ class PartiBaseIE(InfoExtractor):
         print(f"parti.pyの関数_call_apiを実行しました。")
         print(f"parti.pyの関数_call_apiを実行しました。")
         print(f"parti.pyの関数_call_apiを実行しました。")
+        print(f"parti.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://prod-api.parti.com/parti_v2/profile/{path}', video_id, note, headers={
                 'Origin': 'https://parti.com',
@@ -36,6 +37,7 @@ class PartiVideoIE(PartiBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"parti.pyの関数_real_extractを実行しました。")
         print(f"parti.pyの関数_real_extractを実行しました。")
         print(f"parti.pyの関数_real_extractを実行しました。")
         print(f"parti.pyの関数_real_extractを実行しました。")

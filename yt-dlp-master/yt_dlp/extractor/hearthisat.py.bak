@@ -82,6 +82,7 @@ class HearThisAtIE(InfoExtractor):
         print(f"hearthisat.pyの関数_real_extractを実行しました。")
         print(f"hearthisat.pyの関数_real_extractを実行しました。")
         print(f"hearthisat.pyの関数_real_extractを実行しました。")
+        print(f"hearthisat.pyの関数_real_extractを実行しました。")
         m = self._match_valid_url(url)
         display_id = '{artist:s} - {title:s}'.format(**m.groupdict())
         api_url = url.replace('www.', '').replace('hearthis.at', 'api-v2.hearthis.at')

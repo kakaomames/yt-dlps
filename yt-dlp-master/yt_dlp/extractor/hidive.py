@@ -39,6 +39,7 @@ class HiDiveIE(InfoExtractor):
         print(f"hidive.pyの関数_perform_loginを実行しました。")
         print(f"hidive.pyの関数_perform_loginを実行しました。")
         print(f"hidive.pyの関数_perform_loginを実行しました。")
+        print(f"hidive.pyの関数_perform_loginを実行しました。")
         webpage = self._download_webpage(self._LOGIN_URL, None)
         form = self._search_regex(
             r'(?s)<form[^>]+action="/account/login"[^>]*>(.+?)</form>',
@@ -73,6 +74,7 @@ class HiDiveIE(InfoExtractor):
         print(f"hidive.pyの関数_call_apiを実行しました。")
         print(f"hidive.pyの関数_call_apiを実行しました。")
         print(f"hidive.pyの関数_call_apiを実行しました。")
+        print(f"hidive.pyの関数_call_apiを実行しました。")
         data = {
             **data,
             'Title': title,
@@ -84,6 +86,7 @@ class HiDiveIE(InfoExtractor):
             data=urlencode_postdata(data), **kwargs) or {}
 
     def _real_extract(self, url):
+        print(f"hidive.pyの関数_real_extractを実行しました。")
         print(f"hidive.pyの関数_real_extractを実行しました。")
         print(f"hidive.pyの関数_real_extractを実行しました。")
         print(f"hidive.pyの関数_real_extractを実行しました。")

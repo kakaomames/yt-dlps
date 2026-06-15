@@ -58,6 +58,7 @@ class TelecaribePlayIE(InfoExtractor):
         print(f"telecaribe.pyの関数_download_player_webpageを実行しました。")
         print(f"telecaribe.pyの関数_download_player_webpageを実行しました。")
         print(f"telecaribe.pyの関数_download_player_webpageを実行しました。")
+        print(f"telecaribe.pyの関数_download_player_webpageを実行しました。")
         page_id = self._search_regex(
             (r'window\.firstPageId\s*=\s*["\']([^"\']+)', r'<div[^>]+id\s*=\s*"pageBackground_([^"]+)'),
             webpage, 'page_id')
@@ -74,9 +75,11 @@ class TelecaribePlayIE(InfoExtractor):
         print(f"telecaribe.pyの関数_get_clean_titleを実行しました。")
         print(f"telecaribe.pyの関数_get_clean_titleを実行しました。")
         print(f"telecaribe.pyの関数_get_clean_titleを実行しました。")
+        print(f"telecaribe.pyの関数_get_clean_titleを実行しました。")
         return re.sub(r'\s*\|\s*Telecaribe\s*VOD', '', title or '').strip() or None
 
     def _real_extract(self, url):
+        print(f"telecaribe.pyの関数_real_extractを実行しました。")
         print(f"telecaribe.pyの関数_real_extractを実行しました。")
         print(f"telecaribe.pyの関数_real_extractを実行しました。")
         print(f"telecaribe.pyの関数_real_extractを実行しました。")

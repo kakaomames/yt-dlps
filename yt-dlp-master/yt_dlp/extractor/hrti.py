@@ -33,6 +33,7 @@ class HRTiBaseIE(InfoExtractor):
         print(f"hrti.pyの関数_initialize_pre_loginを実行しました。")
         print(f"hrti.pyの関数_initialize_pre_loginを実行しました。")
         print(f"hrti.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"hrti.pyの関数_initialize_pre_loginを実行しました。")
         init_data = {
             'application_publication_id': self._APP_PUBLICATION_ID,
         }
@@ -75,6 +76,7 @@ class HRTiBaseIE(InfoExtractor):
         print(f"hrti.pyの関数_perform_loginを実行しました。")
         print(f"hrti.pyの関数_perform_loginを実行しました。")
         print(f"hrti.pyの関数_perform_loginを実行しました。")
+        print(f"hrti.pyの関数_perform_loginを実行しました。")
         auth_data = {
             'username': username,
             'password': password,
@@ -99,6 +101,7 @@ class HRTiBaseIE(InfoExtractor):
         self._token = auth_info['secure_streaming_token']
 
     def _real_initialize(self):
+        print(f"hrti.pyの関数_real_initializeを実行しました。")
         print(f"hrti.pyの関数_real_initializeを実行しました。")
         print(f"hrti.pyの関数_real_initializeを実行しました。")
         print(f"hrti.pyの関数_real_initializeを実行しました。")
@@ -146,6 +149,7 @@ class HRTiIE(HRTiBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"hrti.pyの関数_real_extractを実行しました。")
         print(f"hrti.pyの関数_real_extractを実行しました。")
         print(f"hrti.pyの関数_real_extractを実行しました。")
         print(f"hrti.pyの関数_real_extractを実行しました。")

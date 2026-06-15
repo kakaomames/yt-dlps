@@ -48,6 +48,7 @@ class TV2HuIE(InfoExtractor):
         print(f"tv2hu.pyの関数_real_extractを実行しました。")
         print(f"tv2hu.pyの関数_real_extractを実行しました。")
         print(f"tv2hu.pyの関数_real_extractを実行しました。")
+        print(f"tv2hu.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         json_data = self._download_json(f'https://tv2play.hu/api/search/{video_id}', video_id)
 

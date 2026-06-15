@@ -45,9 +45,11 @@ class OpencastBaseIE(InfoExtractor):
         print(f"opencast.pyの関数_call_apiを実行しました。")
         print(f"opencast.pyの関数_call_apiを実行しました。")
         print(f"opencast.pyの関数_call_apiを実行しました。")
+        print(f"opencast.pyの関数_call_apiを実行しました。")
         return self._download_json(self._API_BASE % (host, video_id), video_id, **kwargs)
 
     def _parse_mediapackage(self, video):
+        print(f"opencast.pyの関数_parse_mediapackageを実行しました。")
         print(f"opencast.pyの関数_parse_mediapackageを実行しました。")
         print(f"opencast.pyの関数_parse_mediapackageを実行しました。")
         print(f"opencast.pyの関数_parse_mediapackageを実行しました。")
@@ -143,6 +145,7 @@ class OpencastIE(OpencastBaseIE):
     ]
 
     def _real_extract(self, url):
+        print(f"opencast.pyの関数_real_extractを実行しました。")
         print(f"opencast.pyの関数_real_extractを実行しました。")
         print(f"opencast.pyの関数_real_extractを実行しました。")
         print(f"opencast.pyの関数_real_extractを実行しました。")

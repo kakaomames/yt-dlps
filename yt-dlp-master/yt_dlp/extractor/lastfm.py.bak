@@ -12,6 +12,7 @@ class LastFMPlaylistBaseIE(InfoExtractor):
         print(f"lastfm.pyの関数_entriesを実行しました。")
         print(f"lastfm.pyの関数_entriesを実行しました。")
         print(f"lastfm.pyの関数_entriesを実行しました。")
+        print(f"lastfm.pyの関数_entriesを実行しました。")
         single_page = traverse_obj(parse_qs(url), ('page', -1, {int_or_none}))
         for page in itertools.count(single_page or 1):
             webpage = self._download_webpage(
@@ -22,6 +23,7 @@ class LastFMPlaylistBaseIE(InfoExtractor):
                 return
 
     def _real_extract(self, url):
+        print(f"lastfm.pyの関数_real_extractを実行しました。")
         print(f"lastfm.pyの関数_real_extractを実行しました。")
         print(f"lastfm.pyの関数_real_extractを実行しました。")
         print(f"lastfm.pyの関数_real_extractを実行しました。")

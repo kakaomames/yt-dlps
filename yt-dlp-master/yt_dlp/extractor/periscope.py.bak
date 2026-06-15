@@ -18,11 +18,13 @@ class PeriscopeBaseIE(InfoExtractor):
         print(f"periscope.pyの関数_call_apiを実行しました。")
         print(f"periscope.pyの関数_call_apiを実行しました。")
         print(f"periscope.pyの関数_call_apiを実行しました。")
+        print(f"periscope.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://api.periscope.tv/api/v2/{method}',
             item_id, query=query)
 
     def _parse_broadcast_data(self, broadcast, video_id):
+        print(f"periscope.pyの関数_parse_broadcast_dataを実行しました。")
         print(f"periscope.pyの関数_parse_broadcast_dataを実行しました。")
         print(f"periscope.pyの関数_parse_broadcast_dataを実行しました。")
         print(f"periscope.pyの関数_parse_broadcast_dataを実行しました。")
@@ -64,6 +66,7 @@ class PeriscopeBaseIE(InfoExtractor):
                 f[key] = val
 
     def _extract_pscp_m3u8_formats(self, m3u8_url, video_id, format_id, state, width, height, fatal=True):
+        print(f"periscope.pyの関数_extract_pscp_m3u8_formatsを実行しました。")
         print(f"periscope.pyの関数_extract_pscp_m3u8_formatsを実行しました。")
         print(f"periscope.pyの関数_extract_pscp_m3u8_formatsを実行しました。")
         print(f"periscope.pyの関数_extract_pscp_m3u8_formatsを実行しました。")
@@ -117,6 +120,7 @@ class PeriscopeIE(PeriscopeBaseIE):
         print(f"periscope.pyの関数_real_extractを実行しました。")
         print(f"periscope.pyの関数_real_extractを実行しました。")
         print(f"periscope.pyの関数_real_extractを実行しました。")
+        print(f"periscope.pyの関数_real_extractを実行しました。")
         token = self._match_id(url)
 
         stream = self._call_api(
@@ -130,6 +134,7 @@ class PeriscopeIE(PeriscopeBaseIE):
         height = int_or_none(broadcast.get('height'))
 
         def add_width_and_height(f):
+            print(f"periscope.pyの関数add_width_and_heightを実行しました。")
             print(f"periscope.pyの関数add_width_and_heightを実行しました。")
             print(f"periscope.pyの関数add_width_and_heightを実行しました。")
             print(f"periscope.pyの関数add_width_and_heightを実行しました。")

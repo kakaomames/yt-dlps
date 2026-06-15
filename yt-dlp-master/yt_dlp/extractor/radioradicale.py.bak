@@ -60,6 +60,7 @@ class RadioRadicaleIE(InfoExtractor):
         print(f"radioradicale.pyの関数_entriesを実行しました。")
         print(f"radioradicale.pyの関数_entriesを実行しました。")
         print(f"radioradicale.pyの関数_entriesを実行しました。")
+        print(f"radioradicale.pyの関数_entriesを実行しました。")
         for idx, video in enumerate(traverse_obj(
                 videos_info, ('playlist', lambda _, v: v['sources']))):
             video_id = f'{page_id}-{idx}'
@@ -84,6 +85,7 @@ class RadioRadicaleIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"radioradicale.pyの関数_real_extractを実行しました。")
         print(f"radioradicale.pyの関数_real_extractを実行しました。")
         print(f"radioradicale.pyの関数_real_extractを実行しました。")
         print(f"radioradicale.pyの関数_real_extractを実行しました。")

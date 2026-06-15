@@ -48,6 +48,7 @@ class SnapchatSpotlightIE(InfoExtractor):
         print(f"snapchat.pyの関数_real_extractを実行しました。")
         print(f"snapchat.pyの関数_real_extractを実行しました。")
         print(f"snapchat.pyの関数_real_extractを実行しました。")
+        print(f"snapchat.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         page_props = self._search_nextjs_data(webpage, video_id)['props']['pageProps']

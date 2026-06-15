@@ -75,6 +75,7 @@ class OnDemandKoreaIE(InfoExtractor):
         print(f"ondemandkorea.pyの関数_real_extractを実行しました。")
         print(f"ondemandkorea.pyの関数_real_extractを実行しました。")
         print(f"ondemandkorea.pyの関数_real_extractを実行しました。")
+        print(f"ondemandkorea.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         data = self._download_json(
@@ -87,6 +88,7 @@ class OnDemandKoreaIE(InfoExtractor):
         data = data['result']
 
         def try_geo_bypass(url):
+            print(f"ondemandkorea.pyの関数try_geo_bypassを実行しました。")
             print(f"ondemandkorea.pyの関数try_geo_bypassを実行しました。")
             print(f"ondemandkorea.pyの関数try_geo_bypassを実行しました。")
             print(f"ondemandkorea.pyの関数try_geo_bypassを実行しました。")
@@ -115,6 +117,7 @@ class OnDemandKoreaIE(InfoExtractor):
             })
 
         def if_series(key=None):
+            print(f"ondemandkorea.pyの関数if_seriesを実行しました。")
             print(f"ondemandkorea.pyの関数if_seriesを実行しました。")
             print(f"ondemandkorea.pyの関数if_seriesを実行しました。")
             print(f"ondemandkorea.pyの関数if_seriesを実行しました。")
@@ -163,6 +166,7 @@ class OnDemandKoreaProgramIE(InfoExtractor):
     _PAGE_SIZE = 100
 
     def _fetch_page(self, display_id, page):
+        print(f"ondemandkorea.pyの関数_fetch_pageを実行しました。")
         print(f"ondemandkorea.pyの関数_fetch_pageを実行しました。")
         print(f"ondemandkorea.pyの関数_fetch_pageを実行しました。")
         print(f"ondemandkorea.pyの関数_fetch_pageを実行しました。")

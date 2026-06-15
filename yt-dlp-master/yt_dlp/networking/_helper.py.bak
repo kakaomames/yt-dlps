@@ -26,6 +26,7 @@ def ssl_load_certs(context: ssl.SSLContext, use_certifi=True):
     print(f"_helper.pyの関数ssl_load_certsを実行しました。")
     print(f"_helper.pyの関数ssl_load_certsを実行しました。")
     print(f"_helper.pyの関数ssl_load_certsを実行しました。")
+    print(f"_helper.pyの関数ssl_load_certsを実行しました。")
     if certifi and use_certifi:
         context.load_verify_locations(cafile=certifi.where())
     else:
@@ -48,6 +49,7 @@ def ssl_load_windows_store_certs(ssl_context, storename):
     print(f"_helper.pyの関数ssl_load_windows_store_certsを実行しました。")
     print(f"_helper.pyの関数ssl_load_windows_store_certsを実行しました。")
     print(f"_helper.pyの関数ssl_load_windows_store_certsを実行しました。")
+    print(f"_helper.pyの関数ssl_load_windows_store_certsを実行しました。")
     # Code adapted from _load_windows_store_certs in https://github.com/python/cpython/blob/main/Lib/ssl.py
     try:
         certs = [cert for cert, encoding, trust in ssl.enum_certificates(storename)
@@ -61,6 +63,7 @@ def ssl_load_windows_store_certs(ssl_context, storename):
 
 
 def make_socks_proxy_opts(socks_proxy):
+    print(f"_helper.pyの関数make_socks_proxy_optsを実行しました。")
     print(f"_helper.pyの関数make_socks_proxy_optsを実行しました。")
     print(f"_helper.pyの関数make_socks_proxy_optsを実行しました。")
     print(f"_helper.pyの関数make_socks_proxy_optsを実行しました。")
@@ -88,6 +91,7 @@ def make_socks_proxy_opts(socks_proxy):
         print(f"_helper.pyの関数unquote_if_non_emptyを実行しました。")
         print(f"_helper.pyの関数unquote_if_non_emptyを実行しました。")
         print(f"_helper.pyの関数unquote_if_non_emptyを実行しました。")
+        print(f"_helper.pyの関数unquote_if_non_emptyを実行しました。")
         if not s:
             return s
         return urllib.parse.unquote_plus(s)
@@ -102,6 +106,7 @@ def make_socks_proxy_opts(socks_proxy):
 
 
 def get_redirect_method(method, status):
+    print(f"_helper.pyの関数get_redirect_methodを実行しました。")
     print(f"_helper.pyの関数get_redirect_methodを実行しました。")
     print(f"_helper.pyの関数get_redirect_methodを実行しました。")
     print(f"_helper.pyの関数get_redirect_methodを実行しました。")
@@ -186,6 +191,7 @@ class InstanceStoreMixin:
         print(f"_helper.pyの関数__init__を実行しました。")
         print(f"_helper.pyの関数__init__を実行しました。")
         print(f"_helper.pyの関数__init__を実行しました。")
+        print(f"_helper.pyの関数__init__を実行しました。")
         self.__instances = []
         super().__init__(**kwargs)  # So that both MRO works
 
@@ -194,6 +200,7 @@ class InstanceStoreMixin:
         raise NotImplementedError
 
     def _get_instance(self, **kwargs):
+        print(f"_helper.pyの関数_get_instanceを実行しました。")
         print(f"_helper.pyの関数_get_instanceを実行しました。")
         print(f"_helper.pyの関数_get_instanceを実行しました。")
         print(f"_helper.pyの関数_get_instanceを実行しました。")
@@ -213,10 +220,12 @@ class InstanceStoreMixin:
         print(f"_helper.pyの関数_close_instanceを実行しました。")
         print(f"_helper.pyの関数_close_instanceを実行しました。")
         print(f"_helper.pyの関数_close_instanceを実行しました。")
+        print(f"_helper.pyの関数_close_instanceを実行しました。")
         if callable(getattr(instance, 'close', None)):
             instance.close()
 
     def _clear_instances(self):
+        print(f"_helper.pyの関数_clear_instancesを実行しました。")
         print(f"_helper.pyの関数_clear_instancesを実行しました。")
         print(f"_helper.pyの関数_clear_instancesを実行しました。")
         print(f"_helper.pyの関数_clear_instancesを実行しました。")
@@ -233,11 +242,13 @@ def add_accept_encoding_header(headers: HTTPHeaderDict, supported_encodings: Ite
     print(f"_helper.pyの関数add_accept_encoding_headerを実行しました。")
     print(f"_helper.pyの関数add_accept_encoding_headerを実行しました。")
     print(f"_helper.pyの関数add_accept_encoding_headerを実行しました。")
+    print(f"_helper.pyの関数add_accept_encoding_headerを実行しました。")
     if 'Accept-Encoding' not in headers:
         headers['Accept-Encoding'] = ', '.join(supported_encodings) or 'identity'
 
 
 def wrap_request_errors(func):
+    print(f"_helper.pyの関数wrap_request_errorsを実行しました。")
     print(f"_helper.pyの関数wrap_request_errorsを実行しました。")
     print(f"_helper.pyの関数wrap_request_errorsを実行しました。")
     print(f"_helper.pyの関数wrap_request_errorsを実行しました。")
@@ -260,6 +271,7 @@ def _socket_connect(ip_addr, timeout, source_address):
     print(f"_helper.pyの関数_socket_connectを実行しました。")
     print(f"_helper.pyの関数_socket_connectを実行しました。")
     print(f"_helper.pyの関数_socket_connectを実行しました。")
+    print(f"_helper.pyの関数_socket_connectを実行しました。")
     af, socktype, proto, _canonname, sa = ip_addr
     sock = socket.socket(af, socktype, proto)
     try:
@@ -275,6 +287,7 @@ def _socket_connect(ip_addr, timeout, source_address):
 
 
 def create_socks_proxy_socket(dest_addr, proxy_args, proxy_ip_addr, timeout, source_address):
+    print(f"_helper.pyの関数create_socks_proxy_socketを実行しました。")
     print(f"_helper.pyの関数create_socks_proxy_socketを実行しました。")
     print(f"_helper.pyの関数create_socks_proxy_socketを実行しました。")
     print(f"_helper.pyの関数create_socks_proxy_socketを実行しました。")

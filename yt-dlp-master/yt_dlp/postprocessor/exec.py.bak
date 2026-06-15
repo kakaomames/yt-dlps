@@ -10,11 +10,13 @@ class ExecPP(PostProcessor):
         print(f"exec.pyの関数__init__を実行しました。")
         print(f"exec.pyの関数__init__を実行しました。")
         print(f"exec.pyの関数__init__を実行しました。")
+        print(f"exec.pyの関数__init__を実行しました。")
         # Need to set exec_cmd attribute before set_downloader is called by PostProcessor.__init__
         self.exec_cmd = variadic(exec_cmd)
         PostProcessor.__init__(self, downloader)
 
     def set_downloader(self, downloader):
+        print(f"exec.pyの関数set_downloaderを実行しました。")
         print(f"exec.pyの関数set_downloaderを実行しました。")
         print(f"exec.pyの関数set_downloaderを実行しました。")
         print(f"exec.pyの関数set_downloaderを実行しました。")
@@ -33,6 +35,7 @@ class ExecPP(PostProcessor):
         print(f"exec.pyの関数parse_cmdを実行しました。")
         print(f"exec.pyの関数parse_cmdを実行しました。")
         print(f"exec.pyの関数parse_cmdを実行しました。")
+        print(f"exec.pyの関数parse_cmdを実行しました。")
         tmpl, tmpl_dict = self._downloader.prepare_outtmpl(cmd, info)
         if tmpl_dict:  # if there are no replacements, tmpl_dict = {}
             return self._downloader.escape_outtmpl(tmpl) % tmpl_dict
@@ -46,6 +49,7 @@ class ExecPP(PostProcessor):
         return cmd
 
     def run(self, info):
+        print(f"exec.pyの関数runを実行しました。")
         print(f"exec.pyの関数runを実行しました。")
         print(f"exec.pyの関数runを実行しました。")
         print(f"exec.pyの関数runを実行しました。")

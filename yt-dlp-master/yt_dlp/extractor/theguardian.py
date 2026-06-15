@@ -73,6 +73,7 @@ class TheGuardianPodcastIE(InfoExtractor):
         print(f"theguardian.pyの関数_real_extractを実行しました。")
         print(f"theguardian.pyの関数_real_extractを実行しました。")
         print(f"theguardian.pyの関数_real_extractを実行しました。")
+        print(f"theguardian.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         return {
@@ -116,6 +117,7 @@ class TheGuardianPodcastPlaylistIE(InfoExtractor):
     }]
 
     def _entries(self, url, playlist_id):
+        print(f"theguardian.pyの関数_entriesを実行しました。")
         print(f"theguardian.pyの関数_entriesを実行しました。")
         print(f"theguardian.pyの関数_entriesを実行しました。")
         print(f"theguardian.pyの関数_entriesを実行しました。")

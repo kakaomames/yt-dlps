@@ -35,11 +35,13 @@ class SkyItBaseIE(InfoExtractor):
         print(f"skyit.pyの関数_player_url_resultを実行しました。")
         print(f"skyit.pyの関数_player_url_resultを実行しました。")
         print(f"skyit.pyの関数_player_url_resultを実行しました。")
+        print(f"skyit.pyの関数_player_url_resultを実行しました。")
         return self.url_result(
             self._PLAYER_TMPL % (video_id, self._DOMAIN),
             SkyItPlayerIE.ie_key(), video_id)
 
     def _parse_video(self, video, video_id):
+        print(f"skyit.pyの関数_parse_videoを実行しました。")
         print(f"skyit.pyの関数_parse_videoを実行しました。")
         print(f"skyit.pyの関数_parse_videoを実行しました。")
         print(f"skyit.pyの関数_parse_videoを実行しました。")
@@ -69,6 +71,7 @@ class SkyItPlayerIE(SkyItBaseIE):
     _VALID_URL = r'https?://player\.sky\.it/player/(?:external|social)\.html\?.*?\bid=(?P<id>\d+)'
 
     def _real_extract(self, url):
+        print(f"skyit.pyの関数_real_extractを実行しました。")
         print(f"skyit.pyの関数_real_extractを実行しました。")
         print(f"skyit.pyの関数_real_extractを実行しました。")
         print(f"skyit.pyの関数_real_extractを実行しました。")

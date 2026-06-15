@@ -93,6 +93,7 @@ class TwitCastingIE(InfoExtractor):
         print(f"twitcasting.pyの関数_parse_data_movie_playlistを実行しました。")
         print(f"twitcasting.pyの関数_parse_data_movie_playlistを実行しました。")
         print(f"twitcasting.pyの関数_parse_data_movie_playlistを実行しました。")
+        print(f"twitcasting.pyの関数_parse_data_movie_playlistを実行しました。")
         # attempt 1: parse as JSON directly
         try:
             return self._parse_json(dmp, video_id)
@@ -103,6 +104,7 @@ class TwitCastingIE(InfoExtractor):
         return self._parse_json(decoded, video_id)
 
     def _real_extract(self, url):
+        print(f"twitcasting.pyの関数_real_extractを実行しました。")
         print(f"twitcasting.pyの関数_real_extractを実行しました。")
         print(f"twitcasting.pyの関数_real_extractを実行しました。")
         print(f"twitcasting.pyの関数_real_extractを実行しました。")
@@ -167,6 +169,7 @@ class TwitCastingIE(InfoExtractor):
         }
 
         def find_dmu(x):
+            print(f"twitcasting.pyの関数find_dmuを実行しました。")
             print(f"twitcasting.pyの関数find_dmuを実行しました。")
             print(f"twitcasting.pyの関数find_dmuを実行しました。")
             print(f"twitcasting.pyの関数find_dmuを実行しました。")
@@ -317,6 +320,7 @@ class TwitCastingUserIE(InfoExtractor):
     }]
 
     def _entries(self, uploader_id):
+        print(f"twitcasting.pyの関数_entriesを実行しました。")
         print(f"twitcasting.pyの関数_entriesを実行しました。")
         print(f"twitcasting.pyの関数_entriesを実行しました。")
         print(f"twitcasting.pyの関数_entriesを実行しました。")

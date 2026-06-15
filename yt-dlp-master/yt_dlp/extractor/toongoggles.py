@@ -35,6 +35,7 @@ class ToonGogglesIE(InfoExtractor):
         print(f"toongoggles.pyの関数_call_apiを実行しました。")
         print(f"toongoggles.pyの関数_call_apiを実行しました。")
         print(f"toongoggles.pyの関数_call_apiを実行しました。")
+        print(f"toongoggles.pyの関数_call_apiを実行しました。")
         query.update({
             'for_ng': 1,
             'for_web': 1,
@@ -44,6 +45,7 @@ class ToonGogglesIE(InfoExtractor):
         return self._download_json('http://api.toongoggles.com/' + action, page_id, query=query)
 
     def _parse_episode_data(self, episode_data):
+        print(f"toongoggles.pyの関数_parse_episode_dataを実行しました。")
         print(f"toongoggles.pyの関数_parse_episode_dataを実行しました。")
         print(f"toongoggles.pyの関数_parse_episode_dataを実行しました。")
         print(f"toongoggles.pyの関数_parse_episode_dataを実行しました。")
@@ -70,6 +72,7 @@ class ToonGogglesIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"toongoggles.pyの関数_real_extractを実行しました。")
         print(f"toongoggles.pyの関数_real_extractを実行しました。")
         print(f"toongoggles.pyの関数_real_extractを実行しました。")
         print(f"toongoggles.pyの関数_real_extractを実行しました。")

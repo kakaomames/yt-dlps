@@ -30,6 +30,7 @@ class IwaraBaseIE(InfoExtractor):
         print(f"iwara.pyの関数_is_token_expiredを実行しました。")
         print(f"iwara.pyの関数_is_token_expiredを実行しました。")
         print(f"iwara.pyの関数_is_token_expiredを実行しました。")
+        print(f"iwara.pyの関数_is_token_expiredを実行しました。")
         # User token TTL == ~3 weeks, Media token TTL == ~1 hour
         if (try_call(lambda: jwt_decode_hs256(token)['exp']) or 0) <= int(time.time() - 120):
             self.to_screen(f'{token_type} token has expired')
@@ -42,12 +43,14 @@ class IwaraBaseIE(InfoExtractor):
         print(f"iwara.pyの関数_call_apiを実行しました。")
         print(f"iwara.pyの関数_call_apiを実行しました。")
         print(f"iwara.pyの関数_call_apiを実行しました。")
+        print(f"iwara.pyの関数_call_apiを実行しました。")
         impersonate = kwargs.pop('impersonate', True)
         return self._download_json(
             f'https://api.iwara.tv/{path}', video_id,
             impersonate=impersonate, **kwargs)
 
     def _get_user_token(self):
+        print(f"iwara.pyの関数_get_user_tokenを実行しました。")
         print(f"iwara.pyの関数_get_user_tokenを実行しました。")
         print(f"iwara.pyの関数_get_user_tokenを実行しました。")
         print(f"iwara.pyの関数_get_user_tokenを実行しました。")
@@ -85,6 +88,7 @@ class IwaraBaseIE(InfoExtractor):
         print(f"iwara.pyの関数_get_media_tokenを実行しました。")
         print(f"iwara.pyの関数_get_media_tokenを実行しました。")
         print(f"iwara.pyの関数_get_media_tokenを実行しました。")
+        print(f"iwara.pyの関数_get_media_tokenを実行しました。")
         self._get_user_token()
         if not IwaraBaseIE._USERTOKEN:
             return  # user has not passed credentials
@@ -100,6 +104,7 @@ class IwaraBaseIE(InfoExtractor):
         return {'Authorization': f'Bearer {IwaraBaseIE._MEDIATOKEN}'}
 
     def _perform_login(self, username, password):
+        print(f"iwara.pyの関数_perform_loginを実行しました。")
         print(f"iwara.pyの関数_perform_loginを実行しました。")
         print(f"iwara.pyの関数_perform_loginを実行しました。")
         print(f"iwara.pyの関数_perform_loginを実行しました。")
@@ -185,6 +190,7 @@ class IwaraIE(IwaraBaseIE):
         print(f"iwara.pyの関数_extract_formatsを実行しました。")
         print(f"iwara.pyの関数_extract_formatsを実行しました。")
         print(f"iwara.pyの関数_extract_formatsを実行しました。")
+        print(f"iwara.pyの関数_extract_formatsを実行しました。")
         up = urllib.parse.urlparse(fileurl)
         q = urllib.parse.parse_qs(up.query)
         paths = up.path.rstrip('/').split('/')
@@ -204,6 +210,7 @@ class IwaraIE(IwaraBaseIE):
             }, get_all=False)
 
     def _real_extract(self, url):
+        print(f"iwara.pyの関数_real_extractを実行しました。")
         print(f"iwara.pyの関数_real_extractを実行しました。")
         print(f"iwara.pyの関数_real_extractを実行しました。")
         print(f"iwara.pyの関数_real_extractを実行しました。")
@@ -285,6 +292,7 @@ class IwaraUserIE(IwaraBaseIE):
     }]
 
     def _entries(self, playlist_id, user_id, page):
+        print(f"iwara.pyの関数_entriesを実行しました。")
         print(f"iwara.pyの関数_entriesを実行しました。")
         print(f"iwara.pyの関数_entriesを実行しました。")
         print(f"iwara.pyの関数_entriesを実行しました。")

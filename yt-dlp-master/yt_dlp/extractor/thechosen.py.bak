@@ -64,6 +64,7 @@ class TheChosenIE(InfoExtractor):
         print(f"thechosen.pyの関数_real_extractを実行しました。")
         print(f"thechosen.pyの関数_real_extractを実行しました。")
         print(f"thechosen.pyの関数_real_extractを実行しました。")
+        print(f"thechosen.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         metadata = self._download_json(f'https://api.watch.thechosen.tv/v1/videos/{video_id}', video_id)
 

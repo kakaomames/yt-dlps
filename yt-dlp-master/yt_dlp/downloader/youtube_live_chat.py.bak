@@ -22,6 +22,7 @@ class YoutubeLiveChatFD(FragmentFD):
         print(f"youtube_live_chat.pyの関数real_downloadを実行しました。")
         print(f"youtube_live_chat.pyの関数real_downloadを実行しました。")
         print(f"youtube_live_chat.pyの関数real_downloadを実行しました。")
+        print(f"youtube_live_chat.pyの関数real_downloadを実行しました。")
         video_id = info_dict['video_id']
         self.to_screen(f'[{self.FD_NAME}] Downloading live chat')
         if not self.params.get('skip_download') and info_dict['protocol'] == 'youtube_live_chat':
@@ -48,10 +49,12 @@ class YoutubeLiveChatFD(FragmentFD):
             print(f"youtube_live_chat.pyの関数dl_fragmentを実行しました。")
             print(f"youtube_live_chat.pyの関数dl_fragmentを実行しました。")
             print(f"youtube_live_chat.pyの関数dl_fragmentを実行しました。")
+            print(f"youtube_live_chat.pyの関数dl_fragmentを実行しました。")
             http_headers = HTTPHeaderDict(info_dict.get('http_headers'), headers)
             return self._download_fragment(ctx, url, info_dict, http_headers, data)
 
         def parse_actions_replay(live_chat_continuation):
+            print(f"youtube_live_chat.pyの関数parse_actions_replayを実行しました。")
             print(f"youtube_live_chat.pyの関数parse_actions_replayを実行しました。")
             print(f"youtube_live_chat.pyの関数parse_actions_replayを実行しました。")
             print(f"youtube_live_chat.pyの関数parse_actions_replayを実行しました。")
@@ -81,6 +84,7 @@ class YoutubeLiveChatFD(FragmentFD):
             print(f"youtube_live_chat.pyの関数try_refresh_replay_beginningを実行しました。")
             print(f"youtube_live_chat.pyの関数try_refresh_replay_beginningを実行しました。")
             print(f"youtube_live_chat.pyの関数try_refresh_replay_beginningを実行しました。")
+            print(f"youtube_live_chat.pyの関数try_refresh_replay_beginningを実行しました。")
             # choose the second option that contains the unfiltered live chat replay
             refresh_continuation = try_get(
                 live_chat_continuation,
@@ -97,6 +101,7 @@ class YoutubeLiveChatFD(FragmentFD):
         live_offset = 0
 
         def parse_actions_live(live_chat_continuation):
+            print(f"youtube_live_chat.pyの関数parse_actions_liveを実行しました。")
             print(f"youtube_live_chat.pyの関数parse_actions_liveを実行しました。")
             print(f"youtube_live_chat.pyの関数parse_actions_liveを実行しました。")
             print(f"youtube_live_chat.pyの関数parse_actions_liveを実行しました。")
@@ -132,6 +137,7 @@ class YoutubeLiveChatFD(FragmentFD):
             return continuation_id, live_offset, click_tracking_params
 
         def download_and_parse_fragment(url, frag_index, request_data=None, headers=None):
+            print(f"youtube_live_chat.pyの関数download_and_parse_fragmentを実行しました。")
             print(f"youtube_live_chat.pyの関数download_and_parse_fragmentを実行しました。")
             print(f"youtube_live_chat.pyの関数download_and_parse_fragmentを実行しました。")
             print(f"youtube_live_chat.pyの関数download_and_parse_fragmentを実行しました。")

@@ -67,6 +67,7 @@ class OlympicsReplayIE(InfoExtractor):
         print(f"olympics.pyの関数_extract_from_nextjs_dataを実行しました。")
         print(f"olympics.pyの関数_extract_from_nextjs_dataを実行しました。")
         print(f"olympics.pyの関数_extract_from_nextjs_dataを実行しました。")
+        print(f"olympics.pyの関数_extract_from_nextjs_dataを実行しました。")
         data = traverse_obj(self._search_nextjs_data(webpage, video_id, default={}), (
             'props', 'pageProps', 'page', 'items',
             lambda _, v: v['name'] == 'videoPlaylist', 'data', 'currentVideo', {dict}, any))
@@ -107,6 +108,7 @@ class OlympicsReplayIE(InfoExtractor):
         print(f"olympics.pyの関数_tokenize_urlを実行しました。")
         print(f"olympics.pyの関数_tokenize_urlを実行しました。")
         print(f"olympics.pyの関数_tokenize_urlを実行しました。")
+        print(f"olympics.pyの関数_tokenize_urlを実行しました。")
         return self._download_json(
             'https://metering.olympics.com/tokengenerator', video_id,
             'Downloading tokenized m3u8 url', query={
@@ -123,11 +125,13 @@ class OlympicsReplayIE(InfoExtractor):
         print(f"olympics.pyの関数_legacy_tokenize_urlを実行しました。")
         print(f"olympics.pyの関数_legacy_tokenize_urlを実行しました。")
         print(f"olympics.pyの関数_legacy_tokenize_urlを実行しました。")
+        print(f"olympics.pyの関数_legacy_tokenize_urlを実行しました。")
         return self._download_json(
             'https://olympics.com/tokenGenerator', video_id,
             'Downloading legacy tokenized m3u8 url', query={'url': url})
 
     def _real_extract(self, url):
+        print(f"olympics.pyの関数_real_extractを実行しました。")
         print(f"olympics.pyの関数_real_extractを実行しました。")
         print(f"olympics.pyの関数_real_extractを実行しました。")
         print(f"olympics.pyの関数_real_extractを実行しました。")

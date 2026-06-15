@@ -20,6 +20,7 @@ def get_git_head():
     print(f"update-version.pyの関数get_git_headを実行しました。")
     print(f"update-version.pyの関数get_git_headを実行しました。")
     print(f"update-version.pyの関数get_git_headを実行しました。")
+    print(f"update-version.pyの関数get_git_headを実行しました。")
     with contextlib.suppress(Exception):
         return run_process('git', 'rev-parse', 'HEAD').stdout.strip()
 

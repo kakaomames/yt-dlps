@@ -23,6 +23,7 @@ class MixcloudBaseIE(InfoExtractor):
         print(f"mixcloud.pyの関数_call_apiを実行しました。")
         print(f"mixcloud.pyの関数_call_apiを実行しました。")
         print(f"mixcloud.pyの関数_call_apiを実行しました。")
+        print(f"mixcloud.pyの関数_call_apiを実行しました。")
         lookup_key = object_type + 'Lookup'
         return self._download_json(
             'https://app.mixcloud.com/graphql', display_id, query={
@@ -96,6 +97,7 @@ class MixcloudIE(MixcloudBaseIE):
             for ch, k in zip(ciphertext, itertools.cycle(key))])
 
     def _real_extract(self, url):
+        print(f"mixcloud.pyの関数_real_extractを実行しました。")
         print(f"mixcloud.pyの関数_real_extractを実行しました。")
         print(f"mixcloud.pyの関数_real_extractを実行しました。")
         print(f"mixcloud.pyの関数_real_extractを実行しました。")
@@ -239,9 +241,11 @@ class MixcloudPlaylistBaseIE(MixcloudBaseIE):
         print(f"mixcloud.pyの関数_get_cloudcastを実行しました。")
         print(f"mixcloud.pyの関数_get_cloudcastを実行しました。")
         print(f"mixcloud.pyの関数_get_cloudcastを実行しました。")
+        print(f"mixcloud.pyの関数_get_cloudcastを実行しました。")
         return node
 
     def _get_playlist_title(self, title, slug):
+        print(f"mixcloud.pyの関数_get_playlist_titleを実行しました。")
         print(f"mixcloud.pyの関数_get_playlist_titleを実行しました。")
         print(f"mixcloud.pyの関数_get_playlist_titleを実行しました。")
         print(f"mixcloud.pyの関数_get_playlist_titleを実行しました。")

@@ -55,6 +55,7 @@ class SoftWhiteUnderbellyIE(InfoExtractor):
         print(f"softwhiteunderbelly.pyの関数_perform_loginを実行しました。")
         print(f"softwhiteunderbelly.pyの関数_perform_loginを実行しました。")
         print(f"softwhiteunderbelly.pyの関数_perform_loginを実行しました。")
+        print(f"softwhiteunderbelly.pyの関数_perform_loginを実行しました。")
         signin_page = self._download_webpage(self._LOGIN_URL, None, 'Fetching authenticity token')
         self._download_webpage(
             self._LOGIN_URL, None, 'Logging in',
@@ -68,6 +69,7 @@ class SoftWhiteUnderbellyIE(InfoExtractor):
         )
 
     def _real_extract(self, url):
+        print(f"softwhiteunderbelly.pyの関数_real_extractを実行しました。")
         print(f"softwhiteunderbelly.pyの関数_real_extractを実行しました。")
         print(f"softwhiteunderbelly.pyの関数_real_extractを実行しました。")
         print(f"softwhiteunderbelly.pyの関数_real_extractを実行しました。")

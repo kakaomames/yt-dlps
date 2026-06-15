@@ -19,6 +19,7 @@ class AGalegaBaseIE(InfoExtractor):
         print(f"agalega.pyの関数_refresh_access_tokenを実行しました。")
         print(f"agalega.pyの関数_refresh_access_tokenを実行しました。")
         print(f"agalega.pyの関数_refresh_access_tokenを実行しました。")
+        print(f"agalega.pyの関数_refresh_access_tokenを実行しました。")
         AGalegaBaseIE._access_token = self._download_json(
             'https://www.agalega.gal/api/fetch-api/jwt/token', video_id,
             note='Downloading access token',
@@ -30,6 +31,7 @@ class AGalegaBaseIE(InfoExtractor):
             }).encode())['access']
 
     def _call_api(self, endpoint, display_id, note, fatal=True, query=None):
+        print(f"agalega.pyの関数_call_apiを実行しました。")
         print(f"agalega.pyの関数_call_apiを実行しました。")
         print(f"agalega.pyの関数_call_apiを実行しました。")
         print(f"agalega.pyの関数_call_apiを実行しました。")
@@ -69,6 +71,7 @@ class AGalegaIE(AGalegaBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"agalega.pyの関数_real_extractを実行しました。")
         print(f"agalega.pyの関数_real_extractを実行しました。")
         print(f"agalega.pyの関数_real_extractを実行しました。")
         print(f"agalega.pyの関数_real_extractを実行しました。")

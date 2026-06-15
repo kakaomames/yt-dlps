@@ -46,6 +46,7 @@ class NobelPrizeIE(InfoExtractor):
         print(f"nobelprize.pyの関数_real_extractを実行しました。")
         print(f"nobelprize.pyの関数_real_extractを実行しました。")
         print(f"nobelprize.pyの関数_real_extractを実行しました。")
+        print(f"nobelprize.pyの関数_real_extractを実行しました。")
         video_id = traverse_obj(parse_qs(url), (
             ('id', 'qid'), -1, {int_or_none}, {str_or_none}, any))
         if not video_id:

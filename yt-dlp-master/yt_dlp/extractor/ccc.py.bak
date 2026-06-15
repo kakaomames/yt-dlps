@@ -55,6 +55,7 @@ class CCCIE(InfoExtractor):
         print(f"ccc.pyの関数_real_extractを実行しました。")
         print(f"ccc.pyの関数_real_extractを実行しました。")
         print(f"ccc.pyの関数_real_extractを実行しました。")
+        print(f"ccc.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         event_id = self._search_regex(r"data-id=(['\"])(?P<event_id>\d+)\1", webpage, 'event id', group='event_id')

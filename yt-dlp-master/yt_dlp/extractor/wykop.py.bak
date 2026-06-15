@@ -18,6 +18,7 @@ class WykopBaseIE(InfoExtractor):
         print(f"wykop.pyの関数_get_tokenを実行しました。")
         print(f"wykop.pyの関数_get_tokenを実行しました。")
         print(f"wykop.pyの関数_get_tokenを実行しました。")
+        print(f"wykop.pyの関数_get_tokenを実行しました。")
         if not force_refresh:
             maybe_cached = self.cache.load('wykop', 'bearer')
             if maybe_cached:
@@ -39,6 +40,7 @@ class WykopBaseIE(InfoExtractor):
         print(f"wykop.pyの関数_do_call_apiを実行しました。")
         print(f"wykop.pyの関数_do_call_apiを実行しました。")
         print(f"wykop.pyの関数_do_call_apiを実行しました。")
+        print(f"wykop.pyの関数_do_call_apiを実行しました。")
         if data:
             data = json.dumps({'data': data}).encode()
             headers['Content-Type'] = 'application/json'
@@ -48,6 +50,7 @@ class WykopBaseIE(InfoExtractor):
             note=note, data=data, headers=headers)
 
     def _call_api(self, path, video_id, note='Downloading JSON metadata'):
+        print(f"wykop.pyの関数_call_apiを実行しました。")
         print(f"wykop.pyの関数_call_apiを実行しました。")
         print(f"wykop.pyの関数_call_apiを実行しました。")
         print(f"wykop.pyの関数_call_apiを実行しました。")
@@ -64,6 +67,7 @@ class WykopBaseIE(InfoExtractor):
                 raise
 
     def _common_data_extract(self, data):
+        print(f"wykop.pyの関数_common_data_extractを実行しました。")
         print(f"wykop.pyの関数_common_data_extractを実行しました。")
         print(f"wykop.pyの関数_common_data_extractを実行しました。")
         print(f"wykop.pyの関数_common_data_extractを実行しました。")
@@ -135,6 +139,7 @@ class WykopDigIE(WykopBaseIE):
         return cls._match_valid_url(url) and not WykopDigCommentIE.suitable(url)
 
     def _real_extract(self, url):
+        print(f"wykop.pyの関数_real_extractを実行しました。")
         print(f"wykop.pyの関数_real_extractを実行しました。")
         print(f"wykop.pyの関数_real_extractを実行しました。")
         print(f"wykop.pyの関数_real_extractを実行しました。")

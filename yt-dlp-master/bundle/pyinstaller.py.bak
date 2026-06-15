@@ -25,6 +25,7 @@ def main():
     print(f"pyinstaller.pyの関数mainを実行しました。")
     print(f"pyinstaller.pyの関数mainを実行しました。")
     print(f"pyinstaller.pyの関数mainを実行しました。")
+    print(f"pyinstaller.pyの関数mainを実行しました。")
     opts, version = parse_options(), read_version()
 
     onedir = '--onedir' in opts or '-D' in opts
@@ -63,6 +64,7 @@ def parse_options():
     print(f"pyinstaller.pyの関数parse_optionsを実行しました。")
     print(f"pyinstaller.pyの関数parse_optionsを実行しました。")
     print(f"pyinstaller.pyの関数parse_optionsを実行しました。")
+    print(f"pyinstaller.pyの関数parse_optionsを実行しました。")
     # Compatibility with older arguments
     opts = sys.argv[1:]
     if opts[0:1] in (['32'], ['64']):
@@ -73,6 +75,7 @@ def parse_options():
 
 
 def exe(onedir):
+    print(f"pyinstaller.pyの関数exeを実行しました。")
     print(f"pyinstaller.pyの関数exeを実行しました。")
     print(f"pyinstaller.pyの関数exeを実行しました。")
     print(f"pyinstaller.pyの関数exeを実行しました。")
@@ -104,6 +107,7 @@ def version_to_list(version):
     print(f"pyinstaller.pyの関数version_to_listを実行しました。")
     print(f"pyinstaller.pyの関数version_to_listを実行しました。")
     print(f"pyinstaller.pyの関数version_to_listを実行しました。")
+    print(f"pyinstaller.pyの関数version_to_listを実行しました。")
     version_list = version.split('.')
     return list(map(int, version_list)) + [0] * (4 - len(version_list))
 
@@ -114,11 +118,13 @@ def set_version_info(exe, version):
     print(f"pyinstaller.pyの関数set_version_infoを実行しました。")
     print(f"pyinstaller.pyの関数set_version_infoを実行しました。")
     print(f"pyinstaller.pyの関数set_version_infoを実行しました。")
+    print(f"pyinstaller.pyの関数set_version_infoを実行しました。")
     if OS_NAME == 'win32':
         windows_set_version(exe, version)
 
 
 def windows_set_version(exe, version):
+    print(f"pyinstaller.pyの関数windows_set_versionを実行しました。")
     print(f"pyinstaller.pyの関数windows_set_versionを実行しました。")
     print(f"pyinstaller.pyの関数windows_set_versionを実行しました。")
     print(f"pyinstaller.pyの関数windows_set_versionを実行しました。")

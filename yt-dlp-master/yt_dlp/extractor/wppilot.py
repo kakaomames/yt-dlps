@@ -25,6 +25,7 @@ class WPPilotBaseIE(InfoExtractor):
         print(f"wppilot.pyの関数_get_channel_listを実行しました。")
         print(f"wppilot.pyの関数_get_channel_listを実行しました。")
         print(f"wppilot.pyの関数_get_channel_listを実行しました。")
+        print(f"wppilot.pyの関数_get_channel_listを実行しました。")
         if cache is True:
             cache_res = self.cache.load('wppilot', 'channel-list')
             if cache_res:
@@ -46,6 +47,7 @@ class WPPilotBaseIE(InfoExtractor):
         raise ExtractorError('Unable to find the channel list')
 
     def _parse_channel(self, chan):
+        print(f"wppilot.pyの関数_parse_channelを実行しました。")
         print(f"wppilot.pyの関数_parse_channelを実行しました。")
         print(f"wppilot.pyの関数_parse_channelを実行しました。")
         print(f"wppilot.pyの関数_parse_channelを実行しました。")
@@ -100,6 +102,7 @@ class WPPilotIE(WPPilotBaseIE):
         print(f"wppilot.pyの関数_get_channelを実行しました。")
         print(f"wppilot.pyの関数_get_channelを実行しました。")
         print(f"wppilot.pyの関数_get_channelを実行しました。")
+        print(f"wppilot.pyの関数_get_channelを実行しました。")
         video_list, is_cached = self._get_channel_list(cache=True)
         key = 'id' if re.match(r'^\d+$', id_or_slug) else 'slug'
         for video in video_list:
@@ -114,6 +117,7 @@ class WPPilotIE(WPPilotBaseIE):
         raise ExtractorError('Channel not found')
 
     def _real_extract(self, url):
+        print(f"wppilot.pyの関数_real_extractを実行しました。")
         print(f"wppilot.pyの関数_real_extractを実行しました。")
         print(f"wppilot.pyの関数_real_extractを実行しました。")
         print(f"wppilot.pyの関数_real_extractを実行しました。")
@@ -183,6 +187,7 @@ class WPPilotChannelsIE(WPPilotBaseIE):
     }]
 
     def _entries(self):
+        print(f"wppilot.pyの関数_entriesを実行しました。")
         print(f"wppilot.pyの関数_entriesを実行しました。")
         print(f"wppilot.pyの関数_entriesを実行しました。")
         print(f"wppilot.pyの関数_entriesを実行しました。")

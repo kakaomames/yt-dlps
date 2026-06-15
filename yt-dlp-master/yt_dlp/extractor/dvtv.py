@@ -117,6 +117,7 @@ class DVTVIE(InfoExtractor):
         print(f"dvtv.pyの関数_parse_video_metadataを実行しました。")
         print(f"dvtv.pyの関数_parse_video_metadataを実行しました。")
         print(f"dvtv.pyの関数_parse_video_metadataを実行しました。")
+        print(f"dvtv.pyの関数_parse_video_metadataを実行しました。")
         data = self._parse_json(js, video_id, transform_source=js_to_json)
         title = unescapeHTML(data['title'])
 
@@ -160,6 +161,7 @@ class DVTVIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"dvtv.pyの関数_real_extractを実行しました。")
         print(f"dvtv.pyの関数_real_extractを実行しました。")
         print(f"dvtv.pyの関数_real_extractを実行しました。")
         print(f"dvtv.pyの関数_real_extractを実行しました。")

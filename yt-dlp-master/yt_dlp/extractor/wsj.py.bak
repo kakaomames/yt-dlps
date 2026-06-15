@@ -47,6 +47,7 @@ class WSJIE(InfoExtractor):
         print(f"wsj.pyの関数_real_extractを実行しました。")
         print(f"wsj.pyの関数_real_extractを実行しました。")
         print(f"wsj.pyの関数_real_extractを実行しました。")
+        print(f"wsj.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         info = self._download_json(

@@ -17,6 +17,7 @@ def _raw_id(src_url):
     print(f"seznamzpravy.pyの関数_raw_idを実行しました。")
     print(f"seznamzpravy.pyの関数_raw_idを実行しました。")
     print(f"seznamzpravy.pyの関数_raw_idを実行しました。")
+    print(f"seznamzpravy.pyの関数_raw_idを実行しました。")
     return urllib.parse.urlparse(src_url).path.split('/')[-1]
 
 
@@ -52,6 +53,7 @@ class SeznamZpravyIE(InfoExtractor):
     }]
 
     def _extract_sdn_formats(self, sdn_url, video_id):
+        print(f"seznamzpravy.pyの関数_extract_sdn_formatsを実行しました。")
         print(f"seznamzpravy.pyの関数_extract_sdn_formatsを実行しました。")
         print(f"seznamzpravy.pyの関数_extract_sdn_formatsを実行しました。")
         print(f"seznamzpravy.pyの関数_extract_sdn_formatsを実行しました。")
@@ -95,6 +97,7 @@ class SeznamZpravyIE(InfoExtractor):
             print(f"seznamzpravy.pyの関数get_urlを実行しました。")
             print(f"seznamzpravy.pyの関数get_urlを実行しました。")
             print(f"seznamzpravy.pyの関数get_urlを実行しました。")
+            print(f"seznamzpravy.pyの関数get_urlを実行しました。")
             return try_get(pls, lambda x: x[format_id]['url'], str)
 
         dash_rel_url = get_url('dash')
@@ -112,6 +115,7 @@ class SeznamZpravyIE(InfoExtractor):
         return formats
 
     def _real_extract(self, url):
+        print(f"seznamzpravy.pyの関数_real_extractを実行しました。")
         print(f"seznamzpravy.pyの関数_real_extractを実行しました。")
         print(f"seznamzpravy.pyの関数_real_extractを実行しました。")
         print(f"seznamzpravy.pyの関数_real_extractを実行しました。")

@@ -86,6 +86,7 @@ class QDanceIE(InfoExtractor):
         print(f"qdance.pyの関数_call_login_apiを実行しました。")
         print(f"qdance.pyの関数_call_login_apiを実行しました。")
         print(f"qdance.pyの関数_call_login_apiを実行しました。")
+        print(f"qdance.pyの関数_call_login_apiを実行しました。")
         login = self._download_json(
             'https://members.id-t.com/api/auth/login', None, note, headers={
                 'content-type': 'application/json',
@@ -118,9 +119,11 @@ class QDanceIE(InfoExtractor):
         print(f"qdance.pyの関数_perform_loginを実行しました。")
         print(f"qdance.pyの関数_perform_loginを実行しました。")
         print(f"qdance.pyの関数_perform_loginを実行しました。")
+        print(f"qdance.pyの関数_perform_loginを実行しました。")
         self._call_login_api({'email': username, 'password': password})
 
     def _real_initialize(self):
+        print(f"qdance.pyの関数_real_initializeを実行しました。")
         print(f"qdance.pyの関数_real_initializeを実行しました。")
         print(f"qdance.pyの関数_real_initializeを実行しました。")
         print(f"qdance.pyの関数_real_initializeを実行しました。")
@@ -134,6 +137,7 @@ class QDanceIE(InfoExtractor):
             self.raise_login_required()
 
     def _get_auth(self):
+        print(f"qdance.pyの関数_get_authを実行しました。")
         print(f"qdance.pyの関数_get_authを実行しました。")
         print(f"qdance.pyの関数_get_authを実行しました。")
         print(f"qdance.pyの関数_get_authを実行しました。")
@@ -156,11 +160,13 @@ class QDanceIE(InfoExtractor):
         print(f"qdance.pyの関数_real_extractを実行しました。")
         print(f"qdance.pyの関数_real_extractを実行しました。")
         print(f"qdance.pyの関数_real_extractを実行しました。")
+        print(f"qdance.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         data = self._search_nuxt_data(webpage, video_id, traverse=('data', 0, 'data'))
 
         def extract_availability(level):
+            print(f"qdance.pyの関数extract_availabilityを実行しました。")
             print(f"qdance.pyの関数extract_availabilityを実行しました。")
             print(f"qdance.pyの関数extract_availabilityを実行しました。")
             print(f"qdance.pyの関数extract_availabilityを実行しました。")

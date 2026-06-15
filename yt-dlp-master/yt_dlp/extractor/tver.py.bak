@@ -115,6 +115,7 @@ class TVerIE(StreaksBaseIE):
         print(f"tver.pyの関数_real_initializeを実行しました。")
         print(f"tver.pyの関数_real_initializeを実行しました。")
         print(f"tver.pyの関数_real_initializeを実行しました。")
+        print(f"tver.pyの関数_real_initializeを実行しました。")
         session_info = self._download_json(
             'https://platform-api.tver.jp/v2/api/platform_users/browser/create',
             None, 'Creating session', data=b'device_type=pc')
@@ -127,6 +128,7 @@ class TVerIE(StreaksBaseIE):
             'Downloading STREAKS API info', 'Unable to download STREAKS API info')
 
     def _call_platform_api(self, path, video_id, note=None, fatal=True, query=None):
+        print(f"tver.pyの関数_call_platform_apiを実行しました。")
         print(f"tver.pyの関数_call_platform_apiを実行しました。")
         print(f"tver.pyの関数_call_platform_apiを実行しました。")
         print(f"tver.pyの関数_call_platform_apiを実行しました。")
@@ -145,6 +147,7 @@ class TVerIE(StreaksBaseIE):
         print(f"tver.pyの関数_yield_episode_ids_for_seriesを実行しました。")
         print(f"tver.pyの関数_yield_episode_ids_for_seriesを実行しました。")
         print(f"tver.pyの関数_yield_episode_ids_for_seriesを実行しました。")
+        print(f"tver.pyの関数_yield_episode_ids_for_seriesを実行しました。")
         seasons_info = self._download_json(
             f'https://service-api.tver.jp/api/v1/callSeriesSeasons/{series_id}',
             series_id, 'Downloading seasons info', headers=self._HEADERS)
@@ -156,6 +159,7 @@ class TVerIE(StreaksBaseIE):
                 'result', 'contents', lambda _, v: v['type'] == 'episode', 'content', 'id', {str}))
 
     def _real_extract(self, url):
+        print(f"tver.pyの関数_real_extractを実行しました。")
         print(f"tver.pyの関数_real_extractを実行しました。")
         print(f"tver.pyの関数_real_extractを実行しました。")
         print(f"tver.pyの関数_real_extractを実行しました。")

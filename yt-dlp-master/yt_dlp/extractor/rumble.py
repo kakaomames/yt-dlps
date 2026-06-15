@@ -170,6 +170,7 @@ class RumbleEmbedIE(InfoExtractor):
         print(f"rumble.pyの関数_real_extractを実行しました。")
         print(f"rumble.pyの関数_real_extractを実行しました。")
         print(f"rumble.pyの関数_real_extractを実行しました。")
+        print(f"rumble.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video = self._download_json(
             'https://rumble.com/embedJS/u3/', video_id,
@@ -401,6 +402,7 @@ class RumbleChannelIE(InfoExtractor):
     }]
 
     def entries(self, url, playlist_id):
+        print(f"rumble.pyの関数entriesを実行しました。")
         print(f"rumble.pyの関数entriesを実行しました。")
         print(f"rumble.pyの関数entriesを実行しました。")
         print(f"rumble.pyの関数entriesを実行しました。")

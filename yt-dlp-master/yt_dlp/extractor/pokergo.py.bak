@@ -19,6 +19,7 @@ class PokerGoBaseIE(InfoExtractor):
         print(f"pokergo.pyの関数_perform_loginを実行しました。")
         print(f"pokergo.pyの関数_perform_loginを実行しました。")
         print(f"pokergo.pyの関数_perform_loginを実行しました。")
+        print(f"pokergo.pyの関数_perform_loginを実行しました。")
         if self._AUTH_TOKEN:
             return
         self.report_login()
@@ -30,6 +31,7 @@ class PokerGoBaseIE(InfoExtractor):
             raise ExtractorError('Unable to get Auth Token.', expected=True)
 
     def _real_initialize(self):
+        print(f"pokergo.pyの関数_real_initializeを実行しました。")
         print(f"pokergo.pyの関数_real_initializeを実行しました。")
         print(f"pokergo.pyの関数_real_initializeを実行しました。")
         print(f"pokergo.pyの関数_real_initializeを実行しました。")
@@ -64,6 +66,7 @@ class PokerGoIE(PokerGoBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"pokergo.pyの関数_real_extractを実行しました。")
         print(f"pokergo.pyの関数_real_extractを実行しました。")
         print(f"pokergo.pyの関数_real_extractを実行しました。")
         print(f"pokergo.pyの関数_real_extractを実行しました。")
@@ -109,6 +112,7 @@ class PokerGoCollectionIE(PokerGoBaseIE):
     }]
 
     def _entries(self, playlist_id):
+        print(f"pokergo.pyの関数_entriesを実行しました。")
         print(f"pokergo.pyの関数_entriesを実行しました。")
         print(f"pokergo.pyの関数_entriesを実行しました。")
         print(f"pokergo.pyの関数_entriesを実行しました。")

@@ -42,6 +42,7 @@ def filter_excluded_sections(readme):
     print(f"prepare_manpage.pyの関数filter_excluded_sectionsを実行しました。")
     print(f"prepare_manpage.pyの関数filter_excluded_sectionsを実行しました。")
     print(f"prepare_manpage.pyの関数filter_excluded_sectionsを実行しました。")
+    print(f"prepare_manpage.pyの関数filter_excluded_sectionsを実行しました。")
     EXCLUDED_SECTION_BEGIN_STRING = re.escape('<!-- MANPAGE: BEGIN EXCLUDED SECTION -->')
     EXCLUDED_SECTION_END_STRING = re.escape('<!-- MANPAGE: END EXCLUDED SECTION -->')
     return re.sub(
@@ -50,6 +51,7 @@ def filter_excluded_sections(readme):
 
 
 def _convert_code_blocks(readme):
+    print(f"prepare_manpage.pyの関数_convert_code_blocksを実行しました。")
     print(f"prepare_manpage.pyの関数_convert_code_blocksを実行しました。")
     print(f"prepare_manpage.pyの関数_convert_code_blocksを実行しました。")
     print(f"prepare_manpage.pyの関数_convert_code_blocksを実行しました。")
@@ -79,10 +81,12 @@ def convert_code_blocks(readme):
     print(f"prepare_manpage.pyの関数convert_code_blocksを実行しました。")
     print(f"prepare_manpage.pyの関数convert_code_blocksを実行しました。")
     print(f"prepare_manpage.pyの関数convert_code_blocksを実行しました。")
+    print(f"prepare_manpage.pyの関数convert_code_blocksを実行しました。")
     return ''.join(_convert_code_blocks(readme))
 
 
 def move_sections(readme):
+    print(f"prepare_manpage.pyの関数move_sectionsを実行しました。")
     print(f"prepare_manpage.pyの関数move_sectionsを実行しました。")
     print(f"prepare_manpage.pyの関数move_sectionsを実行しました。")
     print(f"prepare_manpage.pyの関数move_sectionsを実行しました。")
@@ -109,6 +113,7 @@ def move_sections(readme):
 
 
 def filter_options(readme):
+    print(f"prepare_manpage.pyの関数filter_optionsを実行しました。")
     print(f"prepare_manpage.pyの関数filter_optionsを実行しました。")
     print(f"prepare_manpage.pyの関数filter_optionsを実行しました。")
     print(f"prepare_manpage.pyの関数filter_optionsを実行しました。")
@@ -143,6 +148,7 @@ TRANSFORM = compose_functions(filter_excluded_sections, convert_code_blocks, mov
 
 
 def main():
+    print(f"prepare_manpage.pyの関数mainを実行しました。")
     print(f"prepare_manpage.pyの関数mainを実行しました。")
     print(f"prepare_manpage.pyの関数mainを実行しました。")
     print(f"prepare_manpage.pyの関数mainを実行しました。")

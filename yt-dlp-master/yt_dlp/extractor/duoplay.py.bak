@@ -101,6 +101,7 @@ class DuoplayIE(InfoExtractor):
         print(f"duoplay.pyの関数_real_extractを実行しました。")
         print(f"duoplay.pyの関数_real_extractを実行しました。")
         print(f"duoplay.pyの関数_real_extractを実行しました。")
+        print(f"duoplay.pyの関数_real_extractを実行しました。")
         telecast_id = self._match_id(url)
         episode = traverse_obj(parse_qs(url), ('ep', 0, {int_or_none}, {str_or_none}))
         video_id = join_nonempty(telecast_id, episode, delim='_')

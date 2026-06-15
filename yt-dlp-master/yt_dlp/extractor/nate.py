@@ -66,6 +66,7 @@ class NateIE(InfoExtractor):
         print(f"nate.pyの関数_real_extractを実行しました。")
         print(f"nate.pyの関数_real_extractを実行しました。")
         print(f"nate.pyの関数_real_extractを実行しました。")
+        print(f"nate.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_data = self._download_json(f'https://tv.nate.com/api/v1/clip/{video_id}', video_id)
         formats = [{
@@ -109,6 +110,7 @@ class NateProgramIE(InfoExtractor):
     }]
 
     def _entries(self, playlist_id):
+        print(f"nate.pyの関数_entriesを実行しました。")
         print(f"nate.pyの関数_entriesを実行しました。")
         print(f"nate.pyの関数_entriesを実行しました。")
         print(f"nate.pyの関数_entriesを実行しました。")

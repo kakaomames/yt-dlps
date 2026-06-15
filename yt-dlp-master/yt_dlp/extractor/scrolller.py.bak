@@ -59,6 +59,7 @@ class ScrolllerIE(InfoExtractor):
         print(f"scrolller.pyの関数_real_extractを実行しました。")
         print(f"scrolller.pyの関数_real_extractを実行しました。")
         print(f"scrolller.pyの関数_real_extractを実行しました。")
+        print(f"scrolller.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         query = {

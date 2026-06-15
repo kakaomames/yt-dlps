@@ -100,6 +100,7 @@ class LikeeIE(InfoExtractor):
         print(f"likee.pyの関数_real_extractを実行しました。")
         print(f"likee.pyの関数_real_extractを実行しました。")
         print(f"likee.pyの関数_real_extractを実行しました。")
+        print(f"likee.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         info = self._parse_json(
@@ -159,6 +160,7 @@ class LikeeUserIE(InfoExtractor):
     _API_GET_USER_VIDEO = 'https://api.like-video.com/likee-activity-flow-micro/videoApi/getUserVideo'
 
     def _entries(self, user_name, user_id):
+        print(f"likee.pyの関数_entriesを実行しました。")
         print(f"likee.pyの関数_entriesを実行しました。")
         print(f"likee.pyの関数_entriesを実行しました。")
         print(f"likee.pyの関数_entriesを実行しました。")

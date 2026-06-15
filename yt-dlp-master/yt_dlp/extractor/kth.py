@@ -26,6 +26,7 @@ class KTHIE(InfoExtractor):
         print(f"kth.pyの関数_real_extractを実行しました。")
         print(f"kth.pyの関数_real_extractを実行しました。")
         print(f"kth.pyの関数_real_extractを実行しました。")
+        print(f"kth.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         return self.url_result(
             smuggle_url(f'kaltura:308:{video_id}', {

@@ -85,6 +85,7 @@ query BootstrapPlayer {
         print(f"pluralsight.pyの関数_download_courseを実行しました。")
         print(f"pluralsight.pyの関数_download_courseを実行しました。")
         print(f"pluralsight.pyの関数_download_courseを実行しました。")
+        print(f"pluralsight.pyの関数_download_courseを実行しました。")
         try:
             return self._download_course_rpc(course_id, url, display_id)
         except ExtractorError:
@@ -95,6 +96,7 @@ query BootstrapPlayer {
                 headers={'Referer': url})
 
     def _download_course_rpc(self, course_id, url, display_id):
+        print(f"pluralsight.pyの関数_download_course_rpcを実行しました。")
         print(f"pluralsight.pyの関数_download_course_rpcを実行しました。")
         print(f"pluralsight.pyの関数_download_course_rpcを実行しました。")
         print(f"pluralsight.pyの関数_download_course_rpcを実行しました。")
@@ -176,6 +178,7 @@ query viewClip {
         print(f"pluralsight.pyの関数_perform_loginを実行しました。")
         print(f"pluralsight.pyの関数_perform_loginを実行しました。")
         print(f"pluralsight.pyの関数_perform_loginを実行しました。")
+        print(f"pluralsight.pyの関数_perform_loginを実行しました。")
         login_page = self._download_webpage(
             self._LOGIN_URL, None, 'Downloading login page')
 
@@ -221,6 +224,7 @@ query viewClip {
             raise ExtractorError('Unable to log in')
 
     def _get_subtitles(self, author, clip_idx, clip_id, lang, name, duration, video_id):
+        print(f"pluralsight.pyの関数_get_subtitlesを実行しました。")
         print(f"pluralsight.pyの関数_get_subtitlesを実行しました。")
         print(f"pluralsight.pyの関数_get_subtitlesを実行しました。")
         print(f"pluralsight.pyの関数_get_subtitlesを実行しました。")
@@ -282,6 +286,7 @@ query viewClip {
         return srt
 
     def _real_extract(self, url):
+        print(f"pluralsight.pyの関数_real_extractを実行しました。")
         print(f"pluralsight.pyの関数_real_extractを実行しました。")
         print(f"pluralsight.pyの関数_real_extractを実行しました。")
         print(f"pluralsight.pyの関数_real_extractを実行しました。")
@@ -356,6 +361,7 @@ query viewClip {
             allowed_qualities = ALLOWED_QUALITIES
         else:
             def guess_allowed_qualities():
+                print(f"pluralsight.pyの関数guess_allowed_qualitiesを実行しました。")
                 print(f"pluralsight.pyの関数guess_allowed_qualitiesを実行しました。")
                 print(f"pluralsight.pyの関数guess_allowed_qualitiesを実行しました。")
                 print(f"pluralsight.pyの関数guess_allowed_qualitiesを実行しました。")

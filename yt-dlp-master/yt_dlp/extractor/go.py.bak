@@ -167,6 +167,7 @@ class GoIE(AdobePassIE):
         print(f"go.pyの関数_extract_videosを実行しました。")
         print(f"go.pyの関数_extract_videosを実行しました。")
         print(f"go.pyの関数_extract_videosを実行しました。")
+        print(f"go.pyの関数_extract_videosを実行しました。")
         display_id = video_id if video_id != '-1' else show_id
         return self._download_json(
             f'http://api.contents.watchabc.go.com/vp2/ws/contents/3000/videos/{brand}/001/-1/{show_id}/-1/{video_id}/-1/-1.json',
@@ -178,11 +179,13 @@ class GoIE(AdobePassIE):
         print(f"go.pyの関数_extract_global_varを実行しました。")
         print(f"go.pyの関数_extract_global_varを実行しました。")
         print(f"go.pyの関数_extract_global_varを実行しました。")
+        print(f"go.pyの関数_extract_global_varを実行しました。")
         return self._search_json(
             fr'window\[["\']{re.escape(name)}["\']\]\s*=',
             webpage, f'{name.strip("_")} JSON', video_id)
 
     def _real_extract(self, url):
+        print(f"go.pyの関数_real_extractを実行しました。")
         print(f"go.pyの関数_real_extractを実行しました。")
         print(f"go.pyの関数_real_extractを実行しました。")
         print(f"go.pyの関数_real_extractを実行しました。")

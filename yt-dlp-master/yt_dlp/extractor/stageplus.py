@@ -441,6 +441,7 @@ fragment BannerFields on Banner {
         print(f"stageplus.pyの関数_perform_loginを実行しました。")
         print(f"stageplus.pyの関数_perform_loginを実行しました。")
         print(f"stageplus.pyの関数_perform_loginを実行しました。")
+        print(f"stageplus.pyの関数_perform_loginを実行しました。")
         auth = self._download_json('https://audience.api.stageplus.io/oauth/token', None, headers={
             'Content-Type': 'application/json',
             'Origin': 'https://www.stage-plus.com',
@@ -462,6 +463,7 @@ fragment BannerFields on Banner {
         print(f"stageplus.pyの関数_real_initializeを実行しました。")
         print(f"stageplus.pyの関数_real_initializeを実行しました。")
         print(f"stageplus.pyの関数_real_initializeを実行しました。")
+        print(f"stageplus.pyの関数_real_initializeを実行しました。")
         if self._TOKEN:
             return
 
@@ -471,6 +473,7 @@ fragment BannerFields on Banner {
             self.raise_login_required()
 
     def _real_extract(self, url):
+        print(f"stageplus.pyの関数_real_extractを実行しました。")
         print(f"stageplus.pyの関数_real_extractを実行しました。")
         print(f"stageplus.pyの関数_real_extractを実行しました。")
         print(f"stageplus.pyの関数_real_extractを実行しました。")

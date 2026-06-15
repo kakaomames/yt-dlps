@@ -50,6 +50,7 @@ class UDNEmbedIE(InfoExtractor):
         print(f"udn.pyの関数_real_extractを実行しました。")
         print(f"udn.pyの関数_real_extractを実行しました。")
         print(f"udn.pyの関数_real_extractを実行しました。")
+        print(f"udn.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         page = self._download_webpage(url, video_id)

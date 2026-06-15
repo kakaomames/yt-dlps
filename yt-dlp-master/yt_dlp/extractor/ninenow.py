@@ -110,6 +110,7 @@ class NineNowIE(InfoExtractor):
         print(f"ninenow.pyの関数_real_extractを実行しました。")
         print(f"ninenow.pyの関数_real_extractを実行しました。")
         print(f"ninenow.pyの関数_real_extractを実行しました。")
+        print(f"ninenow.pyの関数_real_extractを実行しました。")
         display_id, video_type = self._match_valid_url(url).group('id', 'type')
         webpage = self._download_webpage(url, display_id)
 

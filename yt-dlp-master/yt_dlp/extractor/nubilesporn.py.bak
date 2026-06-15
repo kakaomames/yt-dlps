@@ -61,12 +61,14 @@ class NubilesPornIE(InfoExtractor):
         print(f"nubilesporn.pyの関数_perform_loginを実行しました。")
         print(f"nubilesporn.pyの関数_perform_loginを実行しました。")
         print(f"nubilesporn.pyの関数_perform_loginを実行しました。")
+        print(f"nubilesporn.pyの関数_perform_loginを実行しました。")
         login_webpage = self._download_webpage('https://nubiles-porn.com/login', video_id=None)
         inputs = self._hidden_inputs(login_webpage)
         inputs.update({'username': username, 'password': password})
         self._request_webpage('https://nubiles-porn.com/authentication/login', None, data=urlencode_postdata(inputs))
 
     def _real_extract(self, url):
+        print(f"nubilesporn.pyの関数_real_extractを実行しました。")
         print(f"nubilesporn.pyの関数_real_extractを実行しました。")
         print(f"nubilesporn.pyの関数_real_extractを実行しました。")
         print(f"nubilesporn.pyの関数_real_extractを実行しました。")

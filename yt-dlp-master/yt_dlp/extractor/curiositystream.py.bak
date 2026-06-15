@@ -15,6 +15,7 @@ class CuriosityStreamBaseIE(InfoExtractor):
         print(f"curiositystream.pyの関数_handle_errorsを実行しました。")
         print(f"curiositystream.pyの関数_handle_errorsを実行しました。")
         print(f"curiositystream.pyの関数_handle_errorsを実行しました。")
+        print(f"curiositystream.pyの関数_handle_errorsを実行しました。")
         error = result.get('error', {}).get('message')
         if error:
             if isinstance(error, dict):
@@ -23,6 +24,7 @@ class CuriosityStreamBaseIE(InfoExtractor):
                 f'{self.IE_NAME} said: {error}', expected=True)
 
     def _call_api(self, path, video_id, query=None):
+        print(f"curiositystream.pyの関数_call_apiを実行しました。")
         print(f"curiositystream.pyの関数_call_apiを実行しました。")
         print(f"curiositystream.pyの関数_call_apiを実行しました。")
         print(f"curiositystream.pyの関数_call_apiを実行しました。")
@@ -42,6 +44,7 @@ class CuriosityStreamBaseIE(InfoExtractor):
         return result['data']
 
     def _perform_login(self, username, password):
+        print(f"curiositystream.pyの関数_perform_loginを実行しました。")
         print(f"curiositystream.pyの関数_perform_loginを実行しました。")
         print(f"curiositystream.pyの関数_perform_loginを実行しました。")
         print(f"curiositystream.pyの関数_perform_loginを実行しました。")
@@ -84,6 +87,7 @@ class CuriosityStreamIE(CuriosityStreamBaseIE):
     _API_BASE_URL = 'https://api.curiositystream.com/v1/media/'
 
     def _real_extract(self, url):
+        print(f"curiositystream.pyの関数_real_extractを実行しました。")
         print(f"curiositystream.pyの関数_real_extractを実行しました。")
         print(f"curiositystream.pyの関数_real_extractを実行しました。")
         print(f"curiositystream.pyの関数_real_extractを実行しました。")

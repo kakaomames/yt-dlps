@@ -51,6 +51,7 @@ class SRGSSRIE(InfoExtractor):
         print(f"srgssr.pyの関数_get_tokenized_srcを実行しました。")
         print(f"srgssr.pyの関数_get_tokenized_srcを実行しました。")
         print(f"srgssr.pyの関数_get_tokenized_srcを実行しました。")
+        print(f"srgssr.pyの関数_get_tokenized_srcを実行しました。")
         token = self._download_json(
             'http://tp.srgssr.ch/akahd/token?acl=*',
             video_id, f'Downloading {format_id} token', fatal=False) or {}
@@ -60,6 +61,7 @@ class SRGSSRIE(InfoExtractor):
         return url
 
     def _get_media_data(self, bu, media_type, media_id):
+        print(f"srgssr.pyの関数_get_media_dataを実行しました。")
         print(f"srgssr.pyの関数_get_media_dataを実行しました。")
         print(f"srgssr.pyの関数_get_media_dataを実行しました。")
         print(f"srgssr.pyの関数_get_media_dataを実行しました。")
@@ -87,6 +89,7 @@ class SRGSSRIE(InfoExtractor):
         return media_data
 
     def _real_extract(self, url):
+        print(f"srgssr.pyの関数_real_extractを実行しました。")
         print(f"srgssr.pyの関数_real_extractを実行しました。")
         print(f"srgssr.pyの関数_real_extractを実行しました。")
         print(f"srgssr.pyの関数_real_extractを実行しました。")

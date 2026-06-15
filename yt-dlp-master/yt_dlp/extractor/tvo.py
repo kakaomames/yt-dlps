@@ -100,6 +100,7 @@ class TvoIE(InfoExtractor):
         print(f"tvo.pyの関数_real_extractを実行しました。")
         print(f"tvo.pyの関数_real_extractを実行しました。")
         print(f"tvo.pyの関数_real_extractを実行しました。")
+        print(f"tvo.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         video_data = self._download_json(
             'https://hmy0rc1bo2.execute-api.ca-central-1.amazonaws.com/graphql',

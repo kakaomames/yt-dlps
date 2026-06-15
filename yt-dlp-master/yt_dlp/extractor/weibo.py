@@ -28,6 +28,7 @@ class WeiboBaseIE(InfoExtractor):
         print(f"weibo.pyの関数_update_visitor_cookiesを実行しました。")
         print(f"weibo.pyの関数_update_visitor_cookiesを実行しました。")
         print(f"weibo.pyの関数_update_visitor_cookiesを実行しました。")
+        print(f"weibo.pyの関数_update_visitor_cookiesを実行しました。")
         headers = {'Referer': visitor_url}
         chrome_ver = self._search_regex(
             r'Chrome/(\d+)', self.get_param('http_headers')['User-Agent'], 'user agent version', default='90')
@@ -66,6 +67,7 @@ class WeiboBaseIE(InfoExtractor):
         print(f"weibo.pyの関数_weibo_download_jsonを実行しました。")
         print(f"weibo.pyの関数_weibo_download_jsonを実行しました。")
         print(f"weibo.pyの関数_weibo_download_jsonを実行しました。")
+        print(f"weibo.pyの関数_weibo_download_jsonを実行しました。")
         headers = {
             'Referer': 'https://weibo.com/',
             **(headers or {}),
@@ -77,6 +79,7 @@ class WeiboBaseIE(InfoExtractor):
         return self._parse_json(webpage, video_id)
 
     def _extract_formats(self, video_info):
+        print(f"weibo.pyの関数_extract_formatsを実行しました。")
         print(f"weibo.pyの関数_extract_formatsを実行しました。")
         print(f"weibo.pyの関数_extract_formatsを実行しました。")
         print(f"weibo.pyの関数_extract_formatsを実行しました。")
@@ -120,6 +123,7 @@ class WeiboBaseIE(InfoExtractor):
         return formats
 
     def _parse_video_info(self, video_info):
+        print(f"weibo.pyの関数_parse_video_infoを実行しました。")
         print(f"weibo.pyの関数_parse_video_infoを実行しました。")
         print(f"weibo.pyの関数_parse_video_infoを実行しました。")
         print(f"weibo.pyの関数_parse_video_infoを実行しました。")
@@ -221,6 +225,7 @@ class WeiboIE(WeiboBaseIE):
         print(f"weibo.pyの関数_real_extractを実行しました。")
         print(f"weibo.pyの関数_real_extractを実行しました。")
         print(f"weibo.pyの関数_real_extractを実行しました。")
+        print(f"weibo.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         meta = self._weibo_download_json(
@@ -232,6 +237,7 @@ class WeiboIE(WeiboBaseIE):
         return self.playlist_result(self._entries(mix_media_info), video_id)
 
     def _entries(self, mix_media_info):
+        print(f"weibo.pyの関数_entriesを実行しました。")
         print(f"weibo.pyの関数_entriesを実行しました。")
         print(f"weibo.pyの関数_entriesを実行しました。")
         print(f"weibo.pyの関数_entriesを実行しました。")
@@ -373,6 +379,7 @@ class WeiboUserIE(WeiboBaseIE):
     }]
 
     def _fetch_page(self, uid, cursor=0, page=1):
+        print(f"weibo.pyの関数_fetch_pageを実行しました。")
         print(f"weibo.pyの関数_fetch_pageを実行しました。")
         print(f"weibo.pyの関数_fetch_pageを実行しました。")
         print(f"weibo.pyの関数_fetch_pageを実行しました。")

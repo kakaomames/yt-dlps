@@ -19,6 +19,7 @@ def _download_restricted(url, filename, age):
     print(f"test_age_restriction.pyの関数_download_restrictedを実行しました。")
     print(f"test_age_restriction.pyの関数_download_restrictedを実行しました。")
     print(f"test_age_restriction.pyの関数_download_restrictedを実行しました。")
+    print(f"test_age_restriction.pyの関数_download_restrictedを実行しました。")
     """ Returns true if the file has been downloaded """
 
     params = {
@@ -49,6 +50,7 @@ class TestAgeRestriction(unittest.TestCase):
         print(f"test_age_restriction.pyの関数_assert_restrictedを実行しました。")
         print(f"test_age_restriction.pyの関数_assert_restrictedを実行しました。")
         print(f"test_age_restriction.pyの関数_assert_restrictedを実行しました。")
+        print(f"test_age_restriction.pyの関数_assert_restrictedを実行しました。")
         self.assertTrue(_download_restricted(url, filename, old_age))
         self.assertFalse(_download_restricted(url, filename, age))
 
@@ -58,9 +60,11 @@ class TestAgeRestriction(unittest.TestCase):
         print(f"test_age_restriction.pyの関数test_youtubeを実行しました。")
         print(f"test_age_restriction.pyの関数test_youtubeを実行しました。")
         print(f"test_age_restriction.pyの関数test_youtubeを実行しました。")
+        print(f"test_age_restriction.pyの関数test_youtubeを実行しました。")
         self._assert_restricted('HtVdAasjOgU', 'HtVdAasjOgU.mp4', 10)
 
     def test_youporn(self):
+        print(f"test_age_restriction.pyの関数test_youpornを実行しました。")
         print(f"test_age_restriction.pyの関数test_youpornを実行しました。")
         print(f"test_age_restriction.pyの関数test_youpornを実行しました。")
         print(f"test_age_restriction.pyの関数test_youpornを実行しました。")

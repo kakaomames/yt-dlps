@@ -46,6 +46,7 @@ class JioSaavnBaseIE(InfoExtractor):
         print(f"jiosaavn.pyの関数_extract_formatsを実行しました。")
         print(f"jiosaavn.pyの関数_extract_formatsを実行しました。")
         print(f"jiosaavn.pyの関数_extract_formatsを実行しました。")
+        print(f"jiosaavn.pyの関数_extract_formatsを実行しました。")
         # Show/episode JSON data has a slightly different structure than song JSON data
         if media_url := traverse_obj(item_data, ('more_info', 'encrypted_media_url', {str})):
             item_data.setdefault('encrypted_media_url', media_url)
@@ -73,6 +74,7 @@ class JioSaavnBaseIE(InfoExtractor):
             }
 
     def _call_api(self, type_, token, note='API', params={}):
+        print(f"jiosaavn.pyの関数_call_apiを実行しました。")
         print(f"jiosaavn.pyの関数_call_apiを実行しました。")
         print(f"jiosaavn.pyの関数_call_apiを実行しました。")
         print(f"jiosaavn.pyの関数_call_apiを実行しました。")
@@ -143,6 +145,7 @@ class JioSaavnBaseIE(InfoExtractor):
         print(f"jiosaavn.pyの関数_extract_jiosaavn_resultを実行しました。")
         print(f"jiosaavn.pyの関数_extract_jiosaavn_resultを実行しました。")
         print(f"jiosaavn.pyの関数_extract_jiosaavn_resultを実行しました。")
+        print(f"jiosaavn.pyの関数_extract_jiosaavn_resultを実行しました。")
         url, smuggled_data = unsmuggle_url(url)
         data = traverse_obj(smuggled_data, ({
             'id': ('id', {str}),
@@ -160,6 +163,7 @@ class JioSaavnBaseIE(InfoExtractor):
         return result
 
     def _yield_items(self, playlist_data, keys=None, parse_func=None):
+        print(f"jiosaavn.pyの関数_yield_itemsを実行しました。")
         print(f"jiosaavn.pyの関数_yield_itemsを実行しました。")
         print(f"jiosaavn.pyの関数_yield_itemsを実行しました。")
         print(f"jiosaavn.pyの関数_yield_itemsを実行しました。")
@@ -231,6 +235,7 @@ class JioSaavnSongIE(JioSaavnBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"jiosaavn.pyの関数_real_extractを実行しました。")
         print(f"jiosaavn.pyの関数_real_extractを実行しました。")
         print(f"jiosaavn.pyの関数_real_extractを実行しました。")
         print(f"jiosaavn.pyの関数_real_extractを実行しました。")
@@ -333,10 +338,12 @@ class JioSaavnPlaylistIE(JioSaavnBaseIE):
         print(f"jiosaavn.pyの関数_fetch_pageを実行しました。")
         print(f"jiosaavn.pyの関数_fetch_pageを実行しました。")
         print(f"jiosaavn.pyの関数_fetch_pageを実行しました。")
+        print(f"jiosaavn.pyの関数_fetch_pageを実行しました。")
         return self._call_api(
             'playlist', token, f'playlist page {page}', {'p': page, 'n': self._PAGE_SIZE})
 
     def _entries(self, token, first_page_data, page):
+        print(f"jiosaavn.pyの関数_entriesを実行しました。")
         print(f"jiosaavn.pyの関数_entriesを実行しました。")
         print(f"jiosaavn.pyの関数_entriesを実行しました。")
         print(f"jiosaavn.pyの関数_entriesを実行しました。")
