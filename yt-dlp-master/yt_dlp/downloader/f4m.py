@@ -30,6 +30,7 @@ class FlvReader(io.BytesIO):
         print(f"f4m.pyの関数read_bytesを実行しました。")
         print(f"f4m.pyの関数read_bytesを実行しました。")
         print(f"f4m.pyの関数read_bytesを実行しました。")
+        print(f"f4m.pyの関数read_bytesを実行しました。")
         data = self.read(n)
         if len(data) < n:
             raise DataTruncatedError(
@@ -39,6 +40,7 @@ class FlvReader(io.BytesIO):
 
     # Utility functions for reading numbers and strings
     def read_unsigned_long_long(self):
+        print(f"f4m.pyの関数read_unsigned_long_longを実行しました。")
         print(f"f4m.pyの関数read_unsigned_long_longを実行しました。")
         print(f"f4m.pyの関数read_unsigned_long_longを実行しました。")
         print(f"f4m.pyの関数read_unsigned_long_longを実行しました。")
@@ -58,6 +60,7 @@ class FlvReader(io.BytesIO):
         print(f"f4m.pyの関数read_unsigned_intを実行しました。")
         print(f"f4m.pyの関数read_unsigned_intを実行しました。")
         print(f"f4m.pyの関数read_unsigned_intを実行しました。")
+        print(f"f4m.pyの関数read_unsigned_intを実行しました。")
         return struct.unpack('!I', self.read_bytes(4))[0]
 
     def read_unsigned_char(self):
@@ -69,9 +72,11 @@ class FlvReader(io.BytesIO):
         print(f"f4m.pyの関数read_unsigned_charを実行しました。")
         print(f"f4m.pyの関数read_unsigned_charを実行しました。")
         print(f"f4m.pyの関数read_unsigned_charを実行しました。")
+        print(f"f4m.pyの関数read_unsigned_charを実行しました。")
         return struct.unpack('!B', self.read_bytes(1))[0]
 
     def read_string(self):
+        print(f"f4m.pyの関数read_stringを実行しました。")
         print(f"f4m.pyの関数read_stringを実行しました。")
         print(f"f4m.pyの関数read_stringを実行しました。")
         print(f"f4m.pyの関数read_stringを実行しました。")
@@ -97,6 +102,7 @@ class FlvReader(io.BytesIO):
         print(f"f4m.pyの関数read_box_infoを実行しました。")
         print(f"f4m.pyの関数read_box_infoを実行しました。")
         print(f"f4m.pyの関数read_box_infoを実行しました。")
+        print(f"f4m.pyの関数read_box_infoを実行しました。")
         """
         Read a box and return the info as a tuple: (box_size, box_type, box_data)
         """
@@ -109,6 +115,7 @@ class FlvReader(io.BytesIO):
         return real_size, box_type, self.read_bytes(real_size - header_end)
 
     def read_asrt(self):
+        print(f"f4m.pyの関数read_asrtを実行しました。")
         print(f"f4m.pyの関数read_asrtを実行しました。")
         print(f"f4m.pyの関数read_asrtを実行しました。")
         print(f"f4m.pyの関数read_asrtを実行しました。")
@@ -138,6 +145,7 @@ class FlvReader(io.BytesIO):
         }
 
     def read_afrt(self):
+        print(f"f4m.pyの関数read_afrtを実行しました。")
         print(f"f4m.pyの関数read_afrtを実行しました。")
         print(f"f4m.pyの関数read_afrtを実行しました。")
         print(f"f4m.pyの関数read_afrtを実行しました。")
@@ -180,6 +188,7 @@ class FlvReader(io.BytesIO):
         }
 
     def read_abst(self):
+        print(f"f4m.pyの関数read_abstを実行しました。")
         print(f"f4m.pyの関数read_abstを実行しました。")
         print(f"f4m.pyの関数read_abstを実行しました。")
         print(f"f4m.pyの関数read_abstを実行しました。")
@@ -247,6 +256,7 @@ class FlvReader(io.BytesIO):
         print(f"f4m.pyの関数read_bootstrap_infoを実行しました。")
         print(f"f4m.pyの関数read_bootstrap_infoを実行しました。")
         print(f"f4m.pyの関数read_bootstrap_infoを実行しました。")
+        print(f"f4m.pyの関数read_bootstrap_infoを実行しました。")
         _, box_type, box_data = self.read_box_info()
         assert box_type == b'abst'
         return FlvReader(box_data).read_abst()
@@ -261,10 +271,12 @@ def read_bootstrap_info(bootstrap_bytes):
     print(f"f4m.pyの関数read_bootstrap_infoを実行しました。")
     print(f"f4m.pyの関数read_bootstrap_infoを実行しました。")
     print(f"f4m.pyの関数read_bootstrap_infoを実行しました。")
+    print(f"f4m.pyの関数read_bootstrap_infoを実行しました。")
     return FlvReader(bootstrap_bytes).read_bootstrap_info()
 
 
 def build_fragments_list(boot_info):
+    print(f"f4m.pyの関数build_fragments_listを実行しました。")
     print(f"f4m.pyの関数build_fragments_listを実行しました。")
     print(f"f4m.pyの関数build_fragments_listを実行しました。")
     print(f"f4m.pyの関数build_fragments_listを実行しました。")
@@ -303,10 +315,12 @@ def write_unsigned_int(stream, val):
     print(f"f4m.pyの関数write_unsigned_intを実行しました。")
     print(f"f4m.pyの関数write_unsigned_intを実行しました。")
     print(f"f4m.pyの関数write_unsigned_intを実行しました。")
+    print(f"f4m.pyの関数write_unsigned_intを実行しました。")
     stream.write(struct.pack('!I', val))
 
 
 def write_unsigned_int_24(stream, val):
+    print(f"f4m.pyの関数write_unsigned_int_24を実行しました。")
     print(f"f4m.pyの関数write_unsigned_int_24を実行しました。")
     print(f"f4m.pyの関数write_unsigned_int_24を実行しました。")
     print(f"f4m.pyの関数write_unsigned_int_24を実行しました。")
@@ -327,6 +341,7 @@ def write_flv_header(stream):
     print(f"f4m.pyの関数write_flv_headerを実行しました。")
     print(f"f4m.pyの関数write_flv_headerを実行しました。")
     print(f"f4m.pyの関数write_flv_headerを実行しました。")
+    print(f"f4m.pyの関数write_flv_headerを実行しました。")
     """Writes the FLV header to stream"""
     # FLV header
     stream.write(b'FLV\x01')
@@ -336,6 +351,7 @@ def write_flv_header(stream):
 
 
 def write_metadata_tag(stream, metadata):
+    print(f"f4m.pyの関数write_metadata_tagを実行しました。")
     print(f"f4m.pyの関数write_metadata_tagを実行しました。")
     print(f"f4m.pyの関数write_metadata_tagを実行しました。")
     print(f"f4m.pyの関数write_metadata_tagを実行しました。")
@@ -365,6 +381,7 @@ def remove_encrypted_media(media):
     print(f"f4m.pyの関数remove_encrypted_mediaを実行しました。")
     print(f"f4m.pyの関数remove_encrypted_mediaを実行しました。")
     print(f"f4m.pyの関数remove_encrypted_mediaを実行しました。")
+    print(f"f4m.pyの関数remove_encrypted_mediaを実行しました。")
     return list(filter(lambda e: 'drmAdditionalHeaderId' not in e.attrib
                                  and 'drmAdditionalHeaderSetId' not in e.attrib,
                        media))
@@ -379,10 +396,12 @@ def _add_ns(prop, ver=1):
     print(f"f4m.pyの関数_add_nsを実行しました。")
     print(f"f4m.pyの関数_add_nsを実行しました。")
     print(f"f4m.pyの関数_add_nsを実行しました。")
+    print(f"f4m.pyの関数_add_nsを実行しました。")
     return '{http://ns.adobe.com/f4m/%d.0}%s' % (ver, prop)
 
 
 def get_base_url(manifest):
+    print(f"f4m.pyの関数get_base_urlを実行しました。")
     print(f"f4m.pyの関数get_base_urlを実行しました。")
     print(f"f4m.pyの関数get_base_urlを実行しました。")
     print(f"f4m.pyの関数get_base_urlを実行しました。")
@@ -405,6 +424,7 @@ class F4mFD(FragmentFD):
     """
 
     def _get_unencrypted_media(self, doc):
+        print(f"f4m.pyの関数_get_unencrypted_mediaを実行しました。")
         print(f"f4m.pyの関数_get_unencrypted_mediaを実行しました。")
         print(f"f4m.pyの関数_get_unencrypted_mediaを実行しました。")
         print(f"f4m.pyの関数_get_unencrypted_mediaを実行しました。")
@@ -437,10 +457,12 @@ class F4mFD(FragmentFD):
         print(f"f4m.pyの関数_get_bootstrap_from_urlを実行しました。")
         print(f"f4m.pyの関数_get_bootstrap_from_urlを実行しました。")
         print(f"f4m.pyの関数_get_bootstrap_from_urlを実行しました。")
+        print(f"f4m.pyの関数_get_bootstrap_from_urlを実行しました。")
         bootstrap = self.ydl.urlopen(bootstrap_url).read()
         return read_bootstrap_info(bootstrap)
 
     def _update_live_fragments(self, bootstrap_url, latest_fragment):
+        print(f"f4m.pyの関数_update_live_fragmentsを実行しました。")
         print(f"f4m.pyの関数_update_live_fragmentsを実行しました。")
         print(f"f4m.pyの関数_update_live_fragmentsを実行しました。")
         print(f"f4m.pyの関数_update_live_fragmentsを実行しました。")
@@ -474,6 +496,7 @@ class F4mFD(FragmentFD):
         print(f"f4m.pyの関数_parse_bootstrap_nodeを実行しました。")
         print(f"f4m.pyの関数_parse_bootstrap_nodeを実行しました。")
         print(f"f4m.pyの関数_parse_bootstrap_nodeを実行しました。")
+        print(f"f4m.pyの関数_parse_bootstrap_nodeを実行しました。")
         # Sometimes non empty inline bootstrap info can be specified along
         # with bootstrap url attribute (e.g. dummy inline bootstrap info
         # contains whitespace characters in [1]). We will prefer bootstrap
@@ -491,6 +514,7 @@ class F4mFD(FragmentFD):
         return boot_info, bootstrap_url
 
     def real_download(self, filename, info_dict):
+        print(f"f4m.pyの関数real_downloadを実行しました。")
         print(f"f4m.pyの関数real_downloadを実行しました。")
         print(f"f4m.pyの関数real_downloadを実行しました。")
         print(f"f4m.pyの関数real_downloadを実行しました。")

@@ -56,6 +56,7 @@ class CtsNewsIE(InfoExtractor):
         print(f"ctsnews.pyの関数_real_extractを実行しました。")
         print(f"ctsnews.pyの関数_real_extractを実行しました。")
         print(f"ctsnews.pyの関数_real_extractを実行しました。")
+        print(f"ctsnews.pyの関数_real_extractを実行しました。")
         news_id = self._match_id(url)
         page = self._download_webpage(url, news_id)
 

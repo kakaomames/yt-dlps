@@ -122,6 +122,7 @@ class CBCIE(InfoExtractor):
         print(f"cbc.pyの関数_extract_player_initを実行しました。")
         print(f"cbc.pyの関数_extract_player_initを実行しました。")
         print(f"cbc.pyの関数_extract_player_initを実行しました。")
+        print(f"cbc.pyの関数_extract_player_initを実行しました。")
         player_info = self._parse_json(player_init, display_id, js_to_json)
         media_id = player_info.get('mediaId')
         if not media_id:
@@ -138,6 +139,7 @@ class CBCIE(InfoExtractor):
         return self.url_result(f'cbcplayer:{media_id}', 'CBCPlayer', media_id)
 
     def _real_extract(self, url):
+        print(f"cbc.pyの関数_real_extractを実行しました。")
         print(f"cbc.pyの関数_real_extractを実行しました。")
         print(f"cbc.pyの関数_real_extractを実行しました。")
         print(f"cbc.pyの関数_real_extractを実行しました。")
@@ -410,6 +412,7 @@ class CBCPlayerIE(InfoExtractor):
         print(f"cbc.pyの関数_parse_paramを実行しました。")
         print(f"cbc.pyの関数_parse_paramを実行しました。")
         print(f"cbc.pyの関数_parse_paramを実行しました。")
+        print(f"cbc.pyの関数_parse_paramを実行しました。")
         return traverse_obj(asset_data, ('params', lambda _, v: v['name'] == name, 'value', {str}, any))
 
     def _real_extract(self, url):
@@ -553,6 +556,7 @@ class CBCPlayerPlaylistIE(InfoExtractor):
             print(f"cbc.pyの関数entriesを実行しました。")
             print(f"cbc.pyの関数entriesを実行しました。")
             print(f"cbc.pyの関数entriesを実行しました。")
+            print(f"cbc.pyの関数entriesを実行しました。")
             for video_id in traverse_obj(json_content, (
                 'video', 'clipsByCategory', lambda k, _: k.lower() == playlist_id, 'items', ..., 'id',
             )):
@@ -573,11 +577,13 @@ class CBCGemBaseIE(InfoExtractor):
         print(f"cbc.pyの関数_call_show_apiを実行しました。")
         print(f"cbc.pyの関数_call_show_apiを実行しました。")
         print(f"cbc.pyの関数_call_show_apiを実行しました。")
+        print(f"cbc.pyの関数_call_show_apiを実行しました。")
         return self._download_json(
             f'https://services.radio-canada.ca/ott/catalog/v2/gem/show/{item_id}',
             display_id or item_id, query={'device': 'web'})
 
     def _call_media_api(self, media_id, app_code='gem', display_id=None, headers=None):
+        print(f"cbc.pyの関数_call_media_apiを実行しました。")
         print(f"cbc.pyの関数_call_media_apiを実行しました。")
         print(f"cbc.pyの関数_call_media_apiを実行しました。")
         print(f"cbc.pyの関数_call_media_apiを実行しました。")
@@ -611,6 +617,7 @@ class CBCGemBaseIE(InfoExtractor):
         return media_data
 
     def _extract_item_info(self, item_info):
+        print(f"cbc.pyの関数_extract_item_infoを実行しました。")
         print(f"cbc.pyの関数_extract_item_infoを実行しました。")
         print(f"cbc.pyの関数_extract_item_infoを実行しました。")
         print(f"cbc.pyの関数_extract_item_infoを実行しました。")
@@ -717,9 +724,11 @@ class CBCGemIE(CBCGemBaseIE):
         print(f"cbc.pyの関数_is_jwt_expiredを実行しました。")
         print(f"cbc.pyの関数_is_jwt_expiredを実行しました。")
         print(f"cbc.pyの関数_is_jwt_expiredを実行しました。")
+        print(f"cbc.pyの関数_is_jwt_expiredを実行しました。")
         return jwt_decode_hs256(token)['exp'] - time.time() < 300
 
     def _call_oauth_api(self, oauth_data, note='Refreshing access token'):
+        print(f"cbc.pyの関数_call_oauth_apiを実行しました。")
         print(f"cbc.pyの関数_call_oauth_apiを実行しました。")
         print(f"cbc.pyの関数_call_oauth_apiを実行しました。")
         print(f"cbc.pyの関数_call_oauth_apiを実行しました。")
@@ -738,6 +747,7 @@ class CBCGemIE(CBCGemBaseIE):
         self.cache.store(self._NETRC_MACHINE, 'token_data', [self._refresh_token, self._access_token])
 
     def _perform_login(self, username, password):
+        print(f"cbc.pyの関数_perform_loginを実行しました。")
         print(f"cbc.pyの関数_perform_loginを実行しました。")
         print(f"cbc.pyの関数_perform_loginを実行しました。")
         print(f"cbc.pyの関数_perform_loginを実行しました。")
@@ -774,6 +784,7 @@ class CBCGemIE(CBCGemBaseIE):
         print(f"cbc.pyの関数_fetch_access_tokenを実行しました。")
         print(f"cbc.pyの関数_fetch_access_tokenを実行しました。")
         print(f"cbc.pyの関数_fetch_access_tokenを実行しました。")
+        print(f"cbc.pyの関数_fetch_access_tokenを実行しました。")
         if self._is_jwt_expired(self._access_token):
             try:
                 self._call_oauth_api({
@@ -789,6 +800,7 @@ class CBCGemIE(CBCGemBaseIE):
         return self._access_token
 
     def _fetch_claims_token(self):
+        print(f"cbc.pyの関数_fetch_claims_tokenを実行しました。")
         print(f"cbc.pyの関数_fetch_claims_tokenを実行しました。")
         print(f"cbc.pyの関数_fetch_claims_tokenを実行しました。")
         print(f"cbc.pyの関数_fetch_claims_tokenを実行しました。")
@@ -873,6 +885,7 @@ class CBCGemPlaylistIE(CBCGemBaseIE):
     }]
 
     def _entries(self, season_info):
+        print(f"cbc.pyの関数_entriesを実行しました。")
         print(f"cbc.pyの関数_entriesを実行しました。")
         print(f"cbc.pyの関数_entriesを実行しました。")
         print(f"cbc.pyの関数_entriesを実行しました。")

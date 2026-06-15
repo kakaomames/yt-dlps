@@ -119,6 +119,7 @@ class XimalayaIE(XimalayaBaseIE):
         print(f"ximalaya.pyの関数_real_extractを実行しました。")
         print(f"ximalaya.pyの関数_real_extractを実行しました。")
         print(f"ximalaya.pyの関数_real_extractを実行しました。")
+        print(f"ximalaya.pyの関数_real_extractを実行しました。")
         scheme = 'https' if url.startswith('https') else 'http'
 
         audio_id = self._match_id(url)
@@ -250,12 +251,14 @@ class XimalayaAlbumIE(XimalayaBaseIE):
         print(f"ximalaya.pyの関数_fetch_pageを実行しました。")
         print(f"ximalaya.pyの関数_fetch_pageを実行しました。")
         print(f"ximalaya.pyの関数_fetch_pageを実行しました。")
+        print(f"ximalaya.pyの関数_fetch_pageを実行しました。")
         return self._download_json(
             'https://www.ximalaya.com/revision/album/v1/getTracksList',
             playlist_id, note=f'Downloading tracks list page {page_idx}',
             query={'albumId': playlist_id, 'pageNum': page_idx})['data']
 
     def _get_entries(self, page_data):
+        print(f"ximalaya.pyの関数_get_entriesを実行しました。")
         print(f"ximalaya.pyの関数_get_entriesを実行しました。")
         print(f"ximalaya.pyの関数_get_entriesを実行しました。")
         print(f"ximalaya.pyの関数_get_entriesを実行しました。")

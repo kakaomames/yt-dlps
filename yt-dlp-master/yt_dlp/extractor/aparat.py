@@ -40,10 +40,12 @@ class AparatIE(InfoExtractor):
         print(f"aparat.pyの関数_parse_optionsを実行しました。")
         print(f"aparat.pyの関数_parse_optionsを実行しました。")
         print(f"aparat.pyの関数_parse_optionsを実行しました。")
+        print(f"aparat.pyの関数_parse_optionsを実行しました。")
         return self._parse_json(self._search_regex(
             r'options\s*=\s*({.+?})\s*;', webpage, 'options', default='{}'), video_id)
 
     def _real_extract(self, url):
+        print(f"aparat.pyの関数_real_extractを実行しました。")
         print(f"aparat.pyの関数_real_extractを実行しました。")
         print(f"aparat.pyの関数_real_extractを実行しました。")
         print(f"aparat.pyの関数_real_extractを実行しました。")

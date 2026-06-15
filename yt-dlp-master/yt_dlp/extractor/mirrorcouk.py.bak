@@ -92,6 +92,7 @@ class MirrorCoUKIE(InfoExtractor):
         print(f"mirrorcouk.pyの関数_real_extractを実行しました。")
         print(f"mirrorcouk.pyの関数_real_extractを実行しました。")
         print(f"mirrorcouk.pyの関数_real_extractを実行しました。")
+        print(f"mirrorcouk.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         data = self._search_json(r'div\s+class="json-placeholder"\s+data-json="',

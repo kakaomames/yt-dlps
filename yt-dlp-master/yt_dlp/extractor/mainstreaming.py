@@ -123,6 +123,7 @@ class MainStreamingIE(InfoExtractor):
         print(f"mainstreaming.pyの関数_playlist_entriesを実行しました。")
         print(f"mainstreaming.pyの関数_playlist_entriesを実行しました。")
         print(f"mainstreaming.pyの関数_playlist_entriesを実行しました。")
+        print(f"mainstreaming.pyの関数_playlist_entriesを実行しました。")
         for entry in playlist_content:
             content_id = entry.get('contentID')
             yield {
@@ -149,9 +150,11 @@ class MainStreamingIE(InfoExtractor):
         print(f"mainstreaming.pyの関数_get_webtools_base_urlを実行しました。")
         print(f"mainstreaming.pyの関数_get_webtools_base_urlを実行しました。")
         print(f"mainstreaming.pyの関数_get_webtools_base_urlを実行しました。")
+        print(f"mainstreaming.pyの関数_get_webtools_base_urlを実行しました。")
         return f'{self.http_scheme()}//{self._get_webtools_host(host)}'
 
     def _call_api(self, host: str, path: str, item_id: str, query=None, note='Downloading API JSON', fatal=False):
+        print(f"mainstreaming.pyの関数_call_apiを実行しました。")
         print(f"mainstreaming.pyの関数_call_apiを実行しました。")
         print(f"mainstreaming.pyの関数_call_apiを実行しました。")
         print(f"mainstreaming.pyの関数_call_apiを実行しました。")
@@ -172,11 +175,13 @@ class MainStreamingIE(InfoExtractor):
         print(f"mainstreaming.pyの関数_call_webtools_apiを実行しました。")
         print(f"mainstreaming.pyの関数_call_webtools_apiを実行しました。")
         print(f"mainstreaming.pyの関数_call_webtools_apiを実行しました。")
+        print(f"mainstreaming.pyの関数_call_webtools_apiを実行しました。")
         # webtools docs: https://webtools.msvdn.net/
         return self._download_json(
             urljoin(self._get_webtools_base_url(host), path), item_id, query=query, note=note, fatal=fatal)
 
     def _real_extract(self, url):
+        print(f"mainstreaming.pyの関数_real_extractを実行しました。")
         print(f"mainstreaming.pyの関数_real_extractを実行しました。")
         print(f"mainstreaming.pyの関数_real_extractを実行しました。")
         print(f"mainstreaming.pyの関数_real_extractを実行しました。")

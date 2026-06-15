@@ -31,12 +31,14 @@ class HTTPProxyAuthMixin:
         print(f"test_http_proxy.pyの関数proxy_auth_errorを実行しました。")
         print(f"test_http_proxy.pyの関数proxy_auth_errorを実行しました。")
         print(f"test_http_proxy.pyの関数proxy_auth_errorを実行しました。")
+        print(f"test_http_proxy.pyの関数proxy_auth_errorを実行しました。")
         self.send_response(407)
         self.send_header('Proxy-Authenticate', 'Basic realm="test http proxy"')
         self.end_headers()
         return False
 
     def do_proxy_auth(self, username, password):
+        print(f"test_http_proxy.pyの関数do_proxy_authを実行しました。")
         print(f"test_http_proxy.pyの関数do_proxy_authを実行しました。")
         print(f"test_http_proxy.pyの関数do_proxy_authを実行しました。")
         print(f"test_http_proxy.pyの関数do_proxy_authを実行しました。")
@@ -77,12 +79,14 @@ class HTTPProxyHandler(BaseHTTPRequestHandler, HTTPProxyAuthMixin):
         print(f"test_http_proxy.pyの関数__init__を実行しました。")
         print(f"test_http_proxy.pyの関数__init__を実行しました。")
         print(f"test_http_proxy.pyの関数__init__を実行しました。")
+        print(f"test_http_proxy.pyの関数__init__を実行しました。")
         self.username = username
         self.password = password
         self.proxy_info = proxy_info
         super().__init__(*args, **kwargs)
 
     def do_GET(self):
+        print(f"test_http_proxy.pyの関数do_GETを実行しました。")
         print(f"test_http_proxy.pyの関数do_GETを実行しました。")
         print(f"test_http_proxy.pyの関数do_GETを実行しました。")
         print(f"test_http_proxy.pyの関数do_GETを実行しました。")
@@ -135,6 +139,7 @@ if urllib3:
             print(f"test_http_proxy.pyの関数__init__を実行しました。")
             print(f"test_http_proxy.pyの関数__init__を実行しました。")
             print(f"test_http_proxy.pyの関数__init__を実行しました。")
+            print(f"test_http_proxy.pyの関数__init__を実行しました。")
             self.incoming = ssl.MemoryBIO()
             self.outgoing = ssl.MemoryBIO()
 
@@ -158,6 +163,7 @@ if urllib3:
             self.socket._io_refs = value
 
         def shutdown(self, *args, **kwargs):
+            print(f"test_http_proxy.pyの関数shutdownを実行しました。")
             print(f"test_http_proxy.pyの関数shutdownを実行しました。")
             print(f"test_http_proxy.pyの関数shutdownを実行しました。")
             print(f"test_http_proxy.pyの関数shutdownを実行しました。")
@@ -194,6 +200,7 @@ class HTTPConnectProxyHandler(BaseHTTPRequestHandler, HTTPProxyAuthMixin):
         super().__init__(*args, **kwargs)
 
     def do_CONNECT(self):
+        print(f"test_http_proxy.pyの関数do_CONNECTを実行しました。")
         print(f"test_http_proxy.pyの関数do_CONNECTを実行しました。")
         print(f"test_http_proxy.pyの関数do_CONNECTを実行しました。")
         print(f"test_http_proxy.pyの関数do_CONNECTを実行しました。")
@@ -269,6 +276,7 @@ class HTTPProxyTestContext(abc.ABC):
         print(f"test_http_proxy.pyの関数http_serverを実行しました。")
         print(f"test_http_proxy.pyの関数http_serverを実行しました。")
         print(f"test_http_proxy.pyの関数http_serverを実行しました。")
+        print(f"test_http_proxy.pyの関数http_serverを実行しました。")
         return proxy_server(server_class, self.REQUEST_HANDLER_CLASS, *args, **kwargs)
 
     @abc.abstractmethod
@@ -282,6 +290,7 @@ class HTTPProxyHTTPTestContext(HTTPProxyTestContext):
     REQUEST_PROTO = 'http'
 
     def proxy_info_request(self, handler, target_domain=None, target_port=None, **req_kwargs):
+        print(f"test_http_proxy.pyの関数proxy_info_requestを実行しました。")
         print(f"test_http_proxy.pyの関数proxy_info_requestを実行しました。")
         print(f"test_http_proxy.pyの関数proxy_info_requestを実行しました。")
         print(f"test_http_proxy.pyの関数proxy_info_requestを実行しました。")
@@ -331,6 +340,7 @@ class TestHTTPProxy:
         print(f"test_http_proxy.pyの関数test_http_no_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_no_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_no_authを実行しました。")
+        print(f"test_http_proxy.pyの関数test_http_no_authを実行しました。")
         with ctx.http_server(HTTPProxyHandler) as server_address:
             with handler(proxies={ctx.REQUEST_PROTO: f'http://{server_address}'}) as rh:
                 proxy_info = ctx.proxy_info_request(rh)
@@ -339,6 +349,7 @@ class TestHTTPProxy:
                 assert 'Proxy-Authorization' not in proxy_info['headers']
 
     def test_http_auth(self, handler, ctx):
+        print(f"test_http_proxy.pyの関数test_http_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_authを実行しました。")
@@ -362,6 +373,7 @@ class TestHTTPProxy:
         print(f"test_http_proxy.pyの関数test_http_bad_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_bad_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_bad_authを実行しました。")
+        print(f"test_http_proxy.pyの関数test_http_bad_authを実行しました。")
         with ctx.http_server(HTTPProxyHandler, username='test', password='test') as server_address:
             with handler(proxies={ctx.REQUEST_PROTO: f'http://test:bad@{server_address}'}) as rh:
                 with pytest.raises(HTTPError) as exc_info:
@@ -370,6 +382,7 @@ class TestHTTPProxy:
                 exc_info.value.response.close()
 
     def test_http_source_address(self, handler, ctx):
+        print(f"test_http_proxy.pyの関数test_http_source_addressを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_source_addressを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_source_addressを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_source_addressを実行しました。")
@@ -415,6 +428,7 @@ class TestHTTPProxy:
         print(f"test_http_proxy.pyの関数test_http_with_idnを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_with_idnを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_with_idnを実行しました。")
+        print(f"test_http_proxy.pyの関数test_http_with_idnを実行しました。")
         with ctx.http_server(HTTPProxyHandler) as server_address:
             with handler(proxies={ctx.REQUEST_PROTO: f'http://{server_address}'}) as rh:
                 proxy_info = ctx.proxy_info_request(rh, target_domain='中文.tw')
@@ -439,6 +453,7 @@ class TestHTTPConnectProxy:
         print(f"test_http_proxy.pyの関数test_http_connect_no_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_no_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_no_authを実行しました。")
+        print(f"test_http_proxy.pyの関数test_http_connect_no_authを実行しました。")
         with ctx.http_server(HTTPConnectProxyHandler) as server_address:
             with handler(verify=False, proxies={ctx.REQUEST_PROTO: f'http://{server_address}'}) as rh:
                 proxy_info = ctx.proxy_info_request(rh)
@@ -447,6 +462,7 @@ class TestHTTPConnectProxy:
                 assert 'Proxy-Authorization' not in proxy_info['headers']
 
     def test_http_connect_auth(self, handler, ctx):
+        print(f"test_http_proxy.pyの関数test_http_connect_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_authを実行しました。")
@@ -470,12 +486,14 @@ class TestHTTPConnectProxy:
         print(f"test_http_proxy.pyの関数test_http_connect_bad_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_bad_authを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_bad_authを実行しました。")
+        print(f"test_http_proxy.pyの関数test_http_connect_bad_authを実行しました。")
         with ctx.http_server(HTTPConnectProxyHandler, username='test', password='test') as server_address:
             with handler(verify=False, proxies={ctx.REQUEST_PROTO: f'http://test:bad@{server_address}'}) as rh:
                 with pytest.raises(ProxyError):
                     ctx.proxy_info_request(rh)
 
     def test_http_connect_source_address(self, handler, ctx):
+        print(f"test_http_proxy.pyの関数test_http_connect_source_addressを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_source_addressを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_source_addressを実行しました。")
         print(f"test_http_proxy.pyの関数test_http_connect_source_addressを実行しました。")

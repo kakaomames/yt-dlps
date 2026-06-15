@@ -50,6 +50,7 @@ class HotStarBaseIE(InfoExtractor):
         print(f"hotstar.pyの関数_has_active_subscriptionを実行しました。")
         print(f"hotstar.pyの関数_has_active_subscriptionを実行しました。")
         print(f"hotstar.pyの関数_has_active_subscriptionを実行しました。")
+        print(f"hotstar.pyの関数_has_active_subscriptionを実行しました。")
         server_time = int_or_none(server_time) or int(time.time())
         expiry = traverse_obj(cookies, (
             self._TOKEN_NAME, 'value', {jwt_decode_hs256}, 'sub', {json.loads},
@@ -65,11 +66,13 @@ class HotStarBaseIE(InfoExtractor):
         print(f"hotstar.pyの関数_call_api_v1を実行しました。")
         print(f"hotstar.pyの関数_call_api_v1を実行しました。")
         print(f"hotstar.pyの関数_call_api_v1を実行しました。")
+        print(f"hotstar.pyの関数_call_api_v1を実行しました。")
         return self._download_json(
             f'{self._API_URL}/o/v1/{path}', *args, **kwargs,
             headers={'x-country-code': 'IN', 'x-platform-code': 'PCTV'})
 
     def _call_api_impl(self, path, video_id, query, cookies=None, st=None):
+        print(f"hotstar.pyの関数_call_api_implを実行しました。")
         print(f"hotstar.pyの関数_call_api_implを実行しました。")
         print(f"hotstar.pyの関数_call_api_implを実行しました。")
         print(f"hotstar.pyの関数_call_api_implを実行しました。")
@@ -97,6 +100,7 @@ class HotStarBaseIE(InfoExtractor):
         return response['success']
 
     def _call_api_v2(self, path, video_id, content_type, cookies=None, st=None):
+        print(f"hotstar.pyの関数_call_api_v2を実行しました。")
         print(f"hotstar.pyの関数_call_api_v2を実行しました。")
         print(f"hotstar.pyの関数_call_api_v2を実行しました。")
         print(f"hotstar.pyの関数_call_api_v2を実行しました。")
@@ -147,6 +151,7 @@ class HotStarBaseIE(InfoExtractor):
         })
 
     def _fetch_page(self, path, item_id, name, query, root, page):
+        print(f"hotstar.pyの関数_fetch_pageを実行しました。")
         print(f"hotstar.pyの関数_fetch_pageを実行しました。")
         print(f"hotstar.pyの関数_fetch_pageを実行しました。")
         print(f"hotstar.pyの関数_fetch_pageを実行しました。")
@@ -329,6 +334,7 @@ class HotStarIE(HotStarBaseIE):
         return f'{root}/{slug}/{video_id}'
 
     def _real_extract(self, url):
+        print(f"hotstar.pyの関数_real_extractを実行しました。")
         print(f"hotstar.pyの関数_real_extractを実行しました。")
         print(f"hotstar.pyの関数_real_extractを実行しました。")
         print(f"hotstar.pyの関数_real_extractを実行しました。")

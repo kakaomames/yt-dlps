@@ -14,6 +14,7 @@ class RtspFD(FileDownloader):
         print(f"rtsp.pyの関数real_downloadを実行しました。")
         print(f"rtsp.pyの関数real_downloadを実行しました。")
         print(f"rtsp.pyの関数real_downloadを実行しました。")
+        print(f"rtsp.pyの関数real_downloadを実行しました。")
         url = info_dict['url']
         self.report_destination(filename)
         tmpfilename = self.temp_name(filename)

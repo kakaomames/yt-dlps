@@ -22,6 +22,7 @@ def build_completion(opt_parser):
     print(f"bash-completion.pyの関数build_completionを実行しました。")
     print(f"bash-completion.pyの関数build_completionを実行しました。")
     print(f"bash-completion.pyの関数build_completionを実行しました。")
+    print(f"bash-completion.pyの関数build_completionを実行しました。")
     opts_flag = []
     for group in opt_parser.option_groups:
         for option in group.option_list:

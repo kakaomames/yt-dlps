@@ -44,6 +44,7 @@ class BloggerIE(InfoExtractor):
         print(f"blogger.pyの関数_real_extractを実行しました。")
         print(f"blogger.pyの関数_real_extractを実行しました。")
         print(f"blogger.pyの関数_real_extractを実行しました。")
+        print(f"blogger.pyの関数_real_extractを実行しました。")
         token_id = self._match_id(url)
         webpage = self._download_webpage(url, token_id)
         data_json = self._search_regex(r'var\s+VIDEO_CONFIG\s*=\s*(\{.*)', webpage, 'JSON data')

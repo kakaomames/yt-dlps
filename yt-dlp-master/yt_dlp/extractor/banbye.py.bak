@@ -32,6 +32,7 @@ class BanByeBaseIE(InfoExtractor):
         print(f"banbye.pyの関数_extract_playlistを実行しました。")
         print(f"banbye.pyの関数_extract_playlistを実行しました。")
         print(f"banbye.pyの関数_extract_playlistを実行しました。")
+        print(f"banbye.pyの関数_extract_playlistを実行しました。")
         data = self._download_json(f'{self._API_BASE}/playlists/{playlist_id}', playlist_id)
         return self.playlist_result([
             self.url_result(f'{self._VIDEO_BASE}/{video_id}', BanByeIE)
@@ -142,6 +143,7 @@ class BanByeIE(BanByeBaseIE):
         print(f"banbye.pyの関数_real_extractを実行しました。")
         print(f"banbye.pyの関数_real_extractを実行しました。")
         print(f"banbye.pyの関数_real_extractを実行しました。")
+        print(f"banbye.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         playlist_id = self._extract_playlist_id(url, 'playlistId')
 
@@ -219,6 +221,7 @@ class BanByeChannelIE(BanByeBaseIE):
             return self._extract_playlist(playlist_id)
 
         def page_func(page_num):
+            print(f"banbye.pyの関数page_funcを実行しました。")
             print(f"banbye.pyの関数page_funcを実行しました。")
             print(f"banbye.pyの関数page_funcを実行しました。")
             print(f"banbye.pyの関数page_funcを実行しました。")

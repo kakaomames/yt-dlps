@@ -48,6 +48,7 @@ class FancodeVodIE(InfoExtractor):
         print(f"fancode.pyの関数_perform_loginを実行しました。")
         print(f"fancode.pyの関数_perform_loginを実行しました。")
         print(f"fancode.pyの関数_perform_loginを実行しました。")
+        print(f"fancode.pyの関数_perform_loginを実行しました。")
         # Access tokens are shortlived, so get them using the refresh token.
         if username != 'refresh':
             self.report_warning(f'Login using username and password is not currently supported. {self._LOGIN_HINT}')
@@ -76,6 +77,7 @@ class FancodeVodIE(InfoExtractor):
         print(f"fancode.pyの関数_check_login_requiredを実行しました。")
         print(f"fancode.pyの関数_check_login_requiredを実行しました。")
         print(f"fancode.pyの関数_check_login_requiredを実行しました。")
+        print(f"fancode.pyの関数_check_login_requiredを実行しました。")
         msg = None
         if is_premium and self._ACCESS_TOKEN is None:
             msg = f'This video is only available for registered users. {self._LOGIN_HINT}'
@@ -92,12 +94,14 @@ class FancodeVodIE(InfoExtractor):
         print(f"fancode.pyの関数download_gqlを実行しました。")
         print(f"fancode.pyの関数download_gqlを実行しました。")
         print(f"fancode.pyの関数download_gqlを実行しました。")
+        print(f"fancode.pyの関数download_gqlを実行しました。")
         return self._download_json(
             'https://www.fancode.com/graphql', variable,
             data=data.encode(), note=note,
             headers=headers, fatal=fatal)
 
     def _real_extract(self, url):
+        print(f"fancode.pyの関数_real_extractを実行しました。")
         print(f"fancode.pyの関数_real_extractを実行しました。")
         print(f"fancode.pyの関数_real_extractを実行しました。")
         print(f"fancode.pyの関数_real_extractを実行しました。")

@@ -47,6 +47,7 @@ class OwnCloudIE(InfoExtractor):
         print(f"owncloud.pyの関数_real_extractを実行しました。")
         print(f"owncloud.pyの関数_real_extractを実行しました。")
         print(f"owncloud.pyの関数_real_extractを実行しました。")
+        print(f"owncloud.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage, urlh = self._download_webpage_handle(url, video_id)
 
@@ -66,6 +67,7 @@ class OwnCloudIE(InfoExtractor):
         }
 
     def _verify_video_password(self, webpage, url, video_id):
+        print(f"owncloud.pyの関数_verify_video_passwordを実行しました。")
         print(f"owncloud.pyの関数_verify_video_passwordを実行しました。")
         print(f"owncloud.pyの関数_verify_video_passwordを実行しました。")
         print(f"owncloud.pyの関数_verify_video_passwordを実行しました。")

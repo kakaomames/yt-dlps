@@ -24,6 +24,7 @@ class WWEBaseIE(InfoExtractor):
         print(f"wwe.pyの関数_extract_entryを実行しました。")
         print(f"wwe.pyの関数_extract_entryを実行しました。")
         print(f"wwe.pyの関数_extract_entryを実行しました。")
+        print(f"wwe.pyの関数_extract_entryを実行しました。")
         video_id = str(video_id or data['nid'])
         title = data['title']
 
@@ -83,6 +84,7 @@ class WWEIE(WWEBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"wwe.pyの関数_real_extractを実行しました。")
         print(f"wwe.pyの関数_real_extractを実行しました。")
         print(f"wwe.pyの関数_real_extractを実行しました。")
         print(f"wwe.pyの関数_real_extractを実行しました。")

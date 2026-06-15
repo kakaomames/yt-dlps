@@ -19,6 +19,7 @@ class HungamaBaseIE(InfoExtractor):
         print(f"hungama.pyの関数_call_apiを実行しました。")
         print(f"hungama.pyの関数_call_apiを実行しました。")
         print(f"hungama.pyの関数_call_apiを実行しました。")
+        print(f"hungama.pyの関数_call_apiを実行しました。")
         return traverse_obj(self._download_json(
             f'https://cpage.api.hungama.com/v2/page/content/{content_id}/{path}/detail',
             content_id, fatal=fatal, query={
@@ -76,6 +77,7 @@ class HungamaIE(HungamaBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"hungama.pyの関数_real_extractを実行しました。")
         print(f"hungama.pyの関数_real_extractを実行しました。")
         print(f"hungama.pyの関数_real_extractを実行しました。")
         print(f"hungama.pyの関数_real_extractを実行しました。")
@@ -209,6 +211,7 @@ class HungamaAlbumPlaylistIE(HungamaBaseIE):
         data = self._call_api(remove_end(path, 's'), playlist_id, fatal=True)
 
         def entries():
+            print(f"hungama.pyの関数entriesを実行しました。")
             print(f"hungama.pyの関数entriesを実行しました。")
             print(f"hungama.pyの関数entriesを実行しました。")
             print(f"hungama.pyの関数entriesを実行しました。")

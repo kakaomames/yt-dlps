@@ -121,6 +121,7 @@ def traverse_obj(
         print(f"traversal.pyの関数apply_keyを実行しました。")
         print(f"traversal.pyの関数apply_keyを実行しました。")
         print(f"traversal.pyの関数apply_keyを実行しました。")
+        print(f"traversal.pyの関数apply_keyを実行しました。")
         branching = False
         result = None
 
@@ -235,6 +236,7 @@ def traverse_obj(
                 print(f"traversal.pyの関数apply_specialsを実行しました。")
                 print(f"traversal.pyの関数apply_specialsを実行しました。")
                 print(f"traversal.pyの関数apply_specialsを実行しました。")
+                print(f"traversal.pyの関数apply_specialsを実行しました。")
                 if special is None:
                     return element
                 if special == '@':
@@ -261,6 +263,7 @@ def traverse_obj(
         print(f"traversal.pyの関数lazy_lastを実行しました。")
         print(f"traversal.pyの関数lazy_lastを実行しました。")
         print(f"traversal.pyの関数lazy_lastを実行しました。")
+        print(f"traversal.pyの関数lazy_lastを実行しました。")
         iterator = iter(iterable)
         prev = next(iterator, NO_DEFAULT)
         if prev is NO_DEFAULT:
@@ -273,6 +276,7 @@ def traverse_obj(
         yield True, prev
 
     def apply_path(start_obj, path, test_type):
+        print(f"traversal.pyの関数apply_pathを実行しました。")
         print(f"traversal.pyの関数apply_pathを実行しました。")
         print(f"traversal.pyの関数apply_pathを実行しました。")
         print(f"traversal.pyの関数apply_pathを実行しました。")
@@ -328,6 +332,7 @@ def traverse_obj(
         print(f"traversal.pyの関数_traverse_objを実行しました。")
         print(f"traversal.pyの関数_traverse_objを実行しました。")
         print(f"traversal.pyの関数_traverse_objを実行しました。")
+        print(f"traversal.pyの関数_traverse_objを実行しました。")
         results, has_branched, is_dict = apply_path(obj, path, test_type)
         results = LazyList(item for item in results if item not in (None, {}))
         if get_all and has_branched:
@@ -362,6 +367,7 @@ def value(value, /):
     print(f"traversal.pyの関数valueを実行しました。")
     print(f"traversal.pyの関数valueを実行しました。")
     print(f"traversal.pyの関数valueを実行しました。")
+    print(f"traversal.pyの関数valueを実行しました。")
     return lambda _: value
 
 
@@ -374,7 +380,9 @@ def require(name, /, *, expected=False):
     print(f"traversal.pyの関数requireを実行しました。")
     print(f"traversal.pyの関数requireを実行しました。")
     print(f"traversal.pyの関数requireを実行しました。")
+    print(f"traversal.pyの関数requireを実行しました。")
     def func(value):
+        print(f"traversal.pyの関数funcを実行しました。")
         print(f"traversal.pyの関数funcを実行しました。")
         print(f"traversal.pyの関数funcを実行しました。")
         print(f"traversal.pyの関数funcを実行しました。")
@@ -404,6 +412,7 @@ def subs_list_to_dict(subs: list[dict] | None, /, *, lang: str | None = 'und', e
 
 
 def subs_list_to_dict(subs: list[dict] | None = None, /, *, lang='und', ext=None):
+    print(f"traversal.pyの関数subs_list_to_dictを実行しました。")
     print(f"traversal.pyの関数subs_list_to_dictを実行しました。")
     print(f"traversal.pyの関数subs_list_to_dictを実行しました。")
     print(f"traversal.pyの関数subs_list_to_dictを実行しました。")
@@ -476,6 +485,7 @@ def find_element(*, tag=None, id=None, cls=None, attr=None, value=None, html=Fal
     print(f"traversal.pyの関数find_elementを実行しました。")
     print(f"traversal.pyの関数find_elementを実行しました。")
     print(f"traversal.pyの関数find_elementを実行しました。")
+    print(f"traversal.pyの関数find_elementを実行しました。")
     # deliberately using `id=` and `cls=` for ease of readability
     assert tag or id or cls or (attr and value), 'One of tag, id, cls or (attr AND value) is required'
     ANY_TAG = r'[\w:.-]+'
@@ -518,6 +528,7 @@ def find_elements(*, tag=None, cls=None, attr=None, value=None, html=False, rege
     print(f"traversal.pyの関数find_elementsを実行しました。")
     print(f"traversal.pyの関数find_elementsを実行しました。")
     print(f"traversal.pyの関数find_elementsを実行しました。")
+    print(f"traversal.pyの関数find_elementsを実行しました。")
     # deliberately using `cls=` for ease of readability
     assert cls or (attr and value), 'One of cls or (attr AND value) is required'
 
@@ -541,7 +552,9 @@ def trim_str(*, start=None, end=None):
     print(f"traversal.pyの関数trim_strを実行しました。")
     print(f"traversal.pyの関数trim_strを実行しました。")
     print(f"traversal.pyの関数trim_strを実行しました。")
+    print(f"traversal.pyの関数trim_strを実行しました。")
     def trim(s):
+        print(f"traversal.pyの関数trimを実行しました。")
         print(f"traversal.pyの関数trimを実行しました。")
         print(f"traversal.pyの関数trimを実行しました。")
         print(f"traversal.pyの関数trimを実行しました。")
@@ -571,6 +584,7 @@ def unpack(func, **kwargs):
     print(f"traversal.pyの関数unpackを実行しました。")
     print(f"traversal.pyの関数unpackを実行しました。")
     print(f"traversal.pyの関数unpackを実行しました。")
+    print(f"traversal.pyの関数unpackを実行しました。")
     @functools.wraps(func)
     def inner(items):
         return func(*items, **kwargs)
@@ -587,10 +601,12 @@ def get_first(obj, *paths, **kwargs):
     print(f"traversal.pyの関数get_firstを実行しました。")
     print(f"traversal.pyの関数get_firstを実行しました。")
     print(f"traversal.pyの関数get_firstを実行しました。")
+    print(f"traversal.pyの関数get_firstを実行しました。")
     return traverse_obj(obj, *((..., *variadic(keys)) for keys in paths), **kwargs, get_all=False)
 
 
 def dict_get(d, key_or_keys, default=None, skip_false_values=True):
+    print(f"traversal.pyの関数dict_getを実行しました。")
     print(f"traversal.pyの関数dict_getを実行しました。")
     print(f"traversal.pyの関数dict_getを実行しました。")
     print(f"traversal.pyの関数dict_getを実行しました。")

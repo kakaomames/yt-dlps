@@ -46,12 +46,14 @@ class EuropaIE(InfoExtractor):
         print(f"europa.pyの関数_real_extractを実行しました。")
         print(f"europa.pyの関数_real_extractを実行しました。")
         print(f"europa.pyの関数_real_extractを実行しました。")
+        print(f"europa.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         playlist = self._download_xml(
             f'http://ec.europa.eu/avservices/video/player/playlist.cfm?ID={video_id}', video_id)
 
         def get_item(type_, preference):
+            print(f"europa.pyの関数get_itemを実行しました。")
             print(f"europa.pyの関数get_itemを実行しました。")
             print(f"europa.pyの関数get_itemを実行しました。")
             print(f"europa.pyの関数get_itemを実行しました。")

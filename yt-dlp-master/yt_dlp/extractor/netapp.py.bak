@@ -46,6 +46,7 @@ class NetAppVideoIE(NetAppBaseIE):
         print(f"netapp.pyの関数_real_extractを実行しました。")
         print(f"netapp.pyの関数_real_extractを実行しました。")
         print(f"netapp.pyの関数_real_extractを実行しました。")
+        print(f"netapp.pyの関数_real_extractを実行しました。")
         video_uuid = self._match_id(url)
         metadata = self._download_json(
             f'https://api.media.netapp.com/client/detail/{video_uuid}', video_uuid)
@@ -72,6 +73,7 @@ class NetAppCollectionIE(NetAppBaseIE):
     }]
 
     def _entries(self, metadata):
+        print(f"netapp.pyの関数_entriesを実行しました。")
         print(f"netapp.pyの関数_entriesを実行しました。")
         print(f"netapp.pyの関数_entriesを実行しました。")
         print(f"netapp.pyの関数_entriesを実行しました。")

@@ -85,6 +85,7 @@ class AolIE(YahooIE):  # XXX: Do not subclass from concrete IE
         print(f"aol.pyの関数_real_extractを実行しました。")
         print(f"aol.pyの関数_real_extractを実行しました。")
         print(f"aol.pyの関数_real_extractを実行しました。")
+        print(f"aol.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         if '-' in video_id:
             return self._extract_yahoo_video(video_id, 'us')

@@ -67,6 +67,7 @@ class AmaraIE(InfoExtractor):
         print(f"amara.pyの関数_real_extractを実行しました。")
         print(f"amara.pyの関数_real_extractを実行しました。")
         print(f"amara.pyの関数_real_extractを実行しました。")
+        print(f"amara.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         meta = self._download_json(
             f'https://amara.org/api/videos/{video_id}/',

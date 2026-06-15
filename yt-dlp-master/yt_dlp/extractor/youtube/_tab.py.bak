@@ -42,6 +42,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             print(f"_tab.pyの関数_smuggleを実行しました。")
             print(f"_tab.pyの関数_smuggleを実行しました。")
             print(f"_tab.pyの関数_smuggleを実行しました。")
+            print(f"_tab.pyの関数_smuggleを実行しました。")
             if info.get('_type') not in ('url', 'url_transparent'):
                 return info
             if smuggled_data.get('is_music_url'):
@@ -81,6 +82,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                 return renderer
 
     def _extract_video(self, renderer):
+        print(f"_tab.pyの関数_extract_videoを実行しました。")
         print(f"_tab.pyの関数_extract_videoを実行しました。")
         print(f"_tab.pyの関数_extract_videoを実行しました。")
         print(f"_tab.pyの関数_extract_videoを実行しました。")
@@ -190,6 +192,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_extract_channel_rendererを実行しました。")
         print(f"_tab.pyの関数_extract_channel_rendererを実行しました。")
         print(f"_tab.pyの関数_extract_channel_rendererを実行しました。")
+        print(f"_tab.pyの関数_extract_channel_rendererを実行しました。")
         channel_id = self.ucid_or_none(renderer['channelId'])
         title = self._get_text(renderer, 'title')
         channel_url = format_field(channel_id, None, 'https://www.youtube.com/channel/%s', default=None)
@@ -228,6 +231,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         }
 
     def _grid_entries(self, grid_renderer):
+        print(f"_tab.pyの関数_grid_entriesを実行しました。")
         print(f"_tab.pyの関数_grid_entriesを実行しました。")
         print(f"_tab.pyの関数_grid_entriesを実行しました。")
         print(f"_tab.pyの関数_grid_entriesを実行しました。")
@@ -285,6 +289,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_music_reponsive_list_entryを実行しました。")
         print(f"_tab.pyの関数_music_reponsive_list_entryを実行しました。")
         print(f"_tab.pyの関数_music_reponsive_list_entryを実行しました。")
+        print(f"_tab.pyの関数_music_reponsive_list_entryを実行しました。")
         video_id = traverse_obj(renderer, ('playlistItemData', 'videoId'))
         if video_id:
             title = traverse_obj(renderer, (
@@ -313,6 +318,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_shelf_entries_from_contentを実行しました。")
         print(f"_tab.pyの関数_shelf_entries_from_contentを実行しました。")
         print(f"_tab.pyの関数_shelf_entries_from_contentを実行しました。")
+        print(f"_tab.pyの関数_shelf_entries_from_contentを実行しました。")
         content = shelf_renderer.get('content')
         if not isinstance(content, dict):
             return
@@ -328,6 +334,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             pass
 
     def _shelf_entries(self, shelf_renderer, skip_channels=False):
+        print(f"_tab.pyの関数_shelf_entriesを実行しました。")
         print(f"_tab.pyの関数_shelf_entriesを実行しました。")
         print(f"_tab.pyの関数_shelf_entriesを実行しました。")
         print(f"_tab.pyの関数_shelf_entriesを実行しました。")
@@ -358,6 +365,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_playlist_entriesを実行しました。")
         print(f"_tab.pyの関数_playlist_entriesを実行しました。")
         print(f"_tab.pyの関数_playlist_entriesを実行しました。")
+        print(f"_tab.pyの関数_playlist_entriesを実行しました。")
         for content in video_list_renderer['contents']:
             if not isinstance(content, dict):
                 continue
@@ -370,6 +378,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             yield self._extract_video(renderer)
 
     def _extract_lockup_view_model(self, view_model):
+        print(f"_tab.pyの関数_extract_lockup_view_modelを実行しました。")
         print(f"_tab.pyの関数_extract_lockup_view_modelを実行しました。")
         print(f"_tab.pyの関数_extract_lockup_view_modelを実行しました。")
         print(f"_tab.pyの関数_extract_lockup_view_modelを実行しました。")
@@ -412,6 +421,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                 if self._configuration_arg('approximate_date', ie_key=YoutubeTabIE) else None))
 
     def _rich_entries(self, rich_grid_renderer):
+        print(f"_tab.pyの関数_rich_entriesを実行しました。")
         print(f"_tab.pyの関数_rich_entriesを実行しました。")
         print(f"_tab.pyの関数_rich_entriesを実行しました。")
         print(f"_tab.pyの関数_rich_entriesを実行しました。")
@@ -464,11 +474,13 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_video_entryを実行しました。")
         print(f"_tab.pyの関数_video_entryを実行しました。")
         print(f"_tab.pyの関数_video_entryを実行しました。")
+        print(f"_tab.pyの関数_video_entryを実行しました。")
         video_id = video_renderer.get('videoId')
         if video_id:
             return self._extract_video(video_renderer)
 
     def _hashtag_tile_entry(self, hashtag_tile_renderer):
+        print(f"_tab.pyの関数_hashtag_tile_entryを実行しました。")
         print(f"_tab.pyの関数_hashtag_tile_entryを実行しました。")
         print(f"_tab.pyの関数_hashtag_tile_entryを実行しました。")
         print(f"_tab.pyの関数_hashtag_tile_entryを実行しました。")
@@ -483,6 +495,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
                 url, ie=YoutubeTabIE.ie_key(), title=self._get_text(hashtag_tile_renderer, 'hashtag'))
 
     def _post_thread_entries(self, post_thread_renderer):
+        print(f"_tab.pyの関数_post_thread_entriesを実行しました。")
         print(f"_tab.pyの関数_post_thread_entriesを実行しました。")
         print(f"_tab.pyの関数_post_thread_entriesを実行しました。")
         print(f"_tab.pyの関数_post_thread_entriesを実行しました。")
@@ -533,6 +546,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_post_thread_continuation_entriesを実行しました。")
         print(f"_tab.pyの関数_post_thread_continuation_entriesを実行しました。")
         print(f"_tab.pyの関数_post_thread_continuation_entriesを実行しました。")
+        print(f"_tab.pyの関数_post_thread_continuation_entriesを実行しました。")
         contents = post_thread_continuation.get('contents')
         if not isinstance(contents, list):
             return
@@ -547,6 +561,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
 
     r''' # unused
     def _rich_grid_entries(self, contents):
+        print(f"_tab.pyの関数_rich_grid_entriesを実行しました。")
         print(f"_tab.pyの関数_rich_grid_entriesを実行しました。")
         print(f"_tab.pyの関数_rich_grid_entriesを実行しました。")
         print(f"_tab.pyの関数_rich_grid_entriesを実行しました。")
@@ -570,6 +585,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_report_history_entriesを実行しました。")
         print(f"_tab.pyの関数_report_history_entriesを実行しました。")
         print(f"_tab.pyの関数_report_history_entriesを実行しました。")
+        print(f"_tab.pyの関数_report_history_entriesを実行しました。")
         for url in traverse_obj(renderer, (
                 'rows', ..., 'reportHistoryTableRowRenderer', 'cells', ...,
                 'reportHistoryTableCellRenderer', 'cell', 'reportHistoryTableTextCellRenderer', 'text', 'runs', ...,
@@ -577,6 +593,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             yield self.url_result(urljoin('https://www.youtube.com', url), YoutubeIE)
 
     def _extract_entries(self, parent_renderer, continuation_list):
+        print(f"_tab.pyの関数_extract_entriesを実行しました。")
         print(f"_tab.pyの関数_extract_entriesを実行しました。")
         print(f"_tab.pyの関数_extract_entriesを実行しました。")
         print(f"_tab.pyの関数_extract_entriesを実行しました。")
@@ -639,6 +656,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             continuation_list[0] = self._extract_continuation(parent_renderer)
 
     def _entries(self, tab, item_id, ytcfg, delegated_session_id, visitor_data):
+        print(f"_tab.pyの関数_entriesを実行しました。")
         print(f"_tab.pyの関数_entriesを実行しました。")
         print(f"_tab.pyの関数_entriesを実行しました。")
         print(f"_tab.pyの関数_entriesを実行しました。")
@@ -747,6 +765,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_extract_from_tabsを実行しました。")
         print(f"_tab.pyの関数_extract_from_tabsを実行しました。")
         print(f"_tab.pyの関数_extract_from_tabsを実行しました。")
+        print(f"_tab.pyの関数_extract_from_tabsを実行しました。")
         metadata = self._extract_metadata_from_tabs(item_id, data)
 
         selected_tab = self._extract_selected_tab(tabs)
@@ -761,6 +780,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             **metadata)
 
     def _extract_metadata_from_tabs(self, item_id, data):
+        print(f"_tab.pyの関数_extract_metadata_from_tabsを実行しました。")
         print(f"_tab.pyの関数_extract_metadata_from_tabsを実行しました。")
         print(f"_tab.pyの関数_extract_metadata_from_tabsを実行しました。")
         print(f"_tab.pyの関数_extract_metadata_from_tabsを実行しました。")
@@ -790,6 +810,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         # We can get the uncropped banner/avatar by replacing the crop params with '=s0'
         # See: https://github.com/yt-dlp/yt-dlp/issues/2237#issuecomment-1013694714
         def _get_uncropped(url):
+            print(f"_tab.pyの関数_get_uncroppedを実行しました。")
             print(f"_tab.pyの関数_get_uncroppedを実行しました。")
             print(f"_tab.pyの関数_get_uncroppedを実行しました。")
             print(f"_tab.pyの関数_get_uncroppedを実行しました。")
@@ -915,6 +936,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_extract_inline_playlistを実行しました。")
         print(f"_tab.pyの関数_extract_inline_playlistを実行しました。")
         print(f"_tab.pyの関数_extract_inline_playlistを実行しました。")
+        print(f"_tab.pyの関数_extract_inline_playlistを実行しました。")
         first_id = last_id = response = None
         for page_num in itertools.count(1):
             videos = list(self._playlist_entries(playlist))
@@ -953,6 +975,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_extract_from_playlistを実行しました。")
         print(f"_tab.pyの関数_extract_from_playlistを実行しました。")
         print(f"_tab.pyの関数_extract_from_playlistを実行しました。")
+        print(f"_tab.pyの関数_extract_from_playlistを実行しました。")
         title = playlist.get('title') or try_get(
             data, lambda x: x['titleText']['simpleText'], str)
         playlist_id = playlist.get('playlistId') or item_id
@@ -976,6 +999,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             playlist_id=playlist_id, playlist_title=title)
 
     def _extract_availability(self, data):
+        print(f"_tab.pyの関数_extract_availabilityを実行しました。")
         print(f"_tab.pyの関数_extract_availabilityを実行しました。")
         print(f"_tab.pyの関数_extract_availabilityを実行しました。")
         print(f"_tab.pyの関数_extract_availabilityを実行しました。")
@@ -1040,6 +1064,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_reload_with_unavailable_videosを実行しました。")
         print(f"_tab.pyの関数_reload_with_unavailable_videosを実行しました。")
         print(f"_tab.pyの関数_reload_with_unavailable_videosを実行しました。")
+        print(f"_tab.pyの関数_reload_with_unavailable_videosを実行しました。")
         """
         Reload playlists with unavailable videos (e.g. private videos, region blocked, etc.)
         """
@@ -1064,6 +1089,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         return 'webpage' in self._configuration_arg('skip', ie_key=YoutubeTabIE.ie_key())
 
     def _extract_webpage(self, url, item_id, fatal=True):
+        print(f"_tab.pyの関数_extract_webpageを実行しました。")
         print(f"_tab.pyの関数_extract_webpageを実行しました。")
         print(f"_tab.pyの関数_extract_webpageを実行しました。")
         print(f"_tab.pyの関数_extract_webpageを実行しました。")
@@ -1107,6 +1133,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_report_playlist_authcheckを実行しました。")
         print(f"_tab.pyの関数_report_playlist_authcheckを実行しました。")
         print(f"_tab.pyの関数_report_playlist_authcheckを実行しました。")
+        print(f"_tab.pyの関数_report_playlist_authcheckを実行しました。")
         """Use if failed to extract ytcfg (and data) from initial webpage"""
         if not ytcfg and self.is_authenticated:
             msg = 'Playlists that require authentication may not extract correctly without a successful webpage download'
@@ -1119,6 +1146,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
             self.report_warning(msg, only_once=True)
 
     def _extract_data(self, url, item_id, ytcfg=None, fatal=True, webpage_fatal=False, default_client='web'):
+        print(f"_tab.pyの関数_extract_dataを実行しました。")
         print(f"_tab.pyの関数_extract_dataを実行しました。")
         print(f"_tab.pyの関数_extract_dataを実行しました。")
         print(f"_tab.pyの関数_extract_dataを実行しました。")
@@ -1152,6 +1180,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
         print(f"_tab.pyの関数_extract_tab_endpointを実行しました。")
         print(f"_tab.pyの関数_extract_tab_endpointを実行しました。")
         print(f"_tab.pyの関数_extract_tab_endpointを実行しました。")
+        print(f"_tab.pyの関数_extract_tab_endpointを実行しました。")
         headers = self.generate_api_headers(ytcfg=ytcfg, default_client=default_client)
         resolve_response = self._extract_response(
             item_id=item_id, query={'url': url}, check_get_keys='endpoint', headers=headers, ytcfg=ytcfg, fatal=fatal,
@@ -1172,6 +1201,7 @@ class YoutubeTabBaseInfoExtractor(YoutubeBaseInfoExtractor):
     _SEARCH_PARAMS = None
 
     def _search_results(self, query, params=NO_DEFAULT, default_client='web'):
+        print(f"_tab.pyの関数_search_resultsを実行しました。")
         print(f"_tab.pyの関数_search_resultsを実行しました。")
         print(f"_tab.pyの関数_search_resultsを実行しました。")
         print(f"_tab.pyの関数_search_resultsを実行しました。")
@@ -2322,11 +2352,13 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         print(f"_tab.pyの関数_get_url_mobjを実行しました。")
         print(f"_tab.pyの関数_get_url_mobjを実行しました。")
         print(f"_tab.pyの関数_get_url_mobjを実行しました。")
+        print(f"_tab.pyの関数_get_url_mobjを実行しました。")
         mobj = self._URL_RE.match(url).groupdict()
         mobj.update((k, '') for k, v in mobj.items() if v is None)
         return mobj
 
     def _extract_tab_id_and_name(self, tab, base_url='https://www.youtube.com'):
+        print(f"_tab.pyの関数_extract_tab_id_and_nameを実行しました。")
         print(f"_tab.pyの関数_extract_tab_id_and_nameを実行しました。")
         print(f"_tab.pyの関数_extract_tab_id_and_nameを実行しました。")
         print(f"_tab.pyの関数_extract_tab_id_and_nameを実行しました。")
@@ -2363,9 +2395,11 @@ class YoutubeTabIE(YoutubeTabBaseInfoExtractor):
         print(f"_tab.pyの関数_has_tabを実行しました。")
         print(f"_tab.pyの関数_has_tabを実行しました。")
         print(f"_tab.pyの関数_has_tabを実行しました。")
+        print(f"_tab.pyの関数_has_tabを実行しました。")
         return any(self._extract_tab_id_and_name(tab)[0] == tab_id for tab in tabs)
 
     def _empty_playlist(self, item_id, data):
+        print(f"_tab.pyの関数_empty_playlistを実行しました。")
         print(f"_tab.pyの関数_empty_playlistを実行しました。")
         print(f"_tab.pyの関数_empty_playlistを実行しました。")
         print(f"_tab.pyの関数_empty_playlistを実行しました。")
@@ -2640,6 +2674,7 @@ class YoutubePlaylistIE(YoutubeBaseInfoExtractor):
         return super().suitable(url)
 
     def _real_extract(self, url):
+        print(f"_tab.pyの関数_real_extractを実行しました。")
         print(f"_tab.pyの関数_real_extractを実行しました。")
         print(f"_tab.pyの関数_real_extractを実行しました。")
         print(f"_tab.pyの関数_real_extractを実行しました。")

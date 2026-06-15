@@ -31,6 +31,7 @@ class KickBaseIE(InfoExtractor):
         print(f"kick.pyの関数_call_apiを実行しました。")
         print(f"kick.pyの関数_call_apiを実行しました。")
         print(f"kick.pyの関数_call_apiを実行しました。")
+        print(f"kick.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://kick.com/api/{path}', display_id, note=note,
             headers={**self._api_headers, **headers}, impersonate=True, **kwargs)
@@ -72,6 +73,7 @@ class KickIE(KickBaseIE):
         return False if (KickVODIE.suitable(url) or KickClipIE.suitable(url)) else super().suitable(url)
 
     def _real_extract(self, url):
+        print(f"kick.pyの関数_real_extractを実行しました。")
         print(f"kick.pyの関数_real_extractを実行しました。")
         print(f"kick.pyの関数_real_extractを実行しました。")
         print(f"kick.pyの関数_real_extractを実行しました。")

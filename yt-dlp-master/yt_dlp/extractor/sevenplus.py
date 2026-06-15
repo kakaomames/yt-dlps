@@ -45,6 +45,7 @@ class SevenPlusIE(BrightcoveNewBaseIE):
         print(f"sevenplus.pyの関数_real_initializeを実行しました。")
         print(f"sevenplus.pyの関数_real_initializeを実行しました。")
         print(f"sevenplus.pyの関数_real_initializeを実行しました。")
+        print(f"sevenplus.pyの関数_real_initializeを実行しました。")
         self.token = None
 
         cookies = self._get_cookies('https://7plus.com.au')
@@ -84,6 +85,7 @@ class SevenPlusIE(BrightcoveNewBaseIE):
             self.report_warning('Unable to log in: Could not extract auth token')
 
     def _real_extract(self, url):
+        print(f"sevenplus.pyの関数_real_extractを実行しました。")
         print(f"sevenplus.pyの関数_real_extractを実行しました。")
         print(f"sevenplus.pyの関数_real_extractを実行しました。")
         print(f"sevenplus.pyの関数_real_extractを実行しました。")

@@ -15,11 +15,13 @@ class RadioKapitalBaseIE(InfoExtractor):
         print(f"radiokapital.pyの関数_call_apiを実行しました。")
         print(f"radiokapital.pyの関数_call_apiを実行しました。")
         print(f"radiokapital.pyの関数_call_apiを実行しました。")
+        print(f"radiokapital.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://www.radiokapital.pl/wp-json/kapital/v1/{resource}?{urllib.parse.urlencode(qs)}',
             video_id, note=note)
 
     def _parse_episode(self, data):
+        print(f"radiokapital.pyの関数_parse_episodeを実行しました。")
         print(f"radiokapital.pyの関数_parse_episodeを実行しました。")
         print(f"radiokapital.pyの関数_parse_episodeを実行しました。")
         print(f"radiokapital.pyの関数_parse_episodeを実行しました。")
@@ -68,6 +70,7 @@ class RadioKapitalIE(RadioKapitalBaseIE):
         print(f"radiokapital.pyの関数_real_extractを実行しました。")
         print(f"radiokapital.pyの関数_real_extractを実行しました。")
         print(f"radiokapital.pyの関数_real_extractを実行しました。")
+        print(f"radiokapital.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         episode = self._call_api(f'episodes/{video_id}', video_id)
@@ -97,6 +100,7 @@ class RadioKapitalShowIE(RadioKapitalBaseIE):
         print(f"radiokapital.pyの関数_get_episode_listを実行しました。")
         print(f"radiokapital.pyの関数_get_episode_listを実行しました。")
         print(f"radiokapital.pyの関数_get_episode_listを実行しました。")
+        print(f"radiokapital.pyの関数_get_episode_listを実行しました。")
         return self._call_api(
             'episodes', series_id,
             f'Downloading episode list page #{page_no}', qs={
@@ -105,6 +109,7 @@ class RadioKapitalShowIE(RadioKapitalBaseIE):
             })
 
     def _entries(self, series_id):
+        print(f"radiokapital.pyの関数_entriesを実行しました。")
         print(f"radiokapital.pyの関数_entriesを実行しました。")
         print(f"radiokapital.pyの関数_entriesを実行しました。")
         print(f"radiokapital.pyの関数_entriesを実行しました。")

@@ -75,6 +75,7 @@ class ZenPornIE(InfoExtractor):
         print(f"zenporn.pyの関数_gen_info_urlを実行しました。")
         print(f"zenporn.pyの関数_gen_info_urlを実行しました。")
         print(f"zenporn.pyの関数_gen_info_urlを実行しました。")
+        print(f"zenporn.pyの関数_gen_info_urlを実行しました。")
         """ This function is a reverse engineering from the website javascript """
         result = '/'.join(str(int(extr_id) // i * i) for i in (1_000_000, 1_000, 1))
         return f'https://{ext_domain}/api/json/video/{lifetime}/{result}.json'
@@ -90,6 +91,7 @@ class ZenPornIE(InfoExtractor):
             return None
 
     def _real_extract(self, url):
+        print(f"zenporn.pyの関数_real_extractを実行しました。")
         print(f"zenporn.pyの関数_real_extractを実行しました。")
         print(f"zenporn.pyの関数_real_extractを実行しました。")
         print(f"zenporn.pyの関数_real_extractを実行しました。")

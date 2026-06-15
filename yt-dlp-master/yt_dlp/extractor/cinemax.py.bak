@@ -26,6 +26,7 @@ class CinemaxIE(HBOBaseIE):
         print(f"cinemax.pyの関数_real_extractを実行しました。")
         print(f"cinemax.pyの関数_real_extractを実行しました。")
         print(f"cinemax.pyの関数_real_extractを実行しました。")
+        print(f"cinemax.pyの関数_real_extractを実行しました。")
         path, video_id = self._match_valid_url(url).groups()
         info = self._extract_info(f'https://www.cinemax.com/{path}.xml', video_id)
         info['id'] = video_id

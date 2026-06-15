@@ -54,6 +54,7 @@ class On24IE(InfoExtractor):
         print(f"on24.pyの関数_real_extractを実行しました。")
         print(f"on24.pyの関数_real_extractを実行しました。")
         print(f"on24.pyの関数_real_extractを実行しました。")
+        print(f"on24.pyの関数_real_extractを実行しました。")
         event_id, event_key = self._match_valid_url(url).group('id', 'key')
 
         event_data = self._download_json(

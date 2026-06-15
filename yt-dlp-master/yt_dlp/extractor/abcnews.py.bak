@@ -61,6 +61,7 @@ class AbcNewsVideoIE(AMPIE):
         print(f"abcnews.pyの関数_real_extractを実行しました。")
         print(f"abcnews.pyの関数_real_extractを実行しました。")
         print(f"abcnews.pyの関数_real_extractを実行しました。")
+        print(f"abcnews.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         display_id = mobj.group('display_id')
         video_id = mobj.group('id')
@@ -121,6 +122,7 @@ class AbcNewsIE(InfoExtractor):
         article_contents = story.get('articleContents') or {}
 
         def entries():
+            print(f"abcnews.pyの関数entriesを実行しました。")
             print(f"abcnews.pyの関数entriesを実行しました。")
             print(f"abcnews.pyの関数entriesを実行しました。")
             print(f"abcnews.pyの関数entriesを実行しました。")

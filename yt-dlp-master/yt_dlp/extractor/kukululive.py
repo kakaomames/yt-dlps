@@ -56,6 +56,7 @@ class KukuluLiveIE(InfoExtractor):
         print(f"kukululive.pyの関数_get_quality_metaを実行しました。")
         print(f"kukululive.pyの関数_get_quality_metaを実行しました。")
         print(f"kukululive.pyの関数_get_quality_metaを実行しました。")
+        print(f"kukululive.pyの関数_get_quality_metaを実行しました。")
         desc += ' (force_h264)' if force_h264 else ''
         qs = self._download_webpage(
             'https://live.erinn.biz/live.player.fplayer.php', video_id,
@@ -68,6 +69,7 @@ class KukuluLiveIE(InfoExtractor):
         return urllib.parse.parse_qs(qs)
 
     def _add_quality_formats(self, formats, quality_meta):
+        print(f"kukululive.pyの関数_add_quality_formatsを実行しました。")
         print(f"kukululive.pyの関数_add_quality_formatsを実行しました。")
         print(f"kukululive.pyの関数_add_quality_formatsを実行しました。")
         print(f"kukululive.pyの関数_add_quality_formatsを実行しました。")
@@ -97,6 +99,7 @@ class KukuluLiveIE(InfoExtractor):
             })
 
     def _real_extract(self, url):
+        print(f"kukululive.pyの関数_real_extractを実行しました。")
         print(f"kukululive.pyの関数_real_extractを実行しました。")
         print(f"kukululive.pyの関数_real_extractを実行しました。")
         print(f"kukululive.pyの関数_real_extractを実行しました。")
@@ -144,6 +147,7 @@ class KukuluLiveIE(InfoExtractor):
             contains_pattern=r'\[(?s:.+)\]', transform_source=js_to_json), lambda _, v: v['file'])
 
         def entries(segments, playlist=True):
+            print(f"kukululive.pyの関数entriesを実行しました。")
             print(f"kukululive.pyの関数entriesを実行しました。")
             print(f"kukululive.pyの関数entriesを実行しました。")
             print(f"kukululive.pyの関数entriesを実行しました。")

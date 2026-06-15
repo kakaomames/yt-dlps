@@ -27,6 +27,7 @@ class MastersIE(InfoExtractor):
         print(f"masters.pyの関数_real_extractを実行しました。")
         print(f"masters.pyの関数_real_extractを実行しました。")
         print(f"masters.pyの関数_real_extractを実行しました。")
+        print(f"masters.pyの関数_real_extractを実行しました。")
         video_id, upload_date = self._match_valid_url(url).group('id', 'date')
         content_resp = self._download_json(
             f'https://www.masters.com/relatedcontent/rest/v2/masters_v1/en/content/masters_v1_{video_id}_en',

@@ -25,9 +25,11 @@ class ZattooPlatformBaseIE(InfoExtractor):
         print(f"zattoo.pyの関数_host_urlを実行しました。")
         print(f"zattoo.pyの関数_host_urlを実行しました。")
         print(f"zattoo.pyの関数_host_urlを実行しました。")
+        print(f"zattoo.pyの関数_host_urlを実行しました。")
         return 'https://%s' % (self._API_HOST if hasattr(self, '_API_HOST') else self._HOST)
 
     def _real_initialize(self):
+        print(f"zattoo.pyの関数_real_initializeを実行しました。")
         print(f"zattoo.pyの関数_real_initializeを実行しました。")
         print(f"zattoo.pyの関数_real_initializeを実行しました。")
         print(f"zattoo.pyの関数_real_initializeを実行しました。")
@@ -40,6 +42,7 @@ class ZattooPlatformBaseIE(InfoExtractor):
             self.raise_login_required('An account is needed to access this media', method='password')
 
     def _perform_login(self, username, password):
+        print(f"zattoo.pyの関数_perform_loginを実行しました。")
         print(f"zattoo.pyの関数_perform_loginを実行しました。")
         print(f"zattoo.pyの関数_perform_loginを実行しました。")
         print(f"zattoo.pyの関数_perform_loginを実行しました。")
@@ -77,6 +80,7 @@ class ZattooPlatformBaseIE(InfoExtractor):
         print(f"zattoo.pyの関数_initialize_pre_loginを実行しました。")
         print(f"zattoo.pyの関数_initialize_pre_loginを実行しました。")
         print(f"zattoo.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"zattoo.pyの関数_initialize_pre_loginを実行しました。")
         session_token = self._download_json(
             f'{self._host_url()}/token.json', None, 'Downloading session token')['session_token']
 
@@ -92,6 +96,7 @@ class ZattooPlatformBaseIE(InfoExtractor):
             }))
 
     def _extract_video_id_from_recording(self, recid):
+        print(f"zattoo.pyの関数_extract_video_id_from_recordingを実行しました。")
         print(f"zattoo.pyの関数_extract_video_id_from_recordingを実行しました。")
         print(f"zattoo.pyの関数_extract_video_id_from_recordingを実行しました。")
         print(f"zattoo.pyの関数_extract_video_id_from_recordingを実行しました。")
@@ -118,6 +123,7 @@ class ZattooPlatformBaseIE(InfoExtractor):
         print(f"zattoo.pyの関数_extract_cidを実行しました。")
         print(f"zattoo.pyの関数_extract_cidを実行しました。")
         print(f"zattoo.pyの関数_extract_cidを実行しました。")
+        print(f"zattoo.pyの関数_extract_cidを実行しました。")
         channel_groups = self._download_json(
             f'{self._host_url()}/zapi/v2/cached/channels/{self._power_guide_hash}',
             video_id, 'Downloading channel list',
@@ -135,6 +141,7 @@ class ZattooPlatformBaseIE(InfoExtractor):
             raise ExtractorError('Could not extract channel id')
 
     def _extract_cid_and_video_info(self, video_id):
+        print(f"zattoo.pyの関数_extract_cid_and_video_infoを実行しました。")
         print(f"zattoo.pyの関数_extract_cid_and_video_infoを実行しました。")
         print(f"zattoo.pyの関数_extract_cid_and_video_infoを実行しました。")
         print(f"zattoo.pyの関数_extract_cid_and_video_infoを実行しました。")
@@ -180,6 +187,7 @@ class ZattooPlatformBaseIE(InfoExtractor):
         print(f"zattoo.pyの関数_extract_ondemand_infoを実行しました。")
         print(f"zattoo.pyの関数_extract_ondemand_infoを実行しました。")
         print(f"zattoo.pyの関数_extract_ondemand_infoを実行しました。")
+        print(f"zattoo.pyの関数_extract_ondemand_infoを実行しました。")
         """
         @returns    (ondemand_token, ondemand_type, info_dict)
         """
@@ -199,6 +207,7 @@ class ZattooPlatformBaseIE(InfoExtractor):
         return data['terms_catalog'][0]['terms'][0]['token'], data['type'], info_dict
 
     def _extract_formats(self, cid, video_id, record_id=None, ondemand_id=None, ondemand_termtoken=None, ondemand_type=None, is_live=False):
+        print(f"zattoo.pyの関数_extract_formatsを実行しました。")
         print(f"zattoo.pyの関数_extract_formatsを実行しました。")
         print(f"zattoo.pyの関数_extract_formatsを実行しました。")
         print(f"zattoo.pyの関数_extract_formatsを実行しました。")
@@ -283,11 +292,13 @@ class ZattooPlatformBaseIE(InfoExtractor):
         print(f"zattoo.pyの関数_extract_videoを実行しました。")
         print(f"zattoo.pyの関数_extract_videoを実行しました。")
         print(f"zattoo.pyの関数_extract_videoを実行しました。")
+        print(f"zattoo.pyの関数_extract_videoを実行しました。")
         cid, info_dict = self._extract_cid_and_video_info(video_id)
         info_dict['formats'], info_dict['subtitles'] = self._extract_formats(cid, video_id, record_id=record_id)
         return info_dict
 
     def _extract_live(self, channel_name):
+        print(f"zattoo.pyの関数_extract_liveを実行しました。")
         print(f"zattoo.pyの関数_extract_liveを実行しました。")
         print(f"zattoo.pyの関数_extract_liveを実行しました。")
         print(f"zattoo.pyの関数_extract_liveを実行しました。")
@@ -315,12 +326,14 @@ class ZattooPlatformBaseIE(InfoExtractor):
         print(f"zattoo.pyの関数_extract_recordを実行しました。")
         print(f"zattoo.pyの関数_extract_recordを実行しました。")
         print(f"zattoo.pyの関数_extract_recordを実行しました。")
+        print(f"zattoo.pyの関数_extract_recordを実行しました。")
         video_id = self._extract_video_id_from_recording(record_id)
         cid, info_dict = self._extract_cid_and_video_info(video_id)
         info_dict['formats'], info_dict['subtitles'] = self._extract_formats(cid, video_id, record_id=record_id)
         return info_dict
 
     def _extract_ondemand(self, ondemand_id):
+        print(f"zattoo.pyの関数_extract_ondemandを実行しました。")
         print(f"zattoo.pyの関数_extract_ondemandを実行しました。")
         print(f"zattoo.pyの関数_extract_ondemandを実行しました。")
         print(f"zattoo.pyの関数_extract_ondemandを実行しました。")
@@ -344,11 +357,13 @@ class ZattooPlatformBaseIE(InfoExtractor):
         print(f"zattoo.pyの関数_real_extractを実行しました。")
         print(f"zattoo.pyの関数_real_extractを実行しました。")
         print(f"zattoo.pyの関数_real_extractを実行しました。")
+        print(f"zattoo.pyの関数_real_extractを実行しました。")
         video_id, record_id = self._match_valid_url(url).groups()
         return getattr(self, f'_extract_{self._TYPE}')(video_id or record_id)
 
 
 def _create_valid_url(host, match, qs, base_re=None):
+    print(f"zattoo.pyの関数_create_valid_urlを実行しました。")
     print(f"zattoo.pyの関数_create_valid_urlを実行しました。")
     print(f"zattoo.pyの関数_create_valid_urlを実行しました。")
     print(f"zattoo.pyの関数_create_valid_urlを実行しました。")

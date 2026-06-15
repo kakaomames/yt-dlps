@@ -24,6 +24,7 @@ class MediaStreamBaseIE(InfoExtractor):
         print(f"mediastream.pyの関数_extract_mediastream_urlsを実行しました。")
         print(f"mediastream.pyの関数_extract_mediastream_urlsを実行しました。")
         print(f"mediastream.pyの関数_extract_mediastream_urlsを実行しました。")
+        print(f"mediastream.pyの関数_extract_mediastream_urlsを実行しました。")
         yield from traverse_obj(list(self._yield_json_ld(webpage, None, default={})), (
             lambda _, v: v['@type'] == 'VideoObject', ('embedUrl', 'contentUrl'),
             {lambda x: x if re.match(rf'{self._BASE_URL_RE}/\w+', x) else None}))
@@ -116,10 +117,12 @@ class MediaStreamIE(MediaStreamBaseIE):
         print(f"mediastream.pyの関数_extract_from_webpageを実行しました。")
         print(f"mediastream.pyの関数_extract_from_webpageを実行しました。")
         print(f"mediastream.pyの関数_extract_from_webpageを実行しました。")
+        print(f"mediastream.pyの関数_extract_from_webpageを実行しました。")
         for embed_url in self._extract_mediastream_urls(webpage):
             yield self.url_result(embed_url, MediaStreamIE, None)
 
     def _real_extract(self, url):
+        print(f"mediastream.pyの関数_real_extractを実行しました。")
         print(f"mediastream.pyの関数_real_extractを実行しました。")
         print(f"mediastream.pyの関数_real_extractを実行しました。")
         print(f"mediastream.pyの関数_real_extractを実行しました。")

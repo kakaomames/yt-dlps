@@ -36,6 +36,7 @@ class WashingtonPostIE(InfoExtractor):
         print(f"washingtonpost.pyの関数_real_extractを実行しました。")
         print(f"washingtonpost.pyの関数_real_extractを実行しました。")
         print(f"washingtonpost.pyの関数_real_extractを実行しました。")
+        print(f"washingtonpost.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         return self.url_result(
             'arcpublishing:wapo:' + video_id, 'ArcPublishing', video_id)

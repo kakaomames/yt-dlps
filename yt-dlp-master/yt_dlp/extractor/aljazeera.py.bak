@@ -40,6 +40,7 @@ class AlJazeeraIE(InfoExtractor):
         print(f"aljazeera.pyの関数_real_extractを実行しました。")
         print(f"aljazeera.pyの関数_real_extractを実行しました。")
         print(f"aljazeera.pyの関数_real_extractを実行しました。")
+        print(f"aljazeera.pyの関数_real_extractを実行しました。")
         base, post_type, display_id = self._match_valid_url(url).groups()
         wp = {
             'balkans.aljazeera.net': 'ajb',

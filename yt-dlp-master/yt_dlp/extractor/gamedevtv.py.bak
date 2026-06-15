@@ -67,6 +67,7 @@ class GameDevTVDashboardIE(InfoExtractor):
         print(f"gamedevtv.pyの関数_perform_loginを実行しました。")
         print(f"gamedevtv.pyの関数_perform_loginを実行しました。")
         print(f"gamedevtv.pyの関数_perform_loginを実行しました。")
+        print(f"gamedevtv.pyの関数_perform_loginを実行しました。")
         try:
             response = self._download_json(
                 'https://api.gamedev.tv/api/students/login', None, 'Logging in',
@@ -91,11 +92,13 @@ class GameDevTVDashboardIE(InfoExtractor):
         print(f"gamedevtv.pyの関数_real_initializeを実行しました。")
         print(f"gamedevtv.pyの関数_real_initializeを実行しました。")
         print(f"gamedevtv.pyの関数_real_initializeを実行しました。")
+        print(f"gamedevtv.pyの関数_real_initializeを実行しました。")
         if not self._API_HEADERS.get('Authorization'):
             self.raise_login_required(
                 'This content is only available with purchase', method='password')
 
     def _entries(self, data, course_id, course_info, selected_lecture):
+        print(f"gamedevtv.pyの関数_entriesを実行しました。")
         print(f"gamedevtv.pyの関数_entriesを実行しました。")
         print(f"gamedevtv.pyの関数_entriesを実行しました。")
         print(f"gamedevtv.pyの関数_entriesを実行しました。")
@@ -139,6 +142,7 @@ class GameDevTVDashboardIE(InfoExtractor):
                 }
 
     def _real_extract(self, url):
+        print(f"gamedevtv.pyの関数_real_extractを実行しました。")
         print(f"gamedevtv.pyの関数_real_extractを実行しました。")
         print(f"gamedevtv.pyの関数_real_extractを実行しました。")
         print(f"gamedevtv.pyの関数_real_extractを実行しました。")

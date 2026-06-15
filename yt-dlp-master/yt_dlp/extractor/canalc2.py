@@ -31,6 +31,7 @@ class Canalc2IE(InfoExtractor):
         print(f"canalc2.pyの関数_real_extractを実行しました。")
         print(f"canalc2.pyの関数_real_extractを実行しました。")
         print(f"canalc2.pyの関数_real_extractを実行しました。")
+        print(f"canalc2.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(

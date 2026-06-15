@@ -98,6 +98,7 @@ class ADNIE(ADNBaseIE):
         print(f"adn.pyの関数_get_subtitlesを実行しました。")
         print(f"adn.pyの関数_get_subtitlesを実行しました。")
         print(f"adn.pyの関数_get_subtitlesを実行しました。")
+        print(f"adn.pyの関数_get_subtitlesを実行しました。")
         if not sub_url:
             return None
 
@@ -165,6 +166,7 @@ Format: Marked,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text'''
         print(f"adn.pyの関数_perform_loginを実行しました。")
         print(f"adn.pyの関数_perform_loginを実行しました。")
         print(f"adn.pyの関数_perform_loginを実行しました。")
+        print(f"adn.pyの関数_perform_loginを実行しました。")
         try:
             access_token = (self._download_json(
                 self._API_BASE_URL + 'authentication/login', None,
@@ -186,6 +188,7 @@ Format: Marked,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text'''
             self.report_warning(message or self._LOGIN_ERR_MESSAGE)
 
     def _real_extract(self, url):
+        print(f"adn.pyの関数_real_extractを実行しました。")
         print(f"adn.pyの関数_real_extractを実行しました。")
         print(f"adn.pyの関数_real_extractを実行しました。")
         print(f"adn.pyの関数_real_extractを実行しました。")
@@ -342,6 +345,7 @@ class ADNSeasonIE(ADNBaseIE):
             })
 
         def entries():
+            print(f"adn.pyの関数entriesを実行しました。")
             print(f"adn.pyの関数entriesを実行しました。")
             print(f"adn.pyの関数entriesを実行しました。")
             print(f"adn.pyの関数entriesを実行しました。")

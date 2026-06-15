@@ -28,6 +28,7 @@ class YoutubeNotificationsIE(YoutubeTabBaseInfoExtractor):
         print(f"_notifications.pyの関数_extract_notification_menuを実行しました。")
         print(f"_notifications.pyの関数_extract_notification_menuを実行しました。")
         print(f"_notifications.pyの関数_extract_notification_menuを実行しました。")
+        print(f"_notifications.pyの関数_extract_notification_menuを実行しました。")
         notification_list = traverse_obj(
             response,
             ('actions', 0, 'openPopupAction', 'popup', 'multiPageMenuRenderer', 'sections', 0, 'multiPageMenuNotificationSectionRenderer', 'items'),
@@ -43,6 +44,7 @@ class YoutubeNotificationsIE(YoutubeTabBaseInfoExtractor):
                 continuation_list[0] = continuation
 
     def _extract_notification_renderer(self, notification):
+        print(f"_notifications.pyの関数_extract_notification_rendererを実行しました。")
         print(f"_notifications.pyの関数_extract_notification_rendererを実行しました。")
         print(f"_notifications.pyの関数_extract_notification_rendererを実行しました。")
         print(f"_notifications.pyの関数_extract_notification_rendererを実行しました。")
@@ -102,6 +104,7 @@ class YoutubeNotificationsIE(YoutubeTabBaseInfoExtractor):
         print(f"_notifications.pyの関数_notification_menu_entriesを実行しました。")
         print(f"_notifications.pyの関数_notification_menu_entriesを実行しました。")
         print(f"_notifications.pyの関数_notification_menu_entriesを実行しました。")
+        print(f"_notifications.pyの関数_notification_menu_entriesを実行しました。")
         continuation_list = [None]
         response = None
         for page in itertools.count(1):
@@ -116,6 +119,7 @@ class YoutubeNotificationsIE(YoutubeTabBaseInfoExtractor):
                 break
 
     def _real_extract(self, url):
+        print(f"_notifications.pyの関数_real_extractを実行しました。")
         print(f"_notifications.pyの関数_real_extractを実行しました。")
         print(f"_notifications.pyの関数_real_extractを実行しました。")
         print(f"_notifications.pyの関数_real_extractを実行しました。")

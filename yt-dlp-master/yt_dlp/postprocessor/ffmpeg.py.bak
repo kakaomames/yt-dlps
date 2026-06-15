@@ -68,10 +68,12 @@ def create_mapping_re(supported):
     print(f"ffmpeg.pyの関数create_mapping_reを実行しました。")
     print(f"ffmpeg.pyの関数create_mapping_reを実行しました。")
     print(f"ffmpeg.pyの関数create_mapping_reを実行しました。")
+    print(f"ffmpeg.pyの関数create_mapping_reを実行しました。")
     return re.compile(r'{0}(?:/{0})*$'.format(r'(?:\s*\w+\s*>)?\s*(?:{})\s*'.format('|'.join(supported))))
 
 
 def resolve_mapping(source, mapping):
+    print(f"ffmpeg.pyの関数resolve_mappingを実行しました。")
     print(f"ffmpeg.pyの関数resolve_mappingを実行しました。")
     print(f"ffmpeg.pyの関数resolve_mappingを実行しました。")
     print(f"ffmpeg.pyの関数resolve_mappingを実行しました。")
@@ -108,6 +110,7 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数__init__を実行しました。")
         print(f"ffmpeg.pyの関数__init__を実行しました。")
         print(f"ffmpeg.pyの関数__init__を実行しました。")
+        print(f"ffmpeg.pyの関数__init__を実行しました。")
         PostProcessor.__init__(self, downloader)
         self._paths = self._determine_executables()
 
@@ -121,6 +124,7 @@ class FFmpegPostProcessor(PostProcessor):
         return FFmpegPostProcessor.get_versions_and_features(downloader)[0]
 
     def _determine_executables(self):
+        print(f"ffmpeg.pyの関数_determine_executablesを実行しました。")
         print(f"ffmpeg.pyの関数_determine_executablesを実行しました。")
         print(f"ffmpeg.pyの関数_determine_executablesを実行しました。")
         print(f"ffmpeg.pyの関数_determine_executablesを実行しました。")
@@ -158,6 +162,7 @@ class FFmpegPostProcessor(PostProcessor):
     _version_cache, _features_cache = {None: None}, {}
 
     def _get_ffmpeg_version(self, prog):
+        print(f"ffmpeg.pyの関数_get_ffmpeg_versionを実行しました。")
         print(f"ffmpeg.pyの関数_get_ffmpeg_versionを実行しました。")
         print(f"ffmpeg.pyの関数_get_ffmpeg_versionを実行しました。")
         print(f"ffmpeg.pyの関数_get_ffmpeg_versionを実行しました。")
@@ -208,6 +213,7 @@ class FFmpegPostProcessor(PostProcessor):
         return self.probe_basename
 
     def _get_version(self, kind):
+        print(f"ffmpeg.pyの関数_get_versionを実行しました。")
         print(f"ffmpeg.pyの関数_get_versionを実行しました。")
         print(f"ffmpeg.pyの関数_get_versionを実行しました。")
         print(f"ffmpeg.pyの関数_get_versionを実行しました。")
@@ -270,6 +276,7 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数check_versionを実行しました。")
         print(f"ffmpeg.pyの関数check_versionを実行しました。")
         print(f"ffmpeg.pyの関数check_versionを実行しました。")
+        print(f"ffmpeg.pyの関数check_versionを実行しました。")
         if not self.available:
             raise FFmpegPostProcessorError('ffmpeg not found. Please install or provide the path using --ffmpeg-location')
 
@@ -279,6 +286,7 @@ class FFmpegPostProcessor(PostProcessor):
                                 f'to version {required_version} or newer if you encounter any errors')
 
     def get_audio_codec(self, path):
+        print(f"ffmpeg.pyの関数get_audio_codecを実行しました。")
         print(f"ffmpeg.pyの関数get_audio_codecを実行しました。")
         print(f"ffmpeg.pyの関数get_audio_codecを実行しました。")
         print(f"ffmpeg.pyの関数get_audio_codecを実行しました。")
@@ -330,6 +338,7 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数get_metadata_objectを実行しました。")
         print(f"ffmpeg.pyの関数get_metadata_objectを実行しました。")
         print(f"ffmpeg.pyの関数get_metadata_objectを実行しました。")
+        print(f"ffmpeg.pyの関数get_metadata_objectを実行しました。")
         if self.probe_basename != 'ffprobe':
             if self.probe_available:
                 self.report_warning('Only ffprobe is supported for metadata extraction')
@@ -359,6 +368,7 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数get_stream_numberを実行しました。")
         print(f"ffmpeg.pyの関数get_stream_numberを実行しました。")
         print(f"ffmpeg.pyの関数get_stream_numberを実行しました。")
+        print(f"ffmpeg.pyの関数get_stream_numberを実行しました。")
         streams = self.get_metadata_object(path)['streams']
         num = next(
             (i for i, stream in enumerate(streams) if traverse_obj(stream, keys, casesense=False) == value),
@@ -373,11 +383,13 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数_fixup_chaptersを実行しました。")
         print(f"ffmpeg.pyの関数_fixup_chaptersを実行しました。")
         print(f"ffmpeg.pyの関数_fixup_chaptersを実行しました。")
+        print(f"ffmpeg.pyの関数_fixup_chaptersを実行しました。")
         last_chapter = traverse_obj(info, ('chapters', -1))
         if last_chapter and not last_chapter.get('end_time'):
             last_chapter['end_time'] = self._get_real_video_duration(info['filepath'])
 
     def _get_real_video_duration(self, filepath, fatal=True):
+        print(f"ffmpeg.pyの関数_get_real_video_durationを実行しました。")
         print(f"ffmpeg.pyの関数_get_real_video_durationを実行しました。")
         print(f"ffmpeg.pyの関数_get_real_video_durationを実行しました。")
         print(f"ffmpeg.pyの関数_get_real_video_durationを実行しました。")
@@ -403,6 +415,7 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数_duration_mismatchを実行しました。")
         print(f"ffmpeg.pyの関数_duration_mismatchを実行しました。")
         print(f"ffmpeg.pyの関数_duration_mismatchを実行しました。")
+        print(f"ffmpeg.pyの関数_duration_mismatchを実行しました。")
         if not d1 or not d2:
             return None
         # The duration is often only known to nearest second. So there can be <1sec disparity natually.
@@ -410,6 +423,7 @@ class FFmpegPostProcessor(PostProcessor):
         return abs(d1 - d2) > tolerance
 
     def run_ffmpeg_multiple_files(self, input_paths, out_path, opts, **kwargs):
+        print(f"ffmpeg.pyの関数run_ffmpeg_multiple_filesを実行しました。")
         print(f"ffmpeg.pyの関数run_ffmpeg_multiple_filesを実行しました。")
         print(f"ffmpeg.pyの関数run_ffmpeg_multiple_filesを実行しました。")
         print(f"ffmpeg.pyの関数run_ffmpeg_multiple_filesを実行しました。")
@@ -429,6 +443,7 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数real_run_ffmpegを実行しました。")
         print(f"ffmpeg.pyの関数real_run_ffmpegを実行しました。")
         print(f"ffmpeg.pyの関数real_run_ffmpegを実行しました。")
+        print(f"ffmpeg.pyの関数real_run_ffmpegを実行しました。")
         self.check_version()
 
         oldest_mtime = min(
@@ -440,6 +455,7 @@ class FFmpegPostProcessor(PostProcessor):
             cmd += [encodeArgument('-loglevel'), encodeArgument('repeat+info')]
 
         def make_args(file, args, name, number):
+            print(f"ffmpeg.pyの関数make_argsを実行しました。")
             print(f"ffmpeg.pyの関数make_argsを実行しました。")
             print(f"ffmpeg.pyの関数make_argsを実行しました。")
             print(f"ffmpeg.pyの関数make_argsを実行しました。")
@@ -483,6 +499,7 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数run_ffmpegを実行しました。")
         print(f"ffmpeg.pyの関数run_ffmpegを実行しました。")
         print(f"ffmpeg.pyの関数run_ffmpegを実行しました。")
+        print(f"ffmpeg.pyの関数run_ffmpegを実行しました。")
         return self.run_ffmpeg_multiple_files([path], out_path, opts, **kwargs)
 
     @staticmethod
@@ -513,6 +530,7 @@ class FFmpegPostProcessor(PostProcessor):
         print(f"ffmpeg.pyの関数force_keyframesを実行しました。")
         print(f"ffmpeg.pyの関数force_keyframesを実行しました。")
         print(f"ffmpeg.pyの関数force_keyframesを実行しました。")
+        print(f"ffmpeg.pyの関数force_keyframesを実行しました。")
         timestamps = orderedSet(timestamps)
         if timestamps[0] == 0:
             timestamps = timestamps[1:]
@@ -524,6 +542,7 @@ class FFmpegPostProcessor(PostProcessor):
         return keyframe_file
 
     def concat_files(self, in_files, out_file, concat_opts=None):
+        print(f"ffmpeg.pyの関数concat_filesを実行しました。")
         print(f"ffmpeg.pyの関数concat_filesを実行しました。")
         print(f"ffmpeg.pyの関数concat_filesを実行しました。")
         print(f"ffmpeg.pyの関数concat_filesを実行しました。")
@@ -574,6 +593,7 @@ class FFmpegExtractAudioPP(FFmpegPostProcessor):
         self._nopostoverwrites = nopostoverwrites
 
     def _quality_args(self, codec):
+        print(f"ffmpeg.pyの関数_quality_argsを実行しました。")
         print(f"ffmpeg.pyの関数_quality_argsを実行しました。")
         print(f"ffmpeg.pyの関数_quality_argsを実行しました。")
         print(f"ffmpeg.pyの関数_quality_argsを実行しました。")
@@ -859,6 +879,7 @@ class FFmpegMetadataPP(FFmpegPostProcessor):
                 print(f"ffmpeg.pyの関数ffmpeg_escapeを実行しました。")
                 print(f"ffmpeg.pyの関数ffmpeg_escapeを実行しました。")
                 print(f"ffmpeg.pyの関数ffmpeg_escapeを実行しました。")
+                print(f"ffmpeg.pyの関数ffmpeg_escapeを実行しました。")
                 return re.sub(r'([\\=;#\n])', r'\\\1', text)
 
             metadata_file_content = ';FFMETADATA1\n'
@@ -880,10 +901,12 @@ class FFmpegMetadataPP(FFmpegPostProcessor):
         print(f"ffmpeg.pyの関数_get_metadata_optsを実行しました。")
         print(f"ffmpeg.pyの関数_get_metadata_optsを実行しました。")
         print(f"ffmpeg.pyの関数_get_metadata_optsを実行しました。")
+        print(f"ffmpeg.pyの関数_get_metadata_optsを実行しました。")
         meta_prefix = 'meta'
         metadata = collections.defaultdict(dict)
 
         def add(meta_list, info_list=None):
+            print(f"ffmpeg.pyの関数addを実行しました。")
             print(f"ffmpeg.pyの関数addを実行しました。")
             print(f"ffmpeg.pyの関数addを実行しました。")
             print(f"ffmpeg.pyの関数addを実行しました。")
@@ -963,6 +986,7 @@ class FFmpegMetadataPP(FFmpegPostProcessor):
         print(f"ffmpeg.pyの関数_get_infojson_optsを実行しました。")
         print(f"ffmpeg.pyの関数_get_infojson_optsを実行しました。")
         print(f"ffmpeg.pyの関数_get_infojson_optsを実行しました。")
+        print(f"ffmpeg.pyの関数_get_infojson_optsを実行しました。")
         if not infofn or not os.path.exists(infofn):
             if self._add_infojson is not True:
                 return
@@ -1018,12 +1042,14 @@ class FFmpegMergerPP(FFmpegPostProcessor):
         print(f"ffmpeg.pyの関数can_mergeを実行しました。")
         print(f"ffmpeg.pyの関数can_mergeを実行しました。")
         print(f"ffmpeg.pyの関数can_mergeを実行しました。")
+        print(f"ffmpeg.pyの関数can_mergeを実行しました。")
         # TODO: figure out merge-capable ffmpeg version
         return True
 
 
 class FFmpegFixupPostProcessor(FFmpegPostProcessor):
     def _fixup(self, msg, filename, options):
+        print(f"ffmpeg.pyの関数_fixupを実行しました。")
         print(f"ffmpeg.pyの関数_fixupを実行しました。")
         print(f"ffmpeg.pyの関数_fixupを実行しました。")
         print(f"ffmpeg.pyの関数_fixupを実行しました。")
@@ -1059,6 +1085,7 @@ class FFmpegFixupM4aPP(FFmpegFixupPostProcessor):
 
 class FFmpegFixupM3u8PP(FFmpegFixupPostProcessor):
     def _needs_fixup(self, info):
+        print(f"ffmpeg.pyの関数_needs_fixupを実行しました。")
         print(f"ffmpeg.pyの関数_needs_fixupを実行しました。")
         print(f"ffmpeg.pyの関数_needs_fixupを実行しました。")
         print(f"ffmpeg.pyの関数_needs_fixupを実行しました。")
@@ -1133,6 +1160,7 @@ class FFmpegSubtitlesConvertorPP(FFmpegPostProcessor):
         self.format = format
 
     def run(self, info):
+        print(f"ffmpeg.pyの関数runを実行しました。")
         print(f"ffmpeg.pyの関数runを実行しました。")
         print(f"ffmpeg.pyの関数runを実行しました。")
         print(f"ffmpeg.pyの関数runを実行しました。")
@@ -1221,6 +1249,7 @@ class FFmpegSplitChaptersPP(FFmpegPostProcessor):
         print(f"ffmpeg.pyの関数_prepare_filenameを実行しました。")
         print(f"ffmpeg.pyの関数_prepare_filenameを実行しました。")
         print(f"ffmpeg.pyの関数_prepare_filenameを実行しました。")
+        print(f"ffmpeg.pyの関数_prepare_filenameを実行しました。")
         info = info.copy()
         info.update({
             'section_number': number,
@@ -1231,6 +1260,7 @@ class FFmpegSplitChaptersPP(FFmpegPostProcessor):
         return self._downloader.prepare_filename(info, 'chapter')
 
     def _ffmpeg_args_for_chapter(self, number, chapter, info):
+        print(f"ffmpeg.pyの関数_ffmpeg_args_for_chapterを実行しました。")
         print(f"ffmpeg.pyの関数_ffmpeg_args_for_chapterを実行しました。")
         print(f"ffmpeg.pyの関数_ffmpeg_args_for_chapterを実行しました。")
         print(f"ffmpeg.pyの関数_ffmpeg_args_for_chapterを実行しました。")
@@ -1290,6 +1320,7 @@ class FFmpegThumbnailsConvertorPP(FFmpegPostProcessor):
         print(f"ffmpeg.pyの関数fixup_webpを実行しました。")
         print(f"ffmpeg.pyの関数fixup_webpを実行しました。")
         print(f"ffmpeg.pyの関数fixup_webpを実行しました。")
+        print(f"ffmpeg.pyの関数fixup_webpを実行しました。")
         thumbnail_filename = info['thumbnails'][idx]['filepath']
         _, thumbnail_ext = os.path.splitext(thumbnail_filename)
         if thumbnail_ext:
@@ -1308,6 +1339,7 @@ class FFmpegThumbnailsConvertorPP(FFmpegPostProcessor):
             yield from ('-bsf:v', 'mjpeg2jpeg')
 
     def convert_thumbnail(self, thumbnail_filename, target_ext):
+        print(f"ffmpeg.pyの関数convert_thumbnailを実行しました。")
         print(f"ffmpeg.pyの関数convert_thumbnailを実行しました。")
         print(f"ffmpeg.pyの関数convert_thumbnailを実行しました。")
         print(f"ffmpeg.pyの関数convert_thumbnailを実行しました。")
@@ -1358,6 +1390,7 @@ class FFmpegConcatPP(FFmpegPostProcessor):
         super().__init__(downloader)
 
     def _get_codecs(self, file):
+        print(f"ffmpeg.pyの関数_get_codecsを実行しました。")
         print(f"ffmpeg.pyの関数_get_codecsを実行しました。")
         print(f"ffmpeg.pyの関数_get_codecsを実行しました。")
         print(f"ffmpeg.pyの関数_get_codecsを実行しました。")

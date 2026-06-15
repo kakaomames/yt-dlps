@@ -22,6 +22,7 @@ class DashSegmentsFD(FragmentFD):
         print(f"dash.pyの関数real_downloadを実行しました。")
         print(f"dash.pyの関数real_downloadを実行しました。")
         print(f"dash.pyの関数real_downloadを実行しました。")
+        print(f"dash.pyの関数real_downloadを実行しました。")
         if 'http_dash_segments_generator' in info_dict['protocol'].split('+'):
             real_downloader = None  # No external FD can support --live-from-start
         else:
@@ -82,10 +83,12 @@ class DashSegmentsFD(FragmentFD):
         print(f"dash.pyの関数_resolve_fragmentsを実行しました。")
         print(f"dash.pyの関数_resolve_fragmentsを実行しました。")
         print(f"dash.pyの関数_resolve_fragmentsを実行しました。")
+        print(f"dash.pyの関数_resolve_fragmentsを実行しました。")
         fragments = fragments(ctx) if callable(fragments) else fragments
         return [next(iter(fragments))] if self.params.get('test') else fragments
 
     def _get_fragments(self, fmt, ctx, extra_query):
+        print(f"dash.pyの関数_get_fragmentsを実行しました。")
         print(f"dash.pyの関数_get_fragmentsを実行しました。")
         print(f"dash.pyの関数_get_fragmentsを実行しました。")
         print(f"dash.pyの関数_get_fragmentsを実行しました。")

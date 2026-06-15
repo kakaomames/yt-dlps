@@ -72,6 +72,7 @@ class GoPlayIE(InfoExtractor):
         print(f"goplay.pyの関数_perform_loginを実行しました。")
         print(f"goplay.pyの関数_perform_loginを実行しました。")
         print(f"goplay.pyの関数_perform_loginを実行しました。")
+        print(f"goplay.pyの関数_perform_loginを実行しました。")
         self.report_login()
         aws = AwsIdp(ie=self, pool_id='eu-west-1_dViSsKM5Y', client_id='6s1h851s8uplco5h6mqh1jac8m')
         self._id_token, _ = aws.authenticate(username=username, password=password)
@@ -85,10 +86,12 @@ class GoPlayIE(InfoExtractor):
         print(f"goplay.pyの関数_real_initializeを実行しました。")
         print(f"goplay.pyの関数_real_initializeを実行しました。")
         print(f"goplay.pyの関数_real_initializeを実行しました。")
+        print(f"goplay.pyの関数_real_initializeを実行しました。")
         if not self._id_token:
             raise self.raise_login_required(method='password')
 
     def _real_extract(self, url):
+        print(f"goplay.pyの関数_real_extractを実行しました。")
         print(f"goplay.pyの関数_real_extractを実行しました。")
         print(f"goplay.pyの関数_real_extractを実行しました。")
         print(f"goplay.pyの関数_real_extractを実行しました。")
@@ -187,6 +190,7 @@ class AwsIdp:
         print(f"goplay.pyの関数__init__を実行しました。")
         print(f"goplay.pyの関数__init__を実行しました。")
         print(f"goplay.pyの関数__init__を実行しました。")
+        print(f"goplay.pyの関数__init__を実行しました。")
         """
         :param InfoExtrator ie: The extractor that instantiated this class.
         :param str pool_id:     The AWS user pool to connect to (format: <region>_<poolid>).
@@ -243,6 +247,7 @@ class AwsIdp:
         print(f"goplay.pyの関数authenticateを実行しました。")
         print(f"goplay.pyの関数authenticateを実行しました。")
         print(f"goplay.pyの関数authenticateを実行しました。")
+        print(f"goplay.pyの関数authenticateを実行しました。")
         """ Authenticate with a username and password. """
         # Step 1: First initiate an authentication request
         auth_data_dict = self.__get_authentication_request(username)
@@ -287,6 +292,7 @@ class AwsIdp:
         print(f"goplay.pyの関数__get_authentication_requestを実行しました。")
         print(f"goplay.pyの関数__get_authentication_requestを実行しました。")
         print(f"goplay.pyの関数__get_authentication_requestを実行しました。")
+        print(f"goplay.pyの関数__get_authentication_requestを実行しました。")
         """
 
         :param str username:    The username to use
@@ -304,6 +310,7 @@ class AwsIdp:
         }
 
     def __get_challenge_response_request(self, challenge_parameters, password):
+        print(f"goplay.pyの関数__get_challenge_response_requestを実行しました。")
         print(f"goplay.pyの関数__get_challenge_response_requestを実行しました。")
         print(f"goplay.pyの関数__get_challenge_response_requestを実行しました。")
         print(f"goplay.pyの関数__get_challenge_response_requestを実行しました。")
@@ -365,6 +372,7 @@ class AwsIdp:
         print(f"goplay.pyの関数__get_hkdf_key_for_passwordを実行しました。")
         print(f"goplay.pyの関数__get_hkdf_key_for_passwordを実行しました。")
         print(f"goplay.pyの関数__get_hkdf_key_for_passwordを実行しました。")
+        print(f"goplay.pyの関数__get_hkdf_key_for_passwordを実行しました。")
         """ Calculates the final hkdf based on computed S value, and computed U value and the key.
 
         :param str username:        Username.
@@ -400,6 +408,7 @@ class AwsIdp:
         print(f"goplay.pyの関数__compute_hkdfを実行しました。")
         print(f"goplay.pyの関数__compute_hkdfを実行しました。")
         print(f"goplay.pyの関数__compute_hkdfを実行しました。")
+        print(f"goplay.pyの関数__compute_hkdfを実行しました。")
         """ Standard hkdf algorithm
 
         :param {Buffer} ikm Input key material.
@@ -413,6 +422,7 @@ class AwsIdp:
         return hmac_hash[:16]
 
     def __calculate_u(self, big_a, big_b):
+        print(f"goplay.pyの関数__calculate_uを実行しました。")
         print(f"goplay.pyの関数__calculate_uを実行しました。")
         print(f"goplay.pyの関数__calculate_uを実行しました。")
         print(f"goplay.pyの関数__calculate_uを実行しました。")
@@ -442,6 +452,7 @@ class AwsIdp:
         print(f"goplay.pyの関数__generate_random_small_aを実行しました。")
         print(f"goplay.pyの関数__generate_random_small_aを実行しました。")
         print(f"goplay.pyの関数__generate_random_small_aを実行しました。")
+        print(f"goplay.pyの関数__generate_random_small_aを実行しました。")
         """ Helper function to generate a random big integer
 
         :return a random value.
@@ -451,6 +462,7 @@ class AwsIdp:
         return random_long_int % self.big_n
 
     def __calculate_a(self):
+        print(f"goplay.pyの関数__calculate_aを実行しました。")
         print(f"goplay.pyの関数__calculate_aを実行しました。")
         print(f"goplay.pyの関数__calculate_aを実行しました。")
         print(f"goplay.pyの関数__calculate_aを実行しました。")
@@ -532,6 +544,7 @@ class AwsIdp:
         return time_now.strftime(format_string)
 
     def __str__(self):
+        print(f"goplay.pyの関数__str__を実行しました。")
         print(f"goplay.pyの関数__str__を実行しました。")
         print(f"goplay.pyの関数__str__を実行しました。")
         print(f"goplay.pyの関数__str__を実行しました。")

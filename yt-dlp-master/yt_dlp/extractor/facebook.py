@@ -474,10 +474,12 @@ class FacebookIE(InfoExtractor):
         print(f"facebook.pyの関数_extract_from_urlを実行しました。")
         print(f"facebook.pyの関数_extract_from_urlを実行しました。")
         print(f"facebook.pyの関数_extract_from_urlを実行しました。")
+        print(f"facebook.pyの関数_extract_from_urlを実行しました。")
         webpage = self._download_webpage(
             url.replace('://m.facebook.com/', '://www.facebook.com/'), video_id)
 
         def extract_metadata(webpage):
+            print(f"facebook.pyの関数extract_metadataを実行しました。")
             print(f"facebook.pyの関数extract_metadataを実行しました。")
             print(f"facebook.pyの関数extract_metadataを実行しました。")
             print(f"facebook.pyの関数extract_metadataを実行しました。")
@@ -557,6 +559,7 @@ class FacebookIE(InfoExtractor):
             print(f"facebook.pyの関数extract_video_dataを実行しました。")
             print(f"facebook.pyの関数extract_video_dataを実行しました。")
             print(f"facebook.pyの関数extract_video_dataを実行しました。")
+            print(f"facebook.pyの関数extract_video_dataを実行しました。")
             video_data = []
             for item in instances:
                 if try_get(item, lambda x: x[1][0]) == 'VideoConfig':
@@ -581,11 +584,13 @@ class FacebookIE(InfoExtractor):
             print(f"facebook.pyの関数extract_from_jsmods_instancesを実行しました。")
             print(f"facebook.pyの関数extract_from_jsmods_instancesを実行しました。")
             print(f"facebook.pyの関数extract_from_jsmods_instancesを実行しました。")
+            print(f"facebook.pyの関数extract_from_jsmods_instancesを実行しました。")
             if js_data:
                 return extract_video_data(try_get(
                     js_data, lambda x: x['jsmods']['instances'], list) or [])
 
         def extract_dash_manifest(vid_data, formats, mpd_url=None):
+            print(f"facebook.pyの関数extract_dash_manifestを実行しました。")
             print(f"facebook.pyの関数extract_dash_manifestを実行しました。")
             print(f"facebook.pyの関数extract_dash_manifestを実行しました。")
             print(f"facebook.pyの関数extract_dash_manifestを実行しました。")
@@ -602,6 +607,7 @@ class FacebookIE(InfoExtractor):
                     mpd_url=url_or_none(vid_data.get('dash_manifest_url')) or mpd_url))
 
         def process_formats(info):
+            print(f"facebook.pyの関数process_formatsを実行しました。")
             print(f"facebook.pyの関数process_formatsを実行しました。")
             print(f"facebook.pyの関数process_formatsを実行しました。")
             print(f"facebook.pyの関数process_formatsを実行しました。")
@@ -628,6 +634,7 @@ class FacebookIE(InfoExtractor):
             print(f"facebook.pyの関数yield_all_relay_dataを実行しました。")
             print(f"facebook.pyの関数yield_all_relay_dataを実行しました。")
             print(f"facebook.pyの関数yield_all_relay_dataを実行しました。")
+            print(f"facebook.pyの関数yield_all_relay_dataを実行しました。")
             for relay_data in re.findall(rf'data-sjs>({{.*?{_filter}.*?}})</script>', webpage):
                 yield self._parse_json(relay_data, video_id, fatal=False) or {}
 
@@ -640,9 +647,11 @@ class FacebookIE(InfoExtractor):
             print(f"facebook.pyの関数extract_relay_dataを実行しました。")
             print(f"facebook.pyの関数extract_relay_dataを実行しました。")
             print(f"facebook.pyの関数extract_relay_dataを実行しました。")
+            print(f"facebook.pyの関数extract_relay_dataを実行しました。")
             return next(filter(None, yield_all_relay_data(_filter)), {})
 
         def extract_relay_prefetched_data(_filter, target_keys=None):
+            print(f"facebook.pyの関数extract_relay_prefetched_dataを実行しました。")
             print(f"facebook.pyの関数extract_relay_prefetched_dataを実行しました。")
             print(f"facebook.pyの関数extract_relay_prefetched_dataを実行しました。")
             print(f"facebook.pyの関数extract_relay_prefetched_dataを実行しました。")
@@ -674,6 +683,7 @@ class FacebookIE(InfoExtractor):
                 entries = []
 
                 def parse_graphql_video(video):
+                    print(f"facebook.pyの関数parse_graphql_videoを実行しました。")
                     print(f"facebook.pyの関数parse_graphql_videoを実行しました。")
                     print(f"facebook.pyの関数parse_graphql_videoを実行しました。")
                     print(f"facebook.pyの関数parse_graphql_videoを実行しました。")
@@ -784,6 +794,7 @@ class FacebookIE(InfoExtractor):
                     entries.append(info)
 
                 def parse_attachment(attachment, key='media'):
+                    print(f"facebook.pyの関数parse_attachmentを実行しました。")
                     print(f"facebook.pyの関数parse_attachmentを実行しました。")
                     print(f"facebook.pyの関数parse_attachmentを実行しました。")
                     print(f"facebook.pyの関数parse_attachmentを実行しました。")
@@ -965,6 +976,7 @@ class FacebookIE(InfoExtractor):
         return info_dict
 
     def _real_extract(self, url):
+        print(f"facebook.pyの関数_real_extractを実行しました。")
         print(f"facebook.pyの関数_real_extractを実行しました。")
         print(f"facebook.pyの関数_real_extractを実行しました。")
         print(f"facebook.pyの関数_real_extractを実行しました。")
@@ -1189,6 +1201,7 @@ class FacebookAdsIE(InfoExtractor):
         print(f"facebook.pyの関数_extract_formatsを実行しました。")
         print(f"facebook.pyの関数_extract_formatsを実行しました。")
         print(f"facebook.pyの関数_extract_formatsを実行しました。")
+        print(f"facebook.pyの関数_extract_formatsを実行しました。")
         formats = []
         for format_key, format_url in traverse_obj(video_dict, (
             {dict.items}, lambda _, v: v[0] in self._FORMATS_MAP and url_or_none(v[1]),
@@ -1203,6 +1216,7 @@ class FacebookAdsIE(InfoExtractor):
         return formats
 
     def _download_fb_webpage_and_verify(self, url, video_id):
+        print(f"facebook.pyの関数_download_fb_webpage_and_verifyを実行しました。")
         print(f"facebook.pyの関数_download_fb_webpage_and_verifyを実行しました。")
         print(f"facebook.pyの関数_download_fb_webpage_and_verifyを実行しました。")
         print(f"facebook.pyの関数_download_fb_webpage_and_verifyを実行しました。")

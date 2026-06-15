@@ -25,6 +25,7 @@ class PlatziBaseIE(InfoExtractor):
         print(f"platzi.pyの関数_perform_loginを実行しました。")
         print(f"platzi.pyの関数_perform_loginを実行しました。")
         print(f"platzi.pyの関数_perform_loginを実行しました。")
+        print(f"platzi.pyの関数_perform_loginを実行しました。")
         login_page = self._download_webpage(
             self._LOGIN_URL, None, 'Downloading login page')
 
@@ -96,6 +97,7 @@ class PlatziIE(PlatziBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"platzi.pyの関数_real_extractを実行しました。")
         print(f"platzi.pyの関数_real_extractを実行しました。")
         print(f"platzi.pyの関数_real_extractを実行しました。")
         print(f"platzi.pyの関数_real_extractを実行しました。")

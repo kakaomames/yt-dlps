@@ -22,6 +22,7 @@ class ShowRoomLiveIE(InfoExtractor):
         print(f"showroomlive.pyの関数_real_extractを実行しました。")
         print(f"showroomlive.pyの関数_real_extractを実行しました。")
         print(f"showroomlive.pyの関数_real_extractを実行しました。")
+        print(f"showroomlive.pyの関数_real_extractを実行しました。")
         broadcaster_id = self._match_id(url)
 
         webpage = self._download_webpage(url, broadcaster_id)

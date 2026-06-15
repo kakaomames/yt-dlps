@@ -42,6 +42,7 @@ class YandexMusicBaseIE(InfoExtractor):
         print(f"yandexmusic.pyの関数_download_webpage_handleを実行しました。")
         print(f"yandexmusic.pyの関数_download_webpage_handleを実行しました。")
         print(f"yandexmusic.pyの関数_download_webpage_handleを実行しました。")
+        print(f"yandexmusic.pyの関数_download_webpage_handleを実行しました。")
         webpage = super()._download_webpage_handle(*args, **kwargs)
         if 'Нам очень жаль, но&nbsp;запросы, поступившие с&nbsp;вашего IP-адреса, похожи на&nbsp;автоматические.' in webpage:
             self._raise_captcha()
@@ -56,11 +57,13 @@ class YandexMusicBaseIE(InfoExtractor):
         print(f"yandexmusic.pyの関数_download_jsonを実行しました。")
         print(f"yandexmusic.pyの関数_download_jsonを実行しました。")
         print(f"yandexmusic.pyの関数_download_jsonを実行しました。")
+        print(f"yandexmusic.pyの関数_download_jsonを実行しました。")
         response = super()._download_json(*args, **kwargs)
         self._handle_error(response)
         return response
 
     def _call_api(self, ep, tld, url, item_id, note, query):
+        print(f"yandexmusic.pyの関数_call_apiを実行しました。")
         print(f"yandexmusic.pyの関数_call_apiを実行しました。")
         print(f"yandexmusic.pyの関数_call_apiを実行しました。")
         print(f"yandexmusic.pyの関数_call_apiを実行しました。")
@@ -136,6 +139,7 @@ class YandexMusicTrackIE(YandexMusicBaseIE):
         print(f"yandexmusic.pyの関数_real_extractを実行しました。")
         print(f"yandexmusic.pyの関数_real_extractを実行しました。")
         print(f"yandexmusic.pyの関数_real_extractを実行しました。")
+        print(f"yandexmusic.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         tld, album_id, track_id = mobj.group('tld'), mobj.group('album_id'), mobj.group('id')
 
@@ -183,6 +187,7 @@ class YandexMusicTrackIE(YandexMusicBaseIE):
             print(f"yandexmusic.pyの関数extract_artist_nameを実行しました。")
             print(f"yandexmusic.pyの関数extract_artist_nameを実行しました。")
             print(f"yandexmusic.pyの関数extract_artist_nameを実行しました。")
+            print(f"yandexmusic.pyの関数extract_artist_nameを実行しました。")
             decomposed = artist.get('decomposed')
             if not isinstance(decomposed, list):
                 return artist['name']
@@ -195,6 +200,7 @@ class YandexMusicTrackIE(YandexMusicBaseIE):
             return ''.join(parts)
 
         def extract_artist(artist_list):
+            print(f"yandexmusic.pyの関数extract_artistを実行しました。")
             print(f"yandexmusic.pyの関数extract_artistを実行しました。")
             print(f"yandexmusic.pyの関数extract_artistを実行しました。")
             print(f"yandexmusic.pyの関数extract_artistを実行しました。")
@@ -248,6 +254,7 @@ class YandexMusicPlaylistBaseIE(YandexMusicBaseIE):
         print(f"yandexmusic.pyの関数_extract_tracksを実行しました。")
         print(f"yandexmusic.pyの関数_extract_tracksを実行しました。")
         print(f"yandexmusic.pyの関数_extract_tracksを実行しました。")
+        print(f"yandexmusic.pyの関数_extract_tracksを実行しました。")
         tracks = source['tracks']
         track_ids = [str(track_id) for track_id in source['trackIds']]
 
@@ -285,6 +292,7 @@ class YandexMusicPlaylistBaseIE(YandexMusicBaseIE):
         return tracks
 
     def _build_playlist(self, tracks):
+        print(f"yandexmusic.pyの関数_build_playlistを実行しました。")
         print(f"yandexmusic.pyの関数_build_playlistを実行しました。")
         print(f"yandexmusic.pyの関数_build_playlistを実行しました。")
         print(f"yandexmusic.pyの関数_build_playlistを実行しました。")
@@ -425,6 +433,7 @@ class YandexMusicPlaylistIE(YandexMusicPlaylistBaseIE):
 
 class YandexMusicArtistBaseIE(YandexMusicPlaylistBaseIE):
     def _call_artist(self, tld, url, artist_id):
+        print(f"yandexmusic.pyの関数_call_artistを実行しました。")
         print(f"yandexmusic.pyの関数_call_artistを実行しました。")
         print(f"yandexmusic.pyの関数_call_artistを実行しました。")
         print(f"yandexmusic.pyの関数_call_artistを実行しました。")

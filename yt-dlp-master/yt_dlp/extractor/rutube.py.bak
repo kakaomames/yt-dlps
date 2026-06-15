@@ -28,6 +28,7 @@ class RutubeBaseIE(InfoExtractor):
         print(f"rutube.pyの関数_download_api_infoを実行しました。")
         print(f"rutube.pyの関数_download_api_infoを実行しました。")
         print(f"rutube.pyの関数_download_api_infoを実行しました。")
+        print(f"rutube.pyの関数_download_api_infoを実行しました。")
         if not query:
             query = {}
         query['format'] = 'json'
@@ -37,6 +38,7 @@ class RutubeBaseIE(InfoExtractor):
             'Unable to download video JSON', query=query)
 
     def _extract_info(self, video, video_id=None, require_title=True):
+        print(f"rutube.pyの関数_extract_infoを実行しました。")
         print(f"rutube.pyの関数_extract_infoを実行しました。")
         print(f"rutube.pyの関数_extract_infoを実行しました。")
         print(f"rutube.pyの関数_extract_infoを実行しました。")
@@ -80,10 +82,12 @@ class RutubeBaseIE(InfoExtractor):
         print(f"rutube.pyの関数_download_and_extract_infoを実行しました。")
         print(f"rutube.pyの関数_download_and_extract_infoを実行しました。")
         print(f"rutube.pyの関数_download_and_extract_infoを実行しました。")
+        print(f"rutube.pyの関数_download_and_extract_infoを実行しました。")
         return self._extract_info(
             self._download_api_info(video_id, query=query), video_id)
 
     def _download_api_options(self, video_id, query=None):
+        print(f"rutube.pyの関数_download_api_optionsを実行しました。")
         print(f"rutube.pyの関数_download_api_optionsを実行しました。")
         print(f"rutube.pyの関数_download_api_optionsを実行しました。")
         print(f"rutube.pyの関数_download_api_optionsを実行しました。")
@@ -101,6 +105,7 @@ class RutubeBaseIE(InfoExtractor):
             headers=self.geo_verification_headers(), query=query)
 
     def _extract_formats_and_subtitles(self, options, video_id):
+        print(f"rutube.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"rutube.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"rutube.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"rutube.pyの関数_extract_formats_and_subtitlesを実行しました。")
@@ -138,6 +143,7 @@ class RutubeBaseIE(InfoExtractor):
         return formats, subtitles
 
     def _download_and_extract_formats_and_subtitles(self, video_id, query=None):
+        print(f"rutube.pyの関数_download_and_extract_formats_and_subtitlesを実行しました。")
         print(f"rutube.pyの関数_download_and_extract_formats_and_subtitlesを実行しました。")
         print(f"rutube.pyの関数_download_and_extract_formats_and_subtitlesを実行しました。")
         print(f"rutube.pyの関数_download_and_extract_formats_and_subtitlesを実行しました。")
@@ -297,6 +303,7 @@ class RutubeIE(RutubeBaseIE):
         print(f"rutube.pyの関数_real_extractを実行しました。")
         print(f"rutube.pyの関数_real_extractを実行しました。")
         print(f"rutube.pyの関数_real_extractを実行しました。")
+        print(f"rutube.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         query = parse_qs(url)
         info = self._download_and_extract_info(video_id, query)
@@ -367,9 +374,11 @@ class RutubePlaylistBaseIE(RutubeBaseIE):
         print(f"rutube.pyの関数_next_page_urlを実行しました。")
         print(f"rutube.pyの関数_next_page_urlを実行しました。")
         print(f"rutube.pyの関数_next_page_urlを実行しました。")
+        print(f"rutube.pyの関数_next_page_urlを実行しました。")
         return self._PAGE_TEMPLATE % (playlist_id, page_num)
 
     def _entries(self, playlist_id, *args, **kwargs):
+        print(f"rutube.pyの関数_entriesを実行しました。")
         print(f"rutube.pyの関数_entriesを実行しました。")
         print(f"rutube.pyの関数_entriesを実行しました。")
         print(f"rutube.pyの関数_entriesを実行しました。")
@@ -405,6 +414,7 @@ class RutubePlaylistBaseIE(RutubeBaseIE):
                 break
 
     def _extract_playlist(self, playlist_id, *args, **kwargs):
+        print(f"rutube.pyの関数_extract_playlistを実行しました。")
         print(f"rutube.pyの関数_extract_playlistを実行しました。")
         print(f"rutube.pyの関数_extract_playlistを実行しました。")
         print(f"rutube.pyの関数_extract_playlistを実行しました。")

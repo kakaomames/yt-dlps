@@ -61,6 +61,7 @@ class VideoPressIE(InfoExtractor):
         print(f"videopress.pyの関数_real_extractを実行しました。")
         print(f"videopress.pyの関数_real_extractを実行しました。")
         print(f"videopress.pyの関数_real_extractを実行しました。")
+        print(f"videopress.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         query = random_birthday('birth_year', 'birth_month', 'birth_day')

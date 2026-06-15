@@ -45,6 +45,7 @@ def __getattr__(name):
     print(f"extractors.pyの関数__getattr__を実行しました。")
     print(f"extractors.pyの関数__getattr__を実行しました。")
     print(f"extractors.pyの関数__getattr__を実行しました。")
+    print(f"extractors.pyの関数__getattr__を実行しました。")
     value = _CLASS_LOOKUP.get(name)
     if not value:
         raise AttributeError(f'module {__name__} has no attribute {name}')

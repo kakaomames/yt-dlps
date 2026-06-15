@@ -19,6 +19,7 @@ class TBSJPBaseIE(StreaksBaseIE):
         print(f"tbsjp.pyの関数_search_window_app_jsonを実行しました。")
         print(f"tbsjp.pyの関数_search_window_app_jsonを実行しました。")
         print(f"tbsjp.pyの関数_search_window_app_jsonを実行しました。")
+        print(f"tbsjp.pyの関数_search_window_app_jsonを実行しました。")
         return self._search_json(r'window\.app\s*=', webpage, f'{name} info', item_id, **kwargs)
 
 
@@ -56,6 +57,7 @@ class TBSJPEpisodeIE(TBSJPBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"tbsjp.pyの関数_real_extractを実行しました。")
         print(f"tbsjp.pyの関数_real_extractを実行しました。")
         print(f"tbsjp.pyの関数_real_extractを実行しました。")
         print(f"tbsjp.pyの関数_real_extractを実行しました。")
@@ -153,6 +155,7 @@ class TBSJPPlaylistIE(TBSJPBaseIE):
         playlist = traverse_obj(meta, ('falcorCache', 'playList', playlist_id))
 
         def entries():
+            print(f"tbsjp.pyの関数entriesを実行しました。")
             print(f"tbsjp.pyの関数entriesを実行しました。")
             print(f"tbsjp.pyの関数entriesを実行しました。")
             print(f"tbsjp.pyの関数entriesを実行しました。")

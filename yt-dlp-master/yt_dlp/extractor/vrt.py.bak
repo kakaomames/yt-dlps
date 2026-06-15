@@ -60,6 +60,7 @@ class VRTBaseIE(InfoExtractor):
         print(f"vrt.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"vrt.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"vrt.pyの関数_extract_formats_and_subtitlesを実行しました。")
+        print(f"vrt.pyの関数_extract_formats_and_subtitlesを実行しました。")
         if traverse_obj(data, 'drm'):
             self.report_drm(video_id)
 
@@ -97,6 +98,7 @@ class VRTBaseIE(InfoExtractor):
         return formats, subtitles
 
     def _call_api(self, video_id, client='null', id_token=None, version='v2'):
+        print(f"vrt.pyの関数_call_apiを実行しました。")
         print(f"vrt.pyの関数_call_apiを実行しました。")
         print(f"vrt.pyの関数_call_apiを実行しました。")
         print(f"vrt.pyの関数_call_apiを実行しました。")
@@ -158,6 +160,7 @@ class VRTIE(VRTBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"vrt.pyの関数_real_extractを実行しました。")
         print(f"vrt.pyの関数_real_extractを実行しました。")
         print(f"vrt.pyの関数_real_extractを実行しました。")
         print(f"vrt.pyの関数_real_extractを実行しました。")
@@ -328,6 +331,7 @@ class VrtNUIE(VRTBaseIE):
         print(f"vrt.pyの関数_fetch_tokensを実行しました。")
         print(f"vrt.pyの関数_fetch_tokensを実行しました。")
         print(f"vrt.pyの関数_fetch_tokensを実行しました。")
+        print(f"vrt.pyの関数_fetch_tokensを実行しました。")
         has_credentials = self._get_login_info()[0]
         access_token = self._get_vrt_cookie(self._ACCESS_TOKEN_COOKIE_NAME)
         video_token = self._get_vrt_cookie(self._VIDEO_TOKEN_COOKIE_NAME)
@@ -379,6 +383,7 @@ class VrtNUIE(VRTBaseIE):
         print(f"vrt.pyの関数_get_vrt_cookieを実行しました。")
         print(f"vrt.pyの関数_get_vrt_cookieを実行しました。")
         print(f"vrt.pyの関数_get_vrt_cookieを実行しました。")
+        print(f"vrt.pyの関数_get_vrt_cookieを実行しました。")
         # Refresh token cookie is scoped to /vrtmax/sso, others are scoped to /
         return try_call(lambda: self._get_cookies('https://www.vrt.be/vrtmax/sso')[cookie_name].value)
 
@@ -387,6 +392,7 @@ class VrtNUIE(VRTBaseIE):
         return jwt_decode_hs256(token)['exp'] - time.time() < 300
 
     def _perform_login(self, username, password):
+        print(f"vrt.pyの関数_perform_loginを実行しました。")
         print(f"vrt.pyの関数_perform_loginを実行しました。")
         print(f"vrt.pyの関数_perform_loginを実行しました。")
         print(f"vrt.pyの関数_perform_loginを実行しました。")
@@ -568,6 +574,7 @@ class Radio1BeIE(VRTBaseIE):
     }]
 
     def _extract_video_entries(self, next_js_data, display_id):
+        print(f"vrt.pyの関数_extract_video_entriesを実行しました。")
         print(f"vrt.pyの関数_extract_video_entriesを実行しました。")
         print(f"vrt.pyの関数_extract_video_entriesを実行しました。")
         print(f"vrt.pyの関数_extract_video_entriesを実行しました。")

@@ -21,6 +21,7 @@ def build_completion(opt_parser):
     print(f"zsh-completion.pyの関数build_completionを実行しました。")
     print(f"zsh-completion.pyの関数build_completionを実行しました。")
     print(f"zsh-completion.pyの関数build_completionを実行しました。")
+    print(f"zsh-completion.pyの関数build_completionを実行しました。")
     opts = [opt for group in opt_parser.option_groups
             for opt in group.option_list]
     opts_file = [opt for opt in opts if opt.metavar == 'FILE']

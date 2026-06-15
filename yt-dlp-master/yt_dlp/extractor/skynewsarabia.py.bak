@@ -16,9 +16,11 @@ class SkyNewsArabiaBaseIE(InfoExtractor):
         print(f"skynewsarabia.pyの関数_call_apiを実行しました。")
         print(f"skynewsarabia.pyの関数_call_apiを実行しました。")
         print(f"skynewsarabia.pyの関数_call_apiを実行しました。")
+        print(f"skynewsarabia.pyの関数_call_apiを実行しました。")
         return self._download_json(f'http://api.skynewsarabia.com/web/rest/v2/{path}/{value}.json', value)
 
     def _get_limelight_media_id(self, url):
+        print(f"skynewsarabia.pyの関数_get_limelight_media_idを実行しました。")
         print(f"skynewsarabia.pyの関数_get_limelight_media_idを実行しました。")
         print(f"skynewsarabia.pyの関数_get_limelight_media_idを実行しました。")
         print(f"skynewsarabia.pyの関数_get_limelight_media_idを実行しました。")
@@ -36,9 +38,11 @@ class SkyNewsArabiaBaseIE(InfoExtractor):
         print(f"skynewsarabia.pyの関数_get_image_urlを実行しました。")
         print(f"skynewsarabia.pyの関数_get_image_urlを実行しました。")
         print(f"skynewsarabia.pyの関数_get_image_urlを実行しました。")
+        print(f"skynewsarabia.pyの関数_get_image_urlを実行しました。")
         return self._IMAGE_BASE_URL + image_path_template.format(width=width, height=height)
 
     def _extract_video_info(self, video_data):
+        print(f"skynewsarabia.pyの関数_extract_video_infoを実行しました。")
         print(f"skynewsarabia.pyの関数_extract_video_infoを実行しました。")
         print(f"skynewsarabia.pyの関数_extract_video_infoを実行しました。")
         print(f"skynewsarabia.pyの関数_extract_video_infoを実行しました。")
@@ -86,6 +90,7 @@ class SkyNewsArabiaIE(SkyNewsArabiaBaseIE):
     }
 
     def _real_extract(self, url):
+        print(f"skynewsarabia.pyの関数_real_extractを実行しました。")
         print(f"skynewsarabia.pyの関数_real_extractを実行しました。")
         print(f"skynewsarabia.pyの関数_real_extractを実行しました。")
         print(f"skynewsarabia.pyの関数_real_extractを実行しました。")

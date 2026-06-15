@@ -600,6 +600,7 @@ class InfoExtractor:
         print(f"common.pyの関数_login_hintを実行しました。")
         print(f"common.pyの関数_login_hintを実行しました。")
         print(f"common.pyの関数_login_hintを実行しました。")
+        print(f"common.pyの関数_login_hintを実行しました。")
         password_hint = f'--username and --password, --netrc-cmd, or --netrc ({netrc or self._NETRC_MACHINE}) to provide account credentials'
         cookies_hint = 'See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies'
         return {
@@ -611,6 +612,7 @@ class InfoExtractor:
         }[method if method is not NO_DEFAULT else 'any' if self.supports_login() else 'cookies']
 
     def __init__(self, downloader=None):
+        print(f"common.pyの関数__init__を実行しました。")
         print(f"common.pyの関数__init__を実行しました。")
         print(f"common.pyの関数__init__を実行しました。")
         print(f"common.pyの関数__init__を実行しました。")
@@ -674,6 +676,7 @@ class InfoExtractor:
         print(f"common.pyの関数initializeを実行しました。")
         print(f"common.pyの関数initializeを実行しました。")
         print(f"common.pyの関数initializeを実行しました。")
+        print(f"common.pyの関数initializeを実行しました。")
         """Initializes an instance (authentication, etc)."""
         self._printed_messages = set()
         self._initialize_geo_bypass({
@@ -694,6 +697,7 @@ class InfoExtractor:
             self._ready = True
 
     def _initialize_geo_bypass(self, geo_bypass_context):
+        print(f"common.pyの関数_initialize_geo_bypassを実行しました。")
         print(f"common.pyの関数_initialize_geo_bypassを実行しました。")
         print(f"common.pyの関数_initialize_geo_bypassを実行しました。")
         print(f"common.pyの関数_initialize_geo_bypassを実行しました。")
@@ -793,6 +797,7 @@ class InfoExtractor:
         print(f"common.pyの関数extractを実行しました。")
         print(f"common.pyの関数extractを実行しました。")
         print(f"common.pyの関数extractを実行しました。")
+        print(f"common.pyの関数extractを実行しました。")
         """Extracts URL information and returns it in list of dicts."""
         try:
             for _ in range(2):
@@ -835,6 +840,7 @@ class InfoExtractor:
         print(f"common.pyの関数__maybe_fake_ip_and_retryを実行しました。")
         print(f"common.pyの関数__maybe_fake_ip_and_retryを実行しました。")
         print(f"common.pyの関数__maybe_fake_ip_and_retryを実行しました。")
+        print(f"common.pyの関数__maybe_fake_ip_and_retryを実行しました。")
         if (not self.get_param('geo_bypass_country', None)
                 and self._GEO_BYPASS
                 and self.get_param('geo_bypass', True)
@@ -850,6 +856,7 @@ class InfoExtractor:
         return False
 
     def set_downloader(self, downloader):
+        print(f"common.pyの関数set_downloaderを実行しました。")
         print(f"common.pyの関数set_downloaderを実行しました。")
         print(f"common.pyの関数set_downloaderを実行しました。")
         print(f"common.pyの関数set_downloaderを実行しました。")
@@ -878,10 +885,12 @@ class InfoExtractor:
         print(f"common.pyの関数_initialize_pre_loginを実行しました。")
         print(f"common.pyの関数_initialize_pre_loginを実行しました。")
         print(f"common.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"common.pyの関数_initialize_pre_loginを実行しました。")
         """ Initialization before login. Redefine in subclasses."""
         pass
 
     def _perform_login(self, username, password):
+        print(f"common.pyの関数_perform_loginを実行しました。")
         print(f"common.pyの関数_perform_loginを実行しました。")
         print(f"common.pyの関数_perform_loginを実行しました。")
         print(f"common.pyの関数_perform_loginを実行しました。")
@@ -902,10 +911,12 @@ class InfoExtractor:
         print(f"common.pyの関数_real_initializeを実行しました。")
         print(f"common.pyの関数_real_initializeを実行しました。")
         print(f"common.pyの関数_real_initializeを実行しました。")
+        print(f"common.pyの関数_real_initializeを実行しました。")
         """Real initialization process. Redefine in subclasses."""
         pass
 
     def _real_extract(self, url):
+        print(f"common.pyの関数_real_extractを実行しました。")
         print(f"common.pyの関数_real_extractを実行しました。")
         print(f"common.pyの関数_real_extractを実行しました。")
         print(f"common.pyの関数_real_extractを実行しました。")
@@ -937,6 +948,7 @@ class InfoExtractor:
             return err.status in variadic(expected_status)
 
     def _create_request(self, url_or_request, data=None, headers=None, query=None, extensions=None):
+        print(f"common.pyの関数_create_requestを実行しました。")
         print(f"common.pyの関数_create_requestを実行しました。")
         print(f"common.pyの関数_create_requestを実行しました。")
         print(f"common.pyの関数_create_requestを実行しました。")
@@ -1106,6 +1118,7 @@ class InfoExtractor:
         print(f"common.pyの関数__check_blockedを実行しました。")
         print(f"common.pyの関数__check_blockedを実行しました。")
         print(f"common.pyの関数__check_blockedを実行しました。")
+        print(f"common.pyの関数__check_blockedを実行しました。")
         first_block = content[:512]
         if ('<title>Access to this site is blocked</title>' in content
                 and 'Websense' in first_block):
@@ -1134,6 +1147,7 @@ class InfoExtractor:
                 expected=True)
 
     def __decode_webpage(self, webpage_bytes, encoding, headers):
+        print(f"common.pyの関数__decode_webpageを実行しました。")
         print(f"common.pyの関数__decode_webpageを実行しました。")
         print(f"common.pyの関数__decode_webpageを実行しました。")
         print(f"common.pyの関数__decode_webpageを実行しました。")
@@ -1190,12 +1204,14 @@ class InfoExtractor:
         print(f"common.pyの関数__print_errorを実行しました。")
         print(f"common.pyの関数__print_errorを実行しました。")
         print(f"common.pyの関数__print_errorを実行しました。")
+        print(f"common.pyの関数__print_errorを実行しました。")
         if fatal:
             raise ExtractorError(f'{video_id}: {errnote}', cause=err)
         elif errnote:
             self.report_warning(f'{video_id}: {errnote}: {err}')
 
     def _parse_xml(self, xml_string, video_id, transform_source=None, fatal=True, errnote=None):
+        print(f"common.pyの関数_parse_xmlを実行しました。")
         print(f"common.pyの関数_parse_xmlを実行しました。")
         print(f"common.pyの関数_parse_xmlを実行しました。")
         print(f"common.pyの関数_parse_xmlを実行しました。")
@@ -1220,6 +1236,7 @@ class InfoExtractor:
         print(f"common.pyの関数_parse_jsonを実行しました。")
         print(f"common.pyの関数_parse_jsonを実行しました。")
         print(f"common.pyの関数_parse_jsonを実行しました。")
+        print(f"common.pyの関数_parse_jsonを実行しました。")
         try:
             return json.loads(
                 json_string, cls=LenientJSONDecoder, strict=False, transform_source=transform_source, **parser_kwargs)
@@ -1227,6 +1244,7 @@ class InfoExtractor:
             self.__print_error('Failed to parse JSON' if errnote is None else errnote, fatal, video_id, ve)
 
     def _parse_socket_response_as_json(self, data, *args, **kwargs):
+        print(f"common.pyの関数_parse_socket_response_as_jsonを実行しました。")
         print(f"common.pyの関数_parse_socket_response_as_jsonを実行しました。")
         print(f"common.pyの関数_parse_socket_response_as_jsonを実行しました。")
         print(f"common.pyの関数_parse_socket_response_as_jsonを実行しました。")
@@ -1246,8 +1264,10 @@ class InfoExtractor:
         print(f"common.pyの関数__create_download_methodsを実行しました。")
         print(f"common.pyの関数__create_download_methodsを実行しました。")
         print(f"common.pyの関数__create_download_methodsを実行しました。")
+        print(f"common.pyの関数__create_download_methodsを実行しました。")
 
         def parse(ie, content, *args, errnote=errnote, **kwargs):
+            print(f"common.pyの関数parseを実行しました。")
             print(f"common.pyの関数parseを実行しました。")
             print(f"common.pyの関数parseを実行しました。")
             print(f"common.pyの関数parseを実行しました。")
@@ -1320,6 +1340,7 @@ class InfoExtractor:
             print(f"common.pyの関数impersonateを実行しました。")
             print(f"common.pyの関数impersonateを実行しました。")
             print(f"common.pyの関数impersonateを実行しました。")
+            print(f"common.pyの関数impersonateを実行しました。")
             func.__name__, func.__qualname__ = name, f'InfoExtractor.{name}'
             func.__doc__ = f'''
                 @param transform_source     Apply this transformation before parsing
@@ -1381,6 +1402,7 @@ class InfoExtractor:
         print(f"common.pyの関数report_warningを実行しました。")
         print(f"common.pyの関数report_warningを実行しました。")
         print(f"common.pyの関数report_warningを実行しました。")
+        print(f"common.pyの関数report_warningを実行しました。")
         idstr = format_field(video_id, None, '%s: ')
         msg = f'[{self.IE_NAME}] {idstr}{msg}'
         if only_once:
@@ -1390,6 +1412,7 @@ class InfoExtractor:
         self._downloader.report_warning(msg, *args, **kwargs)
 
     def to_screen(self, msg, *args, **kwargs):
+        print(f"common.pyの関数to_screenを実行しました。")
         print(f"common.pyの関数to_screenを実行しました。")
         print(f"common.pyの関数to_screenを実行しました。")
         print(f"common.pyの関数to_screenを実行しました。")
@@ -1410,9 +1433,11 @@ class InfoExtractor:
         print(f"common.pyの関数write_debugを実行しました。")
         print(f"common.pyの関数write_debugを実行しました。")
         print(f"common.pyの関数write_debugを実行しました。")
+        print(f"common.pyの関数write_debugを実行しました。")
         self._downloader.write_debug(f'[{self.IE_NAME}] {msg}', *args, **kwargs)
 
     def get_param(self, name, default=None, *args, **kwargs):
+        print(f"common.pyの関数get_paramを実行しました。")
         print(f"common.pyの関数get_paramを実行しました。")
         print(f"common.pyの関数get_paramを実行しました。")
         print(f"common.pyの関数get_paramを実行しました。")
@@ -1434,11 +1459,13 @@ class InfoExtractor:
         print(f"common.pyの関数report_drmを実行しました。")
         print(f"common.pyの関数report_drmを実行しました。")
         print(f"common.pyの関数report_drmを実行しました。")
+        print(f"common.pyの関数report_drmを実行しました。")
         if partial is not NO_DEFAULT:
             self._downloader.deprecation_warning('InfoExtractor.report_drm no longer accepts the argument partial')
         self.raise_no_formats('This video is DRM protected', expected=True, video_id=video_id)
 
     def report_extraction(self, id_or_name):
+        print(f"common.pyの関数report_extractionを実行しました。")
         print(f"common.pyの関数report_extractionを実行しました。")
         print(f"common.pyの関数report_extractionを実行しました。")
         print(f"common.pyの関数report_extractionを実行しました。")
@@ -1459,6 +1486,7 @@ class InfoExtractor:
         print(f"common.pyの関数report_download_webpageを実行しました。")
         print(f"common.pyの関数report_download_webpageを実行しました。")
         print(f"common.pyの関数report_download_webpageを実行しました。")
+        print(f"common.pyの関数report_download_webpageを実行しました。")
         """Report webpage download."""
         self.to_screen(f'{video_id}: Downloading webpage')
 
@@ -1471,10 +1499,12 @@ class InfoExtractor:
         print(f"common.pyの関数report_age_confirmationを実行しました。")
         print(f"common.pyの関数report_age_confirmationを実行しました。")
         print(f"common.pyの関数report_age_confirmationを実行しました。")
+        print(f"common.pyの関数report_age_confirmationを実行しました。")
         """Report attempt to confirm age."""
         self.to_screen('Confirming age')
 
     def report_login(self):
+        print(f"common.pyの関数report_loginを実行しました。")
         print(f"common.pyの関数report_loginを実行しました。")
         print(f"common.pyの関数report_loginを実行しました。")
         print(f"common.pyの関数report_loginを実行しました。")
@@ -1506,6 +1536,7 @@ class InfoExtractor:
             raise GeoRestrictedError(msg, countries=countries)
 
     def raise_no_formats(self, msg, expected=False, video_id=None):
+        print(f"common.pyの関数raise_no_formatsを実行しました。")
         print(f"common.pyの関数raise_no_formatsを実行しました。")
         print(f"common.pyの関数raise_no_formatsを実行しました。")
         print(f"common.pyの関数raise_no_formatsを実行しました。")
@@ -1561,6 +1592,7 @@ class InfoExtractor:
         }
 
     def _search_regex(self, pattern, string, name, default=NO_DEFAULT, fatal=True, flags=0, group=None):
+        print(f"common.pyの関数_search_regexを実行しました。")
         print(f"common.pyの関数_search_regexを実行しました。")
         print(f"common.pyの関数_search_regexを実行しました。")
         print(f"common.pyの関数_search_regexを実行しました。")
@@ -1639,6 +1671,7 @@ class InfoExtractor:
         print(f"common.pyの関数_html_search_regexを実行しました。")
         print(f"common.pyの関数_html_search_regexを実行しました。")
         print(f"common.pyの関数_html_search_regexを実行しました。")
+        print(f"common.pyの関数_html_search_regexを実行しました。")
         """
         Like _search_regex, but strips HTML tags and unescapes entities.
         """
@@ -1648,6 +1681,7 @@ class InfoExtractor:
         return clean_html(res)
 
     def _get_netrc_login_info(self, netrc_machine=None):
+        print(f"common.pyの関数_get_netrc_login_infoを実行しました。")
         print(f"common.pyの関数_get_netrc_login_infoを実行しました。")
         print(f"common.pyの関数_get_netrc_login_infoを実行しました。")
         print(f"common.pyの関数_get_netrc_login_infoを実行しました。")
@@ -1703,6 +1737,7 @@ class InfoExtractor:
         print(f"common.pyの関数_get_login_infoを実行しました。")
         print(f"common.pyの関数_get_login_infoを実行しました。")
         print(f"common.pyの関数_get_login_infoを実行しました。")
+        print(f"common.pyの関数_get_login_infoを実行しました。")
         """
         Get the login info as (username, password)
         First look for the manually specified credentials using username_option
@@ -1724,6 +1759,7 @@ class InfoExtractor:
         return username, password
 
     def _get_tfa_info(self, note='two-factor verification code'):
+        print(f"common.pyの関数_get_tfa_infoを実行しました。")
         print(f"common.pyの関数_get_tfa_infoを実行しました。")
         print(f"common.pyの関数_get_tfa_infoを実行しました。")
         print(f"common.pyの関数_get_tfa_infoを実行しました。")
@@ -1772,6 +1808,7 @@ class InfoExtractor:
         print(f"common.pyの関数_og_search_propertyを実行しました。")
         print(f"common.pyの関数_og_search_propertyを実行しました。")
         print(f"common.pyの関数_og_search_propertyを実行しました。")
+        print(f"common.pyの関数_og_search_propertyを実行しました。")
         prop = variadic(prop)
         if name is None:
             name = f'OpenGraph {prop[0]}'
@@ -1792,9 +1829,11 @@ class InfoExtractor:
         print(f"common.pyの関数_og_search_thumbnailを実行しました。")
         print(f"common.pyの関数_og_search_thumbnailを実行しました。")
         print(f"common.pyの関数_og_search_thumbnailを実行しました。")
+        print(f"common.pyの関数_og_search_thumbnailを実行しました。")
         return self._og_search_property('image', html, 'thumbnail URL', fatal=False, **kargs)
 
     def _og_search_description(self, html, **kargs):
+        print(f"common.pyの関数_og_search_descriptionを実行しました。")
         print(f"common.pyの関数_og_search_descriptionを実行しました。")
         print(f"common.pyの関数_og_search_descriptionを実行しました。")
         print(f"common.pyの関数_og_search_descriptionを実行しました。")
@@ -1814,9 +1853,11 @@ class InfoExtractor:
         print(f"common.pyの関数_og_search_titleを実行しました。")
         print(f"common.pyの関数_og_search_titleを実行しました。")
         print(f"common.pyの関数_og_search_titleを実行しました。")
+        print(f"common.pyの関数_og_search_titleを実行しました。")
         return self._og_search_property('title', html, fatal=fatal, **kargs)
 
     def _og_search_video_url(self, html, name='video url', secure=True, **kargs):
+        print(f"common.pyの関数_og_search_video_urlを実行しました。")
         print(f"common.pyの関数_og_search_video_urlを実行しました。")
         print(f"common.pyの関数_og_search_video_urlを実行しました。")
         print(f"common.pyの関数_og_search_video_urlを実行しました。")
@@ -1839,9 +1880,11 @@ class InfoExtractor:
         print(f"common.pyの関数_og_search_urlを実行しました。")
         print(f"common.pyの関数_og_search_urlを実行しました。")
         print(f"common.pyの関数_og_search_urlを実行しました。")
+        print(f"common.pyの関数_og_search_urlを実行しました。")
         return self._og_search_property('url', html, **kargs)
 
     def _html_extract_title(self, html, name='title', *, fatal=False, **kwargs):
+        print(f"common.pyの関数_html_extract_titleを実行しました。")
         print(f"common.pyの関数_html_extract_titleを実行しました。")
         print(f"common.pyの関数_html_extract_titleを実行しました。")
         print(f"common.pyの関数_html_extract_titleを実行しました。")
@@ -1861,6 +1904,7 @@ class InfoExtractor:
         print(f"common.pyの関数_html_search_metaを実行しました。")
         print(f"common.pyの関数_html_search_metaを実行しました。")
         print(f"common.pyの関数_html_search_metaを実行しました。")
+        print(f"common.pyの関数_html_search_metaを実行しました。")
         name = variadic(name)
         if display_name is None:
             display_name = name[0]
@@ -1869,6 +1913,7 @@ class InfoExtractor:
             html, display_name, fatal=fatal, group='content', **kwargs)
 
     def _dc_search_uploader(self, html):
+        print(f"common.pyの関数_dc_search_uploaderを実行しました。")
         print(f"common.pyの関数_dc_search_uploaderを実行しました。")
         print(f"common.pyの関数_dc_search_uploaderを実行しました。")
         print(f"common.pyの関数_dc_search_uploaderを実行しました。")
@@ -1910,6 +1955,7 @@ class InfoExtractor:
         print(f"common.pyの関数_media_rating_searchを実行しました。")
         print(f"common.pyの関数_media_rating_searchを実行しました。")
         print(f"common.pyの関数_media_rating_searchを実行しました。")
+        print(f"common.pyの関数_media_rating_searchを実行しました。")
         # See http://www.tjg-designs.com/WP/metadata-code-examples-adding-metadata-to-your-web-pages/
         rating = self._html_search_meta('rating', html)
 
@@ -1926,6 +1972,7 @@ class InfoExtractor:
         return RATING_TABLE.get(rating.lower())
 
     def _family_friendly_search(self, html):
+        print(f"common.pyの関数_family_friendly_searchを実行しました。")
         print(f"common.pyの関数_family_friendly_searchを実行しました。")
         print(f"common.pyの関数_family_friendly_searchを実行しました。")
         print(f"common.pyの関数_family_friendly_searchを実行しました。")
@@ -1958,10 +2005,12 @@ class InfoExtractor:
         print(f"common.pyの関数_twitter_search_playerを実行しました。")
         print(f"common.pyの関数_twitter_search_playerを実行しました。")
         print(f"common.pyの関数_twitter_search_playerを実行しました。")
+        print(f"common.pyの関数_twitter_search_playerを実行しました。")
         return self._html_search_meta('twitter:player', html,
                                       'twitter card player')
 
     def _yield_json_ld(self, html, video_id, *, fatal=True, default=NO_DEFAULT):
+        print(f"common.pyの関数_yield_json_ldを実行しました。")
         print(f"common.pyの関数_yield_json_ldを実行しました。")
         print(f"common.pyの関数_yield_json_ldを実行しました。")
         print(f"common.pyの関数_yield_json_ldを実行しました。")
@@ -1992,6 +2041,7 @@ class InfoExtractor:
         print(f"common.pyの関数_search_json_ldを実行しました。")
         print(f"common.pyの関数_search_json_ldを実行しました。")
         print(f"common.pyの関数_search_json_ldを実行しました。")
+        print(f"common.pyの関数_search_json_ldを実行しました。")
         """Search for a video in any json ld in the html"""
         if default is not NO_DEFAULT:
             fatal = False
@@ -2009,6 +2059,7 @@ class InfoExtractor:
             return {}
 
     def _json_ld(self, json_ld, video_id, fatal=True, expected_type=None):
+        print(f"common.pyの関数_json_ldを実行しました。")
         print(f"common.pyの関数_json_ldを実行しました。")
         print(f"common.pyの関数_json_ldを実行しました。")
         print(f"common.pyの関数_json_ldを実行しました。")
@@ -2043,10 +2094,12 @@ class InfoExtractor:
             print(f"common.pyの関数is_typeを実行しました。")
             print(f"common.pyの関数is_typeを実行しました。")
             print(f"common.pyの関数is_typeを実行しました。")
+            print(f"common.pyの関数is_typeを実行しました。")
             type_ = variadic(traverse_obj(e, '@type'))
             return any(x in type_ for x in expected_types)
 
         def extract_interaction_type(e):
+            print(f"common.pyの関数extract_interaction_typeを実行しました。")
             print(f"common.pyの関数extract_interaction_typeを実行しました。")
             print(f"common.pyの関数extract_interaction_typeを実行しました。")
             print(f"common.pyの関数extract_interaction_typeを実行しました。")
@@ -2061,6 +2114,7 @@ class InfoExtractor:
             return str_or_none(interaction_type)
 
         def extract_interaction_statistic(e):
+            print(f"common.pyの関数extract_interaction_statisticを実行しました。")
             print(f"common.pyの関数extract_interaction_statisticを実行しました。")
             print(f"common.pyの関数extract_interaction_statisticを実行しました。")
             print(f"common.pyの関数extract_interaction_statisticを実行しました。")
@@ -2103,6 +2157,7 @@ class InfoExtractor:
             print(f"common.pyの関数extract_chapter_informationを実行しました。")
             print(f"common.pyの関数extract_chapter_informationを実行しました。")
             print(f"common.pyの関数extract_chapter_informationを実行しました。")
+            print(f"common.pyの関数extract_chapter_informationを実行しました。")
             chapters = [{
                 'title': part.get('name'),
                 'start_time': part.get('startOffset'),
@@ -2120,6 +2175,7 @@ class InfoExtractor:
                 info['chapters'] = chapters
 
         def extract_video_object(e):
+            print(f"common.pyの関数extract_video_objectを実行しました。")
             print(f"common.pyの関数extract_video_objectを実行しました。")
             print(f"common.pyの関数extract_video_objectを実行しました。")
             print(f"common.pyの関数extract_video_objectを実行しました。")
@@ -2161,6 +2217,7 @@ class InfoExtractor:
             extract_chapter_information(e)
 
         def traverse_json_ld(json_ld, at_top_level=True):
+            print(f"common.pyの関数traverse_json_ldを実行しました。")
             print(f"common.pyの関数traverse_json_ldを実行しました。")
             print(f"common.pyの関数traverse_json_ldを実行しました。")
             print(f"common.pyの関数traverse_json_ldを実行しました。")
@@ -2243,6 +2300,7 @@ class InfoExtractor:
         print(f"common.pyの関数_search_nextjs_dataを実行しました。")
         print(f"common.pyの関数_search_nextjs_dataを実行しました。")
         print(f"common.pyの関数_search_nextjs_dataを実行しました。")
+        print(f"common.pyの関数_search_nextjs_dataを実行しました。")
         if default == '{}':
             self._downloader.deprecation_warning('using `default=\'{}\'` is deprecated, use `default={}` instead')
             default = {}
@@ -2262,12 +2320,14 @@ class InfoExtractor:
         print(f"common.pyの関数_search_nextjs_v13_dataを実行しました。")
         print(f"common.pyの関数_search_nextjs_v13_dataを実行しました。")
         print(f"common.pyの関数_search_nextjs_v13_dataを実行しました。")
+        print(f"common.pyの関数_search_nextjs_v13_dataを実行しました。")
         """Parses Next.js app router flight data that was introduced in Next.js v13"""
         nextjs_data = {}
         if not fatal and not isinstance(webpage, str):
             return nextjs_data
 
         def flatten(flight_data):
+            print(f"common.pyの関数flattenを実行しました。")
             print(f"common.pyの関数flattenを実行しました。")
             print(f"common.pyの関数flattenを実行しました。")
             print(f"common.pyの関数flattenを実行しました。")
@@ -2331,6 +2391,7 @@ class InfoExtractor:
         print(f"common.pyの関数_search_nuxt_dataを実行しました。")
         print(f"common.pyの関数_search_nuxt_dataを実行しました。")
         print(f"common.pyの関数_search_nuxt_dataを実行しました。")
+        print(f"common.pyの関数_search_nuxt_dataを実行しました。")
         """Parses Nuxt.js metadata. This works as long as the function __NUXT__ invokes is a pure function"""
         rectx = re.escape(context_name)
         FUNCTION_RE = r'\(function\((?P<arg_keys>.*?)\){.*?\breturn\s+(?P<js>{.*?})\s*;?\s*}\((?P<arg_vals>.*?)\)'
@@ -2348,6 +2409,7 @@ class InfoExtractor:
         return traverse_obj(ret, traverse) or {}
 
     def _resolve_nuxt_array(self, array, video_id, *, fatal=True, default=NO_DEFAULT):
+        print(f"common.pyの関数_resolve_nuxt_arrayを実行しました。")
         print(f"common.pyの関数_resolve_nuxt_arrayを実行しました。")
         print(f"common.pyの関数_resolve_nuxt_arrayを実行しました。")
         print(f"common.pyの関数_resolve_nuxt_arrayを実行しました。")
@@ -2379,9 +2441,11 @@ class InfoExtractor:
             print(f"common.pyの関数indirect_reviverを実行しました。")
             print(f"common.pyの関数indirect_reviverを実行しました。")
             print(f"common.pyの関数indirect_reviverを実行しました。")
+            print(f"common.pyの関数indirect_reviverを実行しました。")
             return data
 
         def json_reviver(data):
+            print(f"common.pyの関数json_reviverを実行しました。")
             print(f"common.pyの関数json_reviverを実行しました。")
             print(f"common.pyの関数json_reviverを実行しました。")
             print(f"common.pyの関数json_reviverを実行しました。")
@@ -2416,6 +2480,7 @@ class InfoExtractor:
                 return error.value or ({} if default is NO_DEFAULT else default)
 
     def _search_nuxt_json(self, webpage, video_id, *, fatal=True, default=NO_DEFAULT):
+        print(f"common.pyの関数_search_nuxt_jsonを実行しました。")
         print(f"common.pyの関数_search_nuxt_jsonを実行しました。")
         print(f"common.pyの関数_search_nuxt_jsonを実行しました。")
         print(f"common.pyの関数_search_nuxt_jsonを実行しました。")
@@ -2462,6 +2527,7 @@ class InfoExtractor:
         print(f"common.pyの関数_form_hidden_inputsを実行しました。")
         print(f"common.pyの関数_form_hidden_inputsを実行しました。")
         print(f"common.pyの関数_form_hidden_inputsを実行しました。")
+        print(f"common.pyの関数_form_hidden_inputsを実行しました。")
         form = self._search_regex(
             rf'(?is)<form[^>]+?id=(["\']){form_id}\1[^>]*>(?P<form>.+?)</form>',
             html, f'{form_id} form', group='form')
@@ -2471,6 +2537,7 @@ class InfoExtractor:
     def FormatSort(cls):
         class FormatSort(FormatSorter):
             def __init__(ie, *args, **kwargs):
+                print(f"common.pyの関数__init__を実行しました。")
                 print(f"common.pyの関数__init__を実行しました。")
                 print(f"common.pyの関数__init__を実行しました。")
                 print(f"common.pyの関数__init__を実行しました。")
@@ -2495,6 +2562,7 @@ class InfoExtractor:
         print(f"common.pyの関数_sort_formatsを実行しました。")
         print(f"common.pyの関数_sort_formatsを実行しました。")
         print(f"common.pyの関数_sort_formatsを実行しました。")
+        print(f"common.pyの関数_sort_formatsを実行しました。")
         if not field_preference:
             self._downloader.deprecation_warning(
                 'yt_dlp.InfoExtractor._sort_formats is deprecated and is no longer required')
@@ -2506,6 +2574,7 @@ class InfoExtractor:
             formats[0]['__sort_fields'] = field_preference
 
     def _check_formats(self, formats, video_id):
+        print(f"common.pyの関数_check_formatsを実行しました。")
         print(f"common.pyの関数_check_formatsを実行しました。")
         print(f"common.pyの関数_check_formatsを実行しました。")
         print(f"common.pyの関数_check_formatsを実行しました。")
@@ -2554,6 +2623,7 @@ class InfoExtractor:
         print(f"common.pyの関数_is_valid_urlを実行しました。")
         print(f"common.pyの関数_is_valid_urlを実行しました。")
         print(f"common.pyの関数_is_valid_urlを実行しました。")
+        print(f"common.pyの関数_is_valid_urlを実行しました。")
         url = self._proto_relative_url(url, scheme='http:')
         # For now assume non HTTP(S) URLs always valid
         if not url.startswith(('http://', 'https://')):
@@ -2567,6 +2637,7 @@ class InfoExtractor:
             return False
 
     def http_scheme(self):
+        print(f"common.pyの関数http_schemeを実行しました。")
         print(f"common.pyの関数http_schemeを実行しました。")
         print(f"common.pyの関数http_schemeを実行しました。")
         print(f"common.pyの関数http_schemeを実行しました。")
@@ -2590,11 +2661,13 @@ class InfoExtractor:
         print(f"common.pyの関数_proto_relative_urlを実行しました。")
         print(f"common.pyの関数_proto_relative_urlを実行しました。")
         print(f"common.pyの関数_proto_relative_urlを実行しました。")
+        print(f"common.pyの関数_proto_relative_urlを実行しました。")
         scheme = scheme or self.http_scheme()
         assert scheme.endswith(':')
         return sanitize_url(url, scheme=scheme[:-1])
 
     def _sleep(self, timeout, video_id, msg_template=None):
+        print(f"common.pyの関数_sleepを実行しました。")
         print(f"common.pyの関数_sleepを実行しました。")
         print(f"common.pyの関数_sleepを実行しました。")
         print(f"common.pyの関数_sleepを実行しました。")
@@ -2743,6 +2816,7 @@ class InfoExtractor:
         print(f"common.pyの関数_m3u8_meta_formatを実行しました。")
         print(f"common.pyの関数_m3u8_meta_formatを実行しました。")
         print(f"common.pyの関数_m3u8_meta_formatを実行しました。")
+        print(f"common.pyの関数_m3u8_meta_formatを実行しました。")
         return {
             'format_id': join_nonempty(m3u8_id, 'meta'),
             'url': m3u8_url,
@@ -2763,12 +2837,14 @@ class InfoExtractor:
         print(f"common.pyの関数_report_ignoring_subsを実行しました。")
         print(f"common.pyの関数_report_ignoring_subsを実行しました。")
         print(f"common.pyの関数_report_ignoring_subsを実行しました。")
+        print(f"common.pyの関数_report_ignoring_subsを実行しました。")
         self.report_warning(bug_reports_message(
             f'Ignoring subtitle tracks found in the {name} manifest; '
             'if any subtitle tracks are missing,',
         ), only_once=True)
 
     def _extract_m3u8_formats(self, *args, **kwargs):
+        print(f"common.pyの関数_extract_m3u8_formatsを実行しました。")
         print(f"common.pyの関数_extract_m3u8_formatsを実行しました。")
         print(f"common.pyの関数_extract_m3u8_formatsを実行しました。")
         print(f"common.pyの関数_extract_m3u8_formatsを実行しました。")
@@ -2846,10 +2922,12 @@ class InfoExtractor:
             print(f"common.pyの関数format_urlを実行しました。")
             print(f"common.pyの関数format_urlを実行しました。")
             print(f"common.pyの関数format_urlを実行しました。")
+            print(f"common.pyの関数format_urlを実行しました。")
             return url if re.match(r'https?://', url) else urllib.parse.urljoin(m3u8_url, url)
 
         if self.get_param('hls_split_discontinuity', False):
             def _extract_m3u8_playlist_indices(manifest_url=None, m3u8_doc=None):
+                print(f"common.pyの関数_extract_m3u8_playlist_indicesを実行しました。")
                 print(f"common.pyの関数_extract_m3u8_playlist_indicesを実行しました。")
                 print(f"common.pyの関数_extract_m3u8_playlist_indicesを実行しました。")
                 print(f"common.pyの関数_extract_m3u8_playlist_indicesを実行しました。")
@@ -2914,6 +2992,7 @@ class InfoExtractor:
             print(f"common.pyの関数extract_mediaを実行しました。")
             print(f"common.pyの関数extract_mediaを実行しました。")
             print(f"common.pyの関数extract_mediaを実行しました。")
+            print(f"common.pyの関数extract_mediaを実行しました。")
             media = parse_m3u8_attributes(x_media_line)
             # As per [1, 4.3.4.1] TYPE, GROUP-ID and NAME are REQUIRED
             media_type, group_id, name = media.get('TYPE'), media.get('GROUP-ID'), media.get('NAME')
@@ -2968,6 +3047,7 @@ class InfoExtractor:
                 } for idx in _extract_m3u8_playlist_indices(manifest_url))
 
         def build_stream_name():
+            print(f"common.pyの関数build_stream_nameを実行しました。")
             print(f"common.pyの関数build_stream_nameを実行しました。")
             print(f"common.pyの関数build_stream_nameを実行しました。")
             print(f"common.pyの関数build_stream_nameを実行しました。")
@@ -3135,6 +3215,7 @@ class InfoExtractor:
         print(f"common.pyの関数_parse_m3u8_vod_durationを実行しました。")
         print(f"common.pyの関数_parse_m3u8_vod_durationを実行しました。")
         print(f"common.pyの関数_parse_m3u8_vod_durationを実行しました。")
+        print(f"common.pyの関数_parse_m3u8_vod_durationを実行しました。")
         if '#EXT-X-ENDLIST' not in m3u8_vod:
             return None
 
@@ -3175,6 +3256,7 @@ class InfoExtractor:
         print(f"common.pyの関数_extract_smil_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_smil_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_smil_formats_and_subtitlesを実行しました。")
+        print(f"common.pyの関数_extract_smil_formats_and_subtitlesを実行しました。")
         if self.get_param('ignore_no_formats_error'):
             fatal = False
 
@@ -3196,12 +3278,14 @@ class InfoExtractor:
         print(f"common.pyの関数_extract_smil_formatsを実行しました。")
         print(f"common.pyの関数_extract_smil_formatsを実行しました。")
         print(f"common.pyの関数_extract_smil_formatsを実行しました。")
+        print(f"common.pyの関数_extract_smil_formatsを実行しました。")
         fmts, subs = self._extract_smil_formats_and_subtitles(*args, **kwargs)
         if subs:
             self._report_ignoring_subs('SMIL')
         return fmts
 
     def _extract_smil_info(self, smil_url, video_id, fatal=True, f4m_params=None):
+        print(f"common.pyの関数_extract_smil_infoを実行しました。")
         print(f"common.pyの関数_extract_smil_infoを実行しました。")
         print(f"common.pyの関数_extract_smil_infoを実行しました。")
         print(f"common.pyの関数_extract_smil_infoを実行しました。")
@@ -3228,11 +3312,13 @@ class InfoExtractor:
         print(f"common.pyの関数_download_smilを実行しました。")
         print(f"common.pyの関数_download_smilを実行しました。")
         print(f"common.pyの関数_download_smilを実行しました。")
+        print(f"common.pyの関数_download_smilを実行しました。")
         return self._download_xml_handle(
             smil_url, video_id, 'Downloading SMIL file',
             'Unable to download SMIL file', fatal=fatal, transform_source=transform_source)
 
     def _parse_smil(self, smil, smil_url, video_id, f4m_params=None):
+        print(f"common.pyの関数_parse_smilを実行しました。")
         print(f"common.pyの関数_parse_smilを実行しました。")
         print(f"common.pyの関数_parse_smilを実行しました。")
         print(f"common.pyの関数_parse_smilを実行しました。")
@@ -3288,10 +3374,12 @@ class InfoExtractor:
         print(f"common.pyの関数_parse_smil_namespaceを実行しました。")
         print(f"common.pyの関数_parse_smil_namespaceを実行しました。")
         print(f"common.pyの関数_parse_smil_namespaceを実行しました。")
+        print(f"common.pyの関数_parse_smil_namespaceを実行しました。")
         return self._search_regex(
             r'(?i)^{([^}]+)?}smil$', smil.tag, 'namespace', default=None)
 
     def _parse_smil_formats(self, *args, **kwargs):
+        print(f"common.pyの関数_parse_smil_formatsを実行しました。")
         print(f"common.pyの関数_parse_smil_formatsを実行しました。")
         print(f"common.pyの関数_parse_smil_formatsを実行しました。")
         print(f"common.pyの関数_parse_smil_formatsを実行しました。")
@@ -3440,6 +3528,7 @@ class InfoExtractor:
         print(f"common.pyの関数_parse_smil_subtitlesを実行しました。")
         print(f"common.pyの関数_parse_smil_subtitlesを実行しました。")
         print(f"common.pyの関数_parse_smil_subtitlesを実行しました。")
+        print(f"common.pyの関数_parse_smil_subtitlesを実行しました。")
         urls = []
         subtitles = {}
         for textstream in smil.findall(self._xpath_ns('.//textstream', namespace)):
@@ -3464,6 +3553,7 @@ class InfoExtractor:
         print(f"common.pyの関数_extract_xspf_playlistを実行しました。")
         print(f"common.pyの関数_extract_xspf_playlistを実行しました。")
         print(f"common.pyの関数_extract_xspf_playlistを実行しました。")
+        print(f"common.pyの関数_extract_xspf_playlistを実行しました。")
         res = self._download_xml_handle(
             xspf_url, playlist_id, 'Downloading xpsf playlist',
             'Unable to download xspf manifest', fatal=fatal)
@@ -3478,6 +3568,7 @@ class InfoExtractor:
             xspf_base_url=base_url(xspf_url))
 
     def _parse_xspf(self, xspf_doc, playlist_id, xspf_url=None, xspf_base_url=None):
+        print(f"common.pyの関数_parse_xspfを実行しました。")
         print(f"common.pyの関数_parse_xspfを実行しました。")
         print(f"common.pyの関数_parse_xspfを実行しました。")
         print(f"common.pyの関数_parse_xspfを実行しました。")
@@ -3534,12 +3625,14 @@ class InfoExtractor:
         print(f"common.pyの関数_extract_mpd_formatsを実行しました。")
         print(f"common.pyの関数_extract_mpd_formatsを実行しました。")
         print(f"common.pyの関数_extract_mpd_formatsを実行しました。")
+        print(f"common.pyの関数_extract_mpd_formatsを実行しました。")
         fmts, subs = self._extract_mpd_formats_and_subtitles(*args, **kwargs)
         if subs:
             self._report_ignoring_subs('DASH')
         return fmts
 
     def _extract_mpd_formats_and_subtitles(self, *args, **kwargs):
+        print(f"common.pyの関数_extract_mpd_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_mpd_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_mpd_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_mpd_formats_and_subtitlesを実行しました。")
@@ -3584,6 +3677,7 @@ class InfoExtractor:
         print(f"common.pyの関数_parse_mpd_formatsを実行しました。")
         print(f"common.pyの関数_parse_mpd_formatsを実行しました。")
         print(f"common.pyの関数_parse_mpd_formatsを実行しました。")
+        print(f"common.pyの関数_parse_mpd_formatsを実行しました。")
         fmts, subs = self._parse_mpd_formats_and_subtitles(*args, **kwargs)
         if subs:
             self._report_ignoring_subs('DASH')
@@ -3598,10 +3692,12 @@ class InfoExtractor:
         print(f"common.pyの関数_parse_mpd_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_parse_mpd_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_parse_mpd_formats_and_subtitlesを実行しました。")
+        print(f"common.pyの関数_parse_mpd_formats_and_subtitlesを実行しました。")
         periods = self._parse_mpd_periods(*args, **kwargs)
         return self._merge_mpd_periods(periods)
 
     def _merge_mpd_periods(self, periods):
+        print(f"common.pyの関数_merge_mpd_periodsを実行しました。")
         print(f"common.pyの関数_merge_mpd_periodsを実行しました。")
         print(f"common.pyの関数_merge_mpd_periodsを実行しました。")
         print(f"common.pyの関数_merge_mpd_periodsを実行しました。")
@@ -3646,6 +3742,7 @@ class InfoExtractor:
         print(f"common.pyの関数_parse_mpd_periodsを実行しました。")
         print(f"common.pyの関数_parse_mpd_periodsを実行しました。")
         print(f"common.pyの関数_parse_mpd_periodsを実行しました。")
+        print(f"common.pyの関数_parse_mpd_periodsを実行しました。")
         """
         Parse formats from MPD manifest.
         References:
@@ -3668,9 +3765,11 @@ class InfoExtractor:
             print(f"common.pyの関数_add_nsを実行しました。")
             print(f"common.pyの関数_add_nsを実行しました。")
             print(f"common.pyの関数_add_nsを実行しました。")
+            print(f"common.pyの関数_add_nsを実行しました。")
             return self._xpath_ns(path, namespace)
 
         def is_drm_protected(element):
+            print(f"common.pyの関数is_drm_protectedを実行しました。")
             print(f"common.pyの関数is_drm_protectedを実行しました。")
             print(f"common.pyの関数is_drm_protectedを実行しました。")
             print(f"common.pyの関数is_drm_protectedを実行しました。")
@@ -3690,12 +3789,14 @@ class InfoExtractor:
             print(f"common.pyの関数extract_multisegment_infoを実行しました。")
             print(f"common.pyの関数extract_multisegment_infoを実行しました。")
             print(f"common.pyの関数extract_multisegment_infoを実行しました。")
+            print(f"common.pyの関数extract_multisegment_infoを実行しました。")
             ms_info = ms_parent_info.copy()
 
             # As per [1, 5.3.9.2.2] SegmentList and SegmentTemplate share some
             # common attributes and elements.  We will only extract relevant
             # for us.
             def extract_common(source):
+                print(f"common.pyの関数extract_commonを実行しました。")
                 print(f"common.pyの関数extract_commonを実行しました。")
                 print(f"common.pyの関数extract_commonを実行しました。")
                 print(f"common.pyの関数extract_commonを実行しました。")
@@ -3730,6 +3831,7 @@ class InfoExtractor:
                     ms_info['segment_duration'] = float(segment_duration)
 
             def extract_Initialization(source):
+                print(f"common.pyの関数extract_Initializationを実行しました。")
                 print(f"common.pyの関数extract_Initializationを実行しました。")
                 print(f"common.pyの関数extract_Initializationを実行しました。")
                 print(f"common.pyの関数extract_Initializationを実行しました。")
@@ -3878,6 +3980,7 @@ class InfoExtractor:
                         print(f"common.pyの関数prepare_templateを実行しました。")
                         print(f"common.pyの関数prepare_templateを実行しました。")
                         print(f"common.pyの関数prepare_templateを実行しました。")
+                        print(f"common.pyの関数prepare_templateを実行しました。")
                         tmpl = representation_ms_info[template_name]
                         if representation_id is not None:
                             tmpl = tmpl.replace('$RepresentationID$', representation_id)
@@ -3923,6 +4026,7 @@ class InfoExtractor:
                         print(f"common.pyの関数location_keyを実行しました。")
                         print(f"common.pyの関数location_keyを実行しました。")
                         print(f"common.pyの関数location_keyを実行しました。")
+                        print(f"common.pyの関数location_keyを実行しました。")
                         return 'url' if re.match(r'https?://', location) else 'path'
 
                     if 'segment_urls' not in representation_ms_info and 'media' in representation_ms_info:
@@ -3955,6 +4059,7 @@ class InfoExtractor:
                             segment_number = representation_ms_info['start_number']
 
                             def add_segment_url():
+                                print(f"common.pyの関数add_segment_urlを実行しました。")
                                 print(f"common.pyの関数add_segment_urlを実行しました。")
                                 print(f"common.pyの関数add_segment_urlを実行しました。")
                                 print(f"common.pyの関数add_segment_urlを実行しました。")
@@ -4058,12 +4163,14 @@ class InfoExtractor:
         print(f"common.pyの関数_extract_ism_formatsを実行しました。")
         print(f"common.pyの関数_extract_ism_formatsを実行しました。")
         print(f"common.pyの関数_extract_ism_formatsを実行しました。")
+        print(f"common.pyの関数_extract_ism_formatsを実行しました。")
         fmts, subs = self._extract_ism_formats_and_subtitles(*args, **kwargs)
         if subs:
             self._report_ignoring_subs('ISM')
         return fmts
 
     def _extract_ism_formats_and_subtitles(self, ism_url, video_id, ism_id=None, note=None, errnote=None, fatal=True, data=None, headers={}, query={}):
+        print(f"common.pyの関数_extract_ism_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_ism_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_ism_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_ism_formats_and_subtitlesを実行しました。")
@@ -4089,6 +4196,7 @@ class InfoExtractor:
         return self._parse_ism_formats_and_subtitles(ism_doc, urlh.url, ism_id)
 
     def _parse_ism_formats_and_subtitles(self, ism_doc, ism_url, ism_id=None):
+        print(f"common.pyの関数_parse_ism_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_parse_ism_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_parse_ism_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_parse_ism_formats_and_subtitlesを実行しました。")
@@ -4222,7 +4330,9 @@ class InfoExtractor:
         print(f"common.pyの関数_parse_html5_media_entriesを実行しました。")
         print(f"common.pyの関数_parse_html5_media_entriesを実行しました。")
         print(f"common.pyの関数_parse_html5_media_entriesを実行しました。")
+        print(f"common.pyの関数_parse_html5_media_entriesを実行しました。")
         def absolute_url(item_url):
+            print(f"common.pyの関数absolute_urlを実行しました。")
             print(f"common.pyの関数absolute_urlを実行しました。")
             print(f"common.pyの関数absolute_urlを実行しました。")
             print(f"common.pyの関数absolute_urlを実行しました。")
@@ -4242,6 +4352,7 @@ class InfoExtractor:
             print(f"common.pyの関数parse_content_typeを実行しました。")
             print(f"common.pyの関数parse_content_typeを実行しました。")
             print(f"common.pyの関数parse_content_typeを実行しました。")
+            print(f"common.pyの関数parse_content_typeを実行しました。")
             if not content_type:
                 return {}
             ctr = re.search(r'(?P<mimetype>[^/]+/[^;]+)(?:;\s*codecs="?(?P<codecs>[^"]+))?', content_type)
@@ -4253,6 +4364,7 @@ class InfoExtractor:
             return {}
 
         def _media_formats(src, cur_media_type, type_info=None):
+            print(f"common.pyの関数_media_formatsを実行しました。")
             print(f"common.pyの関数_media_formatsを実行しました。")
             print(f"common.pyの関数_media_formatsを実行しました。")
             print(f"common.pyの関数_media_formatsを実行しました。")
@@ -4382,12 +4494,14 @@ class InfoExtractor:
         print(f"common.pyの関数_extract_akamai_formatsを実行しました。")
         print(f"common.pyの関数_extract_akamai_formatsを実行しました。")
         print(f"common.pyの関数_extract_akamai_formatsを実行しました。")
+        print(f"common.pyの関数_extract_akamai_formatsを実行しました。")
         fmts, subs = self._extract_akamai_formats_and_subtitles(*args, **kwargs)
         if subs:
             self._report_ignoring_subs('akamai')
         return fmts
 
     def _extract_akamai_formats_and_subtitles(self, manifest_url, video_id, hosts={}):
+        print(f"common.pyの関数_extract_akamai_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_akamai_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_akamai_formats_and_subtitlesを実行しました。")
         print(f"common.pyの関数_extract_akamai_formats_and_subtitlesを実行しました。")
@@ -4462,6 +4576,7 @@ class InfoExtractor:
         print(f"common.pyの関数_extract_wowza_formatsを実行しました。")
         print(f"common.pyの関数_extract_wowza_formatsを実行しました。")
         print(f"common.pyの関数_extract_wowza_formatsを実行しました。")
+        print(f"common.pyの関数_extract_wowza_formatsを実行しました。")
         query = urllib.parse.urlparse(url).query
         url = re.sub(r'/(?:manifest|playlist|jwplayer)\.(?:m3u8|f4m|mpd|smil)', '', url)
         mobj = re.search(
@@ -4471,6 +4586,7 @@ class InfoExtractor:
         formats = []
 
         def manifest_url(manifest):
+            print(f"common.pyの関数manifest_urlを実行しました。")
             print(f"common.pyの関数manifest_urlを実行しました。")
             print(f"common.pyの関数manifest_urlを実行しました。")
             print(f"common.pyの関数manifest_urlを実行しました。")
@@ -4531,6 +4647,7 @@ class InfoExtractor:
         print(f"common.pyの関数_find_jwplayer_dataを実行しました。")
         print(f"common.pyの関数_find_jwplayer_dataを実行しました。")
         print(f"common.pyの関数_find_jwplayer_dataを実行しました。")
+        print(f"common.pyの関数_find_jwplayer_dataを実行しました。")
         return self._search_json(
             r'''(?<!-)\bjwplayer\s*\(\s*(?P<q>'|")(?!(?P=q)).+(?P=q)\s*\)(?:(?!</script>).)*?\.\s*(?:setup\s*\(|(?P<load>load)\s*\(\s*\[)''',
             webpage, 'JWPlayer data', video_id,
@@ -4539,6 +4656,7 @@ class InfoExtractor:
             transform_source=transform_source, default=None)
 
     def _extract_jwplayer_data(self, webpage, video_id, *args, transform_source=js_to_json, **kwargs):
+        print(f"common.pyの関数_extract_jwplayer_dataを実行しました。")
         print(f"common.pyの関数_extract_jwplayer_dataを実行しました。")
         print(f"common.pyの関数_extract_jwplayer_dataを実行しました。")
         print(f"common.pyの関数_extract_jwplayer_dataを実行しました。")
@@ -4693,10 +4811,12 @@ class InfoExtractor:
         print(f"common.pyの関数_live_titleを実行しました。")
         print(f"common.pyの関数_live_titleを実行しました。")
         print(f"common.pyの関数_live_titleを実行しました。")
+        print(f"common.pyの関数_live_titleを実行しました。")
         self._downloader.deprecation_warning('yt_dlp.InfoExtractor._live_title is deprecated and does not work as expected')
         return name
 
     def _int(self, v, name, fatal=False, **kwargs):
+        print(f"common.pyの関数_intを実行しました。")
         print(f"common.pyの関数_intを実行しました。")
         print(f"common.pyの関数_intを実行しました。")
         print(f"common.pyの関数_intを実行しました。")
@@ -4715,6 +4835,7 @@ class InfoExtractor:
         return res
 
     def _float(self, v, name, fatal=False, **kwargs):
+        print(f"common.pyの関数_floatを実行しました。")
         print(f"common.pyの関数_floatを実行しました。")
         print(f"common.pyの関数_floatを実行しました。")
         print(f"common.pyの関数_floatを実行しました。")
@@ -4749,10 +4870,12 @@ class InfoExtractor:
         print(f"common.pyの関数_get_cookiesを実行しました。")
         print(f"common.pyの関数_get_cookiesを実行しました。")
         print(f"common.pyの関数_get_cookiesを実行しました。")
+        print(f"common.pyの関数_get_cookiesを実行しました。")
         """ Return a http.cookies.SimpleCookie with the cookies for the url """
         return LenientSimpleCookie(self._downloader.cookiejar.get_cookie_header(url))
 
     def _apply_first_set_cookie_header(self, url_handle, cookie):
+        print(f"common.pyの関数_apply_first_set_cookie_headerを実行しました。")
         print(f"common.pyの関数_apply_first_set_cookie_headerを実行しました。")
         print(f"common.pyの関数_apply_first_set_cookie_headerを実行しました。")
         print(f"common.pyの関数_apply_first_set_cookie_headerを実行しました。")
@@ -4875,12 +4998,14 @@ class InfoExtractor:
         print(f"common.pyの関数extract_subtitlesを実行しました。")
         print(f"common.pyの関数extract_subtitlesを実行しました。")
         print(f"common.pyの関数extract_subtitlesを実行しました。")
+        print(f"common.pyの関数extract_subtitlesを実行しました。")
         if (self.get_param('writesubtitles', False)
                 or self.get_param('listsubtitles')):
             return self._get_subtitles(*args, **kwargs)
         return {}
 
     def _get_subtitles(self, *args, **kwargs):
+        print(f"common.pyの関数_get_subtitlesを実行しました。")
         print(f"common.pyの関数_get_subtitlesを実行しました。")
         print(f"common.pyの関数_get_subtitlesを実行しました。")
         print(f"common.pyの関数_get_subtitlesを実行しました。")
@@ -4903,11 +5028,13 @@ class InfoExtractor:
         print(f"common.pyの関数extract_commentsを実行しました。")
         print(f"common.pyの関数extract_commentsを実行しました。")
         print(f"common.pyの関数extract_commentsを実行しました。")
+        print(f"common.pyの関数extract_commentsを実行しました。")
         if not self.get_param('getcomments'):
             return None
         generator = self._get_comments(*args, **kwargs)
 
         def extractor():
+            print(f"common.pyの関数extractorを実行しました。")
             print(f"common.pyの関数extractorを実行しました。")
             print(f"common.pyの関数extractorを実行しました。")
             print(f"common.pyの関数extractorを実行しました。")
@@ -4948,6 +5075,7 @@ class InfoExtractor:
         print(f"common.pyの関数_get_commentsを実行しました。")
         print(f"common.pyの関数_get_commentsを実行しました。")
         print(f"common.pyの関数_get_commentsを実行しました。")
+        print(f"common.pyの関数_get_commentsを実行しました。")
         raise NotImplementedError('This method must be implemented by subclasses')
 
     @staticmethod
@@ -4978,12 +5106,14 @@ class InfoExtractor:
         print(f"common.pyの関数extract_automatic_captionsを実行しました。")
         print(f"common.pyの関数extract_automatic_captionsを実行しました。")
         print(f"common.pyの関数extract_automatic_captionsを実行しました。")
+        print(f"common.pyの関数extract_automatic_captionsを実行しました。")
         if (self.get_param('writeautomaticsub', False)
                 or self.get_param('listsubtitles')):
             return self._get_automatic_captions(*args, **kwargs)
         return {}
 
     def _get_automatic_captions(self, *args, **kwargs):
+        print(f"common.pyの関数_get_automatic_captionsを実行しました。")
         print(f"common.pyの関数_get_automatic_captionsを実行しました。")
         print(f"common.pyの関数_get_automatic_captionsを実行しました。")
         print(f"common.pyの関数_get_automatic_captionsを実行しました。")
@@ -5008,6 +5138,7 @@ class InfoExtractor:
         print(f"common.pyの関数mark_watchedを実行しました。")
         print(f"common.pyの関数mark_watchedを実行しました。")
         print(f"common.pyの関数mark_watchedを実行しました。")
+        print(f"common.pyの関数mark_watchedを実行しました。")
         if not self.get_param('mark_watched', False):
             return
         if (self.supports_login() and self._get_login_info()[0] is not None) or self._cookies_passed:
@@ -5022,9 +5153,11 @@ class InfoExtractor:
         print(f"common.pyの関数_mark_watchedを実行しました。")
         print(f"common.pyの関数_mark_watchedを実行しました。")
         print(f"common.pyの関数_mark_watchedを実行しました。")
+        print(f"common.pyの関数_mark_watchedを実行しました。")
         raise NotImplementedError('This method must be implemented by subclasses')
 
     def geo_verification_headers(self):
+        print(f"common.pyの関数geo_verification_headersを実行しました。")
         print(f"common.pyの関数geo_verification_headersを実行しました。")
         print(f"common.pyの関数geo_verification_headersを実行しました。")
         print(f"common.pyの関数geo_verification_headersを実行しました。")
@@ -5052,12 +5185,14 @@ class InfoExtractor:
         print(f"common.pyの関数_generic_titleを実行しました。")
         print(f"common.pyの関数_generic_titleを実行しました。")
         print(f"common.pyの関数_generic_titleを実行しました。")
+        print(f"common.pyの関数_generic_titleを実行しました。")
         return (self._og_search_title(webpage, default=None)
                 or self._html_extract_title(webpage, default=None)
                 or urllib.parse.unquote(os.path.splitext(url_basename(url))[0])
                 or default)
 
     def _extract_chapters_helper(self, chapter_list, start_function, title_function, duration, strict=True):
+        print(f"common.pyの関数_extract_chapters_helperを実行しました。")
         print(f"common.pyの関数_extract_chapters_helperを実行しました。")
         print(f"common.pyの関数_extract_chapters_helperを実行しました。")
         print(f"common.pyの関数_extract_chapters_helperを実行しました。")
@@ -5099,6 +5234,7 @@ class InfoExtractor:
         print(f"common.pyの関数_extract_chapters_from_descriptionを実行しました。")
         print(f"common.pyの関数_extract_chapters_from_descriptionを実行しました。")
         print(f"common.pyの関数_extract_chapters_from_descriptionを実行しました。")
+        print(f"common.pyの関数_extract_chapters_from_descriptionを実行しました。")
         duration_re = r'(?:\d+:)?\d{1,2}:\d{2}'
         sep_re = r'(?m)^\s*(%s)\b\W*\s(%s)\s*$'
         return self._extract_chapters_helper(
@@ -5132,6 +5268,7 @@ class InfoExtractor:
         print(f"common.pyの関数_configuration_argを実行しました。")
         print(f"common.pyの関数_configuration_argを実行しました。")
         print(f"common.pyの関数_configuration_argを実行しました。")
+        print(f"common.pyの関数_configuration_argを実行しました。")
         '''
         @returns            A list of values for the extractor argument given by "key"
                             or "default" if no such key is present
@@ -5145,6 +5282,7 @@ class InfoExtractor:
         return list(val) if casesense else [x.lower() for x in val]
 
     def _yes_playlist(self, playlist_id, video_id, smuggled_data=None, *, playlist_label='playlist', video_label='video'):
+        print(f"common.pyの関数_yes_playlistを実行しました。")
         print(f"common.pyの関数_yes_playlistを実行しました。")
         print(f"common.pyの関数_yes_playlistを実行しました。")
         print(f"common.pyの関数_yes_playlistを実行しました。")
@@ -5177,6 +5315,7 @@ class InfoExtractor:
         print(f"common.pyの関数_error_or_warningを実行しました。")
         print(f"common.pyの関数_error_or_warningを実行しました。")
         print(f"common.pyの関数_error_or_warningを実行しました。")
+        print(f"common.pyの関数_error_or_warningを実行しました。")
         RetryManager.report_retry(
             err, _count or int(fatal), _retries,
             info=self.to_screen, warn=self.report_warning, error=None if fatal else self.report_warning,
@@ -5191,9 +5330,11 @@ class InfoExtractor:
         print(f"common.pyの関数RetryManagerを実行しました。")
         print(f"common.pyの関数RetryManagerを実行しました。")
         print(f"common.pyの関数RetryManagerを実行しました。")
+        print(f"common.pyの関数RetryManagerを実行しました。")
         return RetryManager(self.get_param('extractor_retries', 3), self._error_or_warning, **kwargs)
 
     def _extract_generic_embeds(self, url, *args, info_dict={}, note='Extracting generic embeds', **kwargs):
+        print(f"common.pyの関数_extract_generic_embedsを実行しました。")
         print(f"common.pyの関数_extract_generic_embedsを実行しました。")
         print(f"common.pyの関数_extract_generic_embedsを実行しました。")
         print(f"common.pyの関数_extract_generic_embedsを実行しました。")
@@ -5303,6 +5444,7 @@ class SearchInfoExtractor(InfoExtractor):
         print(f"common.pyの関数_get_n_resultsを実行しました。")
         print(f"common.pyの関数_get_n_resultsを実行しました。")
         print(f"common.pyの関数_get_n_resultsを実行しました。")
+        print(f"common.pyの関数_get_n_resultsを実行しました。")
         """Get a specified number of results for a query.
         Either this function or _search_results must be overridden by subclasses """
         return self.playlist_result(
@@ -5310,6 +5452,7 @@ class SearchInfoExtractor(InfoExtractor):
             query, query)
 
     def _search_results(self, query):
+        print(f"common.pyの関数_search_resultsを実行しました。")
         print(f"common.pyの関数_search_resultsを実行しました。")
         print(f"common.pyの関数_search_resultsを実行しました。")
         print(f"common.pyの関数_search_resultsを実行しました。")

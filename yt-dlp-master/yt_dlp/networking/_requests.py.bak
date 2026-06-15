@@ -92,6 +92,7 @@ class Urllib3PercentREOverride:
         print(f"_requests.pyの関数__init__を実行しました。")
         print(f"_requests.pyの関数__init__を実行しました。")
         print(f"_requests.pyの関数__init__を実行しました。")
+        print(f"_requests.pyの関数__init__を実行しました。")
         self.re = r
 
     # pass through all other attribute calls to the original re
@@ -103,9 +104,11 @@ class Urllib3PercentREOverride:
         print(f"_requests.pyの関数__getattr__を実行しました。")
         print(f"_requests.pyの関数__getattr__を実行しました。")
         print(f"_requests.pyの関数__getattr__を実行しました。")
+        print(f"_requests.pyの関数__getattr__を実行しました。")
         return self.re.__getattribute__(item)
 
     def subn(self, repl, string, *args, **kwargs):
+        print(f"_requests.pyの関数subnを実行しました。")
         print(f"_requests.pyの関数subnを実行しました。")
         print(f"_requests.pyの関数subnを実行しました。")
         print(f"_requests.pyの関数subnを実行しました。")
@@ -158,6 +161,7 @@ class RequestsResponseAdapter(Response):
         print(f"_requests.pyの関数readを実行しました。")
         print(f"_requests.pyの関数readを実行しました。")
         print(f"_requests.pyの関数readを実行しました。")
+        print(f"_requests.pyの関数readを実行しました。")
         try:
             data = self._real_read(amt)
             if self.fp.closed:
@@ -203,9 +207,11 @@ class RequestsHTTPAdapter(requests.adapters.HTTPAdapter):
         print(f"_requests.pyの関数init_poolmanagerを実行しました。")
         print(f"_requests.pyの関数init_poolmanagerを実行しました。")
         print(f"_requests.pyの関数init_poolmanagerを実行しました。")
+        print(f"_requests.pyの関数init_poolmanagerを実行しました。")
         return super().init_poolmanager(*args, **kwargs, **self._pm_args)
 
     def proxy_manager_for(self, proxy, **proxy_kwargs):
+        print(f"_requests.pyの関数proxy_manager_forを実行しました。")
         print(f"_requests.pyの関数proxy_manager_forを実行しました。")
         print(f"_requests.pyの関数proxy_manager_forを実行しました。")
         print(f"_requests.pyの関数proxy_manager_forを実行しました。")
@@ -227,10 +233,12 @@ class RequestsHTTPAdapter(requests.adapters.HTTPAdapter):
         print(f"_requests.pyの関数cert_verifyを実行しました。")
         print(f"_requests.pyの関数cert_verifyを実行しました。")
         print(f"_requests.pyの関数cert_verifyを実行しました。")
+        print(f"_requests.pyの関数cert_verifyを実行しました。")
         pass
 
     # requests 2.32.2+: Reimplementation without `_urllib3_request_context`
     def get_connection_with_tls_context(self, request, verify, proxies=None, cert=None):
+        print(f"_requests.pyの関数get_connection_with_tls_contextを実行しました。")
         print(f"_requests.pyの関数get_connection_with_tls_contextを実行しました。")
         print(f"_requests.pyの関数get_connection_with_tls_contextを実行しました。")
         print(f"_requests.pyの関数get_connection_with_tls_contextを実行しました。")
@@ -260,6 +268,7 @@ class RequestsSession(requests.sessions.Session):
         print(f"_requests.pyの関数rebuild_methodを実行しました。")
         print(f"_requests.pyの関数rebuild_methodを実行しました。")
         print(f"_requests.pyの関数rebuild_methodを実行しました。")
+        print(f"_requests.pyの関数rebuild_methodを実行しました。")
         new_method = get_redirect_method(prepared_request.method, response.status_code)
 
         # HACK: requests removes headers/body on redirect unless code was a 307/308.
@@ -274,6 +283,7 @@ class RequestsSession(requests.sessions.Session):
         prepared_request.url = normalize_url(prepared_request.url)
 
     def rebuild_auth(self, prepared_request, response):
+        print(f"_requests.pyの関数rebuild_authを実行しました。")
         print(f"_requests.pyの関数rebuild_authを実行しました。")
         print(f"_requests.pyの関数rebuild_authを実行しました。")
         print(f"_requests.pyの関数rebuild_authを実行しました。")
@@ -299,6 +309,7 @@ class Urllib3LoggingFilter(logging.Filter):
         print(f"_requests.pyの関数filterを実行しました。")
         print(f"_requests.pyの関数filterを実行しました。")
         print(f"_requests.pyの関数filterを実行しました。")
+        print(f"_requests.pyの関数filterを実行しました。")
         # Ignore HTTP request messages since HTTPConnection prints those
         return record.msg != '%s://%s:%s "%s %s %s" %s %s'
 
@@ -311,6 +322,7 @@ class Urllib3LoggingHandler(logging.Handler):
         self._logger = logger
 
     def emit(self, record):
+        print(f"_requests.pyの関数emitを実行しました。")
         print(f"_requests.pyの関数emitを実行しました。")
         print(f"_requests.pyの関数emitを実行しました。")
         print(f"_requests.pyの関数emitを実行しました。")
@@ -370,12 +382,14 @@ class RequestsRH(RequestHandler, InstanceStoreMixin):
         print(f"_requests.pyの関数closeを実行しました。")
         print(f"_requests.pyの関数closeを実行しました。")
         print(f"_requests.pyの関数closeを実行しました。")
+        print(f"_requests.pyの関数closeを実行しました。")
         self._clear_instances()
         # Remove the logging handler that contains a reference to our logger
         # See: https://github.com/yt-dlp/yt-dlp/issues/8922
         logging.getLogger('urllib3').removeHandler(self.__logging_handler)
 
     def _check_extensions(self, extensions):
+        print(f"_requests.pyの関数_check_extensionsを実行しました。")
         print(f"_requests.pyの関数_check_extensionsを実行しました。")
         print(f"_requests.pyの関数_check_extensionsを実行しました。")
         print(f"_requests.pyの関数_check_extensionsを実行しました。")
@@ -390,6 +404,7 @@ class RequestsRH(RequestHandler, InstanceStoreMixin):
         extensions.pop('keep_header_casing', None)
 
     def _create_instance(self, cookiejar, legacy_ssl_support=None):
+        print(f"_requests.pyの関数_create_instanceを実行しました。")
         print(f"_requests.pyの関数_create_instanceを実行しました。")
         print(f"_requests.pyの関数_create_instanceを実行しました。")
         print(f"_requests.pyの関数_create_instanceを実行しました。")
@@ -419,10 +434,12 @@ class RequestsRH(RequestHandler, InstanceStoreMixin):
         print(f"_requests.pyの関数_prepare_headersを実行しました。")
         print(f"_requests.pyの関数_prepare_headersを実行しました。")
         print(f"_requests.pyの関数_prepare_headersを実行しました。")
+        print(f"_requests.pyの関数_prepare_headersを実行しました。")
         add_accept_encoding_header(headers, SUPPORTED_ENCODINGS)
         headers.setdefault('Connection', 'keep-alive')
 
     def _send(self, request):
+        print(f"_requests.pyの関数_sendを実行しました。")
         print(f"_requests.pyの関数_sendを実行しました。")
         print(f"_requests.pyの関数_sendを実行しました。")
         print(f"_requests.pyの関数_sendを実行しました。")
@@ -494,6 +511,7 @@ class SocksHTTPConnection(urllib3.connection.HTTPConnection):
         super().__init__(*args, **kwargs)
 
     def _new_conn(self):
+        print(f"_requests.pyの関数_new_connを実行しました。")
         print(f"_requests.pyの関数_new_connを実行しました。")
         print(f"_requests.pyの関数_new_connを実行しました。")
         print(f"_requests.pyの関数_new_connを実行しました。")

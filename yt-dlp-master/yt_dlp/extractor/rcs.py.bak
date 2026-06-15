@@ -75,6 +75,7 @@ class RCSBaseIE(InfoExtractor):
         print(f"rcs.pyの関数_get_video_srcを実行しました。")
         print(f"rcs.pyの関数_get_video_srcを実行しました。")
         print(f"rcs.pyの関数_get_video_srcを実行しました。")
+        print(f"rcs.pyの関数_get_video_srcを実行しました。")
         for source in traverse_obj(video, (
                 'mediaProfile', 'mediaFile', lambda _, v: v.get('mimeType'))):
             url = source['value']
@@ -115,6 +116,7 @@ class RCSBaseIE(InfoExtractor):
         print(f"rcs.pyの関数_create_http_formatsを実行しました。")
         print(f"rcs.pyの関数_create_http_formatsを実行しました。")
         print(f"rcs.pyの関数_create_http_formatsを実行しました。")
+        print(f"rcs.pyの関数_create_http_formatsを実行しました。")
         for f in m3u8_formats:
             if f['vcodec'] == 'none':
                 continue
@@ -146,6 +148,7 @@ class RCSBaseIE(InfoExtractor):
         print(f"rcs.pyの関数_create_formatsを実行しました。")
         print(f"rcs.pyの関数_create_formatsを実行しました。")
         print(f"rcs.pyの関数_create_formatsを実行しました。")
+        print(f"rcs.pyの関数_create_formatsを実行しました。")
         for source in sources:
             if source['type'] == 'm3u8':
                 m3u8_formats = self._extract_m3u8_formats(
@@ -163,6 +166,7 @@ class RCSBaseIE(InfoExtractor):
                 }
 
     def _real_extract(self, url):
+        print(f"rcs.pyの関数_real_extractを実行しました。")
         print(f"rcs.pyの関数_real_extractを実行しました。")
         print(f"rcs.pyの関数_real_extractを実行しました。")
         print(f"rcs.pyの関数_real_extractを実行しました。")

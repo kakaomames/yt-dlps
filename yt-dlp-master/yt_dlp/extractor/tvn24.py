@@ -54,6 +54,7 @@ class TVN24IE(InfoExtractor):
         print(f"tvn24.pyの関数_real_extractを実行しました。")
         print(f"tvn24.pyの関数_real_extractを実行しました。")
         print(f"tvn24.pyの関数_real_extractを実行しました。")
+        print(f"tvn24.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         webpage = self._download_webpage(url, display_id)
@@ -64,6 +65,7 @@ class TVN24IE(InfoExtractor):
             webpage, 'title')
 
         def extract_json(attr, name, default=NO_DEFAULT, fatal=True):
+            print(f"tvn24.pyの関数extract_jsonを実行しました。")
             print(f"tvn24.pyの関数extract_jsonを実行しました。")
             print(f"tvn24.pyの関数extract_jsonを実行しました。")
             print(f"tvn24.pyの関数extract_jsonを実行しました。")

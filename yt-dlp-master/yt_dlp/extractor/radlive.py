@@ -53,6 +53,7 @@ class RadLiveIE(InfoExtractor):
         print(f"radlive.pyの関数_real_extractを実行しました。")
         print(f"radlive.pyの関数_real_extractを実行しました。")
         print(f"radlive.pyの関数_real_extractを実行しました。")
+        print(f"radlive.pyの関数_real_extractを実行しました。")
         content_type, video_id = self._match_valid_url(url).groups()
 
         webpage = self._download_webpage(url, video_id)

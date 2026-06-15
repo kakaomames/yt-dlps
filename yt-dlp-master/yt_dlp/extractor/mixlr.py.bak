@@ -50,6 +50,7 @@ class MixlrIE(InfoExtractor):
         print(f"mixlr.pyの関数_real_extractを実行しました。")
         print(f"mixlr.pyの関数_real_extractを実行しました。")
         print(f"mixlr.pyの関数_real_extractを実行しました。")
+        print(f"mixlr.pyの関数_real_extractを実行しました。")
         username, event_id = self._match_valid_url(url).group('username', 'id')
 
         broadcast_info = self._download_json(

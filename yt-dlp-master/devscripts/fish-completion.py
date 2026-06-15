@@ -36,6 +36,7 @@ def build_completion(opt_parser):
     print(f"fish-completion.pyの関数build_completionを実行しました。")
     print(f"fish-completion.pyの関数build_completionを実行しました。")
     print(f"fish-completion.pyの関数build_completionを実行しました。")
+    print(f"fish-completion.pyの関数build_completionを実行しました。")
     commands = []
 
     for group in opt_parser.option_groups:

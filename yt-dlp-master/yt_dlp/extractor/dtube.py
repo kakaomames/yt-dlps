@@ -36,6 +36,7 @@ class DTubeIE(InfoExtractor):
         print(f"dtube.pyの関数_real_extractを実行しました。")
         print(f"dtube.pyの関数_real_extractを実行しました。")
         print(f"dtube.pyの関数_real_extractを実行しました。")
+        print(f"dtube.pyの関数_real_extractを実行しました。")
         uploader_id, video_id = self._match_valid_url(url).groups()
         result = self._download_json('https://api.steemit.com/', video_id, data=json.dumps({
             'jsonrpc': '2.0',
@@ -50,6 +51,7 @@ class DTubeIE(InfoExtractor):
         title = info.get('title') or result['title']
 
         def canonical_url(h):
+            print(f"dtube.pyの関数canonical_urlを実行しました。")
             print(f"dtube.pyの関数canonical_urlを実行しました。")
             print(f"dtube.pyの関数canonical_urlを実行しました。")
             print(f"dtube.pyの関数canonical_urlを実行しました。")

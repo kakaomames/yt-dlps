@@ -14,12 +14,14 @@ class AmazonMiniTVBaseIE(InfoExtractor):
         print(f"amazonminitv.pyの関数_real_initializeを実行しました。")
         print(f"amazonminitv.pyの関数_real_initializeを実行しました。")
         print(f"amazonminitv.pyの関数_real_initializeを実行しました。")
+        print(f"amazonminitv.pyの関数_real_initializeを実行しました。")
         self._download_webpage(
             'https://www.amazon.in/minitv', None,
             note='Fetching guest session cookies')
         AmazonMiniTVBaseIE.session_id = self._get_cookies('https://www.amazon.in')['session-id'].value
 
     def _call_api(self, asin, data=None, note=None):
+        print(f"amazonminitv.pyの関数_call_apiを実行しました。")
         print(f"amazonminitv.pyの関数_call_apiを実行しました。")
         print(f"amazonminitv.pyの関数_call_apiを実行しました。")
         print(f"amazonminitv.pyの関数_call_apiを実行しました。")
@@ -158,6 +160,7 @@ query content($sessionIdToken: String!, $deviceLocale: String, $contentId: ID!, 
         print(f"amazonminitv.pyの関数_real_extractを実行しました。")
         print(f"amazonminitv.pyの関数_real_extractを実行しました。")
         print(f"amazonminitv.pyの関数_real_extractを実行しました。")
+        print(f"amazonminitv.pyの関数_real_extractを実行しました。")
         asin = f'amzn1.dv.gti.{self._match_id(url)}'
         prs = self._call_api(asin, note='Downloading playback info')
 
@@ -258,6 +261,7 @@ query getEpisodes($sessionIdToken: String!, $clientId: String, $episodeOrSeasonI
 '''
 
     def _entries(self, asin):
+        print(f"amazonminitv.pyの関数_entriesを実行しました。")
         print(f"amazonminitv.pyの関数_entriesを実行しました。")
         print(f"amazonminitv.pyの関数_entriesを実行しました。")
         print(f"amazonminitv.pyの関数_entriesを実行しました。")

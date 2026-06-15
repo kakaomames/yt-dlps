@@ -104,6 +104,7 @@ class RtlNlIE(InfoExtractor):
         print(f"rtlnl.pyの関数_real_extractを実行しました。")
         print(f"rtlnl.pyの関数_real_extractを実行しました。")
         print(f"rtlnl.pyの関数_real_extractを実行しました。")
+        print(f"rtlnl.pyの関数_real_extractを実行しました。")
         uuid = self._match_id(url)
         info = self._download_json(
             f'http://www.rtl.nl/system/s4m/vfd/version=2/uuid={uuid}/fmt=adaptive/',
@@ -165,9 +166,11 @@ class RTLLuBaseIE(InfoExtractor):
         print(f"rtlnl.pyの関数get_media_urlを実行しました。")
         print(f"rtlnl.pyの関数get_media_urlを実行しました。")
         print(f"rtlnl.pyの関数get_media_urlを実行しました。")
+        print(f"rtlnl.pyの関数get_media_urlを実行しました。")
         return self._search_regex(self._MEDIA_REGEX[media_type], webpage, f'{media_type} url', default=None)
 
     def get_formats_and_subtitles(self, webpage, video_id):
+        print(f"rtlnl.pyの関数get_formats_and_subtitlesを実行しました。")
         print(f"rtlnl.pyの関数get_formats_and_subtitlesを実行しました。")
         print(f"rtlnl.pyの関数get_formats_and_subtitlesを実行しました。")
         print(f"rtlnl.pyの関数get_formats_and_subtitlesを実行しました。")

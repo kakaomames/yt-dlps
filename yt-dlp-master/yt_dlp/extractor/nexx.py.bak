@@ -141,6 +141,7 @@ class NexxIE(InfoExtractor):
         print(f"nexx.pyの関数_handle_errorを実行しました。")
         print(f"nexx.pyの関数_handle_errorを実行しました。")
         print(f"nexx.pyの関数_handle_errorを実行しました。")
+        print(f"nexx.pyの関数_handle_errorを実行しました。")
         if traverse_obj(response, ('metadata', 'notice'), expected_type=str):
             self.report_warning('{} said: {}'.format(self.IE_NAME, response['metadata']['notice']))
         status = int_or_none(try_get(
@@ -159,6 +160,7 @@ class NexxIE(InfoExtractor):
         print(f"nexx.pyの関数_call_apiを実行しました。")
         print(f"nexx.pyの関数_call_apiを実行しました。")
         print(f"nexx.pyの関数_call_apiを実行しました。")
+        print(f"nexx.pyの関数_call_apiを実行しました。")
         headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8'
         result = self._download_json(
             f'https://api.nexx.cloud/v3/{domain_id}/{path}', video_id,
@@ -168,6 +170,7 @@ class NexxIE(InfoExtractor):
         return result['result']
 
     def _extract_free_formats(self, video, video_id):
+        print(f"nexx.pyの関数_extract_free_formatsを実行しました。")
         print(f"nexx.pyの関数_extract_free_formatsを実行しました。")
         print(f"nexx.pyの関数_extract_free_formatsを実行しました。")
         print(f"nexx.pyの関数_extract_free_formatsを実行しました。")
@@ -192,6 +195,7 @@ class NexxIE(InfoExtractor):
         cdn_provider = stream_data['cdnProvider']
 
         def p0(p):
+            print(f"nexx.pyの関数p0を実行しました。")
             print(f"nexx.pyの関数p0を実行しました。")
             print(f"nexx.pyの関数p0を実行しました。")
             print(f"nexx.pyの関数p0を実行しました。")
@@ -254,6 +258,7 @@ class NexxIE(InfoExtractor):
         print(f"nexx.pyの関数_extract_3q_formatsを実行しました。")
         print(f"nexx.pyの関数_extract_3q_formatsを実行しました。")
         print(f"nexx.pyの関数_extract_3q_formatsを実行しました。")
+        print(f"nexx.pyの関数_extract_3q_formatsを実行しました。")
         stream_data = video['streamdata']
         cdn = stream_data['cdnType']
         assert cdn == '3q'
@@ -263,6 +268,7 @@ class NexxIE(InfoExtractor):
             video, ('protectiondata', 'key'), expected_type=str)
 
         def get_cdn_shield_base(shield_type=''):
+            print(f"nexx.pyの関数get_cdn_shield_baseを実行しました。")
             print(f"nexx.pyの関数get_cdn_shield_baseを実行しました。")
             print(f"nexx.pyの関数get_cdn_shield_baseを実行しました。")
             print(f"nexx.pyの関数get_cdn_shield_baseを実行しました。")
@@ -320,6 +326,7 @@ class NexxIE(InfoExtractor):
         return formats
 
     def _extract_azure_formats(self, video, video_id):
+        print(f"nexx.pyの関数_extract_azure_formatsを実行しました。")
         print(f"nexx.pyの関数_extract_azure_formatsを実行しました。")
         print(f"nexx.pyの関数_extract_azure_formatsを実行しました。")
         print(f"nexx.pyの関数_extract_azure_formatsを実行しました。")
@@ -400,6 +407,7 @@ class NexxIE(InfoExtractor):
         print(f"nexx.pyの関数_real_extractを実行しました。")
         print(f"nexx.pyの関数_real_extractを実行しました。")
         print(f"nexx.pyの関数_real_extractを実行しました。")
+        print(f"nexx.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         domain_id = mobj.group('domain_id') or mobj.group('domain_id_s')
         video_id = mobj.group('id')
@@ -407,6 +415,7 @@ class NexxIE(InfoExtractor):
         video = None
 
         def find_video(result):
+            print(f"nexx.pyの関数find_videoを実行しました。")
             print(f"nexx.pyの関数find_videoを実行しました。")
             print(f"nexx.pyの関数find_videoを実行しました。")
             print(f"nexx.pyの関数find_videoを実行しました。")

@@ -61,6 +61,7 @@ class IEContentProviderError(Exception):
         print(f"_provider.pyの関数__init__を実行しました。")
         print(f"_provider.pyの関数__init__を実行しました。")
         print(f"_provider.pyの関数__init__を実行しました。")
+        print(f"_provider.pyの関数__init__を実行しました。")
         super().__init__(msg)
         self.expected = expected
 
@@ -119,9 +120,11 @@ class IEContentProvider(abc.ABC):
         print(f"_provider.pyの関数closeを実行しました。")
         print(f"_provider.pyの関数closeを実行しました。")
         print(f"_provider.pyの関数closeを実行しました。")
+        print(f"_provider.pyの関数closeを実行しました。")
         pass
 
     def _configuration_arg(self, key, default=NO_DEFAULT, *, casesense=False):
+        print(f"_provider.pyの関数_configuration_argを実行しました。")
         print(f"_provider.pyの関数_configuration_argを実行しました。")
         print(f"_provider.pyの関数_configuration_argを実行しました。")
         print(f"_provider.pyの関数_configuration_argを実行しました。")
@@ -144,6 +147,7 @@ class BuiltinIEContentProvider(IEContentProvider, abc.ABC):
 
 
 def configuration_arg(config, key, default=NO_DEFAULT, *, casesense=False):
+    print(f"_provider.pyの関数configuration_argを実行しました。")
     print(f"_provider.pyの関数configuration_argを実行しました。")
     print(f"_provider.pyの関数configuration_argを実行しました。")
     print(f"_provider.pyの関数configuration_argを実行しました。")
@@ -185,6 +189,7 @@ def register_preference_generic(
     assert all(issubclass(provider, base_class) for provider in providers)
 
     def outer(preference):
+        print(f"_provider.pyの関数outerを実行しました。")
         print(f"_provider.pyの関数outerを実行しました。")
         print(f"_provider.pyの関数outerを実行しました。")
         print(f"_provider.pyの関数outerを実行しました。")

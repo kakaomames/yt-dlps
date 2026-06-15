@@ -61,6 +61,7 @@ class StreamableIE(InfoExtractor):
         print(f"streamable.pyの関数_real_extractを実行しました。")
         print(f"streamable.pyの関数_real_extractを実行しました。")
         print(f"streamable.pyの関数_real_extractを実行しました。")
+        print(f"streamable.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         # Note: Using the ajax API, as the public Streamable API doesn't seem

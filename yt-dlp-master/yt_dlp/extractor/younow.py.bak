@@ -47,6 +47,7 @@ class YouNowLiveIE(InfoExtractor):
         print(f"younow.pyの関数_real_extractを実行しました。")
         print(f"younow.pyの関数_real_extractを実行しました。")
         print(f"younow.pyの関数_real_extractを実行しました。")
+        print(f"younow.pyの関数_real_extractを実行しました。")
         username = self._match_id(url)
 
         data = self._download_json(
@@ -81,6 +82,7 @@ class YouNowLiveIE(InfoExtractor):
 
 
 def _extract_moment(item, fatal=True):
+    print(f"younow.pyの関数_extract_momentを実行しました。")
     print(f"younow.pyの関数_extract_momentを実行しました。")
     print(f"younow.pyの関数_extract_momentを実行しました。")
     print(f"younow.pyの関数_extract_momentを実行しました。")
@@ -136,6 +138,7 @@ class YouNowChannelIE(InfoExtractor):
     }
 
     def _entries(self, username, channel_id):
+        print(f"younow.pyの関数_entriesを実行しました。")
         print(f"younow.pyの関数_entriesを実行しました。")
         print(f"younow.pyの関数_entriesを実行しました。")
         print(f"younow.pyの関数_entriesを実行しました。")

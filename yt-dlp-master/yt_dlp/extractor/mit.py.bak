@@ -33,6 +33,7 @@ class TechTVMITIE(InfoExtractor):
         print(f"mit.pyの関数_real_extractを実行しました。")
         print(f"mit.pyの関数_real_extractを実行しました。")
         print(f"mit.pyの関数_real_extractを実行しました。")
+        print(f"mit.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         raw_page = self._download_webpage(
             f'http://techtv.mit.edu/videos/{video_id}', video_id)

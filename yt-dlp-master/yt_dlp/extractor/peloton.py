@@ -75,9 +75,11 @@ class PelotonIE(InfoExtractor):
         print(f"peloton.pyの関数_start_sessionを実行しました。")
         print(f"peloton.pyの関数_start_sessionを実行しました。")
         print(f"peloton.pyの関数_start_sessionを実行しました。")
+        print(f"peloton.pyの関数_start_sessionを実行しました。")
         self._download_webpage('https://api.onepeloton.com/api/started_client_session', video_id, note='Starting session')
 
     def _login(self, video_id):
+        print(f"peloton.pyの関数_loginを実行しました。")
         print(f"peloton.pyの関数_loginを実行しました。")
         print(f"peloton.pyの関数_loginを実行しました。")
         print(f"peloton.pyの関数_loginを実行しました。")
@@ -115,6 +117,7 @@ class PelotonIE(InfoExtractor):
         print(f"peloton.pyの関数_get_tokenを実行しました。")
         print(f"peloton.pyの関数_get_tokenを実行しました。")
         print(f"peloton.pyの関数_get_tokenを実行しました。")
+        print(f"peloton.pyの関数_get_tokenを実行しました。")
         try:
             subscription = self._download_json(
                 'https://api.onepeloton.com/api/subscription/stream', video_id, note='Downloading token',
@@ -129,6 +132,7 @@ class PelotonIE(InfoExtractor):
         return subscription['token']
 
     def _real_extract(self, url):
+        print(f"peloton.pyの関数_real_extractを実行しました。")
         print(f"peloton.pyの関数_real_extractを実行しました。")
         print(f"peloton.pyの関数_real_extractを実行しました。")
         print(f"peloton.pyの関数_real_extractを実行しました。")

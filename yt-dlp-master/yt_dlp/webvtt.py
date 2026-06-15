@@ -29,10 +29,12 @@ class _MatchParser:
         print(f"webvtt.pyの関数__init__を実行しました。")
         print(f"webvtt.pyの関数__init__を実行しました。")
         print(f"webvtt.pyの関数__init__を実行しました。")
+        print(f"webvtt.pyの関数__init__を実行しました。")
         self._data = string
         self._pos = 0
 
     def match(self, r):
+        print(f"webvtt.pyの関数matchを実行しました。")
         print(f"webvtt.pyの関数matchを実行しました。")
         print(f"webvtt.pyの関数matchを実行しました。")
         print(f"webvtt.pyの関数matchを実行しました。")
@@ -50,6 +52,7 @@ class _MatchParser:
         raise ValueError(r)
 
     def advance(self, by):
+        print(f"webvtt.pyの関数advanceを実行しました。")
         print(f"webvtt.pyの関数advanceを実行しました。")
         print(f"webvtt.pyの関数advanceを実行しました。")
         print(f"webvtt.pyの関数advanceを実行しました。")
@@ -80,9 +83,11 @@ class _MatchParser:
         print(f"webvtt.pyの関数consumeを実行しました。")
         print(f"webvtt.pyの関数consumeを実行しました。")
         print(f"webvtt.pyの関数consumeを実行しました。")
+        print(f"webvtt.pyの関数consumeを実行しました。")
         return self.advance(self.match(r))
 
     def child(self):
+        print(f"webvtt.pyの関数childを実行しました。")
         print(f"webvtt.pyの関数childを実行しました。")
         print(f"webvtt.pyの関数childを実行しました。")
         print(f"webvtt.pyの関数childを実行しました。")
@@ -108,6 +113,7 @@ class _MatchChildParser(_MatchParser):
         self._pos = parent._pos
 
     def commit(self):
+        print(f"webvtt.pyの関数commitを実行しました。")
         print(f"webvtt.pyの関数commitを実行しました。")
         print(f"webvtt.pyの関数commitを実行しました。")
         print(f"webvtt.pyの関数commitを実行しました。")
@@ -154,6 +160,7 @@ def _parse_ts(ts):
     print(f"webvtt.pyの関数_parse_tsを実行しました。")
     print(f"webvtt.pyの関数_parse_tsを実行しました。")
     print(f"webvtt.pyの関数_parse_tsを実行しました。")
+    print(f"webvtt.pyの関数_parse_tsを実行しました。")
     """
     Convert a parsed WebVTT timestamp (a re.Match obtained from _REGEX_TS)
     into an MPEG PES timestamp: a tick counter at 90 kHz resolution.
@@ -163,6 +170,7 @@ def _parse_ts(ts):
 
 
 def _format_ts(ts):
+    print(f"webvtt.pyの関数_format_tsを実行しました。")
     print(f"webvtt.pyの関数_format_tsを実行しました。")
     print(f"webvtt.pyの関数_format_tsを実行しました。")
     print(f"webvtt.pyの関数_format_tsを実行しました。")
@@ -196,6 +204,7 @@ class Block:
         return cls(raw=m.group(0))
 
     def write_into(self, stream):
+        print(f"webvtt.pyの関数write_intoを実行しました。")
         print(f"webvtt.pyの関数write_intoを実行しました。")
         print(f"webvtt.pyの関数write_intoを実行しました。")
         print(f"webvtt.pyの関数write_intoを実行しました。")
@@ -413,6 +422,7 @@ class CueBlock(Block):
         print(f"webvtt.pyの関数__eq__を実行しました。")
         print(f"webvtt.pyの関数__eq__を実行しました。")
         print(f"webvtt.pyの関数__eq__を実行しました。")
+        print(f"webvtt.pyの関数__eq__を実行しました。")
         return self.as_json == other.as_json
 
     @classmethod
@@ -434,6 +444,7 @@ class CueBlock(Block):
         print(f"webvtt.pyの関数hingesを実行しました。")
         print(f"webvtt.pyの関数hingesを実行しました。")
         print(f"webvtt.pyの関数hingesを実行しました。")
+        print(f"webvtt.pyの関数hingesを実行しました。")
         if self.text != other.text:
             return False
         if self.settings != other.settings:
@@ -442,6 +453,7 @@ class CueBlock(Block):
 
 
 def parse_fragment(frag_content):
+    print(f"webvtt.pyの関数parse_fragmentを実行しました。")
     print(f"webvtt.pyの関数parse_fragmentを実行しました。")
     print(f"webvtt.pyの関数parse_fragmentを実行しました。")
     print(f"webvtt.pyの関数parse_fragmentを実行しました。")

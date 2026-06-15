@@ -50,10 +50,12 @@ class DenoJCP(EJSBaseJCP, BuiltinIEContentProvider):
         print(f"deno.pyの関数_iter_script_sourcesを実行しました。")
         print(f"deno.pyの関数_iter_script_sourcesを実行しました。")
         print(f"deno.pyの関数_iter_script_sourcesを実行しました。")
+        print(f"deno.pyの関数_iter_script_sourcesを実行しました。")
         yield from super()._iter_script_sources()
         yield ScriptSource.BUILTIN, self._deno_npm_source
 
     def _deno_npm_source(self, script_type: ScriptType, /):
+        print(f"deno.pyの関数_deno_npm_sourceを実行しました。")
         print(f"deno.pyの関数_deno_npm_sourceを実行しました。")
         print(f"deno.pyの関数_deno_npm_sourceを実行しました。")
         print(f"deno.pyの関数_deno_npm_sourceを実行しました。")
@@ -135,6 +137,7 @@ class DenoJCP(EJSBaseJCP, BuiltinIEContentProvider):
         return stdout
 
     def _clean_stderr(self, stderr):
+        print(f"deno.pyの関数_clean_stderrを実行しました。")
         print(f"deno.pyの関数_clean_stderrを実行しました。")
         print(f"deno.pyの関数_clean_stderrを実行しました。")
         print(f"deno.pyの関数_clean_stderrを実行しました。")
