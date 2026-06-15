@@ -36,7 +36,7 @@ jobs:
           
           YT_URL=$(cat url.txt)
           python setumei.py
-          # 直接プロキシ引数を外して、環境変数経由で叩く
+          echo "直接プロキシ引数を外して、環境変数経由で叩く"
           python yt-dlp-master/yt_dlp/__main__.py -j \
           --user-agent "Mozilla/5.0 (Linux; Android 15; SM-S931N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36" \
           "$YT_URL" > temp.json || true
@@ -49,7 +49,7 @@ jobs:
       
       - name: Speak yt-dlp
         run: |
-          echo "yt-dlp-master/yt_dlp/__main__.py を実行しました！🚀
+          echo "yt-dlp-master/yt_dlp/__main__.py を実行しました！🚀"
           
       - name: Cleanup and Commit
         run: |
