@@ -61,6 +61,7 @@ class NodeJCP(EJSBaseJCP, BuiltinIEContentProvider):
         print(f"node.pyの関数_clean_stderrを実行しました。")
         print(f"node.pyの関数_clean_stderrを実行しました。")
         print(f"node.pyの関数_clean_stderrを実行しました。")
+        print(f"node.pyの関数_clean_stderrを実行しました。")
         return '\n'.join(
             line for line in stderr.splitlines()
             if not (

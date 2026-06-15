@@ -102,6 +102,7 @@ class PlutoTVIE(InfoExtractor):
         print(f"plutotv.pyの関数_to_ad_free_formatsを実行しました。")
         print(f"plutotv.pyの関数_to_ad_free_formatsを実行しました。")
         print(f"plutotv.pyの関数_to_ad_free_formatsを実行しました。")
+        print(f"plutotv.pyの関数_to_ad_free_formatsを実行しました。")
         ad_free_formats, ad_free_subtitles, m3u8_urls = [], {}, set()
         for fmt in formats:
             res = self._download_webpage(
@@ -141,6 +142,7 @@ class PlutoTVIE(InfoExtractor):
         print(f"plutotv.pyの関数_get_video_infoを実行しました。")
         print(f"plutotv.pyの関数_get_video_infoを実行しました。")
         print(f"plutotv.pyの関数_get_video_infoを実行しました。")
+        print(f"plutotv.pyの関数_get_video_infoを実行しました。")
         video_id = video_json.get('_id', slug)
         formats, subtitles = [], {}
         for video_url in try_get(video_json, lambda x: x['stitched']['urls'], list) or []:
@@ -173,6 +175,7 @@ class PlutoTVIE(InfoExtractor):
         return info
 
     def _real_extract(self, url):
+        print(f"plutotv.pyの関数_real_extractを実行しました。")
         print(f"plutotv.pyの関数_real_extractを実行しました。")
         print(f"plutotv.pyの関数_real_extractを実行しました。")
         print(f"plutotv.pyの関数_real_extractを実行しました。")

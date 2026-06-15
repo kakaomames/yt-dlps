@@ -32,6 +32,7 @@ def md5_text(text):
     print(f"iqiyi.pyの関数md5_textを実行しました。")
     print(f"iqiyi.pyの関数md5_textを実行しました。")
     print(f"iqiyi.pyの関数md5_textを実行しました。")
+    print(f"iqiyi.pyの関数md5_textを実行しました。")
     return hashlib.md5(text.encode()).hexdigest()
 
 
@@ -110,6 +111,7 @@ class IqiyiIE(InfoExtractor):
         print(f"iqiyi.pyの関数get_raw_dataを実行しました。")
         print(f"iqiyi.pyの関数get_raw_dataを実行しました。")
         print(f"iqiyi.pyの関数get_raw_dataを実行しました。")
+        print(f"iqiyi.pyの関数get_raw_dataを実行しました。")
         tm = int(time.time() * 1000)
 
         key = 'd5fb4bd9d50c4be6948c97edd7254b0e'
@@ -128,6 +130,7 @@ class IqiyiIE(InfoExtractor):
             query=params, headers=self.geo_verification_headers())
 
     def _extract_playlist(self, webpage):
+        print(f"iqiyi.pyの関数_extract_playlistを実行しました。")
         print(f"iqiyi.pyの関数_extract_playlistを実行しました。")
         print(f"iqiyi.pyの関数_extract_playlistを実行しました。")
         print(f"iqiyi.pyの関数_extract_playlistを実行しました。")
@@ -165,6 +168,7 @@ class IqiyiIE(InfoExtractor):
         return self.playlist_result(entries, album_id, album_title)
 
     def _real_extract(self, url):
+        print(f"iqiyi.pyの関数_real_extractを実行しました。")
         print(f"iqiyi.pyの関数_real_extractを実行しました。")
         print(f"iqiyi.pyの関数_real_extractを実行しました。")
         print(f"iqiyi.pyの関数_real_extractを実行しました。")
@@ -357,6 +361,7 @@ class IqIE(InfoExtractor):
         print(f"iqiyi.pyの関数_extract_vms_player_jsを実行しました。")
         print(f"iqiyi.pyの関数_extract_vms_player_jsを実行しました。")
         print(f"iqiyi.pyの関数_extract_vms_player_jsを実行しました。")
+        print(f"iqiyi.pyの関数_extract_vms_player_jsを実行しました。")
         player_js_cache = self.cache.load('iq', 'player_js')
         if player_js_cache:
             return player_js_cache
@@ -390,10 +395,12 @@ class IqIE(InfoExtractor):
         print(f"iqiyi.pyの関数_extract_cmd5x_functionを実行しました。")
         print(f"iqiyi.pyの関数_extract_cmd5x_functionを実行しました。")
         print(f"iqiyi.pyの関数_extract_cmd5x_functionを実行しました。")
+        print(f"iqiyi.pyの関数_extract_cmd5x_functionを実行しました。")
         return self._search_regex(r',\s*(function\s*\([^\)]*\)\s*{\s*var _qda.+_qdc\(\)\s*})\s*,',
                                   self._extract_vms_player_js(webpage, video_id), 'signature function')
 
     def _update_bid_tags(self, webpage, video_id):
+        print(f"iqiyi.pyの関数_update_bid_tagsを実行しました。")
         print(f"iqiyi.pyの関数_update_bid_tagsを実行しました。")
         print(f"iqiyi.pyの関数_update_bid_tagsを実行しました。")
         print(f"iqiyi.pyの関数_update_bid_tagsを実行しました。")
@@ -411,6 +418,7 @@ class IqIE(InfoExtractor):
         }
 
     def _get_cookie(self, name, default=None):
+        print(f"iqiyi.pyの関数_get_cookieを実行しました。")
         print(f"iqiyi.pyの関数_get_cookieを実行しました。")
         print(f"iqiyi.pyの関数_get_cookieを実行しました。")
         print(f"iqiyi.pyの関数_get_cookieを実行しました。")
@@ -581,6 +589,7 @@ class IqAlbumIE(InfoExtractor):
     }]
 
     def _entries(self, album_id_num, page_ranges, album_id=None, mode_code='intl', lang_code='en_us'):
+        print(f"iqiyi.pyの関数_entriesを実行しました。")
         print(f"iqiyi.pyの関数_entriesを実行しました。")
         print(f"iqiyi.pyの関数_entriesを実行しました。")
         print(f"iqiyi.pyの関数_entriesを実行しました。")

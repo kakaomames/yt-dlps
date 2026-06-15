@@ -101,6 +101,7 @@ class URPlayIE(InfoExtractor):
         print(f"urplay.pyの関数_real_extractを実行しました。")
         print(f"urplay.pyの関数_real_extractを実行しました。")
         print(f"urplay.pyの関数_real_extractを実行しました。")
+        print(f"urplay.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         url = url.replace('skola.se/Produkter', 'play.se/program')
         webpage = self._download_webpage(url, video_id)
@@ -123,6 +124,7 @@ class URPlayIE(InfoExtractor):
             hls_url, video_id, 'mp4', m3u8_id='hls')
 
         def parse_lang_code(code):
+            print(f"urplay.pyの関数parse_lang_codeを実行しました。")
             print(f"urplay.pyの関数parse_lang_codeを実行しました。")
             print(f"urplay.pyの関数parse_lang_codeを実行しました。")
             print(f"urplay.pyの関数parse_lang_codeを実行しました。")

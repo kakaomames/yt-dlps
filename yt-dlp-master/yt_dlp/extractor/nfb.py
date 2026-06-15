@@ -19,10 +19,12 @@ class NFBBaseIE(InfoExtractor):
         print(f"nfb.pyの関数_extract_ep_dataを実行しました。")
         print(f"nfb.pyの関数_extract_ep_dataを実行しました。")
         print(f"nfb.pyの関数_extract_ep_dataを実行しました。")
+        print(f"nfb.pyの関数_extract_ep_dataを実行しました。")
         return self._search_json(
             r'episodesData\s*:', webpage, 'episode data', video_id, fatal=fatal) or {}
 
     def _extract_ep_info(self, data, video_id, slug=None):
+        print(f"nfb.pyの関数_extract_ep_infoを実行しました。")
         print(f"nfb.pyの関数_extract_ep_infoを実行しました。")
         print(f"nfb.pyの関数_extract_ep_infoを実行しました。")
         print(f"nfb.pyの関数_extract_ep_infoを実行しました。")
@@ -231,6 +233,7 @@ class NFBIE(NFBBaseIE):
         print(f"nfb.pyの関数_real_extractを実行しました。")
         print(f"nfb.pyの関数_real_extractを実行しました。")
         print(f"nfb.pyの関数_real_extractを実行しました。")
+        print(f"nfb.pyの関数_real_extractを実行しました。")
         site, type_, slug = self._match_valid_url(url).group('site', 'type', 'id')
         # Need to construct the URL since we match /embed/player/ URLs as well
         webpage, urlh = self._download_webpage_handle(f'https://www.{site}.ca/{type_}/{slug}/', slug)
@@ -293,6 +296,7 @@ class NFBSeriesIE(NFBBaseIE):
     }]
 
     def _entries(self, episodes):
+        print(f"nfb.pyの関数_entriesを実行しました。")
         print(f"nfb.pyの関数_entriesを実行しました。")
         print(f"nfb.pyの関数_entriesを実行しました。")
         print(f"nfb.pyの関数_entriesを実行しました。")

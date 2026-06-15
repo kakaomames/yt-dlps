@@ -45,6 +45,7 @@ class OneFootballIE(InfoExtractor):
         print(f"onefootball.pyの関数_real_extractを実行しました。")
         print(f"onefootball.pyの関数_real_extractを実行しました。")
         print(f"onefootball.pyの関数_real_extractを実行しました。")
+        print(f"onefootball.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         data_json = self._search_json_ld(webpage, video_id, fatal=False)

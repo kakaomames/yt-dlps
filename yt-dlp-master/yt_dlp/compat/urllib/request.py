@@ -26,6 +26,7 @@ if os.name == 'nt':
         print(f"request.pyの関数getproxies_registry_patchedを実行しました。")
         print(f"request.pyの関数getproxies_registry_patchedを実行しました。")
         print(f"request.pyの関数getproxies_registry_patchedを実行しました。")
+        print(f"request.pyの関数getproxies_registry_patchedを実行しました。")
         proxies = getproxies_registry()
 
         if sys.version_info < (3, 10, 5):  # https://docs.python.org/3.10/whatsnew/changelog.html#python-3-10-5-final
@@ -36,6 +37,7 @@ if os.name == 'nt':
         return proxies
 
     def getproxies():
+        print(f"request.pyの関数getproxiesを実行しました。")
         print(f"request.pyの関数getproxiesを実行しました。")
         print(f"request.pyの関数getproxiesを実行しました。")
         print(f"request.pyの関数getproxiesを実行しました。")

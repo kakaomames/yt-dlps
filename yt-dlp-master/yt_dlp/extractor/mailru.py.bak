@@ -107,6 +107,7 @@ class MailRuIE(InfoExtractor):
         print(f"mailru.pyの関数_real_extractを実行しました。")
         print(f"mailru.pyの関数_real_extractを実行しました。")
         print(f"mailru.pyの関数_real_extractを実行しました。")
+        print(f"mailru.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         meta_id = mobj.group('metaid')
 
@@ -193,6 +194,7 @@ class MailRuIE(InfoExtractor):
 
 class MailRuMusicSearchBaseIE(InfoExtractor):
     def _search(self, query, url, audio_id, limit=100, offset=0):
+        print(f"mailru.pyの関数_searchを実行しました。")
         print(f"mailru.pyの関数_searchを実行しました。")
         print(f"mailru.pyの関数_searchを実行しました。")
         print(f"mailru.pyの関数_searchを実行しました。")

@@ -43,6 +43,7 @@ class IsraelNationalNewsIE(InfoExtractor):
         print(f"israelnationalnews.pyの関数_real_extractを実行しました。")
         print(f"israelnationalnews.pyの関数_real_extractを実行しました。")
         print(f"israelnationalnews.pyの関数_real_extractを実行しました。")
+        print(f"israelnationalnews.pyの関数_real_extractを実行しました。")
         news_article_id = self._match_id(url)
         article_json = self._download_json(
             f'https://www.israelnationalnews.com/Generic/NewAPI/Item?type=0&Item={news_article_id}', news_article_id)

@@ -48,6 +48,7 @@ class GronkhIE(InfoExtractor):
         print(f"gronkh.pyの関数_real_extractを実行しました。")
         print(f"gronkh.pyの関数_real_extractを実行しました。")
         print(f"gronkh.pyの関数_real_extractを実行しました。")
+        print(f"gronkh.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data_json = self._download_json(f'https://api.gronkh.tv/v1/video/info?episode={video_id}', video_id)
         m3u8_url = self._download_json(f'https://api.gronkh.tv/v1/video/playlist?episode={video_id}', video_id)['playlist_url']
@@ -95,6 +96,7 @@ class GronkhFeedIE(InfoExtractor):
         print(f"gronkh.pyの関数_entriesを実行しました。")
         print(f"gronkh.pyの関数_entriesを実行しました。")
         print(f"gronkh.pyの関数_entriesを実行しました。")
+        print(f"gronkh.pyの関数_entriesを実行しました。")
         for type_ in ('recent', 'views'):
             info = self._download_json(
                 f'https://api.gronkh.tv/v1/video/discovery/{type_}', 'feed', note=f'Downloading {type_} API JSON')
@@ -119,6 +121,7 @@ class GronkhVodsIE(InfoExtractor):
     _PER_PAGE = 25
 
     def _fetch_page(self, page):
+        print(f"gronkh.pyの関数_fetch_pageを実行しました。")
         print(f"gronkh.pyの関数_fetch_pageを実行しました。")
         print(f"gronkh.pyの関数_fetch_pageを実行しました。")
         print(f"gronkh.pyの関数_fetch_pageを実行しました。")

@@ -23,6 +23,7 @@ class MegaTVComBaseIE(InfoExtractor):
         print(f"megatvcom.pyの関数_extract_player_attrsを実行しました。")
         print(f"megatvcom.pyの関数_extract_player_attrsを実行しました。")
         print(f"megatvcom.pyの関数_extract_player_attrsを実行しました。")
+        print(f"megatvcom.pyの関数_extract_player_attrsを実行しました。")
         player_el = get_element_html_by_id(self._PLAYER_DIV_ID, webpage)
         return {
             re.sub(r'^data-(?:kwik_)?', '', k): v
@@ -63,6 +64,7 @@ class MegaTVComIE(MegaTVComBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"megatvcom.pyの関数_real_extractを実行しました。")
         print(f"megatvcom.pyの関数_real_extractを実行しました。")
         print(f"megatvcom.pyの関数_real_extractを実行しました。")
         print(f"megatvcom.pyの関数_real_extractを実行しました。")
@@ -150,6 +152,7 @@ class MegaTVComEmbedIE(MegaTVComBaseIE):
     }]
 
     def _match_canonical_url(self, webpage):
+        print(f"megatvcom.pyの関数_match_canonical_urlを実行しました。")
         print(f"megatvcom.pyの関数_match_canonical_urlを実行しました。")
         print(f"megatvcom.pyの関数_match_canonical_urlを実行しました。")
         print(f"megatvcom.pyの関数_match_canonical_urlを実行しました。")

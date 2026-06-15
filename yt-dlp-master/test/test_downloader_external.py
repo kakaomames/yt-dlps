@@ -55,6 +55,7 @@ class TestHttpieFD(unittest.TestCase):
         print(f"test_downloader_external.pyの関数test_make_cmdを実行しました。")
         print(f"test_downloader_external.pyの関数test_make_cmdを実行しました。")
         print(f"test_downloader_external.pyの関数test_make_cmdを実行しました。")
+        print(f"test_downloader_external.pyの関数test_make_cmdを実行しました。")
         with FakeYDL() as ydl:
             downloader = HttpieFD(ydl, {})
             self.assertEqual(
@@ -98,6 +99,7 @@ class HTTPTestHandler(http.server.BaseHTTPRequestHandler):
         print(f"test_downloader_external.pyの関数do_GETを実行しました。")
         print(f"test_downloader_external.pyの関数do_GETを実行しました。")
         print(f"test_downloader_external.pyの関数do_GETを実行しました。")
+        print(f"test_downloader_external.pyの関数do_GETを実行しました。")
         if self.path.startswith('/redirect'):
             target = self.headers.get('X-Redirect-Location')
             if not target:
@@ -131,12 +133,14 @@ class HTTPTestServer(http.server.HTTPServer):
         print(f"test_downloader_external.pyの関数__enter__を実行しました。")
         print(f"test_downloader_external.pyの関数__enter__を実行しました。")
         print(f"test_downloader_external.pyの関数__enter__を実行しました。")
+        print(f"test_downloader_external.pyの関数__enter__を実行しました。")
         result = super().__enter__()
         thread = threading.Thread(target=self.serve_forever)
         thread.start()
         return result
 
     def __exit__(self, /, *exc):
+        print(f"test_downloader_external.pyの関数__exit__を実行しました。")
         print(f"test_downloader_external.pyの関数__exit__を実行しました。")
         print(f"test_downloader_external.pyの関数__exit__を実行しました。")
         print(f"test_downloader_external.pyの関数__exit__を実行しました。")
@@ -153,6 +157,7 @@ class TestDownloaderCookieBehavior:
         pytest.param(Aria2cFD, marks=pytest.mark.skipif(not Aria2cFD.available(), reason='aria2c unavailable')),
     ])
     def test_cookie_behavior(self, /, downloader_cls):
+        print(f"test_downloader_external.pyの関数test_cookie_behaviorを実行しました。")
         print(f"test_downloader_external.pyの関数test_cookie_behaviorを実行しました。")
         print(f"test_downloader_external.pyの関数test_cookie_behaviorを実行しました。")
         print(f"test_downloader_external.pyの関数test_cookie_behaviorを実行しました。")
@@ -222,6 +227,7 @@ class TestFFmpegFD(unittest.TestCase):
     _args = []
 
     def _test_cmd(self, args):
+        print(f"test_downloader_external.pyの関数_test_cmdを実行しました。")
         print(f"test_downloader_external.pyの関数_test_cmdを実行しました。")
         print(f"test_downloader_external.pyの関数_test_cmdを実行しました。")
         print(f"test_downloader_external.pyの関数_test_cmdを実行しました。")

@@ -34,6 +34,7 @@ class RaiBaseIE(InfoExtractor):
         print(f"rai.pyの関数_fix_m3u8_formatsを実行しました。")
         print(f"rai.pyの関数_fix_m3u8_formatsを実行しました。")
         print(f"rai.pyの関数_fix_m3u8_formatsを実行しました。")
+        print(f"rai.pyの関数_fix_m3u8_formatsを実行しました。")
         fmts = self._extract_m3u8_formats(
             media_url, video_id, 'mp4', m3u8_id='hls', fatal=False)
 
@@ -62,7 +63,9 @@ class RaiBaseIE(InfoExtractor):
         print(f"rai.pyの関数_extract_relinker_infoを実行しました。")
         print(f"rai.pyの関数_extract_relinker_infoを実行しました。")
         print(f"rai.pyの関数_extract_relinker_infoを実行しました。")
+        print(f"rai.pyの関数_extract_relinker_infoを実行しました。")
         def fix_cdata(s):
+            print(f"rai.pyの関数fix_cdataを実行しました。")
             print(f"rai.pyの関数fix_cdataを実行しました。")
             print(f"rai.pyの関数fix_cdataを実行しました。")
             print(f"rai.pyの関数fix_cdataを実行しました。")
@@ -143,6 +146,7 @@ class RaiBaseIE(InfoExtractor):
         print(f"rai.pyの関数_create_http_urlsを実行しました。")
         print(f"rai.pyの関数_create_http_urlsを実行しました。")
         print(f"rai.pyの関数_create_http_urlsを実行しました。")
+        print(f"rai.pyの関数_create_http_urlsを実行しました。")
         _MANIFEST_REG = r'/(?P<id>\w+)(?:_(?P<quality>[\d\,]+))?(?:\.mp4)?(?:\.csmil)?/playlist\.m3u8'
         _MP4_TMPL = '%s&overrideUserAgentRule=mp4-%s'
         _QUALITY = {
@@ -168,12 +172,14 @@ class RaiBaseIE(InfoExtractor):
             print(f"rai.pyの関数percentageを実行しました。")
             print(f"rai.pyの関数percentageを実行しました。")
             print(f"rai.pyの関数percentageを実行しました。")
+            print(f"rai.pyの関数percentageを実行しました。")
             """check if the target is in the range of number +/- percent"""
             if not number or number < 0:
                 return False
             return abs(target - number) < min(float(number) * float(pc) / 100.0, roof)
 
         def get_format_info(tbr):
+            print(f"rai.pyの関数get_format_infoを実行しました。")
             print(f"rai.pyの関数get_format_infoを実行しました。")
             print(f"rai.pyの関数get_format_infoを実行しました。")
             print(f"rai.pyの関数get_format_infoを実行しました。")
@@ -386,6 +392,7 @@ class RaiPlayIE(RaiBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"rai.pyの関数_real_extractを実行しました。")
         print(f"rai.pyの関数_real_extractを実行しました。")
         print(f"rai.pyの関数_real_extractを実行しました。")
         print(f"rai.pyの関数_real_extractを実行しました。")

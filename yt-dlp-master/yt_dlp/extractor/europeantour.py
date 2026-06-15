@@ -30,6 +30,7 @@ class EuropeanTourIE(InfoExtractor):
         print(f"europeantour.pyの関数_real_extractを実行しました。")
         print(f"europeantour.pyの関数_real_extractを実行しました。")
         print(f"europeantour.pyの関数_real_extractを実行しました。")
+        print(f"europeantour.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         vid, aid = re.search(r'(?s)brightcove-player\s?video-id="([^"]+)".*"ACCOUNT_ID":"([^"]+)"', webpage).groups()

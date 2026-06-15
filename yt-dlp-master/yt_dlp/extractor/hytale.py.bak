@@ -37,6 +37,7 @@ class HytaleIE(InfoExtractor):
         print(f"hytale.pyの関数_real_initializeを実行しました。")
         print(f"hytale.pyの関数_real_initializeを実行しました。")
         print(f"hytale.pyの関数_real_initializeを実行しました。")
+        print(f"hytale.pyの関数_real_initializeを実行しました。")
         media_webpage = self._download_webpage(
             'https://hytale.com/media', None, note='Downloading list of media', fatal=False) or ''
 
@@ -49,6 +50,7 @@ class HytaleIE(InfoExtractor):
         self._titles = {clip.get('src'): clip.get('caption') for clip in clips_json}
 
     def _real_extract(self, url):
+        print(f"hytale.pyの関数_real_extractを実行しました。")
         print(f"hytale.pyの関数_real_extractを実行しました。")
         print(f"hytale.pyの関数_real_extractを実行しました。")
         print(f"hytale.pyの関数_real_extractを実行しました。")

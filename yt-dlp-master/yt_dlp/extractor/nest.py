@@ -52,6 +52,7 @@ class NestIE(InfoExtractor):
         print(f"nest.pyの関数_real_extractを実行しました。")
         print(f"nest.pyの関数_real_extractを実行しました。")
         print(f"nest.pyの関数_real_extractを実行しました。")
+        print(f"nest.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         item = self._download_json(
             'https://video.nest.com/api/dropcam/cameras.get_by_public_token',

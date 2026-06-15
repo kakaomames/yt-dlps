@@ -33,11 +33,13 @@ class StacommuBaseIE(WrestleUniverseBaseIE):
         print(f"stacommu.pyの関数_get_formatsを実行しました。")
         print(f"stacommu.pyの関数_get_formatsを実行しました。")
         print(f"stacommu.pyの関数_get_formatsを実行しました。")
+        print(f"stacommu.pyの関数_get_formatsを実行しました。")
         if not traverse_obj(data, path) and not data.get('canWatch') and not self._TOKEN:
             self.raise_login_required(method='password')
         return super()._get_formats(data, path, video_id)
 
     def _extract_hls_key(self, data, path, decrypt):
+        print(f"stacommu.pyの関数_extract_hls_keyを実行しました。")
         print(f"stacommu.pyの関数_extract_hls_keyを実行しました。")
         print(f"stacommu.pyの関数_extract_hls_keyを実行しました。")
         print(f"stacommu.pyの関数_extract_hls_keyを実行しました。")
@@ -48,6 +50,7 @@ class StacommuBaseIE(WrestleUniverseBaseIE):
         return traverse_obj(encryption_data, {'key': ('key', {decrypt}), 'iv': ('iv', {decrypt})})
 
     def _extract_vod(self, url):
+        print(f"stacommu.pyの関数_extract_vodを実行しました。")
         print(f"stacommu.pyの関数_extract_vodを実行しました。")
         print(f"stacommu.pyの関数_extract_vodを実行しました。")
         print(f"stacommu.pyの関数_extract_vodを実行しました。")
@@ -73,6 +76,7 @@ class StacommuBaseIE(WrestleUniverseBaseIE):
         }
 
     def _extract_ppv(self, url):
+        print(f"stacommu.pyの関数_extract_ppvを実行しました。")
         print(f"stacommu.pyの関数_extract_ppvを実行しました。")
         print(f"stacommu.pyの関数_extract_ppvを実行しました。")
         print(f"stacommu.pyの関数_extract_ppvを実行しました。")
@@ -153,6 +157,7 @@ class StacommuVODIE(StacommuBaseIE):
     _API_PATH = 'videoEpisodes'
 
     def _real_extract(self, url):
+        print(f"stacommu.pyの関数_real_extractを実行しました。")
         print(f"stacommu.pyの関数_real_extractを実行しました。")
         print(f"stacommu.pyの関数_real_extractを実行しました。")
         print(f"stacommu.pyの関数_real_extractを実行しました。")

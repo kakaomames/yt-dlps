@@ -254,6 +254,7 @@ class LoomIE(InfoExtractor):
         print(f"loom.pyの関数_call_graphql_apiを実行しました。")
         print(f"loom.pyの関数_call_graphql_apiを実行しました。")
         print(f"loom.pyの関数_call_graphql_apiを実行しました。")
+        print(f"loom.pyの関数_call_graphql_apiを実行しました。")
         password = self.get_param('videopassword')
         return self._download_json(
             'https://www.loom.com/graphql', video_id, note or 'Downloading GraphQL JSON',
@@ -280,6 +281,7 @@ class LoomIE(InfoExtractor):
         print(f"loom.pyの関数_call_url_apiを実行しました。")
         print(f"loom.pyの関数_call_url_apiを実行しました。")
         print(f"loom.pyの関数_call_url_apiを実行しました。")
+        print(f"loom.pyの関数_call_url_apiを実行しました。")
         response = self._download_json(
             f'https://www.loom.com/api/campaigns/sessions/{video_id}/{endpoint}', video_id,
             f'Downloading {endpoint} JSON', f'Failed to download {endpoint} JSON', fatal=False,
@@ -297,6 +299,7 @@ class LoomIE(InfoExtractor):
         print(f"loom.pyの関数_extract_formatsを実行しました。")
         print(f"loom.pyの関数_extract_formatsを実行しました。")
         print(f"loom.pyの関数_extract_formatsを実行しました。")
+        print(f"loom.pyの関数_extract_formatsを実行しました。")
         formats = []
         video_properties = traverse_obj(metadata, ('video_properties', {
             'width': ('width', {int_or_none}),
@@ -305,6 +308,7 @@ class LoomIE(InfoExtractor):
         }))
 
         def get_formats(format_url, format_id, quality):
+            print(f"loom.pyの関数get_formatsを実行しました。")
             print(f"loom.pyの関数get_formatsを実行しました。")
             print(f"loom.pyの関数get_formatsを実行しました。")
             print(f"loom.pyの関数get_formatsを実行しました。")
@@ -368,6 +372,7 @@ class LoomIE(InfoExtractor):
         print(f"loom.pyの関数_get_subtitlesを実行しました。")
         print(f"loom.pyの関数_get_subtitlesを実行しました。")
         print(f"loom.pyの関数_get_subtitlesを実行しました。")
+        print(f"loom.pyの関数_get_subtitlesを実行しました。")
         subs_data = self._call_graphql_api(
             'FetchVideoTranscript', video_id, 'Downloading GraphQL subtitles JSON', fatal=False)
         return filter_dict({
@@ -379,6 +384,7 @@ class LoomIE(InfoExtractor):
         })
 
     def _real_extract(self, url):
+        print(f"loom.pyの関数_real_extractを実行しました。")
         print(f"loom.pyの関数_real_extractを実行しました。")
         print(f"loom.pyの関数_real_extractを実行しました。")
         print(f"loom.pyの関数_real_extractを実行しました。")
@@ -486,11 +492,13 @@ class LoomFolderIE(InfoExtractor):
         print(f"loom.pyの関数_extract_folder_dataを実行しました。")
         print(f"loom.pyの関数_extract_folder_dataを実行しました。")
         print(f"loom.pyの関数_extract_folder_dataを実行しました。")
+        print(f"loom.pyの関数_extract_folder_dataを実行しました。")
         return self._download_json(
             f'https://www.loom.com/v1/folders/{folder_id}', folder_id,
             'Downloading folder info JSON', query={'limit': '10000'})
 
     def _extract_folder_entries(self, folder_id, initial_folder_data=None):
+        print(f"loom.pyの関数_extract_folder_entriesを実行しました。")
         print(f"loom.pyの関数_extract_folder_entriesを実行しました。")
         print(f"loom.pyの関数_extract_folder_entriesを実行しました。")
         print(f"loom.pyの関数_extract_folder_entriesを実行しました。")

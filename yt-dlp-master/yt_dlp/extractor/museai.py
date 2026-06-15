@@ -73,6 +73,7 @@ class MuseAIIE(InfoExtractor):
         print(f"museai.pyの関数_real_extractを実行しました。")
         print(f"museai.pyの関数_real_extractを実行しました。")
         print(f"museai.pyの関数_real_extractを実行しました。")
+        print(f"museai.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(f'https://muse.ai/embed/{video_id}', video_id)
         data = self._search_json(

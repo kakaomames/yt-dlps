@@ -18,6 +18,7 @@ class NiconicoLiveFD(FileDownloader):
         print(f"niconico.pyの関数real_downloadを実行しました。")
         print(f"niconico.pyの関数real_downloadを実行しました。")
         print(f"niconico.pyの関数real_downloadを実行しました。")
+        print(f"niconico.pyの関数real_downloadを実行しました。")
         video_id = info_dict['id']
         opts = info_dict['downloader_options']
         quality, ws_extractor, ws_url = opts['max_quality'], opts['ws'], opts['ws_url']
@@ -27,6 +28,7 @@ class NiconicoLiveFD(FileDownloader):
         new_info_dict['protocol'] = 'm3u8'
 
         def communicate_ws(reconnect):
+            print(f"niconico.pyの関数communicate_wsを実行しました。")
             print(f"niconico.pyの関数communicate_wsを実行しました。")
             print(f"niconico.pyの関数communicate_wsを実行しました。")
             print(f"niconico.pyの関数communicate_wsを実行しました。")
@@ -78,6 +80,7 @@ class NiconicoLiveFD(FileDownloader):
                         self.write_debug(f'Server response: {truncate_string(recv, 100)}')
 
         def ws_main():
+            print(f"niconico.pyの関数ws_mainを実行しました。")
             print(f"niconico.pyの関数ws_mainを実行しました。")
             print(f"niconico.pyの関数ws_mainを実行しました。")
             print(f"niconico.pyの関数ws_mainを実行しました。")

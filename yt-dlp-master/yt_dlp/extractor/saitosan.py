@@ -45,6 +45,7 @@ class SaitosanIE(InfoExtractor):
         print(f"saitosan.pyの関数_real_extractを実行しました。")
         print(f"saitosan.pyの関数_real_extractを実行しました。")
         print(f"saitosan.pyの関数_real_extractを実行しました。")
+        print(f"saitosan.pyの関数_real_extractを実行しました。")
         b_id = self._match_id(url)
 
         base = 'http://hankachi.saitosan-api.net:8002/socket.io/?transport=polling&EIO=3'

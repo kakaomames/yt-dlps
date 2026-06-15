@@ -44,6 +44,7 @@ class ExternalFD(FragmentFD):
         print(f"external.pyの関数real_downloadを実行しました。")
         print(f"external.pyの関数real_downloadを実行しました。")
         print(f"external.pyの関数real_downloadを実行しました。")
+        print(f"external.pyの関数real_downloadを実行しました。")
         self.report_destination(filename)
         tmpfilename = self.temp_name(filename)
         self._cookies_tempfile = None
@@ -124,9 +125,11 @@ class ExternalFD(FragmentFD):
         print(f"external.pyの関数_optionを実行しました。")
         print(f"external.pyの関数_optionを実行しました。")
         print(f"external.pyの関数_optionを実行しました。")
+        print(f"external.pyの関数_optionを実行しました。")
         return cli_option(self.params, command_option, param)
 
     def _bool_option(self, command_option, param, true_value='true', false_value='false', separator=None):
+        print(f"external.pyの関数_bool_optionを実行しました。")
         print(f"external.pyの関数_bool_optionを実行しました。")
         print(f"external.pyの関数_bool_optionを実行しました。")
         print(f"external.pyの関数_bool_optionを実行しました。")
@@ -138,9 +141,11 @@ class ExternalFD(FragmentFD):
         print(f"external.pyの関数_valueless_optionを実行しました。")
         print(f"external.pyの関数_valueless_optionを実行しました。")
         print(f"external.pyの関数_valueless_optionを実行しました。")
+        print(f"external.pyの関数_valueless_optionを実行しました。")
         return cli_valueless_option(self.params, command_option, param, expected_value)
 
     def _configuration_args(self, keys=None, *args, **kwargs):
+        print(f"external.pyの関数_configuration_argsを実行しました。")
         print(f"external.pyの関数_configuration_argsを実行しました。")
         print(f"external.pyの関数_configuration_argsを実行しました。")
         print(f"external.pyの関数_configuration_argsを実行しました。")
@@ -150,6 +155,7 @@ class ExternalFD(FragmentFD):
             keys, *args, **kwargs)
 
     def _write_cookies(self):
+        print(f"external.pyの関数_write_cookiesを実行しました。")
         print(f"external.pyの関数_write_cookiesを実行しました。")
         print(f"external.pyの関数_write_cookiesを実行しました。")
         print(f"external.pyの関数_write_cookiesを実行しました。")
@@ -164,6 +170,7 @@ class ExternalFD(FragmentFD):
         return self.ydl.cookiejar.filename or self._cookies_tempfile
 
     def _call_downloader(self, tmpfilename, info_dict):
+        print(f"external.pyの関数_call_downloaderを実行しました。")
         print(f"external.pyの関数_call_downloaderを実行しました。")
         print(f"external.pyの関数_call_downloaderを実行しました。")
         print(f"external.pyの関数_call_downloaderを実行しました。")
@@ -221,6 +228,7 @@ class ExternalFD(FragmentFD):
         print(f"external.pyの関数_call_processを実行しました。")
         print(f"external.pyの関数_call_processを実行しました。")
         print(f"external.pyの関数_call_processを実行しました。")
+        print(f"external.pyの関数_call_processを実行しました。")
         return Popen.run(cmd, text=True, stderr=subprocess.PIPE if self._CAPTURE_STDERR else None)
 
 
@@ -245,6 +253,7 @@ class CurlFD(ExternalFD):
         return path
 
     def _make_cmd(self, tmpfilename, info_dict):
+        print(f"external.pyの関数_make_cmdを実行しました。")
         print(f"external.pyの関数_make_cmdを実行しました。")
         print(f"external.pyの関数_make_cmdを実行しました。")
         print(f"external.pyの関数_make_cmdを実行しました。")
@@ -416,6 +425,7 @@ class FFmpegFD(ExternalFD):
         return FFmpegPostProcessor().available
 
     def on_process_started(self, proc, stdin):
+        print(f"external.pyの関数on_process_startedを実行しました。")
         print(f"external.pyの関数on_process_startedを実行しました。")
         print(f"external.pyの関数on_process_startedを実行しました。")
         print(f"external.pyの関数on_process_startedを実行しました。")
@@ -623,10 +633,12 @@ def list_external_downloaders():
     print(f"external.pyの関数list_external_downloadersを実行しました。")
     print(f"external.pyの関数list_external_downloadersを実行しました。")
     print(f"external.pyの関数list_external_downloadersを実行しました。")
+    print(f"external.pyの関数list_external_downloadersを実行しました。")
     return sorted(_BY_NAME.keys())
 
 
 def get_external_downloader(external_downloader):
+    print(f"external.pyの関数get_external_downloaderを実行しました。")
     print(f"external.pyの関数get_external_downloaderを実行しました。")
     print(f"external.pyの関数get_external_downloaderを実行しました。")
     print(f"external.pyの関数get_external_downloaderを実行しました。")

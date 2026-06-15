@@ -32,6 +32,7 @@ class TestMetadataFromField(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_format_to_regexを実行しました。")
         print(f"test_postprocessors.pyの関数test_format_to_regexを実行しました。")
         print(f"test_postprocessors.pyの関数test_format_to_regexを実行しました。")
+        print(f"test_postprocessors.pyの関数test_format_to_regexを実行しました。")
         self.assertEqual(
             MetadataParserPP.format_to_regex('%(title)s - %(artist)s'),
             r'(?P<title>.+)\ \-\ (?P<artist>.+)')
@@ -47,12 +48,14 @@ class TestMetadataFromField(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_field_to_templateを実行しました。")
         print(f"test_postprocessors.pyの関数test_field_to_templateを実行しました。")
         print(f"test_postprocessors.pyの関数test_field_to_templateを実行しました。")
+        print(f"test_postprocessors.pyの関数test_field_to_templateを実行しました。")
         self.assertEqual(MetadataParserPP.field_to_template('title'), '%(title)s')
         self.assertEqual(MetadataParserPP.field_to_template('1'), '1')
         self.assertEqual(MetadataParserPP.field_to_template('foo bar'), 'foo bar')
         self.assertEqual(MetadataParserPP.field_to_template(' literal'), ' literal')
 
     def test_metadatafromfield(self):
+        print(f"test_postprocessors.pyの関数test_metadatafromfieldを実行しました。")
         print(f"test_postprocessors.pyの関数test_metadatafromfieldを実行しました。")
         print(f"test_postprocessors.pyの関数test_metadatafromfieldを実行しました。")
         print(f"test_postprocessors.pyの関数test_metadatafromfieldを実行しました。")
@@ -64,6 +67,7 @@ class TestMetadataFromField(unittest.TestCase):
 
 class TestConvertThumbnail(unittest.TestCase):
     def test_escaping(self):
+        print(f"test_postprocessors.pyの関数test_escapingを実行しました。")
         print(f"test_postprocessors.pyの関数test_escapingを実行しました。")
         print(f"test_postprocessors.pyの関数test_escapingを実行しました。")
         print(f"test_postprocessors.pyの関数test_escapingを実行しました。")
@@ -106,6 +110,7 @@ class TestExec(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_parse_cmdを実行しました。")
         print(f"test_postprocessors.pyの関数test_parse_cmdを実行しました。")
         print(f"test_postprocessors.pyの関数test_parse_cmdを実行しました。")
+        print(f"test_postprocessors.pyの関数test_parse_cmdを実行しました。")
         pp = ExecPP(YoutubeDL(), '')
         info = {'filepath': 'file name'}
         cmd = 'echo {}'.format(shell_quote(info['filepath']))
@@ -115,6 +120,7 @@ class TestExec(unittest.TestCase):
         self.assertEqual(pp.parse_cmd('echo %(filepath)q', info), cmd)
 
     def test_unsafe_exec_expansion(self):
+        print(f"test_postprocessors.pyの関数test_unsafe_exec_expansionを実行しました。")
         print(f"test_postprocessors.pyの関数test_unsafe_exec_expansionを実行しました。")
         print(f"test_postprocessors.pyの関数test_unsafe_exec_expansionを実行しました。")
         print(f"test_postprocessors.pyの関数test_unsafe_exec_expansionを実行しました。")
@@ -170,6 +176,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数setUpを実行しました。")
         print(f"test_postprocessors.pyの関数setUpを実行しました。")
         print(f"test_postprocessors.pyの関数setUpを実行しました。")
+        print(f"test_postprocessors.pyの関数setUpを実行しました。")
         self._pp = ModifyChaptersPP(YoutubeDL())
 
     @staticmethod
@@ -193,6 +200,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         return c
 
     def _chapters(self, ends, titles):
+        print(f"test_postprocessors.pyの関数_chaptersを実行しました。")
         print(f"test_postprocessors.pyの関数_chaptersを実行しました。")
         print(f"test_postprocessors.pyの関数_chaptersを実行しました。")
         print(f"test_postprocessors.pyの関数_chaptersを実行しました。")
@@ -225,10 +233,12 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CanGetThroughUnalteredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CanGetThroughUnalteredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CanGetThroughUnalteredを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CanGetThroughUnalteredを実行しました。")
         chapters = self._chapters([10, 20, 30, 40], ['c1', 'c2', 'c3', 'c4'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, chapters, [])
 
     def test_remove_marked_arrange_sponsors_ChapterWithSponsors(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorsを実行しました。")
@@ -249,6 +259,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorBlockChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorBlockChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorBlockChaptersを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorBlockChaptersを実行しました。")
         chapters = [
             *self._chapters([70], ['c']),
             self._sponsor_chapter(10, 20, 'chapter', title='sb c1'),
@@ -263,6 +274,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, [])
 
     def test_remove_marked_arrange_sponsors_UniqueNamesForOverlappingSponsors(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_UniqueNamesForOverlappingSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_UniqueNamesForOverlappingSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_UniqueNamesForOverlappingSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_UniqueNamesForOverlappingSponsorsを実行しました。")
@@ -290,6 +302,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithCutsを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithCutsを実行しました。")
         cuts = [self._chapter(10, 20, remove=True),
                 self._sponsor_chapter(30, 40, 'sponsor', remove=True),
                 self._chapter(50, 60, remove=True)]
@@ -298,6 +311,7 @@ class TestModifyChaptersPP(unittest.TestCase):
             chapters, self._chapters([40], ['c']), cuts)
 
     def test_remove_marked_arrange_sponsors_ChapterWithSponsorsAndCuts(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorsAndCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorsAndCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorsAndCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorsAndCutsを実行しました。")
@@ -318,6 +332,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorCutInTheMiddleを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorCutInTheMiddleを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorCutInTheMiddleを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithSponsorCutInTheMiddleを実行しました。")
         cuts = [self._sponsor_chapter(20, 30, 'selfpromo', remove=True),
                 self._chapter(40, 50, remove=True)]
         chapters = [
@@ -329,6 +344,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_ChapterWithCutHidingSponsor(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithCutHidingSponsorを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithCutHidingSponsorを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithCutHidingSponsorを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithCutHidingSponsorを実行しました。")
@@ -349,6 +365,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithAdjacentSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithAdjacentSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithAdjacentSponsorsを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithAdjacentSponsorsを実行しました。")
         chapters = [
             *self._chapters([70], ['c']),
             self._sponsor_chapter(10, 20, 'sponsor'),
@@ -361,6 +378,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, [])
 
     def test_remove_marked_arrange_sponsors_ChapterWithAdjacentCuts(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithAdjacentCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithAdjacentCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithAdjacentCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithAdjacentCutsを実行しました。")
@@ -383,6 +401,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithOverlappingSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithOverlappingSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithOverlappingSponsorsを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithOverlappingSponsorsを実行しました。")
         chapters = [
             *self._chapters([70], ['c']),
             self._sponsor_chapter(10, 30, 'sponsor'),
@@ -400,6 +419,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithOverlappingCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithOverlappingCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithOverlappingCutsを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithOverlappingCutsを実行しました。")
         chapters = [
             *self._chapters([70], ['c']),
             self._sponsor_chapter(10, 30, 'sponsor', remove=True),
@@ -409,6 +429,7 @@ class TestModifyChaptersPP(unittest.TestCase):
             chapters, self._chapters([20], ['c']), [self._chapter(10, 60, remove=True)])
 
     def test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsors(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsを実行しました。")
@@ -439,6 +460,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingCutsを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingCutsを実行しました。")
         chapters = [
             *self._chapters([170], ['c']),
             self._chapter(0, 30, remove=True),
@@ -461,6 +483,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_OverlappingSponsorsDifferentTitlesAfterCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_OverlappingSponsorsDifferentTitlesAfterCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_OverlappingSponsorsDifferentTitlesAfterCutを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_OverlappingSponsorsDifferentTitlesAfterCutを実行しました。")
         chapters = [
             *self._chapters([60], ['c']),
             self._sponsor_chapter(10, 60, 'sponsor'),
@@ -475,6 +498,7 @@ class TestModifyChaptersPP(unittest.TestCase):
             chapters, expected, [self._chapter(30, 50, remove=True)])
 
     def test_remove_marked_arrange_sponsors_SponsorsNoLongerOverlapAfterCut(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsNoLongerOverlapAfterCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsNoLongerOverlapAfterCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsNoLongerOverlapAfterCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsNoLongerOverlapAfterCutを実行しました。")
@@ -497,6 +521,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsStillOverlapAfterCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsStillOverlapAfterCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsStillOverlapAfterCutを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsStillOverlapAfterCutを実行しました。")
         chapters = [
             *self._chapters([70], ['c']),
             self._sponsor_chapter(10, 60, 'sponsor'),
@@ -509,6 +534,7 @@ class TestModifyChaptersPP(unittest.TestCase):
             chapters, expected, [self._chapter(30, 50, remove=True)])
 
     def test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsAndCuts(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsAndCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsAndCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsAndCutsを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChapterWithRunsOfOverlappingSponsorsAndCutsを実行しました。")
@@ -544,6 +570,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorOverlapsMultipleChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorOverlapsMultipleChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorOverlapsMultipleChaptersを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorOverlapsMultipleChaptersを実行しました。")
         chapters = [
             *self._chapters([20, 40, 60, 80, 100], ['c1', 'c2', 'c3', 'c4', 'c5']),
             self._sponsor_chapter(10, 90, 'sponsor')]
@@ -555,12 +582,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutOverlapsMultipleChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutOverlapsMultipleChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutOverlapsMultipleChaptersを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutOverlapsMultipleChaptersを実行しました。")
         cuts = [self._chapter(10, 90, remove=True)]
         chapters = self._chapters([20, 40, 60, 80, 100], ['c1', 'c2', 'c3', 'c4', 'c5']) + cuts
         expected = self._chapters([10, 20], ['c1', 'c5'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_SponsorsWithinSomeChaptersAndOverlappingOthers(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsWithinSomeChaptersAndOverlappingOthersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsWithinSomeChaptersAndOverlappingOthersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsWithinSomeChaptersAndOverlappingOthersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsWithinSomeChaptersAndOverlappingOthersを実行しました。")
@@ -579,12 +608,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsWithinSomeChaptersAndOverlappingOthersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsWithinSomeChaptersAndOverlappingOthersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsWithinSomeChaptersAndOverlappingOthersを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsWithinSomeChaptersAndOverlappingOthersを実行しました。")
         cuts = [self._chapter(20, 30, remove=True), self._chapter(50, 70, remove=True)]
         chapters = self._chapters([10, 40, 60, 80], ['c1', 'c2', 'c3', 'c4']) + cuts
         expected = self._chapters([10, 30, 40, 50], ['c1', 'c2', 'c3', 'c4'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_ChaptersAfterLastSponsor(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChaptersAfterLastSponsorを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChaptersAfterLastSponsorを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChaptersAfterLastSponsorを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChaptersAfterLastSponsorを実行しました。")
@@ -602,12 +633,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChaptersAfterLastCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChaptersAfterLastCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChaptersAfterLastCutを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_ChaptersAfterLastCutを実行しました。")
         cuts = [self._chapter(10, 30, remove=True)]
         chapters = self._chapters([20, 40, 50, 60], ['c1', 'c2', 'c3', 'c4']) + cuts
         expected = self._chapters([10, 20, 30, 40], ['c1', 'c2', 'c3', 'c4'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_SponsorStartsAtChapterStart(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorStartsAtChapterStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorStartsAtChapterStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorStartsAtChapterStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorStartsAtChapterStartを実行しました。")
@@ -623,12 +656,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutStartsAtChapterStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutStartsAtChapterStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutStartsAtChapterStartを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutStartsAtChapterStartを実行しました。")
         cuts = [self._chapter(20, 30, remove=True)]
         chapters = self._chapters([10, 20, 40], ['c1', 'c2', 'c3']) + cuts
         expected = self._chapters([10, 20, 30], ['c1', 'c2', 'c3'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_SponsorEndsAtChapterEnd(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorEndsAtChapterEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorEndsAtChapterEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorEndsAtChapterEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorEndsAtChapterEndを実行しました。")
@@ -644,12 +679,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutEndsAtChapterEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutEndsAtChapterEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutEndsAtChapterEndを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutEndsAtChapterEndを実行しました。")
         cuts = [self._chapter(20, 30, remove=True)]
         chapters = self._chapters([10, 30, 40], ['c1', 'c2', 'c3']) + cuts
         expected = self._chapters([10, 20, 30], ['c1', 'c2', 'c3'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_SponsorCoincidesWithChapters(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorCoincidesWithChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorCoincidesWithChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorCoincidesWithChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorCoincidesWithChaptersを実行しました。")
@@ -665,12 +702,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutCoincidesWithChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutCoincidesWithChaptersを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutCoincidesWithChaptersを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutCoincidesWithChaptersを実行しました。")
         cuts = [self._chapter(10, 30, remove=True)]
         chapters = self._chapters([10, 20, 30, 40], ['c1', 'c2', 'c3', 'c4']) + cuts
         expected = self._chapters([10, 20], ['c1', 'c4'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_SponsorsAtVideoBoundaries(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsAtVideoBoundariesを実行しました。")
@@ -687,12 +726,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsAtVideoBoundariesを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsAtVideoBoundariesを実行しました。")
         cuts = [self._chapter(0, 10, remove=True), self._chapter(50, 60, remove=True)]
         chapters = self._chapters([20, 40, 60], ['c1', 'c2', 'c3']) + cuts
         expected = self._chapters([10, 30, 40], ['c1', 'c2', 'c3'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_SponsorsOverlapChaptersAtVideoBoundaries(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsOverlapChaptersAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsOverlapChaptersAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsOverlapChaptersAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SponsorsOverlapChaptersAtVideoBoundariesを実行しました。")
@@ -710,12 +751,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsOverlapChaptersAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsOverlapChaptersAtVideoBoundariesを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsOverlapChaptersAtVideoBoundariesを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_CutsOverlapChaptersAtVideoBoundariesを実行しました。")
         cuts = [self._chapter(0, 20, remove=True), self._chapter(30, 50, remove=True)]
         chapters = self._chapters([10, 40, 50], ['c1', 'c2', 'c3']) + cuts
         expected = self._chapters([10], ['c2'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, expected, cuts)
 
     def test_remove_marked_arrange_sponsors_EverythingSponsored(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_EverythingSponsoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_EverythingSponsoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_EverythingSponsoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_EverythingSponsoredを実行しました。")
@@ -732,6 +775,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_EverythingCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_EverythingCutを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_EverythingCutを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_EverythingCutを実行しました。")
         cuts = [self._chapter(0, 20, remove=True), self._chapter(20, 40, remove=True)]
         chapters = self._chapters([10, 20, 30, 40], ['c1', 'c2', 'c3', 'c4']) + cuts
         self._remove_marked_arrange_sponsors_test_impl(
@@ -742,10 +786,12 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersInTheOriginalArePreservedを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersInTheOriginalArePreservedを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersInTheOriginalArePreservedを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersInTheOriginalArePreservedを実行しました。")
         chapters = self._chapters([0.1, 0.2, 0.3, 0.4], ['c1', 'c2', 'c3', 'c4'])
         self._remove_marked_arrange_sponsors_test_impl(chapters, chapters, [])
 
     def test_remove_marked_arrange_sponsors_TinySponsorsAreIgnored(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsAreIgnoredを実行しました。")
@@ -761,12 +807,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersResultingFromCutsAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersResultingFromCutsAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersResultingFromCutsAreIgnoredを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersResultingFromCutsAreIgnoredを実行しました。")
         cuts = [self._chapter(1.5, 2.5, remove=True)]
         chapters = self._chapters([2, 3, 3.5], ['c1', 'c2', 'c3']) + cuts
         self._remove_marked_arrange_sponsors_test_impl(
             chapters, self._chapters([2, 2.5], ['c1', 'c3']), cuts)
 
     def test_remove_marked_arrange_sponsors_SingleTinyChapterIsPreserved(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SingleTinyChapterIsPreservedを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SingleTinyChapterIsPreservedを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SingleTinyChapterIsPreservedを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SingleTinyChapterIsPreservedを実行しました。")
@@ -781,12 +829,14 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChapterAtTheStartPrependedToTheNextを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChapterAtTheStartPrependedToTheNextを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChapterAtTheStartPrependedToTheNextを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChapterAtTheStartPrependedToTheNextを実行しました。")
         cuts = [self._chapter(0.5, 2, remove=True)]
         chapters = self._chapters([2, 4], ['c1', 'c2']) + cuts
         self._remove_marked_arrange_sponsors_test_impl(
             chapters, self._chapters([2.5], ['c2']), cuts)
 
     def test_remove_marked_arrange_sponsors_TinyChaptersResultingFromSponsorOverlapAreIgnored(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersResultingFromSponsorOverlapAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersResultingFromSponsorOverlapAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersResultingFromSponsorOverlapAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinyChaptersResultingFromSponsorOverlapAreIgnoredを実行しました。")
@@ -798,6 +848,7 @@ class TestModifyChaptersPP(unittest.TestCase):
             chapters, self._chapters([1.5, 2.5, 4], ['c1', '[SponsorBlock]: Sponsor', 'c3']), [])
 
     def test_remove_marked_arrange_sponsors_TinySponsorsOverlapsAreIgnored(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsOverlapsAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsOverlapsAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsOverlapsAreIgnoredを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsOverlapsAreIgnoredを実行しました。")
@@ -815,6 +866,7 @@ class TestModifyChaptersPP(unittest.TestCase):
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsPrependedToTheNextSponsorを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsPrependedToTheNextSponsorを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsPrependedToTheNextSponsorを実行しました。")
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_TinySponsorsPrependedToTheNextSponsorを実行しました。")
         chapters = [
             *self._chapters([4], ['c']),
             self._sponsor_chapter(1.5, 2, 'sponsor'),
@@ -823,6 +875,7 @@ class TestModifyChaptersPP(unittest.TestCase):
             chapters, self._chapters([1.5, 4], ['c', '[SponsorBlock]: Unpaid/Self Promotion']), [])
 
     def test_remove_marked_arrange_sponsors_SmallestSponsorInTheOverlapGetsNamed(self):
+        print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SmallestSponsorInTheOverlapGetsNamedを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SmallestSponsorInTheOverlapGetsNamedを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SmallestSponsorInTheOverlapGetsNamedを実行しました。")
         print(f"test_postprocessors.pyの関数test_remove_marked_arrange_sponsors_SmallestSponsorInTheOverlapGetsNamedを実行しました。")
@@ -839,6 +892,7 @@ class TestModifyChaptersPP(unittest.TestCase):
             ]), [])
 
     def test_make_concat_opts_CommonCase(self):
+        print(f"test_postprocessors.pyの関数test_make_concat_opts_CommonCaseを実行しました。")
         print(f"test_postprocessors.pyの関数test_make_concat_opts_CommonCaseを実行しました。")
         print(f"test_postprocessors.pyの関数test_make_concat_opts_CommonCaseを実行しました。")
         print(f"test_postprocessors.pyの関数test_make_concat_opts_CommonCaseを実行しました。")
@@ -861,6 +915,7 @@ inpoint 20.000000
         print(f"test_postprocessors.pyの関数test_make_concat_opts_NoZeroDurationChunkAtVideoStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_make_concat_opts_NoZeroDurationChunkAtVideoStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_make_concat_opts_NoZeroDurationChunkAtVideoStartを実行しました。")
+        print(f"test_postprocessors.pyの関数test_make_concat_opts_NoZeroDurationChunkAtVideoStartを実行しました。")
         sponsor_chapters = [self._chapter(0, 1, 's1'), self._chapter(10, 20, 's2')]
         expected = '''ffconcat version 1.0
 file 'file:test'
@@ -873,6 +928,7 @@ inpoint 20.000000
         self.assertEqual(expected, ''.join(self._pp._concat_spec(['test'] * len(opts), opts)))
 
     def test_make_concat_opts_NoZeroDurationChunkAtVideoEnd(self):
+        print(f"test_postprocessors.pyの関数test_make_concat_opts_NoZeroDurationChunkAtVideoEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_make_concat_opts_NoZeroDurationChunkAtVideoEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_make_concat_opts_NoZeroDurationChunkAtVideoEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_make_concat_opts_NoZeroDurationChunkAtVideoEndを実行しました。")
@@ -893,6 +949,7 @@ outpoint 10.000000
         print(f"test_postprocessors.pyの関数test_quote_for_concat_RunsOfQuotesを実行しました。")
         print(f"test_postprocessors.pyの関数test_quote_for_concat_RunsOfQuotesを実行しました。")
         print(f"test_postprocessors.pyの関数test_quote_for_concat_RunsOfQuotesを実行しました。")
+        print(f"test_postprocessors.pyの関数test_quote_for_concat_RunsOfQuotesを実行しました。")
         self.assertEqual(
             r"'special '\'' '\'\''characters'\'\'\''galore'",
             self._pp._quote_for_ffmpeg("special ' ''characters'''galore"))
@@ -902,11 +959,13 @@ outpoint 10.000000
         print(f"test_postprocessors.pyの関数test_quote_for_concat_QuotesAtStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_quote_for_concat_QuotesAtStartを実行しました。")
         print(f"test_postprocessors.pyの関数test_quote_for_concat_QuotesAtStartを実行しました。")
+        print(f"test_postprocessors.pyの関数test_quote_for_concat_QuotesAtStartを実行しました。")
         self.assertEqual(
             r"\'\'\''special '\'' characters '\'' galore'",
             self._pp._quote_for_ffmpeg("'''special ' characters ' galore"))
 
     def test_quote_for_concat_QuotesAtEnd(self):
+        print(f"test_postprocessors.pyの関数test_quote_for_concat_QuotesAtEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_quote_for_concat_QuotesAtEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_quote_for_concat_QuotesAtEndを実行しました。")
         print(f"test_postprocessors.pyの関数test_quote_for_concat_QuotesAtEndを実行しました。")

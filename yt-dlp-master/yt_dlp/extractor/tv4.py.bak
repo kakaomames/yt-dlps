@@ -84,6 +84,7 @@ class TV4IE(InfoExtractor):
         print(f"tv4.pyの関数_call_apiを実行しました。")
         print(f"tv4.pyの関数_call_apiを実行しました。")
         print(f"tv4.pyの関数_call_apiを実行しました。")
+        print(f"tv4.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'https://playback2.a2d.tv/{endpoint}/{video_id}', video_id,
             f'Downloading {endpoint} API JSON', headers=headers, query={
@@ -94,6 +95,7 @@ class TV4IE(InfoExtractor):
             })
 
     def _real_extract(self, url):
+        print(f"tv4.pyの関数_real_extractを実行しました。")
         print(f"tv4.pyの関数_real_extractを実行しました。")
         print(f"tv4.pyの関数_real_extractを実行しました。")
         print(f"tv4.pyの関数_real_extractを実行しました。")

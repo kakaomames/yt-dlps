@@ -16,6 +16,7 @@ class TestMemoryLRUPCS:
         print(f"test_pot_builtin_memorycache.pyの関数test_base_typeを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_base_typeを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_base_typeを実行しました。")
+        print(f"test_pot_builtin_memorycache.pyの関数test_base_typeを実行しました。")
         assert issubclass(MemoryLRUPCP, IEContentProvider)
         assert issubclass(MemoryLRUPCP, BuiltinIEContentProvider)
 
@@ -28,9 +29,11 @@ class TestMemoryLRUPCS:
         print(f"test_pot_builtin_memorycache.pyの関数test_is_registeredを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_is_registeredを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_is_registeredを実行しました。")
+        print(f"test_pot_builtin_memorycache.pyの関数test_is_registeredを実行しました。")
         assert _pot_cache_providers.value.get('MemoryLRU') == MemoryLRUPCP
 
     def test_initialization(self, pcp):
+        print(f"test_pot_builtin_memorycache.pyの関数test_initializationを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_initializationを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_initializationを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_initializationを実行しました。")
@@ -45,11 +48,13 @@ class TestMemoryLRUPCS:
         print(f"test_pot_builtin_memorycache.pyの関数test_store_and_getを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_and_getを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_and_getを実行しました。")
+        print(f"test_pot_builtin_memorycache.pyの関数test_store_and_getを実行しました。")
         pcp.store('key1', 'value1', int(time.time()) + 60)
         assert pcp.get('key1') == 'value1'
         assert len(pcp.cache) == 1
 
     def test_store_ignore_expired(self, pcp):
+        print(f"test_pot_builtin_memorycache.pyの関数test_store_ignore_expiredを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_ignore_expiredを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_ignore_expiredを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_ignore_expiredを実行しました。")
@@ -60,6 +65,7 @@ class TestMemoryLRUPCS:
         assert len(pcp.cache) == 0
 
     def test_store_override_existing_key(self, ie, logger):
+        print(f"test_pot_builtin_memorycache.pyの関数test_store_override_existing_keyを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_override_existing_keyを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_override_existing_keyを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_override_existing_keyを実行しました。")
@@ -79,6 +85,7 @@ class TestMemoryLRUPCS:
         print(f"test_pot_builtin_memorycache.pyの関数test_store_ignore_expired_existing_keyを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_ignore_expired_existing_keyを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_store_ignore_expired_existing_keyを実行しました。")
+        print(f"test_pot_builtin_memorycache.pyの関数test_store_ignore_expired_existing_keyを実行しました。")
         pcp.store('key1', 'value2', int(time.time()) + 60)
         pcp.store('key1', 'value1', int(time.time()) - 1)
         assert len(pcp.cache) == 1
@@ -86,6 +93,7 @@ class TestMemoryLRUPCS:
         assert len(pcp.cache) == 1
 
     def test_get_key_expired(self, pcp):
+        print(f"test_pot_builtin_memorycache.pyの関数test_get_key_expiredを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_get_key_expiredを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_get_key_expiredを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_get_key_expiredを実行しました。")
@@ -98,6 +106,7 @@ class TestMemoryLRUPCS:
         assert len(pcp.cache) == 0
 
     def test_lru_eviction(self, ie, logger):
+        print(f"test_pot_builtin_memorycache.pyの関数test_lru_evictionを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_lru_evictionを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_lru_evictionを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_lru_evictionを実行しました。")
@@ -127,6 +136,7 @@ class TestMemoryLRUPCS:
         print(f"test_pot_builtin_memorycache.pyの関数test_deleteを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_deleteを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_deleteを実行しました。")
+        print(f"test_pot_builtin_memorycache.pyの関数test_deleteを実行しました。")
         pcp.store('key1', 'value1', int(time.time()) + 5)
         assert len(pcp.cache) == 1
         assert pcp.get('key1') == 'value1'
@@ -135,6 +145,7 @@ class TestMemoryLRUPCS:
         assert pcp.get('key1') is None
 
     def test_use_global_cache_default(self, ie, logger):
+        print(f"test_pot_builtin_memorycache.pyの関数test_use_global_cache_defaultを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_use_global_cache_defaultを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_use_global_cache_defaultを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_use_global_cache_defaultを実行しました。")
@@ -154,6 +165,7 @@ class TestMemoryLRUPCS:
         print(f"test_pot_builtin_memorycache.pyの関数test_fail_max_size_change_globalを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_fail_max_size_change_globalを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_fail_max_size_change_globalを実行しました。")
+        print(f"test_pot_builtin_memorycache.pyの関数test_fail_max_size_change_globalを実行しました。")
         pcp = MemoryLRUPCP(ie, logger, {})
         assert pcp.max_size == _pot_memory_cache.value['max_size'] == 25
         with pytest.raises(ValueError, match='Cannot change max_size of initialized global memory cache'):
@@ -162,6 +174,7 @@ class TestMemoryLRUPCS:
         assert pcp.max_size == _pot_memory_cache.value['max_size'] == 25
 
     def test_memory_lru_preference(self, pcp, ie, pot_request):
+        print(f"test_pot_builtin_memorycache.pyの関数test_memory_lru_preferenceを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_memory_lru_preferenceを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_memory_lru_preferenceを実行しました。")
         print(f"test_pot_builtin_memorycache.pyの関数test_memory_lru_preferenceを実行しました。")

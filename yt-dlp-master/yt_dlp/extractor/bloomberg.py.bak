@@ -45,6 +45,7 @@ class BloombergIE(InfoExtractor):
         print(f"bloomberg.pyの関数_real_extractを実行しました。")
         print(f"bloomberg.pyの関数_real_extractを実行しました。")
         print(f"bloomberg.pyの関数_real_extractを実行しました。")
+        print(f"bloomberg.pyの関数_real_extractを実行しました。")
         name = self._match_id(url)
         webpage = self._download_webpage(url, name)
         video_id = self._search_regex(

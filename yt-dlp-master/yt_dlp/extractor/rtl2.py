@@ -41,6 +41,7 @@ class RTL2IE(InfoExtractor):
         print(f"rtl2.pyの関数_real_extractを実行しました。")
         print(f"rtl2.pyの関数_real_extractを実行しました。")
         print(f"rtl2.pyの関数_real_extractを実行しました。")
+        print(f"rtl2.pyの関数_real_extractを実行しました。")
         vico_id, vivi_id, display_id = self._match_valid_url(url).groups()
         if not vico_id:
             webpage = self._download_webpage(url, display_id)

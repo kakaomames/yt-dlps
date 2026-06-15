@@ -33,6 +33,7 @@ class GameStarIE(InfoExtractor):
         print(f"gamestar.pyの関数_real_extractを実行しました。")
         print(f"gamestar.pyの関数_real_extractを実行しました。")
         print(f"gamestar.pyの関数_real_extractを実行しました。")
+        print(f"gamestar.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         site = mobj.group('site')
         video_id = mobj.group('id')

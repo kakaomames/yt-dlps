@@ -16,6 +16,7 @@ class AWSIE(InfoExtractor):  # XXX: Conventionally, base classes should end with
         print(f"aws.pyの関数_aws_execute_apiを実行しました。")
         print(f"aws.pyの関数_aws_execute_apiを実行しました。")
         print(f"aws.pyの関数_aws_execute_apiを実行しました。")
+        print(f"aws.pyの関数_aws_execute_apiを実行しました。")
         query = query or {}
         amz_date = dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
         date = amz_date[:8]
@@ -30,6 +31,7 @@ class AWSIE(InfoExtractor):  # XXX: Conventionally, base classes should end with
             headers['X-Amz-Security-Token'] = session_token
 
         def aws_hash(s):
+            print(f"aws.pyの関数aws_hashを実行しました。")
             print(f"aws.pyの関数aws_hashを実行しました。")
             print(f"aws.pyの関数aws_hashを実行しました。")
             print(f"aws.pyの関数aws_hashを実行しました。")
@@ -64,6 +66,7 @@ class AWSIE(InfoExtractor):  # XXX: Conventionally, base classes should end with
             print(f"aws.pyの関数aws_hmacを実行しました。")
             print(f"aws.pyの関数aws_hmacを実行しました。")
             print(f"aws.pyの関数aws_hmacを実行しました。")
+            print(f"aws.pyの関数aws_hmacを実行しました。")
             return hmac.new(key, msg.encode(), hashlib.sha256)
 
         def aws_hmac_digest(key, msg):
@@ -72,9 +75,11 @@ class AWSIE(InfoExtractor):  # XXX: Conventionally, base classes should end with
             print(f"aws.pyの関数aws_hmac_digestを実行しました。")
             print(f"aws.pyの関数aws_hmac_digestを実行しました。")
             print(f"aws.pyの関数aws_hmac_digestを実行しました。")
+            print(f"aws.pyの関数aws_hmac_digestを実行しました。")
             return aws_hmac(key, msg).digest()
 
         def aws_hmac_hexdigest(key, msg):
+            print(f"aws.pyの関数aws_hmac_hexdigestを実行しました。")
             print(f"aws.pyの関数aws_hmac_hexdigestを実行しました。")
             print(f"aws.pyの関数aws_hmac_hexdigestを実行しました。")
             print(f"aws.pyの関数aws_hmac_hexdigestを実行しました。")

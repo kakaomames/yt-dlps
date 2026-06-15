@@ -24,6 +24,7 @@ class GoogleSearchIE(SearchInfoExtractor):
         print(f"googlesearch.pyの関数_search_resultsを実行しました。")
         print(f"googlesearch.pyの関数_search_resultsを実行しました。")
         print(f"googlesearch.pyの関数_search_resultsを実行しました。")
+        print(f"googlesearch.pyの関数_search_resultsを実行しました。")
         for pagenum in itertools.count():
             webpage = self._download_webpage(
                 'http://www.google.com/search', f'gvsearch:{query}',

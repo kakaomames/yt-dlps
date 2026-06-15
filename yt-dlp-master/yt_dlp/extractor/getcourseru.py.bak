@@ -37,6 +37,7 @@ class GetCourseRuPlayerIE(InfoExtractor):
         print(f"getcourseru.pyの関数_real_extractを実行しました。")
         print(f"getcourseru.pyの関数_real_extractを実行しました。")
         print(f"getcourseru.pyの関数_real_extractを実行しました。")
+        print(f"getcourseru.pyの関数_real_extractを実行しました。")
         webpage = self._download_webpage(url, None, 'Downloading player page')
         window_configs = self._search_json(
             r'window\.configs\s*=', webpage, 'config', None)
@@ -144,6 +145,7 @@ class GetCourseRuIE(InfoExtractor):
     _LOGIN_URL_PATH = '/cms/system/login'
 
     def _login(self, hostname, username, password):
+        print(f"getcourseru.pyの関数_loginを実行しました。")
         print(f"getcourseru.pyの関数_loginを実行しました。")
         print(f"getcourseru.pyの関数_loginを実行しました。")
         print(f"getcourseru.pyの関数_loginを実行しました。")

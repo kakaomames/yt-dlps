@@ -36,6 +36,7 @@ class MicrosoftEmbedIE(InfoExtractor):
         print(f"microsoftembed.pyの関数_real_extractを実行しました。")
         print(f"microsoftembed.pyの関数_real_extractを実行しました。")
         print(f"microsoftembed.pyの関数_real_extractを実行しました。")
+        print(f"microsoftembed.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         metadata = self._download_json(self._API_URL + video_id, video_id)
 
@@ -93,6 +94,7 @@ class MicrosoftMediusBaseIE(InfoExtractor):
         print(f"microsoftembed.pyの関数_extract_ismを実行しました。")
         print(f"microsoftembed.pyの関数_extract_ismを実行しました。")
         print(f"microsoftembed.pyの関数_extract_ismを実行しました。")
+        print(f"microsoftembed.pyの関数_extract_ismを実行しました。")
         formats = self._extract_ism_formats(ism_url, video_id, fatal=fatal)
         for fmt in formats:
             if fmt['language'] != 'eng' and 'English' not in fmt['format_id']:
@@ -146,6 +148,7 @@ class MicrosoftMediusIE(MicrosoftMediusBaseIE):
         print(f"microsoftembed.pyの関数_extract_subtitleを実行しました。")
         print(f"microsoftembed.pyの関数_extract_subtitleを実行しました。")
         print(f"microsoftembed.pyの関数_extract_subtitleを実行しました。")
+        print(f"microsoftembed.pyの関数_extract_subtitleを実行しました。")
         captions = traverse_obj(
             self._search_json(r'const\s+captionsConfiguration\s*=', webpage, 'captions', video_id, default=None),
             ('languageList', lambda _, v: url_or_none(v['src']), {
@@ -193,6 +196,7 @@ class MicrosoftLearnPlaylistIE(InfoExtractor):
     }]
 
     def _entries(self, url_base, video_id):
+        print(f"microsoftembed.pyの関数_entriesを実行しました。")
         print(f"microsoftembed.pyの関数_entriesを実行しました。")
         print(f"microsoftembed.pyの関数_entriesを実行しました。")
         print(f"microsoftembed.pyの関数_entriesを実行しました。")

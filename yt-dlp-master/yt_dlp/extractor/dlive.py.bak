@@ -27,6 +27,7 @@ class DLiveVODIE(InfoExtractor):
         print(f"dlive.pyの関数_real_extractを実行しました。")
         print(f"dlive.pyの関数_real_extractを実行しました。")
         print(f"dlive.pyの関数_real_extractを実行しました。")
+        print(f"dlive.pyの関数_real_extractを実行しました。")
         uploader_id, vod_id = self._match_valid_url(url).groups()
         broadcast = self._download_json(
             'https://graphigo.prd.dlive.tv/', vod_id,

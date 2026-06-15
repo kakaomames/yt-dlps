@@ -20,6 +20,7 @@ class DLFBaseIE(InfoExtractor):
         print(f"dlf.pyの関数_parse_button_attrsを実行しました。")
         print(f"dlf.pyの関数_parse_button_attrsを実行しました。")
         print(f"dlf.pyの関数_parse_button_attrsを実行しました。")
+        print(f"dlf.pyの関数_parse_button_attrsを実行しました。")
         attrs = extract_attributes(button)
         audio_id = audio_id or attrs['data-audio-diraid']
 
@@ -83,6 +84,7 @@ class DLFIE(DLFBaseIE):
     ]
 
     def _real_extract(self, url):
+        print(f"dlf.pyの関数_real_extractを実行しました。")
         print(f"dlf.pyの関数_real_extractを実行しました。")
         print(f"dlf.pyの関数_real_extractを実行しました。")
         print(f"dlf.pyの関数_real_extractを実行しました。")

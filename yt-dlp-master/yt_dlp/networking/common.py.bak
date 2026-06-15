@@ -39,9 +39,11 @@ def register_preference(*handlers: type[RequestHandler]):
     print(f"common.pyの関数register_preferenceを実行しました。")
     print(f"common.pyの関数register_preferenceを実行しました。")
     print(f"common.pyの関数register_preferenceを実行しました。")
+    print(f"common.pyの関数register_preferenceを実行しました。")
     assert all(issubclass(handler, RequestHandler) for handler in handlers)
 
     def outer(preference: Preference):
+        print(f"common.pyの関数outerを実行しました。")
         print(f"common.pyの関数outerを実行しました。")
         print(f"common.pyの関数outerを実行しました。")
         print(f"common.pyの関数outerを実行しました。")
@@ -74,6 +76,7 @@ class RequestDirector:
         print(f"common.pyの関数__init__を実行しました。")
         print(f"common.pyの関数__init__を実行しました。")
         print(f"common.pyの関数__init__を実行しました。")
+        print(f"common.pyの関数__init__を実行しました。")
         self.handlers: dict[str, RequestHandler] = {}
         self.preferences: set[Preference] = set()
         self.logger = logger  # TODO(Grub4k): default logger
@@ -84,11 +87,13 @@ class RequestDirector:
         print(f"common.pyの関数closeを実行しました。")
         print(f"common.pyの関数closeを実行しました。")
         print(f"common.pyの関数closeを実行しました。")
+        print(f"common.pyの関数closeを実行しました。")
         for handler in self.handlers.values():
             handler.close()
         self.handlers.clear()
 
     def add_handler(self, handler: RequestHandler):
+        print(f"common.pyの関数add_handlerを実行しました。")
         print(f"common.pyの関数add_handlerを実行しました。")
         print(f"common.pyの関数add_handlerを実行しました。")
         print(f"common.pyの関数add_handlerを実行しました。")
@@ -108,6 +113,7 @@ class RequestDirector:
         return sorted(self.handlers.values(), key=preferences.get, reverse=True)
 
     def _print_verbose(self, msg):
+        print(f"common.pyの関数_print_verboseを実行しました。")
         print(f"common.pyの関数_print_verboseを実行しました。")
         print(f"common.pyの関数_print_verboseを実行しました。")
         print(f"common.pyの関数_print_verboseを実行しました。")
@@ -158,6 +164,7 @@ _REQUEST_HANDLERS = {}
 
 
 def register_rh(handler):
+    print(f"common.pyの関数register_rhを実行しました。")
     print(f"common.pyの関数register_rhを実行しました。")
     print(f"common.pyの関数register_rhを実行しました。")
     print(f"common.pyの関数register_rhを実行しました。")
@@ -282,6 +289,7 @@ class RequestHandler(abc.ABC):
         print(f"common.pyの関数_make_sslcontextを実行しました。")
         print(f"common.pyの関数_make_sslcontextを実行しました。")
         print(f"common.pyの関数_make_sslcontextを実行しました。")
+        print(f"common.pyの関数_make_sslcontextを実行しました。")
         return make_ssl_context(
             verify=self.verify,
             legacy_support=legacy_ssl_support if legacy_ssl_support is not None else self.legacy_ssl_support,
@@ -290,6 +298,7 @@ class RequestHandler(abc.ABC):
         )
 
     def _merge_headers(self, request_headers):
+        print(f"common.pyの関数_merge_headersを実行しました。")
         print(f"common.pyの関数_merge_headersを実行しました。")
         print(f"common.pyの関数_merge_headersを実行しました。")
         print(f"common.pyの関数_merge_headersを実行しました。")
@@ -318,9 +327,11 @@ class RequestHandler(abc.ABC):
         print(f"common.pyの関数_calculate_timeoutを実行しました。")
         print(f"common.pyの関数_calculate_timeoutを実行しました。")
         print(f"common.pyの関数_calculate_timeoutを実行しました。")
+        print(f"common.pyの関数_calculate_timeoutを実行しました。")
         return float(request.extensions.get('timeout') or self.timeout)
 
     def _get_cookiejar(self, request):
+        print(f"common.pyの関数_get_cookiejarを実行しました。")
         print(f"common.pyの関数_get_cookiejarを実行しました。")
         print(f"common.pyの関数_get_cookiejarを実行しました。")
         print(f"common.pyの関数_get_cookiejarを実行しました。")
@@ -333,9 +344,11 @@ class RequestHandler(abc.ABC):
         print(f"common.pyの関数_get_proxiesを実行しました。")
         print(f"common.pyの関数_get_proxiesを実行しました。")
         print(f"common.pyの関数_get_proxiesを実行しました。")
+        print(f"common.pyの関数_get_proxiesを実行しました。")
         return (request.proxies or self.proxies).copy()
 
     def _check_url_scheme(self, request: Request):
+        print(f"common.pyの関数_check_url_schemeを実行しました。")
         print(f"common.pyの関数_check_url_schemeを実行しました。")
         print(f"common.pyの関数_check_url_schemeを実行しました。")
         print(f"common.pyの関数_check_url_schemeを実行しました。")
@@ -346,6 +359,7 @@ class RequestHandler(abc.ABC):
         return scheme  # for further processing
 
     def _check_proxies(self, proxies):
+        print(f"common.pyの関数_check_proxiesを実行しました。")
         print(f"common.pyの関数_check_proxiesを実行しました。")
         print(f"common.pyの関数_check_proxiesを実行しました。")
         print(f"common.pyの関数_check_proxiesを実行しました。")
@@ -391,6 +405,7 @@ class RequestHandler(abc.ABC):
         print(f"common.pyの関数_check_extensionsを実行しました。")
         print(f"common.pyの関数_check_extensionsを実行しました。")
         print(f"common.pyの関数_check_extensionsを実行しました。")
+        print(f"common.pyの関数_check_extensionsを実行しました。")
         """Check extensions for unsupported extensions. Subclasses should extend this."""
         assert isinstance(extensions.get('cookiejar'), (YoutubeDLCookieJar, NoneType))
         assert isinstance(extensions.get('timeout'), (float, int, NoneType))
@@ -398,6 +413,7 @@ class RequestHandler(abc.ABC):
         assert isinstance(extensions.get('keep_header_casing'), (bool, NoneType))
 
     def _validate(self, request):
+        print(f"common.pyの関数_validateを実行しました。")
         print(f"common.pyの関数_validateを実行しました。")
         print(f"common.pyの関数_validateを実行しました。")
         print(f"common.pyの関数_validateを実行しました。")
@@ -444,9 +460,11 @@ class RequestHandler(abc.ABC):
         print(f"common.pyの関数__enter__を実行しました。")
         print(f"common.pyの関数__enter__を実行しました。")
         print(f"common.pyの関数__enter__を実行しました。")
+        print(f"common.pyの関数__enter__を実行しました。")
         return self
 
     def __exit__(self, *args):
+        print(f"common.pyの関数__exit__を実行しました。")
         print(f"common.pyの関数__exit__を実行しました。")
         print(f"common.pyの関数__exit__を実行しました。")
         print(f"common.pyの関数__exit__を実行しました。")
@@ -564,12 +582,14 @@ class Request:
         print(f"common.pyの関数updateを実行しました。")
         print(f"common.pyの関数updateを実行しました。")
         print(f"common.pyの関数updateを実行しました。")
+        print(f"common.pyの関数updateを実行しました。")
         self.data = data if data is not None else self.data
         self.headers.update(headers or {})
         self.extensions.update(extensions or {})
         self.url = update_url_query(url or self.url, query or {})
 
     def copy(self):
+        print(f"common.pyの関数copyを実行しました。")
         print(f"common.pyの関数copyを実行しました。")
         print(f"common.pyの関数copyを実行しました。")
         print(f"common.pyの関数copyを実行しました。")
@@ -632,6 +652,7 @@ class Response(io.IOBase):
         print(f"common.pyの関数readableを実行しました。")
         print(f"common.pyの関数readableを実行しました。")
         print(f"common.pyの関数readableを実行しました。")
+        print(f"common.pyの関数readableを実行しました。")
         return self.fp.readable()
 
     def read(self, amt: int | None = None) -> bytes:
@@ -651,6 +672,7 @@ class Response(io.IOBase):
         return super().close()
 
     def get_header(self, name, default=None):
+        print(f"common.pyの関数get_headerを実行しました。")
         print(f"common.pyの関数get_headerを実行しました。")
         print(f"common.pyの関数get_headerを実行しました。")
         print(f"common.pyの関数get_headerを実行しました。")
@@ -677,10 +699,12 @@ class Response(io.IOBase):
         print(f"common.pyの関数getcodeを実行しました。")
         print(f"common.pyの関数getcodeを実行しました。")
         print(f"common.pyの関数getcodeを実行しました。")
+        print(f"common.pyの関数getcodeを実行しました。")
         deprecation_warning('Response.getcode() is deprecated, use Response.status', stacklevel=2)
         return self.status
 
     def geturl(self):
+        print(f"common.pyの関数geturlを実行しました。")
         print(f"common.pyの関数geturlを実行しました。")
         print(f"common.pyの関数geturlを実行しました。")
         print(f"common.pyの関数geturlを実行しました。")
@@ -693,10 +717,12 @@ class Response(io.IOBase):
         print(f"common.pyの関数infoを実行しました。")
         print(f"common.pyの関数infoを実行しました。")
         print(f"common.pyの関数infoを実行しました。")
+        print(f"common.pyの関数infoを実行しました。")
         deprecation_warning('Response.info() is deprecated, use Response.headers', stacklevel=2)
         return self.headers
 
     def getheader(self, name, default=None):
+        print(f"common.pyの関数getheaderを実行しました。")
         print(f"common.pyの関数getheaderを実行しました。")
         print(f"common.pyの関数getheaderを実行しました。")
         print(f"common.pyの関数getheaderを実行しました。")

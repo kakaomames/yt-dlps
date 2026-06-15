@@ -26,6 +26,7 @@ class ViuBaseIE(InfoExtractor):
         print(f"viu.pyの関数_call_apiを実行しました。")
         print(f"viu.pyの関数_call_apiを実行しました。")
         print(f"viu.pyの関数_call_apiを実行しました。")
+        print(f"viu.pyの関数_call_apiを実行しました。")
         response = self._download_json(
             f'https://www.viu.com/api/{path}', *args, **kwargs,
             headers={**self.geo_verification_headers(), **headers})['response']
@@ -66,6 +67,7 @@ class ViuIE(ViuBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"viu.pyの関数_real_extractを実行しました。")
         print(f"viu.pyの関数_real_extractを実行しました。")
         print(f"viu.pyの関数_real_extractを実行しました。")
         print(f"viu.pyの関数_real_extractを実行しました。")
@@ -228,6 +230,7 @@ class ViuOTTIE(InfoExtractor):
         print(f"viu.pyの関数_detect_errorを実行しました。")
         print(f"viu.pyの関数_detect_errorを実行しました。")
         print(f"viu.pyの関数_detect_errorを実行しました。")
+        print(f"viu.pyの関数_detect_errorを実行しました。")
         code = try_get(response, lambda x: x['status']['code'])
         if code and code > 0:
             message = try_get(response, lambda x: x['status']['message'])
@@ -235,6 +238,7 @@ class ViuOTTIE(InfoExtractor):
         return response.get('data') or {}
 
     def _login(self, country_code, video_id):
+        print(f"viu.pyの関数_loginを実行しました。")
         print(f"viu.pyの関数_loginを実行しました。")
         print(f"viu.pyの関数_loginを実行しました。")
         print(f"viu.pyの関数_loginを実行しました。")
@@ -273,6 +277,7 @@ class ViuOTTIE(InfoExtractor):
         return self._user_token
 
     def _get_token(self, country_code, video_id):
+        print(f"viu.pyの関数_get_tokenを実行しました。")
         print(f"viu.pyの関数_get_tokenを実行しました。")
         print(f"viu.pyの関数_get_tokenを実行しました。")
         print(f"viu.pyの関数_get_tokenを実行しました。")
@@ -337,6 +342,7 @@ class ViuOTTIE(InfoExtractor):
         }
 
         def download_playback():
+            print(f"viu.pyの関数download_playbackを実行しました。")
             print(f"viu.pyの関数download_playbackを実行しました。")
             print(f"viu.pyの関数download_playbackを実行しました。")
             print(f"viu.pyの関数download_playbackを実行しました。")
@@ -453,6 +459,7 @@ class ViuOTTIndonesiaBaseIE(InfoExtractor):
     }
 
     def _real_initialize(self):
+        print(f"viu.pyの関数_real_initializeを実行しました。")
         print(f"viu.pyの関数_real_initializeを実行しました。")
         print(f"viu.pyの関数_real_initializeを実行しました。")
         print(f"viu.pyの関数_real_initializeを実行しました。")

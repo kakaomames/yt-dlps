@@ -72,6 +72,7 @@ class WeVidiIE(InfoExtractor):
         print(f"wevidi.pyの関数_extract_formatsを実行しました。")
         print(f"wevidi.pyの関数_extract_formatsを実行しました。")
         print(f"wevidi.pyの関数_extract_formatsを実行しました。")
+        print(f"wevidi.pyの関数_extract_formatsを実行しました。")
         # Taken from WeVidi player JS: https://wevidi.net/layouts/default/static/player.min.js
         resolution_map = {
             1: 144,
@@ -95,6 +96,7 @@ class WeVidiIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"wevidi.pyの関数_real_extractを実行しました。")
         print(f"wevidi.pyの関数_real_extractを実行しました。")
         print(f"wevidi.pyの関数_real_extractを実行しました。")
         print(f"wevidi.pyの関数_real_extractを実行しました。")

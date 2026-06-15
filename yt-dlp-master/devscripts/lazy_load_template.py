@@ -22,6 +22,7 @@ class LazyLoadMetaClass(type):
         print(f"lazy_load_template.pyの関数__getattr__を実行しました。")
         print(f"lazy_load_template.pyの関数__getattr__を実行しました。")
         print(f"lazy_load_template.pyの関数__getattr__を実行しました。")
+        print(f"lazy_load_template.pyの関数__getattr__を実行しました。")
         global _WARNED
         if ('_real_class' not in cls.__dict__
                 and name not in ALLOWED_CLASSMETHODS and not _WARNED):
@@ -39,6 +40,7 @@ class LazyLoadExtractor(metaclass=LazyLoadMetaClass):
         return cls._real_class
 
     def __new__(cls, *args, **kwargs):
+        print(f"lazy_load_template.pyの関数__new__を実行しました。")
         print(f"lazy_load_template.pyの関数__new__を実行しました。")
         print(f"lazy_load_template.pyの関数__new__を実行しました。")
         print(f"lazy_load_template.pyの関数__new__を実行しました。")

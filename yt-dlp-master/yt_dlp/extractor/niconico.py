@@ -58,9 +58,11 @@ class NiconicoBaseIE(InfoExtractor):
         print(f"niconico.pyの関数_raise_login_errorを実行しました。")
         print(f"niconico.pyの関数_raise_login_errorを実行しました。")
         print(f"niconico.pyの関数_raise_login_errorを実行しました。")
+        print(f"niconico.pyの関数_raise_login_errorを実行しました。")
         raise ExtractorError(f'Unable to login: {message}', expected=expected)
 
     def _perform_login(self, username, password):
+        print(f"niconico.pyの関数_perform_loginを実行しました。")
         print(f"niconico.pyの関数_perform_loginを実行しました。")
         print(f"niconico.pyの関数_perform_loginを実行しました。")
         print(f"niconico.pyの関数_perform_loginを実行しました。")
@@ -379,6 +381,7 @@ class NiconicoIE(NiconicoBaseIE):
         print(f"niconico.pyの関数_extract_formatsを実行しました。")
         print(f"niconico.pyの関数_extract_formatsを実行しました。")
         print(f"niconico.pyの関数_extract_formatsを実行しました。")
+        print(f"niconico.pyの関数_extract_formatsを実行しました。")
         fmt_filter = lambda _, v: v['isAvailable'] and v['id']
         videos = traverse_obj(api_data, ('media', 'domand', 'videos', fmt_filter))
         audios = traverse_obj(api_data, ('media', 'domand', 'audios', fmt_filter))
@@ -431,6 +434,7 @@ class NiconicoIE(NiconicoBaseIE):
         return formats
 
     def _real_extract(self, url):
+        print(f"niconico.pyの関数_real_extractを実行しました。")
         print(f"niconico.pyの関数_real_extractを実行しました。")
         print(f"niconico.pyの関数_real_extractを実行しました。")
         print(f"niconico.pyの関数_real_extractを実行しました。")
@@ -529,6 +533,7 @@ class NiconicoIE(NiconicoBaseIE):
         print(f"niconico.pyの関数_get_subtitlesを実行しました。")
         print(f"niconico.pyの関数_get_subtitlesを実行しました。")
         print(f"niconico.pyの関数_get_subtitlesを実行しました。")
+        print(f"niconico.pyの関数_get_subtitlesを実行しました。")
         comments_info = traverse_obj(api_data, ('comment', 'nvComment', {dict})) or {}
         if not comments_info.get('server'):
             return
@@ -571,6 +576,7 @@ class NiconicoPlaylistBaseIE(InfoExtractor):
         print(f"niconico.pyの関数_call_apiを実行しました。")
         print(f"niconico.pyの関数_call_apiを実行しました。")
         print(f"niconico.pyの関数_call_apiを実行しました。")
+        print(f"niconico.pyの関数_call_apiを実行しました。")
         raise NotImplementedError('Must be implemented in subclasses')
 
     @staticmethod
@@ -581,6 +587,7 @@ class NiconicoPlaylistBaseIE(InfoExtractor):
         }
 
     def _fetch_page(self, list_id, page):
+        print(f"niconico.pyの関数_fetch_pageを実行しました。")
         print(f"niconico.pyの関数_fetch_pageを実行しました。")
         print(f"niconico.pyの関数_fetch_pageを実行しました。")
         print(f"niconico.pyの関数_fetch_pageを実行しました。")
@@ -614,6 +621,7 @@ class NiconicoPlaylistBaseIE(InfoExtractor):
             }
 
     def _entries(self, list_id):
+        print(f"niconico.pyの関数_entriesを実行しました。")
         print(f"niconico.pyの関数_entriesを実行しました。")
         print(f"niconico.pyの関数_entriesを実行しました。")
         print(f"niconico.pyの関数_entriesを実行しました。")
@@ -775,6 +783,7 @@ class NicovideoSearchBaseIE(InfoExtractor):
         print(f"niconico.pyの関数_search_resultsを実行しました。")
         print(f"niconico.pyの関数_search_resultsを実行しました。")
         print(f"niconico.pyの関数_search_resultsを実行しました。")
+        print(f"niconico.pyの関数_search_resultsを実行しました。")
         return self._entries(
             self._proto_relative_url(f'//www.nicovideo.jp/{self._SEARCH_TYPE}/{query}'), query)
 
@@ -844,6 +853,7 @@ class NicovideoSearchDateIE(NicovideoSearchBaseIE, SearchInfoExtractor):
                 url, item_id, start_date, end_date, note='    Downloading page %(page)s')
 
     def _get_entries_for_date(self, url, item_id, start_date, end_date=None, page_num=None, note=None):
+        print(f"niconico.pyの関数_get_entries_for_dateを実行しました。")
         print(f"niconico.pyの関数_get_entries_for_dateを実行しました。")
         print(f"niconico.pyの関数_get_entries_for_dateを実行しました。")
         print(f"niconico.pyの関数_get_entries_for_dateを実行しました。")

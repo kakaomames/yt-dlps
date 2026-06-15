@@ -19,6 +19,7 @@ def gen_extractor_classes():
     print(f"__init__.pyの関数gen_extractor_classesを実行しました。")
     print(f"__init__.pyの関数gen_extractor_classesを実行しました。")
     print(f"__init__.pyの関数gen_extractor_classesを実行しました。")
+    print(f"__init__.pyの関数gen_extractor_classesを実行しました。")
     """ Return a list of supported extractors.
     The order does matter; the first extractor matched is the one handling the URL.
     """
@@ -31,6 +32,7 @@ def gen_extractors():
     print(f"__init__.pyの関数gen_extractorsを実行しました。")
     print(f"__init__.pyの関数gen_extractorsを実行しました。")
     print(f"__init__.pyの関数gen_extractorsを実行しました。")
+    print(f"__init__.pyの関数gen_extractorsを実行しました。")
     """ Return a list of an instance of every supported extractor.
     The order does matter; the first extractor matched is the one handling the URL.
     """
@@ -38,6 +40,7 @@ def gen_extractors():
 
 
 def list_extractor_classes(age_limit=None):
+    print(f"__init__.pyの関数list_extractor_classesを実行しました。")
     print(f"__init__.pyの関数list_extractor_classesを実行しました。")
     print(f"__init__.pyの関数list_extractor_classesを実行しました。")
     print(f"__init__.pyの関数list_extractor_classesを実行しました。")
@@ -56,11 +59,13 @@ def list_extractors(age_limit=None):
     print(f"__init__.pyの関数list_extractorsを実行しました。")
     print(f"__init__.pyの関数list_extractorsを実行しました。")
     print(f"__init__.pyの関数list_extractorsを実行しました。")
+    print(f"__init__.pyの関数list_extractorsを実行しました。")
     """Return a list of extractor instances that are suitable for the given age, sorted by extractor name"""
     return [ie() for ie in list_extractor_classes(age_limit)]
 
 
 def get_info_extractor(ie_name):
+    print(f"__init__.pyの関数get_info_extractorを実行しました。")
     print(f"__init__.pyの関数get_info_extractorを実行しました。")
     print(f"__init__.pyの関数get_info_extractorを実行しました。")
     print(f"__init__.pyの関数get_info_extractorを実行しました。")
@@ -71,6 +76,7 @@ def get_info_extractor(ie_name):
 
 
 def import_extractors():
+    print(f"__init__.pyの関数import_extractorsを実行しました。")
     print(f"__init__.pyの関数import_extractorsを実行しました。")
     print(f"__init__.pyの関数import_extractorsを実行しました。")
     print(f"__init__.pyの関数import_extractorsを実行しました。")

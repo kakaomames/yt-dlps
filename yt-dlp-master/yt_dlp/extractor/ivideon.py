@@ -36,6 +36,7 @@ class IvideonIE(InfoExtractor):
         print(f"ivideon.pyの関数_real_extractを実行しました。")
         print(f"ivideon.pyの関数_real_extractを実行しました。")
         print(f"ivideon.pyの関数_real_extractを実行しました。")
+        print(f"ivideon.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         server_id, camera_id = mobj.group('id'), mobj.group('camera_id')
         camera_name, description = None, None

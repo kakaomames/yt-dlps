@@ -180,6 +180,7 @@ class ERRJupiterIE(InfoExtractor):
         print(f"err.pyの関数_real_extractを実行しました。")
         print(f"err.pyの関数_real_extractを実行しました。")
         print(f"err.pyの関数_real_extractを実行しました。")
+        print(f"err.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data = self._download_json(
             'https://services.err.ee/api/v2/vodContent/getContentPageData', video_id,

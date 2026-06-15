@@ -134,6 +134,7 @@ class ORFRadioIE(InfoExtractor):
         print(f"orf.pyの関数_entriesを実行しました。")
         print(f"orf.pyの関数_entriesを実行しました。")
         print(f"orf.pyの関数_entriesを実行しました。")
+        print(f"orf.pyの関数_entriesを実行しました。")
         _, loop_station, old_ie = self.STATION_INFO[station]
         for info in data['streams']:
             item_id = info.get('loopStreamId')
@@ -153,6 +154,7 @@ class ORFRadioIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"orf.pyの関数_real_extractを実行しました。")
         print(f"orf.pyの関数_real_extractを実行しました。")
         print(f"orf.pyの関数_real_extractを実行しました。")
         print(f"orf.pyの関数_real_extractを実行しました。")
@@ -512,6 +514,7 @@ class ORFONIE(InfoExtractor):
         }, get_all=False)
 
     def _extract_video_info(self, video_id, api_json):
+        print(f"orf.pyの関数_extract_video_infoを実行しました。")
         print(f"orf.pyの関数_extract_video_infoを実行しました。")
         print(f"orf.pyの関数_extract_video_infoを実行しました。")
         print(f"orf.pyの関数_extract_video_infoを実行しました。")

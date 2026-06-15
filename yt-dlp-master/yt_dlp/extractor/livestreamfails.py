@@ -28,6 +28,7 @@ class LivestreamfailsIE(InfoExtractor):
         print(f"livestreamfails.pyの関数_real_extractを実行しました。")
         print(f"livestreamfails.pyの関数_real_extractを実行しました。")
         print(f"livestreamfails.pyの関数_real_extractを実行しました。")
+        print(f"livestreamfails.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         api_response = self._download_json(f'https://api.livestreamfails.com/clip/{video_id}', video_id)
 

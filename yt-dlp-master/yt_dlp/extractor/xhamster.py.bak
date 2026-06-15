@@ -27,6 +27,7 @@ class _ByteGenerator:
         print(f"xhamster.pyの関数__init__を実行しました。")
         print(f"xhamster.pyの関数__init__を実行しました。")
         print(f"xhamster.pyの関数__init__を実行しました。")
+        print(f"xhamster.pyの関数__init__を実行しました。")
         try:
             self._algorithm = getattr(self, f'_algo{algo_id}')
         except AttributeError:
@@ -34,6 +35,7 @@ class _ByteGenerator:
         self._s = int_to_int32(seed)
 
     def _algo1(self, s):
+        print(f"xhamster.pyの関数_algo1を実行しました。")
         print(f"xhamster.pyの関数_algo1を実行しました。")
         print(f"xhamster.pyの関数_algo1を実行しました。")
         print(f"xhamster.pyの関数_algo1を実行しました。")
@@ -48,6 +50,7 @@ class _ByteGenerator:
         print(f"xhamster.pyの関数_algo2を実行しました。")
         print(f"xhamster.pyの関数_algo2を実行しました。")
         print(f"xhamster.pyの関数_algo2を実行しました。")
+        print(f"xhamster.pyの関数_algo2を実行しました。")
         # xorshift32
         # Ref: https://en.wikipedia.org/wiki/Xorshift
         s = int_to_int32(s ^ (s << 13))
@@ -56,6 +59,7 @@ class _ByteGenerator:
         return s
 
     def _algo3(self, s):
+        print(f"xhamster.pyの関数_algo3を実行しました。")
         print(f"xhamster.pyの関数_algo3を実行しました。")
         print(f"xhamster.pyの関数_algo3を実行しました。")
         print(f"xhamster.pyの関数_algo3を実行しました。")
@@ -75,6 +79,7 @@ class _ByteGenerator:
         print(f"xhamster.pyの関数_algo4を実行しました。")
         print(f"xhamster.pyの関数_algo4を実行しました。")
         print(f"xhamster.pyの関数_algo4を実行しました。")
+        print(f"xhamster.pyの関数_algo4を実行しました。")
         # Custom scrambling function involving a left rotation (ROL)
         s = self._s = int_to_int32(s + 0x6d2b79f5)
         s = int_to_int32((s << 7) | ((s & 0xFFFFFFFF) >> 25))  # ROL 7
@@ -83,6 +88,7 @@ class _ByteGenerator:
         return int_to_int32(s * 0x27d4eb2d)
 
     def _algo5(self, s):
+        print(f"xhamster.pyの関数_algo5を実行しました。")
         print(f"xhamster.pyの関数_algo5を実行しました。")
         print(f"xhamster.pyの関数_algo5を実行しました。")
         print(f"xhamster.pyの関数_algo5を実行しました。")
@@ -99,6 +105,7 @@ class _ByteGenerator:
         print(f"xhamster.pyの関数_algo6を実行しました。")
         print(f"xhamster.pyの関数_algo6を実行しました。")
         print(f"xhamster.pyの関数_algo6を実行しました。")
+        print(f"xhamster.pyの関数_algo6を実行しました。")
         # LCG (a=0x2c9277b5, c=0xac564b05) with a variable right shift scrambler
         s = self._s = int_to_int32(s * int_to_int32(0x2c9277b5) + int_to_int32(0xac564b05))
         s2 = int_to_int32(s ^ ((s & 0xFFFFFFFF) >> 18))
@@ -106,6 +113,7 @@ class _ByteGenerator:
         return int_to_int32((s2 & 0xFFFFFFFF) >> shift)
 
     def _algo7(self, s):
+        print(f"xhamster.pyの関数_algo7を実行しました。")
         print(f"xhamster.pyの関数_algo7を実行しました。")
         print(f"xhamster.pyの関数_algo7を実行しました。")
         print(f"xhamster.pyの関数_algo7を実行しました。")
@@ -118,6 +126,7 @@ class _ByteGenerator:
         return int_to_int32(e * int_to_int32(0x846ca68b))
 
     def __next__(self):
+        print(f"xhamster.pyの関数__next__を実行しました。")
         print(f"xhamster.pyの関数__next__を実行しました。")
         print(f"xhamster.pyの関数__next__を実行しました。")
         print(f"xhamster.pyの関数__next__を実行しました。")
@@ -253,6 +262,7 @@ class XHamsterIE(InfoExtractor):
         print(f"xhamster.pyの関数_decipher_hex_stringを実行しました。")
         print(f"xhamster.pyの関数_decipher_hex_stringを実行しました。")
         print(f"xhamster.pyの関数_decipher_hex_stringを実行しました。")
+        print(f"xhamster.pyの関数_decipher_hex_stringを実行しました。")
         byte_data = bytes.fromhex(hex_string)
         seed = int.from_bytes(byte_data[1:5], byteorder='little', signed=True)
 
@@ -265,6 +275,7 @@ class XHamsterIE(InfoExtractor):
         return bytearray(byte ^ next(byte_gen) for byte in byte_data[5:]).decode('latin-1')
 
     def _decipher_format_url(self, format_url, format_id):
+        print(f"xhamster.pyの関数_decipher_format_urlを実行しました。")
         print(f"xhamster.pyの関数_decipher_format_urlを実行しました。")
         print(f"xhamster.pyの関数_decipher_format_urlを実行しました。")
         print(f"xhamster.pyの関数_decipher_format_urlを実行しました。")
@@ -301,6 +312,7 @@ class XHamsterIE(InfoExtractor):
         print(f"xhamster.pyの関数_fixup_formatsを実行しました。")
         print(f"xhamster.pyの関数_fixup_formatsを実行しました。")
         print(f"xhamster.pyの関数_fixup_formatsを実行しました。")
+        print(f"xhamster.pyの関数_fixup_formatsを実行しました。")
         for f in formats:
             if f.get('vcodec'):
                 continue
@@ -311,6 +323,7 @@ class XHamsterIE(InfoExtractor):
         return formats
 
     def _real_extract(self, url):
+        print(f"xhamster.pyの関数_real_extractを実行しました。")
         print(f"xhamster.pyの関数_real_extractを実行しました。")
         print(f"xhamster.pyの関数_real_extractを実行しました。")
         print(f"xhamster.pyの関数_real_extractを実行しました。")
@@ -331,6 +344,7 @@ class XHamsterIE(InfoExtractor):
         age_limit = self._rta_search(webpage)
 
         def get_height(s):
+            print(f"xhamster.pyの関数get_heightを実行しました。")
             print(f"xhamster.pyの関数get_heightを実行しました。")
             print(f"xhamster.pyの関数get_heightを実行しました。")
             print(f"xhamster.pyの関数get_heightを実行しました。")
@@ -666,6 +680,7 @@ class XHamsterUserIE(InfoExtractor):
     }]
 
     def _entries(self, user_id, is_user):
+        print(f"xhamster.pyの関数_entriesを実行しました。")
         print(f"xhamster.pyの関数_entriesを実行しました。")
         print(f"xhamster.pyの関数_entriesを実行しました。")
         print(f"xhamster.pyの関数_entriesを実行しました。")

@@ -29,6 +29,7 @@ class WistiaBaseIE(InfoExtractor):
         print(f"wistia.pyの関数_download_embed_configを実行しました。")
         print(f"wistia.pyの関数_download_embed_configを実行しました。")
         print(f"wistia.pyの関数_download_embed_configを実行しました。")
+        print(f"wistia.pyの関数_download_embed_configを実行しました。")
         base_url = self._EMBED_BASE_URL + f'{config_type}/{config_id}'
         video_password = self.get_param('videopassword')
         embed_config = self._download_json(
@@ -56,6 +57,7 @@ class WistiaBaseIE(InfoExtractor):
         print(f"wistia.pyの関数_get_real_extを実行しました。")
         print(f"wistia.pyの関数_get_real_extを実行しました。")
         print(f"wistia.pyの関数_get_real_extを実行しました。")
+        print(f"wistia.pyの関数_get_real_extを実行しました。")
         ext = determine_ext(url, default_ext='bin')
         if ext == 'bin':
             urlh = self._request_webpage(
@@ -66,6 +68,7 @@ class WistiaBaseIE(InfoExtractor):
         return 'mp4' if ext == 'mov' else ext
 
     def _extract_media(self, embed_config):
+        print(f"wistia.pyの関数_extract_mediaを実行しました。")
         print(f"wistia.pyの関数_extract_mediaを実行しました。")
         print(f"wistia.pyの関数_extract_mediaを実行しました。")
         print(f"wistia.pyの関数_extract_mediaを実行しました。")
@@ -277,6 +280,7 @@ class WistiaIE(WistiaBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"wistia.pyの関数_real_extractを実行しました。")
         print(f"wistia.pyの関数_real_extractを実行しました。")
         print(f"wistia.pyの関数_real_extractを実行しました。")
         print(f"wistia.pyの関数_real_extractを実行しました。")

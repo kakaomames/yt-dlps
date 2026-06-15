@@ -25,6 +25,7 @@ class JeuxVideoIE(InfoExtractor):
         print(f"jeuxvideo.pyの関数_real_extractを実行しました。")
         print(f"jeuxvideo.pyの関数_real_extractを実行しました。")
         print(f"jeuxvideo.pyの関数_real_extractを実行しました。")
+        print(f"jeuxvideo.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         title = mobj.group(1)
         webpage = self._download_webpage(url, title)

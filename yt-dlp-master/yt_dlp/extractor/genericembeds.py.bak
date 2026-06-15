@@ -24,6 +24,7 @@ class HTML5MediaEmbedIE(InfoExtractor):
         print(f"genericembeds.pyの関数_extract_from_webpageを実行しました。")
         print(f"genericembeds.pyの関数_extract_from_webpageを実行しました。")
         print(f"genericembeds.pyの関数_extract_from_webpageを実行しました。")
+        print(f"genericembeds.pyの関数_extract_from_webpageを実行しました。")
         video_id, title = self._generic_id(url), self._generic_title(url, webpage)
         entries = self._parse_html5_media_entries(url, webpage, video_id, m3u8_id='hls') or []
         for num, entry in enumerate(entries, start=1):

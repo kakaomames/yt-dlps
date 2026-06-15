@@ -34,6 +34,7 @@ class HollywoodReporterIE(InfoExtractor):
         print(f"hollywoodreporter.pyの関数_real_extractを実行しました。")
         print(f"hollywoodreporter.pyの関数_real_extractを実行しました。")
         print(f"hollywoodreporter.pyの関数_real_extractを実行しました。")
+        print(f"hollywoodreporter.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
 
@@ -61,6 +62,7 @@ class HollywoodReporterPlaylistIE(InfoExtractor):
     }]
 
     def _fetch_page(self, slug, pl_id, page):
+        print(f"hollywoodreporter.pyの関数_fetch_pageを実行しました。")
         print(f"hollywoodreporter.pyの関数_fetch_pageを実行しました。")
         print(f"hollywoodreporter.pyの関数_fetch_pageを実行しました。")
         print(f"hollywoodreporter.pyの関数_fetch_pageを実行しました。")

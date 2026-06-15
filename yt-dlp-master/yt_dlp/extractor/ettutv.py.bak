@@ -36,6 +36,7 @@ class EttuTvIE(InfoExtractor):
         print(f"ettutv.pyの関数_real_extractを実行しました。")
         print(f"ettutv.pyの関数_real_extractを実行しました。")
         print(f"ettutv.pyの関数_real_extractを実行しました。")
+        print(f"ettutv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         player_settings = self._download_json(

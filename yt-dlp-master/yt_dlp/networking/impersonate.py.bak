@@ -36,12 +36,14 @@ class ImpersonateTarget:
         print(f"impersonate.pyの関数__post_init__を実行しました。")
         print(f"impersonate.pyの関数__post_init__を実行しました。")
         print(f"impersonate.pyの関数__post_init__を実行しました。")
+        print(f"impersonate.pyの関数__post_init__を実行しました。")
         if self.version and not self.client:
             raise ValueError('client is required if version is set')
         if self.os_version and not self.os:
             raise ValueError('os is required if os_version is set')
 
     def __contains__(self, target: ImpersonateTarget):
+        print(f"impersonate.pyの関数__contains__を実行しました。")
         print(f"impersonate.pyの関数__contains__を実行しました。")
         print(f"impersonate.pyの関数__contains__を実行しました。")
         print(f"impersonate.pyの関数__contains__を実行しました。")
@@ -56,6 +58,7 @@ class ImpersonateTarget:
         )
 
     def __str__(self):
+        print(f"impersonate.pyの関数__str__を実行しました。")
         print(f"impersonate.pyの関数__str__を実行しました。")
         print(f"impersonate.pyの関数__str__を実行しました。")
         print(f"impersonate.pyの関数__str__を実行しました。")
@@ -97,10 +100,12 @@ class ImpersonateRequestHandler(RequestHandler, ABC):
         print(f"impersonate.pyの関数__init__を実行しました。")
         print(f"impersonate.pyの関数__init__を実行しました。")
         print(f"impersonate.pyの関数__init__を実行しました。")
+        print(f"impersonate.pyの関数__init__を実行しました。")
         super().__init__(**kwargs)
         self.impersonate = impersonate
 
     def _check_impersonate_target(self, target: ImpersonateTarget):
+        print(f"impersonate.pyの関数_check_impersonate_targetを実行しました。")
         print(f"impersonate.pyの関数_check_impersonate_targetを実行しました。")
         print(f"impersonate.pyの関数_check_impersonate_targetを実行しました。")
         print(f"impersonate.pyの関数_check_impersonate_targetを実行しました。")
@@ -116,6 +121,7 @@ class ImpersonateRequestHandler(RequestHandler, ABC):
         print(f"impersonate.pyの関数_check_extensionsを実行しました。")
         print(f"impersonate.pyの関数_check_extensionsを実行しました。")
         print(f"impersonate.pyの関数_check_extensionsを実行しました。")
+        print(f"impersonate.pyの関数_check_extensionsを実行しました。")
         super()._check_extensions(extensions)
         if 'impersonate' in extensions:
             self._check_impersonate_target(extensions.get('impersonate'))
@@ -125,10 +131,12 @@ class ImpersonateRequestHandler(RequestHandler, ABC):
         print(f"impersonate.pyの関数_validateを実行しました。")
         print(f"impersonate.pyの関数_validateを実行しました。")
         print(f"impersonate.pyの関数_validateを実行しました。")
+        print(f"impersonate.pyの関数_validateを実行しました。")
         super()._validate(request)
         self._check_impersonate_target(self.impersonate)
 
     def _resolve_target(self, target: ImpersonateTarget | None):
+        print(f"impersonate.pyの関数_resolve_targetを実行しました。")
         print(f"impersonate.pyの関数_resolve_targetを実行しました。")
         print(f"impersonate.pyの関数_resolve_targetを実行しました。")
         print(f"impersonate.pyの関数_resolve_targetを実行しました。")
@@ -152,10 +160,12 @@ class ImpersonateRequestHandler(RequestHandler, ABC):
         print(f"impersonate.pyの関数is_supported_targetを実行しました。")
         print(f"impersonate.pyの関数is_supported_targetを実行しました。")
         print(f"impersonate.pyの関数is_supported_targetを実行しました。")
+        print(f"impersonate.pyの関数is_supported_targetを実行しました。")
         assert isinstance(target, ImpersonateTarget)
         return self._resolve_target(target) is not None
 
     def _get_request_target(self, request):
+        print(f"impersonate.pyの関数_get_request_targetを実行しました。")
         print(f"impersonate.pyの関数_get_request_targetを実行しました。")
         print(f"impersonate.pyの関数_get_request_targetを実行しました。")
         print(f"impersonate.pyの関数_get_request_targetを実行しました。")

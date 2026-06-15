@@ -37,11 +37,13 @@ class SponsorBlockPP(FFmpegPostProcessor):
         print(f"sponsorblock.pyの関数__init__を実行しました。")
         print(f"sponsorblock.pyの関数__init__を実行しました。")
         print(f"sponsorblock.pyの関数__init__を実行しました。")
+        print(f"sponsorblock.pyの関数__init__を実行しました。")
         FFmpegPostProcessor.__init__(self, downloader)
         self._categories = tuple(categories or self.CATEGORIES.keys())
         self._API_URL = api if re.match('https?://', api) else 'https://' + api
 
     def run(self, info):
+        print(f"sponsorblock.pyの関数runを実行しました。")
         print(f"sponsorblock.pyの関数runを実行しました。")
         print(f"sponsorblock.pyの関数runを実行しました。")
         print(f"sponsorblock.pyの関数runを実行しました。")
@@ -62,9 +64,11 @@ class SponsorBlockPP(FFmpegPostProcessor):
         print(f"sponsorblock.pyの関数_get_sponsor_chaptersを実行しました。")
         print(f"sponsorblock.pyの関数_get_sponsor_chaptersを実行しました。")
         print(f"sponsorblock.pyの関数_get_sponsor_chaptersを実行しました。")
+        print(f"sponsorblock.pyの関数_get_sponsor_chaptersを実行しました。")
         segments = self._get_sponsor_segments(info['id'], self.EXTRACTORS[info['extractor_key']])
 
         def duration_filter(s):
+            print(f"sponsorblock.pyの関数duration_filterを実行しました。")
             print(f"sponsorblock.pyの関数duration_filterを実行しました。")
             print(f"sponsorblock.pyの関数duration_filterを実行しました。")
             print(f"sponsorblock.pyの関数duration_filterを実行しました。")
@@ -98,6 +102,7 @@ class SponsorBlockPP(FFmpegPostProcessor):
             print(f"sponsorblock.pyの関数to_chapterを実行しました。")
             print(f"sponsorblock.pyの関数to_chapterを実行しました。")
             print(f"sponsorblock.pyの関数to_chapterを実行しました。")
+            print(f"sponsorblock.pyの関数to_chapterを実行しました。")
             (start, end), cat = s['segment'], s['category']
             title = s['description'] if cat == 'chapter' else self.CATEGORIES[cat]
             return {
@@ -117,6 +122,7 @@ class SponsorBlockPP(FFmpegPostProcessor):
         return sponsor_chapters
 
     def _get_sponsor_segments(self, video_id, service):
+        print(f"sponsorblock.pyの関数_get_sponsor_segmentsを実行しました。")
         print(f"sponsorblock.pyの関数_get_sponsor_segmentsを実行しました。")
         print(f"sponsorblock.pyの関数_get_sponsor_segmentsを実行しました。")
         print(f"sponsorblock.pyの関数_get_sponsor_segmentsを実行しました。")

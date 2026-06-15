@@ -26,6 +26,7 @@ class DPlayBaseIE(InfoExtractor):
         print(f"dplay.pyの関数_get_authを実行しました。")
         print(f"dplay.pyの関数_get_authを実行しました。")
         print(f"dplay.pyの関数_get_authを実行しました。")
+        print(f"dplay.pyの関数_get_authを実行しました。")
         key = (disco_base, realm)
         st = self._get_cookies(disco_base).get('st')
         token = (st and st.value) or self._auth_token_cache.get(key)
@@ -50,6 +51,7 @@ class DPlayBaseIE(InfoExtractor):
         print(f"dplay.pyの関数_process_errorsを実行しました。")
         print(f"dplay.pyの関数_process_errorsを実行しました。")
         print(f"dplay.pyの関数_process_errorsを実行しました。")
+        print(f"dplay.pyの関数_process_errorsを実行しました。")
         info = self._parse_json(e.cause.response.read().decode('utf-8'), None)
         error = info['errors'][0]
         error_code = error.get('code')
@@ -66,9 +68,11 @@ class DPlayBaseIE(InfoExtractor):
         print(f"dplay.pyの関数_update_disco_api_headersを実行しました。")
         print(f"dplay.pyの関数_update_disco_api_headersを実行しました。")
         print(f"dplay.pyの関数_update_disco_api_headersを実行しました。")
+        print(f"dplay.pyの関数_update_disco_api_headersを実行しました。")
         headers['Authorization'] = self._get_auth(disco_base, display_id, realm, False)
 
     def _download_video_playback_info(self, disco_base, video_id, headers):
+        print(f"dplay.pyの関数_download_video_playback_infoを実行しました。")
         print(f"dplay.pyの関数_download_video_playback_infoを実行しました。")
         print(f"dplay.pyの関数_download_video_playback_infoを実行しました。")
         print(f"dplay.pyの関数_download_video_playback_infoを実行しました。")
@@ -86,6 +90,7 @@ class DPlayBaseIE(InfoExtractor):
         return streaming_list
 
     def _get_disco_api_info(self, url, display_id, disco_host, realm, country, domain=''):
+        print(f"dplay.pyの関数_get_disco_api_infoを実行しました。")
         print(f"dplay.pyの関数_get_disco_api_infoを実行しました。")
         print(f"dplay.pyの関数_get_disco_api_infoを実行しました。")
         print(f"dplay.pyの関数_get_disco_api_infoを実行しました。")
@@ -336,6 +341,7 @@ class DPlayIE(DPlayBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"dplay.pyの関数_real_extractを実行しました。")
         print(f"dplay.pyの関数_real_extractを実行しました。")
         print(f"dplay.pyの関数_real_extractを実行しました。")
         print(f"dplay.pyの関数_real_extractを実行しました。")
@@ -1234,6 +1240,7 @@ class DiscoveryNetworksDeIE(DiscoveryPlusBaseIE):
 class DiscoveryPlusShowBaseIE(DPlayBaseIE):
 
     def _entries(self, show_name):
+        print(f"dplay.pyの関数_entriesを実行しました。")
         print(f"dplay.pyの関数_entriesを実行しました。")
         print(f"dplay.pyの関数_entriesを実行しました。")
         print(f"dplay.pyの関数_entriesを実行しました。")

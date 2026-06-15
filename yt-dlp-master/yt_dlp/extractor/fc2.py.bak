@@ -62,6 +62,7 @@ class FC2IE(InfoExtractor):
         print(f"fc2.pyの関数_loginを実行しました。")
         print(f"fc2.pyの関数_loginを実行しました。")
         print(f"fc2.pyの関数_loginを実行しました。")
+        print(f"fc2.pyの関数_loginを実行しました。")
         username, password = self._get_login_info()
         if username is None or password is None:
             return False
@@ -91,6 +92,7 @@ class FC2IE(InfoExtractor):
         return True
 
     def _real_extract(self, url):
+        print(f"fc2.pyの関数_real_extractを実行しました。")
         print(f"fc2.pyの関数_real_extractを実行しました。")
         print(f"fc2.pyの関数_real_extractを実行しました。")
         print(f"fc2.pyの関数_real_extractを実行しました。")

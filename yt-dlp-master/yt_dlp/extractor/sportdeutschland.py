@@ -111,6 +111,7 @@ class SportDeutschlandIE(InfoExtractor):
         print(f"sportdeutschland.pyの関数_process_videoを実行しました。")
         print(f"sportdeutschland.pyの関数_process_videoを実行しました。")
         print(f"sportdeutschland.pyの関数_process_videoを実行しました。")
+        print(f"sportdeutschland.pyの関数_process_videoを実行しました。")
         is_live = video['type'] == 'mux_live'
         token = self._download_json(
             f'https://api.sporteurope.tv/api/web/personal/asset-token/{asset_id}',
@@ -131,6 +132,7 @@ class SportDeutschlandIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"sportdeutschland.pyの関数_real_extractを実行しました。")
         print(f"sportdeutschland.pyの関数_real_extractを実行しました。")
         print(f"sportdeutschland.pyの関数_real_extractを実行しました。")
         print(f"sportdeutschland.pyの関数_real_extractを実行しました。")

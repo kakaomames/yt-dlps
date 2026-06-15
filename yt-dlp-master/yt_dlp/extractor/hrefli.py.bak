@@ -16,4 +16,5 @@ class HrefLiRedirectIE(InfoExtractor):
         print(f"hrefli.pyの関数_real_extractを実行しました。")
         print(f"hrefli.pyの関数_real_extractを実行しました。")
         print(f"hrefli.pyの関数_real_extractを実行しました。")
+        print(f"hrefli.pyの関数_real_extractを実行しました。")
         return self.url_result(self._match_valid_url(url).group('url'))

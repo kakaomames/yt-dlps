@@ -24,6 +24,7 @@ class SVTBaseIE(InfoExtractor):
         print(f"svt.pyの関数_extract_videoを実行しました。")
         print(f"svt.pyの関数_extract_videoを実行しました。")
         print(f"svt.pyの関数_extract_videoを実行しました。")
+        print(f"svt.pyの関数_extract_videoを実行しました。")
         is_live = dict_get(video_info, ('live', 'simulcast'), default=False)
         m3u8_protocol = 'm3u8' if is_live else 'm3u8_native'
         formats = []
@@ -248,6 +249,7 @@ class SVTPlayIE(SVTBaseIE):
         print(f"svt.pyの関数_extract_by_video_idを実行しました。")
         print(f"svt.pyの関数_extract_by_video_idを実行しました。")
         print(f"svt.pyの関数_extract_by_video_idを実行しました。")
+        print(f"svt.pyの関数_extract_by_video_idを実行しました。")
         data = self._download_json(
             f'https://api.svt.se/videoplayer-api/video/{video_id}',
             video_id, headers=self.geo_verification_headers())
@@ -259,6 +261,7 @@ class SVTPlayIE(SVTBaseIE):
         return info_dict
 
     def _real_extract(self, url):
+        print(f"svt.pyの関数_real_extractを実行しました。")
         print(f"svt.pyの関数_real_extractを実行しました。")
         print(f"svt.pyの関数_real_extractを実行しました。")
         print(f"svt.pyの関数_real_extractを実行しました。")
@@ -475,6 +478,7 @@ class SVTPageIE(SVTBaseIE):
         data = traverse_obj(urql_state, (..., 'data', {str}, {json.loads}), get_all=False) or {}
 
         def entries():
+            print(f"svt.pyの関数entriesを実行しました。")
             print(f"svt.pyの関数entriesを実行しました。")
             print(f"svt.pyの関数entriesを実行しました。")
             print(f"svt.pyの関数entriesを実行しました。")

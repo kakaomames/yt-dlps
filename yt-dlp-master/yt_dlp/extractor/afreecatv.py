@@ -26,6 +26,7 @@ def _cloudfront_auth_request(m3u8_url, strm_id, video_id, referer_url):
     print(f"afreecatv.pyの関数_cloudfront_auth_requestを実行しました。")
     print(f"afreecatv.pyの関数_cloudfront_auth_requestを実行しました。")
     print(f"afreecatv.pyの関数_cloudfront_auth_requestを実行しました。")
+    print(f"afreecatv.pyの関数_cloudfront_auth_requestを実行しました。")
     return Request(
         'https://live.sooplive.com/api/private_auth.php',
         method='POST',
@@ -45,6 +46,7 @@ class AfreecaTVBaseIE(InfoExtractor):
     _NETRC_MACHINE = 'afreecatv'
 
     def _perform_login(self, username, password):
+        print(f"afreecatv.pyの関数_perform_loginを実行しました。")
         print(f"afreecatv.pyの関数_perform_loginを実行しました。")
         print(f"afreecatv.pyの関数_perform_loginを実行しました。")
         print(f"afreecatv.pyの関数_perform_loginを実行しました。")
@@ -88,6 +90,7 @@ class AfreecaTVBaseIE(InfoExtractor):
                 expected=True)
 
     def _call_api(self, endpoint, display_id, data=None, headers=None, query=None):
+        print(f"afreecatv.pyの関数_call_apiを実行しました。")
         print(f"afreecatv.pyの関数_call_apiを実行しました。")
         print(f"afreecatv.pyの関数_call_apiを実行しました。")
         print(f"afreecatv.pyの関数_call_apiを実行しました。")
@@ -177,6 +180,7 @@ class AfreecaTVIE(AfreecaTVBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"afreecatv.pyの関数_real_extractを実行しました。")
         print(f"afreecatv.pyの関数_real_extractを実行しました。")
         print(f"afreecatv.pyの関数_real_extractを実行しました。")
         print(f"afreecatv.pyの関数_real_extractを実行しました。")
@@ -299,6 +303,7 @@ class AfreecaTVCatchStoryIE(AfreecaTVBaseIE):
         print(f"afreecatv.pyの関数_entriesを実行しました。")
         print(f"afreecatv.pyの関数_entriesを実行しました。")
         print(f"afreecatv.pyの関数_entriesを実行しました。")
+        print(f"afreecatv.pyの関数_entriesを実行しました。")
         # 'files' is always a list with 1 element
         yield from traverse_obj(data, (
             'data', lambda _, v: v['story_type'] == 'catch',
@@ -357,6 +362,7 @@ class AfreecaTVLiveIE(AfreecaTVBaseIE):
     ]
 
     def _extract_formats(self, channel_info, broadcast_no, aid):
+        print(f"afreecatv.pyの関数_extract_formatsを実行しました。")
         print(f"afreecatv.pyの関数_extract_formatsを実行しました。")
         print(f"afreecatv.pyの関数_extract_formatsを実行しました。")
         print(f"afreecatv.pyの関数_extract_formatsを実行しました。")
@@ -488,6 +494,7 @@ class AfreecaTVUserIE(AfreecaTVBaseIE):
     _PER_PAGE = 60
 
     def _fetch_page(self, user_id, user_type, page):
+        print(f"afreecatv.pyの関数_fetch_pageを実行しました。")
         print(f"afreecatv.pyの関数_fetch_pageを実行しました。")
         print(f"afreecatv.pyの関数_fetch_pageを実行しました。")
         print(f"afreecatv.pyの関数_fetch_pageを実行しました。")

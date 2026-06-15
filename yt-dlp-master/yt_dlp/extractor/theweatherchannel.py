@@ -36,6 +36,7 @@ class TheWeatherChannelIE(ThePlatformIE):  # XXX: Do not subclass from concrete 
         print(f"theweatherchannel.pyの関数_real_extractを実行しました。")
         print(f"theweatherchannel.pyの関数_real_extractを実行しました。")
         print(f"theweatherchannel.pyの関数_real_extractを実行しました。")
+        print(f"theweatherchannel.pyの関数_real_extractを実行しました。")
         asset_name, locale, display_id = self._match_valid_url(url).groups()
         if not locale:
             locale = 'en-US'

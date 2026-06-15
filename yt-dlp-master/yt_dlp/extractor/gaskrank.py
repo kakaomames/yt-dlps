@@ -45,6 +45,7 @@ class GaskrankIE(InfoExtractor):
         print(f"gaskrank.pyの関数_real_extractを実行しました。")
         print(f"gaskrank.pyの関数_real_extractを実行しました。")
         print(f"gaskrank.pyの関数_real_extractを実行しました。")
+        print(f"gaskrank.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         webpage = self._download_webpage(url, display_id)

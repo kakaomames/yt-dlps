@@ -35,6 +35,7 @@ class SmotrimBaseIE(InfoExtractor):
         print(f"smotrim.pyの関数_extract_from_smotrim_apiを実行しました。")
         print(f"smotrim.pyの関数_extract_from_smotrim_apiを実行しました。")
         print(f"smotrim.pyの関数_extract_from_smotrim_apiを実行しました。")
+        print(f"smotrim.pyの関数_extract_from_smotrim_apiを実行しました。")
         path = f'data{typ.replace("-", "")}/{"uid" if typ == "live" else "id"}'
         data = self._download_json(
             f'https://player.smotrim.ru/iframe/{path}/{item_id}/sid/smotrim', item_id)
@@ -186,6 +187,7 @@ class SmotrimIE(SmotrimBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"smotrim.pyの関数_real_extractを実行しました。")
         print(f"smotrim.pyの関数_real_extractを実行しました。")
         print(f"smotrim.pyの関数_real_extractを実行しました。")
         print(f"smotrim.pyの関数_real_extractを実行しました。")
@@ -375,6 +377,7 @@ class SmotrimPlaylistIE(SmotrimBaseIE):
     }]
 
     def _fetch_page(self, endpoint, key, playlist_id, page):
+        print(f"smotrim.pyの関数_fetch_pageを実行しました。")
         print(f"smotrim.pyの関数_fetch_pageを実行しました。")
         print(f"smotrim.pyの関数_fetch_pageを実行しました。")
         print(f"smotrim.pyの関数_fetch_pageを実行しました。")

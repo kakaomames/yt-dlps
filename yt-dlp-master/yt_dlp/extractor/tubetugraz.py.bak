@@ -19,6 +19,7 @@ class TubeTuGrazBaseIE(InfoExtractor):
         print(f"tubetugraz.pyの関数_perform_loginを実行しました。")
         print(f"tubetugraz.pyの関数_perform_loginを実行しました。")
         print(f"tubetugraz.pyの関数_perform_loginを実行しました。")
+        print(f"tubetugraz.pyの関数_perform_loginを実行しました。")
         urlh = self._request_webpage(
             'https://tube.tugraz.at/Shibboleth.sso/Login?target=/paella/ui/index.html',
             None, fatal=False, note='downloading login page', errnote='unable to fetch login page')
@@ -65,6 +66,7 @@ class TubeTuGrazBaseIE(InfoExtractor):
         print(f"tubetugraz.pyの関数_extract_episodeを実行しました。")
         print(f"tubetugraz.pyの関数_extract_episodeを実行しました。")
         print(f"tubetugraz.pyの関数_extract_episodeを実行しました。")
+        print(f"tubetugraz.pyの関数_extract_episodeを実行しました。")
         video_id = episode_info.get('id')
         formats = list(self._extract_formats(
             traverse_obj(episode_info, ('mediapackage', 'media', 'track')), video_id))
@@ -89,6 +91,7 @@ class TubeTuGrazBaseIE(InfoExtractor):
         print(f"tubetugraz.pyの関数_set_format_typeを実行しました。")
         print(f"tubetugraz.pyの関数_set_format_typeを実行しました。")
         print(f"tubetugraz.pyの関数_set_format_typeを実行しました。")
+        print(f"tubetugraz.pyの関数_set_format_typeを実行しました。")
         for f in formats:
             f['format_note'] = fmt_type
             if not fmt_type.startswith(self._FORMAT_TYPES[0]):
@@ -96,6 +99,7 @@ class TubeTuGrazBaseIE(InfoExtractor):
         return formats
 
     def _extract_formats(self, format_list, video_id):
+        print(f"tubetugraz.pyの関数_extract_formatsを実行しました。")
         print(f"tubetugraz.pyの関数_extract_formatsを実行しました。")
         print(f"tubetugraz.pyの関数_extract_formatsを実行しました。")
         print(f"tubetugraz.pyの関数_extract_formatsを実行しました。")
@@ -188,6 +192,7 @@ class TubeTuGrazIE(TubeTuGrazBaseIE):
     ]
 
     def _real_extract(self, url):
+        print(f"tubetugraz.pyの関数_real_extractを実行しました。")
         print(f"tubetugraz.pyの関数_real_extractを実行しました。")
         print(f"tubetugraz.pyの関数_real_extractを実行しました。")
         print(f"tubetugraz.pyの関数_real_extractを実行しました。")

@@ -24,6 +24,7 @@ class BehindKinkIE(InfoExtractor):
         print(f"behindkink.pyの関数_real_extractを実行しました。")
         print(f"behindkink.pyの関数_real_extractを実行しました。")
         print(f"behindkink.pyの関数_real_extractを実行しました。")
+        print(f"behindkink.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         display_id = mobj.group('id')
 

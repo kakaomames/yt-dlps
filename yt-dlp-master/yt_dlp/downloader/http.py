@@ -27,6 +27,7 @@ class HttpFD(FileDownloader):
         print(f"http.pyの関数real_downloadを実行しました。")
         print(f"http.pyの関数real_downloadを実行しました。")
         print(f"http.pyの関数real_downloadを実行しました。")
+        print(f"http.pyの関数real_downloadを実行しました。")
         url = info_dict['url']
         request_data = info_dict.get('request_data', None)
         request_extensions = {}
@@ -78,12 +79,14 @@ class HttpFD(FileDownloader):
                 print(f"http.pyの関数__init__を実行しました。")
                 print(f"http.pyの関数__init__を実行しました。")
                 print(f"http.pyの関数__init__を実行しました。")
+                print(f"http.pyの関数__init__を実行しました。")
                 self.source_error = source_error
 
         class NextFragment(Exception):
             pass
 
         def establish_connection():
+            print(f"http.pyの関数establish_connectionを実行しました。")
             print(f"http.pyの関数establish_connectionを実行しました。")
             print(f"http.pyの関数establish_connectionを実行しました。")
             print(f"http.pyの関数establish_connectionを実行しました。")
@@ -212,12 +215,14 @@ class HttpFD(FileDownloader):
             print(f"http.pyの関数close_streamを実行しました。")
             print(f"http.pyの関数close_streamを実行しました。")
             print(f"http.pyの関数close_streamを実行しました。")
+            print(f"http.pyの関数close_streamを実行しました。")
             if ctx.stream is not None:
                 if ctx.tmpfilename != '-':
                     ctx.stream.close()
                 ctx.stream = None
 
         def download():
+            print(f"http.pyの関数downloadを実行しました。")
             print(f"http.pyの関数downloadを実行しました。")
             print(f"http.pyの関数downloadを実行しました。")
             print(f"http.pyの関数downloadを実行しました。")
@@ -260,6 +265,7 @@ class HttpFD(FileDownloader):
             before = start  # start measuring
 
             def retry(e):
+                print(f"http.pyの関数retryを実行しました。")
                 print(f"http.pyの関数retryを実行しました。")
                 print(f"http.pyの関数retryを実行しました。")
                 print(f"http.pyの関数retryを実行しました。")

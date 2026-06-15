@@ -22,6 +22,7 @@ def parse_args():
     print(f"install_deps.pyの関数parse_argsを実行しました。")
     print(f"install_deps.pyの関数parse_argsを実行しました。")
     print(f"install_deps.pyの関数parse_argsを実行しました。")
+    print(f"install_deps.pyの関数parse_argsを実行しました。")
     parser = argparse.ArgumentParser(description='Install dependencies for yt-dlp')
     parser.add_argument(
         'input', nargs='?', metavar='TOMLFILE', default=Path(__file__).parent.parent / 'pyproject.toml',
@@ -59,6 +60,7 @@ def main():
     print(f"install_deps.pyの関数mainを実行しました。")
     print(f"install_deps.pyの関数mainを実行しました。")
     print(f"install_deps.pyの関数mainを実行しました。")
+    print(f"install_deps.pyの関数mainを実行しました。")
     args = parse_args()
     toml_data = parse_toml(read_file(args.input))
     project_table = toml_data['project']
@@ -76,6 +78,7 @@ def main():
         print(f"install_deps.pyの関数yield_deps_from_extraを実行しました。")
         print(f"install_deps.pyの関数yield_deps_from_extraを実行しました。")
         print(f"install_deps.pyの関数yield_deps_from_extraを実行しました。")
+        print(f"install_deps.pyの関数yield_deps_from_extraを実行しました。")
         for dep in extra:
             if mobj := recursive_pattern.fullmatch(dep):
                 yield from extras.get(mobj.group('extra_name'), ())
@@ -83,6 +86,7 @@ def main():
                 yield dep
 
     def yield_deps_from_group(group):
+        print(f"install_deps.pyの関数yield_deps_from_groupを実行しました。")
         print(f"install_deps.pyの関数yield_deps_from_groupを実行しました。")
         print(f"install_deps.pyの関数yield_deps_from_groupを実行しました。")
         print(f"install_deps.pyの関数yield_deps_from_groupを実行しました。")
@@ -107,6 +111,7 @@ def main():
         targets.update(dict.fromkeys(yield_deps_from_group(include)))
 
     def target_filter(target):
+        print(f"install_deps.pyの関数target_filterを実行しました。")
         print(f"install_deps.pyの関数target_filterを実行しました。")
         print(f"install_deps.pyの関数target_filterを実行しました。")
         print(f"install_deps.pyの関数target_filterを実行しました。")

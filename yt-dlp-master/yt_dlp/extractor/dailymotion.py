@@ -37,6 +37,7 @@ class DailymotionBaseInfoExtractor(InfoExtractor):
         print(f"dailymotion.pyの関数_get_dailymotion_cookiesを実行しました。")
         print(f"dailymotion.pyの関数_get_dailymotion_cookiesを実行しました。")
         print(f"dailymotion.pyの関数_get_dailymotion_cookiesを実行しました。")
+        print(f"dailymotion.pyの関数_get_dailymotion_cookiesを実行しました。")
         return self._get_cookies('https://www.dailymotion.com/')
 
     @staticmethod
@@ -51,9 +52,11 @@ class DailymotionBaseInfoExtractor(InfoExtractor):
         print(f"dailymotion.pyの関数_set_dailymotion_cookieを実行しました。")
         print(f"dailymotion.pyの関数_set_dailymotion_cookieを実行しました。")
         print(f"dailymotion.pyの関数_set_dailymotion_cookieを実行しました。")
+        print(f"dailymotion.pyの関数_set_dailymotion_cookieを実行しました。")
         self._set_cookie('www.dailymotion.com', name, value)
 
     def _real_initialize(self):
+        print(f"dailymotion.pyの関数_real_initializeを実行しました。")
         print(f"dailymotion.pyの関数_real_initializeを実行しました。")
         print(f"dailymotion.pyの関数_real_initializeを実行しました。")
         print(f"dailymotion.pyの関数_real_initializeを実行しました。")
@@ -65,6 +68,7 @@ class DailymotionBaseInfoExtractor(InfoExtractor):
         self._set_dailymotion_cookie('ff', 'on' if self._FAMILY_FILTER else 'off')
 
     def _get_token(self, xid):
+        print(f"dailymotion.pyの関数_get_tokenを実行しました。")
         print(f"dailymotion.pyの関数_get_tokenを実行しました。")
         print(f"dailymotion.pyの関数_get_tokenを実行しました。")
         print(f"dailymotion.pyの関数_get_tokenを実行しました。")
@@ -102,6 +106,7 @@ class DailymotionBaseInfoExtractor(InfoExtractor):
         return token
 
     def _call_api(self, object_type, xid, object_fields, note, filter_extra=None):
+        print(f"dailymotion.pyの関数_call_apiを実行しました。")
         print(f"dailymotion.pyの関数_call_apiを実行しました。")
         print(f"dailymotion.pyの関数_call_apiを実行しました。")
         print(f"dailymotion.pyの関数_call_apiを実行しました。")
@@ -399,6 +404,7 @@ class DailymotionIE(DailymotionBaseInfoExtractor):
             print(f"dailymotion.pyの関数random_lettersを実行しました。")
             print(f"dailymotion.pyの関数random_lettersを実行しました。")
             print(f"dailymotion.pyの関数random_lettersを実行しました。")
+            print(f"dailymotion.pyの関数random_lettersを実行しました。")
             # Omit vowels so we don't generate valid header names like 'authorization', etc
             return ''.join(random.choices('bcdfghjklmnpqrstvwxz', k=random.randint(minimum, maximum)))
 
@@ -408,6 +414,7 @@ class DailymotionIE(DailymotionBaseInfoExtractor):
         }
 
     def _extract_dailymotion_m3u8_formats_and_subtitles(self, media_url, video_id, live=False):
+        print(f"dailymotion.pyの関数_extract_dailymotion_m3u8_formats_and_subtitlesを実行しました。")
         print(f"dailymotion.pyの関数_extract_dailymotion_m3u8_formats_and_subtitlesを実行しました。")
         print(f"dailymotion.pyの関数_extract_dailymotion_m3u8_formats_and_subtitlesを実行しました。")
         print(f"dailymotion.pyの関数_extract_dailymotion_m3u8_formats_and_subtitlesを実行しました。")
@@ -449,6 +456,7 @@ class DailymotionIE(DailymotionBaseInfoExtractor):
         return formats, subtitles, last_error
 
     def _real_extract(self, url):
+        print(f"dailymotion.pyの関数_real_extractを実行しました。")
         print(f"dailymotion.pyの関数_real_extractを実行しました。")
         print(f"dailymotion.pyの関数_real_extractを実行しました。")
         print(f"dailymotion.pyの関数_real_extractを実行しました。")
@@ -587,6 +595,7 @@ class DailymotionPlaylistBaseIE(DailymotionBaseInfoExtractor):
         print(f"dailymotion.pyの関数_fetch_pageを実行しました。")
         print(f"dailymotion.pyの関数_fetch_pageを実行しました。")
         print(f"dailymotion.pyの関数_fetch_pageを実行しました。")
+        print(f"dailymotion.pyの関数_fetch_pageを実行しました。")
         page += 1
         videos = self._call_api(
             self._OBJECT_TYPE, playlist_id,
@@ -649,6 +658,7 @@ class DailymotionSearchIE(DailymotionPlaylistBaseIE):
     _SEARCH_QUERY = 'query SEARCH_QUERY( $query: String! $page: Int $limit: Int ) { search { videos( query: $query first: $limit page: $page ) { edges { node { xid } } } } } '
 
     def _call_search_api(self, term, page, note):
+        print(f"dailymotion.pyの関数_call_search_apiを実行しました。")
         print(f"dailymotion.pyの関数_call_search_apiを実行しました。")
         print(f"dailymotion.pyの関数_call_search_apiを実行しました。")
         print(f"dailymotion.pyの関数_call_search_apiを実行しました。")

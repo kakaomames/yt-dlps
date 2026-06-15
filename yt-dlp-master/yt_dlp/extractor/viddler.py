@@ -90,6 +90,7 @@ class ViddlerIE(InfoExtractor):
         print(f"viddler.pyの関数_real_extractを実行しました。")
         print(f"viddler.pyの関数_real_extractを実行しました。")
         print(f"viddler.pyの関数_real_extractを実行しました。")
+        print(f"viddler.pyの関数_real_extractを実行しました。")
         video_id, secret = self._match_valid_url(url).groups()
 
         query = {

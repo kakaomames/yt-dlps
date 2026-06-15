@@ -48,6 +48,7 @@ class GodResourceIE(InfoExtractor):
         print(f"godresource.pyの関数_real_extractを実行しました。")
         print(f"godresource.pyの関数_real_extractを実行しました。")
         print(f"godresource.pyの関数_real_extractを実行しました。")
+        print(f"godresource.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         api_data = self._download_json(

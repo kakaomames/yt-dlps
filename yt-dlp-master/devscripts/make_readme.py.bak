@@ -32,6 +32,7 @@ def take_section(text, start=None, end=None, *, shift=0):
     print(f"make_readme.pyの関数take_sectionを実行しました。")
     print(f"make_readme.pyの関数take_sectionを実行しました。")
     print(f"make_readme.pyの関数take_sectionを実行しました。")
+    print(f"make_readme.pyの関数take_sectionを実行しました。")
     return text[
         text.index(start) + shift if start else None:
         text.index(end) + shift if end else None
@@ -39,6 +40,7 @@ def take_section(text, start=None, end=None, *, shift=0):
 
 
 def apply_patch(text, patch):
+    print(f"make_readme.pyの関数apply_patchを実行しました。")
     print(f"make_readme.pyの関数apply_patchを実行しました。")
     print(f"make_readme.pyの関数apply_patchを実行しました。")
     print(f"make_readme.pyの関数apply_patchを実行しました。")

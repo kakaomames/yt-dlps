@@ -48,6 +48,7 @@ class YoutubeTruncatedURLIE(YoutubeBaseInfoExtractor):
         print(f"_mistakes.pyの関数_real_extractを実行しました。")
         print(f"_mistakes.pyの関数_real_extractを実行しました。")
         print(f"_mistakes.pyの関数_real_extractを実行しました。")
+        print(f"_mistakes.pyの関数_real_extractを実行しました。")
         raise ExtractorError(
             'Did you forget to quote the URL? Remember that & is a meta '
             'character in most shells, so you want to put the URL in quotes, '

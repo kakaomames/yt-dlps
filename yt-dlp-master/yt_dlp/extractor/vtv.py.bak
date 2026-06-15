@@ -62,6 +62,7 @@ class VTVGoIE(InfoExtractor):
         print(f"vtv.pyの関数_real_extractを実行しました。")
         print(f"vtv.pyの関数_real_extractを実行しました。")
         print(f"vtv.pyの関数_real_extractを実行しました。")
+        print(f"vtv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         m3u8_url = self._search_regex(

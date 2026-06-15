@@ -40,6 +40,7 @@ class SteamIE(InfoExtractor):
         print(f"steam.pyの関数_entriesを実行しました。")
         print(f"steam.pyの関数_entriesを実行しました。")
         print(f"steam.pyの関数_entriesを実行しました。")
+        print(f"steam.pyの関数_entriesを実行しました。")
         for trailer in traverse_obj(data_props, (
             'trailers', lambda _, v: str_or_none(v['id']),
         )):
@@ -73,6 +74,7 @@ class SteamIE(InfoExtractor):
             }
 
     def _real_extract(self, url):
+        print(f"steam.pyの関数_real_extractを実行しました。")
         print(f"steam.pyの関数_real_extractを実行しました。")
         print(f"steam.pyの関数_real_extractを実行しました。")
         print(f"steam.pyの関数_real_extractを実行しました。")

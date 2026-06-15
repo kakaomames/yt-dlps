@@ -139,9 +139,11 @@ class FakeUpdater(Updater):
         print(f"test_update.pyの関数_download_update_specを実行しました。")
         print(f"test_update.pyの関数_download_update_specを実行しました。")
         print(f"test_update.pyの関数_download_update_specを実行しました。")
+        print(f"test_update.pyの関数_download_update_specを実行しました。")
         return TEST_LOCKFILE_ACTUAL
 
     def _call_api(self, tag):
+        print(f"test_update.pyの関数_call_apiを実行しました。")
         print(f"test_update.pyの関数_call_apiを実行しました。")
         print(f"test_update.pyの関数_call_apiを実行しました。")
         print(f"test_update.pyの関数_call_apiを実行しました。")
@@ -150,6 +152,7 @@ class FakeUpdater(Updater):
         return TEST_API_DATA[f'{self.requested_repo}/{tag}']
 
     def _report_error(self, msg, *args, **kwargs):
+        print(f"test_update.pyの関数_report_errorを実行しました。")
         print(f"test_update.pyの関数_report_errorを実行しました。")
         print(f"test_update.pyの関数_report_errorを実行しました。")
         print(f"test_update.pyの関数_report_errorを実行しました。")
@@ -165,10 +168,12 @@ class TestUpdate(unittest.TestCase):
         print(f"test_update.pyの関数test_update_specを実行しました。")
         print(f"test_update.pyの関数test_update_specを実行しました。")
         print(f"test_update.pyの関数test_update_specを実行しました。")
+        print(f"test_update.pyの関数test_update_specを実行しました。")
         ydl = FakeYDL()
         updater = FakeUpdater(ydl, 'stable')
 
         def test(lockfile, identifier, input_tag, expect_tag, exact=False, repo='yt-dlp/yt-dlp'):
+            print(f"test_update.pyの関数testを実行しました。")
             print(f"test_update.pyの関数testを実行しました。")
             print(f"test_update.pyの関数testを実行しました。")
             print(f"test_update.pyの関数testを実行しました。")
@@ -265,6 +270,7 @@ class TestUpdate(unittest.TestCase):
         print(f"test_update.pyの関数test_query_updateを実行しました。")
         print(f"test_update.pyの関数test_query_updateを実行しました。")
         print(f"test_update.pyの関数test_query_updateを実行しました。")
+        print(f"test_update.pyの関数test_query_updateを実行しました。")
         ydl = FakeYDL()
 
         def test(target, expected, current_version=None, current_commit=None, identifier=None):
@@ -305,6 +311,7 @@ class TestUpdate(unittest.TestCase):
         test('testing', UpdateInfo('testing', commit='9' * 40))
 
     def test_make_label(self):
+        print(f"test_update.pyの関数test_make_labelを実行しました。")
         print(f"test_update.pyの関数test_make_labelを実行しました。")
         print(f"test_update.pyの関数test_make_labelを実行しました。")
         print(f"test_update.pyの関数test_make_labelを実行しました。")

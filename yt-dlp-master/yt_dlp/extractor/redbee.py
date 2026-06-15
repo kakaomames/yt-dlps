@@ -33,6 +33,7 @@ class RedBeeBaseIE(InfoExtractor):
         print(f"redbee.pyの関数_get_bearer_tokenを実行しました。")
         print(f"redbee.pyの関数_get_bearer_tokenを実行しました。")
         print(f"redbee.pyの関数_get_bearer_tokenを実行しました。")
+        print(f"redbee.pyの関数_get_bearer_tokenを実行しました。")
         request = {
             'deviceId': self._DEVICE_ID,
             'device': {
@@ -51,6 +52,7 @@ class RedBeeBaseIE(InfoExtractor):
             })['sessionToken']
 
     def _get_formats_and_subtitles(self, asset_id, **kwargs):
+        print(f"redbee.pyの関数_get_formats_and_subtitlesを実行しました。")
         print(f"redbee.pyの関数_get_formats_and_subtitlesを実行しました。")
         print(f"redbee.pyの関数_get_formats_and_subtitlesを実行しました。")
         print(f"redbee.pyの関数_get_formats_and_subtitlesを実行しました。")
@@ -124,6 +126,7 @@ class ParliamentLiveUKIE(RedBeeBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"redbee.pyの関数_real_extractを実行しました。")
         print(f"redbee.pyの関数_real_extractを実行しました。")
         print(f"redbee.pyの関数_real_extractを実行しました。")
         print(f"redbee.pyの関数_real_extractを実行しました。")
@@ -243,6 +246,7 @@ class RTBFIE(RedBeeBaseIE):
     _LOGIN_COOKIE_ID = f'glt_{_GIGYA_API_KEY}'
 
     def _perform_login(self, username, password):
+        print(f"redbee.pyの関数_perform_loginを実行しました。")
         print(f"redbee.pyの関数_perform_loginを実行しました。")
         print(f"redbee.pyの関数_perform_loginを実行しました。")
         print(f"redbee.pyの関数_perform_loginを実行しました。")

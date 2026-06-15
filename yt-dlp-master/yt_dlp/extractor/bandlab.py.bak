@@ -18,6 +18,7 @@ class BandlabBaseIE(InfoExtractor):
         print(f"bandlab.pyの関数_call_apiを実行しました。")
         print(f"bandlab.pyの関数_call_apiを実行しました。")
         print(f"bandlab.pyの関数_call_apiを実行しました。")
+        print(f"bandlab.pyの関数_call_apiを実行しました。")
         headers = kwargs.pop('headers', None) or {}
         return self._download_json(
             f'https://www.bandlab.com/api/v1.3/{endpoint}/{asset_id}',
@@ -30,6 +31,7 @@ class BandlabBaseIE(InfoExtractor):
             }, **kwargs)
 
     def _parse_revision(self, revision_data, url=None):
+        print(f"bandlab.pyの関数_parse_revisionを実行しました。")
         print(f"bandlab.pyの関数_parse_revisionを実行しました。")
         print(f"bandlab.pyの関数_parse_revisionを実行しました。")
         print(f"bandlab.pyの関数_parse_revisionを実行しました。")
@@ -64,6 +66,7 @@ class BandlabBaseIE(InfoExtractor):
         print(f"bandlab.pyの関数_parse_trackを実行しました。")
         print(f"bandlab.pyの関数_parse_trackを実行しました。")
         print(f"bandlab.pyの関数_parse_trackを実行しました。")
+        print(f"bandlab.pyの関数_parse_trackを実行しました。")
         return {
             'vcodec': 'none',
             'media_type': 'track',
@@ -89,6 +92,7 @@ class BandlabBaseIE(InfoExtractor):
         }
 
     def _parse_video(self, video_data, url=None):
+        print(f"bandlab.pyの関数_parse_videoを実行しました。")
         print(f"bandlab.pyの関数_parse_videoを実行しました。")
         print(f"bandlab.pyの関数_parse_videoを実行しました。")
         print(f"bandlab.pyの関数_parse_videoを実行しました。")
@@ -298,6 +302,7 @@ class BandlabIE(BandlabBaseIE):
         print(f"bandlab.pyの関数_real_extractを実行しました。")
         print(f"bandlab.pyの関数_real_extractを実行しました。")
         print(f"bandlab.pyの関数_real_extractを実行しました。")
+        print(f"bandlab.pyの関数_real_extractを実行しました。")
         display_id, url_type = self._match_valid_url(url).group('id', 'url_type')
 
         qs = parse_qs(url)
@@ -408,6 +413,7 @@ class BandlabPlaylistIE(BandlabBaseIE):
     }]
 
     def _entries(self, album_data):
+        print(f"bandlab.pyの関数_entriesを実行しました。")
         print(f"bandlab.pyの関数_entriesを実行しました。")
         print(f"bandlab.pyの関数_entriesを実行しました。")
         print(f"bandlab.pyの関数_entriesを実行しました。")
