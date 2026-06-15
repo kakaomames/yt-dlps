@@ -1,4 +1,4 @@
-# コード全体：agent.py（トークン直撃安全版・省略なし）
+# コード全体：agent.py（プロジェクトID偽装・完全版）
 import os
 import time
 import subprocess
@@ -12,24 +12,38 @@ SHEET_NAME = "AAA"
 # =========================================================
 
 def get_google_token():
-    """【超重要】Cloud Shell自身が持っている生のトークンを直接引き出す"""
+    """Cloud Shell自身が持っている生のトークンを引き出す"""
     return os.popen('gcloud auth print-access-token').read().strip()
+
+def get_project_id():
+    """Cloud Shell環境から現在のプロジェクトIDを自動取得する"""
+    # 環境変数から取得を試みる
+    project = os.environ.get("GOOGLE_CLOUD_PROJECT")
+    if not project:
+        # 環境変数にない場合はgcloudコマンドから直接ぶち抜く
+        project = os.popen('gcloud config get-value project 2>/dev/null').read().strip()
+    return project
 
 def mission_log(action_type, message):
     """【隊員鉄則】値が変わったとき、動いたときはログに出す！"""
     current_time = time.strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{current_time}] [{action_type}] {message}")
 
-mission_log("SYSTEM", "Gemini programming隊・安全トークン直撃システム起動！")
+# プロジェクトIDの確保
+PROJECT_ID = get_project_id()
+
+mission_log("SYSTEM", "Gemini programming隊・クォータプロジェクト突破システム起動！")
+mission_log("SYSTEM", f"捕捉した戦闘用プロジェクトID: {PROJECT_ID}")
 
 last_processed_row = 0
 
-# 【初期化フェーズ】Cloud Shellの権限だけで現在の行数を意地でも掴み取る
+# 【初期化フェーズ】ヘッダーにX-Goog-User-Projectを仕込んで強行突破！
 try:
     token = get_google_token()
     headers = {
         "Authorization": f"Bearer {token}",
-        "Accept": "application/json"
+        "Accept": "application/json",
+        "X-Goog-User-Project": PROJECT_ID  # ←これが403 quota projectエラーを消し飛ばす特効薬だ！
     }
     
     encoded_sheet_name = quote(SHEET_NAME)
@@ -39,14 +53,14 @@ try:
     init_res = response.json()
     
     if response.status_code != 200:
-        mission_log("ERROR", f"Google APIが拒否したぜ。コード: {response.status_code}")
-        mission_log("DETAILS", f"生のエラー応答: {json.dumps(init_res)}")
+        mission_log("ERROR", f"Google APIがまだ拒否しているぜ。ステータスコード: {response.status_code}")
+        mission_log("DETAILS", f"エラー応答内容: {json.dumps(init_res)}")
         last_processed_row = 0
     elif 'values' in init_res:
         last_processed_row = len(init_res['values'])
-        mission_log("SUCCESS", f"安全なドッキングに成功！現在【 {last_processed_row} 行 】を確認！")
+        mission_log("SUCCESS", f"すべての防衛線を突破！『AAA』シートから【 {last_processed_row} 行 】を確認！")
     else:
-        mission_log("WARN", f"シートは認識できたがデータが空っぽだぜ。生データ: {init_res}")
+        mission_log("WARN", f"通信は成功したがシートが空っぽだぜ。生データ: {init_res}")
         last_processed_row = 0
 
 except Exception as e:
@@ -55,9 +69,11 @@ except Exception as e:
 # メイン無限監視ループ
 while True:
     try:
-        # ループするたびに新鮮なトークンを再取得して認証切れを防ぐ！
         token = get_google_token()
-        headers = {"Authorization": f"Bearer {token}"}
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "X-Goog-User-Project": PROJECT_ID  # ループ側にもしっかり追記
+        }
         
         encoded_sheet_name = quote(SHEET_NAME)
         url = f"https://sheets.googleapis.com/v4/spreadsheets/{SPREADSHEET_ID}/values/{encoded_sheet_name}!A:C"
