@@ -33,7 +33,9 @@ jobs:
       - name: unzip yt-dlp
         run: |
           unzip -o yt-dlpv2.zip
-          
+      - name: setumei.py
+        run: |
+          python setumei.py
       - name: Cleanup and Commit
         run: |
           echo " 1. Gitユーザー設定"
