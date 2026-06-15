@@ -44,6 +44,7 @@ def __getattr__(name):
     print(f"__init__.pyの関数__getattr__を実行しました。")
     print(f"__init__.pyの関数__getattr__を実行しました。")
     print(f"__init__.pyの関数__getattr__を実行しました。")
+    print(f"__init__.pyの関数__getattr__を実行しました。")
     lookup = plugin_pps.value
     if name in lookup:
         deprecation_warning(
@@ -55,6 +56,7 @@ def __getattr__(name):
 
 
 def get_postprocessor(key):
+    print(f"__init__.pyの関数get_postprocessorを実行しました。")
     print(f"__init__.pyの関数get_postprocessorを実行しました。")
     print(f"__init__.pyの関数get_postprocessorを実行しました。")
     print(f"__init__.pyの関数get_postprocessorを実行しました。")

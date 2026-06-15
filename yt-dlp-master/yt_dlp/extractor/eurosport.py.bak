@@ -127,12 +127,14 @@ class EurosportIE(InfoExtractor):
         print(f"eurosport.pyの関数_real_initializeを実行しました。")
         print(f"eurosport.pyの関数_real_initializeを実行しました。")
         print(f"eurosport.pyの関数_real_initializeを実行しました。")
+        print(f"eurosport.pyの関数_real_initializeを実行しました。")
         if EurosportIE._TOKEN is None:
             EurosportIE._TOKEN = self._download_json(
                 'https://eu3-prod-direct.eurosport.com/token?realm=eurosport', None,
                 'Trying to get token')['data']['attributes']['token']
 
     def _real_extract(self, url):
+        print(f"eurosport.pyの関数_real_extractを実行しました。")
         print(f"eurosport.pyの関数_real_extractを実行しました。")
         print(f"eurosport.pyの関数_real_extractを実行しました。")
         print(f"eurosport.pyの関数_real_extractを実行しました。")

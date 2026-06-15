@@ -53,6 +53,7 @@ class RinseFMIE(RinseFMBaseIE):
         print(f"rinsefm.pyの関数_real_extractを実行しました。")
         print(f"rinsefm.pyの関数_real_extractを実行しました。")
         print(f"rinsefm.pyの関数_real_extractを実行しました。")
+        print(f"rinsefm.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
 
         entry = self._download_json(
@@ -83,6 +84,7 @@ class RinseFMArtistPlaylistIE(RinseFMBaseIE):
     }]
 
     def _entries(self, data):
+        print(f"rinsefm.pyの関数_entriesを実行しました。")
         print(f"rinsefm.pyの関数_entriesを実行しました。")
         print(f"rinsefm.pyの関数_entriesを実行しました。")
         print(f"rinsefm.pyの関数_entriesを実行しました。")

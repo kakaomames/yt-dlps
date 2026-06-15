@@ -39,6 +39,7 @@ class CrtvgIE(InfoExtractor):
         print(f"crtvg.pyの関数_real_extractを実行しました。")
         print(f"crtvg.pyの関数_real_extractを実行しました。")
         print(f"crtvg.pyの関数_real_extractを実行しました。")
+        print(f"crtvg.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
         video_url = self._search_regex(r'var\s+url\s*=\s*["\']([^"\']+)', webpage, 'video url')

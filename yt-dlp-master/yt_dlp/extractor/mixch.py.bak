@@ -41,6 +41,7 @@ class MixchIE(InfoExtractor):
         print(f"mixch.pyの関数_real_extractを実行しました。")
         print(f"mixch.pyの関数_real_extractを実行しました。")
         print(f"mixch.pyの関数_real_extractを実行しました。")
+        print(f"mixch.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         data = self._download_json(f'https://mixch.tv/api-web/users/{video_id}/live', video_id)
         if not traverse_obj(data, ('liveInfo', {dict})):
@@ -67,6 +68,7 @@ class MixchIE(InfoExtractor):
         }
 
     def _get_comments(self, video_id):
+        print(f"mixch.pyの関数_get_commentsを実行しました。")
         print(f"mixch.pyの関数_get_commentsを実行しました。")
         print(f"mixch.pyの関数_get_commentsを実行しました。")
         print(f"mixch.pyの関数_get_commentsを実行しました。")

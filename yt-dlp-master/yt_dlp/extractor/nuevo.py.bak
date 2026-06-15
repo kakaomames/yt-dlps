@@ -10,6 +10,7 @@ class NuevoBaseIE(InfoExtractor):
         print(f"nuevo.pyの関数_extract_nuevoを実行しました。")
         print(f"nuevo.pyの関数_extract_nuevoを実行しました。")
         print(f"nuevo.pyの関数_extract_nuevoを実行しました。")
+        print(f"nuevo.pyの関数_extract_nuevoを実行しました。")
         config = self._download_xml(
             config_url, video_id, transform_source=lambda s: s.strip(),
             headers=headers)

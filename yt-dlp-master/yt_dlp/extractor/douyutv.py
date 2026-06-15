@@ -30,6 +30,7 @@ class DouyuBaseIE(InfoExtractor):
         print(f"douyutv.pyの関数_download_cryptojs_md5を実行しました。")
         print(f"douyutv.pyの関数_download_cryptojs_md5を実行しました。")
         print(f"douyutv.pyの関数_download_cryptojs_md5を実行しました。")
+        print(f"douyutv.pyの関数_download_cryptojs_md5を実行しました。")
         for url in [
             # XXX: Do NOT use cdn.bootcdn.net; ref: https://sansec.io/research/polyfill-supply-chain-attack
             'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js',
@@ -50,10 +51,12 @@ class DouyuBaseIE(InfoExtractor):
         print(f"douyutv.pyの関数_get_cryptojs_md5を実行しました。")
         print(f"douyutv.pyの関数_get_cryptojs_md5を実行しました。")
         print(f"douyutv.pyの関数_get_cryptojs_md5を実行しました。")
+        print(f"douyutv.pyの関数_get_cryptojs_md5を実行しました。")
         return self.cache.load(
             'douyu', 'crypto-js-md5', min_ver='2024.07.04') or self._download_cryptojs_md5(video_id)
 
     def _calc_sign(self, sign_func, video_id, a):
+        print(f"douyutv.pyの関数_calc_signを実行しました。")
         print(f"douyutv.pyの関数_calc_signを実行しました。")
         print(f"douyutv.pyの関数_calc_signを実行しました。")
         print(f"douyutv.pyの関数_calc_signを実行しました。")
@@ -70,6 +73,7 @@ class DouyuBaseIE(InfoExtractor):
         return {i: v[0] for i, v in urllib.parse.parse_qs(result).items()}
 
     def _search_js_sign_func(self, webpage, fatal=True):
+        print(f"douyutv.pyの関数_search_js_sign_funcを実行しました。")
         print(f"douyutv.pyの関数_search_js_sign_funcを実行しました。")
         print(f"douyutv.pyの関数_search_js_sign_funcを実行しました。")
         print(f"douyutv.pyの関数_search_js_sign_funcを実行しました。")
@@ -164,11 +168,13 @@ class DouyuTVIE(DouyuBaseIE):
         print(f"douyutv.pyの関数_get_sign_funcを実行しました。")
         print(f"douyutv.pyの関数_get_sign_funcを実行しました。")
         print(f"douyutv.pyの関数_get_sign_funcを実行しました。")
+        print(f"douyutv.pyの関数_get_sign_funcを実行しました。")
         return self._download_json(
             f'https://www.douyu.com/swf_api/homeH5Enc?rids={room_id}', video_id,
             note='Getting signing script')['data'][f'room{room_id}']
 
     def _extract_stream_formats(self, stream_formats):
+        print(f"douyutv.pyの関数_extract_stream_formatsを実行しました。")
         print(f"douyutv.pyの関数_extract_stream_formatsを実行しました。")
         print(f"douyutv.pyの関数_extract_stream_formatsを実行しました。")
         print(f"douyutv.pyの関数_extract_stream_formatsを実行しました。")
@@ -198,6 +204,7 @@ class DouyuTVIE(DouyuBaseIE):
         return formats
 
     def _real_extract(self, url):
+        print(f"douyutv.pyの関数_real_extractを実行しました。")
         print(f"douyutv.pyの関数_real_extractを実行しました。")
         print(f"douyutv.pyの関数_real_extractを実行しました。")
         print(f"douyutv.pyの関数_real_extractを実行しました。")

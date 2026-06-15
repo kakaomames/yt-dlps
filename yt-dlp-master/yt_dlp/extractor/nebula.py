@@ -34,6 +34,7 @@ class NebulaBaseIE(InfoExtractor):
         print(f"nebula.pyの関数_perform_loginを実行しました。")
         print(f"nebula.pyの関数_perform_loginを実行しました。")
         print(f"nebula.pyの関数_perform_loginを実行しました。")
+        print(f"nebula.pyの関数_perform_loginを実行しました。")
         try:
             response = self._download_json(
                 'https://nebula.tv/auth/login/', None,
@@ -49,6 +50,7 @@ class NebulaBaseIE(InfoExtractor):
             raise ExtractorError('Login failed: No token')
 
     def _call_api(self, *args, **kwargs):
+        print(f"nebula.pyの関数_call_apiを実行しました。")
         print(f"nebula.pyの関数_call_apiを実行しました。")
         print(f"nebula.pyの関数_call_apiを実行しました。")
         print(f"nebula.pyの関数_call_apiを実行しました。")
@@ -78,6 +80,7 @@ class NebulaBaseIE(InfoExtractor):
         print(f"nebula.pyの関数_real_initializeを実行しました。")
         print(f"nebula.pyの関数_real_initializeを実行しました。")
         print(f"nebula.pyの関数_real_initializeを実行しました。")
+        print(f"nebula.pyの関数_real_initializeを実行しました。")
         if not self._api_token:
             self._api_token = try_call(
                 lambda: self._get_cookies('https://nebula.tv')['nebula_auth.apiToken'].value)
@@ -87,6 +90,7 @@ class NebulaBaseIE(InfoExtractor):
             note='Authorizing to Nebula', data=b'')['token']
 
     def _extract_formats(self, content_id, slug):
+        print(f"nebula.pyの関数_extract_formatsを実行しました。")
         print(f"nebula.pyの関数_extract_formatsを実行しました。")
         print(f"nebula.pyの関数_extract_formatsを実行しました。")
         print(f"nebula.pyの関数_extract_formatsを実行しました。")
@@ -124,6 +128,7 @@ class NebulaBaseIE(InfoExtractor):
         print(f"nebula.pyの関数_extract_video_metadataを実行しました。")
         print(f"nebula.pyの関数_extract_video_metadataを実行しました。")
         print(f"nebula.pyの関数_extract_video_metadataを実行しました。")
+        print(f"nebula.pyの関数_extract_video_metadataを実行しました。")
         channel_url = traverse_obj(
             episode, (('channel_slug', 'class_slug'), {urljoin('https://nebula.tv/')}), get_all=False)
         return {
@@ -151,6 +156,7 @@ class NebulaBaseIE(InfoExtractor):
         }
 
     def _mark_watched(self, content_id, slug):
+        print(f"nebula.pyの関数_mark_watchedを実行しました。")
         print(f"nebula.pyの関数_mark_watchedを実行しました。")
         print(f"nebula.pyの関数_mark_watchedを実行しました。")
         print(f"nebula.pyの関数_mark_watchedを実行しました。")
@@ -271,6 +277,7 @@ class NebulaIE(NebulaBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"nebula.pyの関数_real_extractを実行しました。")
         print(f"nebula.pyの関数_real_extractを実行しました。")
         print(f"nebula.pyの関数_real_extractを実行しました。")
         print(f"nebula.pyの関数_real_extractを実行しました。")
@@ -419,6 +426,7 @@ class NebulaSubscriptionsIE(NebulaBaseIE):
         print(f"nebula.pyの関数_generate_playlist_entriesを実行しました。")
         print(f"nebula.pyの関数_generate_playlist_entriesを実行しました。")
         print(f"nebula.pyの関数_generate_playlist_entriesを実行しました。")
+        print(f"nebula.pyの関数_generate_playlist_entriesを実行しました。")
         next_url = update_url_query('https://content.api.nebula.app/video_episodes/', {
             'following': 'true',
             'include': 'engagement',
@@ -506,6 +514,7 @@ class NebulaChannelIE(NebulaBaseIE):
         print(f"nebula.pyの関数_generate_class_entriesを実行しました。")
         print(f"nebula.pyの関数_generate_class_entriesを実行しました。")
         print(f"nebula.pyの関数_generate_class_entriesを実行しました。")
+        print(f"nebula.pyの関数_generate_class_entriesを実行しました。")
         for lesson in channel['lessons']:
             metadata = self._extract_video_metadata(lesson)
             yield self.url_result(smuggle_url(
@@ -513,6 +522,7 @@ class NebulaChannelIE(NebulaBaseIE):
                 {'id': lesson['id']}), NebulaClassIE, url_transparent=True, **metadata)
 
     def _generate_podcast_entries(self, collection_id, collection_slug):
+        print(f"nebula.pyの関数_generate_podcast_entriesを実行しました。")
         print(f"nebula.pyの関数_generate_podcast_entriesを実行しました。")
         print(f"nebula.pyの関数_generate_podcast_entriesを実行しました。")
         print(f"nebula.pyの関数_generate_podcast_entriesを実行しました。")
@@ -587,6 +597,7 @@ class NebulaSeasonIE(NebulaBaseIE):
         print(f"nebula.pyの関数_build_url_resultを実行しました。")
         print(f"nebula.pyの関数_build_url_resultを実行しました。")
         print(f"nebula.pyの関数_build_url_resultを実行しました。")
+        print(f"nebula.pyの関数_build_url_resultを実行しました。")
         url = (
             traverse_obj(item, ('share_url', {url_or_none}))
             or urljoin('https://nebula.tv/', item.get('app_path'))
@@ -597,6 +608,7 @@ class NebulaSeasonIE(NebulaBaseIE):
             **self._extract_video_metadata(item))
 
     def _entries(self, data):
+        print(f"nebula.pyの関数_entriesを実行しました。")
         print(f"nebula.pyの関数_entriesを実行しました。")
         print(f"nebula.pyの関数_entriesを実行しました。")
         print(f"nebula.pyの関数_entriesを実行しました。")

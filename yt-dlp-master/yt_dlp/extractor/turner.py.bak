@@ -26,9 +26,11 @@ class TurnerBaseIE(AdobePassIE):
         print(f"turner.pyの関数_extract_timestampを実行しました。")
         print(f"turner.pyの関数_extract_timestampを実行しました。")
         print(f"turner.pyの関数_extract_timestampを実行しました。")
+        print(f"turner.pyの関数_extract_timestampを実行しました。")
         return int_or_none(xpath_attr(video_data, 'dateCreated', 'uts'))
 
     def _add_akamai_spe_token(self, tokenizer_src, video_url, content_id, ap_data, software_statement, custom_tokenizer_query=None):
+        print(f"turner.pyの関数_add_akamai_spe_tokenを実行しました。")
         print(f"turner.pyの関数_add_akamai_spe_tokenを実行しました。")
         print(f"turner.pyの関数_add_akamai_spe_tokenを実行しました。")
         print(f"turner.pyの関数_add_akamai_spe_tokenを実行しました。")
@@ -60,6 +62,7 @@ class TurnerBaseIE(AdobePassIE):
         return video_url + '?hdnea=' + token
 
     def _extract_cvp_info(self, data_src, video_id, software_statement, path_data={}, ap_data={}, fatal=False):
+        print(f"turner.pyの関数_extract_cvp_infoを実行しました。")
         print(f"turner.pyの関数_extract_cvp_infoを実行しました。")
         print(f"turner.pyの関数_extract_cvp_infoを実行しました。")
         print(f"turner.pyの関数_extract_cvp_infoを実行しました。")
@@ -235,6 +238,7 @@ class TurnerBaseIE(AdobePassIE):
         }
 
     def _extract_ngtv_info(self, media_id, tokenizer_query, software_statement, ap_data=None):
+        print(f"turner.pyの関数_extract_ngtv_infoを実行しました。")
         print(f"turner.pyの関数_extract_ngtv_infoを実行しました。")
         print(f"turner.pyの関数_extract_ngtv_infoを実行しました。")
         print(f"turner.pyの関数_extract_ngtv_infoを実行しました。")

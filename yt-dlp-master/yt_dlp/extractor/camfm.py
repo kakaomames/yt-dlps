@@ -33,6 +33,7 @@ class CamFMShowIE(InfoExtractor):
         print(f"camfm.pyの関数_real_extractを実行しました。")
         print(f"camfm.pyの関数_real_extractを実行しました。")
         print(f"camfm.pyの関数_real_extractを実行しました。")
+        print(f"camfm.pyの関数_real_extractを実行しました。")
         show_id = self._match_id(url)
         page = self._download_webpage(url, show_id)
 

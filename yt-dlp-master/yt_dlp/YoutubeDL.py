@@ -191,6 +191,7 @@ def _catch_unsafe_extension_error(func):
     print(f"YoutubeDL.pyの関数_catch_unsafe_extension_errorを実行しました。")
     print(f"YoutubeDL.pyの関数_catch_unsafe_extension_errorを実行しました。")
     print(f"YoutubeDL.pyの関数_catch_unsafe_extension_errorを実行しました。")
+    print(f"YoutubeDL.pyの関数_catch_unsafe_extension_errorを実行しました。")
     @functools.wraps(func)
     def wrapper(self, *args, **kwargs):
         try:
@@ -642,6 +643,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数__init__を実行しました。")
         print(f"YoutubeDL.pyの関数__init__を実行しました。")
         print(f"YoutubeDL.pyの関数__init__を実行しました。")
+        print(f"YoutubeDL.pyの関数__init__を実行しました。")
         """Create a FileDownloader object with the given options.
         @param auto_init    Whether to load the default extractors and print header (if verbose).
                             Set to 'no_verbose_header' to not print the header
@@ -695,6 +697,7 @@ class YoutubeDL:
         base_no_color = bool(os.getenv('NO_COLOR'))
 
         def process_color_policy(stream):
+            print(f"YoutubeDL.pyの関数process_color_policyを実行しました。")
             print(f"YoutubeDL.pyの関数process_color_policyを実行しました。")
             print(f"YoutubeDL.pyの関数process_color_policyを実行しました。")
             print(f"YoutubeDL.pyの関数process_color_policyを実行しました。")
@@ -769,6 +772,7 @@ class YoutubeDL:
             self.print_debug_header()
 
         def check_deprecated(param, option, suggestion):
+            print(f"YoutubeDL.pyの関数check_deprecatedを実行しました。")
             print(f"YoutubeDL.pyの関数check_deprecatedを実行しました。")
             print(f"YoutubeDL.pyの関数check_deprecatedを実行しました。")
             print(f"YoutubeDL.pyの関数check_deprecatedを実行しました。")
@@ -872,6 +876,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数preload_download_archiveを実行しました。")
             print(f"YoutubeDL.pyの関数preload_download_archiveを実行しました。")
             print(f"YoutubeDL.pyの関数preload_download_archiveを実行しました。")
+            print(f"YoutubeDL.pyの関数preload_download_archiveを実行しました。")
             """Preload the archive, if any is specified"""
             archive = set()
             if fn is None:
@@ -899,6 +904,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_clean_js_runtimesを実行しました。")
         print(f"YoutubeDL.pyの関数_clean_js_runtimesを実行しました。")
         print(f"YoutubeDL.pyの関数_clean_js_runtimesを実行しました。")
+        print(f"YoutubeDL.pyの関数_clean_js_runtimesを実行しました。")
         if not (
             isinstance(runtimes, dict)
             and all(isinstance(k, str) and (v is None or isinstance(v, dict)) for k, v in runtimes.items())
@@ -913,6 +919,7 @@ class YoutubeDL:
                 runtimes.pop(rt)
 
     def _clean_remote_components(self, remote_components: set):
+        print(f"YoutubeDL.pyの関数_clean_remote_componentsを実行しました。")
         print(f"YoutubeDL.pyの関数_clean_remote_componentsを実行しました。")
         print(f"YoutubeDL.pyの関数_clean_remote_componentsを実行しました。")
         print(f"YoutubeDL.pyの関数_clean_remote_componentsを実行しました。")
@@ -943,6 +950,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数warn_if_short_idを実行しました。")
         print(f"YoutubeDL.pyの関数warn_if_short_idを実行しました。")
         print(f"YoutubeDL.pyの関数warn_if_short_idを実行しました。")
+        print(f"YoutubeDL.pyの関数warn_if_short_idを実行しました。")
         # short YouTube ID starting with dash?
         idxs = [
             i for i, a in enumerate(argv)
@@ -965,6 +973,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数add_info_extractorを実行しました。")
         print(f"YoutubeDL.pyの関数add_info_extractorを実行しました。")
         print(f"YoutubeDL.pyの関数add_info_extractorを実行しました。")
+        print(f"YoutubeDL.pyの関数add_info_extractorを実行しました。")
         """Add an InfoExtractor object to the end of the list."""
         ie_key = ie.ie_key()
         self._ies[ie_key] = ie
@@ -973,6 +982,7 @@ class YoutubeDL:
             ie.set_downloader(self)
 
     def get_info_extractor(self, ie_key):
+        print(f"YoutubeDL.pyの関数get_info_extractorを実行しました。")
         print(f"YoutubeDL.pyの関数get_info_extractorを実行しました。")
         print(f"YoutubeDL.pyの関数get_info_extractorを実行しました。")
         print(f"YoutubeDL.pyの関数get_info_extractorを実行しました。")
@@ -992,6 +1002,7 @@ class YoutubeDL:
         return ie
 
     def add_default_info_extractors(self):
+        print(f"YoutubeDL.pyの関数add_default_info_extractorsを実行しました。")
         print(f"YoutubeDL.pyの関数add_default_info_extractorsを実行しました。")
         print(f"YoutubeDL.pyの関数add_default_info_extractorsを実行しました。")
         print(f"YoutubeDL.pyの関数add_default_info_extractorsを実行しました。")
@@ -1024,6 +1035,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数add_post_processorを実行しました。")
         print(f"YoutubeDL.pyの関数add_post_processorを実行しました。")
         print(f"YoutubeDL.pyの関数add_post_processorを実行しました。")
+        print(f"YoutubeDL.pyの関数add_post_processorを実行しました。")
         """Add a PostProcessor object to the end of the chain."""
         assert when in POSTPROCESS_WHEN, f'Invalid when={when}'
         self._pps[when].append(pp)
@@ -1037,10 +1049,12 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数add_post_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_post_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_post_hookを実行しました。")
+        print(f"YoutubeDL.pyの関数add_post_hookを実行しました。")
         """Add the post hook"""
         self._post_hooks.append(ph)
 
     def add_close_hook(self, ch):
+        print(f"YoutubeDL.pyの関数add_close_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_close_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_close_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_close_hookを実行しました。")
@@ -1060,10 +1074,12 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数add_progress_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_progress_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_progress_hookを実行しました。")
+        print(f"YoutubeDL.pyの関数add_progress_hookを実行しました。")
         """Add the download progress hook"""
         self._progress_hooks.append(ph)
 
     def add_postprocessor_hook(self, ph):
+        print(f"YoutubeDL.pyの関数add_postprocessor_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_postprocessor_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_postprocessor_hookを実行しました。")
         print(f"YoutubeDL.pyの関数add_postprocessor_hookを実行しました。")
@@ -1078,6 +1094,7 @@ class YoutubeDL:
                 pp.add_progress_hook(ph)
 
     def _bidi_workaround(self, message):
+        print(f"YoutubeDL.pyの関数_bidi_workaroundを実行しました。")
         print(f"YoutubeDL.pyの関数_bidi_workaroundを実行しました。")
         print(f"YoutubeDL.pyの関数_bidi_workaroundを実行しました。")
         print(f"YoutubeDL.pyの関数_bidi_workaroundを実行しました。")
@@ -1105,6 +1122,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_write_stringを実行しました。")
         print(f"YoutubeDL.pyの関数_write_stringを実行しました。")
         print(f"YoutubeDL.pyの関数_write_stringを実行しました。")
+        print(f"YoutubeDL.pyの関数_write_stringを実行しました。")
         if only_once:
             if message in self._printed_messages:
                 return
@@ -1112,6 +1130,7 @@ class YoutubeDL:
         write_string(message, out=out, encoding=self.params.get('encoding'))
 
     def to_stdout(self, message, skip_eol=False, quiet=None):
+        print(f"YoutubeDL.pyの関数to_stdoutを実行しました。")
         print(f"YoutubeDL.pyの関数to_stdoutを実行しました。")
         print(f"YoutubeDL.pyの関数to_stdoutを実行しました。")
         print(f"YoutubeDL.pyの関数to_stdoutを実行しました。")
@@ -1129,6 +1148,7 @@ class YoutubeDL:
         self._write_string(f'{self._bidi_workaround(message)}\n', self._out_files.out)
 
     def to_screen(self, message, skip_eol=False, quiet=None, only_once=False):
+        print(f"YoutubeDL.pyの関数to_screenを実行しました。")
         print(f"YoutubeDL.pyの関数to_screenを実行しました。")
         print(f"YoutubeDL.pyの関数to_screenを実行しました。")
         print(f"YoutubeDL.pyの関数to_screenを実行しました。")
@@ -1154,6 +1174,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数to_stderrを実行しました。")
         print(f"YoutubeDL.pyの関数to_stderrを実行しました。")
         print(f"YoutubeDL.pyの関数to_stderrを実行しました。")
+        print(f"YoutubeDL.pyの関数to_stderrを実行しました。")
         """Print message to stderr"""
         assert isinstance(message, str)
         if self.params.get('logger'):
@@ -1169,12 +1190,14 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_send_console_codeを実行しました。")
         print(f"YoutubeDL.pyの関数_send_console_codeを実行しました。")
         print(f"YoutubeDL.pyの関数_send_console_codeを実行しました。")
+        print(f"YoutubeDL.pyの関数_send_console_codeを実行しました。")
         if not supports_terminal_sequences(self._out_files.console):
             return False
         self._write_string(code, self._out_files.console)
         return True
 
     def to_console_title(self, message=None, progress_state=None, percent=None):
+        print(f"YoutubeDL.pyの関数to_console_titleを実行しました。")
         print(f"YoutubeDL.pyの関数to_console_titleを実行しました。")
         print(f"YoutubeDL.pyの関数to_console_titleを実行しました。")
         print(f"YoutubeDL.pyの関数to_console_titleを実行しました。")
@@ -1201,11 +1224,13 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数save_console_titleを実行しました。")
         print(f"YoutubeDL.pyの関数save_console_titleを実行しました。")
         print(f"YoutubeDL.pyの関数save_console_titleを実行しました。")
+        print(f"YoutubeDL.pyの関数save_console_titleを実行しました。")
         if not self.params.get('consoletitle') or self.params.get('simulate'):
             return
         self._send_console_code('\033[22;0t')  # Save the title on stack
 
     def restore_console_title(self):
+        print(f"YoutubeDL.pyの関数restore_console_titleを実行しました。")
         print(f"YoutubeDL.pyの関数restore_console_titleを実行しました。")
         print(f"YoutubeDL.pyの関数restore_console_titleを実行しました。")
         print(f"YoutubeDL.pyの関数restore_console_titleを実行しました。")
@@ -1225,6 +1250,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数__enter__を実行しました。")
         print(f"YoutubeDL.pyの関数__enter__を実行しました。")
         print(f"YoutubeDL.pyの関数__enter__を実行しました。")
+        print(f"YoutubeDL.pyの関数__enter__を実行しました。")
         self.save_console_title()
         self.to_console_title(progress_state=_ProgressState.INDETERMINATE)
         return self
@@ -1237,10 +1263,12 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数save_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数save_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数save_cookiesを実行しました。")
+        print(f"YoutubeDL.pyの関数save_cookiesを実行しました。")
         if self.params.get('cookiefile') is not None:
             self.cookiejar.save()
 
     def __exit__(self, *args):
+        print(f"YoutubeDL.pyの関数__exit__を実行しました。")
         print(f"YoutubeDL.pyの関数__exit__を実行しました。")
         print(f"YoutubeDL.pyの関数__exit__を実行しました。")
         print(f"YoutubeDL.pyの関数__exit__を実行しました。")
@@ -1260,6 +1288,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数closeを実行しました。")
         print(f"YoutubeDL.pyの関数closeを実行しました。")
         print(f"YoutubeDL.pyの関数closeを実行しました。")
+        print(f"YoutubeDL.pyの関数closeを実行しました。")
         self.save_cookies()
         if '_request_director' in self.__dict__:
             self._request_director.close()
@@ -1269,6 +1298,7 @@ class YoutubeDL:
             close_hook()
 
     def trouble(self, message=None, tb=None, is_error=True):
+        print(f"YoutubeDL.pyの関数troubleを実行しました。")
         print(f"YoutubeDL.pyの関数troubleを実行しました。")
         print(f"YoutubeDL.pyの関数troubleを実行しました。")
         print(f"YoutubeDL.pyの関数troubleを実行しました。")
@@ -1329,6 +1359,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_format_textを実行しました。")
         print(f"YoutubeDL.pyの関数_format_textを実行しました。")
         print(f"YoutubeDL.pyの関数_format_textを実行しました。")
+        print(f"YoutubeDL.pyの関数_format_textを実行しました。")
         text = str(text)
         if test_encoding:
             original_text = text
@@ -1347,9 +1378,11 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_format_outを実行しました。")
         print(f"YoutubeDL.pyの関数_format_outを実行しました。")
         print(f"YoutubeDL.pyの関数_format_outを実行しました。")
+        print(f"YoutubeDL.pyの関数_format_outを実行しました。")
         return self._format_text(self._out_files.out, self._allow_colors.out, *args, **kwargs)
 
     def _format_screen(self, *args, **kwargs):
+        print(f"YoutubeDL.pyの関数_format_screenを実行しました。")
         print(f"YoutubeDL.pyの関数_format_screenを実行しました。")
         print(f"YoutubeDL.pyの関数_format_screenを実行しました。")
         print(f"YoutubeDL.pyの関数_format_screenを実行しました。")
@@ -1367,9 +1400,11 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_format_errを実行しました。")
         print(f"YoutubeDL.pyの関数_format_errを実行しました。")
         print(f"YoutubeDL.pyの関数_format_errを実行しました。")
+        print(f"YoutubeDL.pyの関数_format_errを実行しました。")
         return self._format_text(self._out_files.error, self._allow_colors.error, *args, **kwargs)
 
     def report_warning(self, message, only_once=False):
+        print(f"YoutubeDL.pyの関数report_warningを実行しました。")
         print(f"YoutubeDL.pyの関数report_warningを実行しました。")
         print(f"YoutubeDL.pyの関数report_warningを実行しました。")
         print(f"YoutubeDL.pyの関数report_warningを実行しました。")
@@ -1396,10 +1431,12 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数deprecation_warningを実行しました。")
         print(f"YoutubeDL.pyの関数deprecation_warningを実行しました。")
         print(f"YoutubeDL.pyの関数deprecation_warningを実行しました。")
+        print(f"YoutubeDL.pyの関数deprecation_warningを実行しました。")
         deprecation_warning(
             message, stacklevel=stacklevel + 1, printer=self.report_error, is_error=False)
 
     def deprecated_feature(self, message):
+        print(f"YoutubeDL.pyの関数deprecated_featureを実行しました。")
         print(f"YoutubeDL.pyの関数deprecated_featureを実行しました。")
         print(f"YoutubeDL.pyの関数deprecated_featureを実行しました。")
         print(f"YoutubeDL.pyの関数deprecated_featureを実行しました。")
@@ -1419,6 +1456,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数report_errorを実行しました。")
         print(f"YoutubeDL.pyの関数report_errorを実行しました。")
         print(f"YoutubeDL.pyの関数report_errorを実行しました。")
+        print(f"YoutubeDL.pyの関数report_errorを実行しました。")
         """
         Do the same as trouble, but prefixes the message with 'ERROR:', colored
         in red if stderr is a tty file.
@@ -1426,6 +1464,7 @@ class YoutubeDL:
         self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
 
     def write_debug(self, message, only_once=False):
+        print(f"YoutubeDL.pyの関数write_debugを実行しました。")
         print(f"YoutubeDL.pyの関数write_debugを実行しました。")
         print(f"YoutubeDL.pyの関数write_debugを実行しました。")
         print(f"YoutubeDL.pyの関数write_debugを実行しました。")
@@ -1450,6 +1489,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数report_file_already_downloadedを実行しました。")
         print(f"YoutubeDL.pyの関数report_file_already_downloadedを実行しました。")
         print(f"YoutubeDL.pyの関数report_file_already_downloadedを実行しました。")
+        print(f"YoutubeDL.pyの関数report_file_already_downloadedを実行しました。")
         """Report file has already been fully downloaded."""
         try:
             self.to_screen(f'[download] {file_name} has already been downloaded')
@@ -1464,6 +1504,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数report_file_deleteを実行しました。")
         print(f"YoutubeDL.pyの関数report_file_deleteを実行しました。")
         print(f"YoutubeDL.pyの関数report_file_deleteを実行しました。")
+        print(f"YoutubeDL.pyの関数report_file_deleteを実行しました。")
         """Report that existing file will be deleted."""
         try:
             self.to_screen(f'Deleting existing file {file_name}')
@@ -1471,6 +1512,7 @@ class YoutubeDL:
             self.to_screen('Deleting existing file')
 
     def raise_no_formats(self, info, forced=False, *, msg=None):
+        print(f"YoutubeDL.pyの関数raise_no_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数raise_no_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数raise_no_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数raise_no_formatsを実行しました。")
@@ -1495,11 +1537,13 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数parse_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数parse_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数parse_outtmplを実行しました。")
+        print(f"YoutubeDL.pyの関数parse_outtmplを実行しました。")
         self.deprecation_warning('"YoutubeDL.parse_outtmpl" is deprecated and may be removed in a future version')
         self._parse_outtmpl()
         return self.params['outtmpl']
 
     def _parse_outtmpl(self):
+        print(f"YoutubeDL.pyの関数_parse_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数_parse_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数_parse_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数_parse_outtmplを実行しました。")
@@ -1517,6 +1561,7 @@ class YoutubeDL:
         outtmpl.update({k: sanitize(v) for k, v in DEFAULT_OUTTMPL.items() if outtmpl.get(k) is None})
 
     def get_output_path(self, dir_type='', filename=None):
+        print(f"YoutubeDL.pyの関数get_output_pathを実行しました。")
         print(f"YoutubeDL.pyの関数get_output_pathを実行しました。")
         print(f"YoutubeDL.pyの関数get_output_pathを実行しました。")
         print(f"YoutubeDL.pyの関数get_output_pathを実行しました。")
@@ -1576,6 +1621,7 @@ class YoutubeDL:
         return info_dict
 
     def prepare_outtmpl(self, outtmpl, info_dict, sanitize=False, *, _exec=False):
+        print(f"YoutubeDL.pyの関数prepare_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数prepare_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数prepare_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数prepare_outtmplを実行しました。")
@@ -1645,6 +1691,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数_from_user_inputを実行しました。")
             print(f"YoutubeDL.pyの関数_from_user_inputを実行しました。")
             print(f"YoutubeDL.pyの関数_from_user_inputを実行しました。")
+            print(f"YoutubeDL.pyの関数_from_user_inputを実行しました。")
             if field == ':':
                 return ...
             elif ':' in field:
@@ -1654,6 +1701,7 @@ class YoutubeDL:
             return field
 
         def _traverse_infodict(fields):
+            print(f"YoutubeDL.pyの関数_traverse_infodictを実行しました。")
             print(f"YoutubeDL.pyの関数_traverse_infodictを実行しました。")
             print(f"YoutubeDL.pyの関数_traverse_infodictを実行しました。")
             print(f"YoutubeDL.pyの関数_traverse_infodictを実行しました。")
@@ -1677,6 +1725,7 @@ class YoutubeDL:
             return traverse_obj(info_dict, fields, traverse_string=True)
 
         def get_value(mdict):
+            print(f"YoutubeDL.pyの関数get_valueを実行しました。")
             print(f"YoutubeDL.pyの関数get_valueを実行しました。")
             print(f"YoutubeDL.pyの関数get_valueを実行しました。")
             print(f"YoutubeDL.pyの関数get_valueを実行しました。")
@@ -1732,6 +1781,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数filename_sanitizerを実行しました。")
             print(f"YoutubeDL.pyの関数filename_sanitizerを実行しました。")
             print(f"YoutubeDL.pyの関数filename_sanitizerを実行しました。")
+            print(f"YoutubeDL.pyの関数filename_sanitizerを実行しました。")
             return sanitize_filename(str(value), restricted=restricted, is_id=(
                 bool(re.search(r'(^|[_.])id(\.|$)', key))
                 if 'filename-sanitization' in self.params['compat_opts']
@@ -1744,6 +1794,7 @@ class YoutubeDL:
         elif (sys.platform != 'win32' and not self.params.get('restrictfilenames')
                 and self.params.get('windowsfilenames') is False):
             def sanitize(key, value):
+                print(f"YoutubeDL.pyの関数sanitizeを実行しました。")
                 print(f"YoutubeDL.pyの関数sanitizeを実行しました。")
                 print(f"YoutubeDL.pyの関数sanitizeを実行しました。")
                 print(f"YoutubeDL.pyの関数sanitizeを実行しました。")
@@ -1764,12 +1815,14 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数_dumpjson_defaultを実行しました。")
             print(f"YoutubeDL.pyの関数_dumpjson_defaultを実行しました。")
             print(f"YoutubeDL.pyの関数_dumpjson_defaultを実行しました。")
+            print(f"YoutubeDL.pyの関数_dumpjson_defaultを実行しました。")
             if isinstance(obj, (set, LazyList)):
                 return list(obj)
             return repr(obj)
 
         class _ReplacementFormatter(string.Formatter):
             def get_field(self, field_name, args, kwargs):
+                print(f"YoutubeDL.pyの関数get_fieldを実行しました。")
                 print(f"YoutubeDL.pyの関数get_fieldを実行しました。")
                 print(f"YoutubeDL.pyの関数get_fieldを実行しました。")
                 print(f"YoutubeDL.pyの関数get_fieldを実行しました。")
@@ -1784,6 +1837,7 @@ class YoutubeDL:
         replacement_formatter = _ReplacementFormatter()
 
         def create_key(outer_mobj):
+            print(f"YoutubeDL.pyの関数create_keyを実行しました。")
             print(f"YoutubeDL.pyの関数create_keyを実行しました。")
             print(f"YoutubeDL.pyの関数create_keyを実行しました。")
             print(f"YoutubeDL.pyの関数create_keyを実行しました。")
@@ -1899,6 +1953,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数evaluate_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数evaluate_outtmplを実行しました。")
         print(f"YoutubeDL.pyの関数evaluate_outtmplを実行しました。")
+        print(f"YoutubeDL.pyの関数evaluate_outtmplを実行しました。")
         outtmpl, info_dict = self.prepare_outtmpl(outtmpl, info_dict, *args, **kwargs)
         return self.escape_outtmpl(outtmpl) % info_dict
 
@@ -1941,6 +1996,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数prepare_filenameを実行しました。")
         print(f"YoutubeDL.pyの関数prepare_filenameを実行しました。")
         print(f"YoutubeDL.pyの関数prepare_filenameを実行しました。")
+        print(f"YoutubeDL.pyの関数prepare_filenameを実行しました。")
         """Generate the output filename"""
         if outtmpl:
             assert not dir_type, 'outtmpl and dir_type are mutually exclusive'
@@ -1969,6 +2025,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_match_entryを実行しました。")
         print(f"YoutubeDL.pyの関数_match_entryを実行しました。")
         print(f"YoutubeDL.pyの関数_match_entryを実行しました。")
+        print(f"YoutubeDL.pyの関数_match_entryを実行しました。")
         """Returns None if the file should be downloaded"""
         _type = 'video' if 'playlist-match-filter' in self.params['compat_opts'] else info_dict.get('_type', 'video')
         assert incomplete or _type == 'video', 'Only video result can be considered complete'
@@ -1976,6 +2033,7 @@ class YoutubeDL:
         video_title = info_dict.get('title', info_dict.get('id', 'entry'))
 
         def check_filter():
+            print(f"YoutubeDL.pyの関数check_filterを実行しました。")
             print(f"YoutubeDL.pyの関数check_filterを実行しました。")
             print(f"YoutubeDL.pyの関数check_filterを実行しました。")
             print(f"YoutubeDL.pyの関数check_filterを実行しました。")
@@ -2132,6 +2190,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_handle_extraction_exceptionsを実行しました。")
         print(f"YoutubeDL.pyの関数_handle_extraction_exceptionsを実行しました。")
         print(f"YoutubeDL.pyの関数_handle_extraction_exceptionsを実行しました。")
+        print(f"YoutubeDL.pyの関数_handle_extraction_exceptionsを実行しました。")
         @functools.wraps(func)
         def wrapper(self, *args, **kwargs):
             while True:
@@ -2171,6 +2230,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_wait_for_videoを実行しました。")
         print(f"YoutubeDL.pyの関数_wait_for_videoを実行しました。")
         print(f"YoutubeDL.pyの関数_wait_for_videoを実行しました。")
+        print(f"YoutubeDL.pyの関数_wait_for_videoを実行しました。")
         if (not self.params.get('wait_for_video')
                 or ie_result.get('_type', 'video') != 'video'
                 or ie_result.get('formats') or ie_result.get('url')):
@@ -2180,6 +2240,7 @@ class YoutubeDL:
         last_msg = ''
 
         def progress(msg):
+            print(f"YoutubeDL.pyの関数progressを実行しました。")
             print(f"YoutubeDL.pyの関数progressを実行しました。")
             print(f"YoutubeDL.pyの関数progressを実行しました。")
             print(f"YoutubeDL.pyの関数progressを実行しました。")
@@ -2231,6 +2292,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_load_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数_load_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数_load_cookiesを実行しました。")
+        print(f"YoutubeDL.pyの関数_load_cookiesを実行しました。")
         """Loads cookies from a `Cookie` header
 
         This tries to work around the security vulnerability of passing cookies to every domain.
@@ -2273,6 +2335,7 @@ class YoutubeDL:
                                   tb=False, is_error=False)
 
     def _apply_header_cookies(self, url, cookies=None):
+        print(f"YoutubeDL.pyの関数_apply_header_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数_apply_header_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数_apply_header_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数_apply_header_cookiesを実行しました。")
@@ -2332,6 +2395,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数add_default_extra_infoを実行しました。")
         print(f"YoutubeDL.pyの関数add_default_extra_infoを実行しました。")
         print(f"YoutubeDL.pyの関数add_default_extra_infoを実行しました。")
+        print(f"YoutubeDL.pyの関数add_default_extra_infoを実行しました。")
         if url is not None:
             self.add_extra_info(ie_result, {
                 'webpage_url': url,
@@ -2350,6 +2414,7 @@ class YoutubeDL:
             })
 
     def process_ie_result(self, ie_result, download=True, extra_info=None):
+        print(f"YoutubeDL.pyの関数process_ie_resultを実行しました。")
         print(f"YoutubeDL.pyの関数process_ie_resultを実行しました。")
         print(f"YoutubeDL.pyの関数process_ie_resultを実行しました。")
         print(f"YoutubeDL.pyの関数process_ie_resultを実行しました。")
@@ -2481,6 +2546,7 @@ class YoutubeDL:
                 print(f"YoutubeDL.pyの関数_fixupを実行しました。")
                 print(f"YoutubeDL.pyの関数_fixupを実行しました。")
                 print(f"YoutubeDL.pyの関数_fixupを実行しました。")
+                print(f"YoutubeDL.pyの関数_fixupを実行しました。")
                 self.add_extra_info(r, {
                     'extractor': ie_result['extractor'],
                     'webpage_url': ie_result['webpage_url'],
@@ -2498,6 +2564,7 @@ class YoutubeDL:
             raise Exception(f'Invalid result type: {result_type}')
 
     def _ensure_dir_exists(self, path):
+        print(f"YoutubeDL.pyの関数_ensure_dir_existsを実行しました。")
         print(f"YoutubeDL.pyの関数_ensure_dir_existsを実行しました。")
         print(f"YoutubeDL.pyの関数_ensure_dir_existsを実行しました。")
         print(f"YoutubeDL.pyの関数_ensure_dir_existsを実行しました。")
@@ -2543,6 +2610,7 @@ class YoutubeDL:
         }
 
     def __process_playlist(self, ie_result, download):
+        print(f"YoutubeDL.pyの関数__process_playlistを実行しました。")
         print(f"YoutubeDL.pyの関数__process_playlistを実行しました。")
         print(f"YoutubeDL.pyの関数__process_playlistを実行しました。")
         print(f"YoutubeDL.pyの関数__process_playlistを実行しました。")
@@ -2680,6 +2748,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_build_format_filterを実行しました。")
         print(f"YoutubeDL.pyの関数_build_format_filterを実行しました。")
         print(f"YoutubeDL.pyの関数_build_format_filterを実行しました。")
+        print(f"YoutubeDL.pyの関数_build_format_filterを実行しました。")
         " Returns a function to filter the formats according to the filter_spec "
 
         OPERATORS = {
@@ -2747,6 +2816,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数_filterを実行しました。")
             print(f"YoutubeDL.pyの関数_filterを実行しました。")
             print(f"YoutubeDL.pyの関数_filterを実行しました。")
+            print(f"YoutubeDL.pyの関数_filterを実行しました。")
             actual_value = f.get(m.group('key'))
             if actual_value is None:
                 return m.group('none_inclusive')
@@ -2754,6 +2824,7 @@ class YoutubeDL:
         return _filter
 
     def _check_formats(self, formats, warning=True):
+        print(f"YoutubeDL.pyの関数_check_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数_check_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数_check_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数_check_formatsを実行しました。")
@@ -2807,6 +2878,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_select_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数_select_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数_select_formatsを実行しました。")
+        print(f"YoutubeDL.pyの関数_select_formatsを実行しました。")
         return list(selector({
             'formats': formats,
             'has_merged_format': any('none' not in (f.get('acodec'), f.get('vcodec')) for f in formats),
@@ -2822,11 +2894,13 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_default_format_specを実行しました。")
         print(f"YoutubeDL.pyの関数_default_format_specを実行しました。")
         print(f"YoutubeDL.pyの関数_default_format_specを実行しました。")
+        print(f"YoutubeDL.pyの関数_default_format_specを実行しました。")
         prefer_best = (
             self.params['outtmpl']['default'] == '-'
             or (info_dict.get('is_live') and not self.params.get('live_from_start')))
 
         def can_merge():
+            print(f"YoutubeDL.pyの関数can_mergeを実行しました。")
             print(f"YoutubeDL.pyの関数can_mergeを実行しました。")
             print(f"YoutubeDL.pyの関数can_mergeを実行しました。")
             print(f"YoutubeDL.pyの関数can_mergeを実行しました。")
@@ -2860,7 +2934,9 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数build_format_selectorを実行しました。")
         print(f"YoutubeDL.pyの関数build_format_selectorを実行しました。")
         print(f"YoutubeDL.pyの関数build_format_selectorを実行しました。")
+        print(f"YoutubeDL.pyの関数build_format_selectorを実行しました。")
         def syntax_error(note, start):
+            print(f"YoutubeDL.pyの関数syntax_errorを実行しました。")
             print(f"YoutubeDL.pyの関数syntax_errorを実行しました。")
             print(f"YoutubeDL.pyの関数syntax_errorを実行しました。")
             print(f"YoutubeDL.pyの関数syntax_errorを実行しました。")
@@ -2890,6 +2966,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数_parse_filterを実行しました。")
             print(f"YoutubeDL.pyの関数_parse_filterを実行しました。")
             print(f"YoutubeDL.pyの関数_parse_filterを実行しました。")
+            print(f"YoutubeDL.pyの関数_parse_filterを実行しました。")
             filter_parts = []
             for type_, string_, _start, _, _ in tokens:
                 if type_ == tokenize.OP and string_ == ']':
@@ -2898,6 +2975,7 @@ class YoutubeDL:
                     filter_parts.append(string_)
 
         def _remove_unused_ops(tokens):
+            print(f"YoutubeDL.pyの関数_remove_unused_opsを実行しました。")
             print(f"YoutubeDL.pyの関数_remove_unused_opsを実行しました。")
             print(f"YoutubeDL.pyの関数_remove_unused_opsを実行しました。")
             print(f"YoutubeDL.pyの関数_remove_unused_opsを実行しました。")
@@ -2936,6 +3014,7 @@ class YoutubeDL:
                 yield tokenize.NAME, last_string, last_start, last_end, last_line
 
         def _parse_format_selection(tokens, inside_merge=False, inside_choice=False, inside_group=False):
+            print(f"YoutubeDL.pyの関数_parse_format_selectionを実行しました。")
             print(f"YoutubeDL.pyの関数_parse_format_selectionを実行しました。")
             print(f"YoutubeDL.pyの関数_parse_format_selectionを実行しました。")
             print(f"YoutubeDL.pyの関数_parse_format_selectionを実行しました。")
@@ -3001,6 +3080,7 @@ class YoutubeDL:
             return selectors
 
         def _merge(formats_pair):
+            print(f"YoutubeDL.pyの関数_mergeを実行しました。")
             print(f"YoutubeDL.pyの関数_mergeを実行しました。")
             print(f"YoutubeDL.pyの関数_mergeを実行しました。")
             print(f"YoutubeDL.pyの関数_mergeを実行しました。")
@@ -3089,6 +3169,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数_check_formatsを実行しました。")
             print(f"YoutubeDL.pyの関数_check_formatsを実行しました。")
             print(f"YoutubeDL.pyの関数_check_formatsを実行しました。")
+            print(f"YoutubeDL.pyの関数_check_formatsを実行しました。")
             if self.params.get('check_formats') == 'selected':
                 yield from self._check_formats(formats)
                 return
@@ -3111,10 +3192,12 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数_build_selector_functionを実行しました。")
             print(f"YoutubeDL.pyの関数_build_selector_functionを実行しました。")
             print(f"YoutubeDL.pyの関数_build_selector_functionを実行しました。")
+            print(f"YoutubeDL.pyの関数_build_selector_functionを実行しました。")
             if isinstance(selector, list):  # ,
                 fs = [_build_selector_function(s) for s in selector]
 
                 def selector_function(ctx):
+                    print(f"YoutubeDL.pyの関数selector_functionを実行しました。")
                     print(f"YoutubeDL.pyの関数selector_functionを実行しました。")
                     print(f"YoutubeDL.pyの関数selector_functionを実行しました。")
                     print(f"YoutubeDL.pyの関数selector_functionを実行しました。")
@@ -3152,6 +3235,7 @@ class YoutubeDL:
                 # TODO: Add allvideo, allaudio etc by generalizing the code with best/worst selector
                 if format_spec == 'all':
                     def selector_function(ctx):
+                        print(f"YoutubeDL.pyの関数selector_functionを実行しました。")
                         print(f"YoutubeDL.pyの関数selector_functionを実行しました。")
                         print(f"YoutubeDL.pyの関数selector_functionを実行しました。")
                         print(f"YoutubeDL.pyの関数selector_functionを実行しました。")
@@ -3233,6 +3317,7 @@ class YoutubeDL:
                 print(f"YoutubeDL.pyの関数final_selectorを実行しました。")
                 print(f"YoutubeDL.pyの関数final_selectorを実行しました。")
                 print(f"YoutubeDL.pyの関数final_selectorを実行しました。")
+                print(f"YoutubeDL.pyの関数final_selectorを実行しました。")
                 ctx_copy = dict(ctx)
                 for _filter in filters:
                     ctx_copy['formats'] = list(filter(_filter, ctx_copy['formats']))
@@ -3261,6 +3346,7 @@ class YoutubeDL:
                 print(f"YoutubeDL.pyの関数__init__を実行しました。")
                 print(f"YoutubeDL.pyの関数__init__を実行しました。")
                 print(f"YoutubeDL.pyの関数__init__を実行しました。")
+                print(f"YoutubeDL.pyの関数__init__を実行しました。")
                 self.tokens = tokens
                 self.counter = 0
 
@@ -3272,9 +3358,11 @@ class YoutubeDL:
                 print(f"YoutubeDL.pyの関数__iter__を実行しました。")
                 print(f"YoutubeDL.pyの関数__iter__を実行しました。")
                 print(f"YoutubeDL.pyの関数__iter__を実行しました。")
+                print(f"YoutubeDL.pyの関数__iter__を実行しました。")
                 return self
 
             def __next__(self):
+                print(f"YoutubeDL.pyの関数__next__を実行しました。")
                 print(f"YoutubeDL.pyの関数__next__を実行しました。")
                 print(f"YoutubeDL.pyの関数__next__を実行しました。")
                 print(f"YoutubeDL.pyの関数__next__を実行しました。")
@@ -3298,12 +3386,14 @@ class YoutubeDL:
                 print(f"YoutubeDL.pyの関数restore_last_tokenを実行しました。")
                 print(f"YoutubeDL.pyの関数restore_last_tokenを実行しました。")
                 print(f"YoutubeDL.pyの関数restore_last_tokenを実行しました。")
+                print(f"YoutubeDL.pyの関数restore_last_tokenを実行しました。")
                 self.counter -= 1
 
         parsed_selector = _parse_format_selection(iter(TokenIterator(tokens)))
         return _build_selector_function(parsed_selector)
 
     def _calc_headers(self, info_dict, load_cookies=False):
+        print(f"YoutubeDL.pyの関数_calc_headersを実行しました。")
         print(f"YoutubeDL.pyの関数_calc_headersを実行しました。")
         print(f"YoutubeDL.pyの関数_calc_headersを実行しました。")
         print(f"YoutubeDL.pyの関数_calc_headersを実行しました。")
@@ -3354,10 +3444,12 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_calc_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数_calc_cookiesを実行しました。")
         print(f"YoutubeDL.pyの関数_calc_cookiesを実行しました。")
+        print(f"YoutubeDL.pyの関数_calc_cookiesを実行しました。")
         self.deprecation_warning('"YoutubeDL._calc_cookies" is deprecated and may be removed in a future version')
         return self.cookiejar.get_cookie_header(url)
 
     def _sort_thumbnails(self, thumbnails):
+        print(f"YoutubeDL.pyの関数_sort_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数_sort_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数_sort_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数_sort_thumbnailsを実行しました。")
@@ -3380,6 +3472,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_sanitize_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数_sanitize_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数_sanitize_thumbnailsを実行しました。")
+        print(f"YoutubeDL.pyの関数_sanitize_thumbnailsを実行しました。")
         thumbnails = info_dict.get('thumbnails')
         if thumbnails is None:
             thumbnail = info_dict.get('thumbnail')
@@ -3389,6 +3482,7 @@ class YoutubeDL:
             return
 
         def check_thumbnails(thumbnails):
+            print(f"YoutubeDL.pyの関数check_thumbnailsを実行しました。")
             print(f"YoutubeDL.pyの関数check_thumbnailsを実行しました。")
             print(f"YoutubeDL.pyの関数check_thumbnailsを実行しました。")
             print(f"YoutubeDL.pyの関数check_thumbnailsを実行しました。")
@@ -3419,6 +3513,7 @@ class YoutubeDL:
             info_dict['thumbnails'] = thumbnails
 
     def _fill_common_fields(self, info_dict, final=True):
+        print(f"YoutubeDL.pyの関数_fill_common_fieldsを実行しました。")
         print(f"YoutubeDL.pyの関数_fill_common_fieldsを実行しました。")
         print(f"YoutubeDL.pyの関数_fill_common_fieldsを実行しました。")
         print(f"YoutubeDL.pyの関数_fill_common_fieldsを実行しました。")
@@ -3492,6 +3587,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_raise_pending_errorsを実行しました。")
         print(f"YoutubeDL.pyの関数_raise_pending_errorsを実行しました。")
         print(f"YoutubeDL.pyの関数_raise_pending_errorsを実行しました。")
+        print(f"YoutubeDL.pyの関数_raise_pending_errorsを実行しました。")
         err = info.pop('__pending_error', None)
         if err:
             self.report_error(err, tb=False)
@@ -3504,11 +3600,13 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数sort_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数sort_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数sort_formatsを実行しました。")
+        print(f"YoutubeDL.pyの関数sort_formatsを実行しました。")
         formats = self._get_formats(info_dict)
         formats.sort(key=FormatSorter(
             self, info_dict.get('_format_sort_fields') or []).calculate_preference)
 
     def process_video_result(self, info_dict, download=True):
+        print(f"YoutubeDL.pyの関数process_video_resultを実行しました。")
         print(f"YoutubeDL.pyの関数process_video_resultを実行しました。")
         print(f"YoutubeDL.pyの関数process_video_resultを実行しました。")
         print(f"YoutubeDL.pyの関数process_video_resultを実行しました。")
@@ -3532,11 +3630,13 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数report_force_conversionを実行しました。")
             print(f"YoutubeDL.pyの関数report_force_conversionを実行しました。")
             print(f"YoutubeDL.pyの関数report_force_conversionを実行しました。")
+            print(f"YoutubeDL.pyの関数report_force_conversionを実行しました。")
             self.report_warning(
                 f'"{field}" field is not {field_not} - forcing {conversion} conversion, '
                 'there is an error in extractor')
 
         def sanitize_string_field(info, string_field):
+            print(f"YoutubeDL.pyの関数sanitize_string_fieldを実行しました。")
             print(f"YoutubeDL.pyの関数sanitize_string_fieldを実行しました。")
             print(f"YoutubeDL.pyの関数sanitize_string_fieldを実行しました。")
             print(f"YoutubeDL.pyの関数sanitize_string_fieldを実行しました。")
@@ -3551,6 +3651,7 @@ class YoutubeDL:
             info[string_field] = str(field)
 
         def sanitize_numeric_fields(info):
+            print(f"YoutubeDL.pyの関数sanitize_numeric_fieldsを実行しました。")
             print(f"YoutubeDL.pyの関数sanitize_numeric_fieldsを実行しました。")
             print(f"YoutubeDL.pyの関数sanitize_numeric_fieldsを実行しました。")
             print(f"YoutubeDL.pyの関数sanitize_numeric_fieldsを実行しました。")
@@ -3649,6 +3750,7 @@ class YoutubeDL:
                     'If you want to download from the current time, use --no-live-from-start'))
 
         def is_wellformed(f):
+            print(f"YoutubeDL.pyの関数is_wellformedを実行しました。")
             print(f"YoutubeDL.pyの関数is_wellformedを実行しました。")
             print(f"YoutubeDL.pyの関数is_wellformedを実行しました。")
             print(f"YoutubeDL.pyの関数is_wellformedを実行しました。")
@@ -3821,6 +3923,7 @@ class YoutubeDL:
                     print(f"YoutubeDL.pyの関数to_screenを実行しました。")
                     print(f"YoutubeDL.pyの関数to_screenを実行しました。")
                     print(f"YoutubeDL.pyの関数to_screenを実行しました。")
+                    print(f"YoutubeDL.pyの関数to_screenを実行しました。")
                     self.to_screen(f'[info] {info_dict["id"]}: {" ".join(", ".join(variadic(m)) for m in msg)}')
 
                 to_screen(f'Downloading {len(formats_to_download)} format(s):',
@@ -3873,6 +3976,7 @@ class YoutubeDL:
         return info_dict
 
     def process_subtitles(self, video_id, normal_subtitles, automatic_captions):
+        print(f"YoutubeDL.pyの関数process_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数process_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数process_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数process_subtitlesを実行しました。")
@@ -3947,6 +4051,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_forceprintを実行しました。")
         print(f"YoutubeDL.pyの関数_forceprintを実行しました。")
         print(f"YoutubeDL.pyの関数_forceprintを実行しました。")
+        print(f"YoutubeDL.pyの関数_forceprintを実行しました。")
         if info_dict is None:
             return
         info_copy = info_dict.copy()
@@ -3962,6 +4067,7 @@ class YoutubeDL:
         info_copy['automatic_captions_table'] = self.render_subtitles_table(info_dict.get('id'), info_dict.get('automatic_captions'))
 
         def format_tmpl(tmpl):
+            print(f"YoutubeDL.pyの関数format_tmplを実行しました。")
             print(f"YoutubeDL.pyの関数format_tmplを実行しました。")
             print(f"YoutubeDL.pyの関数format_tmplを実行しました。")
             print(f"YoutubeDL.pyの関数format_tmplを実行しました。")
@@ -4001,6 +4107,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数__forced_printingsを実行しました。")
         print(f"YoutubeDL.pyの関数__forced_printingsを実行しました。")
         print(f"YoutubeDL.pyの関数__forced_printingsを実行しました。")
+        print(f"YoutubeDL.pyの関数__forced_printingsを実行しました。")
         if (self.params.get('forcejson')
                 or self.params['forceprint'].get('video')
                 or self.params['print_to_file'].get('video')):
@@ -4010,6 +4117,7 @@ class YoutubeDL:
         info_copy = self._forceprint('video', info_dict)
 
         def print_field(field, actual_field=None, optional=False):
+            print(f"YoutubeDL.pyの関数print_fieldを実行しました。")
             print(f"YoutubeDL.pyの関数print_fieldを実行しました。")
             print(f"YoutubeDL.pyの関数print_fieldを実行しました。")
             print(f"YoutubeDL.pyの関数print_fieldを実行しました。")
@@ -4037,6 +4145,7 @@ class YoutubeDL:
             self.to_stdout(json.dumps(self.sanitize_info(info_dict)))
 
     def dl(self, name, info, subtitle=False, test=False):
+        print(f"YoutubeDL.pyの関数dlを実行しました。")
         print(f"YoutubeDL.pyの関数dlを実行しました。")
         print(f"YoutubeDL.pyの関数dlを実行しました。")
         print(f"YoutubeDL.pyの関数dlを実行しました。")
@@ -4088,6 +4197,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数existing_fileを実行しました。")
         print(f"YoutubeDL.pyの関数existing_fileを実行しました。")
         print(f"YoutubeDL.pyの関数existing_fileを実行しました。")
+        print(f"YoutubeDL.pyの関数existing_fileを実行しました。")
         existing_files = list(filter(os.path.exists, orderedSet(filepaths)))
         if existing_files and not self.params.get('overwrites', default_overwrite):
             return existing_files[0]
@@ -4122,6 +4232,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数replace_info_dictを実行しました。")
             print(f"YoutubeDL.pyの関数replace_info_dictを実行しました。")
             print(f"YoutubeDL.pyの関数replace_info_dictを実行しました。")
+            print(f"YoutubeDL.pyの関数replace_info_dictを実行しました。")
             nonlocal info_dict
             if new_info == info_dict:
                 return
@@ -4141,6 +4252,7 @@ class YoutubeDL:
         self.__forced_printings(info_dict, full_filename, incomplete=('format' not in info_dict))
 
         def check_max_downloads():
+            print(f"YoutubeDL.pyの関数check_max_downloadsを実行しました。")
             print(f"YoutubeDL.pyの関数check_max_downloadsを実行しました。")
             print(f"YoutubeDL.pyの関数check_max_downloadsを実行しました。")
             print(f"YoutubeDL.pyの関数check_max_downloadsを実行しました。")
@@ -4189,6 +4301,7 @@ class YoutubeDL:
 
         # Write internet shortcut files
         def _write_link_file(link_type):
+            print(f"YoutubeDL.pyの関数_write_link_fileを実行しました。")
             print(f"YoutubeDL.pyの関数_write_link_fileを実行しました。")
             print(f"YoutubeDL.pyの関数_write_link_fileを実行しました。")
             print(f"YoutubeDL.pyの関数_write_link_fileを実行しました。")
@@ -4259,6 +4372,7 @@ class YoutubeDL:
                     print(f"YoutubeDL.pyの関数existing_video_fileを実行しました。")
                     print(f"YoutubeDL.pyの関数existing_video_fileを実行しました。")
                     print(f"YoutubeDL.pyの関数existing_video_fileを実行しました。")
+                    print(f"YoutubeDL.pyの関数existing_video_fileを実行しました。")
                     ext = info_dict.get('ext')
                     converted = lambda file: replace_extension(file, self.params.get('final_ext') or ext, ext)
                     file = self.existing_file(itertools.chain(*zip(map(converted, filepaths), filepaths, strict=True)),
@@ -4291,6 +4405,7 @@ class YoutubeDL:
                     new_ext = info_dict['ext']
 
                     def correct_ext(filename, ext=new_ext):
+                        print(f"YoutubeDL.pyの関数correct_extを実行しました。")
                         print(f"YoutubeDL.pyの関数correct_extを実行しました。")
                         print(f"YoutubeDL.pyの関数correct_extを実行しました。")
                         print(f"YoutubeDL.pyの関数correct_extを実行しました。")
@@ -4409,6 +4524,7 @@ class YoutubeDL:
                     print(f"YoutubeDL.pyの関数fixupを実行しました。")
                     print(f"YoutubeDL.pyの関数fixupを実行しました。")
                     print(f"YoutubeDL.pyの関数fixupを実行しました。")
+                    print(f"YoutubeDL.pyの関数fixupを実行しました。")
                     do_fixup = True
                     fixup_policy = self.params.get('fixup')
                     vid = info_dict['id']
@@ -4423,6 +4539,7 @@ class YoutubeDL:
                             do_fixup = False
 
                     def ffmpeg_fixup(cndn, msg, cls):
+                        print(f"YoutubeDL.pyの関数ffmpeg_fixupを実行しました。")
                         print(f"YoutubeDL.pyの関数ffmpeg_fixupを実行しました。")
                         print(f"YoutubeDL.pyの関数ffmpeg_fixupを実行しました。")
                         print(f"YoutubeDL.pyの関数ffmpeg_fixupを実行しました。")
@@ -4498,6 +4615,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数__download_wrapperを実行しました。")
         print(f"YoutubeDL.pyの関数__download_wrapperを実行しました。")
         print(f"YoutubeDL.pyの関数__download_wrapperを実行しました。")
+        print(f"YoutubeDL.pyの関数__download_wrapperを実行しました。")
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             try:
@@ -4525,6 +4643,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数downloadを実行しました。")
         print(f"YoutubeDL.pyの関数downloadを実行しました。")
         print(f"YoutubeDL.pyの関数downloadを実行しました。")
+        print(f"YoutubeDL.pyの関数downloadを実行しました。")
         """Download a given list of URLs."""
         url_list = variadic(url_list)  # Passing a single URL is a common mistake
         outtmpl = self.params['outtmpl']['default']
@@ -4541,6 +4660,7 @@ class YoutubeDL:
         return self._download_retcode
 
     def download_with_info_file(self, info_filename):
+        print(f"YoutubeDL.pyの関数download_with_info_fileを実行しました。")
         print(f"YoutubeDL.pyの関数download_with_info_fileを実行しました。")
         print(f"YoutubeDL.pyの関数download_with_info_fileを実行しました。")
         print(f"YoutubeDL.pyの関数download_with_info_fileを実行しました。")
@@ -4600,6 +4720,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数filter_fnを実行しました。")
             print(f"YoutubeDL.pyの関数filter_fnを実行しました。")
             print(f"YoutubeDL.pyの関数filter_fnを実行しました。")
+            print(f"YoutubeDL.pyの関数filter_fnを実行しました。")
             if isinstance(obj, dict):
                 return {k: filter_fn(v) for k, v in obj.items() if not reject(k, v)}
             elif isinstance(obj, (list, tuple, set, LazyList)):
@@ -4619,6 +4740,7 @@ class YoutubeDL:
         return YoutubeDL.sanitize_info(info_dict, actually_filter)
 
     def _delete_downloaded_files(self, *files_to_delete, info={}, msg=None):
+        print(f"YoutubeDL.pyの関数_delete_downloaded_filesを実行しました。")
         print(f"YoutubeDL.pyの関数_delete_downloaded_filesを実行しました。")
         print(f"YoutubeDL.pyの関数_delete_downloaded_filesを実行しました。")
         print(f"YoutubeDL.pyの関数_delete_downloaded_filesを実行しました。")
@@ -4646,6 +4768,7 @@ class YoutubeDL:
             print(f"YoutubeDL.pyの関数actual_post_extractを実行しました。")
             print(f"YoutubeDL.pyの関数actual_post_extractを実行しました。")
             print(f"YoutubeDL.pyの関数actual_post_extractを実行しました。")
+            print(f"YoutubeDL.pyの関数actual_post_extractを実行しました。")
             if info_dict.get('_type') in ('playlist', 'multi_video'):
                 for video_dict in info_dict.get('entries', {}):
                     actual_post_extract(video_dict or {})
@@ -4657,6 +4780,7 @@ class YoutubeDL:
         actual_post_extract(info_dict or {})
 
     def run_pp(self, pp, infodict):
+        print(f"YoutubeDL.pyの関数run_ppを実行しました。")
         print(f"YoutubeDL.pyの関数run_ppを実行しました。")
         print(f"YoutubeDL.pyの関数run_ppを実行しました。")
         print(f"YoutubeDL.pyの関数run_ppを実行しました。")
@@ -4694,6 +4818,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数run_all_ppsを実行しました。")
         print(f"YoutubeDL.pyの関数run_all_ppsを実行しました。")
         print(f"YoutubeDL.pyの関数run_all_ppsを実行しました。")
+        print(f"YoutubeDL.pyの関数run_all_ppsを実行しました。")
         if key != 'video':
             self._forceprint(key, info)
         for pp in (additional_pps or []) + self._pps[key]:
@@ -4701,6 +4826,7 @@ class YoutubeDL:
         return info
 
     def pre_process(self, ie_info, key='pre_process', files_to_move=None):
+        print(f"YoutubeDL.pyの関数pre_processを実行しました。")
         print(f"YoutubeDL.pyの関数pre_processを実行しました。")
         print(f"YoutubeDL.pyの関数pre_processを実行しました。")
         print(f"YoutubeDL.pyの関数pre_processを実行しました。")
@@ -4726,6 +4852,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数post_processを実行しました。")
         print(f"YoutubeDL.pyの関数post_processを実行しました。")
         print(f"YoutubeDL.pyの関数post_processを実行しました。")
+        print(f"YoutubeDL.pyの関数post_processを実行しました。")
         """Run all the postprocessors on the given file."""
         info['filepath'] = filename
         info['__files_to_move'] = files_to_move or {}
@@ -4735,6 +4862,7 @@ class YoutubeDL:
         return self.run_all_pps('after_move', info)
 
     def _make_archive_id(self, info_dict):
+        print(f"YoutubeDL.pyの関数_make_archive_idを実行しました。")
         print(f"YoutubeDL.pyの関数_make_archive_idを実行しました。")
         print(f"YoutubeDL.pyの関数_make_archive_idを実行しました。")
         print(f"YoutubeDL.pyの関数_make_archive_idを実行しました。")
@@ -4769,6 +4897,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数in_download_archiveを実行しました。")
         print(f"YoutubeDL.pyの関数in_download_archiveを実行しました。")
         print(f"YoutubeDL.pyの関数in_download_archiveを実行しました。")
+        print(f"YoutubeDL.pyの関数in_download_archiveを実行しました。")
         if not self.archive:
             return False
 
@@ -4777,6 +4906,7 @@ class YoutubeDL:
         return any(id_ in self.archive for id_ in vid_ids)
 
     def record_download_archive(self, info_dict):
+        print(f"YoutubeDL.pyの関数record_download_archiveを実行しました。")
         print(f"YoutubeDL.pyの関数record_download_archiveを実行しました。")
         print(f"YoutubeDL.pyの関数record_download_archiveを実行しました。")
         print(f"YoutubeDL.pyの関数record_download_archiveを実行しました。")
@@ -4818,11 +4948,13 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_list_format_headersを実行しました。")
         print(f"YoutubeDL.pyの関数_list_format_headersを実行しました。")
         print(f"YoutubeDL.pyの関数_list_format_headersを実行しました。")
+        print(f"YoutubeDL.pyの関数_list_format_headersを実行しました。")
         if self.params.get('listformats_table', True) is not False:
             return [self._format_out(header, self.Styles.HEADERS) for header in headers]
         return headers
 
     def _format_note(self, fdict):
+        print(f"YoutubeDL.pyの関数_format_noteを実行しました。")
         print(f"YoutubeDL.pyの関数_format_noteを実行しました。")
         print(f"YoutubeDL.pyの関数_format_noteを実行しました。")
         print(f"YoutubeDL.pyの関数_format_noteを実行しました。")
@@ -4897,6 +5029,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_get_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数_get_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数_get_formatsを実行しました。")
+        print(f"YoutubeDL.pyの関数_get_formatsを実行しました。")
         if info_dict.get('formats') is None:
             if info_dict.get('url') and info_dict.get('_type', 'video') == 'video':
                 return [info_dict]
@@ -4904,6 +5037,7 @@ class YoutubeDL:
         return info_dict['formats']
 
     def render_formats_table(self, info_dict):
+        print(f"YoutubeDL.pyの関数render_formats_tableを実行しました。")
         print(f"YoutubeDL.pyの関数render_formats_tableを実行しました。")
         print(f"YoutubeDL.pyの関数render_formats_tableを実行しました。")
         print(f"YoutubeDL.pyの関数render_formats_tableを実行しました。")
@@ -4925,6 +5059,7 @@ class YoutubeDL:
             return render_table(['format code', 'extension', 'resolution', 'note'], table, extra_gap=1)
 
         def simplified_codec(f, field):
+            print(f"YoutubeDL.pyの関数simplified_codecを実行しました。")
             print(f"YoutubeDL.pyの関数simplified_codecを実行しました。")
             print(f"YoutubeDL.pyの関数simplified_codecを実行しました。")
             print(f"YoutubeDL.pyの関数simplified_codecを実行しました。")
@@ -4993,6 +5128,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数render_thumbnails_tableを実行しました。")
         print(f"YoutubeDL.pyの関数render_thumbnails_tableを実行しました。")
         print(f"YoutubeDL.pyの関数render_thumbnails_tableを実行しました。")
+        print(f"YoutubeDL.pyの関数render_thumbnails_tableを実行しました。")
         thumbnails = list(info_dict.get('thumbnails') or [])
         if not thumbnails:
             return None
@@ -5008,7 +5144,9 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数render_subtitles_tableを実行しました。")
         print(f"YoutubeDL.pyの関数render_subtitles_tableを実行しました。")
         print(f"YoutubeDL.pyの関数render_subtitles_tableを実行しました。")
+        print(f"YoutubeDL.pyの関数render_subtitles_tableを実行しました。")
         def _row(lang, formats):
+            print(f"YoutubeDL.pyの関数_rowを実行しました。")
             print(f"YoutubeDL.pyの関数_rowを実行しました。")
             print(f"YoutubeDL.pyの関数_rowを実行しました。")
             print(f"YoutubeDL.pyの関数_rowを実行しました。")
@@ -5036,6 +5174,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数__list_tableを実行しました。")
         print(f"YoutubeDL.pyの関数__list_tableを実行しました。")
         print(f"YoutubeDL.pyの関数__list_tableを実行しました。")
+        print(f"YoutubeDL.pyの関数__list_tableを実行しました。")
         table = func(*args)
         if not table:
             self.to_screen(f'{video_id} has no {name}')
@@ -5044,6 +5183,7 @@ class YoutubeDL:
         self.to_stdout(table)
 
     def list_formats(self, info_dict):
+        print(f"YoutubeDL.pyの関数list_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数list_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数list_formatsを実行しました。")
         print(f"YoutubeDL.pyの関数list_formatsを実行しました。")
@@ -5061,9 +5201,11 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数list_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数list_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数list_thumbnailsを実行しました。")
+        print(f"YoutubeDL.pyの関数list_thumbnailsを実行しました。")
         self.__list_table(info_dict['id'], 'thumbnails', self.render_thumbnails_table, info_dict)
 
     def list_subtitles(self, video_id, subtitles, name='subtitles'):
+        print(f"YoutubeDL.pyの関数list_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数list_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数list_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数list_subtitlesを実行しました。")
@@ -5081,10 +5223,12 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数print_debug_headerを実行しました。")
         print(f"YoutubeDL.pyの関数print_debug_headerを実行しました。")
         print(f"YoutubeDL.pyの関数print_debug_headerを実行しました。")
+        print(f"YoutubeDL.pyの関数print_debug_headerを実行しました。")
         if not self.params.get('verbose'):
             return
 
         def get_encoding(stream):
+            print(f"YoutubeDL.pyの関数get_encodingを実行しました。")
             print(f"YoutubeDL.pyの関数get_encodingを実行しました。")
             print(f"YoutubeDL.pyの関数get_encodingを実行しました。")
             print(f"YoutubeDL.pyの関数get_encodingを実行しました。")
@@ -5246,6 +5390,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_get_available_impersonate_targetsを実行しました。")
         print(f"YoutubeDL.pyの関数_get_available_impersonate_targetsを実行しました。")
         print(f"YoutubeDL.pyの関数_get_available_impersonate_targetsを実行しました。")
+        print(f"YoutubeDL.pyの関数_get_available_impersonate_targetsを実行しました。")
         # TODO(future): make available as public API
         return [
             (target, rh.RH_NAME)
@@ -5262,6 +5407,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_impersonate_target_availableを実行しました。")
         print(f"YoutubeDL.pyの関数_impersonate_target_availableを実行しました。")
         print(f"YoutubeDL.pyの関数_impersonate_target_availableを実行しました。")
+        print(f"YoutubeDL.pyの関数_impersonate_target_availableを実行しました。")
         # TODO(future): make available as public API
         return any(
             rh.is_supported_target(target)
@@ -5269,6 +5415,7 @@ class YoutubeDL:
             if isinstance(rh, ImpersonateRequestHandler))
 
     def _parse_impersonate_targets(self, impersonate):
+        print(f"YoutubeDL.pyの関数_parse_impersonate_targetsを実行しました。")
         print(f"YoutubeDL.pyの関数_parse_impersonate_targetsを実行しました。")
         print(f"YoutubeDL.pyの関数_parse_impersonate_targetsを実行しました。")
         print(f"YoutubeDL.pyの関数_parse_impersonate_targetsを実行しました。")
@@ -5301,6 +5448,7 @@ class YoutubeDL:
             f'for information on installing the required dependencies')
 
     def urlopen(self, req):
+        print(f"YoutubeDL.pyの関数urlopenを実行しました。")
         print(f"YoutubeDL.pyの関数urlopenを実行しました。")
         print(f"YoutubeDL.pyの関数urlopenを実行しました。")
         print(f"YoutubeDL.pyの関数urlopenを実行しました。")
@@ -5379,6 +5527,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数build_request_directorを実行しました。")
         print(f"YoutubeDL.pyの関数build_request_directorを実行しました。")
         print(f"YoutubeDL.pyの関数build_request_directorを実行しました。")
+        print(f"YoutubeDL.pyの関数build_request_directorを実行しました。")
         logger = _YDLLogger(self)
         headers = self.params['http_headers'].copy()
         proxies = self.proxies.copy()
@@ -5425,6 +5574,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数encodeを実行しました。")
         print(f"YoutubeDL.pyの関数encodeを実行しました。")
         print(f"YoutubeDL.pyの関数encodeを実行しました。")
+        print(f"YoutubeDL.pyの関数encodeを実行しました。")
         if isinstance(s, bytes):
             return s  # Already encoded
 
@@ -5442,12 +5592,14 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数get_encodingを実行しました。")
         print(f"YoutubeDL.pyの関数get_encodingを実行しました。")
         print(f"YoutubeDL.pyの関数get_encodingを実行しました。")
+        print(f"YoutubeDL.pyの関数get_encodingを実行しました。")
         encoding = self.params.get('encoding')
         if encoding is None:
             encoding = preferredencoding()
         return encoding
 
     def _write_info_json(self, label, ie_result, infofn, overwrite=None):
+        print(f"YoutubeDL.pyの関数_write_info_jsonを実行しました。")
         print(f"YoutubeDL.pyの関数_write_info_jsonを実行しました。")
         print(f"YoutubeDL.pyの関数_write_info_jsonを実行しました。")
         print(f"YoutubeDL.pyの関数_write_info_jsonを実行しました。")
@@ -5485,6 +5637,7 @@ class YoutubeDL:
         print(f"YoutubeDL.pyの関数_write_descriptionを実行しました。")
         print(f"YoutubeDL.pyの関数_write_descriptionを実行しました。")
         print(f"YoutubeDL.pyの関数_write_descriptionを実行しました。")
+        print(f"YoutubeDL.pyの関数_write_descriptionを実行しました。")
         """ Write description and returns True = written, False = skip, None = error """
         if not self.params.get('writedescription'):
             return False
@@ -5509,6 +5662,7 @@ class YoutubeDL:
         return True
 
     def _write_subtitles(self, info_dict, filename):
+        print(f"YoutubeDL.pyの関数_write_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数_write_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数_write_subtitlesを実行しました。")
         print(f"YoutubeDL.pyの関数_write_subtitlesを実行しました。")
@@ -5572,6 +5726,7 @@ class YoutubeDL:
         return ret
 
     def _write_thumbnails(self, label, info_dict, filename, thumb_filename_base=None):
+        print(f"YoutubeDL.pyの関数_write_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数_write_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数_write_thumbnailsを実行しました。")
         print(f"YoutubeDL.pyの関数_write_thumbnailsを実行しました。")

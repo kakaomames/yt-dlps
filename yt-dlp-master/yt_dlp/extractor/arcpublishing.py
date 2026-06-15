@@ -105,6 +105,7 @@ class ArcPublishingIE(InfoExtractor):
         print(f"arcpublishing.pyの関数_real_extractを実行しました。")
         print(f"arcpublishing.pyの関数_real_extractを実行しました。")
         print(f"arcpublishing.pyの関数_real_extractを実行しました。")
+        print(f"arcpublishing.pyの関数_real_extractを実行しました。")
         org, uuid = self._match_valid_url(url).groups()
         for orgs, tmpl in self._POWA_DEFAULTS:
             if org in orgs:

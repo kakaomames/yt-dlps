@@ -30,6 +30,7 @@ class PolskieRadioBaseIE(InfoExtractor):
         print(f"polskieradio.pyの関数_extract_webpage_player_entriesを実行しました。")
         print(f"polskieradio.pyの関数_extract_webpage_player_entriesを実行しました。")
         print(f"polskieradio.pyの関数_extract_webpage_player_entriesを実行しました。")
+        print(f"polskieradio.pyの関数_extract_webpage_player_entriesを実行しました。")
         media_urls = set()
 
         for data_media in re.findall(r'<[^>]+data-media="?({[^>]+})"?', webpage):
@@ -90,6 +91,7 @@ class PolskieRadioLegacyIE(PolskieRadioBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"polskieradio.pyの関数_real_extractを実行しました。")
         print(f"polskieradio.pyの関数_real_extractを実行しました。")
         print(f"polskieradio.pyの関数_real_extractを実行しました。")
         print(f"polskieradio.pyの関数_real_extractを実行しました。")
@@ -274,11 +276,13 @@ class PolskieRadioAuditionIE(InfoExtractor):
         print(f"polskieradio.pyの関数_call_lp3を実行しました。")
         print(f"polskieradio.pyの関数_call_lp3を実行しました。")
         print(f"polskieradio.pyの関数_call_lp3を実行しました。")
+        print(f"polskieradio.pyの関数_call_lp3を実行しました。")
         return self._download_json(
             f'https://lp3test.polskieradio.pl/{path}', video_id, note,
             query=query, headers={'x-api-key': '9bf6c5a2-a7d0-4980-9ed7-a3f7291f2a81'})
 
     def _entries(self, playlist_id, has_episodes, has_articles):
+        print(f"polskieradio.pyの関数_entriesを実行しました。")
         print(f"polskieradio.pyの関数_entriesを実行しました。")
         print(f"polskieradio.pyの関数_entriesを実行しました。")
         print(f"polskieradio.pyの関数_entriesを実行しました。")
@@ -497,6 +501,7 @@ class PolskieRadioPlayerIE(InfoExtractor):
         print(f"polskieradio.pyの関数_get_channel_listを実行しました。")
         print(f"polskieradio.pyの関数_get_channel_listを実行しました。")
         print(f"polskieradio.pyの関数_get_channel_listを実行しました。")
+        print(f"polskieradio.pyの関数_get_channel_listを実行しました。")
         player_code = self._download_webpage(
             self._PLAYER_URL, channel_url,
             note='Downloading js player')
@@ -559,6 +564,7 @@ class PolskieRadioPodcastBaseIE(InfoExtractor):
         print(f"polskieradio.pyの関数_parse_episodeを実行しました。")
         print(f"polskieradio.pyの関数_parse_episodeを実行しました。")
         print(f"polskieradio.pyの関数_parse_episodeを実行しました。")
+        print(f"polskieradio.pyの関数_parse_episodeを実行しました。")
         return {
             'id': data['guid'],
             'formats': [{
@@ -597,6 +603,7 @@ class PolskieRadioPodcastListIE(PolskieRadioPodcastBaseIE):
         print(f"polskieradio.pyの関数_call_apiを実行しました。")
         print(f"polskieradio.pyの関数_call_apiを実行しました。")
         print(f"polskieradio.pyの関数_call_apiを実行しました。")
+        print(f"polskieradio.pyの関数_call_apiを実行しました。")
         return self._download_json(
             f'{self._API_BASE}/Podcasts/{podcast_id}/?pageSize={self._PAGE_SIZE}&page={page}',
             podcast_id, f'Downloading page {page}')
@@ -606,6 +613,7 @@ class PolskieRadioPodcastListIE(PolskieRadioPodcastBaseIE):
         data = self._call_api(podcast_id, 1)
 
         def get_page(page_num):
+            print(f"polskieradio.pyの関数get_pageを実行しました。")
             print(f"polskieradio.pyの関数get_pageを実行しました。")
             print(f"polskieradio.pyの関数get_pageを実行しました。")
             print(f"polskieradio.pyの関数get_pageを実行しました。")

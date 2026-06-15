@@ -28,6 +28,7 @@ class RadioDeIE(InfoExtractor):
         print(f"radiode.pyの関数_real_extractを実行しました。")
         print(f"radiode.pyの関数_real_extractを実行しました。")
         print(f"radiode.pyの関数_real_extractを実行しました。")
+        print(f"radiode.pyの関数_real_extractを実行しました。")
         radio_id = self._match_id(url)
         webpage = self._download_webpage(url, radio_id)
         jscode = self._search_regex(

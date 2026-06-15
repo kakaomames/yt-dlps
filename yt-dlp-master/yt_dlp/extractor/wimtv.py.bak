@@ -67,10 +67,12 @@ class WimTVIE(InfoExtractor):
         print(f"wimtv.pyの関数_real_initializeを実行しました。")
         print(f"wimtv.pyの関数_real_initializeを実行しました。")
         print(f"wimtv.pyの関数_real_initializeを実行しました。")
+        print(f"wimtv.pyの関数_real_initializeを実行しました。")
         if not self._player:
             self._get_player_data()
 
     def _get_player_data(self):
+        print(f"wimtv.pyの関数_get_player_dataを実行しました。")
         print(f"wimtv.pyの関数_get_player_dataを実行しました。")
         print(f"wimtv.pyの関数_get_player_dataを実行しました。")
         print(f"wimtv.pyの関数_get_player_dataを実行しました。")
@@ -112,6 +114,7 @@ class WimTVIE(InfoExtractor):
         print(f"wimtv.pyの関数_generate_tokenを実行しました。")
         print(f"wimtv.pyの関数_generate_tokenを実行しました。")
         print(f"wimtv.pyの関数_generate_tokenを実行しました。")
+        print(f"wimtv.pyの関数_generate_tokenを実行しました。")
         json = self._download_json(
             'https://platform.wim.tv/wimtv-server/oauth/token', 'Token generation',
             headers={'Authorization': 'Basic {}'.format(self._player['app_auth'])},
@@ -128,6 +131,7 @@ class WimTVIE(InfoExtractor):
         print(f"wimtv.pyの関数_generate_thumbnailを実行しました。")
         print(f"wimtv.pyの関数_generate_thumbnailを実行しました。")
         print(f"wimtv.pyの関数_generate_thumbnailを実行しました。")
+        print(f"wimtv.pyの関数_generate_thumbnailを実行しました。")
         if not thumb_id or not self._player.get('thumb_server'):
             return None
         if not self._player.get('thumb_server_path'):
@@ -138,6 +142,7 @@ class WimTVIE(InfoExtractor):
             thumb_id, width)
 
     def _real_extract(self, url):
+        print(f"wimtv.pyの関数_real_extractを実行しました。")
         print(f"wimtv.pyの関数_real_extractを実行しました。")
         print(f"wimtv.pyの関数_real_extractを実行しました。")
         print(f"wimtv.pyの関数_real_extractを実行しました。")

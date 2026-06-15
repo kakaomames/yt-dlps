@@ -25,9 +25,11 @@ class EggsBaseIE(InfoExtractor):
         print(f"eggs.pyの関数_real_initializeを実行しました。")
         print(f"eggs.pyの関数_real_initializeを実行しました。")
         print(f"eggs.pyの関数_real_initializeを実行しました。")
+        print(f"eggs.pyの関数_real_initializeを実行しました。")
         self._API_HEADERS['deviceId'] = secrets.token_hex(8)
 
     def _call_api(self, endpoint, video_id):
+        print(f"eggs.pyの関数_call_apiを実行しました。")
         print(f"eggs.pyの関数_call_apiを実行しました。")
         print(f"eggs.pyの関数_call_apiを実行しました。")
         print(f"eggs.pyの関数_call_apiを実行しました。")
@@ -39,6 +41,7 @@ class EggsBaseIE(InfoExtractor):
             headers=self._API_HEADERS)
 
     def _extract_music_info(self, data):
+        print(f"eggs.pyの関数_extract_music_infoを実行しました。")
         print(f"eggs.pyの関数_extract_music_infoを実行しました。")
         print(f"eggs.pyの関数_extract_music_infoを実行しました。")
         print(f"eggs.pyの関数_extract_music_infoを実行しました。")
@@ -131,6 +134,7 @@ class EggsIE(EggsBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"eggs.pyの関数_real_extractを実行しました。")
         print(f"eggs.pyの関数_real_extractを実行しました。")
         print(f"eggs.pyの関数_real_extractを実行しました。")
         print(f"eggs.pyの関数_real_extractを実行しました。")

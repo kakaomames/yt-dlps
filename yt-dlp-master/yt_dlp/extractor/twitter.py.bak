@@ -45,6 +45,7 @@ class TwitterBaseIE(InfoExtractor):
         print(f"twitter.pyの関数_extract_variant_formatsを実行しました。")
         print(f"twitter.pyの関数_extract_variant_formatsを実行しました。")
         print(f"twitter.pyの関数_extract_variant_formatsを実行しました。")
+        print(f"twitter.pyの関数_extract_variant_formatsを実行しました。")
         variant_url = variant.get('url')
         if not variant_url:
             return [], {}
@@ -67,6 +68,7 @@ class TwitterBaseIE(InfoExtractor):
             return [f], {}
 
     def _extract_formats_from_vmap_url(self, vmap_url, video_id):
+        print(f"twitter.pyの関数_extract_formats_from_vmap_urlを実行しました。")
         print(f"twitter.pyの関数_extract_formats_from_vmap_urlを実行しました。")
         print(f"twitter.pyの関数_extract_formats_from_vmap_urlを実行しました。")
         print(f"twitter.pyの関数_extract_formats_from_vmap_urlを実行しました。")
@@ -119,6 +121,7 @@ class TwitterBaseIE(InfoExtractor):
         print(f"twitter.pyの関数_fetch_guest_tokenを実行しました。")
         print(f"twitter.pyの関数_fetch_guest_tokenを実行しました。")
         print(f"twitter.pyの関数_fetch_guest_tokenを実行しました。")
+        print(f"twitter.pyの関数_fetch_guest_tokenを実行しました。")
         guest_token = traverse_obj(self._download_json(
             f'{self._API_BASE}guest/activate.json', display_id, 'Downloading guest token', data=b'',
             headers=self._set_base_headers(legacy=display_id and self._selected_api == 'legacy')),
@@ -134,6 +137,7 @@ class TwitterBaseIE(InfoExtractor):
         print(f"twitter.pyの関数_set_base_headersを実行しました。")
         print(f"twitter.pyの関数_set_base_headersを実行しました。")
         print(f"twitter.pyの関数_set_base_headersを実行しました。")
+        print(f"twitter.pyの関数_set_base_headersを実行しました。")
         bearer_token = self._LEGACY_AUTH if legacy and not self.is_logged_in else self._AUTH
         return filter_dict({
             'Authorization': f'Bearer {bearer_token}',
@@ -141,6 +145,7 @@ class TwitterBaseIE(InfoExtractor):
         })
 
     def _call_api(self, path, video_id, query={}, graphql=False):
+        print(f"twitter.pyの関数_call_apiを実行しました。")
         print(f"twitter.pyの関数_call_apiを実行しました。")
         print(f"twitter.pyの関数_call_apiを実行しました。")
         print(f"twitter.pyの関数_call_apiを実行しました。")
@@ -180,9 +185,11 @@ class TwitterBaseIE(InfoExtractor):
         print(f"twitter.pyの関数_build_graphql_queryを実行しました。")
         print(f"twitter.pyの関数_build_graphql_queryを実行しました。")
         print(f"twitter.pyの関数_build_graphql_queryを実行しました。")
+        print(f"twitter.pyの関数_build_graphql_queryを実行しました。")
         raise NotImplementedError('Method must be implemented to support GraphQL')
 
     def _call_graphql_api(self, endpoint, media_id):
+        print(f"twitter.pyの関数_call_graphql_apiを実行しました。")
         print(f"twitter.pyの関数_call_graphql_apiを実行しました。")
         print(f"twitter.pyの関数_call_graphql_apiを実行しました。")
         print(f"twitter.pyの関数_call_graphql_apiを実行しました。")
@@ -301,6 +308,7 @@ class TwitterCardIE(InfoExtractor):
     ]
 
     def _real_extract(self, url):
+        print(f"twitter.pyの関数_real_extractを実行しました。")
         print(f"twitter.pyの関数_real_extractを実行しました。")
         print(f"twitter.pyの関数_real_extractを実行しました。")
         print(f"twitter.pyの関数_real_extractを実行しました。")
@@ -1128,6 +1136,7 @@ class TwitterIE(TwitterBaseIE):
         print(f"twitter.pyの関数_graphql_to_legacyを実行しました。")
         print(f"twitter.pyの関数_graphql_to_legacyを実行しました。")
         print(f"twitter.pyの関数_graphql_to_legacyを実行しました。")
+        print(f"twitter.pyの関数_graphql_to_legacyを実行しました。")
         result = traverse_obj(data, ('tweetResult', 'result', {dict})) or {}
 
         typename = result.get('__typename')
@@ -1213,11 +1222,13 @@ class TwitterIE(TwitterBaseIE):
         print(f"twitter.pyの関数_generate_syndication_tokenを実行しました。")
         print(f"twitter.pyの関数_generate_syndication_tokenを実行しました。")
         print(f"twitter.pyの関数_generate_syndication_tokenを実行しました。")
+        print(f"twitter.pyの関数_generate_syndication_tokenを実行しました。")
         # ((Number(twid) / 1e15) * Math.PI).toString(36).replace(/(0+|\.)/g, '')
         translation = str.maketrans(dict.fromkeys('0.'))
         return js_number_to_string((int(twid) / 1e15) * math.pi, 36).translate(translation)
 
     def _call_syndication_api(self, twid):
+        print(f"twitter.pyの関数_call_syndication_apiを実行しました。")
         print(f"twitter.pyの関数_call_syndication_apiを実行しました。")
         print(f"twitter.pyの関数_call_syndication_apiを実行しました。")
         print(f"twitter.pyの関数_call_syndication_apiを実行しました。")
@@ -1245,6 +1256,7 @@ class TwitterIE(TwitterBaseIE):
         return status
 
     def _extract_status(self, twid):
+        print(f"twitter.pyの関数_extract_statusを実行しました。")
         print(f"twitter.pyの関数_extract_statusを実行しました。")
         print(f"twitter.pyの関数_extract_statusを実行しました。")
         print(f"twitter.pyの関数_extract_statusを実行しました。")
@@ -1314,6 +1326,7 @@ class TwitterIE(TwitterBaseIE):
             print(f"twitter.pyの関数extract_from_video_infoを実行しました。")
             print(f"twitter.pyの関数extract_from_video_infoを実行しました。")
             print(f"twitter.pyの関数extract_from_video_infoを実行しました。")
+            print(f"twitter.pyの関数extract_from_video_infoを実行しました。")
             media_id = traverse_obj(media, 'id_str', 'id', expected_type=str_or_none)
             self.write_debug(f'Extracting from video info: {media_id}')
 
@@ -1328,6 +1341,7 @@ class TwitterIE(TwitterBaseIE):
             media_url = media.get('media_url_https') or media.get('media_url')
             if media_url:
                 def add_thumbnail(name, size):
+                    print(f"twitter.pyの関数add_thumbnailを実行しました。")
                     print(f"twitter.pyの関数add_thumbnailを実行しました。")
                     print(f"twitter.pyの関数add_thumbnailを実行しました。")
                     print(f"twitter.pyの関数add_thumbnailを実行しました。")
@@ -1361,6 +1375,7 @@ class TwitterIE(TwitterBaseIE):
             print(f"twitter.pyの関数extract_from_card_infoを実行しました。")
             print(f"twitter.pyの関数extract_from_card_infoを実行しました。")
             print(f"twitter.pyの関数extract_from_card_infoを実行しました。")
+            print(f"twitter.pyの関数extract_from_card_infoを実行しました。")
             if not card:
                 return
 
@@ -1369,6 +1384,7 @@ class TwitterIE(TwitterBaseIE):
             binding_values = card['binding_values']
 
             def get_binding_value(k):
+                print(f"twitter.pyの関数get_binding_valueを実行しました。")
                 print(f"twitter.pyの関数get_binding_valueを実行しました。")
                 print(f"twitter.pyの関数get_binding_valueを実行しました。")
                 print(f"twitter.pyの関数get_binding_valueを実行しました。")
@@ -1514,6 +1530,7 @@ class TwitterAmplifyIE(TwitterBaseIE):
             'twitter:image:src', webpage, 'thumbnail', fatal=False)
 
         def _find_dimension(target):
+            print(f"twitter.pyの関数_find_dimensionを実行しました。")
             print(f"twitter.pyの関数_find_dimensionを実行しました。")
             print(f"twitter.pyの関数_find_dimensionを実行しました。")
             print(f"twitter.pyの関数_find_dimensionを実行しました。")

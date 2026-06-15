@@ -15,6 +15,7 @@ class WebSocketResponse(Response):
         print(f"websocket.pyの関数sendを実行しました。")
         print(f"websocket.pyの関数sendを実行しました。")
         print(f"websocket.pyの関数sendを実行しました。")
+        print(f"websocket.pyの関数sendを実行しました。")
         """
         Send a message to the server.
 
@@ -23,6 +24,7 @@ class WebSocketResponse(Response):
         raise NotImplementedError
 
     def recv(self):
+        print(f"websocket.pyの関数recvを実行しました。")
         print(f"websocket.pyの関数recvを実行しました。")
         print(f"websocket.pyの関数recvを実行しました。")
         print(f"websocket.pyの関数recvを実行しました。")

@@ -60,6 +60,7 @@ class Tele5IE(DiscoveryPlusBaseIE):
         print(f"tele5.pyの関数_real_extractを実行しました。")
         print(f"tele5.pyの関数_real_extractを実行しました。")
         print(f"tele5.pyの関数_real_extractを実行しました。")
+        print(f"tele5.pyの関数_real_extractを実行しました。")
         parent_slug, slug_a, slug_b = self._match_valid_url(url).group('parent_slug', 'slug_a', 'slug_b')
         playlist_id = join_nonempty(parent_slug, slug_a, slug_b, delim='-')
 
@@ -83,6 +84,7 @@ class Tele5IE(DiscoveryPlusBaseIE):
             traverse_obj(cms_data, ('blocks', ..., 'videoId', {str}))), playlist_id)
 
     def _update_disco_api_headers(self, headers, disco_base, display_id, realm):
+        print(f"tele5.pyの関数_update_disco_api_headersを実行しました。")
         print(f"tele5.pyの関数_update_disco_api_headersを実行しました。")
         print(f"tele5.pyの関数_update_disco_api_headersを実行しました。")
         print(f"tele5.pyの関数_update_disco_api_headersを実行しました。")

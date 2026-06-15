@@ -80,6 +80,7 @@ class MedalTVIE(InfoExtractor):
         print(f"medaltv.pyの関数_real_extractを実行しました。")
         print(f"medaltv.pyの関数_real_extractを実行しました。")
         print(f"medaltv.pyの関数_real_extractを実行しました。")
+        print(f"medaltv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         content_data = self._download_json(

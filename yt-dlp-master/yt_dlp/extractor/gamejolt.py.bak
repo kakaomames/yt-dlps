@@ -24,10 +24,12 @@ class GameJoltBaseIE(InfoExtractor):
         print(f"gamejolt.pyの関数_call_apiを実行しました。")
         print(f"gamejolt.pyの関数_call_apiを実行しました。")
         print(f"gamejolt.pyの関数_call_apiを実行しました。")
+        print(f"gamejolt.pyの関数_call_apiを実行しました。")
         kwargs.setdefault('headers', {}).update({'Accept': 'image/webp,*/*'})
         return self._download_json(self._API_BASE + endpoint, *args, **kwargs)['payload']
 
     def _parse_content_as_text(self, content):
+        print(f"gamejolt.pyの関数_parse_content_as_textを実行しました。")
         print(f"gamejolt.pyの関数_parse_content_as_textを実行しました。")
         print(f"gamejolt.pyの関数_parse_content_as_textを実行しました。")
         print(f"gamejolt.pyの関数_parse_content_as_textを実行しました。")
@@ -50,6 +52,7 @@ class GameJoltBaseIE(InfoExtractor):
         return '\n'.join(joined_contents)
 
     def _get_comments(self, post_num_id, post_hash_id):
+        print(f"gamejolt.pyの関数_get_commentsを実行しました。")
         print(f"gamejolt.pyの関数_get_commentsを実行しました。")
         print(f"gamejolt.pyの関数_get_commentsを実行しました。")
         print(f"gamejolt.pyの関数_get_commentsを実行しました。")
@@ -81,6 +84,7 @@ class GameJoltBaseIE(InfoExtractor):
             scroll_id = int_or_none(comments_data['comments'][-1].get('posted_on'))
 
     def _parse_post(self, post_data):
+        print(f"gamejolt.pyの関数_parse_postを実行しました。")
         print(f"gamejolt.pyの関数_parse_postを実行しました。")
         print(f"gamejolt.pyの関数_parse_postを実行しました。")
         print(f"gamejolt.pyの関数_parse_postを実行しました。")
@@ -321,6 +325,7 @@ class GameJoltIE(GameJoltBaseIE):
         print(f"gamejolt.pyの関数_real_extractを実行しました。")
         print(f"gamejolt.pyの関数_real_extractを実行しました。")
         print(f"gamejolt.pyの関数_real_extractを実行しました。")
+        print(f"gamejolt.pyの関数_real_extractを実行しました。")
         post_id = self._match_id(url)
         post_data = self._call_api(
             f'web/posts/view/{post_id}', post_id)['post']
@@ -329,6 +334,7 @@ class GameJoltIE(GameJoltBaseIE):
 
 class GameJoltPostListBaseIE(GameJoltBaseIE):
     def _entries(self, endpoint, list_id, note='Downloading post list', errnote='Unable to download post list', initial_items=[]):
+        print(f"gamejolt.pyの関数_entriesを実行しました。")
         print(f"gamejolt.pyの関数_entriesを実行しました。")
         print(f"gamejolt.pyの関数_entriesを実行しました。")
         print(f"gamejolt.pyの関数_entriesを実行しました。")
@@ -549,6 +555,7 @@ class GameJoltSearchIE(GameJoltPostListBaseIE):
     }]
 
     def _search_entries(self, query, filter_mode, display_query):
+        print(f"gamejolt.pyの関数_search_entriesを実行しました。")
         print(f"gamejolt.pyの関数_search_entriesを実行しました。")
         print(f"gamejolt.pyの関数_search_entriesを実行しました。")
         print(f"gamejolt.pyの関数_search_entriesを実行しました。")

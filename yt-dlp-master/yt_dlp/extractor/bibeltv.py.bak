@@ -28,6 +28,7 @@ class BibelTVBaseIE(InfoExtractor):
         print(f"bibeltv.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"bibeltv.pyの関数_extract_formats_and_subtitlesを実行しました。")
         print(f"bibeltv.pyの関数_extract_formats_and_subtitlesを実行しました。")
+        print(f"bibeltv.pyの関数_extract_formats_and_subtitlesを実行しました。")
         formats = []
         subtitles = {}
         for media_url in traverse_obj(data, (..., 'src', {url_or_none})):
@@ -74,6 +75,7 @@ class BibelTVBaseIE(InfoExtractor):
         print(f"bibeltv.pyの関数_extract_url_infoを実行しました。")
         print(f"bibeltv.pyの関数_extract_url_infoを実行しました。")
         print(f"bibeltv.pyの関数_extract_url_infoを実行しました。")
+        print(f"bibeltv.pyの関数_extract_url_infoを実行しました。")
         return {
             '_type': 'url',
             'url': format_field(data, 'slug', 'https://www.bibeltv.de/mediathek/videos/%s'),
@@ -81,6 +83,7 @@ class BibelTVBaseIE(InfoExtractor):
         }
 
     def _extract_video_info(self, data):
+        print(f"bibeltv.pyの関数_extract_video_infoを実行しました。")
         print(f"bibeltv.pyの関数_extract_video_infoを実行しました。")
         print(f"bibeltv.pyの関数_extract_video_infoを実行しました。")
         print(f"bibeltv.pyの関数_extract_video_infoを実行しました。")
@@ -136,6 +139,7 @@ class BibelTVVideoIE(BibelTVBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"bibeltv.pyの関数_real_extractを実行しました。")
         print(f"bibeltv.pyの関数_real_extractを実行しました。")
         print(f"bibeltv.pyの関数_real_extractを実行しました。")
         print(f"bibeltv.pyの関数_real_extractを実行しました。")

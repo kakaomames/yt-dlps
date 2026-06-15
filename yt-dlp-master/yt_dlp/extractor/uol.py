@@ -67,6 +67,7 @@ class UOLIE(InfoExtractor):
         print(f"uol.pyの関数_real_extractを実行しました。")
         print(f"uol.pyの関数_real_extractを実行しました。")
         print(f"uol.pyの関数_real_extractを実行しました。")
+        print(f"uol.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         video_data = self._download_json(

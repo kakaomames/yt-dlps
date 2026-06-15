@@ -58,6 +58,7 @@ class TennisTVIE(InfoExtractor):
         print(f"tennistv.pyの関数_perform_loginを実行しました。")
         print(f"tennistv.pyの関数_perform_loginを実行しました。")
         print(f"tennistv.pyの関数_perform_loginを実行しました。")
+        print(f"tennistv.pyの関数_perform_loginを実行しました。")
         login_page = self._download_webpage(
             f'{self._AUTH_BASE_URL}/auth', None, 'Downloading login page',
             query={
@@ -107,6 +108,7 @@ class TennisTVIE(InfoExtractor):
         print(f"tennistv.pyの関数get_tokenを実行しました。")
         print(f"tennistv.pyの関数get_tokenを実行しました。")
         print(f"tennistv.pyの関数get_tokenを実行しました。")
+        print(f"tennistv.pyの関数get_tokenを実行しました。")
         res = self._download_json(
             f'{self._AUTH_BASE_URL}/token', video_id, 'Fetching tokens',
             'Unable to fetch tokens', headers=self._HEADERS, data=urlencode_postdata(payload))
@@ -115,6 +117,7 @@ class TennisTVIE(InfoExtractor):
         self.refresh_token = res.get('refresh_token') or self.refresh_token
 
     def _real_initialize(self):
+        print(f"tennistv.pyの関数_real_initializeを実行しました。")
         print(f"tennistv.pyの関数_real_initializeを実行しました。")
         print(f"tennistv.pyの関数_real_initializeを実行しました。")
         print(f"tennistv.pyの関数_real_initializeを実行しました。")
@@ -138,11 +141,13 @@ class TennisTVIE(InfoExtractor):
         print(f"tennistv.pyの関数_download_session_jsonを実行しました。")
         print(f"tennistv.pyの関数_download_session_jsonを実行しました。")
         print(f"tennistv.pyの関数_download_session_jsonを実行しました。")
+        print(f"tennistv.pyの関数_download_session_jsonを実行しました。")
         return self._download_json(
             f'https://atppayments.streamamg.com/api/v1/session/ksession/?lang=en&apijwttoken={self.access_token}&entryId={entryid}',
             video_id, 'Downloading ksession token', 'Failed to download ksession token', headers=self._HEADERS)
 
     def _real_extract(self, url):
+        print(f"tennistv.pyの関数_real_extractを実行しました。")
         print(f"tennistv.pyの関数_real_extractを実行しました。")
         print(f"tennistv.pyの関数_real_extractを実行しました。")
         print(f"tennistv.pyの関数_real_extractを実行しました。")

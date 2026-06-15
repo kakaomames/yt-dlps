@@ -24,6 +24,7 @@ class PremiershipRugbyIE(InfoExtractor):
         print(f"premiershiprugby.pyの関数_real_extractを実行しました。")
         print(f"premiershiprugby.pyの関数_real_extractを実行しました。")
         print(f"premiershiprugby.pyの関数_real_extractを実行しました。")
+        print(f"premiershiprugby.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         json_data = self._download_json(
             f'https://article-cms-api.incrowdsports.com/v2/articles/slug/{display_id}',

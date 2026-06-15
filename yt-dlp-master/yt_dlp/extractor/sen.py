@@ -25,6 +25,7 @@ class SenIE(InfoExtractor):
         print(f"sen.pyの関数_real_extractを実行しました。")
         print(f"sen.pyの関数_real_extractを実行しました。")
         print(f"sen.pyの関数_real_extractを実行しました。")
+        print(f"sen.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         api_data = self._download_json(f'https://api.sen.com/content/public/video/{video_id}', video_id)

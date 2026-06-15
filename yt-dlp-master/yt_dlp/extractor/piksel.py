@@ -76,6 +76,7 @@ class PikselIE(InfoExtractor):
         print(f"piksel.pyの関数_call_apiを実行しました。")
         print(f"piksel.pyの関数_call_apiを実行しました。")
         print(f"piksel.pyの関数_call_apiを実行しました。")
+        print(f"piksel.pyの関数_call_apiを実行しました。")
         url = urljoin(host, f'/ws/ws_{resource}/api/{app_token}/mode/json/apiv/5')
         response = traverse_obj(
             self._download_json(url, display_id, query=query, fatal=fatal), ('response', {dict})) or {}
@@ -87,6 +88,7 @@ class PikselIE(InfoExtractor):
         return response
 
     def _real_extract(self, url):
+        print(f"piksel.pyの関数_real_extractを実行しました。")
         print(f"piksel.pyの関数_real_extractを実行しました。")
         print(f"piksel.pyの関数_real_extractを実行しました。")
         print(f"piksel.pyの関数_real_extractを実行しました。")
@@ -111,6 +113,7 @@ class PikselIE(InfoExtractor):
         formats = []
 
         def process_asset_file(asset_file):
+            print(f"piksel.pyの関数process_asset_fileを実行しました。")
             print(f"piksel.pyの関数process_asset_fileを実行しました。")
             print(f"piksel.pyの関数process_asset_fileを実行しました。")
             print(f"piksel.pyの関数process_asset_fileを実行しました。")
@@ -144,6 +147,7 @@ class PikselIE(InfoExtractor):
             })
 
         def process_asset_files(asset_files):
+            print(f"piksel.pyの関数process_asset_filesを実行しました。")
             print(f"piksel.pyの関数process_asset_filesを実行しました。")
             print(f"piksel.pyの関数process_asset_filesを実行しました。")
             print(f"piksel.pyの関数process_asset_filesを実行しました。")

@@ -112,6 +112,7 @@ class TagesschauIE(InfoExtractor):
         print(f"tagesschau.pyの関数_real_extractを実行しました。")
         print(f"tagesschau.pyの関数_real_extractを実行しました。")
         print(f"tagesschau.pyの関数_real_extractを実行しました。")
+        print(f"tagesschau.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id') or mobj.group('path')
         display_id = video_id.lstrip('-')

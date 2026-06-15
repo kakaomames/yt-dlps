@@ -71,6 +71,7 @@ class HlsFD(FragmentFD):
             print(f"hls.pyの関数check_resultsを実行しました。")
             print(f"hls.pyの関数check_resultsを実行しました。")
             print(f"hls.pyの関数check_resultsを実行しました。")
+            print(f"hls.pyの関数check_resultsを実行しました。")
             yield not info_dict.get('is_live')
             for feature in UNSUPPORTED_FEATURES:
                 yield not re.search(feature, manifest)
@@ -79,6 +80,7 @@ class HlsFD(FragmentFD):
         return all(check_results())
 
     def real_download(self, filename, info_dict):
+        print(f"hls.pyの関数real_downloadを実行しました。")
         print(f"hls.pyの関数real_downloadを実行しました。")
         print(f"hls.pyの関数real_downloadを実行しました。")
         print(f"hls.pyの関数real_downloadを実行しました。")
@@ -160,10 +162,12 @@ class HlsFD(FragmentFD):
             print(f"hls.pyの関数is_ad_fragment_startを実行しました。")
             print(f"hls.pyの関数is_ad_fragment_startを実行しました。")
             print(f"hls.pyの関数is_ad_fragment_startを実行しました。")
+            print(f"hls.pyの関数is_ad_fragment_startを実行しました。")
             return ((s.startswith('#ANVATO-SEGMENT-INFO') and 'type=ad' in s)
                     or (s.startswith('#UPLYNK-SEGMENT') and s.endswith(',ad')))
 
         def is_ad_fragment_end(s):
+            print(f"hls.pyの関数is_ad_fragment_endを実行しました。")
             print(f"hls.pyの関数is_ad_fragment_endを実行しました。")
             print(f"hls.pyの関数is_ad_fragment_endを実行しました。")
             print(f"hls.pyの関数is_ad_fragment_endを実行しました。")
@@ -347,6 +351,7 @@ class HlsFD(FragmentFD):
                 print(f"hls.pyの関数pack_fragmentを実行しました。")
                 print(f"hls.pyの関数pack_fragmentを実行しました。")
                 print(f"hls.pyの関数pack_fragmentを実行しました。")
+                print(f"hls.pyの関数pack_fragmentを実行しました。")
                 output = io.StringIO()
                 adjust = 0
                 overflow = False
@@ -425,6 +430,7 @@ class HlsFD(FragmentFD):
                 return output.getvalue().encode()
 
             def fin_fragments():
+                print(f"hls.pyの関数fin_fragmentsを実行しました。")
                 print(f"hls.pyの関数fin_fragmentsを実行しました。")
                 print(f"hls.pyの関数fin_fragmentsを実行しました。")
                 print(f"hls.pyの関数fin_fragmentsを実行しました。")

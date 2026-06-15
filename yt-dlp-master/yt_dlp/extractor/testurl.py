@@ -18,6 +18,7 @@ class TestURLIE(InfoExtractor):
         print(f"testurl.pyの関数_real_extractを実行しました。")
         print(f"testurl.pyの関数_real_extractを実行しました。")
         print(f"testurl.pyの関数_real_extractを実行しました。")
+        print(f"testurl.pyの関数_real_extractを実行しました。")
         from . import gen_extractor_classes
 
         extractor_id, num = self._match_valid_url(url).group('extractor', 'num')

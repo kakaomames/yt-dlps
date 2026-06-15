@@ -44,6 +44,7 @@ class GabIE(InfoExtractor):
         print(f"gab.pyの関数_real_extractを実行しました。")
         print(f"gab.pyの関数_real_extractを実行しました。")
         print(f"gab.pyの関数_real_extractを実行しました。")
+        print(f"gab.pyの関数_real_extractを実行しました。")
         post_id = self._match_id(url)
         json_data = self._download_json(f'https://gab.com/api/v1/statuses/{post_id}', post_id)
 

@@ -49,6 +49,7 @@ class BleacherReportIE(InfoExtractor):
         print(f"bleacherreport.pyの関数_real_extractを実行しました。")
         print(f"bleacherreport.pyの関数_real_extractを実行しました。")
         print(f"bleacherreport.pyの関数_real_extractを実行しました。")
+        print(f"bleacherreport.pyの関数_real_extractを実行しました。")
         article_id = self._match_id(url)
 
         article_data = self._download_json(f'http://api.bleacherreport.com/api/v1/articles/{article_id}', article_id)['article']

@@ -72,6 +72,7 @@ class SonyLIVIE(InfoExtractor):
         print(f"sonyliv.pyの関数_get_device_idを実行しました。")
         print(f"sonyliv.pyの関数_get_device_idを実行しました。")
         print(f"sonyliv.pyの関数_get_device_idを実行しました。")
+        print(f"sonyliv.pyの関数_get_device_idを実行しました。")
         e = int(time.time() * 1000)
         t = list('xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx')
         for i, c in enumerate(t):
@@ -84,6 +85,7 @@ class SonyLIVIE(InfoExtractor):
         return ''.join(t) + '-' + str(int(time.time() * 1000))
 
     def _perform_login(self, username, password):
+        print(f"sonyliv.pyの関数_perform_loginを実行しました。")
         print(f"sonyliv.pyの関数_perform_loginを実行しました。")
         print(f"sonyliv.pyの関数_perform_loginを実行しました。")
         print(f"sonyliv.pyの関数_perform_loginを実行しました。")
@@ -140,6 +142,7 @@ class SonyLIVIE(InfoExtractor):
         print(f"sonyliv.pyの関数_call_apiを実行しました。")
         print(f"sonyliv.pyの関数_call_apiを実行しました。")
         print(f"sonyliv.pyの関数_call_apiを実行しました。")
+        print(f"sonyliv.pyの関数_call_apiを実行しました。")
         try:
             return self._download_json(
                 f'https://apiv2.sonyliv.com/AGL/{version}/A/ENG/WEB/{path}',
@@ -164,9 +167,11 @@ class SonyLIVIE(InfoExtractor):
         print(f"sonyliv.pyの関数_initialize_pre_loginを実行しました。")
         print(f"sonyliv.pyの関数_initialize_pre_loginを実行しました。")
         print(f"sonyliv.pyの関数_initialize_pre_loginを実行しました。")
+        print(f"sonyliv.pyの関数_initialize_pre_loginを実行しました。")
         self._HEADERS['security_token'] = self._call_api('1.4', 'ALL/GETTOKEN', None)
 
     def _real_extract(self, url):
+        print(f"sonyliv.pyの関数_real_extractを実行しました。")
         print(f"sonyliv.pyの関数_real_extractを実行しました。")
         print(f"sonyliv.pyの関数_real_extractを実行しました。")
         print(f"sonyliv.pyの関数_real_extractを実行しました。")
@@ -237,6 +242,7 @@ class SonyLIVSeriesIE(InfoExtractor):
     _SORT_ORDERS = ('asc', 'desc')
 
     def _entries(self, show_id, sort_order):
+        print(f"sonyliv.pyの関数_entriesを実行しました。")
         print(f"sonyliv.pyの関数_entriesを実行しました。")
         print(f"sonyliv.pyの関数_entriesを実行しました。")
         print(f"sonyliv.pyの関数_entriesを実行しました。")

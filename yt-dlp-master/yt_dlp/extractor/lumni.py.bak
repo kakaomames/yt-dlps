@@ -22,6 +22,7 @@ class LumniIE(FranceTVBaseInfoExtractor):
         print(f"lumni.pyの関数_real_extractを実行しました。")
         print(f"lumni.pyの関数_real_extractを実行しました。")
         print(f"lumni.pyの関数_real_extractを実行しました。")
+        print(f"lumni.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         video_id = self._html_search_regex(

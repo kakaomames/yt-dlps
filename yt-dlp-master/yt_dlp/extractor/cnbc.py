@@ -76,6 +76,7 @@ class CNBCVideoIE(InfoExtractor):
         print(f"cnbc.pyの関数_real_extractを実行しました。")
         print(f"cnbc.pyの関数_real_extractを実行しました。")
         print(f"cnbc.pyの関数_real_extractを実行しました。")
+        print(f"cnbc.pyの関数_real_extractを実行しました。")
         display_id = self._match_id(url)
         webpage = self._download_webpage(url, display_id)
         data = self._search_json(r'window\.__s_data=', webpage, 'video data', display_id)

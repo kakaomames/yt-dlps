@@ -26,6 +26,7 @@ class BerufeTVIE(InfoExtractor):
         print(f"berufetv.pyの関数_real_extractを実行しました。")
         print(f"berufetv.pyの関数_real_extractを実行しました。")
         print(f"berufetv.pyの関数_real_extractを実行しました。")
+        print(f"berufetv.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         movie_metadata = self._download_json(

@@ -48,6 +48,7 @@ class CoubIE(InfoExtractor):
         print(f"coub.pyの関数_real_extractを実行しました。")
         print(f"coub.pyの関数_real_extractを実行しました。")
         print(f"coub.pyの関数_real_extractを実行しました。")
+        print(f"coub.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         coub = self._download_json(

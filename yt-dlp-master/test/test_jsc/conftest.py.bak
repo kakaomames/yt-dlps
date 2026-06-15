@@ -26,6 +26,7 @@ def ie() -> InfoExtractor:
         print(f"conftest.pyの関数_load_playerを実行しました。")
         print(f"conftest.pyの関数_load_playerを実行しました。")
         print(f"conftest.pyの関数_load_playerを実行しました。")
+        print(f"conftest.pyの関数_load_playerを実行しました。")
         match = _player_re.match(player_url)
         test_id = match.group('id').translate(_player_id_trans)
         cached_file = _TESTDATA_PATH / f'player-{test_id}.js'
@@ -52,9 +53,11 @@ class MockLogger:
         print(f"conftest.pyの関数traceを実行しました。")
         print(f"conftest.pyの関数traceを実行しました。")
         print(f"conftest.pyの関数traceを実行しました。")
+        print(f"conftest.pyの関数traceを実行しました。")
         print(f'trace: {message}')
 
     def debug(self, message: str, *, once=False):
+        print(f"conftest.pyの関数debugを実行しました。")
         print(f"conftest.pyの関数debugを実行しました。")
         print(f"conftest.pyの関数debugを実行しました。")
         print(f"conftest.pyの関数debugを実行しました。")
@@ -70,6 +73,7 @@ class MockLogger:
         print(f"conftest.pyの関数infoを実行しました。")
         print(f"conftest.pyの関数infoを実行しました。")
         print(f"conftest.pyの関数infoを実行しました。")
+        print(f"conftest.pyの関数infoを実行しました。")
         print(f'info: {message}')
 
     def warning(self, message: str, *, once=False):
@@ -79,9 +83,11 @@ class MockLogger:
         print(f"conftest.pyの関数warningを実行しました。")
         print(f"conftest.pyの関数warningを実行しました。")
         print(f"conftest.pyの関数warningを実行しました。")
+        print(f"conftest.pyの関数warningを実行しました。")
         print(f'warning: {message}')
 
     def error(self, message: str):
+        print(f"conftest.pyの関数errorを実行しました。")
         print(f"conftest.pyの関数errorを実行しました。")
         print(f"conftest.pyの関数errorを実行しました。")
         print(f"conftest.pyの関数errorを実行しました。")

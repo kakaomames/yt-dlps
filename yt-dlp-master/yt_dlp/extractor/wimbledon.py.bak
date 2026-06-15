@@ -50,6 +50,7 @@ class WimbledonIE(InfoExtractor):
         print(f"wimbledon.pyの関数_real_extractを実行しました。")
         print(f"wimbledon.pyの関数_real_extractを実行しました。")
         print(f"wimbledon.pyの関数_real_extractを実行しました。")
+        print(f"wimbledon.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         metadata = self._download_json(
             f'https://www.wimbledon.com/relatedcontent/rest/v2/wim_v1/en/content/wim_v1_{video_id}_en', video_id)

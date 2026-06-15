@@ -172,6 +172,7 @@ class PlaySuisseIE(InfoExtractor):
         print(f"playsuisse.pyの関数_perform_loginを実行しました。")
         print(f"playsuisse.pyの関数_perform_loginを実行しました。")
         print(f"playsuisse.pyの関数_perform_loginを実行しました。")
+        print(f"playsuisse.pyの関数_perform_loginを実行しました。")
         code_verifier = uuid.uuid4().hex + uuid.uuid4().hex + uuid.uuid4().hex
         code_challenge = base64.urlsafe_b64encode(
             hashlib.sha256(code_verifier.encode()).digest()).decode().rstrip('=')
@@ -244,6 +245,7 @@ class PlaySuisseIE(InfoExtractor):
         print(f"playsuisse.pyの関数_get_media_dataを実行しました。")
         print(f"playsuisse.pyの関数_get_media_dataを実行しました。")
         print(f"playsuisse.pyの関数_get_media_dataを実行しました。")
+        print(f"playsuisse.pyの関数_get_media_dataを実行しました。")
         response = self._download_json(
             'https://www.playsuisse.ch/api/graphql',
             media_id, data=json.dumps({
@@ -256,6 +258,7 @@ class PlaySuisseIE(InfoExtractor):
         return response['data']['assetV2']
 
     def _real_extract(self, url):
+        print(f"playsuisse.pyの関数_real_extractを実行しました。")
         print(f"playsuisse.pyの関数_real_extractを実行しました。")
         print(f"playsuisse.pyの関数_real_extractを実行しました。")
         print(f"playsuisse.pyの関数_real_extractを実行しました。")
@@ -276,6 +279,7 @@ class PlaySuisseIE(InfoExtractor):
         return info
 
     def _extract_single(self, media_data):
+        print(f"playsuisse.pyの関数_extract_singleを実行しました。")
         print(f"playsuisse.pyの関数_extract_singleを実行しました。")
         print(f"playsuisse.pyの関数_extract_singleを実行しました。")
         print(f"playsuisse.pyの関数_extract_singleを実行しました。")

@@ -142,6 +142,7 @@ class BlerpIE(InfoExtractor):
         print(f"blerp.pyの関数_real_extractを実行しました。")
         print(f"blerp.pyの関数_real_extractを実行しました。")
         print(f"blerp.pyの関数_real_extractを実行しました。")
+        print(f"blerp.pyの関数_real_extractを実行しました。")
         audio_id = self._match_id(url)
 
         data = {

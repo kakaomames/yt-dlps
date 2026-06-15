@@ -100,6 +100,7 @@ class YouPornIE(InfoExtractor):
         print(f"youporn.pyの関数_real_extractを実行しました。")
         print(f"youporn.pyの関数_real_extractを実行しました。")
         print(f"youporn.pyの関数_real_extractを実行しました。")
+        print(f"youporn.pyの関数_real_extractを実行しました。")
         video_id, display_id = self._match_valid_url(url).group('id', 'display_id')
         self._set_cookie('.youporn.com', 'age_verified', '1')
         webpage = self._download_webpage(f'https://www.youporn.com/watch/{video_id}', video_id)
@@ -116,6 +117,7 @@ class YouPornIE(InfoExtractor):
         definitions = player_vars['mediaDefinitions']
 
         def get_format_data(data, stream_type):
+            print(f"youporn.pyの関数get_format_dataを実行しました。")
             print(f"youporn.pyの関数get_format_dataを実行しました。")
             print(f"youporn.pyの関数get_format_dataを実行しました。")
             print(f"youporn.pyの関数get_format_dataを実行しました。")
@@ -206,6 +208,7 @@ class YouPornIE(InfoExtractor):
             print(f"youporn.pyの関数extract_tag_boxを実行しました。")
             print(f"youporn.pyの関数extract_tag_boxを実行しました。")
             print(f"youporn.pyの関数extract_tag_boxを実行しました。")
+            print(f"youporn.pyの関数extract_tag_boxを実行しました。")
             tag_box = self._search_regex(regex, webpage, title, default=None)
             if not tag_box:
                 return []
@@ -253,6 +256,7 @@ class YouPornListBaseIE(InfoExtractor):
         print(f"youporn.pyの関数_get_next_urlを実行しました。")
         print(f"youporn.pyの関数_get_next_urlを実行しました。")
         print(f"youporn.pyの関数_get_next_urlを実行しました。")
+        print(f"youporn.pyの関数_get_next_urlを実行しました。")
         return urljoin(url, self._search_regex(
             r'''<a [^>]*?\bhref\s*=\s*("|')(?P<url>(?:(?!\1)[^>])+)\1''',
             get_element_by_id('next', html) or '', 'next page',
@@ -263,6 +267,7 @@ class YouPornListBaseIE(InfoExtractor):
         return re.sub(r'[_-]', ' ', title_slug)
 
     def _entries(self, url, pl_id, html=None, page_num=None):
+        print(f"youporn.pyの関数_entriesを実行しました。")
         print(f"youporn.pyの関数_entriesを実行しました。")
         print(f"youporn.pyの関数_entriesを実行しました。")
         print(f"youporn.pyの関数_entriesを実行しました。")

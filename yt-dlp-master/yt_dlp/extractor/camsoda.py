@@ -27,6 +27,7 @@ class CamsodaIE(InfoExtractor):
         print(f"camsoda.pyの関数_real_extractを実行しました。")
         print(f"camsoda.pyの関数_real_extractを実行しました。")
         print(f"camsoda.pyの関数_real_extractを実行しました。")
+        print(f"camsoda.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id, headers=self.geo_verification_headers())
 

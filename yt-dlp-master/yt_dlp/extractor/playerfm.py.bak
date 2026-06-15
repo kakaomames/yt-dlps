@@ -56,6 +56,7 @@ class PlayerFmIE(InfoExtractor):
         print(f"playerfm.pyの関数_real_extractを実行しました。")
         print(f"playerfm.pyの関数_real_extractを実行しました。")
         print(f"playerfm.pyの関数_real_extractを実行しました。")
+        print(f"playerfm.pyの関数_real_extractを実行しました。")
         display_id, url = self._match_valid_url(url).group('id', 'url')
         data = self._download_json(f'{url}.json', display_id)
 

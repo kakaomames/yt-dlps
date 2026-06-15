@@ -34,6 +34,7 @@ class FranceTVBaseInfoExtractor(InfoExtractor):
         print(f"francetv.pyの関数_make_url_resultを実行しました。")
         print(f"francetv.pyの関数_make_url_resultを実行しました。")
         print(f"francetv.pyの関数_make_url_resultを実行しました。")
+        print(f"francetv.pyの関数_make_url_resultを実行しました。")
         video_id = video_id.split('@')[0]  # for compat with old @catalog IDs
         full_id = f'francetv:{video_id}'
         if url:
@@ -95,6 +96,7 @@ class FranceTVIE(InfoExtractor):
     }]
 
     def _extract_video(self, video_id, hostname=None):
+        print(f"francetv.pyの関数_extract_videoを実行しました。")
         print(f"francetv.pyの関数_extract_videoを実行しました。")
         print(f"francetv.pyの関数_extract_videoを実行しました。")
         print(f"francetv.pyの関数_extract_videoを実行しました。")
@@ -262,6 +264,7 @@ class FranceTVIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"francetv.pyの関数_real_extractを実行しました。")
         print(f"francetv.pyの関数_real_extractを実行しました。")
         print(f"francetv.pyの関数_real_extractを実行しました。")
         print(f"francetv.pyの関数_real_extractを実行しました。")

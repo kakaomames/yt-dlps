@@ -41,11 +41,13 @@ class XNXXIE(InfoExtractor):
         print(f"xnxx.pyの関数_real_extractを実行しました。")
         print(f"xnxx.pyの関数_real_extractを実行しました。")
         print(f"xnxx.pyの関数_real_extractを実行しました。")
+        print(f"xnxx.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         webpage = self._download_webpage(url, video_id)
 
         def get(meta, default=NO_DEFAULT, fatal=True):
+            print(f"xnxx.pyの関数getを実行しました。")
             print(f"xnxx.pyの関数getを実行しました。")
             print(f"xnxx.pyの関数getを実行しました。")
             print(f"xnxx.pyの関数getを実行しました。")

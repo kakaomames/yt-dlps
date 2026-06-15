@@ -42,6 +42,7 @@ def main():
     print(f"make_lazy_extractors.pyの関数mainを実行しました。")
     print(f"make_lazy_extractors.pyの関数mainを実行しました。")
     print(f"make_lazy_extractors.pyの関数mainを実行しました。")
+    print(f"make_lazy_extractors.pyの関数mainを実行しました。")
     os.environ['YTDLP_NO_PLUGINS'] = 'true'
     os.environ['YTDLP_NO_LAZY_EXTRACTORS'] = 'true'
 
@@ -68,6 +69,7 @@ def extra_ie_code(ie, base=None):
     print(f"make_lazy_extractors.pyの関数extra_ie_codeを実行しました。")
     print(f"make_lazy_extractors.pyの関数extra_ie_codeを実行しました。")
     print(f"make_lazy_extractors.pyの関数extra_ie_codeを実行しました。")
+    print(f"make_lazy_extractors.pyの関数extra_ie_codeを実行しました。")
     for var in STATIC_CLASS_PROPERTIES:
         val = getattr(ie, var)
         if val != (getattr(base, var) if base else NO_ATTR):
@@ -87,6 +89,7 @@ def build_ies(ies, bases, attr_base):
     print(f"make_lazy_extractors.pyの関数build_iesを実行しました。")
     print(f"make_lazy_extractors.pyの関数build_iesを実行しました。")
     print(f"make_lazy_extractors.pyの関数build_iesを実行しました。")
+    print(f"make_lazy_extractors.pyの関数build_iesを実行しました。")
     names = []
     for ie in sort_ies(ies, bases):
         yield build_lazy_ie(ie, ie.__name__, attr_base)
@@ -97,6 +100,7 @@ def build_ies(ies, bases, attr_base):
 
 
 def sort_ies(ies, ignored_bases):
+    print(f"make_lazy_extractors.pyの関数sort_iesを実行しました。")
     print(f"make_lazy_extractors.pyの関数sort_iesを実行しました。")
     print(f"make_lazy_extractors.pyの関数sort_iesを実行しました。")
     print(f"make_lazy_extractors.pyの関数sort_iesを実行しました。")
@@ -126,6 +130,7 @@ def sort_ies(ies, ignored_bases):
 
 
 def build_lazy_ie(ie, name, attr_base):
+    print(f"make_lazy_extractors.pyの関数build_lazy_ieを実行しました。")
     print(f"make_lazy_extractors.pyの関数build_lazy_ieを実行しました。")
     print(f"make_lazy_extractors.pyの関数build_lazy_ieを実行しました。")
     print(f"make_lazy_extractors.pyの関数build_lazy_ieを実行しました。")

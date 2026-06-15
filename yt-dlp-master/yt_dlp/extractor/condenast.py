@@ -130,6 +130,7 @@ class CondeNastIE(InfoExtractor):
         print(f"condenast.pyの関数_extract_seriesを実行しました。")
         print(f"condenast.pyの関数_extract_seriesを実行しました。")
         print(f"condenast.pyの関数_extract_seriesを実行しました。")
+        print(f"condenast.pyの関数_extract_seriesを実行しました。")
         title = self._html_search_regex(
             r'(?s)<div class="cne-series-info">.*?<h1>(.+?)</h1>',
             webpage, 'series title')
@@ -142,6 +143,7 @@ class CondeNastIE(InfoExtractor):
         return self.playlist_result(entries, playlist_title=title)
 
     def _extract_video_params(self, webpage, display_id):
+        print(f"condenast.pyの関数_extract_video_paramsを実行しました。")
         print(f"condenast.pyの関数_extract_video_paramsを実行しました。")
         print(f"condenast.pyの関数_extract_video_paramsを実行しました。")
         print(f"condenast.pyの関数_extract_video_paramsを実行しました。")
@@ -170,6 +172,7 @@ class CondeNastIE(InfoExtractor):
         return query
 
     def _extract_video(self, params):
+        print(f"condenast.pyの関数_extract_videoを実行しました。")
         print(f"condenast.pyの関数_extract_videoを実行しました。")
         print(f"condenast.pyの関数_extract_videoを実行しました。")
         print(f"condenast.pyの関数_extract_videoを実行しました。")
@@ -257,6 +260,7 @@ class CondeNastIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"condenast.pyの関数_real_extractを実行しました。")
         print(f"condenast.pyの関数_real_extractを実行しました。")
         print(f"condenast.pyの関数_real_extractを実行しました。")
         print(f"condenast.pyの関数_real_extractを実行しました。")

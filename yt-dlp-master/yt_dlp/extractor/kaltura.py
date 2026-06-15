@@ -285,6 +285,7 @@ class KalturaIE(InfoExtractor):
         print(f"kaltura.pyの関数_kaltura_api_callを実行しました。")
         print(f"kaltura.pyの関数_kaltura_api_callを実行しました。")
         print(f"kaltura.pyの関数_kaltura_api_callを実行しました。")
+        print(f"kaltura.pyの関数_kaltura_api_callを実行しました。")
         params = actions[0]
         params.update(dict(enumerate(actions[1:], start=1)))
 
@@ -315,6 +316,7 @@ class KalturaIE(InfoExtractor):
         print(f"kaltura.pyの関数_get_video_infoを実行しました。")
         print(f"kaltura.pyの関数_get_video_infoを実行しました。")
         print(f"kaltura.pyの関数_get_video_infoを実行しました。")
+        print(f"kaltura.pyの関数_get_video_infoを実行しました。")
         assert player_type in ('html5', 'kwidget')
         if player_type == 'kwidget':
             return self._get_video_info_kwidget(video_id, partner_id, service_url)
@@ -322,6 +324,7 @@ class KalturaIE(InfoExtractor):
         return self._get_video_info_html5(video_id, partner_id, service_url)
 
     def _get_video_info_html5(self, video_id, partner_id, service_url=None):
+        print(f"kaltura.pyの関数_get_video_info_html5を実行しました。")
         print(f"kaltura.pyの関数_get_video_info_html5を実行しました。")
         print(f"kaltura.pyの関数_get_video_info_html5を実行しました。")
         print(f"kaltura.pyの関数_get_video_info_html5を実行しました。")
@@ -373,6 +376,7 @@ class KalturaIE(InfoExtractor):
             video_id, actions, service_url, note='Downloading video info JSON (Kaltura html5 player)')
 
     def _get_video_info_kwidget(self, video_id, partner_id, service_url=None):
+        print(f"kaltura.pyの関数_get_video_info_kwidgetを実行しました。")
         print(f"kaltura.pyの関数_get_video_info_kwidgetを実行しました。")
         print(f"kaltura.pyの関数_get_video_info_kwidgetを実行しました。")
         print(f"kaltura.pyの関数_get_video_info_kwidgetを実行しました。")
@@ -449,11 +453,13 @@ class KalturaIE(InfoExtractor):
         print(f"kaltura.pyの関数_build_widget_idを実行しました。")
         print(f"kaltura.pyの関数_build_widget_idを実行しました。")
         print(f"kaltura.pyの関数_build_widget_idを実行しました。")
+        print(f"kaltura.pyの関数_build_widget_idを実行しました。")
         return partner_id if '_' in partner_id else f'_{partner_id}'
 
     IFRAME_PACKAGE_DATA_REGEX = r'window\.kalturaIframePackageData\s*='
 
     def _real_extract(self, url):
+        print(f"kaltura.pyの関数_real_extractを実行しました。")
         print(f"kaltura.pyの関数_real_extractを実行しました。")
         print(f"kaltura.pyの関数_real_extractを実行しました。")
         print(f"kaltura.pyの関数_real_extractを実行しました。")
@@ -531,6 +537,7 @@ class KalturaIE(InfoExtractor):
         print(f"kaltura.pyの関数_per_video_extractを実行しました。")
         print(f"kaltura.pyの関数_per_video_extractを実行しました。")
         print(f"kaltura.pyの関数_per_video_extractを実行しました。")
+        print(f"kaltura.pyの関数_per_video_extractを実行しました。")
         source_url = smuggled_data.get('source_url')
         if source_url:
             referrer = base64.b64encode(
@@ -540,6 +547,7 @@ class KalturaIE(InfoExtractor):
             referrer = None
 
         def sign_url(unsigned_url):
+            print(f"kaltura.pyの関数sign_urlを実行しました。")
             print(f"kaltura.pyの関数sign_urlを実行しました。")
             print(f"kaltura.pyの関数sign_urlを実行しました。")
             print(f"kaltura.pyの関数sign_urlを実行しました。")

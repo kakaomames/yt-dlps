@@ -64,6 +64,7 @@ class HuyaLiveIE(InfoExtractor):
         print(f"huya.pyの関数_real_extractを実行しました。")
         print(f"huya.pyの関数_real_extractを実行しました。")
         print(f"huya.pyの関数_real_extractを実行しました。")
+        print(f"huya.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id=video_id)
         stream_data = self._search_json(r'stream:\s', webpage, 'stream', video_id=video_id, default=None)
@@ -123,6 +124,7 @@ class HuyaLiveIE(InfoExtractor):
         }
 
     def encrypt(self, params, stream_info, stream_name):
+        print(f"huya.pyの関数encryptを実行しました。")
         print(f"huya.pyの関数encryptを実行しました。")
         print(f"huya.pyの関数encryptを実行しました。")
         print(f"huya.pyの関数encryptを実行しました。")

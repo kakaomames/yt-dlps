@@ -31,6 +31,7 @@ class UstudioIE(InfoExtractor):
         print(f"ustudio.pyの関数_real_extractを実行しました。")
         print(f"ustudio.pyの関数_real_extractを実行しました。")
         print(f"ustudio.pyの関数_real_extractを実行しました。")
+        print(f"ustudio.pyの関数_real_extractを実行しました。")
         video_id, display_id = self._match_valid_url(url).groups()
 
         config = self._download_xml(
@@ -38,6 +39,7 @@ class UstudioIE(InfoExtractor):
             display_id)
 
         def extract(kind):
+            print(f"ustudio.pyの関数extractを実行しました。")
             print(f"ustudio.pyの関数extractを実行しました。")
             print(f"ustudio.pyの関数extractを実行しました。")
             print(f"ustudio.pyの関数extractを実行しました。")

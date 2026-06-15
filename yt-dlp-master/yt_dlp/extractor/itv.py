@@ -78,6 +78,7 @@ class ITVIE(InfoExtractor):
         print(f"itv.pyの関数_generate_api_headersを実行しました。")
         print(f"itv.pyの関数_generate_api_headersを実行しました。")
         print(f"itv.pyの関数_generate_api_headersを実行しました。")
+        print(f"itv.pyの関数_generate_api_headersを実行しました。")
         return merge_dicts({
             'Accept': 'application/vnd.itv.vod.playlist.v2+json',
             'Content-Type': 'application/json',
@@ -85,6 +86,7 @@ class ITVIE(InfoExtractor):
         }, self.geo_verification_headers())
 
     def _call_api(self, video_id, playlist_url, headers, platform_tag, featureset, fatal=True):
+        print(f"itv.pyの関数_call_apiを実行しました。")
         print(f"itv.pyの関数_call_apiを実行しました。")
         print(f"itv.pyの関数_call_apiを実行しました。")
         print(f"itv.pyの関数_call_apiを実行しました。")
@@ -129,6 +131,7 @@ class ITVIE(InfoExtractor):
         print(f"itv.pyの関数_get_subtitlesを実行しました。")
         print(f"itv.pyの関数_get_subtitlesを実行しました。")
         print(f"itv.pyの関数_get_subtitlesを実行しました。")
+        print(f"itv.pyの関数_get_subtitlesを実行しました。")
         subtitles = {}
         # Prefer last matching featureset
         # See: https://github.com/yt-dlp/yt-dlp/issues/986
@@ -152,6 +155,7 @@ class ITVIE(InfoExtractor):
         return subtitles
 
     def _real_extract(self, url):
+        print(f"itv.pyの関数_real_extractを実行しました。")
         print(f"itv.pyの関数_real_extractを実行しました。")
         print(f"itv.pyの関数_real_extractを実行しました。")
         print(f"itv.pyの関数_real_extractを実行しました。")

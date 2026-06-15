@@ -26,6 +26,7 @@ class Formula1IE(InfoExtractor):
         print(f"formula1.pyの関数_real_extractを実行しました。")
         print(f"formula1.pyの関数_real_extractを実行しました。")
         print(f"formula1.pyの関数_real_extractを実行しました。")
+        print(f"formula1.pyの関数_real_extractを実行しました。")
         bc_id = self._match_id(url)
         return self.url_result(
             self.BRIGHTCOVE_URL_TEMPLATE % bc_id, 'BrightcoveNew', bc_id)

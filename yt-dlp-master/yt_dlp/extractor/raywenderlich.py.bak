@@ -75,6 +75,7 @@ class RayWenderlichIE(InfoExtractor):
         print(f"raywenderlich.pyの関数_real_extractを実行しました。")
         print(f"raywenderlich.pyの関数_real_extractを実行しました。")
         print(f"raywenderlich.pyの関数_real_extractを実行しました。")
+        print(f"raywenderlich.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         course_id, lesson_id = mobj.group('course_id', 'id')
         display_id = f'{course_id}/{lesson_id}'

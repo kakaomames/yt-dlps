@@ -50,6 +50,7 @@ class XinpianchangIE(InfoExtractor):
         print(f"xinpianchang.pyの関数_real_extractを実行しました。")
         print(f"xinpianchang.pyの関数_real_extractを実行しました。")
         print(f"xinpianchang.pyの関数_real_extractを実行しました。")
+        print(f"xinpianchang.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id=video_id, headers={'Referer': url})
         video_data = self._search_nextjs_data(webpage, video_id)['props']['pageProps']['detail']['video']

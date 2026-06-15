@@ -38,6 +38,7 @@ class MetacriticIE(InfoExtractor):
         print(f"metacritic.pyの関数_real_extractを実行しました。")
         print(f"metacritic.pyの関数_real_extractを実行しました。")
         print(f"metacritic.pyの関数_real_extractを実行しました。")
+        print(f"metacritic.pyの関数_real_extractを実行しました。")
         mobj = self._match_valid_url(url)
         video_id = mobj.group('id')
         webpage = self._download_webpage(url, video_id)

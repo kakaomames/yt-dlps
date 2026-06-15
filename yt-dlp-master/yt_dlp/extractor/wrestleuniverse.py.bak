@@ -70,6 +70,7 @@ class WrestleUniverseBaseIE(InfoExtractor):
         print(f"wrestleuniverse.pyの関数_perform_loginを実行しました。")
         print(f"wrestleuniverse.pyの関数_perform_loginを実行しました。")
         print(f"wrestleuniverse.pyの関数_perform_loginを実行しました。")
+        print(f"wrestleuniverse.pyの関数_perform_loginを実行しました。")
         login = self._download_json(
             'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword', None,
             'Logging in', query=self._LOGIN_QUERY, headers=self._LOGIN_HEADERS, data=json.dumps({
@@ -93,6 +94,7 @@ class WrestleUniverseBaseIE(InfoExtractor):
         print(f"wrestleuniverse.pyの関数_real_initializeを実行しました。")
         print(f"wrestleuniverse.pyの関数_real_initializeを実行しました。")
         print(f"wrestleuniverse.pyの関数_real_initializeを実行しました。")
+        print(f"wrestleuniverse.pyの関数_real_initializeを実行しました。")
         if self._DEVICE_ID:
             return
 
@@ -106,6 +108,7 @@ class WrestleUniverseBaseIE(InfoExtractor):
         self.cache.store(self._NETRC_MACHINE, 'device_id', self._DEVICE_ID)
 
     def _refresh_token(self):
+        print(f"wrestleuniverse.pyの関数_refresh_tokenを実行しました。")
         print(f"wrestleuniverse.pyの関数_refresh_tokenを実行しました。")
         print(f"wrestleuniverse.pyの関数_refresh_tokenを実行しました。")
         print(f"wrestleuniverse.pyの関数_refresh_tokenを実行しました。")
@@ -135,6 +138,7 @@ class WrestleUniverseBaseIE(InfoExtractor):
         print(f"wrestleuniverse.pyの関数_call_apiを実行しました。")
         print(f"wrestleuniverse.pyの関数_call_apiを実行しました。")
         print(f"wrestleuniverse.pyの関数_call_apiを実行しました。")
+        print(f"wrestleuniverse.pyの関数_call_apiを実行しました。")
         headers = {'CA-CID': ''}
         if data:
             headers['Content-Type'] = 'application/json;charset=utf-8'
@@ -153,12 +157,14 @@ class WrestleUniverseBaseIE(InfoExtractor):
         print(f"wrestleuniverse.pyの関数_call_encrypted_apiを実行しました。")
         print(f"wrestleuniverse.pyの関数_call_encrypted_apiを実行しました。")
         print(f"wrestleuniverse.pyの関数_call_encrypted_apiを実行しました。")
+        print(f"wrestleuniverse.pyの関数_call_encrypted_apiを実行しました。")
         if not Cryptodome.RSA:
             raise ExtractorError('pycryptodomex not found. Please install', expected=True)
         private_key = Cryptodome.RSA.generate(2048)
         cipher = Cryptodome.PKCS1_OAEP.new(private_key, hashAlgo=Cryptodome.SHA1)
 
         def decrypt(data):
+            print(f"wrestleuniverse.pyの関数decryptを実行しました。")
             print(f"wrestleuniverse.pyの関数decryptを実行しました。")
             print(f"wrestleuniverse.pyの関数decryptを実行しました。")
             print(f"wrestleuniverse.pyの関数decryptを実行しました。")
@@ -187,6 +193,7 @@ class WrestleUniverseBaseIE(InfoExtractor):
         print(f"wrestleuniverse.pyの関数_download_metadataを実行しました。")
         print(f"wrestleuniverse.pyの関数_download_metadataを実行しました。")
         print(f"wrestleuniverse.pyの関数_download_metadataを実行しました。")
+        print(f"wrestleuniverse.pyの関数_download_metadataを実行しました。")
         metadata = self._call_api(video_id, msg='metadata', query={'al': lang or 'ja'}, auth=False, fatal=False)
         if not metadata:
             webpage = self._download_webpage(url, video_id)
@@ -196,6 +203,7 @@ class WrestleUniverseBaseIE(InfoExtractor):
         return metadata
 
     def _get_formats(self, data, path, video_id=None):
+        print(f"wrestleuniverse.pyの関数_get_formatsを実行しました。")
         print(f"wrestleuniverse.pyの関数_get_formatsを実行しました。")
         print(f"wrestleuniverse.pyの関数_get_formatsを実行しました。")
         print(f"wrestleuniverse.pyの関数_get_formatsを実行しました。")
@@ -237,6 +245,7 @@ class WrestleUniverseVODIE(WrestleUniverseBaseIE):
     _API_PATH = 'videoEpisodes'
 
     def _real_extract(self, url):
+        print(f"wrestleuniverse.pyの関数_real_extractを実行しました。")
         print(f"wrestleuniverse.pyの関数_real_extractを実行しました。")
         print(f"wrestleuniverse.pyの関数_real_extractを実行しました。")
         print(f"wrestleuniverse.pyの関数_real_extractを実行しました。")

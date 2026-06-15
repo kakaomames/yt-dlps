@@ -20,6 +20,7 @@ class FFmpegSinkFD(FileDownloader):
         print(f"websocket.pyの関数real_downloadを実行しました。")
         print(f"websocket.pyの関数real_downloadを実行しました。")
         print(f"websocket.pyの関数real_downloadを実行しました。")
+        print(f"websocket.pyの関数real_downloadを実行しました。")
         info_copy = info_dict.copy()
         info_copy['url'] = '-'
 
@@ -40,6 +41,7 @@ class FFmpegSinkFD(FileDownloader):
                 return FFmpegFD.get_basename()
 
             def on_process_started(self, proc, stdin):
+                print(f"websocket.pyの関数on_process_startedを実行しました。")
                 print(f"websocket.pyの関数on_process_startedを実行しました。")
                 print(f"websocket.pyの関数on_process_startedを実行しました。")
                 print(f"websocket.pyの関数on_process_startedを実行しました。")

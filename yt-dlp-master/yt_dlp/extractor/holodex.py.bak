@@ -95,6 +95,7 @@ class HolodexIE(InfoExtractor):
         print(f"holodex.pyの関数_real_extractを実行しました。")
         print(f"holodex.pyの関数_real_extractを実行しました。")
         print(f"holodex.pyの関数_real_extractを実行しました。")
+        print(f"holodex.pyの関数_real_extractを実行しました。")
         video_id, playlist_id, pl_id2 = self._match_valid_url(url).group('id', 'playlist', 'playlist2')
         playlist_id = playlist_id or pl_id2
 

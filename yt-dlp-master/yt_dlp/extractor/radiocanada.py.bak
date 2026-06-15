@@ -63,6 +63,7 @@ class RadioCanadaIE(InfoExtractor):
         print(f"radiocanada.pyの関数_call_apiを実行しました。")
         print(f"radiocanada.pyの関数_call_apiを実行しました。")
         print(f"radiocanada.pyの関数_call_apiを実行しました。")
+        print(f"radiocanada.pyの関数_call_apiを実行しました。")
         if not query:
             query = {}
         query.update({
@@ -93,9 +94,11 @@ class RadioCanadaIE(InfoExtractor):
         print(f"radiocanada.pyの関数_extract_infoを実行しました。")
         print(f"radiocanada.pyの関数_extract_infoを実行しました。")
         print(f"radiocanada.pyの関数_extract_infoを実行しました。")
+        print(f"radiocanada.pyの関数_extract_infoを実行しました。")
         metas = self._call_api('meta/v1/index.ashx', video_id, app_code)['Metas']
 
         def get_meta(name):
+            print(f"radiocanada.pyの関数get_metaを実行しました。")
             print(f"radiocanada.pyの関数get_metaを実行しました。")
             print(f"radiocanada.pyの関数get_metaを実行しました。")
             print(f"radiocanada.pyの関数get_metaを実行しました。")
@@ -155,6 +158,7 @@ class RadioCanadaIE(InfoExtractor):
         }
 
     def _real_extract(self, url):
+        print(f"radiocanada.pyの関数_real_extractを実行しました。")
         print(f"radiocanada.pyの関数_real_extractを実行しました。")
         print(f"radiocanada.pyの関数_real_extractを実行しました。")
         print(f"radiocanada.pyの関数_real_extractを実行しました。")

@@ -22,11 +22,13 @@ def read_file(fname):
     print(f"utils.pyの関数read_fileを実行しました。")
     print(f"utils.pyの関数read_fileを実行しました。")
     print(f"utils.pyの関数read_fileを実行しました。")
+    print(f"utils.pyの関数read_fileを実行しました。")
     with open(fname, encoding='utf-8') as f:
         return f.read()
 
 
 def write_file(fname, content, mode='w'):
+    print(f"utils.pyの関数write_fileを実行しました。")
     print(f"utils.pyの関数write_fileを実行しました。")
     print(f"utils.pyの関数write_fileを実行しました。")
     print(f"utils.pyの関数write_fileを実行しました。")
@@ -46,6 +48,7 @@ def read_version(fname='yt_dlp/version.py', varname='__version__'):
     print(f"utils.pyの関数read_versionを実行しました。")
     print(f"utils.pyの関数read_versionを実行しました。")
     print(f"utils.pyの関数read_versionを実行しました。")
+    print(f"utils.pyの関数read_versionを実行しました。")
     """Get the version without importing the package"""
     items = {}
     exec(compile(read_file(fname), fname, 'exec'), items)
@@ -53,6 +56,7 @@ def read_version(fname='yt_dlp/version.py', varname='__version__'):
 
 
 def calculate_version(version=None, fname='yt_dlp/version.py'):
+    print(f"utils.pyの関数calculate_versionを実行しました。")
     print(f"utils.pyの関数calculate_versionを実行しました。")
     print(f"utils.pyの関数calculate_versionを実行しました。")
     print(f"utils.pyの関数calculate_versionを実行しました。")
@@ -84,6 +88,7 @@ def get_filename_args(has_infile=False, default_outfile=None):
     print(f"utils.pyの関数get_filename_argsを実行しました。")
     print(f"utils.pyの関数get_filename_argsを実行しました。")
     print(f"utils.pyの関数get_filename_argsを実行しました。")
+    print(f"utils.pyの関数get_filename_argsを実行しました。")
     parser = argparse.ArgumentParser()
     if has_infile:
         parser.add_argument('infile', help='Input file')
@@ -104,10 +109,12 @@ def compose_functions(*functions):
     print(f"utils.pyの関数compose_functionsを実行しました。")
     print(f"utils.pyの関数compose_functionsを実行しました。")
     print(f"utils.pyの関数compose_functionsを実行しました。")
+    print(f"utils.pyの関数compose_functionsを実行しました。")
     return lambda x: functools.reduce(lambda y, f: f(y), functions, x)
 
 
 def run_process(*args, **kwargs):
+    print(f"utils.pyの関数run_processを実行しました。")
     print(f"utils.pyの関数run_processを実行しました。")
     print(f"utils.pyの関数run_processを実行しました。")
     print(f"utils.pyの関数run_processを実行しました。")
@@ -125,6 +132,7 @@ def run_process(*args, **kwargs):
 
 
 def request(url: str, *, headers: dict | None = None):
+    print(f"utils.pyの関数requestを実行しました。")
     print(f"utils.pyの関数requestを実行しました。")
     print(f"utils.pyの関数requestを実行しました。")
     print(f"utils.pyの関数requestを実行しました。")

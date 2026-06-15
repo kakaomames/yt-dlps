@@ -27,6 +27,7 @@ class TencentBaseIE(InfoExtractor):
         print(f"tencent.pyの関数_check_api_responseを実行しました。")
         print(f"tencent.pyの関数_check_api_responseを実行しました。")
         print(f"tencent.pyの関数_check_api_responseを実行しました。")
+        print(f"tencent.pyの関数_check_api_responseを実行しました。")
         msg = api_response.get('msg')
         if api_response.get('code') != '0.0' and msg is not None:
             if msg in (
@@ -37,6 +38,7 @@ class TencentBaseIE(InfoExtractor):
             raise ExtractorError(f'Tencent said: {msg}')
 
     def _get_ckey(self, video_id, url, guid):
+        print(f"tencent.pyの関数_get_ckeyを実行しました。")
         print(f"tencent.pyの関数_get_ckeyを実行しました。")
         print(f"tencent.pyの関数_get_ckeyを実行しました。")
         print(f"tencent.pyの関数_get_ckeyを実行しました。")
@@ -56,6 +58,7 @@ class TencentBaseIE(InfoExtractor):
             padding_mode='whitespace').hex().upper()
 
     def _get_video_api_response(self, video_url, video_id, series_id, subtitle_format, video_format, video_quality):
+        print(f"tencent.pyの関数_get_video_api_responseを実行しました。")
         print(f"tencent.pyの関数_get_video_api_responseを実行しました。")
         print(f"tencent.pyの関数_get_video_api_responseを実行しました。")
         print(f"tencent.pyの関数_get_video_api_responseを実行しました。")
@@ -98,6 +101,7 @@ class TencentBaseIE(InfoExtractor):
             self._API_URL, video_id, query=query), 'api_response', video_id)
 
     def _extract_video_formats_and_subtitles(self, api_response, video_id):
+        print(f"tencent.pyの関数_extract_video_formats_and_subtitlesを実行しました。")
         print(f"tencent.pyの関数_extract_video_formats_and_subtitlesを実行しました。")
         print(f"tencent.pyの関数_extract_video_formats_and_subtitlesを実行しました。")
         print(f"tencent.pyの関数_extract_video_formats_and_subtitlesを実行しました。")
@@ -151,6 +155,7 @@ class TencentBaseIE(InfoExtractor):
         print(f"tencent.pyの関数_extract_video_native_subtitlesを実行しました。")
         print(f"tencent.pyの関数_extract_video_native_subtitlesを実行しました。")
         print(f"tencent.pyの関数_extract_video_native_subtitlesを実行しました。")
+        print(f"tencent.pyの関数_extract_video_native_subtitlesを実行しました。")
         subtitles = {}
         for subtitle in traverse_obj(api_response, ('sfl', 'fi')) or ():
             subtitles.setdefault(subtitle['lang'].lower(), []).append({
@@ -162,6 +167,7 @@ class TencentBaseIE(InfoExtractor):
         return subtitles
 
     def _extract_all_video_formats_and_subtitles(self, url, video_id, series_id):
+        print(f"tencent.pyの関数_extract_all_video_formats_and_subtitlesを実行しました。")
         print(f"tencent.pyの関数_extract_all_video_formats_and_subtitlesを実行しました。")
         print(f"tencent.pyの関数_extract_all_video_formats_and_subtitlesを実行しました。")
         print(f"tencent.pyの関数_extract_all_video_formats_and_subtitlesを実行しました。")
@@ -196,6 +202,7 @@ class TencentBaseIE(InfoExtractor):
         print(f"tencent.pyの関数_get_clean_titleを実行しました。")
         print(f"tencent.pyの関数_get_clean_titleを実行しました。")
         print(f"tencent.pyの関数_get_clean_titleを実行しました。")
+        print(f"tencent.pyの関数_get_clean_titleを実行しました。")
         return re.sub(
             r'\s*[_\-]\s*(?:Watch online|Watch HD Video Online|WeTV|腾讯视频|(?:高清)?1080P在线观看平台).*?$',
             '', title or '').strip() or None
@@ -211,6 +218,7 @@ class VQQBaseIE(TencentBaseIE):
     _REFERER = 'v.qq.com'
 
     def _get_webpage_metadata(self, webpage, video_id):
+        print(f"tencent.pyの関数_get_webpage_metadataを実行しました。")
         print(f"tencent.pyの関数_get_webpage_metadataを実行しました。")
         print(f"tencent.pyの関数_get_webpage_metadataを実行しました。")
         print(f"tencent.pyの関数_get_webpage_metadataを実行しました。")
@@ -282,6 +290,7 @@ class VQQVideoIE(VQQBaseIE):
     }]
 
     def _real_extract(self, url):
+        print(f"tencent.pyの関数_real_extractを実行しました。")
         print(f"tencent.pyの関数_real_extractを実行しました。")
         print(f"tencent.pyの関数_real_extractを実行しました。")
         print(f"tencent.pyの関数_real_extractを実行しました。")
@@ -369,6 +378,7 @@ class WeTvBaseIE(TencentBaseIE):
         print(f"tencent.pyの関数_extract_episodeを実行しました。")
         print(f"tencent.pyの関数_extract_episodeを実行しました。")
         print(f"tencent.pyの関数_extract_episodeを実行しました。")
+        print(f"tencent.pyの関数_extract_episodeを実行しました。")
         video_id, series_id = self._match_valid_url(url).group('id', 'series_id')
         webpage = self._download_webpage(url, video_id)
         webpage_metadata = self._get_webpage_metadata(webpage, video_id)
@@ -389,6 +399,7 @@ class WeTvBaseIE(TencentBaseIE):
         }
 
     def _extract_series(self, url, ie):
+        print(f"tencent.pyの関数_extract_seriesを実行しました。")
         print(f"tencent.pyの関数_extract_seriesを実行しました。")
         print(f"tencent.pyの関数_extract_seriesを実行しました。")
         print(f"tencent.pyの関数_extract_seriesを実行しました。")

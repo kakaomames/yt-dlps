@@ -25,6 +25,7 @@ class TOnlineIE(InfoExtractor):
         print(f"tonline.pyの関数_real_extractを実行しました。")
         print(f"tonline.pyの関数_real_extractを実行しました。")
         print(f"tonline.pyの関数_real_extractを実行しました。")
+        print(f"tonline.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
         video_data = self._download_json(
             f'http://www.t-online.de/tv/id_{video_id}/tid_json_video', video_id)

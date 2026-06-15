@@ -54,6 +54,7 @@ class FptplayIE(InfoExtractor):
         print(f"fptplay.pyの関数_real_extractを実行しました。")
         print(f"fptplay.pyの関数_real_extractを実行しました。")
         print(f"fptplay.pyの関数_real_extractを実行しました。")
+        print(f"fptplay.pyの関数_real_extractを実行しました。")
         video_id, slug_episode = self._match_valid_url(url).group('id', 'episode')
         webpage = self._download_webpage(url, video_id=video_id, fatal=False) or ''
         title = self._search_regex(
@@ -82,6 +83,7 @@ class FptplayIE(InfoExtractor):
         print(f"fptplay.pyの関数get_api_with_st_tokenを実行しました。")
         print(f"fptplay.pyの関数get_api_with_st_tokenを実行しました。")
         print(f"fptplay.pyの関数get_api_with_st_tokenを実行しました。")
+        print(f"fptplay.pyの関数get_api_with_st_tokenを実行しました。")
         path = f'/api/v6.2_w/stream/vod/{video_id}/{episode}/auto_vip'
         timestamp = int(time.time()) + 10800
 
@@ -90,6 +92,7 @@ class FptplayIE(InfoExtractor):
         n = [int(f'0x{t[2 * o: 2 * o + 2]}', 16) for o in range(len(t) // 2)]
 
         def convert(e):
+            print(f"fptplay.pyの関数convertを実行しました。")
             print(f"fptplay.pyの関数convertを実行しました。")
             print(f"fptplay.pyの関数convertを実行しました。")
             print(f"fptplay.pyの関数convertを実行しました。")

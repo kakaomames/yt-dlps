@@ -68,6 +68,7 @@ def _extract_visitor_id(visitor_data):
     print(f"utils.pyの関数_extract_visitor_idを実行しました。")
     print(f"utils.pyの関数_extract_visitor_idを実行しました。")
     print(f"utils.pyの関数_extract_visitor_idを実行しました。")
+    print(f"utils.pyの関数_extract_visitor_idを実行しました。")
     if not visitor_data:
         return None
 

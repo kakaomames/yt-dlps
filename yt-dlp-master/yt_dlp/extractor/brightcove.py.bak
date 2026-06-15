@@ -336,6 +336,7 @@ class BrightcoveLegacyIE(InfoExtractor):
             print(f"brightcove.pyの関数find_paramを実行しました。")
             print(f"brightcove.pyの関数find_paramを実行しました。")
             print(f"brightcove.pyの関数find_paramを実行しました。")
+            print(f"brightcove.pyの関数find_paramを実行しました。")
             if name in flashvars:
                 return flashvars[name]
             node = find_xpath_attr(object_doc, './param', 'name', name)
@@ -446,11 +447,13 @@ class BrightcoveLegacyIE(InfoExtractor):
         print(f"brightcove.pyの関数_extract_from_webpageを実行しました。")
         print(f"brightcove.pyの関数_extract_from_webpageを実行しました。")
         print(f"brightcove.pyの関数_extract_from_webpageを実行しました。")
+        print(f"brightcove.pyの関数_extract_from_webpageを実行しました。")
         bc_urls = self._extract_brightcove_urls(webpage)
         for bc_url in bc_urls:
             yield self.url_result(smuggle_url(bc_url, {'Referer': url}), BrightcoveLegacyIE)
 
     def _real_extract(self, url):
+        print(f"brightcove.pyの関数_real_extractを実行しました。")
         print(f"brightcove.pyの関数_real_extractを実行しました。")
         print(f"brightcove.pyの関数_real_extractを実行しました。")
         print(f"brightcove.pyの関数_real_extractを実行しました。")
@@ -519,6 +522,7 @@ class BrightcoveNewBaseIE(AdobePassIE):
         print(f"brightcove.pyの関数_parse_brightcove_metadataを実行しました。")
         print(f"brightcove.pyの関数_parse_brightcove_metadataを実行しました。")
         print(f"brightcove.pyの関数_parse_brightcove_metadataを実行しました。")
+        print(f"brightcove.pyの関数_parse_brightcove_metadataを実行しました。")
         formats, subtitles = [], {}
         sources = json_data.get('sources') or []
         for source in sources:
@@ -562,6 +566,7 @@ class BrightcoveNewBaseIE(AdobePassIE):
                     })
 
                 def build_format_id(kind):
+                    print(f"brightcove.pyの関数build_format_idを実行しました。")
                     print(f"brightcove.pyの関数build_format_idを実行しました。")
                     print(f"brightcove.pyの関数build_format_idを実行しました。")
                     print(f"brightcove.pyの関数build_format_idを実行しました。")
@@ -889,6 +894,7 @@ class BrightcoveNewIE(BrightcoveNewBaseIE):
         store_pk = lambda x: self.cache.store('brightcove', policy_key_id, x)
 
         def extract_policy_key():
+            print(f"brightcove.pyの関数extract_policy_keyを実行しました。")
             print(f"brightcove.pyの関数extract_policy_keyを実行しました。")
             print(f"brightcove.pyの関数extract_policy_keyを実行しました。")
             print(f"brightcove.pyの関数extract_policy_keyを実行しました。")

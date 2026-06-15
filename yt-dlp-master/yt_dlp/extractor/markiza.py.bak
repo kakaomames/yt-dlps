@@ -53,6 +53,7 @@ class MarkizaIE(InfoExtractor):
         print(f"markiza.pyの関数_real_extractを実行しました。")
         print(f"markiza.pyの関数_real_extractを実行しました。")
         print(f"markiza.pyの関数_real_extractを実行しました。")
+        print(f"markiza.pyの関数_real_extractを実行しました。")
         video_id = self._match_id(url)
 
         data = self._download_json(
