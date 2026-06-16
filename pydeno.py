@@ -8,16 +8,15 @@ from urllib.parse import parse_qs, unquote
 def mission_log(action_type, message):
     """
     Gemini programming隊 専用ログ出力ユニット
-    値の変化、サブプロセスの悲鳴、すべてをコンソールに刻み込む！
     """
     print(f"[{action_type}] {message}")
 
 def create_deno_decoder_script():
     """
-    作戦1: Deno 2.8.3で動く「yt-dlp直系：エラーログ強制ダンプ機能付きJS」を生成
+    作戦1: Deno 2.8.3で動く「4重マルチ・索敵レジストリ搭載型JS」を生成
     """
     js_code = """
-    // Deno 2.8.3 専用：超高感度デバッグ型デシファーエンジン
+    // Deno 2.8.3 専用：ポリフィル罠無効化・マルチ索敵デシファーエンジン
     const encryptedSig = Deno.args[0];
     const baseJsUrl = Deno.args[1];
 
@@ -27,32 +26,61 @@ def create_deno_decoder_script():
     }
 
     try {
-        // 1. 本物の base.js をダウンロード
         console.error(`[DENO_CORE] ターゲットURLへ侵入中: ${baseJsUrl}`);
         const response = await fetch(baseJsUrl);
         const jsText = await response.text();
         console.error(`[DENO_CORE] base.js のダウンロード成功 (${jsText.length} バイト)`);
 
-        // 2. メイン解読関数のスキャン
-        const mainFuncRegex = /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{\\s*\\2\\s*=\\s*\\2\\.split\\(\\s*""\\s*\\);([\\s\\S]+?)return\\s+\\2\\.join\\(\\s*""\\s*\\)\\s*\\}/;
-        const mainMatch = jsText.match(mainFuncRegex);
-
-        if (!mainMatch) {
-            // 【ログ強化】マッチしなかった場合、敵の最新の関数構造の手がかりを掴むため、.split("") 周辺を索敵！
-            const splitIdx = jsText.indexOf('.split("")');
-            let snippet = "なし";
-            if (splitIdx !== -1) {
-                snippet = jsText.substring(Math.max(0, splitIdx - 150), Math.min(jsText.length, splitIdx + 150));
+        // 【新兵器】歴代のYouTube難読化パターンを網羅した4重の索敵レジストリ
+        // ダミーのポリフィルを回避するため、必ず「split」と「join」が同居する構造を狙い撃つ！
+        const patterns = [
+            // パターン1: オーソドックス型 (a = a.split(""); ... return a.join("");)
+            {
+                regex: /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{\\s*\\2\\s*=\\s*\\2\\.split\\(\\s*""\\s*\\);([\\s\\S]+?)return\\s+\\2\\.join\\(\\s*""\\s*\\)\\s*\\}/,
+                vars: { name: 1, arg: 2, body: 3 }
+            },
+            // パターン2: var変数代入挟み型 (var b = a.split(""); ... return b.join("");)
+            {
+                regex: /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{\\s*var\\s+([a-zA-Z0-9$_]+)\\s*=\\s*\\2\\.split\\(\\s*""\\s*\\);([\\s\\S]+?)return\\s+\\3\\.join\\(\\s*""\\s*\\)\\s*\\}/,
+                vars: { name: 1, arg: 2, body: 4 }
+            },
+            // パターン3: カンマ演算子連鎖・超圧縮型 (return b = b.split(""), ..., b.join(""))
+            {
+                regex: /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{\\s*return\\s+\\2\\s*=\\s*\\2\\.split\\(\\s*""\\s*\\),([\\s\\S]+?)\\2\\.join\\(\\s*""\\s*\\)\\s*\\}/,
+                vars: { name: 1, arg: 2, body: 3 }
+            },
+            // パターン4: 最終防衛線・広域同居型 (関数内に split と join が両方含まれる最小ブロック)
+            {
+                regex: /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{([^}]+?\\.split\\(\\s*""\\s*\\)[^}]+?\\.join\\(\\s*""\\s*\\)[^}]+?)\\}/,
+                vars: { name: 1, arg: 2, body: 3 }
             }
-            throw new Error(`メイン解読関数の正規表現マッチに失敗しました。現在のYouTubeの構造が変化した可能性があります。[付近のコード断片]: --- ${snippet} ---`);
+        ];
+
+        let mainMatch = null;
+        let mainFuncName = "";
+        let mainFuncArg = "";
+        let mainFuncBody = "";
+
+        // レジストリを上から順にスキャン
+        for (let i = 0; i < patterns.length; i++) {
+            const match = jsText.match(patterns[i].regex);
+            if (match) {
+                mainMatch = match;
+                mainFuncName = match[patterns[i].vars.name];
+                mainFuncArg = match[patterns[i].vars.arg];
+                mainFuncBody = match[patterns[i].vars.body];
+                console.error(`[DENO_CORE] 🚀 索敵パターン [${i + 1}] に完全合致！本物を捉えたぞ！`);
+                break;
+            }
         }
 
-        const mainFuncName = mainMatch[1];
-        const mainFuncArg = mainMatch[2];
-        const mainFuncBody = mainMatch[3];
+        if (!mainMatch) {
+            throw new Error("すべての索敵レジストリがスカ振りました。YouTubeが未知の暗号化構造を採用した可能性があります。");
+        }
+
         console.error(`[DENO_CORE] メイン解読関数を特定 -> [Name: ${mainFuncName}] [Arg: ${mainFuncArg}]`);
 
-        // 3. メイン関数が呼び出している「変形ヘルパーオブジェクト名」を特定する
+        // 3. メイン関数が呼び出している「変形ヘルパーオブジェクト名」を特定
         const helperObjRegex = /([a-zA-Z0-9$_]+)\\s*\\.\\s*([a-zA-Z0-9$_]+)\\s*\\(/;
         const helperMatch = mainFuncBody.match(helperObjRegex);
         
@@ -67,7 +95,7 @@ def create_deno_decoder_script():
         let objStartIdx = jsText.indexOf(helperObjName + "={");
         if (objStartIdx === -1) objStartIdx = jsText.indexOf(helperObjName + " = {");
         if (objStartIdx === -1) {
-            const regexSearch = new RegExp("(var|const|let)\\\\s+" + helperObjName + "\\\\s*=\\s*\\\\{");
+            const regexSearch = new RegExp("(var|const|let)\\\\s+" + helperObjName + "\\\\s*=\\\\s*\\\\{");
             const match = jsText.match(regexSearch);
             if (match) objStartIdx = match.index + match[0].length - 1;
         } else {
@@ -75,7 +103,7 @@ def create_deno_decoder_script():
         }
 
         if (objStartIdx === -1 || objStartIdx === undefined) {
-            throw new Error(`ヘルパーオブジェクト [${helperObjName}] の開始位置( { )を特定できませんでした。`);
+            throw new Error(`ヘルパーオブジェクト [${helperObjName}] の開始位置を特定できませんでした。`);
         }
 
         let braceCount = 0;
@@ -90,7 +118,7 @@ def create_deno_decoder_script():
         }
 
         if (objEndIdx === -1) {
-            throw new Error("ヘルパーオブジェクトの閉じ括弧 } のペアリングに失敗しました。");
+            throw new Error("ヘルパーオブジェクトの閉じ括弧のペアリングに失敗しました。");
         }
 
         const helperDefCode = "var " + helperObjName + " = " + jsText.substring(objStartIdx, objEndIdx + 1) + ";";
@@ -100,9 +128,11 @@ def create_deno_decoder_script():
         const fullExecutionCode = `
             ${helperDefCode}
             function doDecipher(${mainFuncArg}) {
-                ${mainFuncArg} = ${mainFuncArg}.split("");
+                // パターン4などの対策として、もしbodyにsplitが含まれていない場合はここで安全に補完
+                let target = ${mainFuncArg};
+                if (typeof target === 'string') target = target.split('');
                 ${mainFuncBody}
-                return ${mainFuncArg}.join("");
+                return Array.isArray(target) ? target.join('') : target;
             }
             return doDecipher("${encryptedSig}");
         `;
@@ -136,7 +166,7 @@ def get_valid_stream(video_url):
     """
     【Flaskインポート対応メイン関数】
     """
-    mission_log("INITIALIZE", f"=== 【ルートA】ログ強化型解読シーケンス始動 ===")
+    mission_log("INITIALIZE", f"=== 【ルートA】マルチ索敵型解読シーケンス始動 ===")
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -198,10 +228,9 @@ def get_valid_stream(video_url):
     mission_log("DATA_CHANGE", f"ベースとなる原動画URLを捕捉: {stream_pure_url[:40]}...")
 
     js_file = create_deno_decoder_script()
-    mission_log("SUBPROCESS", "Deno 2.8.3 監視モニター付き解析ユニット、起動！")
+    mission_log("SUBPROCESS", "Deno 2.8.3 マルチパターン解析ユニット、起動！")
     
     try:
-        # 【重要】check=False にして、DenoがコケてもPython側でパニックを起こさず、stderrを全回収する！
         result = subprocess.run(
             ["deno", "run", "--allow-net", js_file, encrypted_signature, base_js_url],
             capture_output=True,
@@ -209,7 +238,6 @@ def get_valid_stream(video_url):
             check=False
         )
         
-        # Denoの標準エラー出力（内部ログやエラーの悲鳴）をすべてPythonのログに吐き出す！
         if result.stderr:
             print("\\n--- 📡 [DENO SYSTEM LOG & STDERR] ---")
             print(result.stderr.strip())
@@ -250,7 +278,6 @@ def get_valid_stream(video_url):
             os.remove(js_file)
 
 if __name__ == "__main__":
-    # テスト対象動画：お好きなURLでテスト突撃！
     test_url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     stream_info = get_valid_stream(test_url)
     if stream_info:
