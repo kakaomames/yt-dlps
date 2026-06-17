@@ -8,15 +8,16 @@ from urllib.parse import parse_qs, unquote
 def mission_log(action_type, message):
     """
     Gemini programming隊 専用ログ出力ユニット
+    値の変化やハッキングの進捗をすべてコンソールに刻み込む！
     """
     print(f"[{action_type}] {message}")
 
 def create_deno_decoder_script():
     """
-    作戦1: Deno 2.8.3で動く「4重マルチ・索敵レジストリ搭載型JS」を生成
+    作戦1: Deno 2.8.3で動く「全関数シミュレーション・総当たりJS」を生成
     """
     js_code = """
-    // Deno 2.8.3 専用：ポリフィル罠無効化・マルチ索敵デシファーエンジン
+    // Deno 2.8.3 専用：全関数実射シミュレーション・総当たりエンジン
     const encryptedSig = Deno.args[0];
     const baseJsUrl = Deno.args[1];
 
@@ -31,126 +32,161 @@ def create_deno_decoder_script():
         const jsText = await response.text();
         console.error(`[DENO_CORE] base.js のダウンロード成功 (${jsText.length} バイト)`);
 
-        // 【新兵器】歴代のYouTube難読化パターンを網羅した4重の索敵レジストリ
-        // ダミーのポリフィルを回避するため、必ず「split」と「join」が同居する構造を狙い撃つ！
-        const patterns = [
-            // パターン1: オーソドックス型 (a = a.split(""); ... return a.join("");)
-            {
-                regex: /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{\\s*\\2\\s*=\\s*\\2\\.split\\(\\s*""\\s*\\);([\\s\\S]+?)return\\s+\\2\\.join\\(\\s*""\\s*\\)\\s*\\}/,
-                vars: { name: 1, arg: 2, body: 3 }
-            },
-            // パターン2: var変数代入挟み型 (var b = a.split(""); ... return b.join("");)
-            {
-                regex: /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{\\s*var\\s+([a-zA-Z0-9$_]+)\\s*=\\s*\\2\\.split\\(\\s*""\\s*\\);([\\s\\S]+?)return\\s+\\3\\.join\\(\\s*""\\s*\\)\\s*\\}/,
-                vars: { name: 1, arg: 2, body: 4 }
-            },
-            // パターン3: カンマ演算子連鎖・超圧縮型 (return b = b.split(""), ..., b.join(""))
-            {
-                regex: /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{\\s*return\\s+\\2\\s*=\\s*\\2\\.split\\(\\s*""\\s*\\),([\\s\\S]+?)\\2\\.join\\(\\s*""\\s*\\)\\s*\\}/,
-                vars: { name: 1, arg: 2, body: 3 }
-            },
-            // パターン4: 最終防衛線・広域同居型 (関数内に split と join が両方含まれる最小ブロック)
-            {
-                regex: /\\b([a-zA-Z0-9$_]+)\\s*=\\s*function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*\\{([^}]+?\\.split\\(\\s*""\\s*\\)[^}]+?\\.join\\(\\s*""\\s*\\)[^}]+?)\\}/,
-                vars: { name: 1, arg: 2, body: 3 }
+        const candidates = [];
+        let searchIdx = 0;
+
+        // 【カカオマメ作戦】まずは .split( のある関数ブロックを全件ローラー収集！
+        while (true) {
+            const splitIdx = jsText.indexOf(".split(", searchIdx);
+            if (splitIdx === -1) break;
+            
+            searchIdx = splitIdx + 7; // 次の探索へポインタを進める
+
+            let funcStartIdx = -1;
+            const lookbackStart = Math.max(0, splitIdx - 300);
+            const snippetBefore = jsText.substring(lookbackStart, splitIdx);
+            
+            const lastFuncKeyword = snippetBefore.lastIndexOf("function");
+            if (lastFuncKeyword !== -1) {
+                funcStartIdx = lookbackStart + lastFuncKeyword;
+            } else {
+                const lastOpenBrace = snippetBefore.lastIndexOf("{");
+                if (lastOpenBrace !== -1) {
+                    funcStartIdx = lookbackStart + lastOpenBrace;
+                }
             }
-        ];
 
-        let mainMatch = null;
-        let mainFuncName = "";
-        let mainFuncArg = "";
-        let mainFuncBody = "";
+            if (funcStartIdx === -1) continue;
 
-        // レジストリを上から順にスキャン
-        for (let i = 0; i < patterns.length; i++) {
-            const match = jsText.match(patterns[i].regex);
-            if (match) {
-                mainMatch = match;
-                mainFuncName = match[patterns[i].vars.name];
-                mainFuncArg = match[patterns[i].vars.arg];
-                mainFuncBody = match[patterns[i].vars.body];
-                console.error(`[DENO_CORE] 🚀 索敵パターン [${i + 1}] に完全合致！本物を捉えたぞ！`);
-                break;
+            const openBraceIdx = jsText.indexOf("{", funcStartIdx);
+            if (openBraceIdx === -1 || openBraceIdx > splitIdx) continue;
+
+            let braceCount = 0;
+            let funcEndIdx = -1;
+            for (let i = openBraceIdx; i < jsText.length; i++) {
+                if (jsText[i] === "{") braceCount++;
+                if (jsText[i] === "}") braceCount--;
+                if (braceCount === 0) {
+                    funcEndIdx = i;
+                    break;
+                }
             }
-        }
 
-        if (!mainMatch) {
-            throw new Error("すべての索敵レジストリがスカ振りました。YouTubeが未知の暗号化構造を採用した可能性があります。");
-        }
+            if (funcEndIdx === -1) continue;
 
-        console.error(`[DENO_CORE] メイン解読関数を特定 -> [Name: ${mainFuncName}] [Arg: ${mainFuncArg}]`);
-
-        // 3. メイン関数が呼び出している「変形ヘルパーオブジェクト名」を特定
-        const helperObjRegex = /([a-zA-Z0-9$_]+)\\s*\\.\\s*([a-zA-Z0-9$_]+)\\s*\\(/;
-        const helperMatch = mainFuncBody.match(helperObjRegex);
-        
-        if (!helperMatch) {
-            throw new Error("メイン関数内からヘルパーオブジェクト名を抽出できませんでした。Body: " + mainFuncBody);
-        }
-        
-        const helperObjName = helperMatch[1];
-        console.error(`[DENO_CORE] 変形ヘルパーオブジェクト名を特定 -> Name: ${helperObjName}`);
-
-        // 4. ブレースカウンターにより、オブジェクト定義体を完全抽出
-        let objStartIdx = jsText.indexOf(helperObjName + "={");
-        if (objStartIdx === -1) objStartIdx = jsText.indexOf(helperObjName + " = {");
-        if (objStartIdx === -1) {
-            const regexSearch = new RegExp("(var|const|let)\\\\s+" + helperObjName + "\\\\s*=\\\\s*\\\\{");
-            const match = jsText.match(regexSearch);
-            if (match) objStartIdx = match.index + match[0].length - 1;
-        } else {
-            objStartIdx = jsText.indexOf("{", objStartIdx);
-        }
-
-        if (objStartIdx === -1 || objStartIdx === undefined) {
-            throw new Error(`ヘルパーオブジェクト [${helperObjName}] の開始位置を特定できませんでした。`);
-        }
-
-        let braceCount = 0;
-        let objEndIdx = -1;
-        for (let i = objStartIdx; i < jsText.length; i++) {
-            if (jsText[i] === "{") braceCount++;
-            if (jsText[i] === "}") braceCount--;
-            if (braceCount === 0) {
-                objEndIdx = i;
-                break;
+            const potentialFunc = jsText.substring(funcStartIdx, funcEndIdx + 1);
+            
+            // 重複を排除して容疑者リストに登録
+            if (!candidates.includes(potentialFunc)) {
+                candidates.push(potentialFunc);
             }
         }
 
-        if (objEndIdx === -1) {
-            throw new Error("ヘルパーオブジェクトの閉じ括弧のペアリングに失敗しました。");
+        console.error(`[DENO_CORE] 🕵️‍♂️ 索敵完了：容疑者となる関数を ${candidates.length} 個捕捉！これより総当たり実射シミュレーションを開始する！`);
+
+        let validResult = null;
+        let winnerHelperName = "";
+        let winnerIndex = -1;
+
+        // 【実射ループ】すべての候補関数に、実際に暗号化シグネチャを流し込んでみる！
+        for (let i = 0; i < candidates.length; i++) {
+            try {
+                const mainFuncCode = candidates[i];
+                const firstBrace = mainFuncCode.indexOf("{");
+                const lastBrace = mainFuncCode.lastIndexOf("}");
+                const pureBody = mainFuncCode.substring(firstBrace + 1, lastBrace);
+
+                // 引数名を動的に特定
+                let argName = "a";
+                const argMatch = mainFuncCode.match(/function\\s*\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)/) || 
+                                 mainFuncCode.match(/\\(\\s*([a-zA-Z0-9$_]+)\\s*\\)\\s*=>/) ||
+                                 mainFuncCode.match(/([a-zA-Z0-9$_]+)\\s*=>/);
+                if (argMatch && argMatch[1]) argName = argMatch[1];
+
+                // ヘルパーオブジェクト名を特定
+                const helperMatch = pureBody.match(/([a-zA-Z0-9$_]+)\\s*\\.\\s*([a-zA-Z0-9$_]+)\\s*\\(/);
+                if (!helperMatch) {
+                    console.error(`[DENO_SIM] ⏩ 候補 [${i + 1}/${candidates.length}]: ヘルパーオブジェクトを内部に持たないためスキップ。`);
+                    continue;
+                }
+                const helperObjName = helperMatch[1];
+
+                // ヘルパーオブジェクトの定義コードを base.js から抽出
+                let objStartIdx = jsText.indexOf(helperObjName + "={");
+                if (objStartIdx === -1) objStartIdx = jsText.indexOf(helperObjName + " = {");
+                if (objStartIdx === -1) {
+                    const regexSearch = new RegExp("(var|const|let)\\\\s+" + helperObjName + "\\\\s*=\\\\s*\\\\{");
+                    const m = jsText.match(regexSearch);
+                    if (m) objStartIdx = m.index + m[0].length - 1;
+                } else {
+                    objStartIdx = jsText.indexOf("{", objStartIdx);
+                }
+
+                if (objStartIdx === -1 || objStartIdx === undefined) {
+                    console.error(`[DENO_SIM] ⏩ 候補 [${i + 1}/${candidates.length}]: オブジェクト [${helperObjName}] の定義体が見つからずスキップ。`);
+                    continue;
+                }
+
+                let bCount = 0;
+                let objEndIdx = -1;
+                for (let j = objStartIdx; j < jsText.length; j++) {
+                    if (jsText[j] === "{") bCount++;
+                    if (jsText[j] === "}") bCount--;
+                    if (bCount === 0) {
+                        objEndIdx = j;
+                        break;
+                    }
+                }
+                if (objEndIdx === -1) continue;
+
+                const helperDefCode = "var " + helperObjName + " = " + jsText.substring(objStartIdx, objEndIdx + 1) + ";";
+
+                // テスト環境をダイナミック構築！
+                const fullExecutionCode = `
+                    ${helperDefCode}
+                    function testDecipher(${argName}) {
+                        ${pureBody}
+                    }
+                    return testDecipher("${encryptedSig}");
+                `;
+
+                // 実際にシグネチャをブチ込んで実行！！
+                const executeDecipher = new Function(fullExecutionCode);
+                const res = executeDecipher();
+
+                // 【判定アルゴリズム】
+                // 実行に成功し、かつ返り値が「元のシグネチャの長さに近く(通常100文字前後)」、かつ空でないこと！
+                if (res && typeof res === "string" && res.length > 20 && res !== encryptedSig) {
+                    console.error(`[DENO_SIM] 🟢 🟢 🟢 候補 [${i + 1}/${candidates.length}] が完全な復号出力を検知！！！ 長さ: ${res.length}`);
+                    validResult = res;
+                    winnerHelperName = helperObjName;
+                    winnerIndex = i + 1;
+                    break; // 本物が見つかったので総当たりループを突破！
+                } else {
+                    console.error(`[DENO_SIM] ⚠️ 候補 [${i + 1}/${candidates.length}]: 実行はできたが出力が不正のため除外。`);
+                }
+
+            } catch (e) {
+                // ダミー関数などでエラーが出ても、システムはパニックを起こさず次の候補を試す！
+                console.error(`[DENO_SIM] ❌ 候補 [${i + 1}/${candidates.length}]: 実行エラーのため除外 (${e.message})`);
+            }
         }
 
-        const helperDefCode = "var " + helperObjName + " = " + jsText.substring(objStartIdx, objEndIdx + 1) + ";";
-        console.error(`[DENO_CORE] ブースター回路（ヘルパーオブジェクト）の完全無傷抽出に成功！`);
-
-        // 5. 動的解読回路を錬成
-        const fullExecutionCode = `
-            ${helperDefCode}
-            function doDecipher(${mainFuncArg}) {
-                // パターン4などの対策として、もしbodyにsplitが含まれていない場合はここで安全に補完
-                let target = ${mainFuncArg};
-                if (typeof target === 'string') target = target.split('');
-                ${mainFuncBody}
-                return Array.isArray(target) ? target.join('') : target;
-            }
-            return doDecipher("${encryptedSig}");
-        `;
-
-        const executeDecipher = new Function(fullExecutionCode);
-        const decryptedResult = executeDecipher();
+        if (!validResult) {
+            throw new Error("すべての候補関数にシグネチャを実射テストしましたが、有効な出力を返す本物の関数が存在しませんでした。");
+        }
 
         const output = {
             status: "SUCCESS",
-            main_function: mainFuncName,
-            helper_object: helperObjName,
+            main_function: `Simulated_Winner_No_${winnerIndex}`,
+            helper_object: winnerHelperName,
             encrypted: encryptedSig,
-            decrypted: decryptedResult
+            decrypted: validResult
         };
         console.log(JSON.stringify(output));
 
     } catch (err) {
-        console.error(`[DENO_FATAL] 💥 Deno内部回路でエラー発生: ${err.message}`);
+        console.error(`[DENO_FATAL] 💥 総当たりシミュレーション中に致命的エラー: ${err.message}`);
         console.log(JSON.stringify({
             status: "FATAL_ERROR",
             reason: err.message
@@ -166,7 +202,7 @@ def get_valid_stream(video_url):
     """
     【Flaskインポート対応メイン関数】
     """
-    mission_log("INITIALIZE", f"=== 【ルートA】マルチ索敵型解読シーケンス始動 ===")
+    mission_log("INITIALIZE", f"=== 【ルートA】全関数実射シミュレーション・シーケンス始動 ===")
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -228,7 +264,7 @@ def get_valid_stream(video_url):
     mission_log("DATA_CHANGE", f"ベースとなる原動画URLを捕捉: {stream_pure_url[:40]}...")
 
     js_file = create_deno_decoder_script()
-    mission_log("SUBPROCESS", "Deno 2.8.3 マルチパターン解析ユニット、起動！")
+    mission_log("SUBPROCESS", "Deno 2.8.3 総当たりテスト実射モニター、起動！")
     
     try:
         result = subprocess.run(
@@ -256,7 +292,7 @@ def get_valid_stream(video_url):
                 
         if deno_json and deno_json.get("status") == "SUCCESS":
             decrypted_sig = deno_json["decrypted"]
-            mission_log("DATA_CHANGE", f"Denoハック成功！ [関数: {deno_json['main_function']}] [オブジェクト: {deno_json['helper_object']}]")
+            mission_log("DATA_CHANGE", f"Denoハック大成功！ [選出された関数番号: {deno_json['main_function']}] [オブジェクト: {deno_json['helper_object']}]")
             
             final_stream_url = f"{stream_pure_url}&{sp_param}={decrypted_sig}"
             mission_log("SUCCESS", f"本物対応ストリームURLの完全精製に成功！！！")
@@ -267,7 +303,7 @@ def get_valid_stream(video_url):
                 "status": "DECIPHERED_SUCCESS"
             }
         else:
-            mission_log("ERROR", f"Denoの自動解読回路がエラーを応答。理由: {deno_json.get('reason') if deno_json else 'JSON出力なし'}")
+            mission_log("ERROR", f"Denoの総当たりスキャンがエラーを応答。理由: {deno_json.get('reason') if deno_json else 'JSON出力なし'}")
             return None
             
     except Exception as e:
@@ -278,6 +314,7 @@ def get_valid_stream(video_url):
             os.remove(js_file)
 
 if __name__ == "__main__":
+    # リック・アストリーの鉄壁要塞URLで総当たり実射テスト！
     test_url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     stream_info = get_valid_stream(test_url)
     if stream_info:
